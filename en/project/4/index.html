@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link rel="alternate" hreflang="zh" href="https://www.zouic.com/project/4"><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/project/4"><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/project/4">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="MPPT太阳能充电控制器，支持锂电池管理 - ZouIC - Global open-source development board Demo aggregation platform, providing development board database, project search, technical documentation and one-stop hardware development resources.">
+    <meta name="keywords" content="太阳能充电管理, ESP-IDF, open source development board,hardware development,Demo project,embedded development,ESP32,STM32,RP2040,RISC-V,Arduino,MicroPython">
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00d4aa">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <link rel="canonical" href="https://zouic.com/project/4">
+    
+    <link rel="alternate" hreflang="zh" href="https://zouic.com/project/4" />
+    <link rel="alternate" hreflang="en" href="https://zouic.com/en/project/4" />
+    <link rel="alternate" hreflang="x-default" href="https://zouic.com/project/4" />
+    
+    <meta property="og:title" content="太阳能充电管理 - ZouIC">
+    <meta property="og:description" content="MPPT太阳能充电控制器，支持锂电池管理">
+    <meta property="og:url" content="https://zouic.com/project/4">
+    <meta property="og:type" content="creativework">
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ZouIC%20open%20source%20hardware%20development%20board%20platform%20logo&amp;image_size=landscape_16_9">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="太阳能充电管理 - ZouIC">
+    <meta name="twitter:description" content="MPPT太阳能充电控制器，支持锂电池管理">
+    <meta name="twitter:image" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ZouIC%20open%20source%20hardware%20development%20board%20platform%20logo&amp;image_size=landscape_16_9">
+    <meta name="twitter:site" content="@zouic">
+    <meta name="twitter:creator" content="@zouic">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@type": "CreativeWork", "author": {"@type": "Person", "name": ""}, "dateCreated": "", "dateModified": "", "description": "", "image": "", "name": "", "url": ""}
+    </script>
+    
+    
+    <title>太阳能充电管理 - ZouIC</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- External Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- ZouIC Design System -->
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css">
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 212, 170, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(14, 165, 233, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(139, 92, 246, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-microchip"></i> ZouIC
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/boards">Boards</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/board-guide">Documentation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/all-projects"><i class="fas fa-project-diagram me-1"></i>External Projects</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/en/products"><i class="fas fa-box me-2"></i>Products</a></li>
+                            <li><a class="dropdown-item" href="/en/services"><i class="fas fa-cogs me-2"></i>Services</a></li>
+                            <li><a class="dropdown-item" href="/en/news"><i class="fas fa-newspaper me-2"></i>Industry News</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/tutorials"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li>
+                            <li><a class="dropdown-item" href="/en/documentation"><i class="fas fa-book me-2"></i>Documentation</a></li>
+                            <li><a class="dropdown-item" href="/en/cases"><i class="fas fa-briefcase me-2"></i>Project Cases</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/open-source"><i class="fas fa-code-branch me-2"></i>Open Source Projects</a></li>
+                            <li><a class="dropdown-item" href="/en/articles"><i class="fas fa-pen-fancy me-2"></i>Articles</a></li>
+                            <li><a class="dropdown-item" href="/en/contribute"><i class="fas fa-handshake me-2"></i>Contribute</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-lg-none"><a class="nav-link" href="/en/search"><i class="fas fa-search me-1"></i>Search</a></li>
+                </ul>
+                <form id="searchForm" class="d-flex me-3 d-none d-lg-flex">
+                    <div class="input-group input-group-zouic">
+                        <input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="Search boards, projects or keywords..." aria-label="Search" style="width: 200px;">
+                        <select id="searchType" class="form-select input-zouic" style="width: auto; flex: 0 0 auto;">
+                            <option value="">All Categories</option>
+                            <option value="board">Boards</option>
+                            <option value="project">Projects</option>
+                        </select>
+                        <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Search">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i> English
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/project/4">
+                                <i class="fas fa-language me-2"></i> 中文
+                            </a></li>
+                            <li><a class="dropdown-item" href="/en/project/4">
+                                <i class="fas fa-language me-2"></i> English
+                            </a></li>
+                        </ul>
+                    </div>
+                    
+                    <a href="/en/login" class="btn-zouic btn-zouic-ghost btn-zouic-sm">Login</a>
+                    <a href="/en/register" class="btn-zouic btn-zouic-primary btn-zouic-sm">Register</a>
+                    
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        
+    <section class="py-8">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-transparent">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/en/projects">Demo Projects</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">太阳能充电管理</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <section class="py-8">
+        <div class="container">
+            <div class="card-dark p-6 mb-6">
+                <div class="d-flex justify-content-between align-items-start mb-4">
+                    <div>
+                        <div class="d-flex gap-3 mb-3">
+                            <span class="difficulty-badge difficulty-advanced px-3 py-1 rounded">
+                                Advanced
+                            </span>
+                            <span class="badge badge-secondary">ESP-IDF</span>
+                            <span class="badge badge-accent">C</span>
+                        </div>
+                        <h1 class="text-3xl font-bold">太阳能充电管理</h1>
+                    </div>
+                    <button id="favoriteBtn" class="btn btn-outline-light" data-project-id="4">
+                        <i class="fas fa-heart"></i> 收藏
+                    </button>
+                </div>
+                <p class="text-secondary mb-4">MPPT太阳能充电控制器，支持锂电池管理</p>
+                <div class="d-flex gap-4">
+                    <a href="https://github.com/example/solar-charge" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-github"></i> 查看源码
+                    </a>
+                    <button id="shareBtn" class="btn btn-outline-light" data-url="http://localhost/project/4">
+                        <i class="fas fa-share"></i> 分享
+                    </button>
+                </div>
+                
+                <div id="shareModal" class="modal fade" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content bg-dark border-secondary">
+                            <div class="modal-header">
+                                <h5 class="modal-title">分享项目</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label class="text-secondary text-sm">链接地址</label>
+                                    <input type="text" class="form-control search-input" id="shareUrl" readonly>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <button id="copyUrlBtn" class="btn btn-primary flex-1">
+                                        <i class="fas fa-copy"></i> 复制链接
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card-dark p-6 mb-6">
+                        <h3 class="font-bold mb-4">Project Info</h3>
+                        <div class="row g-4">
+                            <div class="col-6">
+                                <span class="text-secondary text-sm">Stars</span>
+                                <p class="text-2xl font-bold text-primary">76</p>
+                            </div>
+                            <div class="col-6">
+                                <span class="text-secondary text-sm">Forks</span>
+                                <p class="text-2xl font-bold text-secondary">28</p>
+                            </div>
+                            <div class="col-6">
+                                <span class="text-secondary text-sm">Last Updated</span>
+                                <p class="font-semibold">2024-01-08T00:00:00</p>
+                            </div>
+                            <div class="col-6">
+                                <span class="text-secondary text-sm">License</span>
+                                <p class="font-semibold">
+                                    
+                                    
+                                    <a href="/en/licenses#apache" class="text-primary hover-underline">Apache</a>
+                                    
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <span class="text-secondary text-sm">Quality Score</span>
+                                <p class="font-semibold">88/100</p>
+                            </div>
+                            <div class="col-6">
+                                <span class="text-secondary text-sm">Build Status</span>
+                                <p class="font-semibold text-green-500">
+                                    通过
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-dark p-6 mb-6">
+                        <h3 class="font-bold mb-4">项目描述</h3>
+                        <h3>太阳能充电管理系统</h3><p>基于MPPT算法的太阳能控制器...</p>
+                    </div>
+
+                    <div class="card-dark p-6 mb-6">
+                        <h3 class="font-bold mb-4">Tags</h3>
+                        <div class="d-flex flex-wrap gap-2">
+                            
+                            <span class="badge badge-primary">工业</span>
+                            
+                            <span class="badge badge-primary">电源</span>
+                            
+                            <span class="badge badge-primary">能源</span>
+                            
+                        </div>
+                    </div>
+
+                    <div class="card-dark p-6">
+                        <h3 class="font-bold mb-4">评论</h3>
+                        
+                        <p class="text-secondary mb-4">请<a href="/en/login">登录</a>后发表评论</p>
+                        
+                        
+                        <div id="commentsList" class="space-y-4">
+                            <div class="text-center py-8">
+                                <i class="fas fa-comment text-secondary fa-3x mb-2"></i>
+                                <p class="text-secondary">暂无评论</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card-dark p-4 mb-4">
+                        <h4 class="font-bold mb-3">兼容开发板</h4>
+                        <div class="space-y-2">
+                            
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const favoriteBtn = document.getElementById('favoriteBtn');
+            const shareBtn = document.getElementById('shareBtn');
+            const shareModalElement = document.getElementById('shareModal');
+            const shareModal = shareModalElement ? new bootstrap.Modal(shareModalElement) : null;
+            const shareUrl = document.getElementById('shareUrl');
+            const copyUrlBtn = document.getElementById('copyUrlBtn');
+            const commentForm = document.getElementById('commentForm');
+            
+            if (favoriteBtn) {
+                favoriteBtn.addEventListener('click', function() {
+                    const projectId = this.dataset.projectId;
+                    
+                    fetch('/api/v1/favorites', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': getCookie('csrf_token')
+                        },
+                        body: JSON.stringify({
+                            item_type: 'project',
+                            item_id: parseInt(projectId)
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            favoriteBtn.innerHTML = '<i class="fas fa-heart text-red-500"></i> 已收藏';
+                            favoriteBtn.classList.add('text-red-500');
+                        } else if (data.message === '已收藏') {
+                            alert('您已经收藏过这个项目了');
+                        }
+                    })
+                    .catch(error => {
+                        window.location.href = '/login';
+                    });
+                });
+            }
+            
+            if (shareBtn && shareModal && shareUrl) {
+                shareBtn.addEventListener('click', function() {
+                    shareUrl.value = this.dataset.url;
+                    shareModal.show();
+                });
+            }
+            
+            if (copyUrlBtn && shareUrl) {
+                copyUrlBtn.addEventListener('click', function() {
+                    shareUrl.select();
+                    shareUrl.setSelectionRange(0, 99999);
+                    navigator.clipboard.writeText(shareUrl.value).then(function() {
+                        copyUrlBtn.innerHTML = '<i class="fas fa-check"></i> 已复制';
+                        setTimeout(function() {
+                            copyUrlBtn.innerHTML = '<i class="fas fa-copy"></i> 复制链接';
+                        }, 2000);
+                    });
+                });
+            }
+            
+            if (commentForm) {
+                commentForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const commentContentInput = document.getElementById('commentContent');
+                    
+                    if (!commentContentInput) {
+                        return;
+                    }
+                    
+                    const content = commentContentInput.value;
+                    
+                    fetch('/api/v1/comments', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': getCookie('csrf_token')
+                        },
+                        body: JSON.stringify({
+                            project_id: parseInt('4'),
+                            content: content
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            commentContentInput.value = '';
+                            alert('评论成功');
+                        } else {
+                            alert(data.message || '评论失败');
+                        }
+                    })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('评论失败');
+                });
+            });
+            
+            function getCookie(name) {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return parts.pop().split(';').shift();
+            }
+        });
+    </script>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Newsletter Section -->
+    <section class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h3 class="text-xl font-bold mb-2">Stay Ahead of the Curve</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">Get weekly curated picks, trending boards, and exclusive hardware engineering tips delivered to your inbox</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <form id="newsletterForm" class="newsletter-form" onsubmit="handleNewsletter(event)">
+                            <input type="email" id="newsletterEmail" class="input-zouic" placeholder="Enter your email address" required>
+                            <button type="submit" class="btn-zouic btn-zouic-primary btn-zouic-lg">Subscribe</button>
+                        </form>
+                        <div class="newsletter-benefits">
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Weekly curated board picks</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Exclusive project deep-dives</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> No spam, unsubscribe anytime</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4" aria-label="出品人">
+        <div class="author-card">
+            <div class="author-card-info">
+                <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
+                <div>
+                    <div class="author-card-name">Created by GeekWaedon <span>@GeekWaedon</span></div>
+                    <div class="author-card-bio">Hardware maker and AI practitioner. This entire website was built hands-on with AI tools.</div>
+                </div>
+            </div>
+            <div class="author-card-actions">
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Join my Knowledge Planet</a>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;极客微栋&#34;</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-zouic" role="contentinfo">
+        <div class="container">
+            <div class="row footer-main">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
+                    <a href="/" class="footer-brand" aria-label="ZouIC 首页">
+                        <i class="fas fa-microchip"></i>
+                        <span>ZouIC</span>
+                    </a>
+                    <p class="footer-tagline">Open source projects aggregated on this platform follow their respective open source licenses. For details, please see the</p>
+
+                    <div class="footer-meta">
+                        <p class="footer-author">
+                            出品人 · <strong>极客微栋</strong>
+                            <span class="footer-author-handle">@GeekWaedon</span>
+                        </p>
+                        <div class="footer-slash-tags">
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span>
+                            <a href="/en/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商资质">
+                                <i class="fab fa-weixin"></i> 企业微信服务商
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋（微信内搜索）"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a>
+                        <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="/en/products">Products</a></li>
+                        <li><a href="/en/services">Services</a></li>
+                        <li><a href="/en/news">Industry News</a></li>
+                        <li><a href="/en/boards">Development Boards</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="/en/tutorials">Tutorials</a></li>
+                        <li><a href="/en/documentation">Documentation</a></li>
+                        <li><a href="/en/cases">Project Cases</a></li>
+                        <li><a href="/en/help">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Open Source</h5>
+                    <ul>
+                        <li><a href="/en/open-source">Open Source Projects</a></li>
+                        <li><a href="/en/articles">Articles</a></li>
+                        <li><a href="/en/contribute">Contribute</a></li>
+                        <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h5>About</h5>
+                    <ul>
+                        <li><a href="/en/about">About Us</a></li>
+                        <li><a href="/en/about#contact">Contact Us</a></li>
+                        <li><a href="/en/licenses">Open Source Licenses</a></li>
+                        <li><a href="/en/about#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ZouIC. All rights reserved.</p>
+                <p>Open source projects aggregated on this platform follow their respective open source licenses. For details, please see the <a href="/en/licenses">Open Source Licenses</a> page.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            const revealElements = document.querySelectorAll('.reveal');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <!-- AI Chat Widget -->
+    <div class="chat-widget">
+        <div id="agent-chat-container" class="chat-widget-container">
+            <div class="chat-widget-header">
+                <div class="d-flex align-items-center gap-2">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Assistant</span>
+                </div>
+                <button id="agent-chat-close" class="btn-zouic btn-zouic-ghost btn-zouic-sm" style="color: rgba(255,255,255,0.8);">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="agent-chat-messages" class="chat-widget-messages">
+                <div class="d-flex align-items-start gap-2 mb-4">
+                    <div class="chat-widget-toggle" style="width: 32px; height: 32px; font-size: 0.75rem; flex-shrink: 0;">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="bg-secondary/50 rounded-lg rounded-tl-none p-3 text-sm" style="background-color: rgba(14, 165, 233, 0.15);">
+                        Search boards, projects or keywords...
+                    </div>
+                </div>
+            </div>
+            <div class="chat-widget-input-area">
+                <div class="d-flex gap-2">
+                    <input type="text" id="agent-chat-input" 
+                        class="input-zouic flex-grow-1"
+                        placeholder="Enter your message...">
+                    <button id="agent-chat-send" class="btn-zouic btn-zouic-primary btn-zouic-sm">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <button id="agent-chat-toggle" class="chat-widget-toggle">
+            <i class="fas fa-robot" style="font-size: 1.25rem;"></i>
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatToggle = document.getElementById('agent-chat-toggle');
+            const chatContainer = document.getElementById('agent-chat-container');
+            const chatClose = document.getElementById('agent-chat-close');
+            const chatInput = document.getElementById('agent-chat-input');
+            const chatSend = document.getElementById('agent-chat-send');
+            const chatMessages = document.getElementById('agent-chat-messages');
+            
+            let agentSessionId = null;
+            
+            if (chatToggle && chatContainer) {
+                chatToggle.addEventListener('click', function() {
+                    chatContainer.classList.toggle('open');
+                    if (chatContainer.classList.contains('open')) {
+                        chatInput.focus();
+                    }
+                });
+            }
+            
+            if (chatClose && chatContainer) {
+                chatClose.addEventListener('click', function() {
+                    chatContainer.classList.remove('open');
+                });
+            }
+            
+            const addMessage = function(text, isUser = false) {
+                const div = document.createElement('div');
+                div.className = 'd-flex align-items-start gap-2 mb-4' + (isUser ? ' flex-row-reverse' : '');
+                
+                const avatar = document.createElement('div');
+                avatar.className = 'chat-widget-toggle flex-shrink-0';
+                avatar.style.cssText = 'width: 32px; height: 32px; font-size: 0.75rem;';
+                avatar.innerHTML = isUser ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
+                
+                const bubble = document.createElement('div');
+                bubble.className = 'rounded-lg px-3 py-2 text-sm ' +
+                    (isUser ? 'rounded-tr-none' : 'rounded-tl-none');
+                bubble.style.cssText = isUser 
+                    ? 'background-color: rgba(0, 212, 170, 0.15); color: var(--color-text-primary);'
+                    : 'background-color: rgba(14, 165, 233, 0.15); color: var(--color-text-primary);';
+                bubble.textContent = text;
+                
+                div.appendChild(isUser ? bubble : avatar);
+                div.appendChild(isUser ? avatar : bubble);
+                chatMessages.appendChild(div);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            };
+            
+            const sendMessage = async function() {
+                const message = chatInput.value.trim();
+                if (!message) return;
+                
+                addMessage(message, true);
+                chatInput.value = '';
+                
+                try {
+                    const response = await fetch('/api/agent/query', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ input: message, session_id: agentSessionId })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        agentSessionId = data.session_id;
+                        if (data.response && data.response.text) {
+                            addMessage(data.response.text, false);
+                        }
+                    } else {
+                        addMessage('Operation failed, please try again', false);
+                    }
+                } catch (error) {
+                    addMessage('Network error, please try again', false);
+                }
+            };
+            
+            if (chatSend) chatSend.addEventListener('click', sendMessage);
+            if (chatInput) {
+                chatInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') sendMessage();
+                });
+            }
+        });
+        
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Copied';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+        
+        // --- Newsletter form handler ---
+        window.handleNewsletter = function(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('newsletterEmail');
+            if (!emailInput || !emailInput.value.trim()) return;
+            
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'Subscribed!';
+            btn.disabled = true;
+            
+            // Simulate subscription (in production, send to API)
+            setTimeout(function() {
+                btn.textContent = '✓ ' + originalText;
+                btn.disabled = false;
+                emailInput.value = '';
+                
+                // Show toast
+                const toast = document.createElement('div');
+                toast.className = 'toast-zouic toast-zouic-success show';
+                toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Subscribed!';
+                document.body.appendChild(toast);
+                setTimeout(function() { toast.remove(); }, 3000);
+            }, 1000);
+        };
+    </script>
+</body>
+</html>

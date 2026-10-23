@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link rel="alternate" hreflang="zh" href="https://www.zouic.com/"><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/"><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="ZouIC is the largest open-source development board Demo aggregation platform, featuring ESP32, STM32, RP2040, RISC-V and other development board resources and project examples to help hardware developers get started quickly.">
+    <meta name="keywords" content="open source development board,ESP32,STM32,RP2040,RISC-V,hardware development,Demo project,embedded development">
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00d4aa">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <link rel="canonical" href="https://zouic.com/">
+    
+    <link rel="alternate" hreflang="zh" href="https://zouic.com/" />
+    <link rel="alternate" hreflang="en" href="https://zouic.com/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://zouic.com/" />
+    
+    <meta property="og:title" content="ZouIC - Global Open Source Development Board Platform">
+    <meta property="og:description" content="ZouIC is the largest open-source development board Demo aggregation platform, featuring ESP32, STM32, RP2040, RISC-V and other development board resources and project examples to help hardware developers get started quickly.">
+    <meta property="og:url" content="https://zouic.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ZouIC%20open%20source%20hardware%20development%20board%20platform%20logo&amp;image_size=landscape_16_9">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ZouIC - Global Open Source Development Board Platform">
+    <meta name="twitter:description" content="ZouIC is the largest open-source development board Demo aggregation platform, featuring ESP32, STM32, RP2040, RISC-V and other development board resources and project examples to help hardware developers get started quickly.">
+    <meta name="twitter:image" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ZouIC%20open%20source%20hardware%20development%20board%20platform%20logo&amp;image_size=landscape_16_9">
+    <meta name="twitter:site" content="@zouic">
+    <meta name="twitter:creator" content="@zouic">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@type": "Organization", "description": "ZouIC - Global open-source development board Demo aggregation platform, providing development board database, project search, technical documentation and one-stop hardware development resources.", "logo": "https://zouic.com/static/images/logo.png", "name": "ZouIC", "sameAs": ["https://github.com/zouic", "https://twitter.com/zouic"], "url": "https://zouic.com"}
+    </script>
+    
+    
+    <title>ZouIC - Global Open Source Development Board Platform</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- External Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- ZouIC Design System -->
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css">
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 212, 170, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(14, 165, 233, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(139, 92, 246, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-microchip"></i> ZouIC
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/boards">Boards</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/board-guide">Documentation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/all-projects"><i class="fas fa-project-diagram me-1"></i>External Projects</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/en/products"><i class="fas fa-box me-2"></i>Products</a></li>
+                            <li><a class="dropdown-item" href="/en/services"><i class="fas fa-cogs me-2"></i>Services</a></li>
+                            <li><a class="dropdown-item" href="/en/news"><i class="fas fa-newspaper me-2"></i>Industry News</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/tutorials"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li>
+                            <li><a class="dropdown-item" href="/en/documentation"><i class="fas fa-book me-2"></i>Documentation</a></li>
+                            <li><a class="dropdown-item" href="/en/cases"><i class="fas fa-briefcase me-2"></i>Project Cases</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/open-source"><i class="fas fa-code-branch me-2"></i>Open Source Projects</a></li>
+                            <li><a class="dropdown-item" href="/en/articles"><i class="fas fa-pen-fancy me-2"></i>Articles</a></li>
+                            <li><a class="dropdown-item" href="/en/contribute"><i class="fas fa-handshake me-2"></i>Contribute</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-lg-none"><a class="nav-link" href="/en/search"><i class="fas fa-search me-1"></i>Search</a></li>
+                </ul>
+                <form id="searchForm" class="d-flex me-3 d-none d-lg-flex">
+                    <div class="input-group input-group-zouic">
+                        <input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="Search boards, projects or keywords..." aria-label="Search" style="width: 200px;">
+                        <select id="searchType" class="form-select input-zouic" style="width: auto; flex: 0 0 auto;">
+                            <option value="">All Categories</option>
+                            <option value="board">Boards</option>
+                            <option value="project">Projects</option>
+                        </select>
+                        <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Search">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i> English
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/">
+                                <i class="fas fa-language me-2"></i> 中文
+                            </a></li>
+                            <li><a class="dropdown-item" href="/en/">
+                                <i class="fas fa-language me-2"></i> English
+                            </a></li>
+                        </ul>
+                    </div>
+                    
+                    <a href="/en/login" class="btn-zouic btn-zouic-ghost btn-zouic-sm">Login</a>
+                    <a href="/en/register" class="btn-zouic btn-zouic-primary btn-zouic-sm">Register</a>
+                    
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        
+    <!-- ==================== HERO ==================== -->
+    <section class="hero-zouic">
+        <div class="hero-decoration">
+            <div class="hero-decoration-circle hero-decoration-circle-1"></div>
+            <div class="hero-decoration-circle hero-decoration-circle-2"></div>
+            <div class="hero-decoration-circle hero-decoration-circle-3"></div>
+            <div class="hero-decoration-grid"></div>
+            <div class="hero-decoration-glow"></div>
+        </div>
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content-col">
+                    <div class="hero-badge animate-fade-in-up">
+                        <span class="hero-badge-dot"></span>
+                        Global Open Source Board Platform
+                    </div>
+                    <h1 class="hero-zouic-title animate-fade-in-up" style="animation-delay: 0.1s;">
+                        Find Your Perfect Development Board
+                    </h1>
+                    <p class="hero-zouic-subtitle animate-fade-in-up" style="animation-delay: 0.2s;">
+                        ZouIC aggregates open-source hardware Demo resources worldwide, supporting structured search and multi-dimensional filtering to help you quickly find the right development board and project examples.
+                    </p>
+                    <form id="heroSearchForm" class="mb-4 animate-fade-in-up" style="animation-delay: 0.3s;">
+                        <div class="input-group input-group-lg hero-search-group">
+                            <span class="input-group-text hero-search-icon">
+                                <i class="fas fa-search"></i>
+                            </span>
+                            <input type="text" id="heroSearchQuery" class="form-control input-zouic hero-search-input" 
+                                   placeholder="Search boards, projects or keywords..." 
+                                   aria-label="Search">
+                            <button class="btn-zouic btn-zouic-primary hero-search-btn" type="submit">
+                                Search
+                            </button>
+                        </div>
+                    </form>
+                    <div class="hero-secondary-cta animate-fade-in-up" style="animation-delay: 0.35s;">
+                        <a href="/en/boards" class="btn-zouic btn-zouic-secondary hero-cta-btn">
+                            <i class="fas fa-microchip me-2"></i> Browse Boards
+                        </a>
+                        <a href="/en/projects" class="btn-zouic btn-zouic-ghost hero-cta-btn">
+                            <i class="fas fa-code me-2"></i> Explore Projects
+                        </a>
+                    </div>
+                    <div class="hero-tags animate-fade-in-up" style="animation-delay: 0.4s;">
+                        <span class="hero-tags-label">Popular Tags:</span>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="/en/search?q=ESP32" class="badge-zouic badge-zouic-primary">ESP32</a>
+                            <a href="/en/search?q=STM32" class="badge-zouic badge-zouic-secondary">STM32</a>
+                            <a href="/en/search?q=RP2040" class="badge-zouic badge-zouic-accent">RP2040</a>
+                            <a href="/en/search?q=Arduino" class="badge-zouic badge-zouic-primary">Arduino</a>
+                            <a href="/en/search?q=RISC-V" class="badge-zouic badge-zouic-secondary">RISC-V</a>
+                            <a href="/en/search?q=sensor" class="badge-zouic badge-zouic-accent">Sensors</a>
+                            <a href="/en/search?q=IoT" class="badge-zouic badge-zouic-primary">IoT</a>
+                            <a href="/en/search?q=AI" class="badge-zouic badge-zouic-secondary">AI</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-0 mt-6 hero-visual-col">
+                    <div class="hero-visual animate-fade-in" style="animation-delay: 0.5s;">
+                        <img src="/static/images/hero/hero-main.jpg" 
+                             alt="ZouIC 开源开发板平台" 
+                             class="hero-visual-image"
+                             loading="eager">
+                        <div class="hero-visual-overlay"></div>
+                        <div class="hero-floating-icon hero-floating-icon-1"><i class="fas fa-microchip"></i></div>
+                        <div class="hero-floating-icon hero-floating-icon-2"><i class="fas fa-code"></i></div>
+                        <div class="hero-floating-icon hero-floating-icon-3"><i class="fas fa-robot"></i></div>
+                        <div class="hero-floating-icon hero-floating-icon-4"><i class="fas fa-wifi"></i></div>
+                        <div class="hero-floating-icon hero-floating-icon-5"><i class="fas fa-bolt"></i></div>
+                    </div>
+                    <div class="row g-3 mt-3 stagger-children">
+                        <div class="col-6 col-sm-3">
+                            <div class="stat-card stat-card-enhanced">
+                                <div class="stat-card-icon-wrapper"><i class="fas fa-microchip stat-card-icon" style="color: var(--color-primary);"></i></div>
+                                <div class="stat-card-value">100+</div>
+                                <div class="stat-card-label">Boards</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <div class="stat-card stat-card-enhanced">
+                                <div class="stat-card-icon-wrapper"><i class="fas fa-code stat-card-icon" style="color: var(--color-secondary);"></i></div>
+                                <div class="stat-card-value">5000+</div>
+                                <div class="stat-card-label">Projects</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <div class="stat-card stat-card-enhanced">
+                                <div class="stat-card-icon-wrapper"><i class="fas fa-users stat-card-icon" style="color: var(--color-accent);"></i></div>
+                                <div class="stat-card-value">10K+</div>
+                                <div class="stat-card-label">Developers</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <div class="stat-card stat-card-enhanced">
+                                <div class="stat-card-icon-wrapper"><i class="fas fa-star stat-card-icon" style="color: #fbbf24;"></i></div>
+                                <div class="stat-card-value">98%</div>
+                                <div class="stat-card-label">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 平台数据亮点条 ==================== -->
+    <section class="stats-bar reveal">
+        <div class="container">
+            <div class="stats-bar-inner">
+                <div class="stats-bar-item">
+                    <span class="stats-bar-number">100+</span>
+                    <span class="stats-bar-label">Boards</span>
+                </div>
+                <div class="stats-bar-divider"></div>
+                <div class="stats-bar-item">
+                    <span class="stats-bar-number">5000+</span>
+                    <span class="stats-bar-label">Projects</span>
+                </div>
+                <div class="stats-bar-divider"></div>
+                <div class="stats-bar-item">
+                    <span class="stats-bar-number">10K+</span>
+                    <span class="stats-bar-label">Developers</span>
+                </div>
+                <div class="stats-bar-divider"></div>
+                <div class="stats-bar-item">
+                    <span class="stats-bar-number">98%</span>
+                    <span class="stats-bar-label">Rating</span>
+                </div>
+                <div class="stats-bar-divider"></div>
+                <div class="stats-bar-item">
+                    <span class="stats-bar-number">30+</span>
+                    <span class="stats-bar-label">Vendors</span>
+                </div>
+                <div class="stats-bar-divider"></div>
+                <div class="stats-bar-item">
+                    <span class="stats-bar-number">6</span>
+                    <span class="stats-bar-label">Architectures</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 按平台找板 ==================== -->
+    <section class="section-zouic reveal">
+        <div class="container">
+            <div class="section-zouic-header">
+                <div>
+                    <span class="section-zouic-badge"><i class="fas fa-layer-group"></i> Find by Platform</span>
+                    <h2 class="section-zouic-title">Find by Platform</h2>
+                    <p class="section-zouic-desc">Filter by chip platform — every spec comes from structured data</p>
+                </div>
+                <a href="/en/boards" class="btn-zouic btn-zouic-secondary">View All <i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+            <div class="platform-tiles-grid stagger-children">
+                
+                <a href="/en/boards?arch=RISC-V" class="platform-tile">
+                    <span class="platform-tile-icon"><i class="fas fa-microchip"></i></span>
+                    <span class="platform-tile-body">
+                        <span class="platform-tile-name">RISC-V</span>
+                        <span class="platform-tile-desc">Open ISA with a fast-growing ecosystem</span>
+                    </span>
+                    <span class="platform-tile-count">9<small>boards</small></span>
+                </a>
+                
+                <a href="/en/boards?arch=ESP32" class="platform-tile">
+                    <span class="platform-tile-icon"><i class="fas fa-wifi"></i></span>
+                    <span class="platform-tile-body">
+                        <span class="platform-tile-name">ESP32</span>
+                        <span class="platform-tile-desc">Wi-Fi + BLE, the go-to for IoT</span>
+                    </span>
+                    <span class="platform-tile-count">3<small>boards</small></span>
+                </a>
+                
+                <a href="/en/boards?arch=NearLink" class="platform-tile">
+                    <span class="platform-tile-icon"><i class="fas fa-broadcast-tower"></i></span>
+                    <span class="platform-tile-body">
+                        <span class="platform-tile-name">NearLink</span>
+                        <span class="platform-tile-desc">NearLink short-range wireless, low latency</span>
+                    </span>
+                    <span class="platform-tile-count">3<small>boards</small></span>
+                </a>
+                
+                <a href="/en/boards?arch=RP2040" class="platform-tile">
+                    <span class="platform-tile-icon"><i class="fas fa-bolt"></i></span>
+                    <span class="platform-tile-body">
+                        <span class="platform-tile-name">RP2040</span>
+                        <span class="platform-tile-desc">Dual M0+ cores for low-cost prototyping</span>
+                    </span>
+                    <span class="platform-tile-count">2<small>boards</small></span>
+                </a>
+                
+                <a href="/en/boards?arch=STM32" class="platform-tile">
+                    <span class="platform-tile-icon"><i class="fas fa-industry"></i></span>
+                    <span class="platform-tile-body">
+                        <span class="platform-tile-name">STM32</span>
+                        <span class="platform-tile-desc">Industrial MCUs with mature control peripherals</span>
+                    </span>
+                    <span class="platform-tile-count">2<small>boards</small></span>
+                </a>
+                
+                <a href="/en/boards?arch=RA4M1" class="platform-tile">
+                    <span class="platform-tile-icon"><i class="fas fa-robot"></i></span>
+                    <span class="platform-tile-body">
+                        <span class="platform-tile-name">RA4M1</span>
+                        <span class="platform-tile-desc">Same chip as Arduino R4, beginner friendly</span>
+                    </span>
+                    <span class="platform-tile-count">1<small>boards</small></span>
+                </a>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 热门开发板 ==================== -->
+    <section class="section-zouic section-bg-gradient-1 section-grid-overlay reveal">
+        <div class="container">
+            <div class="section-zouic-header">
+                <div>
+                    <span class="section-zouic-badge"><i class="fas fa-microchip"></i> Featured Boards</span>
+                    <h2 class="section-zouic-title">Featured Boards</h2>
+                    <p class="section-zouic-desc">Featured boards covering all major chip architectures</p>
+                </div>
+                <a href="/en/boards" class="btn-zouic btn-zouic-secondary">View All <i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+            <div class="row g-3 stagger-children">
+                
+                <div class="col-lg-4 col-md-6">
+                    <a href="/en/board/1" class="card-zouic card-zouic-hw text-decoration-none d-block">
+                        <div class="card-zouic-hw-top">
+                            <div class="card-zouic-hw-chip">ESP32</div>
+                            <h3 class="card-zouic-hw-name">ESP32-S3-DevKitC</h3>
+                        </div>
+                        <div class="card-zouic-hw-specs">
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">Vendor</span>
+                                <span class="hw-spec-value">Espressif</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">CPU</span>
+                                <span class="hw-spec-value">240MHz</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">GPIO</span>
+                                <span class="hw-spec-value">30</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">Flash</span>
+                                <span class="hw-spec-value">8MB</span>
+                            </div>
+                        </div>
+                        <p class="card-zouic-hw-desc">高性能双核处理器，支持Wi-Fi 6和BLE 5.0，内置AI协处理器，适合物联网和边缘AI应用</p>
+                        <div class="card-zouic-hw-footer">
+                            <span class="card-zouic-hw-price">100-200</span>
+                            <span class="card-zouic-hw-peripherals">
+                                
+                                <span class="peripheral-dot" title="Wi-Fi 6"></span>
+                                
+                                <span class="peripheral-dot" title="BLE 5.0"></span>
+                                
+                                <span class="peripheral-dot" title="USB OTG"></span>
+                                
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <a href="/en/board/2" class="card-zouic card-zouic-hw text-decoration-none d-block">
+                        <div class="card-zouic-hw-top">
+                            <div class="card-zouic-hw-chip">ESP32</div>
+                            <h3 class="card-zouic-hw-name">ESP32-C3-DevKitM</h3>
+                        </div>
+                        <div class="card-zouic-hw-specs">
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">Vendor</span>
+                                <span class="hw-spec-value">Espressif</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">CPU</span>
+                                <span class="hw-spec-value">160MHz</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">GPIO</span>
+                                <span class="hw-spec-value">19</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">Flash</span>
+                                <span class="hw-spec-value">4MB</span>
+                            </div>
+                        </div>
+                        <p class="card-zouic-hw-desc">RISC-V架构，低成本低功耗，适合入门级物联网项目</p>
+                        <div class="card-zouic-hw-footer">
+                            <span class="card-zouic-hw-price">50-100</span>
+                            <span class="card-zouic-hw-peripherals">
+                                
+                                <span class="peripheral-dot" title="Wi-Fi"></span>
+                                
+                                <span class="peripheral-dot" title="BLE 5.0"></span>
+                                
+                                <span class="peripheral-dot" title="I2C"></span>
+                                
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <a href="/en/board/3" class="card-zouic card-zouic-hw text-decoration-none d-block">
+                        <div class="card-zouic-hw-top">
+                            <div class="card-zouic-hw-chip">STM32</div>
+                            <h3 class="card-zouic-hw-name">STM32F103C8T6 Blue Pill</h3>
+                        </div>
+                        <div class="card-zouic-hw-specs">
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">Vendor</span>
+                                <span class="hw-spec-value">STMicroelectronics</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">CPU</span>
+                                <span class="hw-spec-value">72MHz</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">GPIO</span>
+                                <span class="hw-spec-value">37</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">Flash</span>
+                                <span class="hw-spec-value">64KB</span>
+                            </div>
+                        </div>
+                        <p class="card-zouic-hw-desc">经典ARM Cortex-M3，适合工业控制和电机驱动项目</p>
+                        <div class="card-zouic-hw-footer">
+                            <span class="card-zouic-hw-price">20-50</span>
+                            <span class="card-zouic-hw-peripherals">
+                                
+                                <span class="peripheral-dot" title="USB"></span>
+                                
+                                <span class="peripheral-dot" title="I2C"></span>
+                                
+                                <span class="peripheral-dot" title="SPI"></span>
+                                
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <a href="/en/board/4" class="card-zouic card-zouic-hw text-decoration-none d-block">
+                        <div class="card-zouic-hw-top">
+                            <div class="card-zouic-hw-chip">STM32</div>
+                            <h3 class="card-zouic-hw-name">STM32F407ZGT6 Discovery</h3>
+                        </div>
+                        <div class="card-zouic-hw-specs">
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">Vendor</span>
+                                <span class="hw-spec-value">STMicroelectronics</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">CPU</span>
+                                <span class="hw-spec-value">168MHz</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">GPIO</span>
+                                <span class="hw-spec-value">144</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">Flash</span>
+                                <span class="hw-spec-value">1MB</span>
+                            </div>
+                        </div>
+                        <p class="card-zouic-hw-desc">高性能ARM Cortex-M4带DSP，适合复杂信号处理和工业应用</p>
+                        <div class="card-zouic-hw-footer">
+                            <span class="card-zouic-hw-price">300-500</span>
+                            <span class="card-zouic-hw-peripherals">
+                                
+                                <span class="peripheral-dot" title="USB OTG"></span>
+                                
+                                <span class="peripheral-dot" title="I2C"></span>
+                                
+                                <span class="peripheral-dot" title="SPI"></span>
+                                
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <a href="/en/board/5" class="card-zouic card-zouic-hw text-decoration-none d-block">
+                        <div class="card-zouic-hw-top">
+                            <div class="card-zouic-hw-chip">RP2040</div>
+                            <h3 class="card-zouic-hw-name">Raspberry Pi Pico</h3>
+                        </div>
+                        <div class="card-zouic-hw-specs">
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">Vendor</span>
+                                <span class="hw-spec-value">Raspberry Pi</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">CPU</span>
+                                <span class="hw-spec-value">133MHz</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">GPIO</span>
+                                <span class="hw-spec-value">26</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">Flash</span>
+                                <span class="hw-spec-value">2MB</span>
+                            </div>
+                        </div>
+                        <p class="card-zouic-hw-desc">双核ARM Cortex-M0+，可编程PIO，10年供货承诺，适合教育和DIY项目</p>
+                        <div class="card-zouic-hw-footer">
+                            <span class="card-zouic-hw-price">20-50</span>
+                            <span class="card-zouic-hw-peripherals">
+                                
+                                <span class="peripheral-dot" title="USB"></span>
+                                
+                                <span class="peripheral-dot" title="I2C"></span>
+                                
+                                <span class="peripheral-dot" title="SPI"></span>
+                                
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <a href="/en/board/6" class="card-zouic card-zouic-hw text-decoration-none d-block">
+                        <div class="card-zouic-hw-top">
+                            <div class="card-zouic-hw-chip">RP2040</div>
+                            <h3 class="card-zouic-hw-name">Raspberry Pi Pico W</h3>
+                        </div>
+                        <div class="card-zouic-hw-specs">
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">Vendor</span>
+                                <span class="hw-spec-value">Raspberry Pi</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">CPU</span>
+                                <span class="hw-spec-value">133MHz</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">GPIO</span>
+                                <span class="hw-spec-value">22</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">Flash</span>
+                                <span class="hw-spec-value">2MB</span>
+                            </div>
+                        </div>
+                        <p class="card-zouic-hw-desc">Pico升级版，内置Wi-Fi和BLE，适合无线物联网项目</p>
+                        <div class="card-zouic-hw-footer">
+                            <span class="card-zouic-hw-price">50-100</span>
+                            <span class="card-zouic-hw-peripherals">
+                                
+                                <span class="peripheral-dot" title="Wi-Fi"></span>
+                                
+                                <span class="peripheral-dot" title="BLE"></span>
+                                
+                                <span class="peripheral-dot" title="USB"></span>
+                                
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 精选Demo项目 ==================== -->
+    <section class="section-zouic section-bg-gradient-3 section-grid-overlay reveal">
+        <div class="container">
+            <div class="section-zouic-header">
+                <div>
+                    <span class="section-zouic-badge" style="background: rgba(14, 165, 233, 0.12); color: var(--color-secondary);"><i class="fas fa-code"></i> Featured Projects</span>
+                    <h2 class="section-zouic-title">Featured Projects</h2>
+                    <p class="section-zouic-desc">Community-curated open source projects for all skill levels</p>
+                </div>
+                <a href="/en/projects" class="btn-zouic btn-zouic-secondary">View All <i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+            <div class="row g-3 stagger-children">
+                
+                <div class="col-lg-4 col-md-6">
+                    <a href="/en/project/2" class="card-zouic card-zouic-project text-decoration-none d-block">
+                        <div class="card-zouic-project-top">
+                            <span class="difficulty-badge difficulty-advanced">
+                                Advanced
+                            </span>
+                            <span class="card-zouic-project-stars"><i class="fas fa-star" style="color: #fbbf24;"></i> 256</span>
+                        </div>
+                        <h3 class="card-zouic-project-name">人脸识别门禁系统</h3>
+                        <p class="card-zouic-project-desc">使用ESP32-CAM进行人脸识别，控制继电器开关</p>
+                        <div class="card-zouic-project-tags">
+                            
+                            <span class="badge-zouic badge-zouic-primary">AI</span>
+                            
+                            <span class="badge-zouic badge-zouic-primary">计算机视觉</span>
+                            
+                            <span class="badge-zouic badge-zouic-primary">门禁</span>
+                            
+                        </div>
+                        <div class="card-zouic-project-footer">
+                            <span class="card-zouic-project-framework">Arduino</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <a href="/en/project/5" class="card-zouic card-zouic-project text-decoration-none d-block">
+                        <div class="card-zouic-project-top">
+                            <span class="difficulty-badge difficulty-intermediate">
+                                Intermediate
+                            </span>
+                            <span class="card-zouic-project-stars"><i class="fas fa-star" style="color: #fbbf24;"></i> 145</span>
+                        </div>
+                        <h3 class="card-zouic-project-name">语音控制家居</h3>
+                        <p class="card-zouic-project-desc">使用语音识别模块实现智能家居控制</p>
+                        <div class="card-zouic-project-tags">
+                            
+                            <span class="badge-zouic badge-zouic-primary">AI</span>
+                            
+                            <span class="badge-zouic badge-zouic-primary">智能家居</span>
+                            
+                            <span class="badge-zouic badge-zouic-primary">语音</span>
+                            
+                        </div>
+                        <div class="card-zouic-project-footer">
+                            <span class="card-zouic-project-framework">MicroPython</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <a href="/en/project/1" class="card-zouic card-zouic-project text-decoration-none d-block">
+                        <div class="card-zouic-project-top">
+                            <span class="difficulty-badge difficulty-beginner">
+                                Beginner
+                            </span>
+                            <span class="card-zouic-project-stars"><i class="fas fa-star" style="color: #fbbf24;"></i> 128</span>
+                        </div>
+                        <h3 class="card-zouic-project-name">智能温湿度监测系统</h3>
+                        <p class="card-zouic-project-desc">使用DHT22传感器监测温湿度，通过WiFi上传到云端</p>
+                        <div class="card-zouic-project-tags">
+                            
+                            <span class="badge-zouic badge-zouic-primary">IoT</span>
+                            
+                            <span class="badge-zouic badge-zouic-primary">传感器</span>
+                            
+                            <span class="badge-zouic badge-zouic-primary">智能家居</span>
+                            
+                        </div>
+                        <div class="card-zouic-project-footer">
+                            <span class="card-zouic-project-framework">Arduino</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <a href="/en/project/3" class="card-zouic card-zouic-project text-decoration-none d-block">
+                        <div class="card-zouic-project-top">
+                            <span class="difficulty-badge difficulty-intermediate">
+                                Intermediate
+                            </span>
+                            <span class="card-zouic-project-stars"><i class="fas fa-star" style="color: #fbbf24;"></i> 98</span>
+                        </div>
+                        <h3 class="card-zouic-project-name">LoRa远距离通信</h3>
+                        <p class="card-zouic-project-desc">使用LoRa模块实现远距离数据传输</p>
+                        <div class="card-zouic-project-tags">
+                            
+                            <span class="badge-zouic badge-zouic-primary">IoT</span>
+                            
+                            <span class="badge-zouic badge-zouic-primary">LoRa</span>
+                            
+                            <span class="badge-zouic badge-zouic-primary">通信</span>
+                            
+                        </div>
+                        <div class="card-zouic-project-footer">
+                            <span class="card-zouic-project-framework">Arduino</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <a href="/en/project/6" class="card-zouic card-zouic-project text-decoration-none d-block">
+                        <div class="card-zouic-project-top">
+                            <span class="difficulty-badge difficulty-intermediate">
+                                Intermediate
+                            </span>
+                            <span class="card-zouic-project-stars"><i class="fas fa-star" style="color: #fbbf24;"></i> 89</span>
+                        </div>
+                        <h3 class="card-zouic-project-name">电机PID控制器</h3>
+                        <p class="card-zouic-project-desc">基于STM32的直流电机PID速度控制</p>
+                        <div class="card-zouic-project-tags">
+                            
+                            <span class="badge-zouic badge-zouic-primary">PID</span>
+                            
+                            <span class="badge-zouic badge-zouic-primary">工业</span>
+                            
+                            <span class="badge-zouic badge-zouic-primary">电机控制</span>
+                            
+                        </div>
+                        <div class="card-zouic-project-footer">
+                            <span class="card-zouic-project-framework">STM32CubeMX</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <a href="/en/project/4" class="card-zouic card-zouic-project text-decoration-none d-block">
+                        <div class="card-zouic-project-top">
+                            <span class="difficulty-badge difficulty-advanced">
+                                Advanced
+                            </span>
+                            <span class="card-zouic-project-stars"><i class="fas fa-star" style="color: #fbbf24;"></i> 76</span>
+                        </div>
+                        <h3 class="card-zouic-project-name">太阳能充电管理</h3>
+                        <p class="card-zouic-project-desc">MPPT太阳能充电控制器，支持锂电池管理</p>
+                        <div class="card-zouic-project-tags">
+                            
+                            <span class="badge-zouic badge-zouic-primary">工业</span>
+                            
+                            <span class="badge-zouic badge-zouic-primary">电源</span>
+                            
+                            <span class="badge-zouic badge-zouic-primary">能源</span>
+                            
+                        </div>
+                        <div class="card-zouic-project-footer">
+                            <span class="card-zouic-project-framework">ESP-IDF</span>
+                        </div>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 技术专题探索 ==================== -->
+    <section class="section-zouic topic-section-bg section-grid-overlay reveal">
+        <div class="container">
+            <div class="section-zouic-header">
+                <div>
+                    <span class="section-zouic-badge" style="background: rgba(139, 92, 246, 0.12); color: var(--color-accent);"><i class="fas fa-compass"></i> By Application</span>
+                    <h2 class="section-zouic-title">By Application</h2>
+                    <p class="section-zouic-desc">Start from real projects and find boards for your use case</p>
+                </div>
+                <a href="/en/search" class="btn-zouic btn-zouic-secondary">Search <i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+            <div class="scenario-grid stagger-children">
+                
+                <a href="/en/search?q=Wi-Fi" class="scenario-card">
+                    <span class="scenario-card-icon" style="background-color: rgba(0, 212, 170, 0.12); color: var(--color-primary);"><i class="fas fa-wifi"></i></span>
+                    <span class="scenario-card-title">Wireless &amp; IoT</span>
+                    <span class="scenario-card-desc">Wi-Fi and BLE links for cloud integration and sensor networks</span>
+                    <span class="scenario-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                
+                <a href="/en/search?q=AI" class="scenario-card">
+                    <span class="scenario-card-icon" style="background-color: rgba(139, 92, 246, 0.12); color: var(--color-accent);"><i class="fas fa-brain"></i></span>
+                    <span class="scenario-card-title">Edge AI &amp; Vision</span>
+                    <span class="scenario-card-desc">Image recognition, neural inference and on-device intelligence</span>
+                    <span class="scenario-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                
+                <a href="/en/search?q=CAN" class="scenario-card">
+                    <span class="scenario-card-icon" style="background-color: rgba(245, 158, 11, 0.12); color: #f59e0b;"><i class="fas fa-industry"></i></span>
+                    <span class="scenario-card-title">Industrial &amp; Motion Control</span>
+                    <span class="scenario-card-desc">CAN bus, real-time control and robust peripherals</span>
+                    <span class="scenario-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                
+                <a href="/en/search?q=USB" class="scenario-card">
+                    <span class="scenario-card-icon" style="background-color: rgba(14, 165, 233, 0.12); color: var(--color-secondary);"><i class="fas fa-plug"></i></span>
+                    <span class="scenario-card-title">High-Speed Wired I/O</span>
+                    <span class="scenario-card-desc">USB, Ethernet and PCIe for gateways and host devices</span>
+                    <span class="scenario-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                
+                <a href="/en/search?q=NearLink" class="scenario-card">
+                    <span class="scenario-card-icon" style="background-color: rgba(16, 185, 129, 0.12); color: #10b981;"><i class="fas fa-tower-broadcast"></i></span>
+                    <span class="scenario-card-title">NearLink Short-Range</span>
+                    <span class="scenario-card-desc">Low-latency, high-density domestic short-range wireless</span>
+                    <span class="scenario-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                
+                <a href="/en/search?q=Arduino" class="scenario-card">
+                    <span class="scenario-card-icon" style="background-color: rgba(236, 72, 153, 0.12); color: #ec4899;"><i class="fas fa-graduation-cap"></i></span>
+                    <span class="scenario-card-title">Learning &amp; Education</span>
+                    <span class="scenario-card-desc">Arduino ecosystem — the best starting point for a first board</span>
+                    <span class="scenario-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 生态合作品牌 ==================== -->
+    <section class="section-zouic section-zouic-alt section-grid-overlay reveal">
+        <div class="container">
+            <div class="brand-bar">
+                <span class="brand-bar-label">Trusted Partners</span>
+                <div class="brand-bar-logos">
+                    <span class="brand-logo"><i class="fab fa-raspberry-pi"></i> Raspberry Pi</span>
+                    <span class="brand-logo"><i class="fas fa-microchip"></i> Espressif</span>
+                    <span class="brand-logo"><i class="fas fa-microchip"></i> STMicro</span>
+                    <span class="brand-logo"><i class="fas fa-microchip"></i> Arduino</span>
+                    <span class="brand-logo"><i class="fas fa-microchip"></i> SiFive</span>
+                    <span class="brand-logo"><i class="fas fa-microchip"></i> StarFive</span>
+                    <span class="brand-logo"><i class="fas fa-microchip"></i> NXP</span>
+                    <span class="brand-logo"><i class="fas fa-microchip"></i> Microchip</span>
+                    <span class="brand-logo"><i class="fas fa-microchip"></i> Nordic</span>
+                    <span class="brand-logo"><i class="fas fa-microchip"></i> TI</span>
+                    <span class="brand-logo"><i class="fas fa-microchip"></i> Rockchip</span>
+                    <span class="brand-logo"><i class="fas fa-microchip"></i> Allwinner</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 为什么选择 ZouIC ==================== -->
+    <section class="section-zouic why-zouic-bg section-grid-overlay reveal">
+        <div class="container">
+            <div class="text-center mb-8">
+                <span class="section-zouic-badge"><i class="fas fa-star"></i> Why Choose ZouIC</span>
+                <h2 class="section-zouic-title text-center">Why Choose ZouIC</h2>
+                <p class="section-zouic-desc text-center">One-stop Open Source Hardware Resource Platform</p>
+            </div>
+            <div class="row g-3 stagger-children">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card-enhanced">
+                        <div class="feature-card-enhanced-icon" style="background-color: var(--color-primary-muted);">
+                            <i class="fas fa-search" style="color: var(--color-primary);"></i>
+                        </div>
+                        <h3 class="feature-card-enhanced-title">Precise Search</h3>
+                        <p class="feature-card-enhanced-desc">Multi-dimensional filtering by chip, scenario, and protocol for quick resource location</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card-enhanced">
+                        <div class="feature-card-enhanced-icon" style="background-color: var(--color-secondary-muted);">
+                            <i class="fas fa-code-branch" style="color: var(--color-secondary);"></i>
+                        </div>
+                        <h3 class="feature-card-enhanced-title">Cross-platform Support</h3>
+                        <p class="feature-card-enhanced-desc">Covers ESP32, STM32, RP2040, Arduino and other mainstream platforms</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card-enhanced">
+                        <div class="feature-card-enhanced-icon" style="background-color: var(--color-accent-muted);">
+                            <i class="fas fa-users" style="color: var(--color-accent);"></i>
+                        </div>
+                        <h3 class="feature-card-enhanced-title">Community-driven</h3>
+                        <p class="feature-card-enhanced-desc">Continuously updated open source projects from developers worldwide</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card-enhanced">
+                        <div class="feature-card-enhanced-icon" style="background-color: rgba(16, 185, 129, 0.15);">
+                            <i class="fas fa-chart-bar" style="color: #10b981;"></i>
+                        </div>
+                        <h3 class="feature-card-enhanced-title">Online Comparison</h3>
+                        <p class="feature-card-enhanced-desc">Compare board specs side-by-side to quickly understand differences and advantages</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card-enhanced">
+                        <div class="feature-card-enhanced-icon" style="background-color: rgba(245, 158, 11, 0.15);">
+                            <i class="fas fa-tools" style="color: #f59e0b;"></i>
+                        </div>
+                        <h3 class="feature-card-enhanced-title">Engineering Toolkit</h3>
+                        <p class="feature-card-enhanced-desc">Baud rate calculator, power estimation, timer config and more embedded tools</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card-enhanced">
+                        <div class="feature-card-enhanced-icon" style="background-color: rgba(236, 72, 153, 0.15);">
+                            <i class="fas fa-sync-alt" style="color: #ec4899;"></i>
+                        </div>
+                        <h3 class="feature-card-enhanced-title">Continuous Updates</h3>
+                        <p class="feature-card-enhanced-desc">Daily updates on the latest boards and projects, ensuring timely and accurate resources</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 硬件工程师工具集 ==================== -->
+    <section class="section-zouic section-bg-gradient-2 section-grid-overlay reveal">
+        <div class="container">
+            <div class="section-zouic-header">
+                <div>
+                    <span class="section-zouic-badge" style="background: rgba(0, 212, 170, 0.12); color: var(--color-primary);"><i class="fas fa-microchip"></i> Hardware Engineer&#39;s Toolkit</span>
+                    <h2 class="section-zouic-title">Hardware Engineer&#39;s Toolkit</h2>
+                    <p class="section-zouic-desc">Quick reference tools for embedded development</p>
+                </div>
+            </div>
+            <div class="hw-toolbox-grid stagger-children">
+                <a href="/en/compare" class="hw-toolbox-item">
+                    <div class="hw-toolbox-item-icon"><i class="fas fa-balance-scale"></i></div>
+                    <div class="hw-toolbox-item-label">Board Comparer</div>
+                    <div class="hw-toolbox-item-value">Side-by-side spec comparison</div>
+                </a>
+                <a href="/en/boards" class="hw-toolbox-item">
+                    <div class="hw-toolbox-item-icon"><i class="fas fa-microchip"></i></div>
+                    <div class="hw-toolbox-item-label">Pinout Viewer</div>
+                    <div class="hw-toolbox-item-value">Browse board pinout diagrams</div>
+                </a>
+                <a href="/en/board-guide" class="hw-toolbox-item">
+                    <div class="hw-toolbox-item-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="hw-toolbox-item-label">Baud Rate Calculator</div>
+                    <div class="hw-toolbox-item-value">Calculate serial baud rate &amp; timing</div>
+                </a>
+                <a href="/en/board-guide#power" class="hw-toolbox-item">
+                    <div class="hw-toolbox-item-icon"><i class="fas fa-bolt"></i></div>
+                    <div class="hw-toolbox-item-label">Power Calculator</div>
+                    <div class="hw-toolbox-item-value">Estimate power consumption</div>
+                </a>
+                <a href="/en/board-guide#timing" class="hw-toolbox-item">
+                    <div class="hw-toolbox-item-icon"><i class="fas fa-clock"></i></div>
+                    <div class="hw-toolbox-item-label">Timer Calculator</div>
+                    <div class="hw-toolbox-item-value">Timer/Counter prescaler values</div>
+                </a>
+                <a href="/en/board-guide#voltage" class="hw-toolbox-item">
+                    <div class="hw-toolbox-item-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="hw-toolbox-item-label">Voltage Divider</div>
+                    <div class="hw-toolbox-item-value">Calculate resistor values</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 作者自媒体矩阵 ==================== -->
+    <section id="follow" class="section-zouic section-bg-gradient-1 section-grid-overlay reveal">
+        <div class="container">
+            <div class="section-zouic-header">
+                <div>
+                    <span class="section-zouic-badge" style="background: rgba(0, 212, 170, 0.12); color: var(--color-primary);"><i class="fas fa-bullhorn"></i> 全网同名</span>
+                    <h2 class="section-zouic-title">关注「极客微栋」</h2>
+                    <p class="section-zouic-desc">@GeekWaedon · 开源硬件测评与实战，全平台同步更新</p>
+                </div>
+            </div>
+            <div class="hw-toolbox-grid stagger-children">
+                <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="hw-toolbox-item">
+                    <div class="hw-toolbox-item-icon"><i class="fas fa-newspaper"></i></div>
+                    <div class="hw-toolbox-item-label">今日头条</div>
+                    <div class="hw-toolbox-item-value">极客微栋</div>
+                </a>
+                <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="hw-toolbox-item">
+                    <div class="hw-toolbox-item-icon"><i class="fas fa-tv"></i></div>
+                    <div class="hw-toolbox-item-label">爱奇艺号</div>
+                    <div class="hw-toolbox-item-value">极客微栋 · 560+ 作品</div>
+                </a>
+                <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="hw-toolbox-item">
+                    <div class="hw-toolbox-item-icon"><i class="fab fa-weibo"></i></div>
+                    <div class="hw-toolbox-item-label">微博</div>
+                    <div class="hw-toolbox-item-value">@GeekWaedon</div>
+                </a>
+                <div class="hw-toolbox-item">
+                    <div class="hw-toolbox-item-icon"><i class="fab fa-weixin"></i></div>
+                    <div class="hw-toolbox-item-label">微信公众号</div>
+                    <div class="hw-toolbox-item-value">微信内搜索「极客微栋」</div>
+                </div>
+                <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="hw-toolbox-item">
+                    <div class="hw-toolbox-item-icon"><i class="fab fa-tiktok"></i></div>
+                    <div class="hw-toolbox-item-label">抖音</div>
+                    <div class="hw-toolbox-item-value">极客微栋</div>
+                </a>
+                <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="hw-toolbox-item">
+                    <div class="hw-toolbox-item-icon"><i class="fab fa-qq"></i></div>
+                    <div class="hw-toolbox-item-label">企鹅号</div>
+                    <div class="hw-toolbox-item-value">腾讯新闻 · 极客微栋</div>
+                </a>
+                <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="hw-toolbox-item">
+                    <div class="hw-toolbox-item-icon"><i class="fab fa-youtube"></i></div>
+                    <div class="hw-toolbox-item-label">YouTube</div>
+                    <div class="hw-toolbox-item-value">@GeekWaedon</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 知识星球 ==================== -->
+    <section class="section-zouic section-bg-gradient-2 section-grid-overlay reveal">
+        <div class="container">
+            <div class="card-dark" style="max-width:780px;margin:0 auto;text-align:center;padding:52px 32px;border-radius:16px;border:1px solid rgba(0,212,170,.25);">
+                <span class="section-zouic-badge" style="background: rgba(0, 212, 170, 0.12); color: var(--color-primary);"><i class="fas fa-star"></i> 会员社区</span>
+                <h2 style="font-size:28px;font-weight:700;margin:20px 0 12px;color:var(--text-primary, #fff);">加入「极客微栋」的知识星球</h2>
+                <p style="color:var(--text-secondary, #9ca3af);line-height:1.8;margin:0 0 26px;">开源硬件实战经验、开发板资料与工具、创作背后的思考，在这里沉淀与交流，还能向我直接提问</p>
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="btn-zouic btn-zouic-primary" style="display:inline-block;padding:12px 40px;font-weight:600;">
+                    <i class="fas fa-star me-2"></i>立即加入星球
+                </a>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- ==================== 本周趋势 ==================== -->
+    <section class="section-zouic section-bg-gradient-3 section-grid-overlay reveal">
+        <div class="container">
+            <div class="section-zouic-header">
+                <div>
+                    <span class="section-zouic-badge" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b;"><i class="fas fa-clock-rotate-left"></i> Latest Additions</span>
+                    <h2 class="section-zouic-title">Latest Additions</h2>
+                    <p class="section-zouic-desc">Newly added boards in the library</p>
+                </div>
+                <a href="/en/boards" class="btn-zouic btn-zouic-secondary d-none d-md-inline-flex">View All <i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+            <div class="row g-3 stagger-children">
+                
+                <div class="col-lg-4 col-md-6">
+                    <a href="/en/board/20" class="card-zouic card-zouic-hw text-decoration-none d-block">
+                        <div class="card-zouic-hw-top">
+                            <div class="d-flex gap-2">
+                                <span class="card-zouic-hw-chip">NearLink</span>
+                                <span class="trending-chip trending-chip-new"><i class="fas fa-star"></i> NEW</span>
+                            </div>
+                            <h3 class="card-zouic-hw-name">NearLink Gateway</h3>
+                        </div>
+                        <div class="card-zouic-hw-specs">
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">Speed</span>
+                                <span class="hw-spec-value">400MHz</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">GPIO</span>
+                                <span class="hw-spec-value">32</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">Flash</span>
+                                <span class="hw-spec-value">8MB</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">RAM</span>
+                                <span class="hw-spec-value">2MB</span>
+                            </div>
+                        </div>
+                        <p class="card-zouic-hw-desc">星闪网关设备，支持星闪高速模式，可连接多个星闪设备，构建星闪物联网网络</p>
+                        <div class="card-zouic-hw-footer">
+                            <span class="card-zouic-hw-price">300-500</span>
+                            <span class="text-secondary text-sm">Huawei</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <a href="/en/board/19" class="card-zouic card-zouic-hw text-decoration-none d-block">
+                        <div class="card-zouic-hw-top">
+                            <div class="d-flex gap-2">
+                                <span class="card-zouic-hw-chip">NearLink</span>
+                                <span class="trending-chip trending-chip-new"><i class="fas fa-star"></i> NEW</span>
+                            </div>
+                            <h3 class="card-zouic-hw-name">NearLink Sensor Node</h3>
+                        </div>
+                        <div class="card-zouic-hw-specs">
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">Speed</span>
+                                <span class="hw-spec-value">120MHz</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">GPIO</span>
+                                <span class="hw-spec-value">16</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">Flash</span>
+                                <span class="hw-spec-value">512KB</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">RAM</span>
+                                <span class="hw-spec-value">128KB</span>
+                            </div>
+                        </div>
+                        <p class="card-zouic-hw-desc">星闪传感器节点，超低功耗设计，支持星闪低功耗模式，适合电池供电的传感器网络</p>
+                        <div class="card-zouic-hw-footer">
+                            <span class="card-zouic-hw-price">50-100</span>
+                            <span class="text-secondary text-sm">Huawei</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <a href="/en/board/18" class="card-zouic card-zouic-hw text-decoration-none d-block">
+                        <div class="card-zouic-hw-top">
+                            <div class="d-flex gap-2">
+                                <span class="card-zouic-hw-chip">NearLink</span>
+                                <span class="trending-chip trending-chip-new"><i class="fas fa-star"></i> NEW</span>
+                            </div>
+                            <h3 class="card-zouic-hw-name">NearLink DevKit Pro</h3>
+                        </div>
+                        <div class="card-zouic-hw-specs">
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">Speed</span>
+                                <span class="hw-spec-value">200MHz</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">GPIO</span>
+                                <span class="hw-spec-value">28</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">Flash</span>
+                                <span class="hw-spec-value">2MB</span>
+                            </div>
+                            <div class="hw-spec-item">
+                                <span class="hw-spec-label">RAM</span>
+                                <span class="hw-spec-value">512KB</span>
+                            </div>
+                        </div>
+                        <p class="card-zouic-hw-desc">华为星闪技术开发板，支持NearLink协议，低时延高可靠通信，适合物联网和智能家居应用</p>
+                        <div class="card-zouic-hw-footer">
+                            <span class="card-zouic-hw-price">150-300</span>
+                            <span class="text-secondary text-sm">Huawei</span>
+                        </div>
+                    </a>
+                </div>
+                
+            </div>
+            <div class="text-center mt-4 d-md-none">
+                <a href="/en/boards" class="btn-zouic btn-zouic-secondary">View All <i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 社区聚焦 ==================== -->
+    <section class="section-zouic section-bg-gradient-1 section-grid-overlay reveal">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6">
+                    <span class="section-zouic-badge" style="background: rgba(16, 185, 129, 0.12); color: #10b981;"><i class="fas fa-users"></i> Community Spotlight</span>
+                    <h2 class="section-zouic-title" style="margin-bottom: 0.5rem;">Join Our Community</h2>
+                    <p class="section-zouic-desc">Share your projects, get feedback, and collaborate with fellow hardware engineers</p>
+                    <div class="d-flex align-items-center gap-4 mb-4 mt-4">
+                        <div class="contributor-group">
+                            <div class="contributor-avatar"><i class="fas fa-user"></i></div>
+                            <div class="contributor-avatar" style="background-color: var(--color-secondary-muted);"><i class="fas fa-user" style="color: var(--color-secondary);"></i></div>
+                            <div class="contributor-avatar" style="background-color: var(--color-accent-muted);"><i class="fas fa-user" style="color: var(--color-accent);"></i></div>
+                            <div class="contributor-avatar" style="background-color: var(--color-success-muted);"><i class="fas fa-user" style="color: var(--color-success);"></i></div>
+                            <div class="contributor-more">+</div>
+                        </div>
+                        <span class="text-secondary text-sm">10K+ contributors</span>
+                    </div>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="/en/register" class="btn-zouic btn-zouic-primary btn-zouic-lg">Join Our Community</a>
+                        <a href="/en/contribute" class="btn-zouic btn-zouic-secondary btn-zouic-lg">Contribute</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="community-section-img">
+                        <img src="/static/images/sections/community-collab.jpg" alt="ZouIC 开发者社区" loading="lazy">
+                        <div class="community-img-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA ==================== -->
+    <section class="cta-section cta-section-bg section-zouic section-grid-overlay reveal">
+        <div class="container">
+            <div class="cta-card">
+                <h2 class="text-2xl font-bold mb-3">Start Exploring the Open Source Hardware World</h2>
+                <p class="text-secondary mb-4">Join 10,000+ developers and discover endless possibilities</p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="/en/boards" class="btn-zouic btn-zouic-primary btn-zouic-lg">Explore Boards</a>
+                    <a href="/en/projects" class="btn-zouic btn-zouic-secondary btn-zouic-lg">Explore Projects</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Newsletter Section -->
+    <section class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h3 class="text-xl font-bold mb-2">Stay Ahead of the Curve</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">Get weekly curated picks, trending boards, and exclusive hardware engineering tips delivered to your inbox</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <form id="newsletterForm" class="newsletter-form" onsubmit="handleNewsletter(event)">
+                            <input type="email" id="newsletterEmail" class="input-zouic" placeholder="Enter your email address" required>
+                            <button type="submit" class="btn-zouic btn-zouic-primary btn-zouic-lg">Subscribe</button>
+                        </form>
+                        <div class="newsletter-benefits">
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Weekly curated board picks</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Exclusive project deep-dives</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> No spam, unsubscribe anytime</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4" aria-label="出品人">
+        <div class="author-card">
+            <div class="author-card-info">
+                <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
+                <div>
+                    <div class="author-card-name">Created by GeekWaedon <span>@GeekWaedon</span></div>
+                    <div class="author-card-bio">Hardware maker and AI practitioner. This entire website was built hands-on with AI tools.</div>
+                </div>
+            </div>
+            <div class="author-card-actions">
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Join my Knowledge Planet</a>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;极客微栋&#34;</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-zouic" role="contentinfo">
+        <div class="container">
+            <div class="row footer-main">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
+                    <a href="/" class="footer-brand" aria-label="ZouIC 首页">
+                        <i class="fas fa-microchip"></i>
+                        <span>ZouIC</span>
+                    </a>
+                    <p class="footer-tagline">Open source projects aggregated on this platform follow their respective open source licenses. For details, please see the</p>
+
+                    <div class="footer-meta">
+                        <p class="footer-author">
+                            出品人 · <strong>极客微栋</strong>
+                            <span class="footer-author-handle">@GeekWaedon</span>
+                        </p>
+                        <div class="footer-slash-tags">
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span>
+                            <a href="/en/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商资质">
+                                <i class="fab fa-weixin"></i> 企业微信服务商
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋（微信内搜索）"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a>
+                        <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="/en/products">Products</a></li>
+                        <li><a href="/en/services">Services</a></li>
+                        <li><a href="/en/news">Industry News</a></li>
+                        <li><a href="/en/boards">Development Boards</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="/en/tutorials">Tutorials</a></li>
+                        <li><a href="/en/documentation">Documentation</a></li>
+                        <li><a href="/en/cases">Project Cases</a></li>
+                        <li><a href="/en/help">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Open Source</h5>
+                    <ul>
+                        <li><a href="/en/open-source">Open Source Projects</a></li>
+                        <li><a href="/en/articles">Articles</a></li>
+                        <li><a href="/en/contribute">Contribute</a></li>
+                        <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h5>About</h5>
+                    <ul>
+                        <li><a href="/en/about">About Us</a></li>
+                        <li><a href="/en/about#contact">Contact Us</a></li>
+                        <li><a href="/en/licenses">Open Source Licenses</a></li>
+                        <li><a href="/en/about#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ZouIC. All rights reserved.</p>
+                <p>Open source projects aggregated on this platform follow their respective open source licenses. For details, please see the <a href="/en/licenses">Open Source Licenses</a> page.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            const revealElements = document.querySelectorAll('.reveal');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <!-- AI Chat Widget -->
+    <div class="chat-widget">
+        <div id="agent-chat-container" class="chat-widget-container">
+            <div class="chat-widget-header">
+                <div class="d-flex align-items-center gap-2">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Assistant</span>
+                </div>
+                <button id="agent-chat-close" class="btn-zouic btn-zouic-ghost btn-zouic-sm" style="color: rgba(255,255,255,0.8);">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="agent-chat-messages" class="chat-widget-messages">
+                <div class="d-flex align-items-start gap-2 mb-4">
+                    <div class="chat-widget-toggle" style="width: 32px; height: 32px; font-size: 0.75rem; flex-shrink: 0;">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="bg-secondary/50 rounded-lg rounded-tl-none p-3 text-sm" style="background-color: rgba(14, 165, 233, 0.15);">
+                        Search boards, projects or keywords...
+                    </div>
+                </div>
+            </div>
+            <div class="chat-widget-input-area">
+                <div class="d-flex gap-2">
+                    <input type="text" id="agent-chat-input" 
+                        class="input-zouic flex-grow-1"
+                        placeholder="Enter your message...">
+                    <button id="agent-chat-send" class="btn-zouic btn-zouic-primary btn-zouic-sm">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <button id="agent-chat-toggle" class="chat-widget-toggle">
+            <i class="fas fa-robot" style="font-size: 1.25rem;"></i>
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatToggle = document.getElementById('agent-chat-toggle');
+            const chatContainer = document.getElementById('agent-chat-container');
+            const chatClose = document.getElementById('agent-chat-close');
+            const chatInput = document.getElementById('agent-chat-input');
+            const chatSend = document.getElementById('agent-chat-send');
+            const chatMessages = document.getElementById('agent-chat-messages');
+            
+            let agentSessionId = null;
+            
+            if (chatToggle && chatContainer) {
+                chatToggle.addEventListener('click', function() {
+                    chatContainer.classList.toggle('open');
+                    if (chatContainer.classList.contains('open')) {
+                        chatInput.focus();
+                    }
+                });
+            }
+            
+            if (chatClose && chatContainer) {
+                chatClose.addEventListener('click', function() {
+                    chatContainer.classList.remove('open');
+                });
+            }
+            
+            const addMessage = function(text, isUser = false) {
+                const div = document.createElement('div');
+                div.className = 'd-flex align-items-start gap-2 mb-4' + (isUser ? ' flex-row-reverse' : '');
+                
+                const avatar = document.createElement('div');
+                avatar.className = 'chat-widget-toggle flex-shrink-0';
+                avatar.style.cssText = 'width: 32px; height: 32px; font-size: 0.75rem;';
+                avatar.innerHTML = isUser ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
+                
+                const bubble = document.createElement('div');
+                bubble.className = 'rounded-lg px-3 py-2 text-sm ' +
+                    (isUser ? 'rounded-tr-none' : 'rounded-tl-none');
+                bubble.style.cssText = isUser 
+                    ? 'background-color: rgba(0, 212, 170, 0.15); color: var(--color-text-primary);'
+                    : 'background-color: rgba(14, 165, 233, 0.15); color: var(--color-text-primary);';
+                bubble.textContent = text;
+                
+                div.appendChild(isUser ? bubble : avatar);
+                div.appendChild(isUser ? avatar : bubble);
+                chatMessages.appendChild(div);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            };
+            
+            const sendMessage = async function() {
+                const message = chatInput.value.trim();
+                if (!message) return;
+                
+                addMessage(message, true);
+                chatInput.value = '';
+                
+                try {
+                    const response = await fetch('/api/agent/query', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ input: message, session_id: agentSessionId })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        agentSessionId = data.session_id;
+                        if (data.response && data.response.text) {
+                            addMessage(data.response.text, false);
+                        }
+                    } else {
+                        addMessage('Operation failed, please try again', false);
+                    }
+                } catch (error) {
+                    addMessage('Network error, please try again', false);
+                }
+            };
+            
+            if (chatSend) chatSend.addEventListener('click', sendMessage);
+            if (chatInput) {
+                chatInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') sendMessage();
+                });
+            }
+        });
+        
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Copied';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+        
+        // --- Newsletter form handler ---
+        window.handleNewsletter = function(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('newsletterEmail');
+            if (!emailInput || !emailInput.value.trim()) return;
+            
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'Subscribed!';
+            btn.disabled = true;
+            
+            // Simulate subscription (in production, send to API)
+            setTimeout(function() {
+                btn.textContent = '✓ ' + originalText;
+                btn.disabled = false;
+                emailInput.value = '';
+                
+                // Show toast
+                const toast = document.createElement('div');
+                toast.className = 'toast-zouic toast-zouic-success show';
+                toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Subscribed!';
+                document.body.appendChild(toast);
+                setTimeout(function() { toast.remove(); }, 3000);
+            }, 1000);
+        };
+    </script>
+</body>
+</html>

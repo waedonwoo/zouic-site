@@ -1,0 +1,2294 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><link rel="alternate" hreflang="zh" href="https://www.zouic.com/boards"><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/boards"><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/boards">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="浏览和搜索各类开源开发板，包括ESP32、STM32、RP2040、RISC-V等，查看详细规格参数和技术文档。">
+    <meta name="keywords" content="开发板库,ESP32开发板,STM32开发板,RP2040,RISC-V开发板,硬件开发板">
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00d4aa">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <link rel="canonical" href="https://zouic.com/boards">
+    
+    <link rel="alternate" hreflang="zh" href="https://zouic.com/boards" />
+    <link rel="alternate" hreflang="en" href="https://zouic.com/en/boards" />
+    <link rel="alternate" hreflang="x-default" href="https://zouic.com/boards" />
+    
+    <meta property="og:title" content="开发板库 - 开源开发板数据库 | ZouIC">
+    <meta property="og:description" content="浏览和搜索各类开源开发板，包括ESP32、STM32、RP2040、RISC-V等，查看详细规格参数和技术文档。">
+    <meta property="og:url" content="https://zouic.com/boards">
+    <meta property="og:type" content="object">
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ZouIC%20open%20source%20hardware%20development%20board%20platform%20logo&amp;image_size=landscape_16_9">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="开发板库 - 开源开发板数据库 | ZouIC">
+    <meta name="twitter:description" content="浏览和搜索各类开源开发板，包括ESP32、STM32、RP2040、RISC-V等，查看详细规格参数和技术文档。">
+    <meta name="twitter:image" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ZouIC%20open%20source%20hardware%20development%20board%20platform%20logo&amp;image_size=landscape_16_9">
+    <meta name="twitter:site" content="@zouic">
+    <meta name="twitter:creator" content="@zouic">
+    
+    
+    
+    <title>开发板库 - ZouIC</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- External Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- ZouIC Design System -->
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css">
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 212, 170, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(14, 165, 233, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(139, 92, 246, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-microchip"></i> ZouIC
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/boards">开发板库</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/board-guide">文档中心</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projects">Demo项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/all-projects"><i class="fas fa-project-diagram me-1"></i>外部平台项目</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/products"><i class="fas fa-box me-2"></i>产品介绍</a></li>
+                            <li><a class="dropdown-item" href="/services"><i class="fas fa-cogs me-2"></i>服务说明</a></li>
+                            <li><a class="dropdown-item" href="/news"><i class="fas fa-newspaper me-2"></i>行业资讯</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/tutorials"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li>
+                            <li><a class="dropdown-item" href="/documentation"><i class="fas fa-book me-2"></i>技术文档</a></li>
+                            <li><a class="dropdown-item" href="/cases"><i class="fas fa-briefcase me-2"></i>项目案例</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/open-source"><i class="fas fa-code-branch me-2"></i>开源项目</a></li>
+                            <li><a class="dropdown-item" href="/articles"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li>
+                            <li><a class="dropdown-item" href="/contribute"><i class="fas fa-handshake me-2"></i>贡献指南</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-lg-none"><a class="nav-link" href="/search"><i class="fas fa-search me-1"></i>搜索</a></li>
+                </ul>
+                <form id="searchForm" class="d-flex me-3 d-none d-lg-flex">
+                    <div class="input-group input-group-zouic">
+                        <input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" style="width: 200px;">
+                        <select id="searchType" class="form-select input-zouic" style="width: auto; flex: 0 0 auto;">
+                            <option value="">全部分类</option>
+                            <option value="board">开发板库</option>
+                            <option value="project">Demo项目</option>
+                        </select>
+                        <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i> 中文
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/boards">
+                                <i class="fas fa-language me-2"></i> 中文
+                            </a></li>
+                            <li><a class="dropdown-item" href="/en/boards">
+                                <i class="fas fa-language me-2"></i> English
+                            </a></li>
+                        </ul>
+                    </div>
+                    
+                    <a href="/login" class="btn-zouic btn-zouic-ghost btn-zouic-sm">登录</a>
+                    <a href="/register" class="btn-zouic btn-zouic-primary btn-zouic-sm">注册</a>
+                    
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        
+    <section class="py-8">
+        <div class="container">
+            <div class="boards-page-head">
+                <div>
+                    <h1 class="text-3xl font-bold mb-2">开发板库</h1>
+                    <p class="text-secondary mb-0">浏览和筛选全球主流开源开发板</p>
+                </div>
+                <div class="boards-page-stats">
+                    <span><strong id="boardResultCount">20</strong> 款</span>
+                    <span class="boards-page-stats-divider"></span>
+                    <span>厂商 11</span>
+                    <span class="boards-page-stats-divider"></span>
+                    <span>芯片架构 6</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pb-8">
+        <div class="container">
+            <div class="row g-4">
+                <aside class="col-lg-3 col-12 sidebar-filter">
+                    <div class="card-dark p-4 mb-4 board-filter-panel">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="font-bold mb-0">筛选条件</h4>
+                            <button type="button" id="filterReset" class="filter-reset">清除所有筛选</button>
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="filter-group-label">厂商</label>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button type="button" class="filter-chip is-active" data-filter="vendor" data-value="">全部</button>
+                                
+                                <button type="button" class="filter-chip" data-filter="vendor" data-value="Arduino">Arduino</button>
+                                
+                                <button type="button" class="filter-chip" data-filter="vendor" data-value="Bouffalo Lab">Bouffalo Lab</button>
+                                
+                                <button type="button" class="filter-chip" data-filter="vendor" data-value="Espressif">Espressif</button>
+                                
+                                <button type="button" class="filter-chip" data-filter="vendor" data-value="GigaDevice">GigaDevice</button>
+                                
+                                <button type="button" class="filter-chip" data-filter="vendor" data-value="Huawei">Huawei</button>
+                                
+                                <button type="button" class="filter-chip" data-filter="vendor" data-value="Raspberry Pi">Raspberry Pi</button>
+                                
+                                <button type="button" class="filter-chip" data-filter="vendor" data-value="STMicroelectronics">STMicroelectronics</button>
+                                
+                                <button type="button" class="filter-chip" data-filter="vendor" data-value="SiFive">SiFive</button>
+                                
+                                <button type="button" class="filter-chip" data-filter="vendor" data-value="Sipeed">Sipeed</button>
+                                
+                                <button type="button" class="filter-chip" data-filter="vendor" data-value="StarFive">StarFive</button>
+                                
+                                <button type="button" class="filter-chip" data-filter="vendor" data-value="WCH">WCH</button>
+                                
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="filter-group-label">芯片架构</label>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button type="button" class="filter-chip is-active" data-filter="arch" data-value="">全部</button>
+                                
+                                <button type="button" class="filter-chip" data-filter="arch" data-value="ESP32">ESP32</button>
+                                
+                                <button type="button" class="filter-chip" data-filter="arch" data-value="NearLink">NearLink</button>
+                                
+                                <button type="button" class="filter-chip" data-filter="arch" data-value="RA4M1">RA4M1</button>
+                                
+                                <button type="button" class="filter-chip" data-filter="arch" data-value="RISC-V">RISC-V</button>
+                                
+                                <button type="button" class="filter-chip" data-filter="arch" data-value="RP2040">RP2040</button>
+                                
+                                <button type="button" class="filter-chip" data-filter="arch" data-value="STM32">STM32</button>
+                                
+                            </div>
+                        </div>
+
+                        <div class="filter-group mb-0">
+                            <label class="filter-group-label">分类</label>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button type="button" class="filter-chip is-active" data-filter="category" data-value="">全部</button>
+                                
+                                <button type="button" class="filter-chip" data-filter="category" data-value="general">通用开发板</button>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-dark p-4">
+                        <h4 class="font-bold mb-3">热门标签</h4>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="/search?q=Wi-Fi" class="badge-zouic badge-zouic-primary">Wi-Fi</a>
+                            <a href="/search?q=BLE" class="badge-zouic badge-zouic-primary">BLE</a>
+                            <a href="/search?q=USB" class="badge-zouic badge-zouic-primary">USB</a>
+                            <a href="/search?q=CAN" class="badge-zouic badge-zouic-primary">CAN</a>
+                            <a href="/search?q=Arduino" class="badge-zouic badge-zouic-primary">Arduino</a>
+                            <a href="/search?q=MicroPython" class="badge-zouic badge-zouic-primary">MicroPython</a>
+                            <a href="/search?q=工业" class="badge-zouic badge-zouic-primary">工业控制</a>
+                            <a href="/search?q=入门" class="badge-zouic badge-zouic-primary">入门</a>
+                        </div>
+                    </div>
+                </aside>
+
+                <div class="col-lg-9 col-12">
+                    <div class="boards-toolbar">
+                        <div class="boards-toolbar-search">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                            <input type="search" id="boardFilterQuery" class="boards-toolbar-input"
+                                   placeholder="在当前列表内搜索板名、芯片或外设..."
+                                   aria-label="搜索">
+                        </div>
+                        <label class="boards-sort">
+                            <span>排序</span>
+                            <select id="boardSort" class="boards-sort-select">
+                                <option value="default">默认</option>
+                                <option value="price">价格从低到高</option>
+                                <option value="gpio">GPIO 从多到少</option>
+                                <option value="name">名称 A-Z</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="row g-4" id="boardsGrid">
+                        
+                        <div class="col-md-6 col-12 board-item"
+                             data-name="ESP32-S3-DevKitC"
+                             data-vendor="Espressif"
+                             data-arch="ESP32"
+                             data-category="general"
+                             data-price="100-200"
+                             data-gpio="30"
+                             data-haystack="esp32-s3-devkitc espressif esp32 高性能双核处理器，支持wi-fi 6和ble 5.0，内置ai协处理器，适合物联网和边缘ai应用 wi-fi 6 ble 5.0 usb otg i2c spi uart adc dac">
+                            <div class="position-relative h-100">
+                                <a href="/board/1" class="card-zouic board-card text-decoration-none d-block h-100">
+                                    
+
+
+
+<div style="height:110px;border-radius:12px;background:linear-gradient(135deg,#0d9488,#0369a1);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+  
+  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
+  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">Espressif</span>
+  
+</div>
+                                    <div class="card-zouic-body">
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <span class="badge-zouic badge-zouic-primary">ESP32</span>
+                                            <span class="badge-zouic badge-zouic-secondary">Espressif</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold mb-2">ESP32-S3-DevKitC</h3>
+                                        <div class="quick-specs mb-3">
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">240MHz</span>
+                                                <span class="quick-spec-label">主频</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">30</span>
+                                                <span class="quick-spec-label">GPIO</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">8MB</span>
+                                                <span class="quick-spec-label">Flash</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">512KB</span>
+                                                <span class="quick-spec-label">RAM</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary text-sm mb-3 truncate-2">高性能双核处理器，支持Wi-Fi 6和BLE 5.0，内置AI协处理器，适合物联网和边缘AI应用</p>
+                                        <div class="board-spec-chips">
+                                            
+                                            <span class="board-spec-chip">Wi-Fi 6</span>
+                                            
+                                            <span class="board-spec-chip">BLE 5.0</span>
+                                            
+                                            <span class="board-spec-chip">USB OTG</span>
+                                            
+                                            <span class="board-spec-chip">I2C</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-zouic-footer">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="board-card-price">100-200</span>
+                                            <span class="board-card-cta">查看详情 <i class="fas fa-arrow-right"></i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <label class="compare-checkbox-label position-absolute top-3 right-3" style="z-index: 10; padding: 4px;">
+                                    <input type="checkbox" class="compare-checkbox" id="compare-1" data-id="1"
+                                           style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-primary);">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-12 board-item"
+                             data-name="ESP32-C3-DevKitM"
+                             data-vendor="Espressif"
+                             data-arch="ESP32"
+                             data-category="general"
+                             data-price="50-100"
+                             data-gpio="19"
+                             data-haystack="esp32-c3-devkitm espressif esp32 risc-v架构，低成本低功耗，适合入门级物联网项目 wi-fi ble 5.0 i2c spi uart">
+                            <div class="position-relative h-100">
+                                <a href="/board/2" class="card-zouic board-card text-decoration-none d-block h-100">
+                                    
+
+
+
+<div style="height:110px;border-radius:12px;background:linear-gradient(135deg,#0d9488,#0369a1);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+  
+  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
+  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">Espressif</span>
+  
+</div>
+                                    <div class="card-zouic-body">
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <span class="badge-zouic badge-zouic-primary">ESP32</span>
+                                            <span class="badge-zouic badge-zouic-secondary">Espressif</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold mb-2">ESP32-C3-DevKitM</h3>
+                                        <div class="quick-specs mb-3">
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">160MHz</span>
+                                                <span class="quick-spec-label">主频</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">19</span>
+                                                <span class="quick-spec-label">GPIO</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">4MB</span>
+                                                <span class="quick-spec-label">Flash</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">384KB</span>
+                                                <span class="quick-spec-label">RAM</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary text-sm mb-3 truncate-2">RISC-V架构，低成本低功耗，适合入门级物联网项目</p>
+                                        <div class="board-spec-chips">
+                                            
+                                            <span class="board-spec-chip">Wi-Fi</span>
+                                            
+                                            <span class="board-spec-chip">BLE 5.0</span>
+                                            
+                                            <span class="board-spec-chip">I2C</span>
+                                            
+                                            <span class="board-spec-chip">SPI</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-zouic-footer">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="board-card-price">50-100</span>
+                                            <span class="board-card-cta">查看详情 <i class="fas fa-arrow-right"></i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <label class="compare-checkbox-label position-absolute top-3 right-3" style="z-index: 10; padding: 4px;">
+                                    <input type="checkbox" class="compare-checkbox" id="compare-2" data-id="2"
+                                           style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-primary);">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-12 board-item"
+                             data-name="STM32F103C8T6 Blue Pill"
+                             data-vendor="STMicroelectronics"
+                             data-arch="STM32"
+                             data-category="general"
+                             data-price="20-50"
+                             data-gpio="37"
+                             data-haystack="stm32f103c8t6 blue pill stmicroelectronics stm32 经典arm cortex-m3，适合工业控制和电机驱动项目 usb i2c spi uart can adc">
+                            <div class="position-relative h-100">
+                                <a href="/board/3" class="card-zouic board-card text-decoration-none d-block h-100">
+                                    
+
+
+
+<div style="height:110px;border-radius:12px;background:linear-gradient(135deg,#2563eb,#1e40af);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+  
+  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
+  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">STMicroelectronics</span>
+  
+</div>
+                                    <div class="card-zouic-body">
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <span class="badge-zouic badge-zouic-primary">STM32</span>
+                                            <span class="badge-zouic badge-zouic-secondary">STMicroelectronics</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold mb-2">STM32F103C8T6 Blue Pill</h3>
+                                        <div class="quick-specs mb-3">
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">72MHz</span>
+                                                <span class="quick-spec-label">主频</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">37</span>
+                                                <span class="quick-spec-label">GPIO</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">64KB</span>
+                                                <span class="quick-spec-label">Flash</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">20KB</span>
+                                                <span class="quick-spec-label">RAM</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary text-sm mb-3 truncate-2">经典ARM Cortex-M3，适合工业控制和电机驱动项目</p>
+                                        <div class="board-spec-chips">
+                                            
+                                            <span class="board-spec-chip">USB</span>
+                                            
+                                            <span class="board-spec-chip">I2C</span>
+                                            
+                                            <span class="board-spec-chip">SPI</span>
+                                            
+                                            <span class="board-spec-chip">UART</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-zouic-footer">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="board-card-price">20-50</span>
+                                            <span class="board-card-cta">查看详情 <i class="fas fa-arrow-right"></i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <label class="compare-checkbox-label position-absolute top-3 right-3" style="z-index: 10; padding: 4px;">
+                                    <input type="checkbox" class="compare-checkbox" id="compare-3" data-id="3"
+                                           style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-primary);">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-12 board-item"
+                             data-name="STM32F407ZGT6 Discovery"
+                             data-vendor="STMicroelectronics"
+                             data-arch="STM32"
+                             data-category="general"
+                             data-price="300-500"
+                             data-gpio="144"
+                             data-haystack="stm32f407zgt6 discovery stmicroelectronics stm32 高性能arm cortex-m4带dsp，适合复杂信号处理和工业应用 usb otg i2c spi uart can ethernet sdio adc dac">
+                            <div class="position-relative h-100">
+                                <a href="/board/4" class="card-zouic board-card text-decoration-none d-block h-100">
+                                    
+
+
+
+<div style="height:110px;border-radius:12px;background:linear-gradient(135deg,#2563eb,#1e40af);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+  
+  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
+  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">STMicroelectronics</span>
+  
+</div>
+                                    <div class="card-zouic-body">
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <span class="badge-zouic badge-zouic-primary">STM32</span>
+                                            <span class="badge-zouic badge-zouic-secondary">STMicroelectronics</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold mb-2">STM32F407ZGT6 Discovery</h3>
+                                        <div class="quick-specs mb-3">
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">168MHz</span>
+                                                <span class="quick-spec-label">主频</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">144</span>
+                                                <span class="quick-spec-label">GPIO</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">1MB</span>
+                                                <span class="quick-spec-label">Flash</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">192KB</span>
+                                                <span class="quick-spec-label">RAM</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary text-sm mb-3 truncate-2">高性能ARM Cortex-M4带DSP，适合复杂信号处理和工业应用</p>
+                                        <div class="board-spec-chips">
+                                            
+                                            <span class="board-spec-chip">USB OTG</span>
+                                            
+                                            <span class="board-spec-chip">I2C</span>
+                                            
+                                            <span class="board-spec-chip">SPI</span>
+                                            
+                                            <span class="board-spec-chip">UART</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-zouic-footer">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="board-card-price">300-500</span>
+                                            <span class="board-card-cta">查看详情 <i class="fas fa-arrow-right"></i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <label class="compare-checkbox-label position-absolute top-3 right-3" style="z-index: 10; padding: 4px;">
+                                    <input type="checkbox" class="compare-checkbox" id="compare-4" data-id="4"
+                                           style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-primary);">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-12 board-item"
+                             data-name="Raspberry Pi Pico"
+                             data-vendor="Raspberry Pi"
+                             data-arch="RP2040"
+                             data-category="general"
+                             data-price="20-50"
+                             data-gpio="26"
+                             data-haystack="raspberry pi pico raspberry pi rp2040 双核arm cortex-m0+，可编程pio，10年供货承诺，适合教育和diy项目 usb i2c spi uart pio">
+                            <div class="position-relative h-100">
+                                <a href="/board/5" class="card-zouic board-card text-decoration-none d-block h-100">
+                                    
+
+
+
+<div style="height:110px;border-radius:12px;background:linear-gradient(135deg,#be185d,#9d174d);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+  
+  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
+  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">Raspberry Pi</span>
+  
+</div>
+                                    <div class="card-zouic-body">
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <span class="badge-zouic badge-zouic-primary">RP2040</span>
+                                            <span class="badge-zouic badge-zouic-secondary">Raspberry Pi</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold mb-2">Raspberry Pi Pico</h3>
+                                        <div class="quick-specs mb-3">
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">133MHz</span>
+                                                <span class="quick-spec-label">主频</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">26</span>
+                                                <span class="quick-spec-label">GPIO</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">2MB</span>
+                                                <span class="quick-spec-label">Flash</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">264KB</span>
+                                                <span class="quick-spec-label">RAM</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary text-sm mb-3 truncate-2">双核ARM Cortex-M0+，可编程PIO，10年供货承诺，适合教育和DIY项目</p>
+                                        <div class="board-spec-chips">
+                                            
+                                            <span class="board-spec-chip">USB</span>
+                                            
+                                            <span class="board-spec-chip">I2C</span>
+                                            
+                                            <span class="board-spec-chip">SPI</span>
+                                            
+                                            <span class="board-spec-chip">UART</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-zouic-footer">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="board-card-price">20-50</span>
+                                            <span class="board-card-cta">查看详情 <i class="fas fa-arrow-right"></i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <label class="compare-checkbox-label position-absolute top-3 right-3" style="z-index: 10; padding: 4px;">
+                                    <input type="checkbox" class="compare-checkbox" id="compare-5" data-id="5"
+                                           style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-primary);">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-12 board-item"
+                             data-name="Raspberry Pi Pico W"
+                             data-vendor="Raspberry Pi"
+                             data-arch="RP2040"
+                             data-category="general"
+                             data-price="50-100"
+                             data-gpio="22"
+                             data-haystack="raspberry pi pico w raspberry pi rp2040 pico升级版，内置wi-fi和ble，适合无线物联网项目 wi-fi ble usb i2c spi uart pio">
+                            <div class="position-relative h-100">
+                                <a href="/board/6" class="card-zouic board-card text-decoration-none d-block h-100">
+                                    
+
+
+
+<div style="height:110px;border-radius:12px;background:linear-gradient(135deg,#be185d,#9d174d);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+  
+  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
+  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">Raspberry Pi</span>
+  
+</div>
+                                    <div class="card-zouic-body">
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <span class="badge-zouic badge-zouic-primary">RP2040</span>
+                                            <span class="badge-zouic badge-zouic-secondary">Raspberry Pi</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold mb-2">Raspberry Pi Pico W</h3>
+                                        <div class="quick-specs mb-3">
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">133MHz</span>
+                                                <span class="quick-spec-label">主频</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">22</span>
+                                                <span class="quick-spec-label">GPIO</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">2MB</span>
+                                                <span class="quick-spec-label">Flash</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">264KB</span>
+                                                <span class="quick-spec-label">RAM</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary text-sm mb-3 truncate-2">Pico升级版，内置Wi-Fi和BLE，适合无线物联网项目</p>
+                                        <div class="board-spec-chips">
+                                            
+                                            <span class="board-spec-chip">Wi-Fi</span>
+                                            
+                                            <span class="board-spec-chip">BLE</span>
+                                            
+                                            <span class="board-spec-chip">USB</span>
+                                            
+                                            <span class="board-spec-chip">I2C</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-zouic-footer">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="board-card-price">50-100</span>
+                                            <span class="board-card-cta">查看详情 <i class="fas fa-arrow-right"></i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <label class="compare-checkbox-label position-absolute top-3 right-3" style="z-index: 10; padding: 4px;">
+                                    <input type="checkbox" class="compare-checkbox" id="compare-6" data-id="6"
+                                           style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-primary);">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-12 board-item"
+                             data-name="Arduino UNO R4 Minima"
+                             data-vendor="Arduino"
+                             data-arch="RA4M1"
+                             data-category="general"
+                             data-price="100-200"
+                             data-gpio="20"
+                             data-haystack="arduino uno r4 minima arduino ra4m1 经典uno的升级版，ra4m1处理器，适合教育和入门项目 usb-c i2c spi uart can">
+                            <div class="position-relative h-100">
+                                <a href="/board/7" class="card-zouic board-card text-decoration-none d-block h-100">
+                                    
+
+
+<div style="height:110px;border-radius:12px;background:linear-gradient(135deg,#334155,#1e293b);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+  
+  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
+  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">Arduino</span>
+  
+</div>
+                                    <div class="card-zouic-body">
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <span class="badge-zouic badge-zouic-primary">RA4M1</span>
+                                            <span class="badge-zouic badge-zouic-secondary">Arduino</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold mb-2">Arduino UNO R4 Minima</h3>
+                                        <div class="quick-specs mb-3">
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">48MHz</span>
+                                                <span class="quick-spec-label">主频</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">20</span>
+                                                <span class="quick-spec-label">GPIO</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">256KB</span>
+                                                <span class="quick-spec-label">Flash</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">32KB</span>
+                                                <span class="quick-spec-label">RAM</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary text-sm mb-3 truncate-2">经典UNO的升级版，RA4M1处理器，适合教育和入门项目</p>
+                                        <div class="board-spec-chips">
+                                            
+                                            <span class="board-spec-chip">USB-C</span>
+                                            
+                                            <span class="board-spec-chip">I2C</span>
+                                            
+                                            <span class="board-spec-chip">SPI</span>
+                                            
+                                            <span class="board-spec-chip">UART</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-zouic-footer">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="board-card-price">100-200</span>
+                                            <span class="board-card-cta">查看详情 <i class="fas fa-arrow-right"></i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <label class="compare-checkbox-label position-absolute top-3 right-3" style="z-index: 10; padding: 4px;">
+                                    <input type="checkbox" class="compare-checkbox" id="compare-7" data-id="7"
+                                           style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-primary);">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-12 board-item"
+                             data-name="Arduino Nano ESP32"
+                             data-vendor="Arduino"
+                             data-arch="ESP32"
+                             data-category="general"
+                             data-price="100-200"
+                             data-gpio="22"
+                             data-haystack="arduino nano esp32 arduino esp32 nano尺寸，esp32-s3核心，适合紧凑的物联网项目 wi-fi ble usb-c i2c spi uart">
+                            <div class="position-relative h-100">
+                                <a href="/board/8" class="card-zouic board-card text-decoration-none d-block h-100">
+                                    
+
+
+
+<div style="height:110px;border-radius:12px;background:linear-gradient(135deg,#0d9488,#0369a1);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+  
+  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
+  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">Arduino</span>
+  
+</div>
+                                    <div class="card-zouic-body">
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <span class="badge-zouic badge-zouic-primary">ESP32</span>
+                                            <span class="badge-zouic badge-zouic-secondary">Arduino</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold mb-2">Arduino Nano ESP32</h3>
+                                        <div class="quick-specs mb-3">
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">240MHz</span>
+                                                <span class="quick-spec-label">主频</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">22</span>
+                                                <span class="quick-spec-label">GPIO</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">8MB</span>
+                                                <span class="quick-spec-label">Flash</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">512KB</span>
+                                                <span class="quick-spec-label">RAM</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary text-sm mb-3 truncate-2">Nano尺寸，ESP32-S3核心，适合紧凑的物联网项目</p>
+                                        <div class="board-spec-chips">
+                                            
+                                            <span class="board-spec-chip">Wi-Fi</span>
+                                            
+                                            <span class="board-spec-chip">BLE</span>
+                                            
+                                            <span class="board-spec-chip">USB-C</span>
+                                            
+                                            <span class="board-spec-chip">I2C</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-zouic-footer">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="board-card-price">100-200</span>
+                                            <span class="board-card-cta">查看详情 <i class="fas fa-arrow-right"></i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <label class="compare-checkbox-label position-absolute top-3 right-3" style="z-index: 10; padding: 4px;">
+                                    <input type="checkbox" class="compare-checkbox" id="compare-8" data-id="8"
+                                           style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-primary);">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-12 board-item"
+                             data-name="HiFive Unmatched"
+                             data-vendor="SiFive"
+                             data-arch="RISC-V"
+                             data-category="general"
+                             data-price="500-800"
+                             data-gpio="40"
+                             data-haystack="hifive unmatched sifive risc-v 高性能risc-v sbc，适合linux开发和高性能计算 ethernet usb 3.0 pcie i2c spi uart gpio">
+                            <div class="position-relative h-100">
+                                <a href="/board/9" class="card-zouic board-card text-decoration-none d-block h-100">
+                                    
+
+
+
+<div style="height:110px;border-radius:12px;background:linear-gradient(135deg,#ea580c,#b45309);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+  
+  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
+  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">SiFive</span>
+  
+</div>
+                                    <div class="card-zouic-body">
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <span class="badge-zouic badge-zouic-primary">RISC-V</span>
+                                            <span class="badge-zouic badge-zouic-secondary">SiFive</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold mb-2">HiFive Unmatched</h3>
+                                        <div class="quick-specs mb-3">
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">1.5GHz</span>
+                                                <span class="quick-spec-label">主频</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">40</span>
+                                                <span class="quick-spec-label">GPIO</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">32MB</span>
+                                                <span class="quick-spec-label">Flash</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">8GB</span>
+                                                <span class="quick-spec-label">RAM</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary text-sm mb-3 truncate-2">高性能RISC-V SBC，适合Linux开发和高性能计算</p>
+                                        <div class="board-spec-chips">
+                                            
+                                            <span class="board-spec-chip">Ethernet</span>
+                                            
+                                            <span class="board-spec-chip">USB 3.0</span>
+                                            
+                                            <span class="board-spec-chip">PCIe</span>
+                                            
+                                            <span class="board-spec-chip">I2C</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-zouic-footer">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="board-card-price">500-800</span>
+                                            <span class="board-card-cta">查看详情 <i class="fas fa-arrow-right"></i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <label class="compare-checkbox-label position-absolute top-3 right-3" style="z-index: 10; padding: 4px;">
+                                    <input type="checkbox" class="compare-checkbox" id="compare-9" data-id="9"
+                                           style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-primary);">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-12 board-item"
+                             data-name="SiFive HiFive 1 Rev B"
+                             data-vendor="SiFive"
+                             data-arch="RISC-V"
+                             data-category="general"
+                             data-price="50-100"
+                             data-gpio="32"
+                             data-haystack="sifive hifive 1 rev b sifive risc-v sifive首款量产risc-v开发板，适合学习和原型开发 usb i2c spi uart adc pwm">
+                            <div class="position-relative h-100">
+                                <a href="/board/10" class="card-zouic board-card text-decoration-none d-block h-100">
+                                    
+
+
+
+<div style="height:110px;border-radius:12px;background:linear-gradient(135deg,#ea580c,#b45309);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+  
+  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
+  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">SiFive</span>
+  
+</div>
+                                    <div class="card-zouic-body">
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <span class="badge-zouic badge-zouic-primary">RISC-V</span>
+                                            <span class="badge-zouic badge-zouic-secondary">SiFive</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold mb-2">SiFive HiFive 1 Rev B</h3>
+                                        <div class="quick-specs mb-3">
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">320MHz</span>
+                                                <span class="quick-spec-label">主频</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">32</span>
+                                                <span class="quick-spec-label">GPIO</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">16MB</span>
+                                                <span class="quick-spec-label">Flash</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">16KB</span>
+                                                <span class="quick-spec-label">RAM</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary text-sm mb-3 truncate-2">SiFive首款量产RISC-V开发板，适合学习和原型开发</p>
+                                        <div class="board-spec-chips">
+                                            
+                                            <span class="board-spec-chip">USB</span>
+                                            
+                                            <span class="board-spec-chip">I2C</span>
+                                            
+                                            <span class="board-spec-chip">SPI</span>
+                                            
+                                            <span class="board-spec-chip">UART</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-zouic-footer">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="board-card-price">50-100</span>
+                                            <span class="board-card-cta">查看详情 <i class="fas fa-arrow-right"></i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <label class="compare-checkbox-label position-absolute top-3 right-3" style="z-index: 10; padding: 4px;">
+                                    <input type="checkbox" class="compare-checkbox" id="compare-10" data-id="10"
+                                           style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-primary);">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-12 board-item"
+                             data-name="SiFive HiFive 2"
+                             data-vendor="SiFive"
+                             data-arch="RISC-V"
+                             data-category="general"
+                             data-price="80-150"
+                             data-gpio="48"
+                             data-haystack="sifive hifive 2 sifive risc-v hifive 1升级版，更多gpio和外设，适合物联网应用 usb i2c spi uart adc pwm qspi">
+                            <div class="position-relative h-100">
+                                <a href="/board/11" class="card-zouic board-card text-decoration-none d-block h-100">
+                                    
+
+
+
+<div style="height:110px;border-radius:12px;background:linear-gradient(135deg,#ea580c,#b45309);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+  
+  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
+  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">SiFive</span>
+  
+</div>
+                                    <div class="card-zouic-body">
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <span class="badge-zouic badge-zouic-primary">RISC-V</span>
+                                            <span class="badge-zouic badge-zouic-secondary">SiFive</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold mb-2">SiFive HiFive 2</h3>
+                                        <div class="quick-specs mb-3">
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">320MHz</span>
+                                                <span class="quick-spec-label">主频</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">48</span>
+                                                <span class="quick-spec-label">GPIO</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">32MB</span>
+                                                <span class="quick-spec-label">Flash</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">16KB</span>
+                                                <span class="quick-spec-label">RAM</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary text-sm mb-3 truncate-2">HiFive 1升级版，更多GPIO和外设，适合物联网应用</p>
+                                        <div class="board-spec-chips">
+                                            
+                                            <span class="board-spec-chip">USB</span>
+                                            
+                                            <span class="board-spec-chip">I2C</span>
+                                            
+                                            <span class="board-spec-chip">SPI</span>
+                                            
+                                            <span class="board-spec-chip">UART</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-zouic-footer">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="board-card-price">80-150</span>
+                                            <span class="board-card-cta">查看详情 <i class="fas fa-arrow-right"></i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <label class="compare-checkbox-label position-absolute top-3 right-3" style="z-index: 10; padding: 4px;">
+                                    <input type="checkbox" class="compare-checkbox" id="compare-11" data-id="11"
+                                           style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-primary);">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-12 board-item"
+                             data-name="StarFive VisionFive 2"
+                             data-vendor="StarFive"
+                             data-arch="RISC-V"
+                             data-category="general"
+                             data-price="200-400"
+                             data-gpio="40"
+                             data-haystack="starfive visionfive 2 starfive risc-v 高性能risc-v sbc，支持gpu和ai加速，适合边缘计算和ai应用 ethernet usb 3.0 hdmi mipi-dsi pcie i2c spi uart">
+                            <div class="position-relative h-100">
+                                <a href="/board/12" class="card-zouic board-card text-decoration-none d-block h-100">
+                                    
+
+
+
+<div style="height:110px;border-radius:12px;background:linear-gradient(135deg,#ea580c,#b45309);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+  
+  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
+  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">StarFive</span>
+  
+</div>
+                                    <div class="card-zouic-body">
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <span class="badge-zouic badge-zouic-primary">RISC-V</span>
+                                            <span class="badge-zouic badge-zouic-secondary">StarFive</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold mb-2">StarFive VisionFive 2</h3>
+                                        <div class="quick-specs mb-3">
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">1.5GHz</span>
+                                                <span class="quick-spec-label">主频</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">40</span>
+                                                <span class="quick-spec-label">GPIO</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">32MB</span>
+                                                <span class="quick-spec-label">Flash</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">8GB</span>
+                                                <span class="quick-spec-label">RAM</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary text-sm mb-3 truncate-2">高性能RISC-V SBC，支持GPU和AI加速，适合边缘计算和AI应用</p>
+                                        <div class="board-spec-chips">
+                                            
+                                            <span class="board-spec-chip">Ethernet</span>
+                                            
+                                            <span class="board-spec-chip">USB 3.0</span>
+                                            
+                                            <span class="board-spec-chip">HDMI</span>
+                                            
+                                            <span class="board-spec-chip">MIPI-DSI</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-zouic-footer">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="board-card-price">200-400</span>
+                                            <span class="board-card-cta">查看详情 <i class="fas fa-arrow-right"></i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <label class="compare-checkbox-label position-absolute top-3 right-3" style="z-index: 10; padding: 4px;">
+                                    <input type="checkbox" class="compare-checkbox" id="compare-12" data-id="12"
+                                           style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-primary);">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-12 board-item"
+                             data-name="Sipeed Maixduino"
+                             data-vendor="Sipeed"
+                             data-arch="RISC-V"
+                             data-category="general"
+                             data-price="50-100"
+                             data-gpio="48"
+                             data-haystack="sipeed maixduino sipeed risc-v ai视觉开发板，内置k210芯片，支持神经网络推理，适合aiot应用 usb i2c spi uart lcd camera ai accelerator">
+                            <div class="position-relative h-100">
+                                <a href="/board/13" class="card-zouic board-card text-decoration-none d-block h-100">
+                                    
+
+
+
+<div style="height:110px;border-radius:12px;background:linear-gradient(135deg,#ea580c,#b45309);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+  
+  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
+  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">Sipeed</span>
+  
+</div>
+                                    <div class="card-zouic-body">
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <span class="badge-zouic badge-zouic-primary">RISC-V</span>
+                                            <span class="badge-zouic badge-zouic-secondary">Sipeed</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold mb-2">Sipeed Maixduino</h3>
+                                        <div class="quick-specs mb-3">
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">400MHz</span>
+                                                <span class="quick-spec-label">主频</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">48</span>
+                                                <span class="quick-spec-label">GPIO</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">8MB</span>
+                                                <span class="quick-spec-label">Flash</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">6MB</span>
+                                                <span class="quick-spec-label">RAM</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary text-sm mb-3 truncate-2">AI视觉开发板，内置K210芯片，支持神经网络推理，适合AIoT应用</p>
+                                        <div class="board-spec-chips">
+                                            
+                                            <span class="board-spec-chip">USB</span>
+                                            
+                                            <span class="board-spec-chip">I2C</span>
+                                            
+                                            <span class="board-spec-chip">SPI</span>
+                                            
+                                            <span class="board-spec-chip">UART</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-zouic-footer">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="board-card-price">50-100</span>
+                                            <span class="board-card-cta">查看详情 <i class="fas fa-arrow-right"></i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <label class="compare-checkbox-label position-absolute top-3 right-3" style="z-index: 10; padding: 4px;">
+                                    <input type="checkbox" class="compare-checkbox" id="compare-13" data-id="13"
+                                           style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-primary);">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-12 board-item"
+                             data-name="Bouffalo Lab BL602"
+                             data-vendor="Bouffalo Lab"
+                             data-arch="RISC-V"
+                             data-category="general"
+                             data-price="20-50"
+                             data-gpio="22"
+                             data-haystack="bouffalo lab bl602 bouffalo lab risc-v 低功耗wi-fi+ble risc-v mcu，适合物联网和智能家居应用 wi-fi ble 5.0 usb i2c spi uart adc dac">
+                            <div class="position-relative h-100">
+                                <a href="/board/14" class="card-zouic board-card text-decoration-none d-block h-100">
+                                    
+
+
+
+<div style="height:110px;border-radius:12px;background:linear-gradient(135deg,#ea580c,#b45309);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+  
+  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
+  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">Bouffalo Lab</span>
+  
+</div>
+                                    <div class="card-zouic-body">
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <span class="badge-zouic badge-zouic-primary">RISC-V</span>
+                                            <span class="badge-zouic badge-zouic-secondary">Bouffalo Lab</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold mb-2">Bouffalo Lab BL602</h3>
+                                        <div class="quick-specs mb-3">
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">133MHz</span>
+                                                <span class="quick-spec-label">主频</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">22</span>
+                                                <span class="quick-spec-label">GPIO</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">4MB</span>
+                                                <span class="quick-spec-label">Flash</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">256KB</span>
+                                                <span class="quick-spec-label">RAM</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary text-sm mb-3 truncate-2">低功耗Wi-Fi+BLE RISC-V MCU，适合物联网和智能家居应用</p>
+                                        <div class="board-spec-chips">
+                                            
+                                            <span class="board-spec-chip">Wi-Fi</span>
+                                            
+                                            <span class="board-spec-chip">BLE 5.0</span>
+                                            
+                                            <span class="board-spec-chip">USB</span>
+                                            
+                                            <span class="board-spec-chip">I2C</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-zouic-footer">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="board-card-price">20-50</span>
+                                            <span class="board-card-cta">查看详情 <i class="fas fa-arrow-right"></i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <label class="compare-checkbox-label position-absolute top-3 right-3" style="z-index: 10; padding: 4px;">
+                                    <input type="checkbox" class="compare-checkbox" id="compare-14" data-id="14"
+                                           style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-primary);">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-12 board-item"
+                             data-name="ESP32-C6"
+                             data-vendor="Espressif"
+                             data-arch="RISC-V"
+                             data-category="general"
+                             data-price="30-60"
+                             data-gpio="34"
+                             data-haystack="esp32-c6 espressif risc-v 乐鑫首款risc-v esp32芯片，支持wi-fi 6和ble 5.0，兼容性强 wi-fi 6 ble 5.0 usb i2c spi uart adc dac rmt">
+                            <div class="position-relative h-100">
+                                <a href="/board/15" class="card-zouic board-card text-decoration-none d-block h-100">
+                                    
+
+
+
+<div style="height:110px;border-radius:12px;background:linear-gradient(135deg,#0d9488,#0369a1);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+  
+  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
+  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">Espressif</span>
+  
+</div>
+                                    <div class="card-zouic-body">
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <span class="badge-zouic badge-zouic-primary">RISC-V</span>
+                                            <span class="badge-zouic badge-zouic-secondary">Espressif</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold mb-2">ESP32-C6</h3>
+                                        <div class="quick-specs mb-3">
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">160MHz</span>
+                                                <span class="quick-spec-label">主频</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">34</span>
+                                                <span class="quick-spec-label">GPIO</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">4MB</span>
+                                                <span class="quick-spec-label">Flash</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">384KB</span>
+                                                <span class="quick-spec-label">RAM</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary text-sm mb-3 truncate-2">乐鑫首款RISC-V ESP32芯片，支持Wi-Fi 6和BLE 5.0，兼容性强</p>
+                                        <div class="board-spec-chips">
+                                            
+                                            <span class="board-spec-chip">Wi-Fi 6</span>
+                                            
+                                            <span class="board-spec-chip">BLE 5.0</span>
+                                            
+                                            <span class="board-spec-chip">USB</span>
+                                            
+                                            <span class="board-spec-chip">I2C</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-zouic-footer">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="board-card-price">30-60</span>
+                                            <span class="board-card-cta">查看详情 <i class="fas fa-arrow-right"></i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <label class="compare-checkbox-label position-absolute top-3 right-3" style="z-index: 10; padding: 4px;">
+                                    <input type="checkbox" class="compare-checkbox" id="compare-15" data-id="15"
+                                           style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-primary);">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-12 board-item"
+                             data-name="CH32V307"
+                             data-vendor="WCH"
+                             data-arch="RISC-V"
+                             data-category="general"
+                             data-price="20-50"
+                             data-gpio="80"
+                             data-haystack="ch32v307 wch risc-v 南京沁恒risc-v mcu，丰富外设，性价比高，适合工业控制 usb i2c spi uart can adc dac eth">
+                            <div class="position-relative h-100">
+                                <a href="/board/16" class="card-zouic board-card text-decoration-none d-block h-100">
+                                    
+
+
+
+<div style="height:110px;border-radius:12px;background:linear-gradient(135deg,#ea580c,#b45309);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+  
+  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
+  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">WCH</span>
+  
+</div>
+                                    <div class="card-zouic-body">
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <span class="badge-zouic badge-zouic-primary">RISC-V</span>
+                                            <span class="badge-zouic badge-zouic-secondary">WCH</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold mb-2">CH32V307</h3>
+                                        <div class="quick-specs mb-3">
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">144MHz</span>
+                                                <span class="quick-spec-label">主频</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">80</span>
+                                                <span class="quick-spec-label">GPIO</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">256KB</span>
+                                                <span class="quick-spec-label">Flash</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">64KB</span>
+                                                <span class="quick-spec-label">RAM</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary text-sm mb-3 truncate-2">南京沁恒RISC-V MCU，丰富外设，性价比高，适合工业控制</p>
+                                        <div class="board-spec-chips">
+                                            
+                                            <span class="board-spec-chip">USB</span>
+                                            
+                                            <span class="board-spec-chip">I2C</span>
+                                            
+                                            <span class="board-spec-chip">SPI</span>
+                                            
+                                            <span class="board-spec-chip">UART</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-zouic-footer">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="board-card-price">20-50</span>
+                                            <span class="board-card-cta">查看详情 <i class="fas fa-arrow-right"></i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <label class="compare-checkbox-label position-absolute top-3 right-3" style="z-index: 10; padding: 4px;">
+                                    <input type="checkbox" class="compare-checkbox" id="compare-16" data-id="16"
+                                           style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-primary);">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-12 board-item"
+                             data-name="GD32VF103VBT6"
+                             data-vendor="GigaDevice"
+                             data-arch="RISC-V"
+                             data-category="general"
+                             data-price="20-50"
+                             data-gpio="48"
+                             data-haystack="gd32vf103vbt6 gigadevice risc-v 国产risc-v mcu，引脚兼容stm32，适合低成本嵌入式项目 usb i2c spi uart can adc">
+                            <div class="position-relative h-100">
+                                <a href="/board/17" class="card-zouic board-card text-decoration-none d-block h-100">
+                                    
+
+
+
+<div style="height:110px;border-radius:12px;background:linear-gradient(135deg,#ea580c,#b45309);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+  
+  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
+  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">GigaDevice</span>
+  
+</div>
+                                    <div class="card-zouic-body">
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <span class="badge-zouic badge-zouic-primary">RISC-V</span>
+                                            <span class="badge-zouic badge-zouic-secondary">GigaDevice</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold mb-2">GD32VF103VBT6</h3>
+                                        <div class="quick-specs mb-3">
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">108MHz</span>
+                                                <span class="quick-spec-label">主频</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">48</span>
+                                                <span class="quick-spec-label">GPIO</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">128KB</span>
+                                                <span class="quick-spec-label">Flash</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">32KB</span>
+                                                <span class="quick-spec-label">RAM</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary text-sm mb-3 truncate-2">国产RISC-V MCU，引脚兼容STM32，适合低成本嵌入式项目</p>
+                                        <div class="board-spec-chips">
+                                            
+                                            <span class="board-spec-chip">USB</span>
+                                            
+                                            <span class="board-spec-chip">I2C</span>
+                                            
+                                            <span class="board-spec-chip">SPI</span>
+                                            
+                                            <span class="board-spec-chip">UART</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-zouic-footer">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="board-card-price">20-50</span>
+                                            <span class="board-card-cta">查看详情 <i class="fas fa-arrow-right"></i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <label class="compare-checkbox-label position-absolute top-3 right-3" style="z-index: 10; padding: 4px;">
+                                    <input type="checkbox" class="compare-checkbox" id="compare-17" data-id="17"
+                                           style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-primary);">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-12 board-item"
+                             data-name="NearLink DevKit Pro"
+                             data-vendor="Huawei"
+                             data-arch="NearLink"
+                             data-category="general"
+                             data-price="150-300"
+                             data-gpio="28"
+                             data-haystack="nearlink devkit pro huawei nearlink 华为星闪技术开发板，支持nearlink协议，低时延高可靠通信，适合物联网和智能家居应用 nearlink wi-fi 6 ble 5.2 usb-c i2c spi uart adc dac">
+                            <div class="position-relative h-100">
+                                <a href="/board/18" class="card-zouic board-card text-decoration-none d-block h-100">
+                                    
+
+
+
+<div style="height:110px;border-radius:12px;background:linear-gradient(135deg,#0891b2,#155e75);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+  
+  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
+  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">Huawei</span>
+  
+</div>
+                                    <div class="card-zouic-body">
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <span class="badge-zouic badge-zouic-primary">NearLink</span>
+                                            <span class="badge-zouic badge-zouic-secondary">Huawei</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold mb-2">NearLink DevKit Pro</h3>
+                                        <div class="quick-specs mb-3">
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">200MHz</span>
+                                                <span class="quick-spec-label">主频</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">28</span>
+                                                <span class="quick-spec-label">GPIO</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">2MB</span>
+                                                <span class="quick-spec-label">Flash</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">512KB</span>
+                                                <span class="quick-spec-label">RAM</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary text-sm mb-3 truncate-2">华为星闪技术开发板，支持NearLink协议，低时延高可靠通信，适合物联网和智能家居应用</p>
+                                        <div class="board-spec-chips">
+                                            
+                                            <span class="board-spec-chip">NearLink</span>
+                                            
+                                            <span class="board-spec-chip">Wi-Fi 6</span>
+                                            
+                                            <span class="board-spec-chip">BLE 5.2</span>
+                                            
+                                            <span class="board-spec-chip">USB-C</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-zouic-footer">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="board-card-price">150-300</span>
+                                            <span class="board-card-cta">查看详情 <i class="fas fa-arrow-right"></i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <label class="compare-checkbox-label position-absolute top-3 right-3" style="z-index: 10; padding: 4px;">
+                                    <input type="checkbox" class="compare-checkbox" id="compare-18" data-id="18"
+                                           style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-primary);">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-12 board-item"
+                             data-name="NearLink Sensor Node"
+                             data-vendor="Huawei"
+                             data-arch="NearLink"
+                             data-category="general"
+                             data-price="50-100"
+                             data-gpio="16"
+                             data-haystack="nearlink sensor node huawei nearlink 星闪传感器节点，超低功耗设计，支持星闪低功耗模式，适合电池供电的传感器网络 nearlink ble 5.0 i2c spi uart adc">
+                            <div class="position-relative h-100">
+                                <a href="/board/19" class="card-zouic board-card text-decoration-none d-block h-100">
+                                    
+
+
+
+<div style="height:110px;border-radius:12px;background:linear-gradient(135deg,#0891b2,#155e75);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+  
+  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
+  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">Huawei</span>
+  
+</div>
+                                    <div class="card-zouic-body">
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <span class="badge-zouic badge-zouic-primary">NearLink</span>
+                                            <span class="badge-zouic badge-zouic-secondary">Huawei</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold mb-2">NearLink Sensor Node</h3>
+                                        <div class="quick-specs mb-3">
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">120MHz</span>
+                                                <span class="quick-spec-label">主频</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">16</span>
+                                                <span class="quick-spec-label">GPIO</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">512KB</span>
+                                                <span class="quick-spec-label">Flash</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">128KB</span>
+                                                <span class="quick-spec-label">RAM</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary text-sm mb-3 truncate-2">星闪传感器节点，超低功耗设计，支持星闪低功耗模式，适合电池供电的传感器网络</p>
+                                        <div class="board-spec-chips">
+                                            
+                                            <span class="board-spec-chip">NearLink</span>
+                                            
+                                            <span class="board-spec-chip">BLE 5.0</span>
+                                            
+                                            <span class="board-spec-chip">I2C</span>
+                                            
+                                            <span class="board-spec-chip">SPI</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-zouic-footer">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="board-card-price">50-100</span>
+                                            <span class="board-card-cta">查看详情 <i class="fas fa-arrow-right"></i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <label class="compare-checkbox-label position-absolute top-3 right-3" style="z-index: 10; padding: 4px;">
+                                    <input type="checkbox" class="compare-checkbox" id="compare-19" data-id="19"
+                                           style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-primary);">
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-12 board-item"
+                             data-name="NearLink Gateway"
+                             data-vendor="Huawei"
+                             data-arch="NearLink"
+                             data-category="general"
+                             data-price="300-500"
+                             data-gpio="32"
+                             data-haystack="nearlink gateway huawei nearlink 星闪网关设备，支持星闪高速模式，可连接多个星闪设备，构建星闪物联网网络 nearlink wi-fi 6 ble 5.2 ethernet usb 3.0 i2c spi uart can">
+                            <div class="position-relative h-100">
+                                <a href="/board/20" class="card-zouic board-card text-decoration-none d-block h-100">
+                                    
+
+
+
+<div style="height:110px;border-radius:12px;background:linear-gradient(135deg,#0891b2,#155e75);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+  
+  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
+  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">Huawei</span>
+  
+</div>
+                                    <div class="card-zouic-body">
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <span class="badge-zouic badge-zouic-primary">NearLink</span>
+                                            <span class="badge-zouic badge-zouic-secondary">Huawei</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold mb-2">NearLink Gateway</h3>
+                                        <div class="quick-specs mb-3">
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">400MHz</span>
+                                                <span class="quick-spec-label">主频</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">32</span>
+                                                <span class="quick-spec-label">GPIO</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">8MB</span>
+                                                <span class="quick-spec-label">Flash</span>
+                                            </div>
+                                            <div class="quick-spec">
+                                                <span class="quick-spec-value">2MB</span>
+                                                <span class="quick-spec-label">RAM</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-secondary text-sm mb-3 truncate-2">星闪网关设备，支持星闪高速模式，可连接多个星闪设备，构建星闪物联网网络</p>
+                                        <div class="board-spec-chips">
+                                            
+                                            <span class="board-spec-chip">NearLink</span>
+                                            
+                                            <span class="board-spec-chip">Wi-Fi 6</span>
+                                            
+                                            <span class="board-spec-chip">BLE 5.2</span>
+                                            
+                                            <span class="board-spec-chip">Ethernet</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-zouic-footer">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="board-card-price">300-500</span>
+                                            <span class="board-card-cta">查看详情 <i class="fas fa-arrow-right"></i></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <label class="compare-checkbox-label position-absolute top-3 right-3" style="z-index: 10; padding: 4px;">
+                                    <input type="checkbox" class="compare-checkbox" id="compare-20" data-id="20"
+                                           style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--color-primary);">
+                                </label>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div id="boardsEmpty" class="card-dark p-8 text-center d-none">
+                        <i class="fas fa-microchip text-secondary fa-3x mb-3"></i>
+                        <h3 class="text-xl font-bold mb-2">没有符合条件的开发板</h3>
+                        <p class="text-secondary mb-4">试试减少筛选条件，或换一个关键词</p>
+                        <button type="button" id="emptyReset" class="btn-zouic btn-zouic-primary">清除所有筛选</button>
+                    </div>
+
+                    <button id="compareBtn" class="btn-zouic btn-zouic-secondary mt-4 w-100" disabled>
+                        <i class="fas fa-code-compare"></i> 对比选中
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ---------- Compare bar ----------
+            const checkboxes = document.querySelectorAll('.compare-checkbox');
+            const compareBtn = document.getElementById('compareBtn');
+
+            if (compareBtn) {
+                const refreshCompare = function() {
+                    compareBtn.disabled = document.querySelectorAll('.compare-checkbox:checked').length === 0;
+                };
+                checkboxes.forEach(function(checkbox) {
+                    checkbox.addEventListener('change', refreshCompare);
+                });
+                compareBtn.addEventListener('click', function() {
+                    const selected = document.querySelectorAll('.compare-checkbox:checked');
+                    const ids = Array.from(selected).map(function(cb) { return 'id=' + cb.dataset.id; }).join('&');
+                    window.location.href = '/compare?' + ids;
+                });
+            }
+
+            // ---------- Client-side filtering (works on static hosting) ----------
+            const grid = document.getElementById('boardsGrid');
+            if (!grid) return;
+
+            const items = Array.prototype.slice.call(grid.querySelectorAll('.board-item'));
+            const qInput = document.getElementById('boardFilterQuery');
+            const sortSelect = document.getElementById('boardSort');
+            const emptyState = document.getElementById('boardsEmpty');
+            const countEl = document.getElementById('boardResultCount');
+
+            const params = new URLSearchParams(window.location.search);
+            const state = {
+                q: params.get('q') || '',
+                vendor: params.get('vendor') || '',
+                arch: params.get('arch') || params.get('architecture') || '',
+                category: params.get('category') || '',
+                sort: params.get('sort') || 'default'
+            };
+
+            const priceValue = function(el) {
+                const raw = (el.dataset.price || '').replace(/[^\d.\-]/g, '');
+                const first = raw.split('-')[0];
+                const num = parseFloat(first);
+                return isNaN(num) ? Number.MAX_SAFE_INTEGER : num;
+            };
+
+            const apply = function() {
+                const q = state.q.trim().toLowerCase();
+                let visible = 0;
+
+                items.forEach(function(item) {
+                    const match = (!q || (item.dataset.haystack || '').indexOf(q) !== -1) &&
+                                  (!state.vendor || item.dataset.vendor === state.vendor) &&
+                                  (!state.arch || item.dataset.arch === state.arch) &&
+                                  (!state.category || item.dataset.category === state.category);
+                    item.classList.toggle('d-none', !match);
+                    if (match) visible += 1;
+                });
+
+                const sorted = items.slice();
+                if (state.sort === 'price') {
+                    sorted.sort(function(a, b) { return priceValue(a) - priceValue(b); });
+                } else if (state.sort === 'gpio') {
+                    sorted.sort(function(a, b) { return (parseInt(b.dataset.gpio, 10) || 0) - (parseInt(a.dataset.gpio, 10) || 0); });
+                } else if (state.sort === 'name') {
+                    sorted.sort(function(a, b) { return a.dataset.name.localeCompare(b.dataset.name, 'zh'); });
+                }
+                sorted.forEach(function(el) { grid.appendChild(el); });
+
+                document.querySelectorAll('.filter-chip').forEach(function(chip) {
+                    const key = chip.dataset.filter;
+                    chip.classList.toggle('is-active', (state[key] || '') === chip.dataset.value);
+                });
+
+                if (countEl) countEl.textContent = visible;
+                if (emptyState) emptyState.classList.toggle('d-none', visible !== 0);
+                if (qInput && qInput.value !== state.q) qInput.value = state.q;
+                if (sortSelect) sortSelect.value = state.sort;
+            };
+
+            const syncUrl = function() {
+                const next = new URLSearchParams();
+                if (state.q) next.set('q', state.q);
+                if (state.vendor) next.set('vendor', state.vendor);
+                if (state.arch) next.set('arch', state.arch);
+                if (state.category) next.set('category', state.category);
+                if (state.sort && state.sort !== 'default') next.set('sort', state.sort);
+                const query = next.toString();
+                history.replaceState(null, '', window.location.pathname + (query ? '?' + query : ''));
+            };
+
+            document.querySelectorAll('.filter-chip').forEach(function(chip) {
+                chip.addEventListener('click', function() {
+                    state[chip.dataset.filter] = chip.dataset.value;
+                    apply();
+                    syncUrl();
+                });
+            });
+
+            if (qInput) {
+                qInput.addEventListener('input', function() {
+                    state.q = qInput.value;
+                    apply();
+                    syncUrl();
+                });
+            }
+
+            if (sortSelect) {
+                sortSelect.addEventListener('change', function() {
+                    state.sort = sortSelect.value;
+                    apply();
+                    syncUrl();
+                });
+            }
+
+            const reset = function() {
+                state.q = '';
+                state.vendor = '';
+                state.arch = '';
+                state.category = '';
+                state.sort = 'default';
+                apply();
+                syncUrl();
+            };
+            const resetBtn = document.getElementById('filterReset');
+            const emptyReset = document.getElementById('emptyReset');
+            if (resetBtn) resetBtn.addEventListener('click', reset);
+            if (emptyReset) emptyReset.addEventListener('click', reset);
+
+            apply();
+            if (state.q || state.vendor || state.arch || state.category || state.sort !== 'default') {
+                syncUrl();
+            }
+        });
+    </script>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Newsletter Section -->
+    <section class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h3 class="text-xl font-bold mb-2">走在技术前沿</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">每周获取精选开发板推荐、热门趋势和独家硬件工程技巧</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <form id="newsletterForm" class="newsletter-form" onsubmit="handleNewsletter(event)">
+                            <input type="email" id="newsletterEmail" class="input-zouic" placeholder="输入你的邮箱地址" required>
+                            <button type="submit" class="btn-zouic btn-zouic-primary btn-zouic-lg">订阅</button>
+                        </form>
+                        <div class="newsletter-benefits">
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 无垃圾邮件，随时退订</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4" aria-label="出品人">
+        <div class="author-card">
+            <div class="author-card-info">
+                <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
+                <div>
+                    <div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div>
+                    <div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div>
+                </div>
+            </div>
+            <div class="author-card-actions">
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-zouic" role="contentinfo">
+        <div class="container">
+            <div class="row footer-main">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
+                    <a href="/" class="footer-brand" aria-label="ZouIC 首页">
+                        <i class="fas fa-microchip"></i>
+                        <span>ZouIC</span>
+                    </a>
+                    <p class="footer-tagline">平台聚合的开源项目遵循其各自的开源许可证。详情请参阅</p>
+
+                    <div class="footer-meta">
+                        <p class="footer-author">
+                            出品人 · <strong>极客微栋</strong>
+                            <span class="footer-author-handle">@GeekWaedon</span>
+                        </p>
+                        <div class="footer-slash-tags">
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span>
+                            <a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商资质">
+                                <i class="fab fa-weixin"></i> 企业微信服务商
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋（微信内搜索）"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a>
+                        <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>产品</h5>
+                    <ul>
+                        <li><a href="/products">产品介绍</a></li>
+                        <li><a href="/services">服务说明</a></li>
+                        <li><a href="/news">行业资讯</a></li>
+                        <li><a href="/boards">开发板库</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>资源</h5>
+                    <ul>
+                        <li><a href="/tutorials">开发板教程</a></li>
+                        <li><a href="/documentation">技术文档</a></li>
+                        <li><a href="/cases">项目案例</a></li>
+                        <li><a href="/help">文档中心</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>开源生态</h5>
+                    <ul>
+                        <li><a href="/open-source">开源项目</a></li>
+                        <li><a href="/articles">技术文章</a></li>
+                        <li><a href="/contribute">贡献指南</a></li>
+                        <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h5>关于</h5>
+                    <ul>
+                        <li><a href="/about">关于我们</a></li>
+                        <li><a href="/about#contact">联系我们</a></li>
+                        <li><a href="/licenses">开源协议</a></li>
+                        <li><a href="/about#privacy">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ZouIC. All rights reserved.</p>
+                <p>平台聚合的开源项目遵循其各自的开源许可证。详情请参阅 <a href="/licenses">开源协议</a> 页面。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            const revealElements = document.querySelectorAll('.reveal');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <!-- AI Chat Widget -->
+    <div class="chat-widget">
+        <div id="agent-chat-container" class="chat-widget-container">
+            <div class="chat-widget-header">
+                <div class="d-flex align-items-center gap-2">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Assistant</span>
+                </div>
+                <button id="agent-chat-close" class="btn-zouic btn-zouic-ghost btn-zouic-sm" style="color: rgba(255,255,255,0.8);">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="agent-chat-messages" class="chat-widget-messages">
+                <div class="d-flex align-items-start gap-2 mb-4">
+                    <div class="chat-widget-toggle" style="width: 32px; height: 32px; font-size: 0.75rem; flex-shrink: 0;">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="bg-secondary/50 rounded-lg rounded-tl-none p-3 text-sm" style="background-color: rgba(14, 165, 233, 0.15);">
+                        Search boards, projects or keywords...
+                    </div>
+                </div>
+            </div>
+            <div class="chat-widget-input-area">
+                <div class="d-flex gap-2">
+                    <input type="text" id="agent-chat-input" 
+                        class="input-zouic flex-grow-1"
+                        placeholder="Enter your message...">
+                    <button id="agent-chat-send" class="btn-zouic btn-zouic-primary btn-zouic-sm">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <button id="agent-chat-toggle" class="chat-widget-toggle">
+            <i class="fas fa-robot" style="font-size: 1.25rem;"></i>
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatToggle = document.getElementById('agent-chat-toggle');
+            const chatContainer = document.getElementById('agent-chat-container');
+            const chatClose = document.getElementById('agent-chat-close');
+            const chatInput = document.getElementById('agent-chat-input');
+            const chatSend = document.getElementById('agent-chat-send');
+            const chatMessages = document.getElementById('agent-chat-messages');
+            
+            let agentSessionId = null;
+            
+            if (chatToggle && chatContainer) {
+                chatToggle.addEventListener('click', function() {
+                    chatContainer.classList.toggle('open');
+                    if (chatContainer.classList.contains('open')) {
+                        chatInput.focus();
+                    }
+                });
+            }
+            
+            if (chatClose && chatContainer) {
+                chatClose.addEventListener('click', function() {
+                    chatContainer.classList.remove('open');
+                });
+            }
+            
+            const addMessage = function(text, isUser = false) {
+                const div = document.createElement('div');
+                div.className = 'd-flex align-items-start gap-2 mb-4' + (isUser ? ' flex-row-reverse' : '');
+                
+                const avatar = document.createElement('div');
+                avatar.className = 'chat-widget-toggle flex-shrink-0';
+                avatar.style.cssText = 'width: 32px; height: 32px; font-size: 0.75rem;';
+                avatar.innerHTML = isUser ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
+                
+                const bubble = document.createElement('div');
+                bubble.className = 'rounded-lg px-3 py-2 text-sm ' +
+                    (isUser ? 'rounded-tr-none' : 'rounded-tl-none');
+                bubble.style.cssText = isUser 
+                    ? 'background-color: rgba(0, 212, 170, 0.15); color: var(--color-text-primary);'
+                    : 'background-color: rgba(14, 165, 233, 0.15); color: var(--color-text-primary);';
+                bubble.textContent = text;
+                
+                div.appendChild(isUser ? bubble : avatar);
+                div.appendChild(isUser ? avatar : bubble);
+                chatMessages.appendChild(div);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            };
+            
+            const sendMessage = async function() {
+                const message = chatInput.value.trim();
+                if (!message) return;
+                
+                addMessage(message, true);
+                chatInput.value = '';
+                
+                try {
+                    const response = await fetch('/api/agent/query', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ input: message, session_id: agentSessionId })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        agentSessionId = data.session_id;
+                        if (data.response && data.response.text) {
+                            addMessage(data.response.text, false);
+                        }
+                    } else {
+                        addMessage('操作失败，请重试', false);
+                    }
+                } catch (error) {
+                    addMessage('网络错误，请重试', false);
+                }
+            };
+            
+            if (chatSend) chatSend.addEventListener('click', sendMessage);
+            if (chatInput) {
+                chatInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') sendMessage();
+                });
+            }
+        });
+        
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+        
+        // --- Newsletter form handler ---
+        window.handleNewsletter = function(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('newsletterEmail');
+            if (!emailInput || !emailInput.value.trim()) return;
+            
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = '已订阅！';
+            btn.disabled = true;
+            
+            // Simulate subscription (in production, send to API)
+            setTimeout(function() {
+                btn.textContent = '✓ ' + originalText;
+                btn.disabled = false;
+                emailInput.value = '';
+                
+                // Show toast
+                const toast = document.createElement('div');
+                toast.className = 'toast-zouic toast-zouic-success show';
+                toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已订阅！';
+                document.body.appendChild(toast);
+                setTimeout(function() { toast.remove(); }, 3000);
+            }, 1000);
+        };
+    </script>
+</body>
+</html>
