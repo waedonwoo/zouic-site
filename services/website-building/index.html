@@ -171,6 +171,23 @@
     .lp-faq-btn::after { content: "+"; font-size: 22px; color: var(--color-primary); transition: transform .2s; }
     .lp-faq-btn:not(.collapsed)::after { transform: rotate(45deg); }
     .lp-faq-body { padding: 0 20px 18px; color: var(--color-text-secondary); font-size: 14px; line-height: 1.8; }
+    .lp-form { max-width: 560px; margin: 0 auto; text-align: left; }
+    .lp-form label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--color-text-primary); }
+    .lp-form .lp-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .lp-form .lp-form-field { margin-bottom: 14px; }
+    .lp-form input, .lp-form select, .lp-form textarea {
+        width: 100%; padding: 11px 14px; font-size: 14px; color: var(--color-text-primary);
+        background: var(--color-bg-secondary); border: 1px solid var(--color-border-default);
+        border-radius: 10px; outline: none; transition: border-color .2s, box-shadow .2s;
+    }
+    .lp-form input:focus, .lp-form select:focus, .lp-form textarea:focus {
+        border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0,212,170,.15);
+    }
+    .lp-form textarea { resize: vertical; min-height: 100px; font-family: inherit; }
+    .lp-form-msg { padding: 10px 14px; border-radius: 10px; font-size: 13.5px; margin-top: 12px; display: none; }
+    .lp-form-msg.success { display: block; background: rgba(74,222,128,.1); color: #4ade80; border: 1px solid rgba(74,222,128,.3); }
+    .lp-form-msg.error { display: block; background: rgba(248,113,113,.1); color: #f87171; border: 1px solid rgba(248,113,113,.3); }
+    @media (max-width: 575px) { .lp-form .lp-form-row { grid-template-columns: 1fr; } }
 </style>
 
 <!-- ============ HERO ============ -->
@@ -533,28 +550,155 @@
     </div>
 </section>
 
-<!-- ============ 最终 CTA ============ -->
+<!-- ============ 最终 CTA + 表单 ============ -->
 <section class="section-zouic reveal">
     <div class="container">
-        <div class="card-dark p-8 text-center" style="border-radius:20px;background:linear-gradient(135deg,rgba(0,212,170,.08),rgba(139,92,246,.08));border:1px solid rgba(0,212,170,.25);">
-            <h2 class="font-bold mb-3" style="font-size: clamp(24px,3vw,34px);">准备好拥有自己的官网了吗？</h2>
-            <p class="text-secondary mb-5" style="max-width:560px;margin:0 auto;font-size:15px;">
-                发一封邮件，免费获得专属建站方案。不成交也没关系，至少帮你理清楚需求。
-            </p>
-            <div class="d-flex gap-3 flex-wrap justify-content-center">
-                <a href="mailto:contact@zouic.com?subject=官网建设咨询" class="btn-zouic btn-zouic-primary" style="padding:14px 36px;">
-                    <i class="fas fa-envelope me-2"></i>contact@zouic.com
+        <div class="card-dark p-8" style="border-radius:20px;background:linear-gradient(135deg,rgba(0,212,170,.08),rgba(139,92,246,.08));border:1px solid rgba(0,212,170,.25);">
+            <div class="text-center mb-6">
+                <h2 class="font-bold mb-3" style="font-size: clamp(24px,3vw,34px);">填写需求，免费获取建站方案</h2>
+                <p class="text-secondary mb-0" style="max-width:560px;margin:0 auto;font-size:15px;">
+                    留下你的联系方式和需求，我会在工作日 24 小时内回复。不成交也没关系，至少帮你理清楚。
+                </p>
+            </div>
+
+            <form id="lpContactForm" class="lp-form" novalidate>
+                <div class="lp-form-row">
+                    <div class="lp-form-field">
+                        <label for="lpName">姓名 <span style="color:#f87171;">*</span></label>
+                        <input type="text" id="lpName" name="name" required placeholder="你的称呼">
+                    </div>
+                    <div class="lp-form-field">
+                        <label for="lpEmail">邮箱 <span style="color:#f87171;">*</span></label>
+                        <input type="email" id="lpEmail" name="email" required placeholder="name@company.com">
+                    </div>
+                </div>
+                <div class="lp-form-row">
+                    <div class="lp-form-field">
+                        <label for="lpPhone">手机 / 微信</label>
+                        <input type="text" id="lpPhone" name="phone" placeholder="方便联系的方式">
+                    </div>
+                    <div class="lp-form-field">
+                        <label for="lpCompany">公司 / 团队</label>
+                        <input type="text" id="lpCompany" name="company" placeholder="选填">
+                    </div>
+                </div>
+                <div class="lp-form-field">
+                    <label for="lpService">感兴趣的服务</label>
+                    <select id="lpService" name="service">
+                        <option value="基础建站 ¥3000">基础建站 ¥3,000（域名+服务器+交付）</option>
+                        <option value="GEO代运营 ¥1500/月">GEO 代运营 ¥1,500/月起</option>
+                        <option value="企业微信生态 ¥2000起">企业微信生态 ¥2,000 起</option>
+                        <option value="其他/定制">其他 / 定制需求</option>
+                    </select>
+                </div>
+                <div class="lp-form-field">
+                    <label for="lpMessage">需求描述 <span style="color:#f87171;">*</span></label>
+                    <textarea id="lpMessage" name="message" required placeholder="简单说说你的行业、想要的网站类型、参考站点等..."></textarea>
+                </div>
+                <button type="submit" id="lpSubmitBtn" class="btn-zouic btn-zouic-primary w-100" style="padding:14px;">
+                    <i class="fas fa-paper-plane me-2"></i>提交需求 · 免费获取方案
+                </button>
+                <div id="lpFormMsg" class="lp-form-msg"></div>
+            </form>
+
+            <div class="d-flex gap-3 flex-wrap justify-content-center mt-5">
+                <a href="mailto:contact@zouic.com?subject=官网建设咨询" class="text-secondary" style="font-size:13px;">
+                    <i class="fas fa-envelope me-1"></i>contact@zouic.com
                 </a>
-                <a href="/#follow" class="btn-zouic btn-zouic-secondary" style="padding:14px 36px;">
-                    <i class="fab fa-weixin me-2"></i>公众号留言（搜"极客微栋"）
+                <span class="text-secondary" style="font-size:13px;">·</span>
+                <a href="/#follow" class="text-secondary" style="font-size:13px;">
+                    <i class="fab fa-weixin me-1"></i>公众号"极客微栋"
                 </a>
             </div>
-            <p class="text-secondary mt-5 mb-0" style="font-size:13px;">
+            <p class="text-secondary mt-4 mb-0 text-center" style="font-size:12.5px;">
                 响应时间：工作日 24 小时内回复 · 咨询免费 · 可先出方案再决定
             </p>
         </div>
     </div>
 </section>
+
+<!-- ============ EmailJS 表单提交 ============ -->
+<!--
+  EmailJS 配置说明（首次使用需注册）：
+  1. 打开 https://www.emailjs.com 注册免费账号
+  2. Add Email Service → 选 Gmail/Outlook/SMTP → 记下 Service ID
+  3. Create New Template → 模板变量填       → 记下 Template ID
+  4. Account → API Keys → 复制 Public Key
+  5. 把下面 3 个值替换掉即可
+-->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+(function(){
+    // ====== 请替换为你的 EmailJS 配置 ======
+    const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+    const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";
+    const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+    // ======================================
+
+    const form = document.getElementById('lpContactForm');
+    const btn = document.getElementById('lpSubmitBtn');
+    const msg = document.getElementById('lpFormMsg');
+    const configured = EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY';
+
+    if (configured) {
+        emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    }
+
+    form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        msg.className = 'lp-form-msg'; msg.textContent = '';
+
+        // 基础校验
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const message = form.message.value.trim();
+        if (!name || !email || !message) {
+            msg.className = 'lp-form-msg error';
+            msg.textContent = '请填写姓名、邮箱和需求描述';
+            return;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            msg.className = 'lp-form-msg error';
+            msg.textContent = '请填写有效的邮箱地址';
+            return;
+        }
+
+        // 未配置 EmailJS 时降级为 mailto
+        if (!configured) {
+            const subject = encodeURIComponent(`[建站咨询] ${name} - ${form.service.value}`);
+            const body = encodeURIComponent(`姓名：${name}\n邮箱：${email}\n手机/微信：${form.phone.value}\n公司：${form.company.value}\n服务：${form.service.value}\n\n需求：${message}`);
+            window.location.href = `mailto:contact@zouic.com?subject=${subject}&body=${body}`;
+            msg.className = 'lp-form-msg success';
+            msg.textContent = '已为你打开邮件客户端，请发送邮件完成提交。';
+            return;
+        }
+
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>提交中...';
+
+        try {
+            await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+                from_name: name,
+                from_email: email,
+                phone: form.phone.value,
+                company: form.company.value,
+                service: form.service.value,
+                message: message
+            });
+            msg.className = 'lp-form-msg success';
+            msg.textContent = '提交成功！我会在工作日 24 小时内通过邮箱回复你。';
+            form.reset();
+        } catch (err) {
+            console.error(err);
+            msg.className = 'lp-form-msg error';
+            msg.textContent = '提交失败，请稍后重试，或直接发邮件至 contact@zouic.com';
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-paper-plane me-2"></i>提交需求 · 免费获取方案';
+        }
+    });
+})();
+</script>
 
     </main>
 
