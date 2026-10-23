@@ -47,8 +47,15 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
     
     <!-- ZouIC Design System -->
-    <link rel="stylesheet" href="/static/css/zouic-design-system.css">
-    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css">
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261023c">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261023c">
+    <noscript>
+        <style>
+            /* 关闭 JS 时不要因为滚动动画而隐藏内容 */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
     
     
     <style>
@@ -152,1492 +159,1298 @@
 
     <main id="main-content">
         
-<div class="container">
-    <div class="row mb-6">
-        <div class="col-md-8">
-            <h1 class="display-4 mb-3">全部开发板项目</h1>
-            <p class="text-secondary">聚合 CrowdSupply、Hackaday、Hackster.io 三大平台的优质开源开发板项目和技术资料</p>
-        </div>
-        <div class="col-md-4 text-right">
-            
-        </div>
-    </div>
+<div class="ext-page">
 
-    <div class="row mb-6">
-        <div class="col-lg-3">
-            <div class="card-dark rounded-lg p-4">
-                <h4 class="mb-4">平台统计</h4>
-                <div class="space-y-3">
-                    
-                    <div class="flex items-center justify-between p-3 rounded-lg" 
-                         style="background-color: rgba(255,255,255,0.05);">
-                        <div class="flex items-center">
-                            <i class="fab fa-github text-secondary mr-3"></i>
-                            <span>GitHub</span>
-                        </div>
-                        <span class="font-bold text-secondary">11</span>
-                    </div>
-                    
-                    <div class="flex items-center justify-between p-3 rounded-lg" 
-                         style="background-color: rgba(255,255,255,0.05);">
-                        <div class="flex items-center">
-                            <i class="fas fa-seedling text-secondary mr-3"></i>
-                            <span>Seeed Studio</span>
-                        </div>
-                        <span class="font-bold text-secondary">3</span>
-                    </div>
-                    
-                    <div class="flex items-center justify-between p-3 rounded-lg" 
-                         style="background-color: rgba(255,255,255,0.05);">
-                        <div class="flex items-center">
-                            <i class="fas fa-shopping-cart text-secondary mr-3"></i>
-                            <span>CrowdSupply</span>
-                        </div>
-                        <span class="font-bold text-secondary">0</span>
-                    </div>
-                    
-                    <div class="flex items-center justify-between p-3 rounded-lg" 
-                         style="background-color: rgba(255,255,255,0.05);">
-                        <div class="flex items-center">
-                            <i class="fas fa-wrench text-secondary mr-3"></i>
-                            <span>Hackaday</span>
-                        </div>
-                        <span class="font-bold text-secondary">0</span>
-                    </div>
-                    
-                    <div class="flex items-center justify-between p-3 rounded-lg" 
-                         style="background-color: rgba(255,255,255,0.05);">
-                        <div class="flex items-center">
-                            <i class="fas fa-robot text-secondary mr-3"></i>
-                            <span>Hackster.io</span>
-                        </div>
-                        <span class="font-bold text-secondary">0</span>
-                    </div>
-                    
-                </div>
-                <div class="mt-4 pt-4 border-top">
-                    <div class="text-center">
-                        <div class="text-2xl font-bold text-secondary">14</div>
-                        <div class="text-sm text-secondary">总项目数</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-dark rounded-lg p-4 mt-4">
-                <h4 class="mb-4">致谢声明</h4>
-                <div class="text-sm text-secondary space-y-2">
-                    <p><strong>CrowdSupply 平台</strong></p>
-                    <p>项目数据来源于 CrowdSupply 众筹平台，展示的硬件项目均为开源硬件产品，遵循各自的开源许可协议。</p>
-                    <p><strong>Hackaday 平台</strong></p>
-                    <p>文章和评测内容来源于 Hackaday，遵循 Creative Commons 授权协议。感谢 Hackaday 编辑团队的优秀内容创作。</p>
-                    <p><strong>Hackster.io 平台</strong></p>
-                    <p>项目案例来源于 Hackster.io 创客社区，感谢各位创客分享的精彩项目。所有内容遵循原作者的授权许可。</p>
-                </div>
-                <div class="mt-4 pt-4 border-top">
-                    <p class="text-xs text-gray-500">
-                        <i class="fas fa-info-circle mr-1"></i>
-                        本平台仅作为项目聚合和展示用途，不拥有任何项目的版权。如需使用项目代码或硬件设计，请遵守原作者的开源许可协议。
+    <!-- ==================== 页头 ==================== -->
+    <section class="ext-hero">
+        <div class="ext-hero-grid" aria-hidden="true"></div>
+        <div class="container">
+            <div class="ext-hero-inner">
+                <div class="ext-hero-copy">
+                    <span class="ext-eyebrow"><i class="fas fa-satellite-dish"></i> CURATED OPEN HARDWARE</span>
+                    <h1 class="ext-hero-title">全部开发板项目</h1>
+                    <p class="ext-hero-desc">
+                        聚合 CrowdSupply、Hackaday、Hackster.io 三大平台的优质开源开发板项目和技术资料
                     </p>
                 </div>
-            </div>
-        </div>
-
-        <div class="col-lg-9">
-            <div class="card-dark rounded-lg p-4">
-                <div class="d-flex flex-wrap gap-4 mb-4">
-                    <div class="flex-grow-1">
-                        <label class="text-sm text-secondary mb-2 d-block">平台筛选</label>
-                        <div class="flex-wrap gap-2">
-                            <a href="/all-projects"
-                               class="badge ext-filter-badge ext-filter-platform badge-primary"
-                               data-value="">
-                                全部平台
-                            </a>
-                            
-                            <a href="/all-projects?platform=github"
-                               class="badge ext-filter-badge ext-filter-platform badge-secondary"
-                               data-value="github">
-                                <i class="fab fa-github mr-1"></i> GitHub
-                            </a>
-                            
-                            <a href="/all-projects?platform=seeed"
-                               class="badge ext-filter-badge ext-filter-platform badge-secondary"
-                               data-value="seeed">
-                                <i class="fas fa-seedling mr-1"></i> Seeed Studio
-                            </a>
-                            
-                            <a href="/all-projects?platform=crowdsupply"
-                               class="badge ext-filter-badge ext-filter-platform badge-secondary"
-                               data-value="crowdsupply">
-                                <i class="fas fa-shopping-cart mr-1"></i> CrowdSupply
-                            </a>
-                            
-                            <a href="/all-projects?platform=hackaday"
-                               class="badge ext-filter-badge ext-filter-platform badge-secondary"
-                               data-value="hackaday">
-                                <i class="fas fa-wrench mr-1"></i> Hackaday
-                            </a>
-                            
-                            <a href="/all-projects?platform=hackster"
-                               class="badge ext-filter-badge ext-filter-platform badge-secondary"
-                               data-value="hackster">
-                                <i class="fas fa-robot mr-1"></i> Hackster.io
-                            </a>
-                            
-                        </div>
+                <div class="ext-hero-stats">
+                    <div class="ext-hero-stat ext-hero-stat--total">
+                        <span class="ext-hero-stat-value">14</span>
+                        <span class="ext-hero-stat-label">总项目数</span>
                     </div>
-                    <div class="flex-grow-1">
-                        <label class="text-sm text-secondary mb-2 d-block">分类筛选</label>
-                        <div class="flex-wrap gap-2">
-                            <a href="/all-projects"
-                               class="badge ext-filter-badge ext-filter-category badge-primary"
-                               data-value="">
-                                全部分类
-                            </a>
-                            
-                            <a href="/all-projects?category=ai"
-                               class="badge ext-filter-badge ext-filter-category badge-secondary"
-                               data-value="ai">
-                                ai
-                            </a>
-                            
-                            <a href="/all-projects?category=humanoid_robot"
-                               class="badge ext-filter-badge ext-filter-category badge-secondary"
-                               data-value="humanoid_robot">
-                                humanoid_robot
-                            </a>
-                            
-                            <a href="/all-projects?category=industrial"
-                               class="badge ext-filter-badge ext-filter-category badge-secondary"
-                               data-value="industrial">
-                                industrial
-                            </a>
-                            
-                            <a href="/all-projects?category=iot"
-                               class="badge ext-filter-badge ext-filter-category badge-secondary"
-                               data-value="iot">
-                                iot
-                            </a>
-                            
-                        </div>
-                    </div>
+                    
+                    
+                    <a class="ext-hero-stat ext-hero-stat--link" href="/all-projects?platform=github">
+                        <span class="ext-hero-stat-value">11</span>
+                        <span class="ext-hero-stat-label"><i class="fab fa-github"></i> GitHub</span>
+                    </a>
+                    
+                    
+                    
+                    <a class="ext-hero-stat ext-hero-stat--link" href="/all-projects?platform=seeed">
+                        <span class="ext-hero-stat-value">3</span>
+                        <span class="ext-hero-stat-label"><i class="fas fa-seedling"></i> Seeed Studio</span>
+                    </a>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="row">
+    <div class="container ext-body">
+
         
+
+        <!-- ==================== 筛选条 ==================== -->
+        <div class="ext-filterbar">
+            <div class="ext-filter-row">
+                <span class="ext-filter-label">平台筛选</span>
+                <div class="ext-filter-chips">
+                    <a href="/all-projects"
+                       class="ext-chip ext-filter-badge ext-filter-platform is-active"
+                       data-value="">
+                        全部平台
+                    </a>
+                    
+                    
+                    <a href="/all-projects?platform=github"
+                       class="ext-chip ext-filter-badge ext-filter-platform "
+                       data-value="github">
+                        <i class="fab fa-github"></i> GitHub
+                        <span class="ext-chip-count">11</span>
+                    </a>
+                    
+                    
+                    
+                    <a href="/all-projects?platform=seeed"
+                       class="ext-chip ext-filter-badge ext-filter-platform "
+                       data-value="seeed">
+                        <i class="fas fa-seedling"></i> Seeed Studio
+                        <span class="ext-chip-count">3</span>
+                    </a>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+            <div class="ext-filter-row">
+                <span class="ext-filter-label">分类筛选</span>
+                <div class="ext-filter-chips">
+                    <a href="/all-projects"
+                       class="ext-chip ext-filter-badge ext-filter-category is-active"
+                       data-value="">
+                        全部分类
+                    </a>
+                    
+                    <a href="/all-projects?category=ai"
+                       class="ext-chip ext-filter-badge ext-filter-category "
+                       data-value="ai">
+                        ai
+                    </a>
+                    
+                    <a href="/all-projects?category=humanoid_robot"
+                       class="ext-chip ext-filter-badge ext-filter-category "
+                       data-value="humanoid_robot">
+                        humanoid_robot
+                    </a>
+                    
+                    <a href="/all-projects?category=industrial"
+                       class="ext-chip ext-filter-badge ext-filter-category "
+                       data-value="industrial">
+                        industrial
+                    </a>
+                    
+                    <a href="/all-projects?category=iot"
+                       class="ext-chip ext-filter-badge ext-filter-category "
+                       data-value="iot">
+                        iot
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== 项目网格 ==================== -->
         
-        <div class="col-md-6 col-lg-4 mb-6 ext-card-wrap"
-             data-platform="github"
-             data-category="humanoid_robot">
-                    <div class="ext-card ext-card--github rounded-lg overflow-hidden h-full">
+        <div class="ext-grid">
+            
+            <div class="ext-card-wrap"
+                 data-platform="github"
+                 data-category="humanoid_robot">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/external/github/peng-zhihui/ElectronBot"
+                       class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">
+                            ElectronBot
+                        </span>
+
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">
+                                E
+                            </span>
+                        </span>
+
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+
                         
-                        <a href="/external/github/peng-zhihui/ElectronBot"
-                           class="ext-card-cover ext-card-cover--text">
-                            <!-- 左下：完整 slug 水印 -->
-                            <span class="ext-card-cover-slug" aria-hidden="true">
+                        
+                        <span class="ext-card-cover-lang">
+                            C
+                        </span>
+                        
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                            <span class="ext-card-category">humanoid_robot</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title">
+                            <a href="/external/github/peng-zhihui/ElectronBot">
                                 ElectronBot
-                            </span>
+                            </a>
+                        </h3>
 
-                            <!-- 中央大字首字母（带光晕） -->
-                            <span class="ext-card-cover-initial-wrap" aria-hidden="true">
-                                <span class="ext-card-cover-initial-glow"></span>
-                                <span class="ext-card-cover-initial">
-                                    E
-                                </span>
-                            </span>
+                        <p class="ext-card-desc line-clamp-2">桌面级小机器工具人，外观灵感来自 WALL-E 里的 EVE。具备 USB 通信、显示屏幕与多自由度机械臂，支持自定义动作与交互，GPL-3.0 许可。是稚晖君 &#34;量子计划&#34; 系列的核心项目之一。</p>
 
-                            <!-- 右上：平台徽章 -->
-                            <span class="ext-card-cover-platform">
-                                <i class="fab fa-github"></i>
-                                GitHub
-                            </span>
-
-                            <!-- 右下：语言标签（从 specs.language 取） -->
+                        
+                        
+                        <div class="ext-card-tags">
+                            
+                            <span class="ext-card-tag">robot</span>
+                            
+                            <span class="ext-card-tag">desktop</span>
+                            
+                            <span class="ext-card-tag">C</span>
+                            
+                            <span class="ext-card-tag">GPL-3.0</span>
                             
                             
-                            <span class="ext-card-cover-lang">
-                                C
-                            </span>
+                            <span class="ext-card-tag ext-card-tag--more">+1</span>
                             
-                        </a>
+                        </div>
                         
 
-                        <div class="p-4">
-                            <div class="d-flex align-items-center justify-between mb-2">
-                                <span class="badge badge-accent">
-                                    <i class="fab fa-github me-1"></i>
-                                    GitHub
-                                </span>
-                                
-                                <span class="badge badge-secondary">humanoid_robot</span>
-                                
-                            </div>
+                        
+                        
+                        <div class="ext-card-stats">
+                            
+                            <span><i class="fas fa-star"></i> 9562</span>
+                            
+                            
+                            <span><i class="fas fa-code-branch"></i> 2063</span>
+                            
+                            
+                            <span><i class="fas fa-circle-dot"></i> 88</span>
+                            
+                        </div>
+                        
 
-                            <h3 class="h5 font-bold mb-2 line-clamp-2">
-                                <a href="/external/github/peng-zhihui/ElectronBot"
-                                   class="text-primary hover-underline" style="text-decoration: none;">
-                                    ElectronBot
-                                </a>
-                            </h3>
-
-                            <p class="text-sm text-secondary mb-3 line-clamp-2 ext-card-desc">
-                                桌面级小机器工具人，外观灵感来自 WALL-E 里的 EVE。具备 USB 通信、显示屏幕与多自由度机械臂，支持自定义动作与交互，GPL-3.0 许可。是稚晖君 &#34;量子计划&#34; 系列的核心项目之一。
-                            </p>
-
+                        <div class="ext-card-footer">
                             
+                            <img src="https://avatars.githubusercontent.com/u/12994887?v=4" alt="peng-zhihui" class="ext-card-avatar">
                             
-                            <div class="ext-card-tags mb-3">
-                                
-                                <span class="ext-card-tag">robot</span>
-                                
-                                <span class="ext-card-tag">desktop</span>
-                                
-                                <span class="ext-card-tag">C</span>
-                                
-                                <span class="ext-card-tag">GPL-3.0</span>
-                                
-                                <span class="ext-card-tag">quantum-plan</span>
-                                
-                                
-                            </div>
+                            <span class="ext-card-author">peng-zhihui</span>
                             
-
+                            <span class="ext-card-license">GPL-3.0</span>
                             
-                            
-                            <div class="ext-card-stats mb-3">
-                                
-                                <span><i class="fas fa-star text-yellow-500"></i> 9562</span>
-                                
-                                
-                                <span><i class="fas fa-code-branch text-secondary"></i> 2063</span>
-                                
-                                
-                                <span><i class="fas fa-circle text-danger" style="font-size: 0.65em;"></i> 88</span>
-                                
-                            </div>
-                            
-
-                            
-
-                            <div class="d-flex align-items-center pt-3 border-top">
-                                
-                                <img src="https://avatars.githubusercontent.com/u/12994887?v=4"
-                                     alt="peng-zhihui"
-                                     class="rounded-circle w-6 h-6 me-2">
-                                
-                                <span class="text-sm text-truncate">peng-zhihui</span>
-                                
-                                <span class="badge badge-xs bg-gray-600 text-white ms-auto">GPL-3.0</span>
-                                
-                                <span class="ext-card-footer-arrow" aria-hidden="true">
-                                    <i class="fas fa-arrow-right"></i>
-                                </span>
-                            </div>
+                            <span class="ext-card-footer-arrow" aria-hidden="true">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
                         </div>
                     </div>
                 </div>
-        
-        <div class="col-md-6 col-lg-4 mb-6 ext-card-wrap"
-             data-platform="github"
-             data-category="iot">
-                    <div class="ext-card ext-card--github rounded-lg overflow-hidden h-full">
+            </div>
+            
+            <div class="ext-card-wrap"
+                 data-platform="github"
+                 data-category="iot">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/external/github/peng-zhihui/HoloCubic"
+                       class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">
+                            HoloCubic
+                        </span>
+
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">
+                                H
+                            </span>
+                        </span>
+
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+
                         
-                        <a href="/external/github/peng-zhihui/HoloCubic"
-                           class="ext-card-cover ext-card-cover--text">
-                            <!-- 左下：完整 slug 水印 -->
-                            <span class="ext-card-cover-slug" aria-hidden="true">
+                        
+                        <span class="ext-card-cover-lang">
+                            C
+                        </span>
+                        
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                            <span class="ext-card-category">iot</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title">
+                            <a href="/external/github/peng-zhihui/HoloCubic">
                                 HoloCubic
-                            </span>
+                            </a>
+                        </h3>
 
-                            <!-- 中央大字首字母（带光晕） -->
-                            <span class="ext-card-cover-initial-wrap" aria-hidden="true">
-                                <span class="ext-card-cover-initial-glow"></span>
-                                <span class="ext-card-cover-initial">
-                                    H
-                                </span>
-                            </span>
+                        <p class="ext-card-desc line-clamp-2">带网络功能的伪全息透明显示桌面站，由稚晖君设计并开源。使用透明 LCD 面板 + 特殊光学结构呈现悬浮效果，支持 Wi-Fi 连接远程刷新内容，常用于桌面氛围与信息展示，GPL-3.0 许可。</p>
 
-                            <!-- 右上：平台徽章 -->
-                            <span class="ext-card-cover-platform">
+                        
+                        
+                        <div class="ext-card-tags">
+                            
+                            <span class="ext-card-tag">display</span>
+                            
+                            <span class="ext-card-tag">hologram</span>
+                            
+                            <span class="ext-card-tag">WiFi</span>
+                            
+                            <span class="ext-card-tag">C</span>
+                            
+                            
+                            <span class="ext-card-tag ext-card-tag--more">+1</span>
+                            
+                        </div>
+                        
+
+                        
+                        
+                        <div class="ext-card-stats">
+                            
+                            <span><i class="fas fa-star"></i> 6744</span>
+                            
+                            
+                            <span><i class="fas fa-code-branch"></i> 1275</span>
+                            
+                            
+                            <span><i class="fas fa-circle-dot"></i> 53</span>
+                            
+                        </div>
+                        
+
+                        <div class="ext-card-footer">
+                            
+                            <img src="https://avatars.githubusercontent.com/u/12994887?v=4" alt="peng-zhihui" class="ext-card-avatar">
+                            
+                            <span class="ext-card-author">peng-zhihui</span>
+                            
+                            <span class="ext-card-license">GPL-3.0</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap"
+                 data-platform="seeed"
+                 data-category="iot">
+                <div class="ext-card ext-card--seeed">
+                    
+                    <a href="/external/seeed/xiao-esp32s3"
+                       class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://aka.doubaocdn.com/s/YjgCUKhFvj');">
+                        <img src="https://aka.doubaocdn.com/s/YjgCUKhFvj" alt="XIAO ESP32S3" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-seedling"></i>
+                                Seeed Studio
+                            </span>
+                            
+                            <span class="ext-card-category">iot</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title">
+                            <a href="/external/seeed/xiao-esp32s3">
+                                XIAO ESP32S3
+                            </a>
+                        </h3>
+
+                        <p class="ext-card-desc line-clamp-2">Seeed Studio 招牌的拇指级开发板系列主型号。ESP32-S3 双核 240MHz、8MB PSRAM + 8MB Flash、Wi-Fi + BLE 5.0、Type-C 供电。Arduino / MicroPython 全栈支持，尺寸仅 21×17.8 mm。</p>
+
+                        
+                        
+                        <div class="ext-card-tags">
+                            
+                            <span class="ext-card-tag">ESP32-S3</span>
+                            
+                            <span class="ext-card-tag">tiny</span>
+                            
+                            <span class="ext-card-tag">WiFi</span>
+                            
+                            <span class="ext-card-tag">BLE-5.0</span>
+                            
+                            
+                            <span class="ext-card-tag ext-card-tag--more">+3</span>
+                            
+                        </div>
+                        
+
+                        
+                        
+                        <div class="ext-card-stats">
+                            
+                            
+                            
+                        </div>
+                        
+
+                        <div class="ext-card-footer">
+                            
+                            <img src="https://avatars.githubusercontent.com/u/11678055?v=4" alt="Seeed Studio" class="ext-card-avatar">
+                            
+                            <span class="ext-card-author">Seeed Studio</span>
+                            
+                            <span class="ext-card-license">Open Source Hardware</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap"
+                 data-platform="github"
+                 data-category="industrial">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/external/github/odriverobotics/ODrive"
+                       class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">
+                            ODrive
+                        </span>
+
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">
+                                O
+                            </span>
+                        </span>
+
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+
+                        
+                        
+                        <span class="ext-card-cover-lang">
+                            C++
+                        </span>
+                        
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
                                 <i class="fab fa-github"></i>
                                 GitHub
                             </span>
-
-                            <!-- 右下：语言标签（从 specs.language 取） -->
                             
+                            <span class="ext-card-category">industrial</span>
                             
-                            <span class="ext-card-cover-lang">
-                                C
-                            </span>
-                            
-                        </a>
-                        
-
-                        <div class="p-4">
-                            <div class="d-flex align-items-center justify-between mb-2">
-                                <span class="badge badge-accent">
-                                    <i class="fab fa-github me-1"></i>
-                                    GitHub
-                                </span>
-                                
-                                <span class="badge badge-secondary">iot</span>
-                                
-                            </div>
-
-                            <h3 class="h5 font-bold mb-2 line-clamp-2">
-                                <a href="/external/github/peng-zhihui/HoloCubic"
-                                   class="text-primary hover-underline" style="text-decoration: none;">
-                                    HoloCubic
-                                </a>
-                            </h3>
-
-                            <p class="text-sm text-secondary mb-3 line-clamp-2 ext-card-desc">
-                                带网络功能的伪全息透明显示桌面站，由稚晖君设计并开源。使用透明 LCD 面板 + 特殊光学结构呈现悬浮效果，支持 Wi-Fi 连接远程刷新内容，常用于桌面氛围与信息展示，GPL-3.0 许可。
-                            </p>
-
-                            
-                            
-                            <div class="ext-card-tags mb-3">
-                                
-                                <span class="ext-card-tag">display</span>
-                                
-                                <span class="ext-card-tag">hologram</span>
-                                
-                                <span class="ext-card-tag">WiFi</span>
-                                
-                                <span class="ext-card-tag">C</span>
-                                
-                                <span class="ext-card-tag">GPL-3.0</span>
-                                
-                                
-                            </div>
-                            
-
-                            
-                            
-                            <div class="ext-card-stats mb-3">
-                                
-                                <span><i class="fas fa-star text-yellow-500"></i> 6744</span>
-                                
-                                
-                                <span><i class="fas fa-code-branch text-secondary"></i> 1275</span>
-                                
-                                
-                                <span><i class="fas fa-circle text-danger" style="font-size: 0.65em;"></i> 53</span>
-                                
-                            </div>
-                            
-
-                            
-
-                            <div class="d-flex align-items-center pt-3 border-top">
-                                
-                                <img src="https://avatars.githubusercontent.com/u/12994887?v=4"
-                                     alt="peng-zhihui"
-                                     class="rounded-circle w-6 h-6 me-2">
-                                
-                                <span class="text-sm text-truncate">peng-zhihui</span>
-                                
-                                <span class="badge badge-xs bg-gray-600 text-white ms-auto">GPL-3.0</span>
-                                
-                                <span class="ext-card-footer-arrow" aria-hidden="true">
-                                    <i class="fas fa-arrow-right"></i>
-                                </span>
-                            </div>
                         </div>
-                    </div>
-                </div>
-        
-        <div class="col-md-6 col-lg-4 mb-6 ext-card-wrap"
-             data-platform="seeed"
-             data-category="iot">
-                    <div class="ext-card ext-card--seeed rounded-lg overflow-hidden h-full">
-                        
-                        <a href="/external/seeed/xiao-esp32s3"
-                           class="ext-card-cover ext-card-cover--img"
-                           style="background-image: url('https://aka.doubaocdn.com/s/YjgCUKhFvj');">
-                            <img src="https://aka.doubaocdn.com/s/YjgCUKhFvj" alt="XIAO ESP32S3" class="visually-hidden" loading="lazy">
-                        </a>
-                        
 
-                        <div class="p-4">
-                            <div class="d-flex align-items-center justify-between mb-2">
-                                <span class="badge badge-accent">
-                                    <i class="fas fa-seedling me-1"></i>
-                                    Seeed Studio
-                                </span>
-                                
-                                <span class="badge badge-secondary">iot</span>
-                                
-                            </div>
-
-                            <h3 class="h5 font-bold mb-2 line-clamp-2">
-                                <a href="/external/seeed/xiao-esp32s3"
-                                   class="text-primary hover-underline" style="text-decoration: none;">
-                                    XIAO ESP32S3
-                                </a>
-                            </h3>
-
-                            <p class="text-sm text-secondary mb-3 line-clamp-2 ext-card-desc">
-                                Seeed Studio 招牌的拇指级开发板系列主型号。ESP32-S3 双核 240MHz、8MB PSRAM + 8MB Flash、Wi-Fi + BLE 5.0、Type-C 供电。Arduino / MicroPython 全栈支持，尺寸仅 21×17.8 mm。
-                            </p>
-
-                            
-                            
-                            <div class="ext-card-tags mb-3">
-                                
-                                <span class="ext-card-tag">ESP32-S3</span>
-                                
-                                <span class="ext-card-tag">tiny</span>
-                                
-                                <span class="ext-card-tag">WiFi</span>
-                                
-                                <span class="ext-card-tag">BLE-5.0</span>
-                                
-                                <span class="ext-card-tag">Arduino</span>
-                                
-                                
-                                <span class="ext-card-tag ext-card-tag--more">+2</span>
-                                
-                            </div>
-                            
-
-                            
-                            
-                            <div class="ext-card-stats mb-3">
-                                
-                                
-                                
-                            </div>
-                            
-
-                            
-
-                            <div class="d-flex align-items-center pt-3 border-top">
-                                
-                                <img src="https://avatars.githubusercontent.com/u/11678055?v=4"
-                                     alt="Seeed Studio"
-                                     class="rounded-circle w-6 h-6 me-2">
-                                
-                                <span class="text-sm text-truncate">Seeed Studio</span>
-                                
-                                <span class="badge badge-xs bg-gray-600 text-white ms-auto">Open Source Hardware</span>
-                                
-                                <span class="ext-card-footer-arrow" aria-hidden="true">
-                                    <i class="fas fa-arrow-right"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
-        <div class="col-md-6 col-lg-4 mb-6 ext-card-wrap"
-             data-platform="github"
-             data-category="industrial">
-                    <div class="ext-card ext-card--github rounded-lg overflow-hidden h-full">
-                        
-                        <a href="/external/github/odriverobotics/ODrive"
-                           class="ext-card-cover ext-card-cover--text">
-                            <!-- 左下：完整 slug 水印 -->
-                            <span class="ext-card-cover-slug" aria-hidden="true">
+                        <h3 class="ext-card-title">
+                            <a href="/external/github/odriverobotics/ODrive">
                                 ODrive
-                            </span>
+                            </a>
+                        </h3>
 
-                            <!-- 中央大字首字母（带光晕） -->
-                            <span class="ext-card-cover-initial-wrap" aria-hidden="true">
-                                <span class="ext-card-cover-initial-glow"></span>
-                                <span class="ext-card-cover-initial">
-                                    O
-                                </span>
-                            </span>
+                        <p class="ext-card-desc line-clamp-2">高性能开源电机控制器，支持 BLDC / 有刷直流 / 步进电机，自带 FOC 控制算法。硬件与固件完全开放，MIT 许可，社区活跃。</p>
 
-                            <!-- 右上：平台徽章 -->
-                            <span class="ext-card-cover-platform">
+                        
+                        
+                        <div class="ext-card-tags">
+                            
+                            <span class="ext-card-tag">motor</span>
+                            
+                            <span class="ext-card-tag">FOC</span>
+                            
+                            <span class="ext-card-tag">BLDC</span>
+                            
+                            <span class="ext-card-tag">STM32</span>
+                            
+                            
+                            <span class="ext-card-tag ext-card-tag--more">+1</span>
+                            
+                        </div>
+                        
+
+                        
+                        
+                        <div class="ext-card-stats">
+                            
+                            <span><i class="fas fa-star"></i> 3809</span>
+                            
+                            
+                            <span><i class="fas fa-code-branch"></i> 1758</span>
+                            
+                            
+                            <span><i class="fas fa-circle-dot"></i> 17</span>
+                            
+                        </div>
+                        
+
+                        <div class="ext-card-footer">
+                            
+                            <img src="https://avatars.githubusercontent.com/u/75926039?v=4" alt="ODrive Robotics" class="ext-card-avatar">
+                            
+                            <span class="ext-card-author">ODrive Robotics</span>
+                            
+                            <span class="ext-card-license">MIT</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap"
+                 data-platform="github"
+                 data-category="ai">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/external/github/openmv/openmv"
+                       class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">
+                            openmv
+                        </span>
+
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">
+                                O
+                            </span>
+                        </span>
+
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+
+                        
+                        
+                        <span class="ext-card-cover-lang">
+                            C
+                        </span>
+                        
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
                                 <i class="fab fa-github"></i>
                                 GitHub
                             </span>
+                            
+                            <span class="ext-card-category">ai</span>
+                            
+                        </div>
 
-                            <!-- 右下：语言标签（从 specs.language 取） -->
+                        <h3 class="ext-card-title">
+                            <a href="/external/github/openmv/openmv">
+                                OpenMV
+                            </a>
+                        </h3>
+
+                        <p class="ext-card-desc line-clamp-2">低成本机器视觉开发板与固件框架，MicroPython 编程，内置图像采集、边缘检测、颜色追踪、神经网络推理等常用视觉功能。</p>
+
+                        
+                        
+                        <div class="ext-card-tags">
+                            
+                            <span class="ext-card-tag">camera</span>
+                            
+                            <span class="ext-card-tag">vision</span>
+                            
+                            <span class="ext-card-tag">MicroPython</span>
+                            
+                            <span class="ext-card-tag">ML</span>
                             
                             
-                            <span class="ext-card-cover-lang">
-                                C++
-                            </span>
-                            
-                        </a>
+                        </div>
                         
 
-                        <div class="p-4">
-                            <div class="d-flex align-items-center justify-between mb-2">
-                                <span class="badge badge-accent">
-                                    <i class="fab fa-github me-1"></i>
-                                    GitHub
-                                </span>
-                                
-                                <span class="badge badge-secondary">industrial</span>
-                                
-                            </div>
+                        
+                        
+                        <div class="ext-card-stats">
+                            
+                            <span><i class="fas fa-star"></i> 2887</span>
+                            
+                            
+                            <span><i class="fas fa-code-branch"></i> 1279</span>
+                            
+                            
+                            <span><i class="fas fa-circle-dot"></i> 64</span>
+                            
+                        </div>
+                        
 
-                            <h3 class="h5 font-bold mb-2 line-clamp-2">
-                                <a href="/external/github/odriverobotics/ODrive"
-                                   class="text-primary hover-underline" style="text-decoration: none;">
-                                    ODrive
-                                </a>
-                            </h3>
-
-                            <p class="text-sm text-secondary mb-3 line-clamp-2 ext-card-desc">
-                                高性能开源电机控制器，支持 BLDC / 有刷直流 / 步进电机，自带 FOC 控制算法。硬件与固件完全开放，MIT 许可，社区活跃。
-                            </p>
-
+                        <div class="ext-card-footer">
                             
+                            <img src="https://avatars.githubusercontent.com/u/12023962?v=4" alt="OpenMV Inc." class="ext-card-avatar">
                             
-                            <div class="ext-card-tags mb-3">
-                                
-                                <span class="ext-card-tag">motor</span>
-                                
-                                <span class="ext-card-tag">FOC</span>
-                                
-                                <span class="ext-card-tag">BLDC</span>
-                                
-                                <span class="ext-card-tag">STM32</span>
-                                
-                                <span class="ext-card-tag">control</span>
-                                
-                                
-                            </div>
+                            <span class="ext-card-author">OpenMV Inc.</span>
                             
-
-                            
-                            
-                            <div class="ext-card-stats mb-3">
-                                
-                                <span><i class="fas fa-star text-yellow-500"></i> 3809</span>
-                                
-                                
-                                <span><i class="fas fa-code-branch text-secondary"></i> 1758</span>
-                                
-                                
-                                <span><i class="fas fa-circle text-danger" style="font-size: 0.65em;"></i> 17</span>
-                                
-                            </div>
-                            
-
-                            
-
-                            <div class="d-flex align-items-center pt-3 border-top">
-                                
-                                <img src="https://avatars.githubusercontent.com/u/75926039?v=4"
-                                     alt="ODrive Robotics"
-                                     class="rounded-circle w-6 h-6 me-2">
-                                
-                                <span class="text-sm text-truncate">ODrive Robotics</span>
-                                
-                                <span class="badge badge-xs bg-gray-600 text-white ms-auto">MIT</span>
-                                
-                                <span class="ext-card-footer-arrow" aria-hidden="true">
-                                    <i class="fas fa-arrow-right"></i>
-                                </span>
-                            </div>
+                            <span class="ext-card-footer-arrow" aria-hidden="true">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
                         </div>
                     </div>
                 </div>
-        
-        <div class="col-md-6 col-lg-4 mb-6 ext-card-wrap"
-             data-platform="github"
-             data-category="ai">
-                    <div class="ext-card ext-card--github rounded-lg overflow-hidden h-full">
+            </div>
+            
+            <div class="ext-card-wrap"
+                 data-platform="github"
+                 data-category="humanoid_robot">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/external/github/Nate711/StanfordDoggoProject"
+                       class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">
+                            StanfordDoggoProject
+                        </span>
+
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">
+                                S
+                            </span>
+                        </span>
+
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+
                         
-                        <a href="/external/github/openmv/openmv"
-                           class="ext-card-cover ext-card-cover--text">
-                            <!-- 左下：完整 slug 水印 -->
-                            <span class="ext-card-cover-slug" aria-hidden="true">
-                                openmv
-                            </span>
+                        
+                    </a>
+                    
 
-                            <!-- 中央大字首字母（带光晕） -->
-                            <span class="ext-card-cover-initial-wrap" aria-hidden="true">
-                                <span class="ext-card-cover-initial-glow"></span>
-                                <span class="ext-card-cover-initial">
-                                    O
-                                </span>
-                            </span>
-
-                            <!-- 右上：平台徽章 -->
-                            <span class="ext-card-cover-platform">
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
                                 <i class="fab fa-github"></i>
                                 GitHub
                             </span>
+                            
+                            <span class="ext-card-category">humanoid_robot</span>
+                            
+                        </div>
 
-                            <!-- 右下：语言标签（从 specs.language 取） -->
+                        <h3 class="ext-card-title">
+                            <a href="/external/github/Nate711/StanfordDoggoProject">
+                                Stanford Doggo
+                            </a>
+                        </h3>
+
+                        <p class="ext-card-desc line-clamp-2">斯坦福开源的四足机器人 Doggo，基于树莓派 + STM32 + 直流无刷电机，支持跳跃、翻转、小跑等多种步态，MIT 许可。</p>
+
+                        
+                        
+                        <div class="ext-card-tags">
+                            
+                            <span class="ext-card-tag">quadruped</span>
+                            
+                            <span class="ext-card-tag">legged</span>
+                            
+                            <span class="ext-card-tag">STM32</span>
+                            
+                            <span class="ext-card-tag">Raspberry Pi</span>
                             
                             
-                            <span class="ext-card-cover-lang">
-                                C
-                            </span>
+                            <span class="ext-card-tag ext-card-tag--more">+1</span>
                             
-                        </a>
+                        </div>
                         
 
-                        <div class="p-4">
-                            <div class="d-flex align-items-center justify-between mb-2">
-                                <span class="badge badge-accent">
-                                    <i class="fab fa-github me-1"></i>
-                                    GitHub
-                                </span>
-                                
-                                <span class="badge badge-secondary">ai</span>
-                                
-                            </div>
+                        
+                        
+                        <div class="ext-card-stats">
+                            
+                            <span><i class="fas fa-star"></i> 2570</span>
+                            
+                            
+                            <span><i class="fas fa-code-branch"></i> 751</span>
+                            
+                            
+                            <span><i class="fas fa-circle-dot"></i> 11</span>
+                            
+                        </div>
+                        
 
-                            <h3 class="h5 font-bold mb-2 line-clamp-2">
-                                <a href="/external/github/openmv/openmv"
-                                   class="text-primary hover-underline" style="text-decoration: none;">
-                                    OpenMV
-                                </a>
-                            </h3>
-
-                            <p class="text-sm text-secondary mb-3 line-clamp-2 ext-card-desc">
-                                低成本机器视觉开发板与固件框架，MicroPython 编程，内置图像采集、边缘检测、颜色追踪、神经网络推理等常用视觉功能。
-                            </p>
-
+                        <div class="ext-card-footer">
                             
+                            <img src="https://avatars.githubusercontent.com/u/1295426?v=4" alt="Nathan Kau" class="ext-card-avatar">
                             
-                            <div class="ext-card-tags mb-3">
-                                
-                                <span class="ext-card-tag">camera</span>
-                                
-                                <span class="ext-card-tag">vision</span>
-                                
-                                <span class="ext-card-tag">MicroPython</span>
-                                
-                                <span class="ext-card-tag">ML</span>
-                                
-                                
-                            </div>
+                            <span class="ext-card-author">Nathan Kau</span>
                             
-
+                            <span class="ext-card-license">MIT</span>
                             
-                            
-                            <div class="ext-card-stats mb-3">
-                                
-                                <span><i class="fas fa-star text-yellow-500"></i> 2887</span>
-                                
-                                
-                                <span><i class="fas fa-code-branch text-secondary"></i> 1279</span>
-                                
-                                
-                                <span><i class="fas fa-circle text-danger" style="font-size: 0.65em;"></i> 64</span>
-                                
-                            </div>
-                            
-
-                            
-
-                            <div class="d-flex align-items-center pt-3 border-top">
-                                
-                                <img src="https://avatars.githubusercontent.com/u/12023962?v=4"
-                                     alt="OpenMV Inc."
-                                     class="rounded-circle w-6 h-6 me-2">
-                                
-                                <span class="text-sm text-truncate">OpenMV Inc.</span>
-                                
-                                <span class="ext-card-footer-arrow" aria-hidden="true">
-                                    <i class="fas fa-arrow-right"></i>
-                                </span>
-                            </div>
+                            <span class="ext-card-footer-arrow" aria-hidden="true">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
                         </div>
                     </div>
                 </div>
-        
-        <div class="col-md-6 col-lg-4 mb-6 ext-card-wrap"
-             data-platform="github"
-             data-category="humanoid_robot">
-                    <div class="ext-card ext-card--github rounded-lg overflow-hidden h-full">
+            </div>
+            
+            <div class="ext-card-wrap"
+                 data-platform="seeed"
+                 data-category="industrial">
+                <div class="ext-card ext-card--seeed">
+                    
+                    <a href="/external/seeed/reterminal"
+                       class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://aka.doubaocdn.com/s/WOvcWQ97Bb');">
+                        <img src="https://aka.doubaocdn.com/s/WOvcWQ97Bb" alt="reTerminal" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-seedling"></i>
+                                Seeed Studio
+                            </span>
+                            
+                            <span class="ext-card-category">industrial</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title">
+                            <a href="/external/seeed/reterminal">
+                                reTerminal
+                            </a>
+                        </h3>
+
+                        <p class="ext-card-desc line-clamp-2">Seeed Studio 推出的 HMI 人机界面终端。基于 Raspberry Pi CM4（四核 Cortex-A72 @ 1.5GHz），内置 5 英寸 IPS 触控屏（1280×720）、4GB RAM + 32GB eMMC、双频 Wi-Fi/蓝牙 5.0、千兆网口、加密协处理器。出厂预装 Raspberry Pi OS，适合工业现场 HMI、IoT 边缘网关等场景。</p>
+
                         
-                        <a href="/external/github/Nate711/StanfordDoggoProject"
-                           class="ext-card-cover ext-card-cover--text">
-                            <!-- 左下：完整 slug 水印 -->
-                            <span class="ext-card-cover-slug" aria-hidden="true">
-                                StanfordDoggoProject
-                            </span>
+                        
+                        <div class="ext-card-tags">
+                            
+                            <span class="ext-card-tag">Raspberry Pi</span>
+                            
+                            <span class="ext-card-tag">CM4</span>
+                            
+                            <span class="ext-card-tag">HMI</span>
+                            
+                            <span class="ext-card-tag">touchscreen</span>
+                            
+                            
+                            <span class="ext-card-tag ext-card-tag--more">+3</span>
+                            
+                        </div>
+                        
 
-                            <!-- 中央大字首字母（带光晕） -->
-                            <span class="ext-card-cover-initial-wrap" aria-hidden="true">
-                                <span class="ext-card-cover-initial-glow"></span>
-                                <span class="ext-card-cover-initial">
-                                    S
-                                </span>
-                            </span>
+                        
+                        
+                        <div class="ext-card-stats">
+                            
+                            
+                            
+                        </div>
+                        
 
-                            <!-- 右上：平台徽章 -->
-                            <span class="ext-card-cover-platform">
+                        <div class="ext-card-footer">
+                            
+                            <img src="https://avatars.githubusercontent.com/u/11678055?v=4" alt="Seeed Studio" class="ext-card-avatar">
+                            
+                            <span class="ext-card-author">Seeed Studio</span>
+                            
+                            <span class="ext-card-license">Open Source Hardware</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap"
+                 data-platform="github"
+                 data-category="humanoid_robot">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/external/github/HybridRobotics/berkeley-humanoid-lite"
+                       class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">
+                            berkeley-humanoid-lite
+                        </span>
+
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">
+                                B
+                            </span>
+                        </span>
+
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+
+                        
+                        
+                        <span class="ext-card-cover-lang">
+                            Python
+                        </span>
+                        
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
                                 <i class="fab fa-github"></i>
                                 GitHub
                             </span>
+                            
+                            <span class="ext-card-category">humanoid_robot</span>
+                            
+                        </div>
 
-                            <!-- 右下：语言标签（从 specs.language 取） -->
+                        <h3 class="ext-card-title">
+                            <a href="/external/github/HybridRobotics/berkeley-humanoid-lite">
+                                Berkeley Humanoid Lite
+                            </a>
+                        </h3>
+
+                        <p class="ext-card-desc line-clamp-2">Berkeley Hybrid Robotics 团队推出的小型开源人形机器人平台，MIT 许可。配套 Python 控制栈与仿真环境，用于灵巧操作与全身运动研究。</p>
+
+                        
+                        
+                        <div class="ext-card-tags">
+                            
+                            <span class="ext-card-tag">humanoid</span>
+                            
+                            <span class="ext-card-tag">PyTorch</span>
+                            
+                            <span class="ext-card-tag">simulation</span>
+                            
+                            <span class="ext-card-tag">MIT</span>
                             
                             
-                        </a>
+                        </div>
                         
 
-                        <div class="p-4">
-                            <div class="d-flex align-items-center justify-between mb-2">
-                                <span class="badge badge-accent">
-                                    <i class="fab fa-github me-1"></i>
-                                    GitHub
-                                </span>
-                                
-                                <span class="badge badge-secondary">humanoid_robot</span>
-                                
-                            </div>
+                        
+                        
+                        <div class="ext-card-stats">
+                            
+                            <span><i class="fas fa-star"></i> 1992</span>
+                            
+                            
+                            <span><i class="fas fa-code-branch"></i> 316</span>
+                            
+                            
+                            <span><i class="fas fa-circle-dot"></i> 8</span>
+                            
+                        </div>
+                        
 
-                            <h3 class="h5 font-bold mb-2 line-clamp-2">
-                                <a href="/external/github/Nate711/StanfordDoggoProject"
-                                   class="text-primary hover-underline" style="text-decoration: none;">
-                                    Stanford Doggo
-                                </a>
-                            </h3>
-
-                            <p class="text-sm text-secondary mb-3 line-clamp-2 ext-card-desc">
-                                斯坦福开源的四足机器人 Doggo，基于树莓派 + STM32 + 直流无刷电机，支持跳跃、翻转、小跑等多种步态，MIT 许可。
-                            </p>
-
+                        <div class="ext-card-footer">
                             
+                            <img src="https://avatars.githubusercontent.com/u/10053058?v=4" alt="Hybrid Robotics Lab" class="ext-card-avatar">
                             
-                            <div class="ext-card-tags mb-3">
-                                
-                                <span class="ext-card-tag">quadruped</span>
-                                
-                                <span class="ext-card-tag">legged</span>
-                                
-                                <span class="ext-card-tag">STM32</span>
-                                
-                                <span class="ext-card-tag">Raspberry Pi</span>
-                                
-                                <span class="ext-card-tag">MIT</span>
-                                
-                                
-                            </div>
+                            <span class="ext-card-author">Hybrid Robotics Lab</span>
                             
-
+                            <span class="ext-card-license">MIT</span>
                             
-                            
-                            <div class="ext-card-stats mb-3">
-                                
-                                <span><i class="fas fa-star text-yellow-500"></i> 2570</span>
-                                
-                                
-                                <span><i class="fas fa-code-branch text-secondary"></i> 751</span>
-                                
-                                
-                                <span><i class="fas fa-circle text-danger" style="font-size: 0.65em;"></i> 11</span>
-                                
-                            </div>
-                            
-
-                            
-
-                            <div class="d-flex align-items-center pt-3 border-top">
-                                
-                                <img src="https://avatars.githubusercontent.com/u/1295426?v=4"
-                                     alt="Nathan Kau"
-                                     class="rounded-circle w-6 h-6 me-2">
-                                
-                                <span class="text-sm text-truncate">Nathan Kau</span>
-                                
-                                <span class="badge badge-xs bg-gray-600 text-white ms-auto">MIT</span>
-                                
-                                <span class="ext-card-footer-arrow" aria-hidden="true">
-                                    <i class="fas fa-arrow-right"></i>
-                                </span>
-                            </div>
+                            <span class="ext-card-footer-arrow" aria-hidden="true">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
                         </div>
                     </div>
                 </div>
-        
-        <div class="col-md-6 col-lg-4 mb-6 ext-card-wrap"
-             data-platform="seeed"
-             data-category="industrial">
-                    <div class="ext-card ext-card--seeed rounded-lg overflow-hidden h-full">
-                        
-                        <a href="/external/seeed/reterminal"
-                           class="ext-card-cover ext-card-cover--img"
-                           style="background-image: url('https://aka.doubaocdn.com/s/WOvcWQ97Bb');">
-                            <img src="https://aka.doubaocdn.com/s/WOvcWQ97Bb" alt="reTerminal" class="visually-hidden" loading="lazy">
-                        </a>
-                        
+            </div>
+            
+            <div class="ext-card-wrap"
+                 data-platform="github"
+                 data-category="humanoid_robot">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/external/github/apirrone/Open_Duck_Mini"
+                       class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">
+                            Open_Duck_Mini
+                        </span>
 
-                        <div class="p-4">
-                            <div class="d-flex align-items-center justify-between mb-2">
-                                <span class="badge badge-accent">
-                                    <i class="fas fa-seedling me-1"></i>
-                                    Seeed Studio
-                                </span>
-                                
-                                <span class="badge badge-secondary">industrial</span>
-                                
-                            </div>
-
-                            <h3 class="h5 font-bold mb-2 line-clamp-2">
-                                <a href="/external/seeed/reterminal"
-                                   class="text-primary hover-underline" style="text-decoration: none;">
-                                    reTerminal
-                                </a>
-                            </h3>
-
-                            <p class="text-sm text-secondary mb-3 line-clamp-2 ext-card-desc">
-                                Seeed Studio 推出的 HMI 人机界面终端。基于 Raspberry Pi CM4（四核 Cortex-A72 @ 1.5GHz），内置 5 英寸 IPS 触控屏（1280×720）、4GB RAM + 32GB eMMC、双频 Wi-Fi/蓝牙 5.0、千兆网口、加密协处理器。出厂预装 Raspberry Pi OS，适合工业现场 HMI、IoT 边缘网关等场景。
-                            </p>
-
-                            
-                            
-                            <div class="ext-card-tags mb-3">
-                                
-                                <span class="ext-card-tag">Raspberry Pi</span>
-                                
-                                <span class="ext-card-tag">CM4</span>
-                                
-                                <span class="ext-card-tag">HMI</span>
-                                
-                                <span class="ext-card-tag">touchscreen</span>
-                                
-                                <span class="ext-card-tag">IoT</span>
-                                
-                                
-                                <span class="ext-card-tag ext-card-tag--more">+2</span>
-                                
-                            </div>
-                            
-
-                            
-                            
-                            <div class="ext-card-stats mb-3">
-                                
-                                
-                                
-                            </div>
-                            
-
-                            
-
-                            <div class="d-flex align-items-center pt-3 border-top">
-                                
-                                <img src="https://avatars.githubusercontent.com/u/11678055?v=4"
-                                     alt="Seeed Studio"
-                                     class="rounded-circle w-6 h-6 me-2">
-                                
-                                <span class="text-sm text-truncate">Seeed Studio</span>
-                                
-                                <span class="badge badge-xs bg-gray-600 text-white ms-auto">Open Source Hardware</span>
-                                
-                                <span class="ext-card-footer-arrow" aria-hidden="true">
-                                    <i class="fas fa-arrow-right"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
-        <div class="col-md-6 col-lg-4 mb-6 ext-card-wrap"
-             data-platform="github"
-             data-category="humanoid_robot">
-                    <div class="ext-card ext-card--github rounded-lg overflow-hidden h-full">
-                        
-                        <a href="/external/github/HybridRobotics/berkeley-humanoid-lite"
-                           class="ext-card-cover ext-card-cover--text">
-                            <!-- 左下：完整 slug 水印 -->
-                            <span class="ext-card-cover-slug" aria-hidden="true">
-                                berkeley-humanoid-lite
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">
+                                O
                             </span>
+                        </span>
 
-                            <!-- 中央大字首字母（带光晕） -->
-                            <span class="ext-card-cover-initial-wrap" aria-hidden="true">
-                                <span class="ext-card-cover-initial-glow"></span>
-                                <span class="ext-card-cover-initial">
-                                    B
-                                </span>
-                            </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
 
-                            <!-- 右上：平台徽章 -->
-                            <span class="ext-card-cover-platform">
+                        
+                        
+                        <span class="ext-card-cover-lang">
+                            Python
+                        </span>
+                        
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
                                 <i class="fab fa-github"></i>
                                 GitHub
                             </span>
+                            
+                            <span class="ext-card-category">humanoid_robot</span>
+                            
+                        </div>
 
-                            <!-- 右下：语言标签（从 specs.language 取） -->
+                        <h3 class="ext-card-title">
+                            <a href="/external/github/apirrone/Open_Duck_Mini">
+                                Open Duck Mini v2
+                            </a>
+                        </h3>
+
+                        <p class="ext-card-desc line-clamp-2">基于 BDX droid 设计的开源迷你人形机器人项目，v2 分支为主开发线，支持 Python 控制，Apache 2.0 许可。</p>
+
+                        
+                        
+                        <div class="ext-card-tags">
+                            
+                            <span class="ext-card-tag">humanoid</span>
+                            
+                            <span class="ext-card-tag">servo</span>
+                            
+                            <span class="ext-card-tag">Apache-2.0</span>
                             
                             
-                            <span class="ext-card-cover-lang">
-                                Python
-                            </span>
-                            
-                        </a>
+                        </div>
                         
 
-                        <div class="p-4">
-                            <div class="d-flex align-items-center justify-between mb-2">
-                                <span class="badge badge-accent">
-                                    <i class="fab fa-github me-1"></i>
-                                    GitHub
-                                </span>
-                                
-                                <span class="badge badge-secondary">humanoid_robot</span>
-                                
-                            </div>
+                        
+                        
+                        <div class="ext-card-stats">
+                            
+                            <span><i class="fas fa-star"></i> 1894</span>
+                            
+                            
+                            <span><i class="fas fa-code-branch"></i> 236</span>
+                            
+                            
+                            <span><i class="fas fa-circle-dot"></i> 10</span>
+                            
+                        </div>
+                        
 
-                            <h3 class="h5 font-bold mb-2 line-clamp-2">
-                                <a href="/external/github/HybridRobotics/berkeley-humanoid-lite"
-                                   class="text-primary hover-underline" style="text-decoration: none;">
-                                    Berkeley Humanoid Lite
-                                </a>
-                            </h3>
-
-                            <p class="text-sm text-secondary mb-3 line-clamp-2 ext-card-desc">
-                                Berkeley Hybrid Robotics 团队推出的小型开源人形机器人平台，MIT 许可。配套 Python 控制栈与仿真环境，用于灵巧操作与全身运动研究。
-                            </p>
-
+                        <div class="ext-card-footer">
                             
+                            <img src="https://avatars.githubusercontent.com/u/6552564?v=4" alt="apirrone" class="ext-card-avatar">
                             
-                            <div class="ext-card-tags mb-3">
-                                
-                                <span class="ext-card-tag">humanoid</span>
-                                
-                                <span class="ext-card-tag">PyTorch</span>
-                                
-                                <span class="ext-card-tag">simulation</span>
-                                
-                                <span class="ext-card-tag">MIT</span>
-                                
-                                
-                            </div>
+                            <span class="ext-card-author">apirrone</span>
                             
-
+                            <span class="ext-card-license">Apache-2.0</span>
                             
-                            
-                            <div class="ext-card-stats mb-3">
-                                
-                                <span><i class="fas fa-star text-yellow-500"></i> 1992</span>
-                                
-                                
-                                <span><i class="fas fa-code-branch text-secondary"></i> 316</span>
-                                
-                                
-                                <span><i class="fas fa-circle text-danger" style="font-size: 0.65em;"></i> 8</span>
-                                
-                            </div>
-                            
-
-                            
-
-                            <div class="d-flex align-items-center pt-3 border-top">
-                                
-                                <img src="https://avatars.githubusercontent.com/u/10053058?v=4"
-                                     alt="Hybrid Robotics Lab"
-                                     class="rounded-circle w-6 h-6 me-2">
-                                
-                                <span class="text-sm text-truncate">Hybrid Robotics Lab</span>
-                                
-                                <span class="badge badge-xs bg-gray-600 text-white ms-auto">MIT</span>
-                                
-                                <span class="ext-card-footer-arrow" aria-hidden="true">
-                                    <i class="fas fa-arrow-right"></i>
-                                </span>
-                            </div>
+                            <span class="ext-card-footer-arrow" aria-hidden="true">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
                         </div>
                     </div>
                 </div>
-        
-        <div class="col-md-6 col-lg-4 mb-6 ext-card-wrap"
-             data-platform="github"
-             data-category="humanoid_robot">
-                    <div class="ext-card ext-card--github rounded-lg overflow-hidden h-full">
+            </div>
+            
+            <div class="ext-card-wrap"
+                 data-platform="seeed"
+                 data-category="iot">
+                <div class="ext-card ext-card--seeed">
+                    
+                    <a href="/external/seeed/Quantum-Mini-Linux-Development-Kit"
+                       class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://aka.doubaocdn.com/s/AUTwYX5K24');">
+                        <img src="https://aka.doubaocdn.com/s/AUTwYX5K24" alt="Quantum Mini Linux Dev Kit" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-seedling"></i>
+                                Seeed Studio
+                            </span>
+                            
+                            <span class="ext-card-category">iot</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title">
+                            <a href="/external/seeed/Quantum-Mini-Linux-Development-Kit">
+                                Quantum Mini Linux Dev Kit
+                            </a>
+                        </h3>
+
+                        <p class="ext-card-desc line-clamp-2">稚晖君联合 Seeed Studio 推出的全球最小 Linux 开发板之一。SoM 名为 Quark-N（全志 H3 四核 Cortex-A7 + Mali400 GPU），仅 31×22 mm；底板 Atom-N 40×35 mm，集成麦克风、MPU6050、IPS 屏、Wi-Fi/蓝牙。GPL-3.0 许可。</p>
+
                         
-                        <a href="/external/github/apirrone/Open_Duck_Mini"
-                           class="ext-card-cover ext-card-cover--text">
-                            <!-- 左下：完整 slug 水印 -->
-                            <span class="ext-card-cover-slug" aria-hidden="true">
-                                Open_Duck_Mini
-                            </span>
+                        
+                        <div class="ext-card-tags">
+                            
+                            <span class="ext-card-tag">Linux</span>
+                            
+                            <span class="ext-card-tag">Allwinner H3</span>
+                            
+                            <span class="ext-card-tag">Cortex-A7</span>
+                            
+                            <span class="ext-card-tag">M.2</span>
+                            
+                            
+                            <span class="ext-card-tag ext-card-tag--more">+4</span>
+                            
+                        </div>
+                        
 
-                            <!-- 中央大字首字母（带光晕） -->
-                            <span class="ext-card-cover-initial-wrap" aria-hidden="true">
-                                <span class="ext-card-cover-initial-glow"></span>
-                                <span class="ext-card-cover-initial">
-                                    O
-                                </span>
-                            </span>
+                        
+                        
+                        <div class="ext-card-stats">
+                            
+                            
+                            
+                        </div>
+                        
 
-                            <!-- 右上：平台徽章 -->
-                            <span class="ext-card-cover-platform">
+                        <div class="ext-card-footer">
+                            
+                            <img src="https://avatars.githubusercontent.com/u/12994887?v=4" alt="peng-zhihui × Seeed Studio" class="ext-card-avatar">
+                            
+                            <span class="ext-card-author">peng-zhihui × Seeed Studio</span>
+                            
+                            <span class="ext-card-license">GPL-3.0</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap"
+                 data-platform="github"
+                 data-category="iot">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/external/github/peng-zhihui/Planck-Pi"
+                       class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">
+                            Planck-Pi
+                        </span>
+
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">
+                                P
+                            </span>
+                        </span>
+
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+
+                        
+                        
+                        <span class="ext-card-cover-lang">
+                            HTML
+                        </span>
+                        
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
                                 <i class="fab fa-github"></i>
                                 GitHub
                             </span>
-
-                            <!-- 右下：语言标签（从 specs.language 取） -->
                             
+                            <span class="ext-card-category">iot</span>
                             
-                            <span class="ext-card-cover-lang">
-                                Python
-                            </span>
-                            
-                        </a>
-                        
-
-                        <div class="p-4">
-                            <div class="d-flex align-items-center justify-between mb-2">
-                                <span class="badge badge-accent">
-                                    <i class="fab fa-github me-1"></i>
-                                    GitHub
-                                </span>
-                                
-                                <span class="badge badge-secondary">humanoid_robot</span>
-                                
-                            </div>
-
-                            <h3 class="h5 font-bold mb-2 line-clamp-2">
-                                <a href="/external/github/apirrone/Open_Duck_Mini"
-                                   class="text-primary hover-underline" style="text-decoration: none;">
-                                    Open Duck Mini v2
-                                </a>
-                            </h3>
-
-                            <p class="text-sm text-secondary mb-3 line-clamp-2 ext-card-desc">
-                                基于 BDX droid 设计的开源迷你人形机器人项目，v2 分支为主开发线，支持 Python 控制，Apache 2.0 许可。
-                            </p>
-
-                            
-                            
-                            <div class="ext-card-tags mb-3">
-                                
-                                <span class="ext-card-tag">humanoid</span>
-                                
-                                <span class="ext-card-tag">servo</span>
-                                
-                                <span class="ext-card-tag">Apache-2.0</span>
-                                
-                                
-                            </div>
-                            
-
-                            
-                            
-                            <div class="ext-card-stats mb-3">
-                                
-                                <span><i class="fas fa-star text-yellow-500"></i> 1894</span>
-                                
-                                
-                                <span><i class="fas fa-code-branch text-secondary"></i> 236</span>
-                                
-                                
-                                <span><i class="fas fa-circle text-danger" style="font-size: 0.65em;"></i> 10</span>
-                                
-                            </div>
-                            
-
-                            
-
-                            <div class="d-flex align-items-center pt-3 border-top">
-                                
-                                <img src="https://avatars.githubusercontent.com/u/6552564?v=4"
-                                     alt="apirrone"
-                                     class="rounded-circle w-6 h-6 me-2">
-                                
-                                <span class="text-sm text-truncate">apirrone</span>
-                                
-                                <span class="badge badge-xs bg-gray-600 text-white ms-auto">Apache-2.0</span>
-                                
-                                <span class="ext-card-footer-arrow" aria-hidden="true">
-                                    <i class="fas fa-arrow-right"></i>
-                                </span>
-                            </div>
                         </div>
-                    </div>
-                </div>
-        
-        <div class="col-md-6 col-lg-4 mb-6 ext-card-wrap"
-             data-platform="seeed"
-             data-category="iot">
-                    <div class="ext-card ext-card--seeed rounded-lg overflow-hidden h-full">
-                        
-                        <a href="/external/seeed/Quantum-Mini-Linux-Development-Kit"
-                           class="ext-card-cover ext-card-cover--img"
-                           style="background-image: url('https://aka.doubaocdn.com/s/AUTwYX5K24');">
-                            <img src="https://aka.doubaocdn.com/s/AUTwYX5K24" alt="Quantum Mini Linux Dev Kit" class="visually-hidden" loading="lazy">
-                        </a>
-                        
 
-                        <div class="p-4">
-                            <div class="d-flex align-items-center justify-between mb-2">
-                                <span class="badge badge-accent">
-                                    <i class="fas fa-seedling me-1"></i>
-                                    Seeed Studio
-                                </span>
-                                
-                                <span class="badge badge-secondary">iot</span>
-                                
-                            </div>
-
-                            <h3 class="h5 font-bold mb-2 line-clamp-2">
-                                <a href="/external/seeed/Quantum-Mini-Linux-Development-Kit"
-                                   class="text-primary hover-underline" style="text-decoration: none;">
-                                    Quantum Mini Linux Dev Kit
-                                </a>
-                            </h3>
-
-                            <p class="text-sm text-secondary mb-3 line-clamp-2 ext-card-desc">
-                                稚晖君联合 Seeed Studio 推出的全球最小 Linux 开发板之一。SoM 名为 Quark-N（全志 H3 四核 Cortex-A7 + Mali400 GPU），仅 31×22 mm；底板 Atom-N 40×35 mm，集成麦克风、MPU6050、IPS 屏、Wi-Fi/蓝牙。GPL-3.0 许可。
-                            </p>
-
-                            
-                            
-                            <div class="ext-card-tags mb-3">
-                                
-                                <span class="ext-card-tag">Linux</span>
-                                
-                                <span class="ext-card-tag">Allwinner H3</span>
-                                
-                                <span class="ext-card-tag">Cortex-A7</span>
-                                
-                                <span class="ext-card-tag">M.2</span>
-                                
-                                <span class="ext-card-tag">WiFi</span>
-                                
-                                
-                                <span class="ext-card-tag ext-card-tag--more">+3</span>
-                                
-                            </div>
-                            
-
-                            
-                            
-                            <div class="ext-card-stats mb-3">
-                                
-                                
-                                
-                            </div>
-                            
-
-                            
-
-                            <div class="d-flex align-items-center pt-3 border-top">
-                                
-                                <img src="https://avatars.githubusercontent.com/u/12994887?v=4"
-                                     alt="peng-zhihui × Seeed Studio"
-                                     class="rounded-circle w-6 h-6 me-2">
-                                
-                                <span class="text-sm text-truncate">peng-zhihui × Seeed Studio</span>
-                                
-                                <span class="badge badge-xs bg-gray-600 text-white ms-auto">GPL-3.0</span>
-                                
-                                <span class="ext-card-footer-arrow" aria-hidden="true">
-                                    <i class="fas fa-arrow-right"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
-        <div class="col-md-6 col-lg-4 mb-6 ext-card-wrap"
-             data-platform="github"
-             data-category="iot">
-                    <div class="ext-card ext-card--github rounded-lg overflow-hidden h-full">
-                        
-                        <a href="/external/github/peng-zhihui/Planck-Pi"
-                           class="ext-card-cover ext-card-cover--text">
-                            <!-- 左下：完整 slug 水印 -->
-                            <span class="ext-card-cover-slug" aria-hidden="true">
+                        <h3 class="ext-card-title">
+                            <a href="/external/github/peng-zhihui/Planck-Pi">
                                 Planck-Pi
-                            </span>
+                            </a>
+                        </h3>
 
-                            <!-- 中央大字首字母（带光晕） -->
-                            <span class="ext-card-cover-initial-wrap" aria-hidden="true">
-                                <span class="ext-card-cover-initial-glow"></span>
-                                <span class="ext-card-cover-initial">
-                                    P
-                                </span>
-                            </span>
+                        <p class="ext-card-desc line-clamp-2">极致小巧的低成本 Linux 开发板，基于全志 F1C200s SoC。PCB 尺寸仅 31×22 mm，集成 DDR + eMMC，通过 M.2 Key-A 金手指引出绝大多数 GPIO，轻松堆叠做底板。GPL-3.0 许可，稚晖君 &#34;量子计划&#34; 核心硬件。</p>
 
-                            <!-- 右上：平台徽章 -->
-                            <span class="ext-card-cover-platform">
-                                <i class="fab fa-github"></i>
-                                GitHub
-                            </span>
-
-                            <!-- 右下：语言标签（从 specs.language 取） -->
+                        
+                        
+                        <div class="ext-card-tags">
+                            
+                            <span class="ext-card-tag">Linux</span>
+                            
+                            <span class="ext-card-tag">F1C200s</span>
+                            
+                            <span class="ext-card-tag">Allwinner</span>
+                            
+                            <span class="ext-card-tag">M.2</span>
                             
                             
-                            <span class="ext-card-cover-lang">
-                                HTML
-                            </span>
+                            <span class="ext-card-tag ext-card-tag--more">+2</span>
                             
-                        </a>
+                        </div>
                         
 
-                        <div class="p-4">
-                            <div class="d-flex align-items-center justify-between mb-2">
-                                <span class="badge badge-accent">
-                                    <i class="fab fa-github me-1"></i>
-                                    GitHub
-                                </span>
-                                
-                                <span class="badge badge-secondary">iot</span>
-                                
-                            </div>
+                        
+                        
+                        <div class="ext-card-stats">
+                            
+                            <span><i class="fas fa-star"></i> 1438</span>
+                            
+                            
+                            <span><i class="fas fa-code-branch"></i> 318</span>
+                            
+                            
+                            <span><i class="fas fa-circle-dot"></i> 19</span>
+                            
+                        </div>
+                        
 
-                            <h3 class="h5 font-bold mb-2 line-clamp-2">
-                                <a href="/external/github/peng-zhihui/Planck-Pi"
-                                   class="text-primary hover-underline" style="text-decoration: none;">
-                                    Planck-Pi
-                                </a>
-                            </h3>
-
-                            <p class="text-sm text-secondary mb-3 line-clamp-2 ext-card-desc">
-                                极致小巧的低成本 Linux 开发板，基于全志 F1C200s SoC。PCB 尺寸仅 31×22 mm，集成 DDR + eMMC，通过 M.2 Key-A 金手指引出绝大多数 GPIO，轻松堆叠做底板。GPL-3.0 许可，稚晖君 &#34;量子计划&#34; 核心硬件。
-                            </p>
-
+                        <div class="ext-card-footer">
                             
+                            <img src="https://avatars.githubusercontent.com/u/12994887?v=4" alt="peng-zhihui" class="ext-card-avatar">
                             
-                            <div class="ext-card-tags mb-3">
-                                
-                                <span class="ext-card-tag">Linux</span>
-                                
-                                <span class="ext-card-tag">F1C200s</span>
-                                
-                                <span class="ext-card-tag">Allwinner</span>
-                                
-                                <span class="ext-card-tag">M.2</span>
-                                
-                                <span class="ext-card-tag">GPL-3.0</span>
-                                
-                                
-                                <span class="ext-card-tag ext-card-tag--more">+1</span>
-                                
-                            </div>
+                            <span class="ext-card-author">peng-zhihui</span>
                             
-
+                            <span class="ext-card-license">GPL-3.0</span>
                             
-                            
-                            <div class="ext-card-stats mb-3">
-                                
-                                <span><i class="fas fa-star text-yellow-500"></i> 1438</span>
-                                
-                                
-                                <span><i class="fas fa-code-branch text-secondary"></i> 318</span>
-                                
-                                
-                                <span><i class="fas fa-circle text-danger" style="font-size: 0.65em;"></i> 19</span>
-                                
-                            </div>
-                            
-
-                            
-
-                            <div class="d-flex align-items-center pt-3 border-top">
-                                
-                                <img src="https://avatars.githubusercontent.com/u/12994887?v=4"
-                                     alt="peng-zhihui"
-                                     class="rounded-circle w-6 h-6 me-2">
-                                
-                                <span class="text-sm text-truncate">peng-zhihui</span>
-                                
-                                <span class="badge badge-xs bg-gray-600 text-white ms-auto">GPL-3.0</span>
-                                
-                                <span class="ext-card-footer-arrow" aria-hidden="true">
-                                    <i class="fas fa-arrow-right"></i>
-                                </span>
-                            </div>
+                            <span class="ext-card-footer-arrow" aria-hidden="true">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
                         </div>
                     </div>
                 </div>
-        
-        <div class="col-md-6 col-lg-4 mb-6 ext-card-wrap"
-             data-platform="github"
-             data-category="humanoid_robot">
-                    <div class="ext-card ext-card--github rounded-lg overflow-hidden h-full">
+            </div>
+            
+            <div class="ext-card-wrap"
+                 data-platform="github"
+                 data-category="humanoid_robot">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/external/github/hshi74/toddlerbot"
+                       class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">
+                            toddlerbot
+                        </span>
+
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">
+                                T
+                            </span>
+                        </span>
+
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+
                         
-                        <a href="/external/github/hshi74/toddlerbot"
-                           class="ext-card-cover ext-card-cover--text">
-                            <!-- 左下：完整 slug 水印 -->
-                            <span class="ext-card-cover-slug" aria-hidden="true">
-                                toddlerbot
-                            </span>
+                        
+                        <span class="ext-card-cover-lang">
+                            Python
+                        </span>
+                        
+                    </a>
+                    
 
-                            <!-- 中央大字首字母（带光晕） -->
-                            <span class="ext-card-cover-initial-wrap" aria-hidden="true">
-                                <span class="ext-card-cover-initial-glow"></span>
-                                <span class="ext-card-cover-initial">
-                                    T
-                                </span>
-                            </span>
-
-                            <!-- 右上：平台徽章 -->
-                            <span class="ext-card-cover-platform">
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
                                 <i class="fab fa-github"></i>
                                 GitHub
                             </span>
+                            
+                            <span class="ext-card-category">humanoid_robot</span>
+                            
+                        </div>
 
-                            <!-- 右下：语言标签（从 specs.language 取） -->
+                        <h3 class="ext-card-title">
+                            <a href="/external/github/hshi74/toddlerbot">
+                                ToddlerBot
+                            </a>
+                        </h3>
+
+                        <p class="ext-card-desc line-clamp-2">斯坦福开源的低成本人形机器人平台，30 DoF，Jetson Orin NX 计算平台，主打强化学习策略学习与全身操作研究，MIT 许可。CoRL 2025 论文配套。</p>
+
+                        
+                        
+                        <div class="ext-card-tags">
+                            
+                            <span class="ext-card-tag">humanoid</span>
+                            
+                            <span class="ext-card-tag">Jetson</span>
+                            
+                            <span class="ext-card-tag">PyTorch</span>
+                            
+                            <span class="ext-card-tag">simulation</span>
                             
                             
-                            <span class="ext-card-cover-lang">
-                                Python
-                            </span>
+                            <span class="ext-card-tag ext-card-tag--more">+1</span>
                             
-                        </a>
+                        </div>
                         
 
-                        <div class="p-4">
-                            <div class="d-flex align-items-center justify-between mb-2">
-                                <span class="badge badge-accent">
-                                    <i class="fab fa-github me-1"></i>
-                                    GitHub
-                                </span>
-                                
-                                <span class="badge badge-secondary">humanoid_robot</span>
-                                
-                            </div>
+                        
+                        
+                        <div class="ext-card-stats">
+                            
+                            <span><i class="fas fa-star"></i> 786</span>
+                            
+                            
+                            <span><i class="fas fa-code-branch"></i> 94</span>
+                            
+                            
+                            <span><i class="fas fa-circle-dot"></i> 3</span>
+                            
+                        </div>
+                        
 
-                            <h3 class="h5 font-bold mb-2 line-clamp-2">
-                                <a href="/external/github/hshi74/toddlerbot"
-                                   class="text-primary hover-underline" style="text-decoration: none;">
-                                    ToddlerBot
-                                </a>
-                            </h3>
-
-                            <p class="text-sm text-secondary mb-3 line-clamp-2 ext-card-desc">
-                                斯坦福开源的低成本人形机器人平台，30 DoF，Jetson Orin NX 计算平台，主打强化学习策略学习与全身操作研究，MIT 许可。CoRL 2025 论文配套。
-                            </p>
-
+                        <div class="ext-card-footer">
                             
+                            <img src="https://avatars.githubusercontent.com/u/40679006?v=4" alt="Haochen Shi et al." class="ext-card-avatar">
                             
-                            <div class="ext-card-tags mb-3">
-                                
-                                <span class="ext-card-tag">humanoid</span>
-                                
-                                <span class="ext-card-tag">Jetson</span>
-                                
-                                <span class="ext-card-tag">PyTorch</span>
-                                
-                                <span class="ext-card-tag">simulation</span>
-                                
-                                <span class="ext-card-tag">MIT</span>
-                                
-                                
-                            </div>
+                            <span class="ext-card-author">Haochen Shi et al.</span>
                             
-
+                            <span class="ext-card-license">MIT</span>
                             
-                            
-                            <div class="ext-card-stats mb-3">
-                                
-                                <span><i class="fas fa-star text-yellow-500"></i> 786</span>
-                                
-                                
-                                <span><i class="fas fa-code-branch text-secondary"></i> 94</span>
-                                
-                                
-                                <span><i class="fas fa-circle text-danger" style="font-size: 0.65em;"></i> 3</span>
-                                
-                            </div>
-                            
-
-                            
-
-                            <div class="d-flex align-items-center pt-3 border-top">
-                                
-                                <img src="https://avatars.githubusercontent.com/u/40679006?v=4"
-                                     alt="Haochen Shi et al."
-                                     class="rounded-circle w-6 h-6 me-2">
-                                
-                                <span class="text-sm text-truncate">Haochen Shi et al.</span>
-                                
-                                <span class="badge badge-xs bg-gray-600 text-white ms-auto">MIT</span>
-                                
-                                <span class="ext-card-footer-arrow" aria-hidden="true">
-                                    <i class="fas fa-arrow-right"></i>
-                                </span>
-                            </div>
+                            <span class="ext-card-footer-arrow" aria-hidden="true">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
                         </div>
                     </div>
                 </div>
-        
-        
-    </div>
-
-    
-    <div class="row mt-8">
-        <div class="col-md-12">
-            <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-center">
-                    
-                    
-                    
-                    <li class="page-item active">
-                        <a class="page-link" href="/all-projects?page=1">1</a>
-                    </li>
-                    
-                    
-                    
-                    <li class="page-item ">
-                        <a class="page-link" href="/all-projects?page=2">2</a>
-                    </li>
-                    
-                    
-                    
-                    <li class="page-item">
-                        <a class="page-link" href="/all-projects?page=2" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                    
-                </ul>
-            </nav>
+            </div>
+            
         </div>
-    </div>
-    
+        
 
-    <div class="row mt-12">
-        <div class="col-md-12">
-            <div class="card-dark rounded-lg p-8">
-                <div class="text-center">
-                    <h2 class="h3 font-bold mb-4">致谢原作者与平台</h2>
-                    <div class="flex flex-wrap justify-center gap-8">
-                        <div class="text-center">
-                            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-3">
-                                <i class="fas fa-shopping-cart text-white text-2xl"></i>
-                            </div>
-                            <h4 class="font-medium">CrowdSupply</h4>
-                            <p class="text-sm text-secondary mt-1">项目数据来源于 CrowdSupply 众筹平台，展示的硬件项目均为开源硬件产品，遵循各自的开源许可协议。</p>
-                            <a href="https://www.crowdsupply.com" target="_blank" class="text-sm text-primary mt-2 block">访问官网</a>
-                        </div>
-                        <div class="text-center">
-                            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mb-3">
-                                <i class="fas fa-wrench text-white text-2xl"></i>
-                            </div>
-                            <h4 class="font-medium">Hackaday</h4>
-                            <p class="text-sm text-secondary mt-1">文章和评测内容来源于 Hackaday，遵循 Creative Commons 授权协议。感谢 Hackaday 编辑团队的优秀内容创作。</p>
-                            <a href="https://hackaday.com" target="_blank" class="text-sm text-primary mt-2 block">访问官网</a>
-                        </div>
-                        <div class="text-center">
-                            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center mb-3">
-                                <i class="fas fa-robot text-white text-2xl"></i>
-                            </div>
-                            <h4 class="font-medium">Hackster.io</h4>
-                            <p class="text-sm text-secondary mt-1">项目案例来源于 Hackster.io 创客社区，感谢各位创客分享的精彩项目。所有内容遵循原作者的授权许可。</p>
-                            <a href="https://www.hackster.io" target="_blank" class="text-sm text-primary mt-2 block">访问官网</a>
-                        </div>
-                    </div>
-                    <div class="mt-8 p-4 bg-gray-800/50 rounded-lg">
-                        <p class="text-sm text-secondary">
-                            <i class="fas fa-copyright mr-2"></i>
-                            本平台聚合的所有项目均来源于上述开源平台，版权归原作者所有。我们尊重每一位开源贡献者的劳动成果，所有内容均遵循其原始开源许可协议。如果您是项目作者并希望移除相关内容，请联系我们。
-                        </p>
-                    </div>
-                </div>
+        
+        <nav class="ext-pagination" aria-label="Page navigation">
+            
+            
+            
+            <a class="ext-page-link is-active"
+               href="/all-projects?page=1">1</a>
+            
+            
+            
+            <a class="ext-page-link "
+               href="/all-projects?page=2">2</a>
+            
+            
+            
+            <a class="ext-page-link" href="/all-projects?page=2" aria-label="Next">
+                <i class="fas fa-chevron-right"></i>
+            </a>
+            
+        </nav>
+        
+
+        <!-- ==================== 数据来源 ==================== -->
+        <div class="ext-sources">
+            <div class="ext-sources-head">
+                <h2>致谢原作者与平台</h2>
+                <p>本平台聚合的所有项目均来源于上述开源平台，版权归原作者所有。我们尊重每一位开源贡献者的劳动成果，所有内容均遵循其原始开源许可协议。如果您是项目作者并希望移除相关内容，请联系我们。</p>
+            </div>
+            <div class="ext-sources-list">
+                <a class="ext-source" href="https://github.com" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                    <span class="ext-source-name">GitHub</span>
+                    <span class="ext-source-desc">开源代码托管平台</span>
+                </a>
+                <a class="ext-source" href="https://www.seeedstudio.com" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-seedling"></i>
+                    <span class="ext-source-name">Seeed Studio</span>
+                    <span class="ext-source-desc">开源硬件与 Wiki 文档</span>
+                </a>
+                <a class="ext-source" href="https://www.crowdsupply.com" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="ext-source-name">CrowdSupply</span>
+                    <span class="ext-source-desc">项目数据来源于 CrowdSupply 众筹平台，展示的硬件项目均为开源硬件产品，遵循各自的开源许可协议。</span>
+                </a>
+                <a class="ext-source" href="https://hackaday.com" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-wrench"></i>
+                    <span class="ext-source-name">Hackaday</span>
+                    <span class="ext-source-desc">文章和评测内容来源于 Hackaday，遵循 Creative Commons 授权协议。感谢 Hackaday 编辑团队的优秀内容创作。</span>
+                </a>
+                <a class="ext-source" href="https://www.hackster.io" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-robot"></i>
+                    <span class="ext-source-name">Hackster.io</span>
+                    <span class="ext-source-desc">项目案例来源于 Hackster.io 创客社区，感谢各位创客分享的精彩项目。所有内容遵循原作者的授权许可。</span>
+                </a>
             </div>
         </div>
     </div>
@@ -1645,19 +1458,18 @@
 
 <script>
 (function(){
-  // Client-side filter for static exported /all-projects pages.
-  // Reads ?platform= and ?category= from the URL, shows/hides cards, and
-  // highlights the currently active filter badges. Works on any static
-  // snapshot (no Flask required at runtime).
+  // 静态页前端筛选：读取 URL 的 ?platform= / ?category=，
+  // 直接显隐卡片并同步筛选芯片的高亮状态，无需服务端渲染多份快照。
   var params = new URLSearchParams(window.location.search);
   var wantPlatform = (params.get('platform') || '').trim();
   var wantCategory = (params.get('category') || '').trim();
 
   var cards = document.querySelectorAll('.ext-card-wrap');
-  var pageNav = document.querySelector('.pagination');
+  var pageNav = document.querySelector('.ext-pagination');
 
-  if (!cards.length) return;  // no cards on this page — nothing to do
+  if (!cards.length) return;
 
+  var shown = 0;
   cards.forEach(function(card){
     var p = card.getAttribute('data-platform') || '';
     var c = card.getAttribute('data-category') || '';
@@ -1665,19 +1477,26 @@
     if (wantPlatform && p !== wantPlatform) show = false;
     if (wantCategory && c !== wantCategory) show = false;
     card.style.display = show ? '' : 'none';
+    if (show) shown++;
   });
 
-  // Highlight filter badges to match URL (overrides server-rendered state
-  // because ?platform=xxx now runs client-side on every snapshot).
+  // 空状态：筛选后没有任何卡片时给个提示
+  var grid = document.querySelector('.ext-grid');
+  if (grid && shown === 0) {
+    var tip = document.createElement('div');
+    tip.className = 'ext-empty';
+    tip.innerHTML = '<i class="fas fa-filter-circle-xmark"></i><h3>没有匹配的项目</h3><p>试试切换到其他平台或分类。</p>';
+    grid.parentNode.insertBefore(tip, grid.nextSibling);
+    grid.style.display = 'none';
+  }
+
   document.querySelectorAll('.ext-filter-badge').forEach(function(a){
     var val = a.getAttribute('data-value') || '';
     var isCategory = a.classList.contains('ext-filter-category');
     var active = (isCategory ? wantCategory : wantPlatform) === val;
-    a.classList.toggle('badge-primary', active);
-    a.classList.toggle('badge-secondary', !active);
+    a.classList.toggle('is-active', active);
   });
 
-  // Update badge hrefs so clicking preserves the other filter dim
   var basePath = window.location.pathname.replace(/\/index\.html$/, '');
   document.querySelectorAll('.ext-filter-platform').forEach(function(a){
     var val = a.getAttribute('data-value') || '';
@@ -1694,8 +1513,6 @@
     a.setAttribute('href', basePath + (q.toString() ? '?' + q.toString() : ''));
   });
 
-  // Hide server-rendered pagination — client-side filter is a single-page view
-  // (the export never produced paginated variants per filter combo anyway).
   if (pageNav && (wantPlatform || wantCategory)) pageNav.style.display = 'none';
 })();
 </script>

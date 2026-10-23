@@ -906,14 +906,18 @@ h6 { font-size: var(--font-size-base); }
     50% { transform: translateY(-12px); }
 }
 
-/* --- Entrance animations --- */
+/* --- Entrance animations ---
+   内容默认可见，动画只是"从透明到可见"的增强；
+   即使动画被禁用 / 卡在延迟阶段，文本也不会消失（避免大面积空白）。 */
 .animate-fade-in-up {
-    opacity: 0;
-    transform: translateY(24px);
-    animation: fadeInUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: fadeInUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
     to {
         opacity: 1;
         transform: translateY(0);
@@ -921,11 +925,11 @@ h6 { font-size: var(--font-size-base); }
 }
 
 .animate-fade-in {
-    opacity: 0;
-    animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 @keyframes fadeIn {
+    from { opacity: 0; }
     to { opacity: 1; }
 }
 
@@ -2213,6 +2217,13 @@ h6 { font-size: var(--font-size-base); }
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+    }
+    /* 关闭入场动画的"延迟 + 前置透明"，避免内容长时间不可见 */
+    .animate-fade-in-up,
+    .animate-fade-in {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
     }
 }
 
