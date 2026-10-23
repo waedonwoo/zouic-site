@@ -54,7 +54,9 @@ html {
 
 /* --- Hero refinements --- */
 .hero-zouic {
-    min-height: 82vh;
+    /* 用内容高度驱动，不再用 vh 撑高，避免大屏 / 宽窗口下 hero 出现大片空壳 */
+    min-height: 0;
+    padding: clamp(40px, 6vh, 72px) 0 clamp(32px, 4vh, 56px);
 }
 
 .hero-content-col {
@@ -134,12 +136,19 @@ html {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* --- Scroll reveal animations --- */
+/* --- Scroll reveal animations ---
+   默认完全可见；只有 JS 标记 html 已就绪后才把「未进入视口」的区块收起，
+   这样即使 IntersectionObserver 失效、打印、截图或禁用 JS，也绝不会出现整屏空白。 */
 .reveal {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html.reveal-ready .reveal:not(.visible) {
     opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
-                transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(24px);
 }
 
 .reveal.visible {

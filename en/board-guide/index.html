@@ -47,8 +47,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
     
     <!-- ZouIC Design System -->
-    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261023c">
-    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261023c">
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261023e">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261023e">
     <noscript>
         <style>
             /* 关闭 JS 时不要因为滚动动画而隐藏内容 */
@@ -790,7 +790,10 @@
             }
 
             // --- Scroll reveal ---
+            // 先把 html 标记为 reveal-ready，CSS 才隐藏"未进入视口"的区块；
+            // 若观察器异常，2 秒后兜底全部显示，避免整屏空白。
             const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
             if (revealElements.length > 0 && 'IntersectionObserver' in window) {
                 const revealObserver = new IntersectionObserver(function(entries) {
                     entries.forEach(function(entry) {
@@ -801,6 +804,9 @@
                     });
                 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
                 revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
             } else if (revealElements.length > 0) {
                 revealElements.forEach(function(el) { el.classList.add('visible'); });
             }

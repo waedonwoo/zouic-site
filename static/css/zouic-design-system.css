@@ -583,10 +583,10 @@ h6 { font-size: var(--font-size-base); }
 /* --- 10. Hero Section --- */
 .hero-zouic {
     background: linear-gradient(135deg, var(--color-bg-primary) 0%, #0f172a 30%, #1e1b4b 60%, var(--color-bg-primary) 100%);
-    padding: var(--space-24) 0 var(--space-16);
+    padding: var(--space-16) 0 var(--space-12);
     position: relative;
     overflow: hidden;
-    min-height: 85vh;
+    min-height: 0;
     display: flex;
     align-items: center;
 }
@@ -1065,11 +1065,12 @@ h6 { font-size: var(--font-size-base); }
     border: 1px solid var(--color-border-muted);
 }
 
-/* Stagger children animation */
+/* Stagger children animation
+   默认即可见，动画只做增强：即便动画被禁用/未触发，内容也不会消失 */
 .stagger-children > * {
-    opacity: 0;
-    transform: translateY(16px);
-    animation: staggerFadeIn 0.5s ease-out forwards;
+    opacity: 1;
+    transform: translateY(0);
+    animation: staggerFadeIn 0.5s ease-out both;
 }
 
 .stagger-children > *:nth-child(1) { animation-delay: 0.6s; }
@@ -1078,6 +1079,10 @@ h6 { font-size: var(--font-size-base); }
 .stagger-children > *:nth-child(4) { animation-delay: 0.9s; }
 
 @keyframes staggerFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
     to {
         opacity: 1;
         transform: translateY(0);
@@ -2181,10 +2186,10 @@ h6 { font-size: var(--font-size-base); }
     animation: scaleIn var(--transition-slow) ease forwards;
 }
 
-/* Stagger children */
+/* Stagger children（默认可见，动画仅增强） */
 .stagger-children > * {
-    opacity: 0;
-    animation: fadeInUp var(--transition-slow) ease forwards;
+    opacity: 1;
+    animation: fadeInUp var(--transition-slow) ease both;
 }
 
 .stagger-children > *:nth-child(1) { animation-delay: 0ms; }
