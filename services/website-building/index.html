@@ -617,38 +617,28 @@
     </div>
 </section>
 
-<!-- ============ EmailJS 表单提交 ============ -->
+<!-- ============ Formsubmit.co 表单提交（免注册） ============ -->
 <!--
-  EmailJS 配置说明（首次使用需注册）：
-  1. 打开 https://www.emailjs.com 注册免费账号
-  2. Add Email Service → 选 Gmail/Outlook/SMTP → 记下 Service ID
-  3. Create New Template → 模板变量填       → 记下 Template ID
-  4. Account → API Keys → 复制 Public Key
-  5. 把下面 3 个值替换掉即可
+  Formsubmit.co 配置说明：
+  1. 把下面 TARGET_EMAIL 改成你的收信邮箱（默认 contact@zouic.com）
+  2. 首次提交后，Formsubmit 会发一封激活邮件到该邮箱，点确认链接即可
+  3. 激活后所有表单提交会直接发到这个邮箱，无需账号、无月费
+  4. 文档：https://formsubmit.co
 -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
 (function(){
-    // ====== 请替换为你的 EmailJS 配置 ======
-    const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
-    const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";
-    const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-    // ======================================
+    // ====== 请替换为你的收信邮箱 ======
+    const TARGET_EMAIL = "contact@zouic.com";
+    // ===================================
 
     const form = document.getElementById('lpContactForm');
     const btn = document.getElementById('lpSubmitBtn');
     const msg = document.getElementById('lpFormMsg');
-    const configured = EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY';
-
-    if (configured) {
-        emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-    }
 
     form.addEventListener('submit', async function(e){
         e.preventDefault();
         msg.className = 'lp-form-msg'; msg.textContent = '';
 
-        // 基础校验
         const name = form.name.value.trim();
         const email = form.email.value.trim();
         const message = form.message.value.trim();
@@ -663,31 +653,35 @@
             return;
         }
 
-        // 未配置 EmailJS 时降级为 mailto
-        if (!configured) {
-            const subject = encodeURIComponent(`[建站咨询] ${name} - ${form.service.value}`);
-            const body = encodeURIComponent(`姓名：${name}\n邮箱：${email}\n手机/微信：${form.phone.value}\n公司：${form.company.value}\n服务：${form.service.value}\n\n需求：${message}`);
-            window.location.href = `mailto:contact@zouic.com?subject=${subject}&body=${body}`;
-            msg.className = 'lp-form-msg success';
-            msg.textContent = '已为你打开邮件客户端，请发送邮件完成提交。';
-            return;
-        }
-
         btn.disabled = true;
         btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>提交中...';
 
         try {
-            await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-                from_name: name,
-                from_email: email,
-                phone: form.phone.value,
-                company: form.company.value,
-                service: form.service.value,
-                message: message
+            const res = await fetch('https://formsubmit.co/ajax/' + TARGET_EMAIL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    phone: form.phone.value,
+                    company: form.company.value,
+                    service: form.service.value,
+                    message: message,
+                    _subject: '[ZouIC 建站咨询] ' + name + ' - ' + form.service.value,
+                    _template: 'table'
+                })
             });
-            msg.className = 'lp-form-msg success';
-            msg.textContent = '提交成功！我会在工作日 24 小时内通过邮箱回复你。';
-            form.reset();
+            const data = await res.json();
+            if (res.ok && data.success === 'true') {
+                msg.className = 'lp-form-msg success';
+                msg.textContent = '提交成功！我会在工作日 24 小时内通过邮箱回复你。';
+                form.reset();
+            } else {
+                throw new Error(data.message || '提交失败');
+            }
         } catch (err) {
             console.error(err);
             msg.className = 'lp-form-msg error';
