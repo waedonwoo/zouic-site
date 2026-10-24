@@ -1280,7 +1280,13 @@ select:focus-visible {
 @media (max-width: 575px) {
     .platform-tiles-grid,
     .scenario-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* Bootstrap g-5 uses a 48px gutter, wider than the 32px container padding */
+    .row.g-5 {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 1.5rem;
     }
 
     .boards-toolbar-search {
