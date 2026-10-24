@@ -27,6 +27,7 @@
     
     
     
+    
     <meta property="og:title" content="ElectronBot - ZouIC">
     <meta property="og:description" content="A desktop-scale robot companion inspired by EVE from WALL-E. It has USB communication, a display screen and a multi-DOF robotic arm, and supports custom motions and interactions. GPL-3.0 licensed. One of the core projects in GeekWaedon&#39;s &#34;Quantum Plan&#34; series.">
     <meta property="og:url" content="https://www.zouic.com/en/external/github/peng-zhihui/ElectronBot">
@@ -69,7 +70,7 @@
     
     <!-- ZouIC Design System -->
     <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
-    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261024b">
     <noscript>
         <style>
             /* 关闭 JS 时不要因为滚动动画而隐藏内容 */
@@ -133,7 +134,7 @@
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="/en/products"><i class="fas fa-box me-2"></i>Products</a></li>
                             <li><a class="dropdown-item" href="/en/services"><i class="fas fa-cogs me-2"></i>Services</a></li>
-                            <li><a class="dropdown-item" href="/en/news"><i class="fas fa-newspaper me-2"></i>Industry News</a></li>
+                            <li><a class="dropdown-item" href="/en/news"><i class="fas fa-newspaper me-2"></i>Site Updates</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="/en/tutorials"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li>
                             <li><a class="dropdown-item" href="/en/documentation"><i class="fas fa-book me-2"></i>Documentation</a></li>
@@ -176,10 +177,6 @@
                             </a></li>
                         </ul>
                     </div>
-                    
-                    <a href="/en/login" class="btn-zouic btn-zouic-ghost btn-zouic-sm">Login</a>
-                    <a href="/en/register" class="btn-zouic btn-zouic-primary btn-zouic-sm">Register</a>
-                    
                 </div>
             </div>
         </div>
@@ -190,6 +187,13 @@
 <div class="container">
     <div class="row mb-6">
         <div class="col-md-12">
+            <nav aria-label="breadcrumb" class="mt-4">
+                <ol class="breadcrumb bg-transparent">
+                    <li class="breadcrumb-item"><a href="/en/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/en/all-projects">All projects</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">ElectronBot</li>
+                </ol>
+            </nav>
             <a href="/en/all-projects" class="btn btn-outline-secondary mb-4">
                 <i class="fas fa-arrow-left mr-2"></i> Back to List
             </a>
@@ -249,15 +253,15 @@
                     <h3 class="h4 mb-3">Tags</h3>
                     <div class="flex flex-wrap gap-2">
                         
-                        <span class="badge badge-primary">robot</span>
+                        <a href="/en/search?q=robot&type=project" class="badge badge-primary text-decoration-none">robot</a>
                         
-                        <span class="badge badge-primary">desktop</span>
+                        <a href="/en/search?q=desktop&type=project" class="badge badge-primary text-decoration-none">desktop</a>
                         
-                        <span class="badge badge-primary">C</span>
+                        <a href="/en/search?q=C&type=project" class="badge badge-primary text-decoration-none">C</a>
                         
-                        <span class="badge badge-primary">GPL-3.0</span>
+                        <a href="/en/search?q=GPL-3.0&type=project" class="badge badge-primary text-decoration-none">GPL-3.0</a>
                         
-                        <span class="badge badge-primary">quantum-plan</span>
+                        <a href="/en/search?q=quantum-plan&type=project" class="badge badge-primary text-decoration-none">quantum-plan</a>
                         
                     </div>
                 </div>
@@ -385,6 +389,24 @@
                 </div>
             </div>
 
+            <div class="card-dark rounded-lg p-6 mb-6">
+                <h3 class="h4 mb-4">Keep exploring</h3>
+                <div class="space-y-2">
+                    <a href="/en/all-projects" class="d-flex items-center gap-2 text-primary hover-underline">
+                        <i class="fas fa-layer-group"></i> All projects
+                    </a>
+                    <a href="/en/boards" class="d-flex items-center gap-2 text-primary hover-underline">
+                        <i class="fas fa-microchip"></i> Development Boards
+                    </a>
+                    <a href="/en/board-guide" class="d-flex items-center gap-2 text-primary hover-underline">
+                        <i class="fas fa-compass"></i> Board Selection Guide
+                    </a>
+                    <a href="/en/articles" class="d-flex items-center gap-2 text-primary hover-underline">
+                        <i class="fas fa-newspaper"></i> Articles
+                    </a>
+                </div>
+            </div>
+
             <div class="card-dark rounded-lg p-6">
                 <h3 class="h4 mb-3">Citation Note</h3>
                 <p class="text-sm text-secondary">
@@ -404,7 +426,8 @@
     </main>
 
     <!-- Footer -->
-    <!-- Newsletter Section -->
+    <!-- Newsletter Section (首页已有完整关注区，不重复) -->
+    
     <section class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
         <div class="container">
             <div class="newsletter-card">
@@ -425,6 +448,7 @@
             </div>
         </div>
     </section>
+    
 
     <section class="py-4" aria-label="Produced by">
         <div class="author-card">
@@ -483,13 +507,16 @@
                     <ul>
                         <li><a href="/en/products">Products</a></li>
                         <li><a href="/en/services">Services</a></li>
-                        <li><a href="/en/news">Industry News</a></li>
+                        <li><a href="/en/services/website-building">Website building</a></li>
+                        <li><a href="/en/news">Site Updates</a></li>
                         <li><a href="/en/boards">Development Boards</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-2 mb-4 mb-md-0">
                     <h5>Resources</h5>
                     <ul>
+                        <li><a href="/en/board-guide">Board selection guide</a></li>
+                        <li><a href="/en/compare">Board comparison</a></li>
                         <li><a href="/en/tutorials">Tutorials</a></li>
                         <li><a href="/en/documentation">Documentation</a></li>
                         <li><a href="/en/cases">Project Cases</a></li>
@@ -501,6 +528,7 @@
                     <h5>Open Source</h5>
                     <ul>
                         <li><a href="/en/open-source">Open Source Projects</a></li>
+                        <li><a href="/en/all-projects">All projects</a></li>
                         <li><a href="/en/articles">Articles</a></li>
                         <li><a href="/en/contribute">Contribute</a></li>
                         <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
@@ -664,135 +692,7 @@
         });
     </script>
 
-    <!-- AI Chat Widget -->
-    <div class="chat-widget">
-        <div id="agent-chat-container" class="chat-widget-container">
-            <div class="chat-widget-header">
-                <div class="d-flex align-items-center gap-2">
-                    <i class="fas fa-robot"></i>
-                    <span>AI Assistant</span>
-                </div>
-                <button id="agent-chat-close" class="btn-zouic btn-zouic-ghost btn-zouic-sm" aria-label="Close" style="color: rgba(255,255,255,0.8);">
-                    <i class="fas fa-times" aria-hidden="true"></i>
-                </button>
-            </div>
-            <div id="agent-chat-messages" class="chat-widget-messages">
-                <div class="d-flex align-items-start gap-2 mb-4">
-                    <div class="chat-widget-toggle" style="width: 32px; height: 32px; font-size: 0.75rem; flex-shrink: 0;">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="bg-secondary/50 rounded-lg rounded-tl-none p-3 text-sm" style="background-color: rgba(255, 0, 110, 0.15);">
-                        Search boards, projects or keywords...
-                    </div>
-                </div>
-            </div>
-            <div class="chat-widget-input-area">
-                <div class="d-flex gap-2">
-                    <input type="text" id="agent-chat-input" 
-                        class="input-zouic flex-grow-1"
-                        aria-label="Enter your message..."
-                        placeholder="Enter your message...">
-                    <button id="agent-chat-send" class="btn-zouic btn-zouic-primary btn-zouic-sm" aria-label="Send">
-                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <button id="agent-chat-toggle" class="chat-widget-toggle" aria-label="AI Assistant" aria-expanded="false">
-            <i class="fas fa-robot" style="font-size: 1.25rem;" aria-hidden="true"></i>
-        </button>
-    </div>
-
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const chatToggle = document.getElementById('agent-chat-toggle');
-            const chatContainer = document.getElementById('agent-chat-container');
-            const chatClose = document.getElementById('agent-chat-close');
-            const chatInput = document.getElementById('agent-chat-input');
-            const chatSend = document.getElementById('agent-chat-send');
-            const chatMessages = document.getElementById('agent-chat-messages');
-            
-            let agentSessionId = null;
-            
-            if (chatToggle && chatContainer) {
-                chatToggle.addEventListener('click', function() {
-                    chatContainer.classList.toggle('open');
-                    var isOpen = chatContainer.classList.contains('open');
-                    chatToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-                    if (isOpen) {
-                        chatInput.focus();
-                    }
-                });
-            }
-            
-            if (chatClose && chatContainer) {
-                chatClose.addEventListener('click', function() {
-                    chatContainer.classList.remove('open');
-                    chatToggle.setAttribute('aria-expanded', 'false');
-                    chatToggle.focus();
-                });
-            }
-            
-            const addMessage = function(text, isUser = false) {
-                const div = document.createElement('div');
-                div.className = 'd-flex align-items-start gap-2 mb-4' + (isUser ? ' flex-row-reverse' : '');
-                
-                const avatar = document.createElement('div');
-                avatar.className = 'chat-widget-toggle flex-shrink-0';
-                avatar.style.cssText = 'width: 32px; height: 32px; font-size: 0.75rem;';
-                avatar.innerHTML = isUser ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
-                
-                const bubble = document.createElement('div');
-                bubble.className = 'rounded-lg px-3 py-2 text-sm ' +
-                    (isUser ? 'rounded-tr-none' : 'rounded-tl-none');
-                bubble.style.cssText = isUser 
-                    ? 'background-color: rgba(0, 229, 255, 0.15); color: var(--color-text-primary);'
-                    : 'background-color: rgba(255, 0, 110, 0.15); color: var(--color-text-primary);';
-                bubble.textContent = text;
-                
-                div.appendChild(isUser ? bubble : avatar);
-                div.appendChild(isUser ? avatar : bubble);
-                chatMessages.appendChild(div);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            };
-            
-            const sendMessage = async function() {
-                const message = chatInput.value.trim();
-                if (!message) return;
-                
-                addMessage(message, true);
-                chatInput.value = '';
-                
-                try {
-                    const response = await fetch('/api/agent/query', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ input: message, session_id: agentSessionId })
-                    });
-                    
-                    const data = await response.json();
-                    
-                    if (data.success) {
-                        agentSessionId = data.session_id;
-                        if (data.response && data.response.text) {
-                            addMessage(data.response.text, false);
-                        }
-                    } else {
-                        addMessage('Operation failed, please try again', false);
-                    }
-                } catch (error) {
-                    addMessage('Network error, please try again', false);
-                }
-            };
-            
-            if (chatSend) chatSend.addEventListener('click', sendMessage);
-            if (chatInput) {
-                chatInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') sendMessage();
-                });
-            }
-        });
-        
         // --- Share & Save helpers ---
         window.copyToClipboard = function(text) {
             if (navigator.clipboard) {

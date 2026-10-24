@@ -1348,18 +1348,17 @@ select:focus-visible {
     background: var(--ext-palette-bg, linear-gradient(135deg, rgba(0, 212, 170, 0.22), rgba(139, 92, 246, 0.26)));
 }
 
-/* 顶部星点网格纹理 */
+/* 电路走线纹理 + 细密焊点点阵 */
 .ext-card-cover--text::before {
     content: "";
     position: absolute;
     inset: 0;
     background-image:
-        radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px),
-        radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-    background-size: 18px 18px, 9px 9px;
+        var(--circuit-texture),
+        radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+    background-size: 120px 120px, 18px 18px;
     background-position: 0 0, 4px 4px;
-    opacity: 0.6;
-    mix-blend-mode: overlay;
+    opacity: 0.85;
     pointer-events: none;
 }
 
@@ -2081,6 +2080,71 @@ a.ext-hero-stat:hover {
     color: var(--color-text-primary);
     background: rgba(0, 212, 170, 0.14);
     border: 1px solid rgba(0, 212, 170, 0.3);
+}
+
+/* 电路走线纹理（PCB traces），整站共用 */
+:root {
+    --circuit-texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.13' stroke-width='1.5'%3E%3Cpath d='M0 24h44v32h32'/%3E%3Cpath d='M120 40H84v36'/%3E%3Cpath d='M20 120V84h32'/%3E%3Cpath d='M68 120V96h52'/%3E%3Cpath d='M0 64h28'/%3E%3Cpath d='M96 0v20'/%3E%3C/g%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Ccircle cx='44' cy='24' r='3'/%3E%3Ccircle cx='76' cy='56' r='3'/%3E%3Ccircle cx='84' cy='76' r='3'/%3E%3Ccircle cx='20' cy='84' r='3'/%3E%3Ccircle cx='52' cy='84' r='3'/%3E%3Ccircle cx='68' cy='96' r='3'/%3E%3Ccircle cx='28' cy='64' r='3'/%3E%3Ccircle cx='96' cy='20' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* 板卡头图：渐变 + 电路纹理 + 顶部高光 */
+.board-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.board-visual::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--circuit-texture);
+    background-size: 120px 120px;
+    pointer-events: none;
+}
+
+.board-visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 18%, rgba(255, 255, 255, 0.16), transparent 55%);
+    pointer-events: none;
+}
+
+.board-visual > * {
+    position: relative;
+    z-index: 1;
+}
+
+.board-visual-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.board-visual-chip i {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.board-visual-label {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 
 /* Platform palettes — consumed by ext-card-cover--text */

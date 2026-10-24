@@ -27,6 +27,7 @@
     
     
     
+    
     <meta property="og:title" content="StarFive VisionFive 2 - ZouIC">
     <meta property="og:description" content="High-performance RISC-V SBC with GPU and AI acceleration, ideal for edge computing and AI applications">
     <meta property="og:url" content="https://www.zouic.com/en/board/starfive-visionfive-2">
@@ -66,7 +67,7 @@
     
     <!-- ZouIC Design System -->
     <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
-    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261024b">
     <noscript>
         <style>
             /* 关闭 JS 时不要因为滚动动画而隐藏内容 */
@@ -130,7 +131,7 @@
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="/en/products"><i class="fas fa-box me-2"></i>Products</a></li>
                             <li><a class="dropdown-item" href="/en/services"><i class="fas fa-cogs me-2"></i>Services</a></li>
-                            <li><a class="dropdown-item" href="/en/news"><i class="fas fa-newspaper me-2"></i>Industry News</a></li>
+                            <li><a class="dropdown-item" href="/en/news"><i class="fas fa-newspaper me-2"></i>Site Updates</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="/en/tutorials"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li>
                             <li><a class="dropdown-item" href="/en/documentation"><i class="fas fa-book me-2"></i>Documentation</a></li>
@@ -173,10 +174,6 @@
                             </a></li>
                         </ul>
                     </div>
-                    
-                    <a href="/en/login" class="btn-zouic btn-zouic-ghost btn-zouic-sm">Login</a>
-                    <a href="/en/register" class="btn-zouic btn-zouic-primary btn-zouic-sm">Register</a>
-                    
                 </div>
             </div>
         </div>
@@ -184,6 +181,8 @@
 
     <main id="main-content">
         
+    
+    
     <section class="py-8">
         <div class="container">
             <nav aria-label="breadcrumb">
@@ -204,17 +203,17 @@
 
 
 
-<div style="height:200px;border-radius:12px;background:linear-gradient(135deg,#ea580c,#b45309);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+<div class="board-visual" style="height:200px;background:linear-gradient(135deg,#ea580c,#b45309);">
   
-  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
-  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">StarFive</span>
+  <span class="board-visual-chip"><i class="fas fa-microchip"></i></span>
+  <span class="board-visual-label">StarFive</span>
   
 </div>
                 <div class="row mt-4">
                     <div class="col-lg-8">
                         <div class="d-flex gap-4 mb-4">
-                            <span class="badge badge-primary">RISC-V</span>
-                            <span class="badge badge-secondary">StarFive</span>
+                            <a href="/en/boards?arch=RISC-V" class="badge badge-primary text-decoration-none">RISC-V</a>
+                            <a href="/en/boards?vendor=StarFive" class="badge badge-secondary text-decoration-none">StarFive</a>
                             <span class="badge badge-accent">¥200-400</span>
                         </div>
                         <h1 class="text-3xl font-bold mb-4">StarFive VisionFive 2</h1>
@@ -402,31 +401,34 @@
                 <div class="card-dark p-6">
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="text-center mb-4">
+                            <a href="/en/documentation#riscv-docs" class="text-center mb-4 d-block text-decoration-none hover-underline">
                                 <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-2">
                                     <i class="fas fa-download text-primary"></i>
                                 </div>
                                 <h4 class="font-bold">Install the development environment</h4>
-                                <p class="text-secondary text-sm">Download and install the matching SDK or IDE, then configure the environment</p>
-                            </div>
+                                <p class="text-secondary text-sm mb-1">Download and install the matching SDK or IDE, then configure the environment</p>
+                                <span class="text-primary text-sm">View Details <i class="fas fa-arrow-right"></i></span>
+                            </a>
                         </div>
                         <div class="col-md-4">
-                            <div class="text-center mb-4">
+                            <a href="/en/help#getting-started" class="text-center mb-4 d-block text-decoration-none hover-underline">
                                 <div class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-2">
                                     <i class="fas fa-plug text-secondary"></i>
                                 </div>
                                 <h4 class="font-bold">Connect the hardware</h4>
-                                <p class="text-secondary text-sm">Connect the board to your computer with a USB cable and install the driver</p>
-                            </div>
+                                <p class="text-secondary text-sm mb-1">Connect the board to your computer with a USB cable and install the driver</p>
+                                <span class="text-primary text-sm">View Details <i class="fas fa-arrow-right"></i></span>
+                            </a>
                         </div>
                         <div class="col-md-4">
-                            <div class="text-center mb-4">
+                            <a href="/en/tutorials" class="text-center mb-4 d-block text-decoration-none hover-underline">
                                 <div class="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-2">
                                     <i class="fas fa-play text-accent"></i>
                                 </div>
                                 <h4 class="font-bold">Run an example</h4>
-                                <p class="text-secondary text-sm">Load the sample code, compile it, and upload it to the board</p>
-                            </div>
+                                <p class="text-secondary text-sm mb-1">Load the sample code, compile it, and upload it to the board</p>
+                                <span class="text-primary text-sm">View Details <i class="fas fa-arrow-right"></i></span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -437,7 +439,7 @@
                 <div class="card-dark p-6">
                     <div class="row g-4">
                         <div class="col-md-3">
-                            <a href="/en/help#board-guide" class="d-block text-center p-4 hover-underline" aria-label="Official docs">
+                            <a href="/en/documentation#riscv-docs" class="d-block text-center p-4 hover-underline" aria-label="Official docs">
                                 <i class="fas fa-book text-primary fa-2x mb-2"></i>
                                 <h4 class="font-bold">Official docs</h4>
                                 <p class="text-secondary text-sm">Chip manuals and development guides</p>
@@ -451,14 +453,14 @@
                             </a>
                         </div>
                         <div class="col-md-3">
-                            <a href="/en/help#getting-started" class="d-block text-center p-4 hover-underline" aria-label="Video tutorials">
+                            <a href="/en/tutorials" class="d-block text-center p-4 hover-underline" aria-label="Video tutorials">
                                 <i class="fas fa-video text-accent fa-2x mb-2"></i>
                                 <h4 class="font-bold">Video tutorials</h4>
                                 <p class="text-secondary text-sm">Introductory videos and hands-on demos</p>
                             </a>
                         </div>
                         <div class="col-md-3">
-                            <a href="/en/about#contact" class="d-block text-center p-4 hover-underline" aria-label="Community forum">
+                            <a href="/en/contribute" class="d-block text-center p-4 hover-underline" aria-label="Community forum">
                                 <i class="fas fa-users text-yellow-500 fa-2x mb-2"></i>
                                 <h4 class="font-bold">Community forum</h4>
                                 <p class="text-secondary text-sm">Ask questions and get answers</p>
@@ -497,6 +499,120 @@
             </div>
 
             
+
+            
+            <div class="mt-6">
+                <h3 class="section-title text-xl font-bold">Same-architecture boards</h3>
+                <div class="row g-4">
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <a href="/en/board/hifive-unmatched" class="card-dark p-4 h-100 d-block text-decoration-none">
+                            <span class="badge badge-primary mb-2">RISC-V</span>
+                            <h4 class="font-bold mb-1">HiFive Unmatched</h4>
+                            <p class="text-secondary text-sm mb-1">Freedom U740</p>
+                            <span class="text-secondary text-sm">¥500-800</span>
+                        </a>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <a href="/en/board/sifive-hifive-1-rev-b" class="card-dark p-4 h-100 d-block text-decoration-none">
+                            <span class="badge badge-primary mb-2">RISC-V</span>
+                            <h4 class="font-bold mb-1">SiFive HiFive 1 Rev B</h4>
+                            <p class="text-secondary text-sm mb-1">FE310-G002</p>
+                            <span class="text-secondary text-sm">¥50-100</span>
+                        </a>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <a href="/en/board/sifive-hifive-2" class="card-dark p-4 h-100 d-block text-decoration-none">
+                            <span class="badge badge-primary mb-2">RISC-V</span>
+                            <h4 class="font-bold mb-1">SiFive HiFive 2</h4>
+                            <p class="text-secondary text-sm mb-1">FE310-G003</p>
+                            <span class="text-secondary text-sm">¥80-150</span>
+                        </a>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <a href="/en/board/sipeed-maixduino" class="card-dark p-4 h-100 d-block text-decoration-none">
+                            <span class="badge badge-primary mb-2">RISC-V</span>
+                            <h4 class="font-bold mb-1">Sipeed Maixduino</h4>
+                            <p class="text-secondary text-sm mb-1">K210</p>
+                            <span class="text-secondary text-sm">¥50-100</span>
+                        </a>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <a href="/en/board/bouffalo-lab-bl602" class="card-dark p-4 h-100 d-block text-decoration-none">
+                            <span class="badge badge-primary mb-2">RISC-V</span>
+                            <h4 class="font-bold mb-1">Bouffalo Lab BL602</h4>
+                            <p class="text-secondary text-sm mb-1">BL602</p>
+                            <span class="text-secondary text-sm">¥20-50</span>
+                        </a>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <a href="/en/board/esp32-c6" class="card-dark p-4 h-100 d-block text-decoration-none">
+                            <span class="badge badge-primary mb-2">RISC-V</span>
+                            <h4 class="font-bold mb-1">ESP32-C6</h4>
+                            <p class="text-secondary text-sm mb-1">ESP32-C6</p>
+                            <span class="text-secondary text-sm">¥30-60</span>
+                        </a>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <a href="/en/board/ch32v307" class="card-dark p-4 h-100 d-block text-decoration-none">
+                            <span class="badge badge-primary mb-2">RISC-V</span>
+                            <h4 class="font-bold mb-1">CH32V307</h4>
+                            <p class="text-secondary text-sm mb-1">CH32V307</p>
+                            <span class="text-secondary text-sm">¥20-50</span>
+                        </a>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <a href="/en/board/gd32vf103vbt6" class="card-dark p-4 h-100 d-block text-decoration-none">
+                            <span class="badge badge-primary mb-2">RISC-V</span>
+                            <h4 class="font-bold mb-1">GD32VF103VBT6</h4>
+                            <p class="text-secondary text-sm mb-1">GD32VF103</p>
+                            <span class="text-secondary text-sm">¥20-50</span>
+                        </a>
+                    </div>
+                    
+                </div>
+                <div class="mt-3">
+                    <a href="/en/boards?arch=RISC-V" class="text-primary hover-underline">View All RISC-V Development Boards <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+
+            <div class="mt-6">
+                <h3 class="section-title text-xl font-bold">Related reading</h3>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <a href="/en/board-guide" class="card-dark p-4 h-100 d-block text-decoration-none">
+                            <h4 class="font-bold mb-1">Board Selection Guide</h4>
+                            <p class="text-secondary text-sm mb-0">Detailed comparisons of mainstream open-source boards, based on the latest CSDN community resources</p>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="/en/articles/board-selection-cheatsheet" class="card-dark p-4 h-100 d-block text-decoration-none">
+                            <h4 class="font-bold mb-1">One-page cheat sheet: I want to build X — which board should I buy?</h4>
+                            <p class="text-secondary text-sm mb-0">Appendix to &#34;Open Hardware Selection Handbook&#34; · Geek Weidong @GeekWaedon</p>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="/en/articles/handbook-ch1" class="card-dark p-4 h-100 d-block text-decoration-none">
+                            <h4 class="font-bold mb-1">The right order for board selection: scenario, constraints, then the board</h4>
+                            <p class="text-secondary text-sm mb-0">&#34;Open Hardware Selection Handbook&#34; · Geek Weidong @GeekWaedon</p>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="/en/compare?id=12" class="card-dark p-4 h-100 d-block text-decoration-none">
+                            <h4 class="font-bold mb-1">Board Comparison</h4>
+                            <p class="text-secondary text-sm mb-0">Compare the specifications of the selected boards</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
             
         </div>
@@ -715,7 +831,8 @@
     </main>
 
     <!-- Footer -->
-    <!-- Newsletter Section -->
+    <!-- Newsletter Section (首页已有完整关注区，不重复) -->
+    
     <section class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
         <div class="container">
             <div class="newsletter-card">
@@ -736,6 +853,7 @@
             </div>
         </div>
     </section>
+    
 
     <section class="py-4" aria-label="Produced by">
         <div class="author-card">
@@ -794,13 +912,16 @@
                     <ul>
                         <li><a href="/en/products">Products</a></li>
                         <li><a href="/en/services">Services</a></li>
-                        <li><a href="/en/news">Industry News</a></li>
+                        <li><a href="/en/services/website-building">Website building</a></li>
+                        <li><a href="/en/news">Site Updates</a></li>
                         <li><a href="/en/boards">Development Boards</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-2 mb-4 mb-md-0">
                     <h5>Resources</h5>
                     <ul>
+                        <li><a href="/en/board-guide">Board selection guide</a></li>
+                        <li><a href="/en/compare">Board comparison</a></li>
                         <li><a href="/en/tutorials">Tutorials</a></li>
                         <li><a href="/en/documentation">Documentation</a></li>
                         <li><a href="/en/cases">Project Cases</a></li>
@@ -812,6 +933,7 @@
                     <h5>Open Source</h5>
                     <ul>
                         <li><a href="/en/open-source">Open Source Projects</a></li>
+                        <li><a href="/en/all-projects">All projects</a></li>
                         <li><a href="/en/articles">Articles</a></li>
                         <li><a href="/en/contribute">Contribute</a></li>
                         <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
@@ -975,135 +1097,7 @@
         });
     </script>
 
-    <!-- AI Chat Widget -->
-    <div class="chat-widget">
-        <div id="agent-chat-container" class="chat-widget-container">
-            <div class="chat-widget-header">
-                <div class="d-flex align-items-center gap-2">
-                    <i class="fas fa-robot"></i>
-                    <span>AI Assistant</span>
-                </div>
-                <button id="agent-chat-close" class="btn-zouic btn-zouic-ghost btn-zouic-sm" aria-label="Close" style="color: rgba(255,255,255,0.8);">
-                    <i class="fas fa-times" aria-hidden="true"></i>
-                </button>
-            </div>
-            <div id="agent-chat-messages" class="chat-widget-messages">
-                <div class="d-flex align-items-start gap-2 mb-4">
-                    <div class="chat-widget-toggle" style="width: 32px; height: 32px; font-size: 0.75rem; flex-shrink: 0;">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="bg-secondary/50 rounded-lg rounded-tl-none p-3 text-sm" style="background-color: rgba(255, 0, 110, 0.15);">
-                        Search boards, projects or keywords...
-                    </div>
-                </div>
-            </div>
-            <div class="chat-widget-input-area">
-                <div class="d-flex gap-2">
-                    <input type="text" id="agent-chat-input" 
-                        class="input-zouic flex-grow-1"
-                        aria-label="Enter your message..."
-                        placeholder="Enter your message...">
-                    <button id="agent-chat-send" class="btn-zouic btn-zouic-primary btn-zouic-sm" aria-label="Send">
-                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <button id="agent-chat-toggle" class="chat-widget-toggle" aria-label="AI Assistant" aria-expanded="false">
-            <i class="fas fa-robot" style="font-size: 1.25rem;" aria-hidden="true"></i>
-        </button>
-    </div>
-
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const chatToggle = document.getElementById('agent-chat-toggle');
-            const chatContainer = document.getElementById('agent-chat-container');
-            const chatClose = document.getElementById('agent-chat-close');
-            const chatInput = document.getElementById('agent-chat-input');
-            const chatSend = document.getElementById('agent-chat-send');
-            const chatMessages = document.getElementById('agent-chat-messages');
-            
-            let agentSessionId = null;
-            
-            if (chatToggle && chatContainer) {
-                chatToggle.addEventListener('click', function() {
-                    chatContainer.classList.toggle('open');
-                    var isOpen = chatContainer.classList.contains('open');
-                    chatToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-                    if (isOpen) {
-                        chatInput.focus();
-                    }
-                });
-            }
-            
-            if (chatClose && chatContainer) {
-                chatClose.addEventListener('click', function() {
-                    chatContainer.classList.remove('open');
-                    chatToggle.setAttribute('aria-expanded', 'false');
-                    chatToggle.focus();
-                });
-            }
-            
-            const addMessage = function(text, isUser = false) {
-                const div = document.createElement('div');
-                div.className = 'd-flex align-items-start gap-2 mb-4' + (isUser ? ' flex-row-reverse' : '');
-                
-                const avatar = document.createElement('div');
-                avatar.className = 'chat-widget-toggle flex-shrink-0';
-                avatar.style.cssText = 'width: 32px; height: 32px; font-size: 0.75rem;';
-                avatar.innerHTML = isUser ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
-                
-                const bubble = document.createElement('div');
-                bubble.className = 'rounded-lg px-3 py-2 text-sm ' +
-                    (isUser ? 'rounded-tr-none' : 'rounded-tl-none');
-                bubble.style.cssText = isUser 
-                    ? 'background-color: rgba(0, 229, 255, 0.15); color: var(--color-text-primary);'
-                    : 'background-color: rgba(255, 0, 110, 0.15); color: var(--color-text-primary);';
-                bubble.textContent = text;
-                
-                div.appendChild(isUser ? bubble : avatar);
-                div.appendChild(isUser ? avatar : bubble);
-                chatMessages.appendChild(div);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            };
-            
-            const sendMessage = async function() {
-                const message = chatInput.value.trim();
-                if (!message) return;
-                
-                addMessage(message, true);
-                chatInput.value = '';
-                
-                try {
-                    const response = await fetch('/api/agent/query', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ input: message, session_id: agentSessionId })
-                    });
-                    
-                    const data = await response.json();
-                    
-                    if (data.success) {
-                        agentSessionId = data.session_id;
-                        if (data.response && data.response.text) {
-                            addMessage(data.response.text, false);
-                        }
-                    } else {
-                        addMessage('Operation failed, please try again', false);
-                    }
-                } catch (error) {
-                    addMessage('Network error, please try again', false);
-                }
-            };
-            
-            if (chatSend) chatSend.addEventListener('click', sendMessage);
-            if (chatInput) {
-                chatInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') sendMessage();
-                });
-            }
-        });
-        
         // --- Share & Save helpers ---
         window.copyToClipboard = function(text) {
             if (navigator.clipboard) {

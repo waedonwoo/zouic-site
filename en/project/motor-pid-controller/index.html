@@ -27,6 +27,7 @@
     
     
     
+    
     <meta property="og:title" content="Motor PID Controller - ZouIC">
     <meta property="og:description" content="PID speed control for a DC motor based on STM32">
     <meta property="og:url" content="https://www.zouic.com/en/project/motor-pid-controller">
@@ -66,7 +67,7 @@
     
     <!-- ZouIC Design System -->
     <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
-    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261024b">
     <noscript>
         <style>
             /* 关闭 JS 时不要因为滚动动画而隐藏内容 */
@@ -130,7 +131,7 @@
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="/en/products"><i class="fas fa-box me-2"></i>Products</a></li>
                             <li><a class="dropdown-item" href="/en/services"><i class="fas fa-cogs me-2"></i>Services</a></li>
-                            <li><a class="dropdown-item" href="/en/news"><i class="fas fa-newspaper me-2"></i>Industry News</a></li>
+                            <li><a class="dropdown-item" href="/en/news"><i class="fas fa-newspaper me-2"></i>Site Updates</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="/en/tutorials"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li>
                             <li><a class="dropdown-item" href="/en/documentation"><i class="fas fa-book me-2"></i>Documentation</a></li>
@@ -173,10 +174,6 @@
                             </a></li>
                         </ul>
                     </div>
-                    
-                    <a href="/en/login" class="btn-zouic btn-zouic-ghost btn-zouic-sm">Login</a>
-                    <a href="/en/register" class="btn-zouic btn-zouic-primary btn-zouic-sm">Register</a>
-                    
                 </div>
             </div>
         </div>
@@ -205,8 +202,8 @@
                             <span class="difficulty-badge difficulty-intermediate px-3 py-1 rounded">
                                 Intermediate
                             </span>
-                            <span class="badge badge-secondary">STM32CubeMX</span>
-                            <span class="badge badge-accent">C</span>
+                            <a href="/en/search?q=STM32CubeMX&type=project" class="badge badge-secondary text-decoration-none">STM32CubeMX</a>
+                            <a href="/en/search?q=C&type=project" class="badge badge-accent text-decoration-none">C</a>
                         </div>
                         <h1 class="text-3xl font-bold">Motor PID Controller</h1>
                     </div>
@@ -253,12 +250,12 @@
                         <h3 class="font-bold mb-4">Project Info</h3>
                         <div class="row g-4">
                             <div class="col-6">
-                                <span class="text-secondary text-sm">Stars</span>
-                                <p class="text-2xl font-bold text-primary">89</p>
+                                <span class="text-secondary text-sm">Difficulty</span>
+                                <p class="font-semibold">Intermediate</p>
                             </div>
                             <div class="col-6">
-                                <span class="text-secondary text-sm">Forks</span>
-                                <p class="text-2xl font-bold text-secondary">31</p>
+                                <span class="text-secondary text-sm">Framework</span>
+                                <p class="font-semibold">STM32CubeMX</p>
                             </div>
                             <div class="col-6">
                                 <span class="text-secondary text-sm">Last Updated</span>
@@ -273,16 +270,6 @@
                                     
                                 </p>
                             </div>
-                            <div class="col-6">
-                                <span class="text-secondary text-sm">Quality Score</span>
-                                <p class="font-semibold">85/100</p>
-                            </div>
-                            <div class="col-6">
-                                <span class="text-secondary text-sm">Build Status</span>
-                                <p class="font-semibold text-green-500">
-                                    Passing
-                                </p>
-                            </div>
                         </div>
                     </div>
 
@@ -295,34 +282,97 @@
                         <h3 class="font-bold mb-4">Tags</h3>
                         <div class="d-flex flex-wrap gap-2">
                             
-                            <span class="badge badge-primary">PID</span>
+                            <a href="/en/search?q=PID&type=project" class="badge badge-primary text-decoration-none">PID</a>
                             
-                            <span class="badge badge-primary">Industrial</span>
+                            <a href="/en/search?q=Industrial&type=project" class="badge badge-primary text-decoration-none">Industrial</a>
                             
-                            <span class="badge badge-primary">Motor Control</span>
+                            <a href="/en/search?q=Motor%20Control&type=project" class="badge badge-primary text-decoration-none">Motor Control</a>
                             
                         </div>
                     </div>
 
                     <div class="card-dark p-6">
-                        <h3 class="font-bold mb-4">Comments</h3>
-                        
-                        <p class="text-secondary mb-4">Please <a href="/en/login">log in</a> to comment</p>
-                        
-                        
-                        <div id="commentsList" class="space-y-4">
-                            <div class="text-center py-8">
-                                <i class="fas fa-comment text-secondary fa-3x mb-2"></i>
-                                <p class="text-secondary">No comments yet</p>
-                            </div>
+                        <h3 class="font-bold mb-3">交流与反馈</h3>
+                        <p class="text-secondary mb-4" style="font-size:14px;">这个项目是站内示例，源码与细节持续补充中。有问题或想复刻，欢迎到知识星球或公众号交流。</p>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><i class="fas fa-star me-1"></i>Knowledge Planet</a>
+                            <a href="/en/#follow" class="btn btn-outline-light btn-sm"><i class="fab fa-weixin me-1"></i>WeChat Official Account</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4">
                     
+                    <div class="card-dark p-4 mb-4">
+                        <h4 class="font-bold mb-3">Compatible boards</h4>
+                        <div class="space-y-2">
+                            
+                            <a href="/en/board/stm32f103c8t6-blue-pill" class="d-flex items-center gap-3 p-2 rounded hover:bg-dark transition-colors">
+                                <span class="badge badge-accent">STM32</span>
+                                <span>STM32F103C8T6 Blue Pill</span>
+                            </a>
+                            
+                            <a href="/en/board/stm32f407zgt6-discovery" class="d-flex items-center gap-3 p-2 rounded hover:bg-dark transition-colors">
+                                <span class="badge badge-accent">STM32</span>
+                                <span>STM32F407ZGT6 Discovery</span>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    
 
                     
+                    <div class="card-dark p-4">
+                        <h4 class="font-bold mb-3">Related demos</h4>
+                        <div class="space-y-2">
+                            
+                            <a href="/en/project/solar-charge-controller" class="d-flex items-center gap-3 p-2 rounded hover:bg-dark transition-colors">
+                                <div>
+                                    <span class="font-semibold">Solar Charge Controller</span>
+                                    <div class="flex gap-1">
+                                        
+                                        <span class="text-xs badge badge-primary">工业</span>
+                                        
+                                    </div>
+                                </div>
+                            </a>
+                            
+                            <a href="/en/project/can-bus-data-logger" class="d-flex items-center gap-3 p-2 rounded hover:bg-dark transition-colors">
+                                <div>
+                                    <span class="font-semibold">CAN Bus Data Acquisition</span>
+                                    <div class="flex gap-1">
+                                        
+                                        <span class="text-xs badge badge-primary">工业</span>
+                                        
+                                    </div>
+                                </div>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <div class="card-dark p-4 mt-4">
+                        <h4 class="font-bold mb-3">Related reading</h4>
+                        <div class="space-y-2">
+                            <a href="/en/projects" class="d-flex items-center gap-2 p-2 rounded hover:bg-dark transition-colors">
+                                <i class="fas fa-layer-group text-primary"></i>
+                                <span>Demo Projects</span>
+                            </a>
+                            <a href="/en/board-guide" class="d-flex items-center gap-2 p-2 rounded hover:bg-dark transition-colors">
+                                <i class="fas fa-compass text-primary"></i>
+                                <span>Board Selection Guide</span>
+                            </a>
+                            <a href="/en/articles/board-selection-cheatsheet" class="d-flex items-center gap-2 p-2 rounded hover:bg-dark transition-colors">
+                                <i class="fas fa-table-list text-primary"></i>
+                                <span>One-page cheat sheet: I want to build X — which board should I buy?</span>
+                            </a>
+                            <a href="/en/articles/handbook-ch1" class="d-flex items-center gap-2 p-2 rounded hover:bg-dark transition-colors">
+                                <i class="fas fa-book-open text-primary"></i>
+                                <span>The right order for board selection: scenario, constraints, then the board</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -336,36 +386,29 @@
             const shareModal = shareModalElement ? new bootstrap.Modal(shareModalElement) : null;
             const shareUrl = document.getElementById('shareUrl');
             const copyUrlBtn = document.getElementById('copyUrlBtn');
-            const commentForm = document.getElementById('commentForm');
-            
+            const projectId = 6;
+
             if (favoriteBtn) {
+                const savedKey = 'zouic_saved_projects';
+                const getSaved = function() { return JSON.parse(localStorage.getItem(savedKey) || '[]'); };
+                const syncBtn = function() {
+                    if (getSaved().includes(projectId)) {
+                        favoriteBtn.innerHTML = '<i class="fas fa-heart" style="color: var(--color-secondary);"></i> Saved';
+                    } else {
+                        favoriteBtn.innerHTML = '<i class="fas fa-heart"></i> Favorite';
+                    }
+                };
                 favoriteBtn.addEventListener('click', function() {
-                    const projectId = this.dataset.projectId;
-                    
-                    fetch('/api/v1/favorites', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRFToken': getCookie('csrf_token')
-                        },
-                        body: JSON.stringify({
-                            item_type: 'project',
-                            item_id: parseInt(projectId)
-                        })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            favoriteBtn.innerHTML = '<i class="fas fa-heart text-red-500"></i> Saved';
-                            favoriteBtn.classList.add('text-red-500');
-                        } else if (data.message === '已收藏') {
-                            alert('You have already saved this project');
-                        }
-                    })
-                    .catch(error => {
-                        window.location.href = '/login';
-                    });
+                    let saved = getSaved();
+                    if (saved.includes(projectId)) {
+                        saved = saved.filter(function(i) { return i !== projectId; });
+                    } else {
+                        saved.push(projectId);
+                    }
+                    localStorage.setItem(savedKey, JSON.stringify(saved));
+                    syncBtn();
                 });
+                syncBtn();
             }
             
             if (shareBtn && shareModal && shareUrl) {
@@ -387,57 +430,14 @@
                     });
                 });
             }
-            
-            if (commentForm) {
-                commentForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const commentContentInput = document.getElementById('commentContent');
-                    
-                    if (!commentContentInput) {
-                        return;
-                    }
-                    
-                    const content = commentContentInput.value;
-                    
-                    fetch('/api/v1/comments', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRFToken': getCookie('csrf_token')
-                        },
-                        body: JSON.stringify({
-                            project_id: parseInt('6'),
-                            content: content
-                        })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            commentContentInput.value = '';
-                            alert('Comment posted');
-                        } else {
-                            alert(data.message || 'Failed to post comment');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('Failed to post comment');
-                    });
-                });
-            }
-            
-            function getCookie(name) {
-                const value = `; ${document.cookie}`;
-                const parts = value.split(`; ${name}=`);
-                if (parts.length === 2) return parts.pop().split(';').shift();
-            }
         });
     </script>
 
     </main>
 
     <!-- Footer -->
-    <!-- Newsletter Section -->
+    <!-- Newsletter Section (首页已有完整关注区，不重复) -->
+    
     <section class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
         <div class="container">
             <div class="newsletter-card">
@@ -458,6 +458,7 @@
             </div>
         </div>
     </section>
+    
 
     <section class="py-4" aria-label="Produced by">
         <div class="author-card">
@@ -516,13 +517,16 @@
                     <ul>
                         <li><a href="/en/products">Products</a></li>
                         <li><a href="/en/services">Services</a></li>
-                        <li><a href="/en/news">Industry News</a></li>
+                        <li><a href="/en/services/website-building">Website building</a></li>
+                        <li><a href="/en/news">Site Updates</a></li>
                         <li><a href="/en/boards">Development Boards</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-2 mb-4 mb-md-0">
                     <h5>Resources</h5>
                     <ul>
+                        <li><a href="/en/board-guide">Board selection guide</a></li>
+                        <li><a href="/en/compare">Board comparison</a></li>
                         <li><a href="/en/tutorials">Tutorials</a></li>
                         <li><a href="/en/documentation">Documentation</a></li>
                         <li><a href="/en/cases">Project Cases</a></li>
@@ -534,6 +538,7 @@
                     <h5>Open Source</h5>
                     <ul>
                         <li><a href="/en/open-source">Open Source Projects</a></li>
+                        <li><a href="/en/all-projects">All projects</a></li>
                         <li><a href="/en/articles">Articles</a></li>
                         <li><a href="/en/contribute">Contribute</a></li>
                         <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
@@ -697,135 +702,7 @@
         });
     </script>
 
-    <!-- AI Chat Widget -->
-    <div class="chat-widget">
-        <div id="agent-chat-container" class="chat-widget-container">
-            <div class="chat-widget-header">
-                <div class="d-flex align-items-center gap-2">
-                    <i class="fas fa-robot"></i>
-                    <span>AI Assistant</span>
-                </div>
-                <button id="agent-chat-close" class="btn-zouic btn-zouic-ghost btn-zouic-sm" aria-label="Close" style="color: rgba(255,255,255,0.8);">
-                    <i class="fas fa-times" aria-hidden="true"></i>
-                </button>
-            </div>
-            <div id="agent-chat-messages" class="chat-widget-messages">
-                <div class="d-flex align-items-start gap-2 mb-4">
-                    <div class="chat-widget-toggle" style="width: 32px; height: 32px; font-size: 0.75rem; flex-shrink: 0;">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="bg-secondary/50 rounded-lg rounded-tl-none p-3 text-sm" style="background-color: rgba(255, 0, 110, 0.15);">
-                        Search boards, projects or keywords...
-                    </div>
-                </div>
-            </div>
-            <div class="chat-widget-input-area">
-                <div class="d-flex gap-2">
-                    <input type="text" id="agent-chat-input" 
-                        class="input-zouic flex-grow-1"
-                        aria-label="Enter your message..."
-                        placeholder="Enter your message...">
-                    <button id="agent-chat-send" class="btn-zouic btn-zouic-primary btn-zouic-sm" aria-label="Send">
-                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <button id="agent-chat-toggle" class="chat-widget-toggle" aria-label="AI Assistant" aria-expanded="false">
-            <i class="fas fa-robot" style="font-size: 1.25rem;" aria-hidden="true"></i>
-        </button>
-    </div>
-
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const chatToggle = document.getElementById('agent-chat-toggle');
-            const chatContainer = document.getElementById('agent-chat-container');
-            const chatClose = document.getElementById('agent-chat-close');
-            const chatInput = document.getElementById('agent-chat-input');
-            const chatSend = document.getElementById('agent-chat-send');
-            const chatMessages = document.getElementById('agent-chat-messages');
-            
-            let agentSessionId = null;
-            
-            if (chatToggle && chatContainer) {
-                chatToggle.addEventListener('click', function() {
-                    chatContainer.classList.toggle('open');
-                    var isOpen = chatContainer.classList.contains('open');
-                    chatToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-                    if (isOpen) {
-                        chatInput.focus();
-                    }
-                });
-            }
-            
-            if (chatClose && chatContainer) {
-                chatClose.addEventListener('click', function() {
-                    chatContainer.classList.remove('open');
-                    chatToggle.setAttribute('aria-expanded', 'false');
-                    chatToggle.focus();
-                });
-            }
-            
-            const addMessage = function(text, isUser = false) {
-                const div = document.createElement('div');
-                div.className = 'd-flex align-items-start gap-2 mb-4' + (isUser ? ' flex-row-reverse' : '');
-                
-                const avatar = document.createElement('div');
-                avatar.className = 'chat-widget-toggle flex-shrink-0';
-                avatar.style.cssText = 'width: 32px; height: 32px; font-size: 0.75rem;';
-                avatar.innerHTML = isUser ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
-                
-                const bubble = document.createElement('div');
-                bubble.className = 'rounded-lg px-3 py-2 text-sm ' +
-                    (isUser ? 'rounded-tr-none' : 'rounded-tl-none');
-                bubble.style.cssText = isUser 
-                    ? 'background-color: rgba(0, 229, 255, 0.15); color: var(--color-text-primary);'
-                    : 'background-color: rgba(255, 0, 110, 0.15); color: var(--color-text-primary);';
-                bubble.textContent = text;
-                
-                div.appendChild(isUser ? bubble : avatar);
-                div.appendChild(isUser ? avatar : bubble);
-                chatMessages.appendChild(div);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            };
-            
-            const sendMessage = async function() {
-                const message = chatInput.value.trim();
-                if (!message) return;
-                
-                addMessage(message, true);
-                chatInput.value = '';
-                
-                try {
-                    const response = await fetch('/api/agent/query', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ input: message, session_id: agentSessionId })
-                    });
-                    
-                    const data = await response.json();
-                    
-                    if (data.success) {
-                        agentSessionId = data.session_id;
-                        if (data.response && data.response.text) {
-                            addMessage(data.response.text, false);
-                        }
-                    } else {
-                        addMessage('Operation failed, please try again', false);
-                    }
-                } catch (error) {
-                    addMessage('Network error, please try again', false);
-                }
-            };
-            
-            if (chatSend) chatSend.addEventListener('click', sendMessage);
-            if (chatInput) {
-                chatInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') sendMessage();
-                });
-            }
-        });
-        
         // --- Share & Save helpers ---
         window.copyToClipboard = function(text) {
             if (navigator.clipboard) {

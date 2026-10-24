@@ -27,6 +27,7 @@
     
     
     
+    
     <meta property="og:title" content="The right order for board selection: scenario, constraints, then the board">
     <meta property="og:description" content="Free first chapter of the Open Hardware Selection Handbook: why your dev board gathers dust — because your selection order is backwards.">
     <meta property="og:url" content="https://www.zouic.com/en/articles/handbook-ch1">
@@ -66,7 +67,7 @@
     
     <!-- ZouIC Design System -->
     <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
-    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261024b">
     <noscript>
         <style>
             /* 关闭 JS 时不要因为滚动动画而隐藏内容 */
@@ -130,7 +131,7 @@
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="/en/products"><i class="fas fa-box me-2"></i>Products</a></li>
                             <li><a class="dropdown-item" href="/en/services"><i class="fas fa-cogs me-2"></i>Services</a></li>
-                            <li><a class="dropdown-item" href="/en/news"><i class="fas fa-newspaper me-2"></i>Industry News</a></li>
+                            <li><a class="dropdown-item" href="/en/news"><i class="fas fa-newspaper me-2"></i>Site Updates</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="/en/tutorials"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li>
                             <li><a class="dropdown-item" href="/en/documentation"><i class="fas fa-book me-2"></i>Documentation</a></li>
@@ -173,10 +174,6 @@
                             </a></li>
                         </ul>
                     </div>
-                    
-                    <a href="/en/login" class="btn-zouic btn-zouic-ghost btn-zouic-sm">Login</a>
-                    <a href="/en/register" class="btn-zouic btn-zouic-primary btn-zouic-sm">Register</a>
-                    
                 </div>
             </div>
         </div>
@@ -189,6 +186,18 @@
         <span class="badge badge-accent mb-3">Free handbook preview · Chapter 1</span>
         <h1 class="display-4 font-bold mb-4">The right order for board selection: scenario, constraints, then the board</h1>
         <p class="text-secondary lead">&#34;Open Hardware Selection Handbook&#34; · Geek Weidong @GeekWaedon</p>
+    </div>
+</section>
+
+<section class="pt-6">
+    <div class="container" style="max-width: 860px;">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent mb-0">
+                <li class="breadcrumb-item"><a href="/en/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/en/articles">Articles</a></li>
+                <li class="breadcrumb-item active" aria-current="page">The right order for board selection: scenario, constraints, then the board</li>
+            </ol>
+        </nav>
     </div>
 </section>
 
@@ -305,6 +314,42 @@ Conclusion: ESP32-S3-DevKitC or ESP32-C3-DevKitM</pre>
             <p class="text-secondary" style="line-height:1.9;"><strong class="text-white">Next chapter preview</strong>: 2.1 The Wi-Fi / IoT main group — ESP32-S3, ESP32-C3, ESP32-C6 and BL602 go head to head: all have Wi-Fi, yet prices differ by 2x. What does the extra money buy?</p>
             <p class="text-secondary" style="line-height:1.9;">Companion cheat sheet: <a href="/en/articles/board-selection-cheatsheet" class="text-primary">&#34;One-page cheat sheet: I want to build X — which board should I buy?&#34;</a>. The handbook is updated continuously — to get new chapters first, join the <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener" class="text-primary">Knowledge Planet community &#34;Geek Weidong&#34;</a>.</p>
         </div>
+
+        
+        <div class="card-dark p-6 mt-5">
+    <h2 class="section-title text-2xl font-bold mb-4">Related reading</h2>
+    <div class="row g-3">
+        
+        <div class="col-md-6">
+            <a href="/en/articles/board-selection-cheatsheet" class="card-dark p-4 h-100 d-block text-decoration-none hover-underline">
+                <h4 class="font-bold mb-1">One-page cheat sheet: I want to build X — which board should I buy?</h4>
+                <p class="text-secondary text-sm mb-0">A board cheat sheet for 12 common scenarios: scenario first, constraints second, board last, plus three beginner questions and an anti-selection checklist.</p>
+            </a>
+        </div>
+        
+        <div class="col-md-6">
+            <a href="/en/boards" class="card-dark p-4 h-100 d-block text-decoration-none hover-underline">
+                <h4 class="font-bold mb-1">Development Boards</h4>
+                <p class="text-secondary text-sm mb-0">Browse and search various open source development boards</p>
+            </a>
+        </div>
+        
+        <div class="col-md-6">
+            <a href="/en/board-guide" class="card-dark p-4 h-100 d-block text-decoration-none hover-underline">
+                <h4 class="font-bold mb-1">Board Selection Guide</h4>
+                <p class="text-secondary text-sm mb-0">Detailed comparisons of mainstream open-source boards, based on the latest CSDN community resources</p>
+            </a>
+        </div>
+        
+        <div class="col-md-6">
+            <a href="/en/articles/knowledge-business-models" class="card-dark p-4 h-100 d-block text-decoration-none hover-underline">
+                <h4 class="font-bold mb-1">Paid-knowledge models</h4>
+                <p class="text-secondary text-sm mb-0">Five models and one compounding path</p>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
     </div>
 </section>
@@ -522,7 +567,8 @@ Conclusion: ESP32-S3-DevKitC or ESP32-C3-DevKitM</pre>
     </main>
 
     <!-- Footer -->
-    <!-- Newsletter Section -->
+    <!-- Newsletter Section (首页已有完整关注区，不重复) -->
+    
     <section class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
         <div class="container">
             <div class="newsletter-card">
@@ -543,6 +589,7 @@ Conclusion: ESP32-S3-DevKitC or ESP32-C3-DevKitM</pre>
             </div>
         </div>
     </section>
+    
 
     <section class="py-4" aria-label="Produced by">
         <div class="author-card">
@@ -601,13 +648,16 @@ Conclusion: ESP32-S3-DevKitC or ESP32-C3-DevKitM</pre>
                     <ul>
                         <li><a href="/en/products">Products</a></li>
                         <li><a href="/en/services">Services</a></li>
-                        <li><a href="/en/news">Industry News</a></li>
+                        <li><a href="/en/services/website-building">Website building</a></li>
+                        <li><a href="/en/news">Site Updates</a></li>
                         <li><a href="/en/boards">Development Boards</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-2 mb-4 mb-md-0">
                     <h5>Resources</h5>
                     <ul>
+                        <li><a href="/en/board-guide">Board selection guide</a></li>
+                        <li><a href="/en/compare">Board comparison</a></li>
                         <li><a href="/en/tutorials">Tutorials</a></li>
                         <li><a href="/en/documentation">Documentation</a></li>
                         <li><a href="/en/cases">Project Cases</a></li>
@@ -619,6 +669,7 @@ Conclusion: ESP32-S3-DevKitC or ESP32-C3-DevKitM</pre>
                     <h5>Open Source</h5>
                     <ul>
                         <li><a href="/en/open-source">Open Source Projects</a></li>
+                        <li><a href="/en/all-projects">All projects</a></li>
                         <li><a href="/en/articles">Articles</a></li>
                         <li><a href="/en/contribute">Contribute</a></li>
                         <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
@@ -782,135 +833,7 @@ Conclusion: ESP32-S3-DevKitC or ESP32-C3-DevKitM</pre>
         });
     </script>
 
-    <!-- AI Chat Widget -->
-    <div class="chat-widget">
-        <div id="agent-chat-container" class="chat-widget-container">
-            <div class="chat-widget-header">
-                <div class="d-flex align-items-center gap-2">
-                    <i class="fas fa-robot"></i>
-                    <span>AI Assistant</span>
-                </div>
-                <button id="agent-chat-close" class="btn-zouic btn-zouic-ghost btn-zouic-sm" aria-label="Close" style="color: rgba(255,255,255,0.8);">
-                    <i class="fas fa-times" aria-hidden="true"></i>
-                </button>
-            </div>
-            <div id="agent-chat-messages" class="chat-widget-messages">
-                <div class="d-flex align-items-start gap-2 mb-4">
-                    <div class="chat-widget-toggle" style="width: 32px; height: 32px; font-size: 0.75rem; flex-shrink: 0;">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="bg-secondary/50 rounded-lg rounded-tl-none p-3 text-sm" style="background-color: rgba(255, 0, 110, 0.15);">
-                        Search boards, projects or keywords...
-                    </div>
-                </div>
-            </div>
-            <div class="chat-widget-input-area">
-                <div class="d-flex gap-2">
-                    <input type="text" id="agent-chat-input" 
-                        class="input-zouic flex-grow-1"
-                        aria-label="Enter your message..."
-                        placeholder="Enter your message...">
-                    <button id="agent-chat-send" class="btn-zouic btn-zouic-primary btn-zouic-sm" aria-label="Send">
-                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <button id="agent-chat-toggle" class="chat-widget-toggle" aria-label="AI Assistant" aria-expanded="false">
-            <i class="fas fa-robot" style="font-size: 1.25rem;" aria-hidden="true"></i>
-        </button>
-    </div>
-
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const chatToggle = document.getElementById('agent-chat-toggle');
-            const chatContainer = document.getElementById('agent-chat-container');
-            const chatClose = document.getElementById('agent-chat-close');
-            const chatInput = document.getElementById('agent-chat-input');
-            const chatSend = document.getElementById('agent-chat-send');
-            const chatMessages = document.getElementById('agent-chat-messages');
-            
-            let agentSessionId = null;
-            
-            if (chatToggle && chatContainer) {
-                chatToggle.addEventListener('click', function() {
-                    chatContainer.classList.toggle('open');
-                    var isOpen = chatContainer.classList.contains('open');
-                    chatToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-                    if (isOpen) {
-                        chatInput.focus();
-                    }
-                });
-            }
-            
-            if (chatClose && chatContainer) {
-                chatClose.addEventListener('click', function() {
-                    chatContainer.classList.remove('open');
-                    chatToggle.setAttribute('aria-expanded', 'false');
-                    chatToggle.focus();
-                });
-            }
-            
-            const addMessage = function(text, isUser = false) {
-                const div = document.createElement('div');
-                div.className = 'd-flex align-items-start gap-2 mb-4' + (isUser ? ' flex-row-reverse' : '');
-                
-                const avatar = document.createElement('div');
-                avatar.className = 'chat-widget-toggle flex-shrink-0';
-                avatar.style.cssText = 'width: 32px; height: 32px; font-size: 0.75rem;';
-                avatar.innerHTML = isUser ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
-                
-                const bubble = document.createElement('div');
-                bubble.className = 'rounded-lg px-3 py-2 text-sm ' +
-                    (isUser ? 'rounded-tr-none' : 'rounded-tl-none');
-                bubble.style.cssText = isUser 
-                    ? 'background-color: rgba(0, 229, 255, 0.15); color: var(--color-text-primary);'
-                    : 'background-color: rgba(255, 0, 110, 0.15); color: var(--color-text-primary);';
-                bubble.textContent = text;
-                
-                div.appendChild(isUser ? bubble : avatar);
-                div.appendChild(isUser ? avatar : bubble);
-                chatMessages.appendChild(div);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            };
-            
-            const sendMessage = async function() {
-                const message = chatInput.value.trim();
-                if (!message) return;
-                
-                addMessage(message, true);
-                chatInput.value = '';
-                
-                try {
-                    const response = await fetch('/api/agent/query', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ input: message, session_id: agentSessionId })
-                    });
-                    
-                    const data = await response.json();
-                    
-                    if (data.success) {
-                        agentSessionId = data.session_id;
-                        if (data.response && data.response.text) {
-                            addMessage(data.response.text, false);
-                        }
-                    } else {
-                        addMessage('Operation failed, please try again', false);
-                    }
-                } catch (error) {
-                    addMessage('Network error, please try again', false);
-                }
-            };
-            
-            if (chatSend) chatSend.addEventListener('click', sendMessage);
-            if (chatInput) {
-                chatInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') sendMessage();
-                });
-            }
-        });
-        
         // --- Share & Save helpers ---
         window.copyToClipboard = function(text) {
             if (navigator.clipboard) {

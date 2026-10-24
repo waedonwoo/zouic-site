@@ -27,6 +27,7 @@
     
     
     
+    
     <meta property="og:title" content="Data Dashboard - Traffic &amp; Content Analytics | ZouIC">
     <meta property="og:description" content="Live ZouIC dashboard for inbound traffic and content assets: page views, unique visitors, traffic sources, top pages, crawler activity and conversion funnel.">
     <meta property="og:url" content="https://www.zouic.com/en/dashuju">
@@ -66,7 +67,7 @@
     
     <!-- ZouIC Design System -->
     <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
-    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261024b">
     <noscript>
         <style>
             /* 关闭 JS 时不要因为滚动动画而隐藏内容 */
@@ -133,7 +134,7 @@
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="/en/products"><i class="fas fa-box me-2"></i>Products</a></li>
                             <li><a class="dropdown-item" href="/en/services"><i class="fas fa-cogs me-2"></i>Services</a></li>
-                            <li><a class="dropdown-item" href="/en/news"><i class="fas fa-newspaper me-2"></i>Industry News</a></li>
+                            <li><a class="dropdown-item" href="/en/news"><i class="fas fa-newspaper me-2"></i>Site Updates</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="/en/tutorials"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li>
                             <li><a class="dropdown-item" href="/en/documentation"><i class="fas fa-book me-2"></i>Documentation</a></li>
@@ -176,10 +177,6 @@
                             </a></li>
                         </ul>
                     </div>
-                    
-                    <a href="/en/login" class="btn-zouic btn-zouic-ghost btn-zouic-sm">Login</a>
-                    <a href="/en/register" class="btn-zouic btn-zouic-primary btn-zouic-sm">Register</a>
-                    
                 </div>
             </div>
         </div>
@@ -204,22 +201,22 @@
                 </div>
                 <div>
                     <span>Local time</span>
-                    <strong id="dashClock">09:40:46</strong>
+                    <strong id="dashClock">12:20:58</strong>
                 </div>
             </div>
-            <div class="dash-live"><span class="dash-dot"></span>LIVE · Updated <span id="dashUpdated">09:40:46</span></div>
+            <div class="dash-live"><span class="dash-dot"></span>LIVE · Updated <span id="dashUpdated">12:20:58</span></div>
         </header>
 
         <section class="dash-kpis" aria-label="Data Dashboard">
             <div class="dash-kpi">
                 <div class="dash-kpi-label">Total page views</div>
-                <div class="dash-kpi-value" data-kpi="total_pv">0</div>
-                <div class="dash-kpi-sub">Since tracking started · Unique visitors 0</div>
+                <div class="dash-kpi-value" data-kpi="total_pv">140</div>
+                <div class="dash-kpi-sub">Since tracking started · Unique visitors 1</div>
             </div>
             <div class="dash-kpi">
                 <div class="dash-kpi-label">Views today</div>
-                <div class="dash-kpi-value" data-kpi="today_pv">0</div>
-                <div class="dash-kpi-sub">visitors <span data-kpi="today_uv">0</span></div>
+                <div class="dash-kpi-value" data-kpi="today_pv">140</div>
+                <div class="dash-kpi-sub">visitors <span data-kpi="today_uv">1</span></div>
             </div>
             <div class="dash-kpi">
                 <div class="dash-kpi-label">Views yesterday</div>
@@ -228,8 +225,8 @@
             </div>
             <div class="dash-kpi">
                 <div class="dash-kpi-label">Views this month</div>
-                <div class="dash-kpi-value">0</div>
-                <div class="dash-kpi-sub">Visitors this month 0</div>
+                <div class="dash-kpi-value">140</div>
+                <div class="dash-kpi-sub">Visitors this month 1</div>
             </div>
             <div class="dash-kpi">
                 <div class="dash-kpi-label">Views last month</div>
@@ -257,6 +254,11 @@
                 <div id="sourceChart" class="dash-chart dash-chart-sm"></div>
                 <ul class="dash-list">
                     
+                    <li>
+                        <span class="dash-list-label"><span class="dash-swatch" data-source="direct"></span>Direct</span>
+                        <span class="dash-list-value">140</span>
+                    </li>
+                    
                 </ul>
             </section>
 
@@ -267,9 +269,9 @@
                 </div>
                 <div id="trendChart" class="dash-chart"></div>
                 <div class="dash-engage" style="grid-template-columns:repeat(3,1fr);">
-                    <div><span>Page views</span><strong>0</strong></div>
-                    <div><span>Unique visitors</span><strong>0</strong></div>
-                    <div><span>Top pages</span><strong>0</strong></div>
+                    <div><span>Page views</span><strong>140</strong></div>
+                    <div><span>Unique visitors</span><strong>1</strong></div>
+                    <div><span>Top pages</span><strong>10</strong></div>
                 </div>
             </section>
 
@@ -320,7 +322,10 @@
                 <div class="dash-subhead">Devices</div>
                 <ul class="dash-list">
                     
-                    <li><span class="dash-list-label">No data yet. Browse the site to start collecting.</span></li>
+                    <li>
+                        <span class="dash-list-label">Desktop</span>
+                        <span class="dash-list-value">140</span>
+                    </li>
                     
                 </ul>
             </section>
@@ -347,7 +352,30 @@
                 <div class="dash-subhead">Top pages</div>
                 <ul class="dash-list">
                     
-                    <li><span class="dash-list-label">No data yet. Browse the site to start collecting.</span></li>
+                    <li>
+                        <span class="dash-list-label"><span class="dash-mono">/board-guide</span></span>
+                        <span class="dash-list-value">4 <em style="font-style:normal;color:rgba(120,165,190,.62);">/ 1</em></span>
+                    </li>
+                    
+                    <li>
+                        <span class="dash-list-label"><span class="dash-mono">/tutorials</span></span>
+                        <span class="dash-list-value">2 <em style="font-style:normal;color:rgba(120,165,190,.62);">/ 1</em></span>
+                    </li>
+                    
+                    <li>
+                        <span class="dash-list-label"><span class="dash-mono">/services/website-building</span></span>
+                        <span class="dash-list-value">2 <em style="font-style:normal;color:rgba(120,165,190,.62);">/ 1</em></span>
+                    </li>
+                    
+                    <li>
+                        <span class="dash-list-label"><span class="dash-mono">/services</span></span>
+                        <span class="dash-list-value">2 <em style="font-style:normal;color:rgba(120,165,190,.62);">/ 1</em></span>
+                    </li>
+                    
+                    <li>
+                        <span class="dash-list-label"><span class="dash-mono">/search</span></span>
+                        <span class="dash-list-value">2 <em style="font-style:normal;color:rgba(120,165,190,.62);">/ 1</em></span>
+                    </li>
                     
                 </ul>
             </section>
@@ -384,25 +412,25 @@
                     <div class="dash-funnel-stage">
                         <div class="dash-funnel-top">
                             <span>Visitors</span>
-                            <span><strong>0</strong><em>0%</em></span>
+                            <span><strong>1</strong><em>100.0%</em></span>
                         </div>
-                        <div class="dash-funnel-bar"><span style="width: 0%"></span></div>
+                        <div class="dash-funnel-bar"><span style="width: 100.0%"></span></div>
                     </div>
                     
                     <div class="dash-funnel-stage">
                         <div class="dash-funnel-top">
                             <span>Latest leads</span>
-                            <span><strong>0</strong><em>0%</em></span>
+                            <span><strong>0</strong><em>0.0%</em></span>
                         </div>
-                        <div class="dash-funnel-bar"><span style="width: 0%"></span></div>
+                        <div class="dash-funnel-bar"><span style="width: 0.0%"></span></div>
                     </div>
                     
                     <div class="dash-funnel-stage">
                         <div class="dash-funnel-top">
                             <span>Members</span>
-                            <span><strong>0</strong><em>0%</em></span>
+                            <span><strong>0</strong><em>0.0%</em></span>
                         </div>
-                        <div class="dash-funnel-bar"><span style="width: 0%"></span></div>
+                        <div class="dash-funnel-bar"><span style="width: 0.0%"></span></div>
                     </div>
                     
                 </div>
@@ -418,7 +446,7 @@
             <section class="dash-panel dash-col-8">
                 <div class="dash-panel-head">
                     <h2 class="dash-panel-title">Live visitor stream</h2>
-                    <span class="dash-panel-meta"><span id="liveCount">0</span> records</span>
+                    <span class="dash-panel-meta"><span id="liveCount">20</span> records</span>
                 </div>
                 <div class="dash-table-wrap">
                     <table class="dash-table">
@@ -433,7 +461,165 @@
                         </thead>
                         <tbody id="liveRows">
                             
-                            <tr><td colspan="5"><div class="dash-empty">No data yet. Browse the site to start collecting.</div></td></tr>
+                            <tr>
+                                <td class="dash-mono">10-24 10:36:59</td>
+                                <td><span class="dash-path" title="/external/seeed/reterminal">/external/seeed/reterminal</span></td>
+                                <td><span class="dash-tag ">Direct</span></td>
+                                <td>Desktop</td>
+                                <td class="dash-mono">127.0.*.*</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="dash-mono">10-24 10:36:59</td>
+                                <td><span class="dash-path" title="/external/seeed/xiao-esp32s3">/external/seeed/xiao-esp32s3</span></td>
+                                <td><span class="dash-tag ">Direct</span></td>
+                                <td>Desktop</td>
+                                <td class="dash-mono">127.0.*.*</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="dash-mono">10-24 10:36:59</td>
+                                <td><span class="dash-path" title="/external/seeed/Quantum-Mini-Linux-Development-Kit">/external/seeed/Quantum-Mini-Linux-Development-Kit</span></td>
+                                <td><span class="dash-tag ">Direct</span></td>
+                                <td>Desktop</td>
+                                <td class="dash-mono">127.0.*.*</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="dash-mono">10-24 10:36:59</td>
+                                <td><span class="dash-path" title="/external/github/peng-zhihui/HoloCubic">/external/github/peng-zhihui/HoloCubic</span></td>
+                                <td><span class="dash-tag ">Direct</span></td>
+                                <td>Desktop</td>
+                                <td class="dash-mono">127.0.*.*</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="dash-mono">10-24 10:36:59</td>
+                                <td><span class="dash-path" title="/external/github/peng-zhihui/Planck-Pi">/external/github/peng-zhihui/Planck-Pi</span></td>
+                                <td><span class="dash-tag ">Direct</span></td>
+                                <td>Desktop</td>
+                                <td class="dash-mono">127.0.*.*</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="dash-mono">10-24 10:36:59</td>
+                                <td><span class="dash-path" title="/external/github/peng-zhihui/ElectronBot">/external/github/peng-zhihui/ElectronBot</span></td>
+                                <td><span class="dash-tag ">Direct</span></td>
+                                <td>Desktop</td>
+                                <td class="dash-mono">127.0.*.*</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="dash-mono">10-24 10:36:58</td>
+                                <td><span class="dash-path" title="/external/github/hshi74/toddlerbot">/external/github/hshi74/toddlerbot</span></td>
+                                <td><span class="dash-tag ">Direct</span></td>
+                                <td>Desktop</td>
+                                <td class="dash-mono">127.0.*.*</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="dash-mono">10-24 10:36:58</td>
+                                <td><span class="dash-path" title="/external/github/apirrone/Open_Duck_Mini">/external/github/apirrone/Open_Duck_Mini</span></td>
+                                <td><span class="dash-tag ">Direct</span></td>
+                                <td>Desktop</td>
+                                <td class="dash-mono">127.0.*.*</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="dash-mono">10-24 10:36:58</td>
+                                <td><span class="dash-path" title="/external/github/PetoiCamp/OpenCatEsp32-Quadruped-Robot">/external/github/PetoiCamp/OpenCatEsp32-Quadruped-Robot</span></td>
+                                <td><span class="dash-tag ">Direct</span></td>
+                                <td>Desktop</td>
+                                <td class="dash-mono">127.0.*.*</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="dash-mono">10-24 10:36:58</td>
+                                <td><span class="dash-path" title="/external/github/HybridRobotics/berkeley-humanoid-lite">/external/github/HybridRobotics/berkeley-humanoid-lite</span></td>
+                                <td><span class="dash-tag ">Direct</span></td>
+                                <td>Desktop</td>
+                                <td class="dash-mono">127.0.*.*</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="dash-mono">10-24 10:36:58</td>
+                                <td><span class="dash-path" title="/external/github/openmv/openmv">/external/github/openmv/openmv</span></td>
+                                <td><span class="dash-tag ">Direct</span></td>
+                                <td>Desktop</td>
+                                <td class="dash-mono">127.0.*.*</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="dash-mono">10-24 10:36:58</td>
+                                <td><span class="dash-path" title="/external/github/Nate711/StanfordDoggoProject">/external/github/Nate711/StanfordDoggoProject</span></td>
+                                <td><span class="dash-tag ">Direct</span></td>
+                                <td>Desktop</td>
+                                <td class="dash-mono">127.0.*.*</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="dash-mono">10-24 10:36:58</td>
+                                <td><span class="dash-path" title="/external/github/odriverobotics/ODrive">/external/github/odriverobotics/ODrive</span></td>
+                                <td><span class="dash-tag ">Direct</span></td>
+                                <td>Desktop</td>
+                                <td class="dash-mono">127.0.*.*</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="dash-mono">10-24 10:36:58</td>
+                                <td><span class="dash-path" title="/external/github/espressif/esp-emulator">/external/github/espressif/esp-emulator</span></td>
+                                <td><span class="dash-tag ">Direct</span></td>
+                                <td>Desktop</td>
+                                <td class="dash-mono">127.0.*.*</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="dash-mono">10-24 10:36:58</td>
+                                <td><span class="dash-path" title="/project/can-bus-data-logger">/project/can-bus-data-logger</span></td>
+                                <td><span class="dash-tag ">Direct</span></td>
+                                <td>Desktop</td>
+                                <td class="dash-mono">127.0.*.*</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="dash-mono">10-24 10:36:58</td>
+                                <td><span class="dash-path" title="/project/oled-clock">/project/oled-clock</span></td>
+                                <td><span class="dash-tag ">Direct</span></td>
+                                <td>Desktop</td>
+                                <td class="dash-mono">127.0.*.*</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="dash-mono">10-24 10:36:58</td>
+                                <td><span class="dash-path" title="/project/motor-pid-controller">/project/motor-pid-controller</span></td>
+                                <td><span class="dash-tag ">Direct</span></td>
+                                <td>Desktop</td>
+                                <td class="dash-mono">127.0.*.*</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="dash-mono">10-24 10:36:58</td>
+                                <td><span class="dash-path" title="/project/voice-controlled-home">/project/voice-controlled-home</span></td>
+                                <td><span class="dash-tag ">Direct</span></td>
+                                <td>Desktop</td>
+                                <td class="dash-mono">127.0.*.*</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="dash-mono">10-24 10:36:58</td>
+                                <td><span class="dash-path" title="/project/solar-charge-controller">/project/solar-charge-controller</span></td>
+                                <td><span class="dash-tag ">Direct</span></td>
+                                <td>Desktop</td>
+                                <td class="dash-mono">127.0.*.*</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="dash-mono">10-24 10:36:57</td>
+                                <td><span class="dash-path" title="/project/lora-long-range-communication">/project/lora-long-range-communication</span></td>
+                                <td><span class="dash-tag ">Direct</span></td>
+                                <td>Desktop</td>
+                                <td class="dash-mono">127.0.*.*</td>
+                            </tr>
                             
                         </tbody>
                     </table>
@@ -451,7 +637,7 @@
                     <li><span>Structured data</span><b class="ok">100%</b></li>
                     <li><span>llms.txt</span><b class="ok">OK</b></li>
                     <li><span>Article markdown</span><b>3</b></li>
-                    <li><span>Last build</span><b>10-24 09:34</b></li>
+                    <li><span>Last build</span><b>10-24 10:55</b></li>
                 </ul>
                 <div class="dash-subhead">Latest leads</div>
                 <ul class="dash-list">
@@ -464,7 +650,7 @@
 
         <footer class="dash-foot">
             <span>Static builds show a snapshot from the last export; run the Flask app for live stats.</span>
-            <span>Updated <strong>2026-10-24 09:40:46</strong></span>
+            <span>Updated <strong>2026-10-24 12:20:58</strong></span>
         </footer>
     </div>
 </div>
@@ -472,7 +658,8 @@
     </main>
 
     <!-- Footer -->
-    <!-- Newsletter Section -->
+    <!-- Newsletter Section (首页已有完整关注区，不重复) -->
+    
     <section class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
         <div class="container">
             <div class="newsletter-card">
@@ -493,6 +680,7 @@
             </div>
         </div>
     </section>
+    
 
     <section class="py-4" aria-label="Produced by">
         <div class="author-card">
@@ -551,13 +739,16 @@
                     <ul>
                         <li><a href="/en/products">Products</a></li>
                         <li><a href="/en/services">Services</a></li>
-                        <li><a href="/en/news">Industry News</a></li>
+                        <li><a href="/en/services/website-building">Website building</a></li>
+                        <li><a href="/en/news">Site Updates</a></li>
                         <li><a href="/en/boards">Development Boards</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-2 mb-4 mb-md-0">
                     <h5>Resources</h5>
                     <ul>
+                        <li><a href="/en/board-guide">Board selection guide</a></li>
+                        <li><a href="/en/compare">Board comparison</a></li>
                         <li><a href="/en/tutorials">Tutorials</a></li>
                         <li><a href="/en/documentation">Documentation</a></li>
                         <li><a href="/en/cases">Project Cases</a></li>
@@ -569,6 +760,7 @@
                     <h5>Open Source</h5>
                     <ul>
                         <li><a href="/en/open-source">Open Source Projects</a></li>
+                        <li><a href="/en/all-projects">All projects</a></li>
                         <li><a href="/en/articles">Articles</a></li>
                         <li><a href="/en/contribute">Contribute</a></li>
                         <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
@@ -732,135 +924,7 @@
         });
     </script>
 
-    <!-- AI Chat Widget -->
-    <div class="chat-widget">
-        <div id="agent-chat-container" class="chat-widget-container">
-            <div class="chat-widget-header">
-                <div class="d-flex align-items-center gap-2">
-                    <i class="fas fa-robot"></i>
-                    <span>AI Assistant</span>
-                </div>
-                <button id="agent-chat-close" class="btn-zouic btn-zouic-ghost btn-zouic-sm" aria-label="Close" style="color: rgba(255,255,255,0.8);">
-                    <i class="fas fa-times" aria-hidden="true"></i>
-                </button>
-            </div>
-            <div id="agent-chat-messages" class="chat-widget-messages">
-                <div class="d-flex align-items-start gap-2 mb-4">
-                    <div class="chat-widget-toggle" style="width: 32px; height: 32px; font-size: 0.75rem; flex-shrink: 0;">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="bg-secondary/50 rounded-lg rounded-tl-none p-3 text-sm" style="background-color: rgba(255, 0, 110, 0.15);">
-                        Search boards, projects or keywords...
-                    </div>
-                </div>
-            </div>
-            <div class="chat-widget-input-area">
-                <div class="d-flex gap-2">
-                    <input type="text" id="agent-chat-input" 
-                        class="input-zouic flex-grow-1"
-                        aria-label="Enter your message..."
-                        placeholder="Enter your message...">
-                    <button id="agent-chat-send" class="btn-zouic btn-zouic-primary btn-zouic-sm" aria-label="Send">
-                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <button id="agent-chat-toggle" class="chat-widget-toggle" aria-label="AI Assistant" aria-expanded="false">
-            <i class="fas fa-robot" style="font-size: 1.25rem;" aria-hidden="true"></i>
-        </button>
-    </div>
-
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const chatToggle = document.getElementById('agent-chat-toggle');
-            const chatContainer = document.getElementById('agent-chat-container');
-            const chatClose = document.getElementById('agent-chat-close');
-            const chatInput = document.getElementById('agent-chat-input');
-            const chatSend = document.getElementById('agent-chat-send');
-            const chatMessages = document.getElementById('agent-chat-messages');
-            
-            let agentSessionId = null;
-            
-            if (chatToggle && chatContainer) {
-                chatToggle.addEventListener('click', function() {
-                    chatContainer.classList.toggle('open');
-                    var isOpen = chatContainer.classList.contains('open');
-                    chatToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-                    if (isOpen) {
-                        chatInput.focus();
-                    }
-                });
-            }
-            
-            if (chatClose && chatContainer) {
-                chatClose.addEventListener('click', function() {
-                    chatContainer.classList.remove('open');
-                    chatToggle.setAttribute('aria-expanded', 'false');
-                    chatToggle.focus();
-                });
-            }
-            
-            const addMessage = function(text, isUser = false) {
-                const div = document.createElement('div');
-                div.className = 'd-flex align-items-start gap-2 mb-4' + (isUser ? ' flex-row-reverse' : '');
-                
-                const avatar = document.createElement('div');
-                avatar.className = 'chat-widget-toggle flex-shrink-0';
-                avatar.style.cssText = 'width: 32px; height: 32px; font-size: 0.75rem;';
-                avatar.innerHTML = isUser ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
-                
-                const bubble = document.createElement('div');
-                bubble.className = 'rounded-lg px-3 py-2 text-sm ' +
-                    (isUser ? 'rounded-tr-none' : 'rounded-tl-none');
-                bubble.style.cssText = isUser 
-                    ? 'background-color: rgba(0, 229, 255, 0.15); color: var(--color-text-primary);'
-                    : 'background-color: rgba(255, 0, 110, 0.15); color: var(--color-text-primary);';
-                bubble.textContent = text;
-                
-                div.appendChild(isUser ? bubble : avatar);
-                div.appendChild(isUser ? avatar : bubble);
-                chatMessages.appendChild(div);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            };
-            
-            const sendMessage = async function() {
-                const message = chatInput.value.trim();
-                if (!message) return;
-                
-                addMessage(message, true);
-                chatInput.value = '';
-                
-                try {
-                    const response = await fetch('/api/agent/query', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ input: message, session_id: agentSessionId })
-                    });
-                    
-                    const data = await response.json();
-                    
-                    if (data.success) {
-                        agentSessionId = data.session_id;
-                        if (data.response && data.response.text) {
-                            addMessage(data.response.text, false);
-                        }
-                    } else {
-                        addMessage('Operation failed, please try again', false);
-                    }
-                } catch (error) {
-                    addMessage('Network error, please try again', false);
-                }
-            };
-            
-            if (chatSend) chatSend.addEventListener('click', sendMessage);
-            if (chatInput) {
-                chatInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') sendMessage();
-                });
-            }
-        });
-        
         // --- Share & Save helpers ---
         window.copyToClipboard = function(text) {
             if (navigator.clipboard) {
@@ -901,8 +965,8 @@
 <script>
 window.__DASH__ = {
     liveEnabled: false,
-    trend: {"labels": ["09-25", "09-26", "09-27", "09-28", "09-29", "09-30", "10-01", "10-02", "10-03", "10-04", "10-05", "10-06", "10-07", "10-08", "10-09", "10-10", "10-11", "10-12", "10-13", "10-14", "10-15", "10-16", "10-17", "10-18", "10-19", "10-20", "10-21", "10-22", "10-23", "10-24"], "pv": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "uv": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
-    sources: [],
+    trend: {"labels": ["09-25", "09-26", "09-27", "09-28", "09-29", "09-30", "10-01", "10-02", "10-03", "10-04", "10-05", "10-06", "10-07", "10-08", "10-09", "10-10", "10-11", "10-12", "10-13", "10-14", "10-15", "10-16", "10-17", "10-18", "10-19", "10-20", "10-21", "10-22", "10-23", "10-24"], "pv": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 140], "uv": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]},
+    sources: [{"count": 140, "key": "direct"}],
     i18n: {
         pv: "Page views",
         uv: "Unique visitors",
