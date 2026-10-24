@@ -1,40 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><link rel="alternate" hreflang="zh" href="https://www.zouic.com/all-projects"><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/all-projects"><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/all-projects">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="description" content="Aggregate high-quality open source development board projects and technical resources from CrowdSupply, Hackaday, and Hackster.io platforms.">
     <meta name="keywords" content="CrowdSupply,Hackaday,Hackster.io,open source projects,development board projects">
+    
     <meta name="author" content="ZouIC">
-    <meta name="theme-color" content="#00d4aa">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
-    <link rel="canonical" href="https://zouic.com/all-projects">
     
-    <link rel="alternate" hreflang="zh" href="https://zouic.com/all-projects" />
-    <link rel="alternate" hreflang="en" href="https://zouic.com/en/all-projects" />
-    <link rel="alternate" hreflang="x-default" href="https://zouic.com/all-projects" />
+    
+    
+    
+    
+    
+    <link rel="canonical" href="https://www.zouic.com/en/all-projects">
+    
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/all-projects" />
+    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/all-projects" />
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/all-projects" />
+    
+    
     
     <meta property="og:title" content="All Projects - Aggregating CrowdSupply, Hackaday, Hackster.io Projects | ZouIC">
     <meta property="og:description" content="Aggregate high-quality open source development board projects and technical resources from CrowdSupply, Hackaday, and Hackster.io platforms.">
-    <meta property="og:url" content="https://zouic.com/all-projects">
+    <meta property="og:url" content="https://www.zouic.com/en/all-projects">
     <meta property="og:type" content="collection">
     <meta property="og:site_name" content="ZouIC">
-    <meta property="og:image" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ZouIC%20open%20source%20hardware%20development%20board%20platform%20logo&amp;image_size=landscape_16_9">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ZouIC open source development board platform · GeekWeidong">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="All Projects - Aggregating CrowdSupply, Hackaday, Hackster.io Projects | ZouIC">
     <meta name="twitter:description" content="Aggregate high-quality open source development board projects and technical resources from CrowdSupply, Hackaday, and Hackster.io platforms.">
-    <meta name="twitter:image" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ZouIC%20open%20source%20hardware%20development%20board%20platform%20logo&amp;image_size=landscape_16_9">
-    <meta name="twitter:site" content="@zouic">
-    <meta name="twitter:creator" content="@zouic">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     
     
     
-    <title>全部开发板项目 - ZouIC</title>
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/all-projects", "name": "All Projects", "position": 2}]}
+    </script>
+    
+    
+    
+    <title>All board projects - ZouIC</title>
     
     <!-- Resource Hints -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -42,9 +59,13 @@
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     
+    
     <!-- External Stylesheets -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
     
     <!-- ZouIC Design System -->
     <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261023e">
@@ -64,12 +85,12 @@
         .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
         .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
         .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
-        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.15); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
         .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
         .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
-        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 212, 170, 0.3); }
-        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(14, 165, 233, 0.3); }
-        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(139, 92, 246, 0.3); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
         .text-yellow-500 { color: #fbbf24; }
         .text-green-500 { color: #10b981; }
         .text-red-500 { color: #ef4444; }
@@ -80,22 +101,27 @@
         .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
         @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
     </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261023b">
+    
 </head>
 <body>
-    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航">
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Main navigation">
         <div class="container">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="/en/">
                 <i class="fas fa-microchip"></i> ZouIC
             </a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
+                <span class="nav-hud-dot"></span>SYS.ONLINE
+            </span>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="/en/boards">Boards</a></li>
                     <li class="nav-item"><a class="nav-link" href="/en/board-guide">Documentation</a></li>
                     <li class="nav-item"><a class="nav-link" href="/en/projects">Projects</a></li>
@@ -116,6 +142,8 @@
                             <li><a class="dropdown-item" href="/en/open-source"><i class="fas fa-code-branch me-2"></i>Open Source Projects</a></li>
                             <li><a class="dropdown-item" href="/en/articles"><i class="fas fa-pen-fancy me-2"></i>Articles</a></li>
                             <li><a class="dropdown-item" href="/en/contribute"><i class="fas fa-handshake me-2"></i>Contribute</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/dashuju"><i class="fas fa-chart-line me-2"></i>Data Dashboard</a></li>
                         </ul>
                     </li>
                     <li class="nav-item d-lg-none"><a class="nav-link" href="/en/search"><i class="fas fa-search me-1"></i>Search</a></li>
@@ -124,7 +152,7 @@
                     <div class="input-group input-group-zouic">
                         <input type="text" id="searchQuery" class="form-control input-zouic" 
                                placeholder="Search boards, projects or keywords..." aria-label="Search" style="width: 200px;">
-                        <select id="searchType" class="form-select input-zouic" style="width: auto; flex: 0 0 auto;">
+                        <select id="searchType" class="form-select input-zouic" aria-label="Search Type:" style="width: auto; flex: 0 0 auto;">
                             <option value="">All Categories</option>
                             <option value="board">Boards</option>
                             <option value="project">Projects</option>
@@ -168,15 +196,15 @@
             <div class="ext-hero-inner">
                 <div class="ext-hero-copy">
                     <span class="ext-eyebrow"><i class="fas fa-satellite-dish"></i> CURATED OPEN HARDWARE</span>
-                    <h1 class="ext-hero-title">全部开发板项目</h1>
+                    <h1 class="ext-hero-title">All board projects</h1>
                     <p class="ext-hero-desc">
-                        聚合 GitHub、Seeed Studio、CrowdSupply、Hackaday、Hackster.io 的开源硬件项目。所有数据取自各平台公开接口，不美化、不虚构。
+                        Quality open-source board projects and technical materials from CrowdSupply, Hackaday, and Hackster.io, all in one place
                     </p>
                 </div>
                 <div class="ext-hero-stats">
                     <div class="ext-hero-stat ext-hero-stat--total">
                         <span class="ext-hero-stat-value">14</span>
-                        <span class="ext-hero-stat-label">项目总数</span>
+                        <span class="ext-hero-stat-label">Total projects</span>
                     </div>
                     
                     
@@ -211,7 +239,7 @@
         <!-- ==================== 筛选条 ==================== -->
         <div class="ext-filterbar">
             <div class="ext-filter-row">
-                <span class="ext-filter-label">平台</span>
+                <span class="ext-filter-label">Platform</span>
                 <div class="ext-filter-chips">
                     <a href="/en/all-projects"
                        class="ext-chip ext-filter-badge ext-filter-platform is-active"
@@ -246,7 +274,7 @@
                 </div>
             </div>
             <div class="ext-filter-row">
-                <span class="ext-filter-label">分类</span>
+                <span class="ext-filter-label">Category</span>
                 <div class="ext-filter-chips">
                     <a href="/en/all-projects"
                        class="ext-chip ext-filter-badge ext-filter-category is-active"
@@ -335,7 +363,7 @@
                             </a>
                         </h3>
 
-                        <p class="ext-card-desc line-clamp-2">桌面级小机器工具人，外观灵感来自 WALL-E 里的 EVE。具备 USB 通信、显示屏幕与多自由度机械臂，支持自定义动作与交互，GPL-3.0 许可。是稚晖君 &#34;量子计划&#34; 系列的核心项目之一。</p>
+                        <p class="ext-card-desc line-clamp-2">A desktop-scale robot companion inspired by EVE from WALL-E. It has USB communication, a display screen and a multi-DOF robotic arm, and supports custom motions and interactions. GPL-3.0 licensed. One of the core projects in GeekWaedon&#39;s &#34;Quantum Plan&#34; series.</p>
 
                         
                         
@@ -372,7 +400,7 @@
 
                         <div class="ext-card-footer">
                             
-                            <img src="https://avatars.githubusercontent.com/u/12994887?v=4" alt="peng-zhihui" class="ext-card-avatar">
+                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/12994887?v=4" alt="peng-zhihui" class="ext-card-avatar">
                             
                             <span class="ext-card-author">peng-zhihui</span>
                             
@@ -435,7 +463,7 @@
                             </a>
                         </h3>
 
-                        <p class="ext-card-desc line-clamp-2">带网络功能的伪全息透明显示桌面站，由稚晖君设计并开源。使用透明 LCD 面板 + 特殊光学结构呈现悬浮效果，支持 Wi-Fi 连接远程刷新内容，常用于桌面氛围与信息展示，GPL-3.0 许可。</p>
+                        <p class="ext-card-desc line-clamp-2">A pseudo-holographic transparent desktop display with network connectivity, designed and open-sourced by GeekWaedon. A transparent LCD panel plus a custom optical structure creates a floating effect, and Wi-Fi lets you refresh content remotely. Often used for desktop ambience and information display. GPL-3.0 licensed.</p>
 
                         
                         
@@ -472,7 +500,7 @@
 
                         <div class="ext-card-footer">
                             
-                            <img src="https://avatars.githubusercontent.com/u/12994887?v=4" alt="peng-zhihui" class="ext-card-avatar">
+                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/12994887?v=4" alt="peng-zhihui" class="ext-card-avatar">
                             
                             <span class="ext-card-author">peng-zhihui</span>
                             
@@ -515,7 +543,7 @@
                             </a>
                         </h3>
 
-                        <p class="ext-card-desc line-clamp-2">Seeed Studio 招牌的拇指级开发板系列主型号。ESP32-S3 双核 240MHz、8MB PSRAM + 8MB Flash、Wi-Fi + BLE 5.0、Type-C 供电。Arduino / MicroPython 全栈支持，尺寸仅 21×17.8 mm。</p>
+                        <p class="ext-card-desc line-clamp-2">The flagship model in Seeed Studio&#39;s thumb-sized XIAO development board series. ESP32-S3 dual-core at 240 MHz, 8 MB PSRAM + 8 MB Flash, Wi-Fi + BLE 5.0, USB-C power. Full Arduino / MicroPython support, measuring just 21 × 17.8 mm.</p>
 
                         
                         
@@ -546,7 +574,7 @@
 
                         <div class="ext-card-footer">
                             
-                            <img src="https://avatars.githubusercontent.com/u/11678055?v=4" alt="Seeed Studio" class="ext-card-avatar">
+                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/11678055?v=4" alt="Seeed Studio" class="ext-card-avatar">
                             
                             <span class="ext-card-author">Seeed Studio</span>
                             
@@ -609,7 +637,7 @@
                             </a>
                         </h3>
 
-                        <p class="ext-card-desc line-clamp-2">高性能开源电机控制器，支持 BLDC / 有刷直流 / 步进电机，自带 FOC 控制算法。硬件与固件完全开放，MIT 许可，社区活跃。</p>
+                        <p class="ext-card-desc line-clamp-2">A high-performance open-source motor controller supporting BLDC, brushed DC and stepper motors, with built-in FOC control. Hardware and firmware are fully open, MIT licensed, with an active community.</p>
 
                         
                         
@@ -646,7 +674,7 @@
 
                         <div class="ext-card-footer">
                             
-                            <img src="https://avatars.githubusercontent.com/u/75926039?v=4" alt="ODrive Robotics" class="ext-card-avatar">
+                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/75926039?v=4" alt="ODrive Robotics" class="ext-card-avatar">
                             
                             <span class="ext-card-author">ODrive Robotics</span>
                             
@@ -709,7 +737,7 @@
                             </a>
                         </h3>
 
-                        <p class="ext-card-desc line-clamp-2">低成本机器视觉开发板与固件框架，MicroPython 编程，内置图像采集、边缘检测、颜色追踪、神经网络推理等常用视觉功能。</p>
+                        <p class="ext-card-desc line-clamp-2">A low-cost machine vision development board and firmware framework programmed in MicroPython, with built-in image capture, edge detection, color tracking and neural-network inference.</p>
 
                         
                         
@@ -744,7 +772,7 @@
 
                         <div class="ext-card-footer">
                             
-                            <img src="https://avatars.githubusercontent.com/u/12023962?v=4" alt="OpenMV Inc." class="ext-card-avatar">
+                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/12023962?v=4" alt="OpenMV Inc." class="ext-card-avatar">
                             
                             <span class="ext-card-author">OpenMV Inc.</span>
                             
@@ -801,7 +829,7 @@
                             </a>
                         </h3>
 
-                        <p class="ext-card-desc line-clamp-2">斯坦福开源的四足机器人 Doggo，基于树莓派 + STM32 + 直流无刷电机，支持跳跃、翻转、小跑等多种步态，MIT 许可。</p>
+                        <p class="ext-card-desc line-clamp-2">Stanford&#39;s open-source quadruped robot Doggo, built on Raspberry Pi + STM32 + brushless DC motors. It supports jumping, flipping, trotting and other gaits. MIT licensed.</p>
 
                         
                         
@@ -838,7 +866,7 @@
 
                         <div class="ext-card-footer">
                             
-                            <img src="https://avatars.githubusercontent.com/u/1295426?v=4" alt="Nathan Kau" class="ext-card-avatar">
+                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/1295426?v=4" alt="Nathan Kau" class="ext-card-avatar">
                             
                             <span class="ext-card-author">Nathan Kau</span>
                             
@@ -881,7 +909,7 @@
                             </a>
                         </h3>
 
-                        <p class="ext-card-desc line-clamp-2">Seeed Studio 推出的 HMI 人机界面终端。基于 Raspberry Pi CM4（四核 Cortex-A72 @ 1.5GHz），内置 5 英寸 IPS 触控屏（1280×720）、4GB RAM + 32GB eMMC、双频 Wi-Fi/蓝牙 5.0、千兆网口、加密协处理器。出厂预装 Raspberry Pi OS，适合工业现场 HMI、IoT 边缘网关等场景。</p>
+                        <p class="ext-card-desc line-clamp-2">An HMI terminal from Seeed Studio. Based on the Raspberry Pi CM4 (quad-core Cortex-A72 @ 1.5 GHz), it includes a 5-inch IPS touchscreen (1280×720), 4 GB RAM + 32 GB eMMC, dual-band Wi-Fi/Bluetooth 5.0, Gigabit Ethernet and a crypto co-processor. Raspberry Pi OS comes preinstalled; suited to industrial HMI and IoT edge gateway scenarios.</p>
 
                         
                         
@@ -912,7 +940,7 @@
 
                         <div class="ext-card-footer">
                             
-                            <img src="https://avatars.githubusercontent.com/u/11678055?v=4" alt="Seeed Studio" class="ext-card-avatar">
+                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/11678055?v=4" alt="Seeed Studio" class="ext-card-avatar">
                             
                             <span class="ext-card-author">Seeed Studio</span>
                             
@@ -975,7 +1003,7 @@
                             </a>
                         </h3>
 
-                        <p class="ext-card-desc line-clamp-2">Berkeley Hybrid Robotics 团队推出的小型开源人形机器人平台，MIT 许可。配套 Python 控制栈与仿真环境，用于灵巧操作与全身运动研究。</p>
+                        <p class="ext-card-desc line-clamp-2">A small open-source humanoid robot platform from the Berkeley Hybrid Robotics team, MIT licensed. It ships with a Python control stack and simulation environment for dexterous manipulation and whole-body locomotion research.</p>
 
                         
                         
@@ -1010,7 +1038,7 @@
 
                         <div class="ext-card-footer">
                             
-                            <img src="https://avatars.githubusercontent.com/u/10053058?v=4" alt="Hybrid Robotics Lab" class="ext-card-avatar">
+                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/10053058?v=4" alt="Hybrid Robotics Lab" class="ext-card-avatar">
                             
                             <span class="ext-card-author">Hybrid Robotics Lab</span>
                             
@@ -1073,7 +1101,7 @@
                             </a>
                         </h3>
 
-                        <p class="ext-card-desc line-clamp-2">基于 BDX droid 设计的开源迷你人形机器人项目，v2 分支为主开发线，支持 Python 控制，Apache 2.0 许可。</p>
+                        <p class="ext-card-desc line-clamp-2">An open-source mini humanoid robot based on the BDX droid design, with the v2 branch as the main development line. Python-controlled, Apache 2.0 licensed.</p>
 
                         
                         
@@ -1106,7 +1134,7 @@
 
                         <div class="ext-card-footer">
                             
-                            <img src="https://avatars.githubusercontent.com/u/6552564?v=4" alt="apirrone" class="ext-card-avatar">
+                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/6552564?v=4" alt="apirrone" class="ext-card-avatar">
                             
                             <span class="ext-card-author">apirrone</span>
                             
@@ -1149,7 +1177,7 @@
                             </a>
                         </h3>
 
-                        <p class="ext-card-desc line-clamp-2">稚晖君联合 Seeed Studio 推出的全球最小 Linux 开发板之一。SoM 名为 Quark-N（全志 H3 四核 Cortex-A7 + Mali400 GPU），仅 31×22 mm；底板 Atom-N 40×35 mm，集成麦克风、MPU6050、IPS 屏、Wi-Fi/蓝牙。GPL-3.0 许可。</p>
+                        <p class="ext-card-desc line-clamp-2">One of the world&#39;s smallest Linux development boards, launched by GeekWaedon with Seeed Studio. The SoM, Quark-N (Allwinner H3 quad-core Cortex-A7 + Mali400 GPU), measures just 31×22 mm; the Atom-N carrier board is 40×35 mm and integrates a microphone, MPU6050, IPS screen and Wi-Fi/Bluetooth. GPL-3.0 licensed.</p>
 
                         
                         
@@ -1180,7 +1208,7 @@
 
                         <div class="ext-card-footer">
                             
-                            <img src="https://avatars.githubusercontent.com/u/12994887?v=4" alt="peng-zhihui × Seeed Studio" class="ext-card-avatar">
+                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/12994887?v=4" alt="peng-zhihui × Seeed Studio" class="ext-card-avatar">
                             
                             <span class="ext-card-author">peng-zhihui × Seeed Studio</span>
                             
@@ -1243,7 +1271,7 @@
                             </a>
                         </h3>
 
-                        <p class="ext-card-desc line-clamp-2">极致小巧的低成本 Linux 开发板，基于全志 F1C200s SoC。PCB 尺寸仅 31×22 mm，集成 DDR + eMMC，通过 M.2 Key-A 金手指引出绝大多数 GPIO，轻松堆叠做底板。GPL-3.0 许可，稚晖君 &#34;量子计划&#34; 核心硬件。</p>
+                        <p class="ext-card-desc line-clamp-2">An extremely compact, low-cost Linux development board based on the Allwinner F1C200s SoC. The PCB measures just 31×22 mm and integrates DDR + eMMC, with most GPIO exposed through an M.2 Key-A edge connector for easy stacking with carrier boards. GPL-3.0 licensed; core hardware of GeekWaedon&#39;s &#34;Quantum Plan&#34;.</p>
 
                         
                         
@@ -1280,7 +1308,7 @@
 
                         <div class="ext-card-footer">
                             
-                            <img src="https://avatars.githubusercontent.com/u/12994887?v=4" alt="peng-zhihui" class="ext-card-avatar">
+                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/12994887?v=4" alt="peng-zhihui" class="ext-card-avatar">
                             
                             <span class="ext-card-author">peng-zhihui</span>
                             
@@ -1343,7 +1371,7 @@
                             </a>
                         </h3>
 
-                        <p class="ext-card-desc line-clamp-2">斯坦福开源的低成本人形机器人平台，30 DoF，Jetson Orin NX 计算平台，主打强化学习策略学习与全身操作研究，MIT 许可。CoRL 2025 论文配套。</p>
+                        <p class="ext-card-desc line-clamp-2">Stanford&#39;s low-cost open-source humanoid robot platform: 30 DoF, Jetson Orin NX compute platform, focused on reinforcement-learning policy learning and whole-body manipulation research. MIT licensed. Companion code for a CoRL 2025 paper.</p>
 
                         
                         
@@ -1380,7 +1408,7 @@
 
                         <div class="ext-card-footer">
                             
-                            <img src="https://avatars.githubusercontent.com/u/40679006?v=4" alt="Haochen Shi et al." class="ext-card-avatar">
+                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/40679006?v=4" alt="Haochen Shi et al." class="ext-card-avatar">
                             
                             <span class="ext-card-author">Haochen Shi et al.</span>
                             
@@ -1422,34 +1450,34 @@
         <!-- ==================== 数据来源 ==================== -->
         <div class="ext-sources">
             <div class="ext-sources-head">
-                <h2>数据来源与致谢</h2>
-                <p>所有项目版权归原作者所有，内容遵循其原始开源许可协议。如需使用项目代码或硬件设计，请遵守原作者的许可条款。</p>
+                <h2>Credits to authors and platforms</h2>
+                <p>All projects aggregated here come from the open-source platforms listed above, and copyright remains with the original authors. We respect the work of every open-source contributor, and all content follows its original open-source license. If you are a project author and would like the related content removed, please contact us.</p>
             </div>
             <div class="ext-sources-list">
                 <a class="ext-source" href="https://github.com" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-github"></i>
                     <span class="ext-source-name">GitHub</span>
-                    <span class="ext-source-desc">开源代码托管平台</span>
+                    <span class="ext-source-desc">Open-source code hosting platform</span>
                 </a>
                 <a class="ext-source" href="https://www.seeedstudio.com" target="_blank" rel="noopener noreferrer">
                     <i class="fas fa-seedling"></i>
                     <span class="ext-source-name">Seeed Studio</span>
-                    <span class="ext-source-desc">开源硬件与 Wiki 文档</span>
+                    <span class="ext-source-desc">Open-source hardware and wiki documentation</span>
                 </a>
                 <a class="ext-source" href="https://www.crowdsupply.com" target="_blank" rel="noopener noreferrer">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="ext-source-name">CrowdSupply</span>
-                    <span class="ext-source-desc">开源硬件众筹平台</span>
+                    <span class="ext-source-desc">Project data comes from the CrowdSupply crowdfunding platform; the hardware projects shown are open-source hardware products that follow their respective open-source licenses.</span>
                 </a>
                 <a class="ext-source" href="https://hackaday.com" target="_blank" rel="noopener noreferrer">
                     <i class="fas fa-wrench"></i>
                     <span class="ext-source-name">Hackaday</span>
-                    <span class="ext-source-desc">硬件黑客资讯平台</span>
+                    <span class="ext-source-desc">Articles and reviews come from Hackaday under a Creative Commons license. Thanks to the Hackaday editorial team for their excellent work.</span>
                 </a>
                 <a class="ext-source" href="https://www.hackster.io" target="_blank" rel="noopener noreferrer">
                     <i class="fas fa-robot"></i>
                     <span class="ext-source-name">Hackster.io</span>
-                    <span class="ext-source-desc">创客社区平台</span>
+                    <span class="ext-source-desc">Project case studies come from the Hackster.io maker community; thanks to every maker who shared a project. All content follows the original authors&#39; licenses.</span>
                 </a>
             </div>
         </div>
@@ -1485,7 +1513,7 @@
   if (grid && shown === 0) {
     var tip = document.createElement('div');
     tip.className = 'ext-empty';
-    tip.innerHTML = '<i class="fas fa-filter-circle-xmark"></i><h3>没有匹配的项目</h3><p>试试切换到其他平台或分类。</p>';
+    tip.innerHTML = '<i class="fas fa-filter-circle-xmark"></i><h3>No matching projects</h3><p>Try another platform or category.</p>';
     grid.parentNode.insertBefore(tip, grid.nextSibling);
     grid.style.display = 'none';
   }
@@ -1526,18 +1554,15 @@
             <div class="newsletter-card">
                 <div class="row align-items-center">
                     <div class="col-lg-7">
-                        <h3 class="text-xl font-bold mb-2">Stay Ahead of the Curve</h3>
-                        <p class="text-secondary text-sm mb-4 mb-lg-0">Get weekly curated picks, trending boards, and exclusive hardware engineering tips delivered to your inbox</p>
+                        <h3 class="text-xl font-bold mb-2">Follow @GeekWaedon for Weekly Updates</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">Board picks, project breakdowns and hardware engineering tips, first published on WeChat and Knowledge Planet.</p>
                     </div>
                     <div class="col-lg-5">
-                        <form id="newsletterForm" class="newsletter-form" onsubmit="handleNewsletter(event)">
-                            <input type="email" id="newsletterEmail" class="input-zouic" placeholder="Enter your email address" required>
-                            <button type="submit" class="btn-zouic btn-zouic-primary btn-zouic-lg">Subscribe</button>
-                        </form>
+                        <a href="/en/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">See How to Follow</a>
                         <div class="newsletter-benefits">
                             <span class="newsletter-benefit"><i class="fas fa-check"></i> Weekly curated board picks</span>
                             <span class="newsletter-benefit"><i class="fas fa-check"></i> Exclusive project deep-dives</span>
-                            <span class="newsletter-benefit"><i class="fas fa-check"></i> No spam, unsubscribe anytime</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Updated on WeChat and Knowledge Planet</span>
                         </div>
                     </div>
                 </div>
@@ -1545,7 +1570,7 @@
         </div>
     </section>
 
-    <section class="py-4" aria-label="出品人">
+    <section class="py-4" aria-label="Produced by">
         <div class="author-card">
             <div class="author-card-info">
                 <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
@@ -1556,7 +1581,7 @@
             </div>
             <div class="author-card-actions">
                 <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Join my Knowledge Planet</a>
-                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;极客微栋&#34;</span>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;GeekWaedon&#34;</span>
             </div>
         </div>
     </section>
@@ -1565,7 +1590,7 @@
         <div class="container">
             <div class="row footer-main">
                 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
-                    <a href="/" class="footer-brand" aria-label="ZouIC 首页">
+                    <a href="/en/" class="footer-brand" aria-label="ZouIC home">
                         <i class="fas fa-microchip"></i>
                         <span>ZouIC</span>
                     </a>
@@ -1573,26 +1598,27 @@
 
                     <div class="footer-meta">
                         <p class="footer-author">
-                            出品人 · <strong>极客微栋</strong>
+                            Produced by · <strong>GeekWaedon</strong>
                             <span class="footer-author-handle">@GeekWaedon</span>
                         </p>
                         <div class="footer-slash-tags">
-                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span>
-                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span>
-                            <a href="/en/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商资质">
-                                <i class="fab fa-weixin"></i> 企业微信服务商
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware enthusiast</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI practitioner</span>
+                            <a href="/en/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom service provider">
+                                <i class="fab fa-weixin"></i> WeCom service provider
                             </a>
                         </div>
                     </div>
 
                     <div class="footer-social">
-                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a>
-                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a>
-                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a>
-                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a>
-                        <a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋（微信内搜索）"><i class="fab fa-weixin"></i></a>
-                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a>
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a>
+                        <a href="/en/#follow" class="footer-social-link" aria-label="WeChat Official Account · GeekWaedon" title="WeChat Official Account · GeekWaedon"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a>
                         <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
@@ -1612,6 +1638,7 @@
                         <li><a href="/en/documentation">Documentation</a></li>
                         <li><a href="/en/cases">Project Cases</a></li>
                         <li><a href="/en/help">Documentation</a></li>
+                        <li><a href="/en/dashuju">Data Dashboard</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-2 mb-4 mb-md-0">
@@ -1620,7 +1647,7 @@
                         <li><a href="/en/open-source">Open Source Projects</a></li>
                         <li><a href="/en/articles">Articles</a></li>
                         <li><a href="/en/contribute">Contribute</a></li>
-                        <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-2">
@@ -1636,12 +1663,13 @@
             <div class="footer-bottom">
                 <p>© 2026 ZouIC. All rights reserved.</p>
                 <p>Open source projects aggregated on this platform follow their respective open source licenses. For details, please see the <a href="/en/licenses">Open Source Licenses</a> page.</p>
+                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
     </button>
 
@@ -1788,8 +1816,8 @@
                     <i class="fas fa-robot"></i>
                     <span>AI Assistant</span>
                 </div>
-                <button id="agent-chat-close" class="btn-zouic btn-zouic-ghost btn-zouic-sm" style="color: rgba(255,255,255,0.8);">
-                    <i class="fas fa-times"></i>
+                <button id="agent-chat-close" class="btn-zouic btn-zouic-ghost btn-zouic-sm" aria-label="Close" style="color: rgba(255,255,255,0.8);">
+                    <i class="fas fa-times" aria-hidden="true"></i>
                 </button>
             </div>
             <div id="agent-chat-messages" class="chat-widget-messages">
@@ -1797,7 +1825,7 @@
                     <div class="chat-widget-toggle" style="width: 32px; height: 32px; font-size: 0.75rem; flex-shrink: 0;">
                         <i class="fas fa-robot"></i>
                     </div>
-                    <div class="bg-secondary/50 rounded-lg rounded-tl-none p-3 text-sm" style="background-color: rgba(14, 165, 233, 0.15);">
+                    <div class="bg-secondary/50 rounded-lg rounded-tl-none p-3 text-sm" style="background-color: rgba(255, 0, 110, 0.15);">
                         Search boards, projects or keywords...
                     </div>
                 </div>
@@ -1806,15 +1834,16 @@
                 <div class="d-flex gap-2">
                     <input type="text" id="agent-chat-input" 
                         class="input-zouic flex-grow-1"
+                        aria-label="Enter your message..."
                         placeholder="Enter your message...">
-                    <button id="agent-chat-send" class="btn-zouic btn-zouic-primary btn-zouic-sm">
-                        <i class="fas fa-paper-plane"></i>
+                    <button id="agent-chat-send" class="btn-zouic btn-zouic-primary btn-zouic-sm" aria-label="Send">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <button id="agent-chat-toggle" class="chat-widget-toggle">
-            <i class="fas fa-robot" style="font-size: 1.25rem;"></i>
+        <button id="agent-chat-toggle" class="chat-widget-toggle" aria-label="AI Assistant" aria-expanded="false">
+            <i class="fas fa-robot" style="font-size: 1.25rem;" aria-hidden="true"></i>
         </button>
     </div>
 
@@ -1832,7 +1861,9 @@
             if (chatToggle && chatContainer) {
                 chatToggle.addEventListener('click', function() {
                     chatContainer.classList.toggle('open');
-                    if (chatContainer.classList.contains('open')) {
+                    var isOpen = chatContainer.classList.contains('open');
+                    chatToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    if (isOpen) {
                         chatInput.focus();
                     }
                 });
@@ -1841,6 +1872,8 @@
             if (chatClose && chatContainer) {
                 chatClose.addEventListener('click', function() {
                     chatContainer.classList.remove('open');
+                    chatToggle.setAttribute('aria-expanded', 'false');
+                    chatToggle.focus();
                 });
             }
             
@@ -1857,8 +1890,8 @@
                 bubble.className = 'rounded-lg px-3 py-2 text-sm ' +
                     (isUser ? 'rounded-tr-none' : 'rounded-tl-none');
                 bubble.style.cssText = isUser 
-                    ? 'background-color: rgba(0, 212, 170, 0.15); color: var(--color-text-primary);'
-                    : 'background-color: rgba(14, 165, 233, 0.15); color: var(--color-text-primary);';
+                    ? 'background-color: rgba(0, 229, 255, 0.15); color: var(--color-text-primary);'
+                    : 'background-color: rgba(255, 0, 110, 0.15); color: var(--color-text-primary);';
                 bubble.textContent = text;
                 
                 div.appendChild(isUser ? bubble : avatar);
@@ -1922,11 +1955,11 @@
             if (saved.includes(id)) {
                 saved = saved.filter(function(i) { return i !== id; });
                 localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
-                showToast('已取消收藏');
+                showToast('Removed from favorites');
             } else {
                 saved.push(id);
                 localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
-                showToast('收藏成功');
+                showToast('Saved to favorites');
             }
         };
         
@@ -1937,32 +1970,9 @@
             document.body.appendChild(toast);
             setTimeout(function() { toast.remove(); }, 3000);
         };
-        
-        // --- Newsletter form handler ---
-        window.handleNewsletter = function(e) {
-            e.preventDefault();
-            const emailInput = document.getElementById('newsletterEmail');
-            if (!emailInput || !emailInput.value.trim()) return;
-            
-            const btn = e.target.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
-            btn.textContent = 'Subscribed!';
-            btn.disabled = true;
-            
-            // Simulate subscription (in production, send to API)
-            setTimeout(function() {
-                btn.textContent = '✓ ' + originalText;
-                btn.disabled = false;
-                emailInput.value = '';
-                
-                // Show toast
-                const toast = document.createElement('div');
-                toast.className = 'toast-zouic toast-zouic-success show';
-                toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Subscribed!';
-                document.body.appendChild(toast);
-                setTimeout(function() { toast.remove(); }, 3000);
-            }, 1000);
-        };
     </script>
+    
+    
+    
 </body>
 </html>

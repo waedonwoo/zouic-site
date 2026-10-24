@@ -1,40 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><link rel="alternate" hreflang="zh" href="https://www.zouic.com/board-guide"><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/board-guide"><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/board-guide">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="ZouIC - Global open-source development board Demo aggregation platform, providing development board database, project search, technical documentation and one-stop hardware development resources.">
+    <meta name="description" content="ZouIC - Global open-source development board Demo aggregation platform, providing development board database, project search, technical documentation and…">
     <meta name="keywords" content="open source development board,hardware development,Demo project,embedded development,ESP32,STM32,RP2040,RISC-V,Arduino,MicroPython">
+    
     <meta name="author" content="ZouIC">
-    <meta name="theme-color" content="#00d4aa">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
-    <link rel="canonical" href="https://zouic.com/board-guide">
     
-    <link rel="alternate" hreflang="zh" href="https://zouic.com/board-guide" />
-    <link rel="alternate" hreflang="en" href="https://zouic.com/en/board-guide" />
-    <link rel="alternate" hreflang="x-default" href="https://zouic.com/board-guide" />
+    
+    
+    
+    
+    
+    <link rel="canonical" href="https://www.zouic.com/en/board-guide">
+    
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/board-guide" />
+    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/board-guide" />
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/board-guide" />
+    
+    
     
     <meta property="og:title" content="ZouIC">
     <meta property="og:description" content="ZouIC - Global open-source development board Demo aggregation platform, providing development board database, project search, technical documentation and one-stop hardware development resources.">
-    <meta property="og:url" content="https://zouic.com/board-guide">
+    <meta property="og:url" content="https://www.zouic.com/en/board-guide">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="ZouIC">
-    <meta property="og:image" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ZouIC%20open%20source%20hardware%20development%20board%20platform%20logo&amp;image_size=landscape_16_9">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ZouIC open source development board platform · GeekWeidong">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ZouIC">
     <meta name="twitter:description" content="ZouIC - Global open-source development board Demo aggregation platform, providing development board database, project search, technical documentation and one-stop hardware development resources.">
-    <meta name="twitter:image" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ZouIC%20open%20source%20hardware%20development%20board%20platform%20logo&amp;image_size=landscape_16_9">
-    <meta name="twitter:site" content="@zouic">
-    <meta name="twitter:creator" content="@zouic">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     
     
     
-    <title>开发板选型指南 - ZouIC</title>
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/board-guide", "name": "Board Guide", "position": 2}]}
+    </script>
+    
+    
+    
+    <title>Board selection guide - ZouIC</title>
     
     <!-- Resource Hints -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -42,9 +59,13 @@
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     
+    
     <!-- External Stylesheets -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
     
     <!-- ZouIC Design System -->
     <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261023e">
@@ -64,12 +85,12 @@
         .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
         .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
         .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
-        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.15); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
         .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
         .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
-        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 212, 170, 0.3); }
-        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(14, 165, 233, 0.3); }
-        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(139, 92, 246, 0.3); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
         .text-yellow-500 { color: #fbbf24; }
         .text-green-500 { color: #10b981; }
         .text-red-500 { color: #ef4444; }
@@ -80,22 +101,27 @@
         .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
         @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
     </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261023b">
+    
 </head>
 <body>
-    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航">
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Main navigation">
         <div class="container">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="/en/">
                 <i class="fas fa-microchip"></i> ZouIC
             </a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
+                <span class="nav-hud-dot"></span>SYS.ONLINE
+            </span>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="/en/boards">Boards</a></li>
                     <li class="nav-item"><a class="nav-link" href="/en/board-guide">Documentation</a></li>
                     <li class="nav-item"><a class="nav-link" href="/en/projects">Projects</a></li>
@@ -116,6 +142,8 @@
                             <li><a class="dropdown-item" href="/en/open-source"><i class="fas fa-code-branch me-2"></i>Open Source Projects</a></li>
                             <li><a class="dropdown-item" href="/en/articles"><i class="fas fa-pen-fancy me-2"></i>Articles</a></li>
                             <li><a class="dropdown-item" href="/en/contribute"><i class="fas fa-handshake me-2"></i>Contribute</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/dashuju"><i class="fas fa-chart-line me-2"></i>Data Dashboard</a></li>
                         </ul>
                     </li>
                     <li class="nav-item d-lg-none"><a class="nav-link" href="/en/search"><i class="fas fa-search me-1"></i>Search</a></li>
@@ -124,7 +152,7 @@
                     <div class="input-group input-group-zouic">
                         <input type="text" id="searchQuery" class="form-control input-zouic" 
                                placeholder="Search boards, projects or keywords..." aria-label="Search" style="width: 200px;">
-                        <select id="searchType" class="form-select input-zouic" style="width: auto; flex: 0 0 auto;">
+                        <select id="searchType" class="form-select input-zouic" aria-label="Search Type:" style="width: auto; flex: 0 0 auto;">
                             <option value="">All Categories</option>
                             <option value="board">Boards</option>
                             <option value="project">Projects</option>
@@ -161,37 +189,37 @@
         
     <section class="page-hero page-hero-board-guide pt-24 pb-16">
         <div class="container">
-            <h1 class="text-4xl font-bold mb-4 guide-title">开发板选型指南</h1>
-            <p class="text-secondary text-lg guide-description">基于CSDN技术社区最新资料，整理主流开源开发板详细对比</p>
+            <h1 class="text-4xl font-bold mb-4 guide-title">Board selection guide</h1>
+            <p class="text-secondary text-lg guide-description">Detailed comparisons of mainstream open-source boards, based on the latest CSDN community resources</p>
         </div>
     </section>
 
     <section class="py-16">
         <div class="container">
-            <h2 class="section-title text-2xl font-bold mb-8">主流开发板技术规格对比</h2>
+            <h2 class="section-title text-2xl font-bold mb-8">Technical specification comparison</h2>
                 <div class="card-dark overflow-x-auto">
                     <table class="table table-dark table-striped">
                         <thead>
                             <tr>
-                                <th>开发板型号</th>
-                                <th>核心处理器</th>
-                                <th>主频</th>
-                                <th>内存配置</th>
-                                <th>存储配置</th>
-                                <th>网络能力</th>
-                                <th>主要接口</th>
+                                <th>Board model</th>
+                                <th>Core processor</th>
+                                <th>CPU clock speed</th>
+                                <th>Memory</th>
+                                <th>Storage</th>
+                                <th>Network capabilities</th>
+                                <th>Main interfaces</th>
                                 <th>Price Range</th>
                             </tr>
                         </thead>
                     <tbody>
                         <tr>
                             <td><strong>ESP32-S3</strong></td>
-                            <td>双核Xtensa LX7</td>
+                            <td>Dual-core Xtensa LX7</td>
                             <td>240MHz</td>
                             <td>512KB SRAM + 8MB PSRAM</td>
                             <td>16MB Flash</td>
-                            <td>Wi-Fi + 蓝牙5.0</td>
-                            <td>UART×2、I2C×2、SPI×4、GPIO×44、摄像头接口</td>
+                            <td>Wi-Fi + Bluetooth 5.0</td>
+                            <td>UART×2, I2C×2, SPI×4, GPIO×44, camera interface</td>
                             <td>¥15-30</td>
                         </tr>
                         <tr>
@@ -200,38 +228,38 @@
                             <td>400MHz</td>
                             <td>1MB SRAM</td>
                             <td>2MB Flash</td>
-                            <td>以太网</td>
-                            <td>CAN FD、USB OTG、Ethernet、LCD控制器、GPIO</td>
+                            <td>Ethernet</td>
+                            <td>CAN FD, USB OTG, Ethernet, LCD controller, GPIO</td>
                             <td>¥100-300</td>
                         </tr>
                         <tr>
-                            <td><strong>树莓派5</strong></td>
-                            <td>四核Cortex-A76</td>
+                            <td><strong>Raspberry Pi 5</strong></td>
+                            <td>Quad-core Cortex-A76</td>
                             <td>2.4GHz</td>
                             <td>4GB/8GB LPDDR4X</td>
                             <td>microSD + PCIe NVMe</td>
-                            <td>双频Wi-Fi 5、蓝牙5.0</td>
-                            <td>HDMI×2、USB 3.0×2、千兆以太网、PCIe 2.0 x1、GPIO×40</td>
+                            <td>Dual-band Wi-Fi 5, Bluetooth 5.0</td>
+                            <td>HDMI×2, USB 3.0×2, Gigabit Ethernet, PCIe 2.0 x1, GPIO×40</td>
                             <td>¥300-600</td>
                         </tr>
                         <tr>
                             <td><strong>Arduino Uno</strong></td>
-                            <td>ATmega328P（8位AVR）</td>
+                            <td>ATmega328P (8-bit AVR)</td>
                             <td>16MHz</td>
                             <td>2KB SRAM</td>
                             <td>32KB Flash</td>
-                            <td>无（需外挂）</td>
-                            <td>UART×1、I2C×1、SPI×1、GPIO×14、模拟输入×6</td>
+                            <td>No wireless (requires add-on)</td>
+                            <td>UART×1, I2C×1, SPI×1, GPIO×14, analog inputs×6</td>
                             <td>¥15-25</td>
                         </tr>
                         <tr>
                             <td><strong>Jetson Xavier NX</strong></td>
-                            <td>6核Carmel + 384核Volta GPU</td>
+                            <td>6-core Carmel + 384-core Volta GPU</td>
                             <td>CPU: 1.9GHz</td>
                             <td>8GB/16GB LPDDR4x</td>
                             <td>16GB eMMC + microSD</td>
-                            <td>Wi-Fi、蓝牙</td>
-                            <td>HDMI、DisplayPort、千兆以太网、USB 3.0、MIPI CSI×6、PCIe</td>
+                            <td>Wi-Fi, Bluetooth</td>
+                            <td>HDMI, DisplayPort, Gigabit Ethernet, USB 3.0, MIPI CSI×6, PCIe</td>
                             <td>¥1500-3000</td>
                         </tr>
                     </tbody>
@@ -242,7 +270,7 @@
 
     <section class="py-16" style="background-color: var(--card-bg);">
         <div class="container">
-            <h2 class="section-title text-2xl font-bold mb-8">开发板详细介绍</h2>
+            <h2 class="section-title text-2xl font-bold mb-8">Board details</h2>
                         <div class="row g-6">
                             <div class="col-lg-4">
                                 <div class="card-dark p-6">
@@ -250,28 +278,28 @@
                                         <i class="fas fa-wifi text-primary fa-2x"></i>
                                     </div>
                                     <h3 class="text-xl font-bold mb-3">ESP32-S3</h3>
-                                    <h4 class="text-secondary text-sm mb-3">物联网之王</h4>
-                                    <p class="text-secondary text-sm mb-4">集成Wi-Fi+蓝牙、超低功耗、高性价比，支持MicroPython快速开发</p>
+                                    <h4 class="text-secondary text-sm mb-3">The IoT workhorse</h4>
+                                    <p class="text-secondary text-sm mb-4">Built-in Wi-Fi and Bluetooth, ultra-low power, great value, and MicroPython support for fast development</p>
                                     <div class="space-y-2 mb-4">
                                         <div class="d-flex justify-content-between">
-                                            <span class="text-secondary text-sm">AI算力</span>
-                                            <span>弱（可跑轻量模型）</span>
+                                            <span class="text-secondary text-sm">AI compute</span>
+                                            <span>Weak (Runs lightweight models)</span>
                                         </div>
                                         <div class="d-flex justify-content-between">
-                                            <span class="text-secondary text-sm">开发难度</span>
-                                            <span>低</span>
+                                            <span class="text-secondary text-sm">Development difficulty</span>
+                                            <span>Low</span>
                                         </div>
                                         <div class="d-flex justify-content-between">
                                             <span class="text-secondary text-sm">Power</span>
-                                            <span>极低</span>
+                                            <span>Very low</span>
                                         </div>
                                     </div>
-                                    <h5 class="font-bold mb-2">典型应用：</h5>
+                                    <h5 class="font-bold mb-2">Typical applications:</h5>
                                     <ul class="text-secondary text-sm list-unstyled space-y-1">
-                                        <li><i class="fas fa-check text-primary"></i> 智能家居控制</li>
-                                        <li><i class="fas fa-check text-primary"></i> IoT数据采集</li>
-                                        <li><i class="fas fa-check text-primary"></i> AI视觉识别</li>
-                                        <li><i class="fas fa-check text-primary"></i> 低功耗传感器网络</li>
+                                        <li><i class="fas fa-check text-primary"></i> Smart home control</li>
+                                        <li><i class="fas fa-check text-primary"></i> IoT data collection</li>
+                                        <li><i class="fas fa-check text-primary"></i> AI vision recognition</li>
+                                        <li><i class="fas fa-check text-primary"></i> Low-power sensor networks</li>
                                     </ul>
                                 </div>
                             </div>
@@ -282,28 +310,28 @@
                             <i class="fas fa-industry text-secondary fa-2x"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-3">STM32H743</h3>
-                        <h4 class="text-secondary text-sm mb-3">工业级专业平台</h4>
-                        <p class="text-secondary text-sm mb-4">外设丰富、实时性强、工业级可靠性，-40°C~+85°C工作温度</p>
+                        <h4 class="text-secondary text-sm mb-3">Industrial-grade platform</h4>
+                        <p class="text-secondary text-sm mb-4">Rich peripherals, strong real-time performance, industrial-grade reliability, -40°C to +85°C operating range</p>
                         <div class="space-y-2 mb-4">
                             <div class="d-flex justify-content-between">
-                                <span class="text-secondary text-sm">实时性能</span>
-                                <span>优秀</span>
+                                <span class="text-secondary text-sm">Real-time performance</span>
+                                <span>Excellent</span>
                             </div>
                             <div class="d-flex justify-content-between">
-                                <span class="text-secondary text-sm">开发难度</span>
-                                <span>较高</span>
+                                <span class="text-secondary text-sm">Development difficulty</span>
+                                <span>High</span>
                             </div>
                             <div class="d-flex justify-content-between">
-                                <span class="text-secondary text-sm">可靠性</span>
-                                <span>工业级</span>
+                                <span class="text-secondary text-sm">Reliability</span>
+                                <span>Industrial grade</span>
                             </div>
                         </div>
-                        <h5 class="font-bold mb-2">典型应用：</h5>
+                        <h5 class="font-bold mb-2">Typical applications:</h5>
                         <ul class="text-secondary text-sm list-unstyled space-y-1">
-                            <li><i class="fas fa-check text-secondary"></i> 电机控制与驱动</li>
-                            <li><i class="fas fa-check text-secondary"></i> 工业自动化</li>
-                            <li><i class="fas fa-check text-secondary"></i> 无人机飞控系统</li>
-                            <li><i class="fas fa-check text-secondary"></i> 高端仪器仪表</li>
+                            <li><i class="fas fa-check text-secondary"></i> Motor Control</li>
+                            <li><i class="fas fa-check text-secondary"></i> Industrial automation</li>
+                            <li><i class="fas fa-check text-secondary"></i> Drone flight control systems</li>
+                            <li><i class="fas fa-check text-secondary"></i> High-end instrumentation</li>
                         </ul>
                     </div>
                 </div>
@@ -313,29 +341,29 @@
                         <div class="w-14 h-14 bg-accent/20 rounded-lg flex items-center justify-center mb-4">
                             <i class="fas fa-microchip text-accent fa-2x"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">树莓派5</h3>
-                        <h4 class="text-secondary text-sm mb-3">单板计算机旗舰</h4>
-                        <p class="text-secondary text-sm mb-4">生态最强、性能强劲、支持完整Linux系统、丰富外设扩展</p>
+                        <h3 class="text-xl font-bold mb-3">Raspberry Pi 5</h3>
+                        <h4 class="text-secondary text-sm mb-3">The single-board computer flagship</h4>
+                        <p class="text-secondary text-sm mb-4">The strongest ecosystem, powerful performance, full Linux support, and extensive expansion</p>
                         <div class="space-y-2 mb-4">
                             <div class="d-flex justify-content-between">
-                                <span class="text-secondary text-sm">CPU性能</span>
-                                <span>2-3倍于Pi4</span>
+                                <span class="text-secondary text-sm">CPU performance</span>
+                                <span>2-3× faster than Pi 4</span>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span class="text-secondary text-sm">GPU</span>
                                 <span>VideoCore VII</span>
                             </div>
                             <div class="d-flex justify-content-between">
-                                <span class="text-secondary text-sm">扩展性</span>
+                                <span class="text-secondary text-sm">Expandability</span>
                                 <span>PCIe 2.0 x1</span>
                             </div>
                         </div>
-                        <h5 class="font-bold mb-2">典型应用：</h5>
+                        <h5 class="font-bold mb-2">Typical applications:</h5>
                         <ul class="text-secondary text-sm list-unstyled space-y-1">
                             <li><i class="fas fa-check text-accent"></i> Edge Computing</li>
-                            <li><i class="fas fa-check text-accent"></i> 媒体服务器</li>
-                            <li><i class="fas fa-check text-accent"></i> 机器人&#34;大脑&#34;</li>
-                            <li><i class="fas fa-check text-accent"></i> 轻量级AI推理</li>
+                            <li><i class="fas fa-check text-accent"></i> Media server</li>
+                            <li><i class="fas fa-check text-accent"></i> Robot &#34;brain&#34;</li>
+                            <li><i class="fas fa-check text-accent"></i> Lightweight AI inference</li>
                         </ul>
                     </div>
                 </div>
@@ -346,28 +374,28 @@
                             <i class="fas fa-graduation-cap text-green-500 fa-2x"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Arduino Uno</h3>
-                        <h4 class="text-secondary text-sm mb-3">创客入门首选</h4>
-                        <p class="text-secondary text-sm mb-4">学习门槛低、库资源丰富、社区活跃、引脚兼容大量扩展板</p>
+                        <h4 class="text-secondary text-sm mb-3">The maker&#39;s first choice</h4>
+                        <p class="text-secondary text-sm mb-4">Low learning curve, rich library ecosystem, active community, and pin compatibility with many shields</p>
                         <div class="space-y-2 mb-4">
                             <div class="d-flex justify-content-between">
-                                <span class="text-secondary text-sm">学习成本</span>
-                                <span>最低</span>
+                                <span class="text-secondary text-sm">Learning curve</span>
+                                <span>Lowest</span>
                             </div>
                             <div class="d-flex justify-content-between">
-                                <span class="text-secondary text-sm">库资源</span>
-                                <span>极丰富</span>
+                                <span class="text-secondary text-sm">Library resources</span>
+                                <span>Extremely rich</span>
                             </div>
                             <div class="d-flex justify-content-between">
-                                <span class="text-secondary text-sm">扩展性</span>
-                                <span>中等</span>
+                                <span class="text-secondary text-sm">Expandability</span>
+                                <span>Medium</span>
                             </div>
                         </div>
-                        <h5 class="font-bold mb-2">典型应用：</h5>
+                        <h5 class="font-bold mb-2">Typical applications:</h5>
                         <ul class="text-secondary text-sm list-unstyled space-y-1">
-                            <li><i class="fas fa-check text-green-500"></i> 电子创客教育</li>
-                            <li><i class="fas fa-check text-green-500"></i> 简单传感器采集</li>
-                            <li><i class="fas fa-check text-green-500"></i> 学生电子竞赛</li>
-                            <li><i class="fas fa-check text-green-500"></i> 快速原型验证</li>
+                            <li><i class="fas fa-check text-green-500"></i> Maker beginners / education</li>
+                            <li><i class="fas fa-check text-green-500"></i> Simple sensor data collection</li>
+                            <li><i class="fas fa-check text-green-500"></i> Student electronics competitions</li>
+                            <li><i class="fas fa-check text-green-500"></i> Rapid prototyping</li>
                         </ul>
                     </div>
                 </div>
@@ -378,15 +406,15 @@
                             <i class="fas fa-brain text-yellow-500 fa-2x"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Jetson Xavier NX</h3>
-                        <h4 class="text-secondary text-sm mb-3">边缘AI计算平台</h4>
-                        <p class="text-secondary text-sm mb-4">强大GPU算力（21 TOPS INT8）、支持CUDA/TensorRT、专业AI加速</p>
+                        <h4 class="text-secondary text-sm mb-3">Edge AI computing platform</h4>
+                        <p class="text-secondary text-sm mb-4">Powerful GPU compute (21 TOPS INT8), CUDA/TensorRT support, and professional AI acceleration</p>
                         <div class="space-y-2 mb-4">
                             <div class="d-flex justify-content-between">
-                                <span class="text-secondary text-sm">AI算力</span>
+                                <span class="text-secondary text-sm">AI compute</span>
                                 <span>21 TOPS</span>
                             </div>
                             <div class="d-flex justify-content-between">
-                                <span class="text-secondary text-sm">GPU架构</span>
+                                <span class="text-secondary text-sm">GPU architecture</span>
                                 <span>Volta</span>
                             </div>
                             <div class="d-flex justify-content-between">
@@ -394,12 +422,12 @@
                                 <span>10-15W</span>
                             </div>
                         </div>
-                        <h5 class="font-bold mb-2">典型应用：</h5>
+                        <h5 class="font-bold mb-2">Typical applications:</h5>
                         <ul class="text-secondary text-sm list-unstyled space-y-1">
-                            <li><i class="fas fa-check text-yellow-500"></i> 实时视频分析</li>
-                            <li><i class="fas fa-check text-yellow-500"></i> 自动驾驶原型</li>
-                            <li><i class="fas fa-check text-yellow-500"></i> 无人机视觉导航</li>
-                            <li><i class="fas fa-check text-yellow-500"></i> 医疗影像AI诊断</li>
+                            <li><i class="fas fa-check text-yellow-500"></i> Real-time video analytics</li>
+                            <li><i class="fas fa-check text-yellow-500"></i> Autonomous driving prototypes</li>
+                            <li><i class="fas fa-check text-yellow-500"></i> Drone visual navigation</li>
+                            <li><i class="fas fa-check text-yellow-500"></i> Medical imaging AI diagnosis</li>
                         </ul>
                     </div>
                 </div>
@@ -409,75 +437,75 @@
 
     <section class="py-16">
         <div class="container">
-            <h2 class="section-title text-2xl font-bold mb-8">技术特点对比分析</h2>
+            <h2 class="section-title text-2xl font-bold mb-8">Technical feature comparison</h2>
                 <div class="card-dark p-6">
                     <table class="table table-dark">
                         <thead>
                             <tr>
-                                <th>维度</th>
+                                <th>Dimension</th>
                                 <th>ESP32-S3</th>
                                 <th>STM32H743</th>
-                                <th>树莓派5</th>
+                                <th>Raspberry Pi 5</th>
                                 <th>Arduino Uno</th>
                                 <th>Jetson Xavier NX</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>实时性能</strong></td>
-                                <td>一般</td>
-                                <td><span class="text-green-500">优秀</span></td>
-                                <td>较差</td>
-                                <td>良好</td>
-                                <td>中等</td>
+                                <td><strong>Real-time performance</strong></td>
+                                <td>Average</td>
+                                <td><span class="text-green-500">Excellent</span></td>
+                                <td>Poor</td>
+                                <td>Good</td>
+                                <td>Medium</td>
                             </tr>
                             <tr>
-                                <td><strong>AI算力</strong></td>
-                                <td>弱</td>
-                                <td>无</td>
-                                <td>CPU/GPU推理</td>
-                                <td>无</td>
-                                <td><span class="text-green-500">极强（21 TOPS）</span></td>
+                                <td><strong>AI compute</strong></td>
+                                <td>Weak</td>
+                                <td>No</td>
+                                <td>CPU/GPU Inference</td>
+                                <td>No</td>
+                                <td><span class="text-green-500">Extremely strong (21 TOPS)</span></td>
                             </tr>
                             <tr>
-                                <td><strong>开发难度</strong></td>
-                                <td><span class="text-green-500">低</span></td>
-                                <td>较高</td>
-                                <td><span class="text-green-500">低</span></td>
-                                <td><span class="text-green-500">最低</span></td>
-                                <td>较高</td>
+                                <td><strong>Development difficulty</strong></td>
+                                <td><span class="text-green-500">Low</span></td>
+                                <td>High</td>
+                                <td><span class="text-green-500">Low</span></td>
+                                <td><span class="text-green-500">Lowest</span></td>
+                                <td>High</td>
                             </tr>
                             <tr>
-                                <td><strong>生态成熟度</strong></td>
-                                <td>高</td>
-                                <td>高</td>
-                                <td><span class="text-green-500">极高</span></td>
-                                <td><span class="text-green-500">极高</span></td>
-                                <td>中等</td>
+                                <td><strong>Ecosystem maturity</strong></td>
+                                <td>High</td>
+                                <td>High</td>
+                                <td><span class="text-green-500">Extremely high</span></td>
+                                <td><span class="text-green-500">Extremely high</span></td>
+                                <td>Medium</td>
                             </tr>
                             <tr>
-                                <td><strong>功耗表现</strong></td>
-                                <td><span class="text-green-500">极低（<50mA）</span></td>
-                                <td>低</td>
-                                <td>中等（~5W）</td>
-                                <td><span class="text-green-500">极低</span></td>
-                                <td>中等（10-15W）</td>
+                                <td><strong>Power consumption</strong></td>
+                                <td><span class="text-green-500">Very low (<50mA)</span></td>
+                                <td>Low</td>
+                                <td>Medium (~5W)</td>
+                                <td><span class="text-green-500">Very low</span></td>
+                                <td>Medium (10-15W)</td>
                             </tr>
                             <tr>
-                                <td><strong>扩展性</strong></td>
-                                <td>有限</td>
-                                <td>良好</td>
-                                <td><span class="text-green-500">优秀</span></td>
-                                <td>中等</td>
-                                <td><span class="text-green-500">优秀</span></td>
+                                <td><strong>Expandability</strong></td>
+                                <td>Limited</td>
+                                <td>Good</td>
+                                <td><span class="text-green-500">Excellent</span></td>
+                                <td>Medium</td>
+                                <td><span class="text-green-500">Excellent</span></td>
                             </tr>
                             <tr>
-                                <td><strong>成本效益</strong></td>
-                                <td><span class="text-green-500">极高</span></td>
-                                <td>中等</td>
-                                <td>中等</td>
-                                <td><span class="text-green-500">高</span></td>
-                                <td>低</td>
+                                <td><strong>Cost effectiveness</strong></td>
+                                <td><span class="text-green-500">Extremely high</span></td>
+                                <td>Medium</td>
+                                <td>Medium</td>
+                                <td><span class="text-green-500">High</span></td>
+                                <td>Low</td>
                             </tr>
                         </tbody>
                     </table>
@@ -487,49 +515,49 @@
 
     <section class="py-16" style="background-color: var(--card-bg);">
         <div class="container">
-            <h2 class="section-title text-2xl font-bold mb-8">选型建议</h2>
+            <h2 class="section-title text-2xl font-bold mb-8">Selection advice</h2>
             
             <div class="mb-8">
-                <h3 class="font-bold text-lg mb-4">按项目需求选型</h3>
+                <h3 class="font-bold text-lg mb-4">Choose by project requirement</h3>
                 <div class="card-dark p-6">
                     <table class="table table-dark">
                         <thead>
                             <tr>
-                                <th>项目类型</th>
-                                <th>推荐开发板</th>
-                                <th>关键考量</th>
+                                <th>Project type</th>
+                                <th>Recommended board</th>
+                                <th>Key considerations</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>物联网传感器节点</td>
+                                <td>IoT sensor nodes</td>
                                 <td><span class="text-primary font-bold">ESP32-S3</span></td>
-                                <td>无线连接、低功耗、低成本</td>
+                                <td>Wireless connectivity, low power, low cost</td>
                             </tr>
                             <tr>
-                                <td>工业控制系统</td>
+                                <td>Industrial control</td>
                                 <td><span class="text-secondary font-bold">STM32H743</span></td>
-                                <td>实时性、可靠性、丰富外设</td>
+                                <td>Real-time performance, reliability, rich peripherals</td>
                             </tr>
                             <tr>
-                                <td>智能家居中控</td>
-                                <td><span class="text-accent font-bold">树莓派5</span></td>
-                                <td>完整系统、多媒体、生态支持</td>
+                                <td>Smart home hub</td>
+                                <td><span class="text-accent font-bold">Raspberry Pi 5</span></td>
+                                <td>Full OS, multimedia, ecosystem support</td>
                             </tr>
                             <tr>
-                                <td>创客入门/教育</td>
+                                <td>Maker beginners / education</td>
                                 <td><span class="text-green-500 font-bold">Arduino Uno</span></td>
-                                <td>学习成本低、例程丰富</td>
+                                <td>Low learning curve, plenty of examples</td>
                             </tr>
                             <tr>
-                                <td>AI视觉/机器人</td>
+                                <td>AI vision / robotics</td>
                                 <td><span class="text-yellow-500 font-bold">Jetson Xavier NX</span></td>
-                                <td>GPU算力、AI框架支持</td>
+                                <td>GPU compute, AI framework support</td>
                             </tr>
                             <tr>
-                                <td>边缘计算网关</td>
-                                <td><span class="text-accent font-bold">树莓派5</span> / Jetson Nano</td>
-                                <td>网络能力、多任务处理</td>
+                                <td>Edge computing gateway</td>
+                                <td><span class="text-accent font-bold">Raspberry Pi 5</span> / Jetson Nano</td>
+                                <td>Networking, multitasking</td>
                             </tr>
                         </tbody>
                     </table>
@@ -537,13 +565,13 @@
             </div>
 
             <div>
-                <h3 class="font-bold text-lg mb-4">按预算选型</h3>
+                <h3 class="font-bold text-lg mb-4">Choose by budget</h3>
                 <div class="card-dark p-6">
                     <div class="row g-4">
                         <div class="col-md-4">
                             <div class="text-center">
-                                <div class="text-3xl font-bold text-green-500 mb-2">¥50以内</div>
-                                <div class="text-secondary mb-2">入门级</div>
+                                <div class="text-3xl font-bold text-green-500 mb-2">¥50 or less</div>
+                                <div class="text-secondary mb-2">Entry level</div>
                                 <div class="badge badge-primary">ESP32-S3</div>
                                 <div class="badge badge-secondary ml-2">Arduino Uno</div>
                             </div>
@@ -551,16 +579,16 @@
                         <div class="col-md-4">
                             <div class="text-center">
                                 <div class="text-3xl font-bold text-yellow-500 mb-2">¥100-500</div>
-                                <div class="text-secondary mb-2">中级</div>
-                                <div class="badge badge-primary">STM32系列</div>
-                                <div class="badge badge-secondary ml-2">树莓派5</div>
+                                <div class="text-secondary mb-2">Mid-range</div>
+                                <div class="badge badge-primary">STM32 series</div>
+                                <div class="badge badge-secondary ml-2">Raspberry Pi 5</div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="text-center">
-                                <div class="text-3xl font-bold text-red-500 mb-2">¥1000以上</div>
-                                <div class="text-secondary mb-2">高级AI</div>
-                                <div class="badge badge-primary">Jetson系列</div>
+                                <div class="text-3xl font-bold text-red-500 mb-2">¥1000 and up</div>
+                                <div class="text-secondary mb-2">Advanced AI</div>
+                                <div class="badge badge-primary">Jetson series</div>
                             </div>
                         </div>
                     </div>
@@ -571,7 +599,7 @@
 
     <section class="py-16">
         <div class="container">
-            <h2 class="section-title text-2xl font-bold mb-8">技术趋势分析</h2>
+            <h2 class="section-title text-2xl font-bold mb-8">Technology trends</h2>
             <div class="card-dark p-6">
                 <div class="row g-6">
                     <div class="col-lg-3">
@@ -579,8 +607,8 @@
                             <div class="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <i class="fas fa-code-branch text-accent fa-3x"></i>
                             </div>
-                            <h3 class="font-bold mb-2">RISC-V架构崛起</h3>
-                            <p class="text-secondary text-sm">ESP32-C3、HiFive1等RISC-V开发板逐渐成熟，开源特性吸引众多开发者</p>
+                            <h3 class="font-bold mb-2">The rise of RISC-V</h3>
+                            <p class="text-secondary text-sm">Boards such as ESP32-C3 and HiFive1 are maturing, and their open-source nature is attracting many developers</p>
                         </div>
                     </div>
                     <div class="col-lg-3">
@@ -588,8 +616,8 @@
                             <div class="w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <i class="fas fa-brain text-yellow-500 fa-3x"></i>
                             </div>
-                            <h3 class="font-bold mb-2">AI边缘化</h3>
-                            <p class="text-secondary text-sm">Jetson系列带动边缘AI计算普及，树莓派5也开始支持轻量级AI推理</p>
+                            <h3 class="font-bold mb-2">AI moves to the edge</h3>
+                            <p class="text-secondary text-sm">The Jetson family is driving edge AI adoption, and the Raspberry Pi 5 now handles lightweight AI inference</p>
                         </div>
                     </div>
                     <div class="col-lg-3">
@@ -597,8 +625,8 @@
                             <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <i class="fas fa-wifi text-primary fa-3x"></i>
                             </div>
-                            <h3 class="font-bold mb-2">无线集成化</h3>
-                            <p class="text-secondary text-sm">主流开发板均集成Wi-Fi/蓝牙，物联网开发门槛降低</p>
+                            <h3 class="font-bold mb-2">Integrated wireless</h3>
+                            <p class="text-secondary text-sm">Mainstream boards now include Wi-Fi/Bluetooth, lowering the barrier to IoT development</p>
                         </div>
                     </div>
                     <div class="col-lg-3">
@@ -606,8 +634,8 @@
                             <div class="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <i class="fas fa-tools text-secondary fa-3x"></i>
                             </div>
-                            <h3 class="font-bold mb-2">开发框架统一</h3>
-                            <p class="text-secondary text-sm">Arduino框架跨平台支持，MicroPython加速原型开发</p>
+                            <h3 class="font-bold mb-2">Unified development frameworks</h3>
+                            <p class="text-secondary text-sm">The Arduino framework spans platforms, and MicroPython speeds up prototyping</p>
                         </div>
                     </div>
                 </div>
@@ -618,8 +646,8 @@
     <section class="py-16" style="background-color: var(--card-bg);">
         <div class="container">
             <div class="card-dark p-8 text-center">
-                <h2 class="text-2xl font-bold mb-4">开始探索</h2>
-                <p class="text-secondary mb-6">根据选型指南，找到适合你的开发板</p>
+                <h2 class="text-2xl font-bold mb-4">Start exploring</h2>
+                <p class="text-secondary mb-6">Use the selection guide to find the board that fits your needs</p>
                 <div class="d-flex justify-center gap-3">
                     <a href="/en/boards" class="btn btn-primary">Browse Boards</a>
                     <a href="/en/projects" class="btn btn-outline-light">Explore Projects</a>
@@ -637,18 +665,15 @@
             <div class="newsletter-card">
                 <div class="row align-items-center">
                     <div class="col-lg-7">
-                        <h3 class="text-xl font-bold mb-2">Stay Ahead of the Curve</h3>
-                        <p class="text-secondary text-sm mb-4 mb-lg-0">Get weekly curated picks, trending boards, and exclusive hardware engineering tips delivered to your inbox</p>
+                        <h3 class="text-xl font-bold mb-2">Follow @GeekWaedon for Weekly Updates</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">Board picks, project breakdowns and hardware engineering tips, first published on WeChat and Knowledge Planet.</p>
                     </div>
                     <div class="col-lg-5">
-                        <form id="newsletterForm" class="newsletter-form" onsubmit="handleNewsletter(event)">
-                            <input type="email" id="newsletterEmail" class="input-zouic" placeholder="Enter your email address" required>
-                            <button type="submit" class="btn-zouic btn-zouic-primary btn-zouic-lg">Subscribe</button>
-                        </form>
+                        <a href="/en/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">See How to Follow</a>
                         <div class="newsletter-benefits">
                             <span class="newsletter-benefit"><i class="fas fa-check"></i> Weekly curated board picks</span>
                             <span class="newsletter-benefit"><i class="fas fa-check"></i> Exclusive project deep-dives</span>
-                            <span class="newsletter-benefit"><i class="fas fa-check"></i> No spam, unsubscribe anytime</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Updated on WeChat and Knowledge Planet</span>
                         </div>
                     </div>
                 </div>
@@ -656,7 +681,7 @@
         </div>
     </section>
 
-    <section class="py-4" aria-label="出品人">
+    <section class="py-4" aria-label="Produced by">
         <div class="author-card">
             <div class="author-card-info">
                 <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
@@ -667,7 +692,7 @@
             </div>
             <div class="author-card-actions">
                 <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Join my Knowledge Planet</a>
-                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;极客微栋&#34;</span>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;GeekWaedon&#34;</span>
             </div>
         </div>
     </section>
@@ -676,7 +701,7 @@
         <div class="container">
             <div class="row footer-main">
                 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
-                    <a href="/" class="footer-brand" aria-label="ZouIC 首页">
+                    <a href="/en/" class="footer-brand" aria-label="ZouIC home">
                         <i class="fas fa-microchip"></i>
                         <span>ZouIC</span>
                     </a>
@@ -684,26 +709,27 @@
 
                     <div class="footer-meta">
                         <p class="footer-author">
-                            出品人 · <strong>极客微栋</strong>
+                            Produced by · <strong>GeekWaedon</strong>
                             <span class="footer-author-handle">@GeekWaedon</span>
                         </p>
                         <div class="footer-slash-tags">
-                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span>
-                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span>
-                            <a href="/en/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商资质">
-                                <i class="fab fa-weixin"></i> 企业微信服务商
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware enthusiast</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI practitioner</span>
+                            <a href="/en/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom service provider">
+                                <i class="fab fa-weixin"></i> WeCom service provider
                             </a>
                         </div>
                     </div>
 
                     <div class="footer-social">
-                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a>
-                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a>
-                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a>
-                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a>
-                        <a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋（微信内搜索）"><i class="fab fa-weixin"></i></a>
-                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a>
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a>
+                        <a href="/en/#follow" class="footer-social-link" aria-label="WeChat Official Account · GeekWaedon" title="WeChat Official Account · GeekWaedon"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a>
                         <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
@@ -723,6 +749,7 @@
                         <li><a href="/en/documentation">Documentation</a></li>
                         <li><a href="/en/cases">Project Cases</a></li>
                         <li><a href="/en/help">Documentation</a></li>
+                        <li><a href="/en/dashuju">Data Dashboard</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-2 mb-4 mb-md-0">
@@ -731,7 +758,7 @@
                         <li><a href="/en/open-source">Open Source Projects</a></li>
                         <li><a href="/en/articles">Articles</a></li>
                         <li><a href="/en/contribute">Contribute</a></li>
-                        <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-2">
@@ -747,12 +774,13 @@
             <div class="footer-bottom">
                 <p>© 2026 ZouIC. All rights reserved.</p>
                 <p>Open source projects aggregated on this platform follow their respective open source licenses. For details, please see the <a href="/en/licenses">Open Source Licenses</a> page.</p>
+                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
     </button>
 
@@ -899,8 +927,8 @@
                     <i class="fas fa-robot"></i>
                     <span>AI Assistant</span>
                 </div>
-                <button id="agent-chat-close" class="btn-zouic btn-zouic-ghost btn-zouic-sm" style="color: rgba(255,255,255,0.8);">
-                    <i class="fas fa-times"></i>
+                <button id="agent-chat-close" class="btn-zouic btn-zouic-ghost btn-zouic-sm" aria-label="Close" style="color: rgba(255,255,255,0.8);">
+                    <i class="fas fa-times" aria-hidden="true"></i>
                 </button>
             </div>
             <div id="agent-chat-messages" class="chat-widget-messages">
@@ -908,7 +936,7 @@
                     <div class="chat-widget-toggle" style="width: 32px; height: 32px; font-size: 0.75rem; flex-shrink: 0;">
                         <i class="fas fa-robot"></i>
                     </div>
-                    <div class="bg-secondary/50 rounded-lg rounded-tl-none p-3 text-sm" style="background-color: rgba(14, 165, 233, 0.15);">
+                    <div class="bg-secondary/50 rounded-lg rounded-tl-none p-3 text-sm" style="background-color: rgba(255, 0, 110, 0.15);">
                         Search boards, projects or keywords...
                     </div>
                 </div>
@@ -917,15 +945,16 @@
                 <div class="d-flex gap-2">
                     <input type="text" id="agent-chat-input" 
                         class="input-zouic flex-grow-1"
+                        aria-label="Enter your message..."
                         placeholder="Enter your message...">
-                    <button id="agent-chat-send" class="btn-zouic btn-zouic-primary btn-zouic-sm">
-                        <i class="fas fa-paper-plane"></i>
+                    <button id="agent-chat-send" class="btn-zouic btn-zouic-primary btn-zouic-sm" aria-label="Send">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <button id="agent-chat-toggle" class="chat-widget-toggle">
-            <i class="fas fa-robot" style="font-size: 1.25rem;"></i>
+        <button id="agent-chat-toggle" class="chat-widget-toggle" aria-label="AI Assistant" aria-expanded="false">
+            <i class="fas fa-robot" style="font-size: 1.25rem;" aria-hidden="true"></i>
         </button>
     </div>
 
@@ -943,7 +972,9 @@
             if (chatToggle && chatContainer) {
                 chatToggle.addEventListener('click', function() {
                     chatContainer.classList.toggle('open');
-                    if (chatContainer.classList.contains('open')) {
+                    var isOpen = chatContainer.classList.contains('open');
+                    chatToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    if (isOpen) {
                         chatInput.focus();
                     }
                 });
@@ -952,6 +983,8 @@
             if (chatClose && chatContainer) {
                 chatClose.addEventListener('click', function() {
                     chatContainer.classList.remove('open');
+                    chatToggle.setAttribute('aria-expanded', 'false');
+                    chatToggle.focus();
                 });
             }
             
@@ -968,8 +1001,8 @@
                 bubble.className = 'rounded-lg px-3 py-2 text-sm ' +
                     (isUser ? 'rounded-tr-none' : 'rounded-tl-none');
                 bubble.style.cssText = isUser 
-                    ? 'background-color: rgba(0, 212, 170, 0.15); color: var(--color-text-primary);'
-                    : 'background-color: rgba(14, 165, 233, 0.15); color: var(--color-text-primary);';
+                    ? 'background-color: rgba(0, 229, 255, 0.15); color: var(--color-text-primary);'
+                    : 'background-color: rgba(255, 0, 110, 0.15); color: var(--color-text-primary);';
                 bubble.textContent = text;
                 
                 div.appendChild(isUser ? bubble : avatar);
@@ -1033,11 +1066,11 @@
             if (saved.includes(id)) {
                 saved = saved.filter(function(i) { return i !== id; });
                 localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
-                showToast('已取消收藏');
+                showToast('Removed from favorites');
             } else {
                 saved.push(id);
                 localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
-                showToast('收藏成功');
+                showToast('Saved to favorites');
             }
         };
         
@@ -1048,32 +1081,9 @@
             document.body.appendChild(toast);
             setTimeout(function() { toast.remove(); }, 3000);
         };
-        
-        // --- Newsletter form handler ---
-        window.handleNewsletter = function(e) {
-            e.preventDefault();
-            const emailInput = document.getElementById('newsletterEmail');
-            if (!emailInput || !emailInput.value.trim()) return;
-            
-            const btn = e.target.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
-            btn.textContent = 'Subscribed!';
-            btn.disabled = true;
-            
-            // Simulate subscription (in production, send to API)
-            setTimeout(function() {
-                btn.textContent = '✓ ' + originalText;
-                btn.disabled = false;
-                emailInput.value = '';
-                
-                // Show toast
-                const toast = document.createElement('div');
-                toast.className = 'toast-zouic toast-zouic-success show';
-                toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Subscribed!';
-                document.body.appendChild(toast);
-                setTimeout(function() { toast.remove(); }, 3000);
-            }, 1000);
-        };
     </script>
+    
+    
+    
 </body>
 </html>

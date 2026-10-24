@@ -1,36 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><link rel="alternate" hreflang="zh" href="https://www.zouic.com/compare"><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/compare"><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/compare">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="description" content="Compare specifications of different development boards to help you choose the best board for your project needs.">
     <meta name="keywords" content="board comparison,hardware comparison,specification comparison,ESP32 comparison,STM32 comparison">
+    <meta name="robots" content="noindex, follow">
     <meta name="author" content="ZouIC">
-    <meta name="theme-color" content="#00d4aa">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
-    <link rel="canonical" href="https://zouic.com/compare">
     
-    <link rel="alternate" hreflang="zh" href="https://zouic.com/compare" />
-    <link rel="alternate" hreflang="en" href="https://zouic.com/en/compare" />
-    <link rel="alternate" hreflang="x-default" href="https://zouic.com/compare" />
+    
+    
+    
+    
+    
+    <link rel="canonical" href="https://www.zouic.com/en/compare">
+    
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/compare" />
+    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/compare" />
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/compare" />
+    
+    
     
     <meta property="og:title" content="Board Comparison - Specification Comparison | ZouIC">
     <meta property="og:description" content="Compare specifications of different development boards to help you choose the best board for your project needs.">
-    <meta property="og:url" content="https://zouic.com/compare">
+    <meta property="og:url" content="https://www.zouic.com/en/compare">
     <meta property="og:type" content="object">
     <meta property="og:site_name" content="ZouIC">
-    <meta property="og:image" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ZouIC%20open%20source%20hardware%20development%20board%20platform%20logo&amp;image_size=landscape_16_9">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ZouIC open source development board platform · GeekWeidong">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Board Comparison - Specification Comparison | ZouIC">
     <meta name="twitter:description" content="Compare specifications of different development boards to help you choose the best board for your project needs.">
-    <meta name="twitter:image" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ZouIC%20open%20source%20hardware%20development%20board%20platform%20logo&amp;image_size=landscape_16_9">
-    <meta name="twitter:site" content="@zouic">
-    <meta name="twitter:creator" content="@zouic">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/compare", "name": "Compare Boards", "position": 2}]}
+    </script>
     
     
     
@@ -42,9 +59,13 @@
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     
+    
     <!-- External Stylesheets -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
     
     <!-- ZouIC Design System -->
     <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261023e">
@@ -64,12 +85,12 @@
         .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
         .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
         .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
-        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.15); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
         .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
         .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
-        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 212, 170, 0.3); }
-        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(14, 165, 233, 0.3); }
-        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(139, 92, 246, 0.3); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
         .text-yellow-500 { color: #fbbf24; }
         .text-green-500 { color: #10b981; }
         .text-red-500 { color: #ef4444; }
@@ -80,22 +101,27 @@
         .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
         @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
     </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261023b">
+    
 </head>
 <body>
-    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航">
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Main navigation">
         <div class="container">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="/en/">
                 <i class="fas fa-microchip"></i> ZouIC
             </a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
+                <span class="nav-hud-dot"></span>SYS.ONLINE
+            </span>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="/en/boards">Boards</a></li>
                     <li class="nav-item"><a class="nav-link" href="/en/board-guide">Documentation</a></li>
                     <li class="nav-item"><a class="nav-link" href="/en/projects">Projects</a></li>
@@ -116,6 +142,8 @@
                             <li><a class="dropdown-item" href="/en/open-source"><i class="fas fa-code-branch me-2"></i>Open Source Projects</a></li>
                             <li><a class="dropdown-item" href="/en/articles"><i class="fas fa-pen-fancy me-2"></i>Articles</a></li>
                             <li><a class="dropdown-item" href="/en/contribute"><i class="fas fa-handshake me-2"></i>Contribute</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/dashuju"><i class="fas fa-chart-line me-2"></i>Data Dashboard</a></li>
                         </ul>
                     </li>
                     <li class="nav-item d-lg-none"><a class="nav-link" href="/en/search"><i class="fas fa-search me-1"></i>Search</a></li>
@@ -124,7 +152,7 @@
                     <div class="input-group input-group-zouic">
                         <input type="text" id="searchQuery" class="form-control input-zouic" 
                                placeholder="Search boards, projects or keywords..." aria-label="Search" style="width: 200px;">
-                        <select id="searchType" class="form-select input-zouic" style="width: auto; flex: 0 0 auto;">
+                        <select id="searchType" class="form-select input-zouic" aria-label="Search Type:" style="width: auto; flex: 0 0 auto;">
                             <option value="">All Categories</option>
                             <option value="board">Boards</option>
                             <option value="project">Projects</option>
@@ -162,190 +190,131 @@
     <section class="py-8">
         <div class="container">
             <h1 class="text-3xl font-bold mb-4">Board Comparison</h1>
-            <p class="text-secondary">对比选中的开发板参数</p>
+            <p class="text-secondary">Compare the specifications of the selected boards</p>
         </div>
     </section>
 
     <section class="py-8">
         <div class="container">
-            <div class="overflow-x-auto">
-                <table class="table table-dark">
-                    <thead>
-                        <tr>
-                            <th>参数</th>
-                            
-                            <th>
-                                <div class="text-center">
-                                    <span class="badge badge-primary">ESP32</span>
-                                    <h4 class="font-bold mt-2">ESP32-S3-DevKitC</h4>
-                                </div>
-                            </th>
-                            
-                            <th>
-                                <div class="text-center">
-                                    <span class="badge badge-primary">ESP32</span>
-                                    <h4 class="font-bold mt-2">ESP32-C3-DevKitM</h4>
-                                </div>
-                            </th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Vendor</strong></td>
-                            
-                            <td>Espressif</td>
-                            
-                            <td>Espressif</td>
-                            
-                        </tr>
-                        <tr>
-                            <td><strong>芯片型号</strong></td>
-                            
-                            <td>ESP32-S3</td>
-                            
-                            <td>ESP32-C3</td>
-                            
-                        </tr>
-                        <tr>
-                            <td><strong>CPU主频</strong></td>
-                            
-                            <td>240MHz</td>
-                            
-                            <td>160MHz</td>
-                            
-                        </tr>
-                        <tr>
-                            <td><strong>Flash</strong></td>
-                            
-                            <td>8MB</td>
-                            
-                            <td>4MB</td>
-                            
-                        </tr>
-                        <tr>
-                            <td><strong>RAM</strong></td>
-                            
-                            <td>512KB</td>
-                            
-                            <td>384KB</td>
-                            
-                        </tr>
-                        <tr>
-                            <td><strong>GPIO数量</strong></td>
-                            
-                            <td>30个</td>
-                            
-                            <td>19个</td>
-                            
-                        </tr>
-                        <tr>
-                            <td><strong>Power</strong></td>
-                            
-                            <td>80mA-200mA</td>
-                            
-                            <td>50mA-120mA</td>
-                            
-                        </tr>
-                        <tr>
-                            <td><strong>Price Range</strong></td>
-                            
-                            <td class="text-primary font-bold">¥100-200</td>
-                            
-                            <td class="text-primary font-bold">¥50-100</td>
-                            
-                        </tr>
-                        <tr>
-                            <td><strong>Peripherals</strong></td>
-                            
-                            <td>
-                                <div class="d-flex flex-wrap gap-1">
-                                    
-                                    <span class="badge badge-accent text-xs">Wi-Fi 6</span>
-                                    
-                                    <span class="badge badge-accent text-xs">BLE 5.0</span>
-                                    
-                                    <span class="badge badge-accent text-xs">USB OTG</span>
-                                    
-                                    <span class="badge badge-accent text-xs">I2C</span>
-                                    
-                                    <span class="badge badge-accent text-xs">SPI</span>
-                                    
-                                    <span class="badge badge-accent text-xs">UART</span>
-                                    
-                                    <span class="badge badge-accent text-xs">ADC</span>
-                                    
-                                    <span class="badge badge-accent text-xs">DAC</span>
-                                    
-                                </div>
-                            </td>
-                            
-                            <td>
-                                <div class="d-flex flex-wrap gap-1">
-                                    
-                                    <span class="badge badge-accent text-xs">Wi-Fi</span>
-                                    
-                                    <span class="badge badge-accent text-xs">BLE 5.0</span>
-                                    
-                                    <span class="badge badge-accent text-xs">I2C</span>
-                                    
-                                    <span class="badge badge-accent text-xs">SPI</span>
-                                    
-                                    <span class="badge badge-accent text-xs">UART</span>
-                                    
-                                </div>
-                            </td>
-                            
-                        </tr>
-                        <tr>
-                            <td><strong>Frameworks</strong></td>
-                            
-                            <td>
-                                <div class="d-flex flex-wrap gap-1">
-                                    
-                                    <span class="badge badge-secondary text-xs">Arduino</span>
-                                    
-                                    <span class="badge badge-secondary text-xs">ESP-IDF</span>
-                                    
-                                    <span class="badge badge-secondary text-xs">PlatformIO</span>
-                                    
-                                    <span class="badge badge-secondary text-xs">MicroPython</span>
-                                    
-                                </div>
-                            </td>
-                            
-                            <td>
-                                <div class="d-flex flex-wrap gap-1">
-                                    
-                                    <span class="badge badge-secondary text-xs">Arduino</span>
-                                    
-                                    <span class="badge badge-secondary text-xs">ESP-IDF</span>
-                                    
-                                    <span class="badge badge-secondary text-xs">PlatformIO</span>
-                                    
-                                    <span class="badge badge-secondary text-xs">MicroPython</span>
-                                    
-                                </div>
-                            </td>
-                            
-                        </tr>
-                        <tr>
-                            <td><strong>操作</strong></td>
-                            
-                            <td>
-                                <a href="/en/board/1" class="btn btn-primary btn-sm">查看详情</a>
-                            </td>
-                            
-                            <td>
-                                <a href="/en/board/2" class="btn btn-primary btn-sm">查看详情</a>
-                            </td>
-                            
-                        </tr>
-                    </tbody>
+            <div id="compareEmpty" class="text-center py-12" hidden>
+                <p class="text-secondary mb-4">No boards selected yet — head to the board library and pick 2–4 to compare.</p>
+                <a href="/en/boards" class="btn-zouic btn-zouic-primary">Choose boards</a>
+            </div>
+            <div id="compareTableWrap" class="overflow-x-auto" hidden>
+                <table class="table table-dark" id="compareTable">
+                    <thead></thead>
+                    <tbody></tbody>
                 </table>
             </div>
         </div>
     </section>
+
+    <script>
+    window.__COMPARE_BOARDS__ = [{"buy_url": null, "category": "general", "category_name": "\u901a\u7528\u5f00\u53d1\u677f", "chip_architecture": "ESP32", "community_url": null, "cpu_speed": "240MHz", "description": "\u9ad8\u6027\u80fd\u53cc\u6838\u5904\u7406\u5668\uff0c\u652f\u6301Wi-Fi 6\u548cBLE 5.0\uff0c\u5185\u7f6eAI\u534f\u5904\u7406\u5668\uff0c\u9002\u5408\u7269\u8054\u7f51\u548c\u8fb9\u7f18AI\u5e94\u7528", "flash_size": "8MB", "gpio_count": 30, "id": 1, "image_url": "/static/images/esp32-s3.jpg", "mcu_model": "ESP32-S3", "name": "ESP32-S3-DevKitC", "peripherals": ["Wi-Fi 6", "BLE 5.0", "USB OTG", "I2C", "SPI", "UART", "ADC", "DAC"], "power_consumption": "80mA-200mA", "price_range": "100-200", "ram_size": "512KB", "slug": "esp32-s3-devkitc", "supported_frameworks": ["Arduino", "ESP-IDF", "PlatformIO", "MicroPython"], "vendor": "Espressif"}, {"buy_url": null, "category": "general", "category_name": "\u901a\u7528\u5f00\u53d1\u677f", "chip_architecture": "ESP32", "community_url": null, "cpu_speed": "160MHz", "description": "RISC-V\u67b6\u6784\uff0c\u4f4e\u6210\u672c\u4f4e\u529f\u8017\uff0c\u9002\u5408\u5165\u95e8\u7ea7\u7269\u8054\u7f51\u9879\u76ee", "flash_size": "4MB", "gpio_count": 19, "id": 2, "image_url": "/static/images/esp32-c3.jpg", "mcu_model": "ESP32-C3", "name": "ESP32-C3-DevKitM", "peripherals": ["Wi-Fi", "BLE 5.0", "I2C", "SPI", "UART"], "power_consumption": "50mA-120mA", "price_range": "50-100", "ram_size": "384KB", "slug": "esp32-c3-devkitm", "supported_frameworks": ["Arduino", "ESP-IDF", "PlatformIO", "MicroPython"], "vendor": "Espressif"}, {"buy_url": null, "category": "general", "category_name": "\u901a\u7528\u5f00\u53d1\u677f", "chip_architecture": "STM32", "community_url": null, "cpu_speed": "72MHz", "description": "\u7ecf\u5178ARM Cortex-M3\uff0c\u9002\u5408\u5de5\u4e1a\u63a7\u5236\u548c\u7535\u673a\u9a71\u52a8\u9879\u76ee", "flash_size": "64KB", "gpio_count": 37, "id": 3, "image_url": "/static/images/stm32f103.jpg", "mcu_model": "STM32F103C8T6", "name": "STM32F103C8T6 Blue Pill", "peripherals": ["USB", "I2C", "SPI", "UART", "CAN", "ADC"], "power_consumption": "30mA-80mA", "price_range": "20-50", "ram_size": "20KB", "slug": "stm32f103c8t6-blue-pill", "supported_frameworks": ["STM32CubeMX", "PlatformIO", "Arduino"], "vendor": "STMicroelectronics"}, {"buy_url": null, "category": "general", "category_name": "\u901a\u7528\u5f00\u53d1\u677f", "chip_architecture": "STM32", "community_url": null, "cpu_speed": "168MHz", "description": "\u9ad8\u6027\u80fdARM Cortex-M4\u5e26DSP\uff0c\u9002\u5408\u590d\u6742\u4fe1\u53f7\u5904\u7406\u548c\u5de5\u4e1a\u5e94\u7528", "flash_size": "1MB", "gpio_count": 144, "id": 4, "image_url": "/static/images/stm32f407.jpg", "mcu_model": "STM32F407ZGT6", "name": "STM32F407ZGT6 Discovery", "peripherals": ["USB OTG", "I2C", "SPI", "UART", "CAN", "Ethernet", "SDIO", "ADC", "DAC"], "power_consumption": "100mA-300mA", "price_range": "300-500", "ram_size": "192KB", "slug": "stm32f407zgt6-discovery", "supported_frameworks": ["STM32CubeMX", "PlatformIO"], "vendor": "STMicroelectronics"}, {"buy_url": null, "category": "general", "category_name": "\u901a\u7528\u5f00\u53d1\u677f", "chip_architecture": "RP2040", "community_url": null, "cpu_speed": "133MHz", "description": "\u53cc\u6838ARM Cortex-M0+\uff0c\u53ef\u7f16\u7a0bPIO\uff0c10\u5e74\u4f9b\u8d27\u627f\u8bfa\uff0c\u9002\u5408\u6559\u80b2\u548cDIY\u9879\u76ee", "flash_size": "2MB", "gpio_count": 26, "id": 5, "image_url": "/static/images/pico.jpg", "mcu_model": "RP2040", "name": "Raspberry Pi Pico", "peripherals": ["USB", "I2C", "SPI", "UART", "PIO"], "power_consumption": "20mA-60mA", "price_range": "20-50", "ram_size": "264KB", "slug": "raspberry-pi-pico", "supported_frameworks": ["MicroPython", "CircuitPython", "Arduino", "PlatformIO"], "vendor": "Raspberry Pi"}, {"buy_url": null, "category": "general", "category_name": "\u901a\u7528\u5f00\u53d1\u677f", "chip_architecture": "RP2040", "community_url": null, "cpu_speed": "133MHz", "description": "Pico\u5347\u7ea7\u7248\uff0c\u5185\u7f6eWi-Fi\u548cBLE\uff0c\u9002\u5408\u65e0\u7ebf\u7269\u8054\u7f51\u9879\u76ee", "flash_size": "2MB", "gpio_count": 22, "id": 6, "image_url": "/static/images/pico-w.jpg", "mcu_model": "RP2040", "name": "Raspberry Pi Pico W", "peripherals": ["Wi-Fi", "BLE", "USB", "I2C", "SPI", "UART", "PIO"], "power_consumption": "30mA-80mA", "price_range": "50-100", "ram_size": "264KB", "slug": "raspberry-pi-pico-w", "supported_frameworks": ["MicroPython", "CircuitPython", "Arduino", "PlatformIO"], "vendor": "Raspberry Pi"}, {"buy_url": null, "category": "general", "category_name": "\u901a\u7528\u5f00\u53d1\u677f", "chip_architecture": "RA4M1", "community_url": null, "cpu_speed": "48MHz", "description": "\u7ecf\u5178UNO\u7684\u5347\u7ea7\u7248\uff0cRA4M1\u5904\u7406\u5668\uff0c\u9002\u5408\u6559\u80b2\u548c\u5165\u95e8\u9879\u76ee", "flash_size": "256KB", "gpio_count": 20, "id": 7, "image_url": "/static/images/uno-r4.jpg", "mcu_model": "RA4M1", "name": "Arduino UNO R4 Minima", "peripherals": ["USB-C", "I2C", "SPI", "UART", "CAN"], "power_consumption": "40mA-100mA", "price_range": "100-200", "ram_size": "32KB", "slug": "arduino-uno-r4-minima", "supported_frameworks": ["Arduino"], "vendor": "Arduino"}, {"buy_url": null, "category": "general", "category_name": "\u901a\u7528\u5f00\u53d1\u677f", "chip_architecture": "ESP32", "community_url": null, "cpu_speed": "240MHz", "description": "Nano\u5c3a\u5bf8\uff0cESP32-S3\u6838\u5fc3\uff0c\u9002\u5408\u7d27\u51d1\u7684\u7269\u8054\u7f51\u9879\u76ee", "flash_size": "8MB", "gpio_count": 22, "id": 8, "image_url": "/static/images/nano-esp32.jpg", "mcu_model": "ESP32-S3", "name": "Arduino Nano ESP32", "peripherals": ["Wi-Fi", "BLE", "USB-C", "I2C", "SPI", "UART"], "power_consumption": "60mA-150mA", "price_range": "100-200", "ram_size": "512KB", "slug": "arduino-nano-esp32", "supported_frameworks": ["Arduino", "ESP-IDF"], "vendor": "Arduino"}, {"buy_url": null, "category": "general", "category_name": "\u901a\u7528\u5f00\u53d1\u677f", "chip_architecture": "RISC-V", "community_url": null, "cpu_speed": "1.5GHz", "description": "\u9ad8\u6027\u80fdRISC-V SBC\uff0c\u9002\u5408Linux\u5f00\u53d1\u548c\u9ad8\u6027\u80fd\u8ba1\u7b97", "flash_size": "32MB", "gpio_count": 40, "id": 9, "image_url": "/static/images/hifive.jpg", "mcu_model": "Freedom U740", "name": "HiFive Unmatched", "peripherals": ["Ethernet", "USB 3.0", "PCIe", "I2C", "SPI", "UART", "GPIO"], "power_consumption": "2W-5W", "price_range": "500-800", "ram_size": "8GB", "slug": "hifive-unmatched", "supported_frameworks": ["Linux", "Zephyr"], "vendor": "SiFive"}, {"buy_url": null, "category": "general", "category_name": "\u901a\u7528\u5f00\u53d1\u677f", "chip_architecture": "RISC-V", "community_url": null, "cpu_speed": "320MHz", "description": "SiFive\u9996\u6b3e\u91cf\u4ea7RISC-V\u5f00\u53d1\u677f\uff0c\u9002\u5408\u5b66\u4e60\u548c\u539f\u578b\u5f00\u53d1", "flash_size": "16MB", "gpio_count": 32, "id": 10, "image_url": "/static/images/hifive1.jpg", "mcu_model": "FE310-G002", "name": "SiFive HiFive 1 Rev B", "peripherals": ["USB", "I2C", "SPI", "UART", "ADC", "PWM"], "power_consumption": "30mA-80mA", "price_range": "50-100", "ram_size": "16KB", "slug": "sifive-hifive-1-rev-b", "supported_frameworks": ["Freedom E SDK", "Zephyr", "Rust"], "vendor": "SiFive"}, {"buy_url": null, "category": "general", "category_name": "\u901a\u7528\u5f00\u53d1\u677f", "chip_architecture": "RISC-V", "community_url": null, "cpu_speed": "320MHz", "description": "HiFive 1\u5347\u7ea7\u7248\uff0c\u66f4\u591aGPIO\u548c\u5916\u8bbe\uff0c\u9002\u5408\u7269\u8054\u7f51\u5e94\u7528", "flash_size": "32MB", "gpio_count": 48, "id": 11, "image_url": "/static/images/hifive2.jpg", "mcu_model": "FE310-G003", "name": "SiFive HiFive 2", "peripherals": ["USB", "I2C", "SPI", "UART", "ADC", "PWM", "QSPI"], "power_consumption": "30mA-80mA", "price_range": "80-150", "ram_size": "16KB", "slug": "sifive-hifive-2", "supported_frameworks": ["Freedom E SDK", "Zephyr", "Rust", "Arduino"], "vendor": "SiFive"}, {"buy_url": null, "category": "general", "category_name": "\u901a\u7528\u5f00\u53d1\u677f", "chip_architecture": "RISC-V", "community_url": null, "cpu_speed": "1.5GHz", "description": "\u9ad8\u6027\u80fdRISC-V SBC\uff0c\u652f\u6301GPU\u548cAI\u52a0\u901f\uff0c\u9002\u5408\u8fb9\u7f18\u8ba1\u7b97\u548cAI\u5e94\u7528", "flash_size": "32MB", "gpio_count": 40, "id": 12, "image_url": "/static/images/visionfive2.jpg", "mcu_model": "JH7110", "name": "StarFive VisionFive 2", "peripherals": ["Ethernet", "USB 3.0", "HDMI", "MIPI-DSI", "PCIe", "I2C", "SPI", "UART"], "power_consumption": "3W-8W", "price_range": "200-400", "ram_size": "8GB", "slug": "starfive-visionfive-2", "supported_frameworks": ["Linux", "Debian", "OpenWrt", "ROS"], "vendor": "StarFive"}, {"buy_url": null, "category": "general", "category_name": "\u901a\u7528\u5f00\u53d1\u677f", "chip_architecture": "RISC-V", "community_url": null, "cpu_speed": "400MHz", "description": "AI\u89c6\u89c9\u5f00\u53d1\u677f\uff0c\u5185\u7f6eK210\u82af\u7247\uff0c\u652f\u6301\u795e\u7ecf\u7f51\u7edc\u63a8\u7406\uff0c\u9002\u5408AIoT\u5e94\u7528", "flash_size": "8MB", "gpio_count": 48, "id": 13, "image_url": "/static/images/maixduino.jpg", "mcu_model": "K210", "name": "Sipeed Maixduino", "peripherals": ["USB", "I2C", "SPI", "UART", "LCD", "Camera", "AI Accelerator"], "power_consumption": "50mA-150mA", "price_range": "50-100", "ram_size": "6MB", "slug": "sipeed-maixduino", "supported_frameworks": ["MaixPy", "Kendryte SDK", "MicroPython"], "vendor": "Sipeed"}, {"buy_url": null, "category": "general", "category_name": "\u901a\u7528\u5f00\u53d1\u677f", "chip_architecture": "RISC-V", "community_url": null, "cpu_speed": "133MHz", "description": "\u4f4e\u529f\u8017Wi-Fi+BLE RISC-V MCU\uff0c\u9002\u5408\u7269\u8054\u7f51\u548c\u667a\u80fd\u5bb6\u5c45\u5e94\u7528", "flash_size": "4MB", "gpio_count": 22, "id": 14, "image_url": "/static/images/bl602.jpg", "mcu_model": "BL602", "name": "Bouffalo Lab BL602", "peripherals": ["Wi-Fi", "BLE 5.0", "USB", "I2C", "SPI", "UART", "ADC", "DAC"], "power_consumption": "20mA-80mA", "price_range": "20-50", "ram_size": "256KB", "slug": "bouffalo-lab-bl602", "supported_frameworks": ["BL602 SDK", "Arduino", "Zephyr"], "vendor": "Bouffalo Lab"}, {"buy_url": null, "category": "general", "category_name": "\u901a\u7528\u5f00\u53d1\u677f", "chip_architecture": "RISC-V", "community_url": null, "cpu_speed": "160MHz", "description": "\u4e50\u946b\u9996\u6b3eRISC-V ESP32\u82af\u7247\uff0c\u652f\u6301Wi-Fi 6\u548cBLE 5.0\uff0c\u517c\u5bb9\u6027\u5f3a", "flash_size": "4MB", "gpio_count": 34, "id": 15, "image_url": "/static/images/esp32c6.jpg", "mcu_model": "ESP32-C6", "name": "ESP32-C6", "peripherals": ["Wi-Fi 6", "BLE 5.0", "USB", "I2C", "SPI", "UART", "ADC", "DAC", "RMT"], "power_consumption": "30mA-100mA", "price_range": "30-60", "ram_size": "384KB", "slug": "esp32-c6", "supported_frameworks": ["ESP-IDF", "Arduino", "MicroPython", "PlatformIO"], "vendor": "Espressif"}, {"buy_url": null, "category": "general", "category_name": "\u901a\u7528\u5f00\u53d1\u677f", "chip_architecture": "RISC-V", "community_url": null, "cpu_speed": "144MHz", "description": "\u5357\u4eac\u6c81\u6052RISC-V MCU\uff0c\u4e30\u5bcc\u5916\u8bbe\uff0c\u6027\u4ef7\u6bd4\u9ad8\uff0c\u9002\u5408\u5de5\u4e1a\u63a7\u5236", "flash_size": "256KB", "gpio_count": 80, "id": 16, "image_url": "/static/images/ch32v307.jpg", "mcu_model": "CH32V307", "name": "CH32V307", "peripherals": ["USB", "I2C", "SPI", "UART", "CAN", "ADC", "DAC", "ETH"], "power_consumption": "40mA-120mA", "price_range": "20-50", "ram_size": "64KB", "slug": "ch32v307", "supported_frameworks": ["MounRiver Studio", "PlatformIO", "RT-Thread"], "vendor": "WCH"}, {"buy_url": null, "category": "general", "category_name": "\u901a\u7528\u5f00\u53d1\u677f", "chip_architecture": "RISC-V", "community_url": null, "cpu_speed": "108MHz", "description": "\u56fd\u4ea7RISC-V MCU\uff0c\u5f15\u811a\u517c\u5bb9STM32\uff0c\u9002\u5408\u4f4e\u6210\u672c\u5d4c\u5165\u5f0f\u9879\u76ee", "flash_size": "128KB", "gpio_count": 48, "id": 17, "image_url": "/static/images/gd32vf103.jpg", "mcu_model": "GD32VF103", "name": "GD32VF103VBT6", "peripherals": ["USB", "I2C", "SPI", "UART", "CAN", "ADC"], "power_consumption": "40mA-100mA", "price_range": "20-50", "ram_size": "32KB", "slug": "gd32vf103vbt6", "supported_frameworks": ["PlatformIO", "RT-Thread"], "vendor": "GigaDevice"}, {"buy_url": null, "category": "general", "category_name": "\u901a\u7528\u5f00\u53d1\u677f", "chip_architecture": "NearLink", "community_url": null, "cpu_speed": "200MHz", "description": "\u534e\u4e3a\u661f\u95ea\u6280\u672f\u5f00\u53d1\u677f\uff0c\u652f\u6301NearLink\u534f\u8bae\uff0c\u4f4e\u65f6\u5ef6\u9ad8\u53ef\u9760\u901a\u4fe1\uff0c\u9002\u5408\u7269\u8054\u7f51\u548c\u667a\u80fd\u5bb6\u5c45\u5e94\u7528", "flash_size": "2MB", "gpio_count": 28, "id": 18, "image_url": "/static/images/nearlink-devkit.jpg", "mcu_model": "Hi3881", "name": "NearLink DevKit Pro", "peripherals": ["NearLink", "Wi-Fi 6", "BLE 5.2", "USB-C", "I2C", "SPI", "UART", "ADC", "DAC"], "power_consumption": "30mA-150mA", "price_range": "150-300", "ram_size": "512KB", "slug": "nearlink-devkit-pro", "supported_frameworks": ["NearLink SDK", "Arduino", "ESP-IDF", "PlatformIO"], "vendor": "Huawei"}, {"buy_url": null, "category": "general", "category_name": "\u901a\u7528\u5f00\u53d1\u677f", "chip_architecture": "NearLink", "community_url": null, "cpu_speed": "120MHz", "description": "\u661f\u95ea\u4f20\u611f\u5668\u8282\u70b9\uff0c\u8d85\u4f4e\u529f\u8017\u8bbe\u8ba1\uff0c\u652f\u6301\u661f\u95ea\u4f4e\u529f\u8017\u6a21\u5f0f\uff0c\u9002\u5408\u7535\u6c60\u4f9b\u7535\u7684\u4f20\u611f\u5668\u7f51\u7edc", "flash_size": "512KB", "gpio_count": 16, "id": 19, "image_url": "/static/images/nearlink-sensor.jpg", "mcu_model": "Hi3882", "name": "NearLink Sensor Node", "peripherals": ["NearLink", "BLE 5.0", "I2C", "SPI", "UART", "ADC"], "power_consumption": "10mA-50mA", "price_range": "50-100", "ram_size": "128KB", "slug": "nearlink-sensor-node", "supported_frameworks": ["NearLink SDK", "Arduino"], "vendor": "Huawei"}, {"buy_url": null, "category": "general", "category_name": "\u901a\u7528\u5f00\u53d1\u677f", "chip_architecture": "NearLink", "community_url": null, "cpu_speed": "400MHz", "description": "\u661f\u95ea\u7f51\u5173\u8bbe\u5907\uff0c\u652f\u6301\u661f\u95ea\u9ad8\u901f\u6a21\u5f0f\uff0c\u53ef\u8fde\u63a5\u591a\u4e2a\u661f\u95ea\u8bbe\u5907\uff0c\u6784\u5efa\u661f\u95ea\u7269\u8054\u7f51\u7f51\u7edc", "flash_size": "8MB", "gpio_count": 32, "id": 20, "image_url": "/static/images/nearlink-gateway.jpg", "mcu_model": "Hi3883", "name": "NearLink Gateway", "peripherals": ["NearLink", "Wi-Fi 6", "BLE 5.2", "Ethernet", "USB 3.0", "I2C", "SPI", "UART", "CAN"], "power_consumption": "200mA-500mA", "price_range": "300-500", "ram_size": "2MB", "slug": "nearlink-gateway", "supported_frameworks": ["NearLink SDK", "Linux", "OpenWrt"], "vendor": "Huawei"}];
+    window.__COMPARE_I18N__ = {
+        spec: "Specification",
+        vendor: "Vendor",
+        mcu: "Chip model",
+        cpu: "CPU clock speed",
+        flash: "Flash",
+        ram: "RAM",
+        gpio: "GPIO count",
+        power: "Power",
+        price: "Price Range",
+        peripherals: "Peripherals",
+        frameworks: "Frameworks",
+        action: "Actions",
+        details: "View details",
+        piece: "pcs",
+        currency: "\u00a5"
+    };
+
+    (function () {
+        var all = window.__COMPARE_BOARDS__ || [];
+        var i18n = window.__COMPARE_I18N__;
+        var ids = new URLSearchParams(window.location.search).getAll('id');
+        var selected = ids.map(function (id) {
+            return all.find(function (b) { return String(b.id) === String(id); });
+        }).filter(Boolean).slice(0, 4);
+
+        if (!selected.length) {
+            document.getElementById('compareEmpty').hidden = false;
+            return;
+        }
+        document.getElementById('compareTableWrap').hidden = false;
+
+        var table = document.getElementById('compareTable');
+        var thead = table.querySelector('thead');
+        var tbody = table.querySelector('tbody');
+
+        function cell(text, tag, cls) {
+            var el = document.createElement(tag || 'td');
+            if (cls) el.className = cls;
+            el.textContent = text == null || text === '' ? '—' : String(text);
+            return el;
+        }
+
+        var headRow = document.createElement('tr');
+        headRow.appendChild(cell(i18n.spec, 'th'));
+        selected.forEach(function (b) {
+            var th = document.createElement('th');
+            var wrap = document.createElement('div');
+            wrap.className = 'text-center';
+            var badge = document.createElement('span');
+            badge.className = 'badge badge-primary';
+            badge.textContent = b.chip_architecture || '';
+            var name = document.createElement('h4');
+            name.className = 'font-bold mt-2';
+            name.textContent = b.name;
+            wrap.appendChild(badge);
+            wrap.appendChild(name);
+            th.appendChild(wrap);
+            headRow.appendChild(th);
+        });
+        thead.appendChild(headRow);
+
+        var rows = [
+            [i18n.vendor, function (b) { return b.vendor; }],
+            [i18n.mcu, function (b) { return b.mcu_model; }],
+            [i18n.cpu, function (b) { return b.cpu_speed; }],
+            [i18n.flash, function (b) { return b.flash_size; }],
+            [i18n.ram, function (b) { return b.ram_size; }],
+            [i18n.gpio, function (b) { return b.gpio_count ? b.gpio_count + i18n.piece : ''; }],
+            [i18n.power, function (b) { return b.power_consumption; }],
+            [i18n.price, function (b) { return b.price_range ? i18n.currency + b.price_range : ''; }],
+            [i18n.peripherals, function (b) { return (b.peripherals || []).join(' / '); }],
+            [i18n.frameworks, function (b) { return (b.supported_frameworks || []).join(' / '); }]
+        ];
+
+        rows.forEach(function (row) {
+            var tr = document.createElement('tr');
+            var th = document.createElement('td');
+            var strong = document.createElement('strong');
+            strong.textContent = row[0];
+            th.appendChild(strong);
+            tr.appendChild(th);
+            selected.forEach(function (b) { tr.appendChild(cell(row[1](b))); });
+            tbody.appendChild(tr);
+        });
+
+        var actionRow = document.createElement('tr');
+        var actionTh = document.createElement('td');
+        var actionStrong = document.createElement('strong');
+        actionStrong.textContent = i18n.action;
+        actionTh.appendChild(actionStrong);
+        actionRow.appendChild(actionTh);
+        selected.forEach(function (b) {
+            var td = document.createElement('td');
+            var a = document.createElement('a');
+            a.href = '/board/' + b.slug;
+            a.className = 'btn btn-primary btn-sm';
+            a.textContent = i18n.details;
+            td.appendChild(a);
+            actionRow.appendChild(td);
+        });
+        tbody.appendChild(actionRow);
+    })();
+    </script>
 
     </main>
 
@@ -356,18 +325,15 @@
             <div class="newsletter-card">
                 <div class="row align-items-center">
                     <div class="col-lg-7">
-                        <h3 class="text-xl font-bold mb-2">Stay Ahead of the Curve</h3>
-                        <p class="text-secondary text-sm mb-4 mb-lg-0">Get weekly curated picks, trending boards, and exclusive hardware engineering tips delivered to your inbox</p>
+                        <h3 class="text-xl font-bold mb-2">Follow @GeekWaedon for Weekly Updates</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">Board picks, project breakdowns and hardware engineering tips, first published on WeChat and Knowledge Planet.</p>
                     </div>
                     <div class="col-lg-5">
-                        <form id="newsletterForm" class="newsletter-form" onsubmit="handleNewsletter(event)">
-                            <input type="email" id="newsletterEmail" class="input-zouic" placeholder="Enter your email address" required>
-                            <button type="submit" class="btn-zouic btn-zouic-primary btn-zouic-lg">Subscribe</button>
-                        </form>
+                        <a href="/en/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">See How to Follow</a>
                         <div class="newsletter-benefits">
                             <span class="newsletter-benefit"><i class="fas fa-check"></i> Weekly curated board picks</span>
                             <span class="newsletter-benefit"><i class="fas fa-check"></i> Exclusive project deep-dives</span>
-                            <span class="newsletter-benefit"><i class="fas fa-check"></i> No spam, unsubscribe anytime</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Updated on WeChat and Knowledge Planet</span>
                         </div>
                     </div>
                 </div>
@@ -375,7 +341,7 @@
         </div>
     </section>
 
-    <section class="py-4" aria-label="出品人">
+    <section class="py-4" aria-label="Produced by">
         <div class="author-card">
             <div class="author-card-info">
                 <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
@@ -386,7 +352,7 @@
             </div>
             <div class="author-card-actions">
                 <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Join my Knowledge Planet</a>
-                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;极客微栋&#34;</span>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;GeekWaedon&#34;</span>
             </div>
         </div>
     </section>
@@ -395,7 +361,7 @@
         <div class="container">
             <div class="row footer-main">
                 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
-                    <a href="/" class="footer-brand" aria-label="ZouIC 首页">
+                    <a href="/en/" class="footer-brand" aria-label="ZouIC home">
                         <i class="fas fa-microchip"></i>
                         <span>ZouIC</span>
                     </a>
@@ -403,26 +369,27 @@
 
                     <div class="footer-meta">
                         <p class="footer-author">
-                            出品人 · <strong>极客微栋</strong>
+                            Produced by · <strong>GeekWaedon</strong>
                             <span class="footer-author-handle">@GeekWaedon</span>
                         </p>
                         <div class="footer-slash-tags">
-                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span>
-                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span>
-                            <a href="/en/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商资质">
-                                <i class="fab fa-weixin"></i> 企业微信服务商
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware enthusiast</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI practitioner</span>
+                            <a href="/en/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom service provider">
+                                <i class="fab fa-weixin"></i> WeCom service provider
                             </a>
                         </div>
                     </div>
 
                     <div class="footer-social">
-                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a>
-                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a>
-                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a>
-                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a>
-                        <a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋（微信内搜索）"><i class="fab fa-weixin"></i></a>
-                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a>
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a>
+                        <a href="/en/#follow" class="footer-social-link" aria-label="WeChat Official Account · GeekWaedon" title="WeChat Official Account · GeekWaedon"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a>
                         <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
@@ -442,6 +409,7 @@
                         <li><a href="/en/documentation">Documentation</a></li>
                         <li><a href="/en/cases">Project Cases</a></li>
                         <li><a href="/en/help">Documentation</a></li>
+                        <li><a href="/en/dashuju">Data Dashboard</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-2 mb-4 mb-md-0">
@@ -450,7 +418,7 @@
                         <li><a href="/en/open-source">Open Source Projects</a></li>
                         <li><a href="/en/articles">Articles</a></li>
                         <li><a href="/en/contribute">Contribute</a></li>
-                        <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-2">
@@ -466,12 +434,13 @@
             <div class="footer-bottom">
                 <p>© 2026 ZouIC. All rights reserved.</p>
                 <p>Open source projects aggregated on this platform follow their respective open source licenses. For details, please see the <a href="/en/licenses">Open Source Licenses</a> page.</p>
+                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
     </button>
 
@@ -618,8 +587,8 @@
                     <i class="fas fa-robot"></i>
                     <span>AI Assistant</span>
                 </div>
-                <button id="agent-chat-close" class="btn-zouic btn-zouic-ghost btn-zouic-sm" style="color: rgba(255,255,255,0.8);">
-                    <i class="fas fa-times"></i>
+                <button id="agent-chat-close" class="btn-zouic btn-zouic-ghost btn-zouic-sm" aria-label="Close" style="color: rgba(255,255,255,0.8);">
+                    <i class="fas fa-times" aria-hidden="true"></i>
                 </button>
             </div>
             <div id="agent-chat-messages" class="chat-widget-messages">
@@ -627,7 +596,7 @@
                     <div class="chat-widget-toggle" style="width: 32px; height: 32px; font-size: 0.75rem; flex-shrink: 0;">
                         <i class="fas fa-robot"></i>
                     </div>
-                    <div class="bg-secondary/50 rounded-lg rounded-tl-none p-3 text-sm" style="background-color: rgba(14, 165, 233, 0.15);">
+                    <div class="bg-secondary/50 rounded-lg rounded-tl-none p-3 text-sm" style="background-color: rgba(255, 0, 110, 0.15);">
                         Search boards, projects or keywords...
                     </div>
                 </div>
@@ -636,15 +605,16 @@
                 <div class="d-flex gap-2">
                     <input type="text" id="agent-chat-input" 
                         class="input-zouic flex-grow-1"
+                        aria-label="Enter your message..."
                         placeholder="Enter your message...">
-                    <button id="agent-chat-send" class="btn-zouic btn-zouic-primary btn-zouic-sm">
-                        <i class="fas fa-paper-plane"></i>
+                    <button id="agent-chat-send" class="btn-zouic btn-zouic-primary btn-zouic-sm" aria-label="Send">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <button id="agent-chat-toggle" class="chat-widget-toggle">
-            <i class="fas fa-robot" style="font-size: 1.25rem;"></i>
+        <button id="agent-chat-toggle" class="chat-widget-toggle" aria-label="AI Assistant" aria-expanded="false">
+            <i class="fas fa-robot" style="font-size: 1.25rem;" aria-hidden="true"></i>
         </button>
     </div>
 
@@ -662,7 +632,9 @@
             if (chatToggle && chatContainer) {
                 chatToggle.addEventListener('click', function() {
                     chatContainer.classList.toggle('open');
-                    if (chatContainer.classList.contains('open')) {
+                    var isOpen = chatContainer.classList.contains('open');
+                    chatToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    if (isOpen) {
                         chatInput.focus();
                     }
                 });
@@ -671,6 +643,8 @@
             if (chatClose && chatContainer) {
                 chatClose.addEventListener('click', function() {
                     chatContainer.classList.remove('open');
+                    chatToggle.setAttribute('aria-expanded', 'false');
+                    chatToggle.focus();
                 });
             }
             
@@ -687,8 +661,8 @@
                 bubble.className = 'rounded-lg px-3 py-2 text-sm ' +
                     (isUser ? 'rounded-tr-none' : 'rounded-tl-none');
                 bubble.style.cssText = isUser 
-                    ? 'background-color: rgba(0, 212, 170, 0.15); color: var(--color-text-primary);'
-                    : 'background-color: rgba(14, 165, 233, 0.15); color: var(--color-text-primary);';
+                    ? 'background-color: rgba(0, 229, 255, 0.15); color: var(--color-text-primary);'
+                    : 'background-color: rgba(255, 0, 110, 0.15); color: var(--color-text-primary);';
                 bubble.textContent = text;
                 
                 div.appendChild(isUser ? bubble : avatar);
@@ -752,11 +726,11 @@
             if (saved.includes(id)) {
                 saved = saved.filter(function(i) { return i !== id; });
                 localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
-                showToast('已取消收藏');
+                showToast('Removed from favorites');
             } else {
                 saved.push(id);
                 localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
-                showToast('收藏成功');
+                showToast('Saved to favorites');
             }
         };
         
@@ -767,32 +741,9 @@
             document.body.appendChild(toast);
             setTimeout(function() { toast.remove(); }, 3000);
         };
-        
-        // --- Newsletter form handler ---
-        window.handleNewsletter = function(e) {
-            e.preventDefault();
-            const emailInput = document.getElementById('newsletterEmail');
-            if (!emailInput || !emailInput.value.trim()) return;
-            
-            const btn = e.target.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
-            btn.textContent = 'Subscribed!';
-            btn.disabled = true;
-            
-            // Simulate subscription (in production, send to API)
-            setTimeout(function() {
-                btn.textContent = '✓ ' + originalText;
-                btn.disabled = false;
-                emailInput.value = '';
-                
-                // Show toast
-                const toast = document.createElement('div');
-                toast.className = 'toast-zouic toast-zouic-success show';
-                toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Subscribed!';
-                document.body.appendChild(toast);
-                setTimeout(function() { toast.remove(); }, 3000);
-            }, 1000);
-        };
     </script>
+    
+    
+    
 </body>
 </html>

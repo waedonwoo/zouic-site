@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="低功耗Wi-Fi+BLE RISC-V MCU，适合物联网和智能家居应用 - ZouIC - 全球开源开发板Demo聚合平台，提供开发板数据库、项目搜索、技术文档等一站式硬件开发资源服务">
+    <meta name="keywords" content="Bouffalo Lab BL602, RISC-V, 开源开发板,硬件开发,Demo项目,嵌入式开发,ESP32,STM32,RP2040,RISC-V,Arduino,MicroPython">
+    
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    
+    
+    
+    
+    <link rel="canonical" href="https://www.zouic.com/board/bouffalo-lab-bl602">
+    
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/board/bouffalo-lab-bl602" />
+    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/board/bouffalo-lab-bl602" />
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/board/bouffalo-lab-bl602" />
+    
+    
+    
+    <meta property="og:title" content="Bouffalo Lab BL602 - ZouIC">
+    <meta property="og:description" content="低功耗Wi-Fi+BLE RISC-V MCU，适合物联网和智能家居应用">
+    <meta property="og:url" content="https://www.zouic.com/board/bouffalo-lab-bl602">
+    <meta property="og:type" content="object">
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bouffalo Lab BL602 - ZouIC">
+    <meta name="twitter:description" content="低功耗Wi-Fi+BLE RISC-V MCU，适合物联网和智能家居应用">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Product", "additionalProperty": [{"@type": "PropertyValue", "name": "Architecture", "value": "RISC-V"}, {"@type": "PropertyValue", "name": "CPU Speed", "value": "133MHz"}, {"@type": "PropertyValue", "name": "Flash", "value": "4MB"}, {"@type": "PropertyValue", "name": "RAM", "value": "256KB"}], "brand": {"@type": "Brand", "name": "Bouffalo Lab"}, "category": "general", "description": "\u4f4e\u529f\u8017Wi-Fi+BLE RISC-V MCU\uff0c\u9002\u5408\u7269\u8054\u7f51\u548c\u667a\u80fd\u5bb6\u5c45\u5e94\u7528", "image": "https://www.zouic.com/static/images/og-cover.jpg", "model": "BL602", "name": "Bouffalo Lab BL602", "offers": {"@type": "AggregateOffer", "availability": "https://schema.org/InStock", "highPrice": "50", "lowPrice": "20", "priceCurrency": "CNY"}, "url": "https://www.zouic.com/board/bouffalo-lab-bl602"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/boards", "name": "\u5f00\u53d1\u677f\u5e93", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/board/bouffalo-lab-bl602", "name": "Bouffalo Lab BL602", "position": 3}]}]}
+    </script>
+    
+    
+    <title>Bouffalo Lab BL602 - ZouIC</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    
+    <!-- External Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    
+    <!-- ZouIC Design System -->
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261023e">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261023e">
+    <noscript>
+        <style>
+            /* 关闭 JS 时不要因为滚动动画而隐藏内容 */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261023b">
+    
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-microchip"></i> ZouIC
+            </a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
+                <span class="nav-hud-dot"></span>SYS.ONLINE
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/boards">开发板库</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/board-guide">文档中心</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projects">Demo项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/all-projects"><i class="fas fa-project-diagram me-1"></i>外部平台项目</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/products"><i class="fas fa-box me-2"></i>产品介绍</a></li>
+                            <li><a class="dropdown-item" href="/services"><i class="fas fa-cogs me-2"></i>服务说明</a></li>
+                            <li><a class="dropdown-item" href="/news"><i class="fas fa-newspaper me-2"></i>行业资讯</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/tutorials"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li>
+                            <li><a class="dropdown-item" href="/documentation"><i class="fas fa-book me-2"></i>技术文档</a></li>
+                            <li><a class="dropdown-item" href="/cases"><i class="fas fa-briefcase me-2"></i>项目案例</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/open-source"><i class="fas fa-code-branch me-2"></i>开源项目</a></li>
+                            <li><a class="dropdown-item" href="/articles"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li>
+                            <li><a class="dropdown-item" href="/contribute"><i class="fas fa-handshake me-2"></i>贡献指南</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/dashuju"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-lg-none"><a class="nav-link" href="/search"><i class="fas fa-search me-1"></i>搜索</a></li>
+                </ul>
+                <form id="searchForm" class="d-flex me-3 d-none d-lg-flex">
+                    <div class="input-group input-group-zouic">
+                        <input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" style="width: 200px;">
+                        <select id="searchType" class="form-select input-zouic" aria-label="搜索类型:" style="width: auto; flex: 0 0 auto;">
+                            <option value="">全部分类</option>
+                            <option value="board">开发板库</option>
+                            <option value="project">Demo项目</option>
+                        </select>
+                        <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i> 中文
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/board/bouffalo-lab-bl602">
+                                <i class="fas fa-language me-2"></i> 中文
+                            </a></li>
+                            <li><a class="dropdown-item" href="/en/board/bouffalo-lab-bl602">
+                                <i class="fas fa-language me-2"></i> English
+                            </a></li>
+                        </ul>
+                    </div>
+                    
+                    <a href="/login" class="btn-zouic btn-zouic-ghost btn-zouic-sm">登录</a>
+                    <a href="/register" class="btn-zouic btn-zouic-primary btn-zouic-sm">注册</a>
+                    
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        
+    <section class="py-8">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-transparent">
+                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/boards">开发板库</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Bouffalo Lab BL602</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <section class="py-8">
+        <div class="container">
+            <div class="card-dark p-6 mb-6">
+                
+                
+
+
+
+<div style="height:200px;border-radius:12px;background:linear-gradient(135deg,#ea580c,#b45309);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;overflow:hidden;">
+  
+  <i class="fas fa-microchip" style="font-size:26px;color:rgba(255,255,255,.92);"></i>
+  <span style="color:rgba(255,255,255,.85);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">Bouffalo Lab</span>
+  
+</div>
+                <div class="row mt-4">
+                    <div class="col-lg-8">
+                        <div class="d-flex gap-4 mb-4">
+                            <span class="badge badge-primary">RISC-V</span>
+                            <span class="badge badge-secondary">Bouffalo Lab</span>
+                            <span class="badge badge-accent">¥20-50</span>
+                        </div>
+                        <h1 class="text-3xl font-bold mb-4">Bouffalo Lab BL602</h1>
+                        <p class="text-secondary">低功耗Wi-Fi+BLE RISC-V MCU，适合物联网和智能家居应用</p>
+                        <div class="d-flex gap-2 flex-wrap mt-4">
+                            <a href="/compare?id=14" class="btn-zouic btn-zouic-primary">
+                                <i class="fas fa-code-compare"></i> 加入对比
+                            </a>
+                            <a href="#buy" class="btn-zouic btn-zouic-secondary">
+                                <i class="fas fa-shopping-cart"></i> 购买渠道
+                            </a>
+                            <a href="/boards" class="btn-zouic btn-zouic-ghost">
+                                <i class="fas fa-arrow-left"></i> 开发板库
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card-zouic">
+                            <div class="card-zouic-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h4 class="font-bold">快速参数</h4>
+                                    <span class="engineer-badge"><i class="fas fa-check-circle"></i> 工程师验证</span>
+                                </div>
+                                <div class="quick-specs mb-3">
+                                    <div class="quick-spec">
+                                        <span class="quick-spec-value">133MHz</span>
+                                        <span class="quick-spec-label">主频</span>
+                                    </div>
+                                    <div class="quick-spec">
+                                        <span class="quick-spec-value">22</span>
+                                        <span class="quick-spec-label">GPIO</span>
+                                    </div>
+                                    <div class="quick-spec">
+                                        <span class="quick-spec-value">4MB</span>
+                                        <span class="quick-spec-label">Flash</span>
+                                    </div>
+                                    <div class="quick-spec">
+                                        <span class="quick-spec-value">256KB</span>
+                                        <span class="quick-spec-label">RAM</span>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="text-secondary">芯片型号</span>
+                                        <span>BL602</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <span class="text-secondary">功耗</span>
+                                        <span>20mA-80mA</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex gap-2 mt-4">
+                                    <button class="btn-zouic btn-zouic-ghost btn-zouic-sm" onclick="copyToClipboard(window.location.href)" title="分享给同事">
+                                        <i class="fas fa-share-alt"></i>
+                                    </button>
+                                    <button class="btn-zouic btn-zouic-ghost btn-zouic-sm" onclick="saveForLater(14)" title="稍后阅读">
+                                        <i class="fas fa-bookmark"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card-dark p-6">
+                        <h3 class="font-bold mb-4">外设接口</h3>
+                        <div class="row g-2">
+                            
+                            <div class="col-6">
+                                <span class="badge badge-primary">Wi-Fi</span>
+                            </div>
+                            
+                            <div class="col-6">
+                                <span class="badge badge-primary">BLE 5.0</span>
+                            </div>
+                            
+                            <div class="col-6">
+                                <span class="badge badge-primary">USB</span>
+                            </div>
+                            
+                            <div class="col-6">
+                                <span class="badge badge-primary">I2C</span>
+                            </div>
+                            
+                            <div class="col-6">
+                                <span class="badge badge-primary">SPI</span>
+                            </div>
+                            
+                            <div class="col-6">
+                                <span class="badge badge-primary">UART</span>
+                            </div>
+                            
+                            <div class="col-6">
+                                <span class="badge badge-primary">ADC</span>
+                            </div>
+                            
+                            <div class="col-6">
+                                <span class="badge badge-primary">DAC</span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card-dark p-6">
+                        <h3 class="font-bold mb-4">支持框架</h3>
+                        <div class="row g-2">
+                            
+                            <div class="col-6">
+                                <span class="badge badge-secondary">BL602 SDK</span>
+                            </div>
+                            
+                            <div class="col-6">
+                                <span class="badge badge-secondary">Arduino</span>
+                            </div>
+                            
+                            <div class="col-6">
+                                <span class="badge badge-secondary">Zephyr</span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6">
+                <h3 class="section-title text-xl font-bold">技术规格详情</h3>
+                <div class="card-dark p-6">
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <h4 class="font-bold mb-3">处理器信息</h4>
+                            <div class="space-y-2">
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-secondary">芯片架构</span>
+                                    <span>RISC-V</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-secondary">厂商</span>
+                                    <span>Bouffalo Lab</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-secondary">芯片型号</span>
+                                    <span>BL602</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-secondary">主频</span>
+                                    <span>133MHz</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <h4 class="font-bold mb-3">存储与内存</h4>
+                            <div class="space-y-2">
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-secondary">Flash</span>
+                                    <span>4MB</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-secondary">RAM</span>
+                                    <span>256KB</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-secondary">GPIO数量</span>
+                                    <span>22个</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-secondary">功耗</span>
+                                    <span>20mA-80mA</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6">
+                <h3 class="section-title text-xl font-bold">入门指南</h3>
+                <div class="card-dark p-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="text-center mb-4">
+                                <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                    <i class="fas fa-download text-primary"></i>
+                                </div>
+                                <h4 class="font-bold">安装开发环境</h4>
+                                <p class="text-secondary text-sm">下载并安装对应的SDK或IDE，配置开发环境</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center mb-4">
+                                <div class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                    <i class="fas fa-plug text-secondary"></i>
+                                </div>
+                                <h4 class="font-bold">连接硬件</h4>
+                                <p class="text-secondary text-sm">使用USB线连接开发板到电脑，安装驱动程序</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center mb-4">
+                                <div class="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                    <i class="fas fa-play text-accent"></i>
+                                </div>
+                                <h4 class="font-bold">运行示例</h4>
+                                <p class="text-secondary text-sm">加载示例代码，编译并上传到开发板</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6">
+                <h3 class="section-title text-xl font-bold">开发资源</h3>
+                <div class="card-dark p-6">
+                    <div class="row g-4">
+                        <div class="col-md-3">
+                            <a href="/help#board-guide" class="d-block text-center p-4 hover-underline" aria-label="官方文档">
+                                <i class="fas fa-book text-primary fa-2x mb-2"></i>
+                                <h4 class="font-bold">官方文档</h4>
+                                <p class="text-secondary text-sm">芯片手册和开发指南</p>
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="/help#board-guide" class="d-block text-center p-4 hover-underline" aria-label="SDK下载">
+                                <i class="fas fa-code text-secondary fa-2x mb-2"></i>
+                                <h4 class="font-bold">SDK下载</h4>
+                                <p class="text-secondary text-sm">软件开发工具包</p>
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="/help#getting-started" class="d-block text-center p-4 hover-underline" aria-label="视频教程">
+                                <i class="fas fa-video text-accent fa-2x mb-2"></i>
+                                <h4 class="font-bold">视频教程</h4>
+                                <p class="text-secondary text-sm">入门视频和实战演示</p>
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="/about#contact" class="d-block text-center p-4 hover-underline" aria-label="社区论坛">
+                                <i class="fas fa-users text-yellow-500 fa-2x mb-2"></i>
+                                <h4 class="font-bold">社区论坛</h4>
+                                <p class="text-secondary text-sm">提问交流和问题解答</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-dark p-6 mt-6" id="buy">
+                <h3 class="section-title text-xl font-bold">购买渠道</h3>
+                <p class="text-secondary text-sm mb-3">以下链接直达第三方平台搜索结果，仅供比价参考。</p>
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <a href="https://search.jd.com/Search?keyword=Bouffalo%20Lab%20BL602" target="_blank" rel="noopener nofollow" class="card-dark p-4 block text-decoration-none text-center">
+                            <i class="fas fa-shopping-cart text-danger fa-2x mb-2"></i>
+                            <h4 class="font-bold">京东</h4>
+                            <p class="text-secondary text-sm mb-0">搜索 "Bouffalo Lab BL602"</p>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="https://s.taobao.com/search?q=Bouffalo%20Lab%20BL602" target="_blank" rel="noopener nofollow" class="card-dark p-4 block text-decoration-none text-center">
+                            <i class="fas fa-store text-warning fa-2x mb-2"></i>
+                            <h4 class="font-bold">淘宝</h4>
+                            <p class="text-secondary text-sm mb-0">搜索 "Bouffalo Lab BL602"</p>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="https://www.amazon.com/s?k=Bouffalo%20Lab%20BL602" target="_blank" rel="noopener nofollow" class="card-dark p-4 block text-decoration-none text-center">
+                            <i class="fab fa-amazon fa-2x mb-2"></i>
+                            <h4 class="font-bold">Amazon</h4>
+                            <p class="text-secondary text-sm mb-0">Search "Bouffalo Lab BL602"</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="card-dark p-4 mt-6 d-flex flex-wrap align-items-center justify-content-between" style="gap:12px;border-left:4px solid #1b5fd9;">
+                <div>
+                    <strong>Bouffalo Lab BL602 的深度实战笔记</strong>
+                    <p class="text-secondary text-sm mb-0">将收录进《开源硬件实战选型手册》，星球成员可优先阅读并与出品人直接交流。</p>
+                </div>
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="btn-zouic btn-zouic-secondary btn-zouic-sm"><i class="fas fa-star me-1"></i>加入知识星球</a>
+            </div>
+            
+
+            
+        </div>
+    </section>
+
+    
+    
+<section class="section-zouic reveal py-12" id="contact">
+    <div class="container">
+        <div class="zlead-card">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-5">
+                    <span class="section-zouic-badge" style="background:rgba(0,229,255,.12);color:var(--color-primary);">
+                        <i class="fas fa-bolt"></i> 免费咨询
+                    </span>
+                    <h2 class="section-zouic-title mt-3 mb-3">说说你的项目，给你一份可执行的方案</h2>
+                    <p class="text-secondary mb-4" style="line-height:1.8;">留下你的需求，我会在一个工作日内通过邮件和微信回复你。</p>
+                    <div class="d-flex flex-column gap-2" style="font-size:14px;">
+                        <a href="mailto:waedon@outlook.com" class="text-secondary"><i class="fas fa-envelope me-2"></i>waedon@outlook.com</a>
+                        <a href="/#follow" class="text-secondary"><i class="fab fa-weixin me-2"></i>公众号&#34;极客微栋&#34;</a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="text-secondary"><i class="fab fa-zhihu me-2"></i>知乎 · GeekWaedon</a>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <form id="zleadForm-board" class="zlead-form" novalidate>
+                        <input type="hidden" name="source" value="board">
+                        <input type="hidden" name="page_path" data-attrib>
+                        <input type="hidden" name="referrer" data-attrib>
+                        <input type="hidden" name="utm_source" data-attrib>
+                        <input type="hidden" name="utm_medium" data-attrib>
+                        <input type="hidden" name="utm_campaign" data-attrib>
+                        <div class="zlead-row">
+                            <div class="zlead-field">
+                                <label for="zleadName-board">姓名 <span class="zlead-req">*</span></label>
+                                <input type="text" id="zleadName-board" name="name" required autocomplete="name" placeholder="怎么称呼你？">
+                            </div>
+                            <div class="zlead-field">
+                                <label for="zleadContact-board">邮箱 / 微信 <span class="zlead-req">*</span></label>
+                                <input type="text" id="zleadContact-board" name="contact" required autocomplete="email" placeholder="name@company.com 或微信号">
+                            </div>
+                        </div>
+                        <div class="zlead-row">
+                            <div class="zlead-field">
+                                <label for="zleadCompany-board">公司 / 团队（选填）</label>
+                                <input type="text" id="zleadCompany-board" name="company" autocomplete="organization" placeholder="公司或团队名称">
+                            </div>
+                            <div class="zlead-field">
+                                <label for="zleadCity-board">城市（选填）</label>
+                                <input type="text" id="zleadCity-board" name="city" autocomplete="address-level2" placeholder="所在城市或地区">
+                            </div>
+                        </div>
+                        <div class="zlead-field">
+                            <label for="zleadMessage-board">你的需求 <span class="zlead-req">*</span></label>
+                            <textarea id="zleadMessage-board" name="message" required placeholder="项目目标、正在考虑的板子、预算或时间要求……"></textarea>
+                        </div>
+                        <button type="submit" class="btn-zouic btn-zouic-primary w-100 zlead-submit">
+                            <i class="fas fa-paper-plane me-2"></i>提交需求
+                        </button>
+                        <div class="zlead-msg" role="status" aria-live="polite"></div>
+                        <p class="zlead-privacy">信息仅用于回复本次咨询，不发垃圾邮件、不对外分享。</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .zlead-card { background: linear-gradient(135deg, rgba(0,229,255,.08), rgba(167,139,250,.08)); border: 1px solid rgba(0,229,255,.25); border-radius: 20px; padding: clamp(20px, 4vw, 40px); }
+    .zlead-form { max-width: 620px; margin: 0 auto; text-align: left; }
+    .zlead-form label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--color-text-primary); }
+    .zlead-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .zlead-field { margin-bottom: 14px; }
+    .zlead-field input, .zlead-field textarea { width: 100%; padding: 11px 14px; border-radius: 10px; border: 1px solid var(--color-border-default); background: rgba(255,255,255,.05); color: var(--color-text-primary); font-size: 14px; }
+    .zlead-field input:focus, .zlead-field textarea:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0,229,255,.15); }
+    .zlead-field textarea { resize: vertical; min-height: 96px; font-family: inherit; }
+    .zlead-req { color: #f87171; }
+    .zlead-submit { padding: 13px; }
+    .zlead-msg { display: none; margin-top: 12px; padding: 10px 14px; border-radius: 10px; font-size: 13.5px; }
+    .zlead-msg.success { display: block; background: rgba(74,222,128,.1); color: #4ade80; border: 1px solid rgba(74,222,128,.3); }
+    .zlead-msg.error { display: block; background: rgba(248,113,113,.1); color: #f87171; border: 1px solid rgba(248,113,113,.3); }
+    .zlead-privacy { margin: 12px 0 0; font-size: 12px; color: var(--color-text-secondary, #94a3b8); }
+    @media (max-width: 575px) { .zlead-row { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+(function () {
+    var form = document.getElementById('zleadForm-board');
+    if (!form) return;
+
+    var TARGET_EMAIL = 'waedon@outlook.com';
+    var btn = form.querySelector('.zlead-submit');
+    var msg = form.querySelector('.zlead-msg');
+    var btnHtml = btn.innerHTML;
+
+    (function initAttribution() {
+        var params = new URLSearchParams(window.location.search);
+        var values = {
+            page_path: window.location.pathname + window.location.search,
+            referrer: document.referrer || '',
+            utm_source: params.get('utm_source') || '',
+            utm_medium: params.get('utm_medium') || '',
+            utm_campaign: params.get('utm_campaign') || ''
+        };
+        form.querySelectorAll('[data-attrib]').forEach(function (el) {
+            el.value = values[el.name] || '';
+        });
+    })();
+
+    var COPY = {
+        submitting: "\u63d0\u4ea4\u4e2d...",
+        success: "\u5df2\u6536\u5230\uff0c\u6211\u4f1a\u5728\u4e00\u4e2a\u5de5\u4f5c\u65e5\u5185\u901a\u8fc7\u90ae\u4ef6\u548c\u5fae\u4fe1\u56de\u590d\u4f60\u3002",
+        required: "\u8bf7\u586b\u5199\u59d3\u540d\u3001\u8054\u7cfb\u65b9\u5f0f\u548c\u9700\u6c42\u63cf\u8ff0\u3002",
+        contact: "\u8bf7\u586b\u5199\u6709\u6548\u7684\u90ae\u7bb1\u6216\u5fae\u4fe1\u53f7\u3002",
+        generic: "\u63d0\u4ea4\u5931\u8d25\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5\uff0c\u6216\u76f4\u63a5\u53d1\u90ae\u4ef6\u81f3 waedon@outlook.com",
+        prefix: "[ZouIC \u54a8\u8be2] "
+    };
+
+    form.addEventListener('submit', async function (event) {
+        event.preventDefault();
+        msg.className = 'zlead-msg';
+        msg.textContent = '';
+
+        var name = form.name.value.trim();
+        var contact = form.contact.value.trim();
+        var message = form.message.value.trim();
+        var extra = {
+            company: form.company.value.trim(),
+            city: form.city.value.trim(),
+            source: 'board',
+            page_path: form.page_path.value,
+            referrer: form.referrer.value,
+            utm_source: form.utm_source.value,
+            utm_medium: form.utm_medium.value,
+            utm_campaign: form.utm_campaign.value
+        };
+
+        if (!name || !contact || !message) {
+            msg.className = 'zlead-msg error';
+            msg.textContent = COPY.required;
+            return;
+        }
+        if (contact.indexOf('@') !== -1 && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact)) {
+            msg.className = 'zlead-msg error';
+            msg.textContent = COPY.contact;
+            return;
+        }
+
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>' + COPY.submitting;
+
+        var submitted = false;
+
+        try {
+            var apiRes = await fetch('/api/lead', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(Object.assign({
+                    name: name,
+                    email: contact,
+                    message: message
+                }, extra))
+            });
+            if (apiRes.ok) {
+                var apiData = await apiRes.json();
+                submitted = apiData.success === true;
+            }
+        } catch (err) {
+            /* static hosting has no backend; fall through to the email relay */
+        }
+
+        if (!submitted) {
+            try {
+                var payload = {
+                    name: name,
+                    contact: contact,
+                    message: contact.indexOf('@') === -1 ? message + '\n\nWeChat: ' + contact : message,
+                    _subject: COPY.prefix + name + (extra.company ? ' - ' + extra.company : ''),
+                    _template: 'table'
+                };
+                Object.keys(extra).forEach(function (key) {
+                    if (extra[key]) payload[key] = extra[key];
+                });
+                if (contact.indexOf('@') !== -1) {
+                    payload.email = contact;
+                }
+                var res = await fetch('https://formsubmit.co/ajax/' + TARGET_EMAIL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                var data = await res.json();
+                if (!res.ok || data.success !== 'true') {
+                    throw new Error(data.message || 'submit failed');
+                }
+                submitted = true;
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        if (submitted) {
+            msg.className = 'zlead-msg success';
+            msg.textContent = COPY.success;
+            form.reset();
+        } else {
+            msg.className = 'zlead-msg error';
+            msg.textContent = COPY.generic;
+        }
+        btn.disabled = false;
+        btn.innerHTML = btnHtml;
+    });
+})();
+</script>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Newsletter Section -->
+    <section class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a>
+                        <div class="newsletter-benefits">
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4" aria-label="出品人">
+        <div class="author-card">
+            <div class="author-card-info">
+                <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
+                <div>
+                    <div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div>
+                    <div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div>
+                </div>
+            </div>
+            <div class="author-card-actions">
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-zouic" role="contentinfo">
+        <div class="container">
+            <div class="row footer-main">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
+                    <a href="/" class="footer-brand" aria-label="ZouIC 首页">
+                        <i class="fas fa-microchip"></i>
+                        <span>ZouIC</span>
+                    </a>
+                    <p class="footer-tagline">平台聚合的开源项目遵循其各自的开源许可证。详情请参阅</p>
+
+                    <div class="footer-meta">
+                        <p class="footer-author">
+                            出品人 · <strong>极客微栋</strong>
+                            <span class="footer-author-handle">@GeekWaedon</span>
+                        </p>
+                        <div class="footer-slash-tags">
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span>
+                            <a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商">
+                                <i class="fab fa-weixin"></i> 企业微信服务商
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a>
+                        <a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a>
+                        <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>产品</h5>
+                    <ul>
+                        <li><a href="/products">产品介绍</a></li>
+                        <li><a href="/services">服务说明</a></li>
+                        <li><a href="/news">行业资讯</a></li>
+                        <li><a href="/boards">开发板库</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>资源</h5>
+                    <ul>
+                        <li><a href="/tutorials">开发板教程</a></li>
+                        <li><a href="/documentation">技术文档</a></li>
+                        <li><a href="/cases">项目案例</a></li>
+                        <li><a href="/help">文档中心</a></li>
+                        <li><a href="/dashuju">数据大屏</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>开源生态</h5>
+                    <ul>
+                        <li><a href="/open-source">开源项目</a></li>
+                        <li><a href="/articles">技术文章</a></li>
+                        <li><a href="/contribute">贡献指南</a></li>
+                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h5>关于</h5>
+                    <ul>
+                        <li><a href="/about">关于我们</a></li>
+                        <li><a href="/about#contact">联系我们</a></li>
+                        <li><a href="/licenses">开源协议</a></li>
+                        <li><a href="/about#privacy">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ZouIC. All rights reserved.</p>
+                <p>平台聚合的开源项目遵循其各自的开源许可证。详情请参阅 <a href="/licenses">开源协议</a> 页面。</p>
+                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // 先把 html 标记为 reveal-ready，CSS 才隐藏"未进入视口"的区块；
+            // 若观察器异常，2 秒后兜底全部显示，避免整屏空白。
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <!-- AI Chat Widget -->
+    <div class="chat-widget">
+        <div id="agent-chat-container" class="chat-widget-container">
+            <div class="chat-widget-header">
+                <div class="d-flex align-items-center gap-2">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Assistant</span>
+                </div>
+                <button id="agent-chat-close" class="btn-zouic btn-zouic-ghost btn-zouic-sm" aria-label="关闭" style="color: rgba(255,255,255,0.8);">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div id="agent-chat-messages" class="chat-widget-messages">
+                <div class="d-flex align-items-start gap-2 mb-4">
+                    <div class="chat-widget-toggle" style="width: 32px; height: 32px; font-size: 0.75rem; flex-shrink: 0;">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="bg-secondary/50 rounded-lg rounded-tl-none p-3 text-sm" style="background-color: rgba(255, 0, 110, 0.15);">
+                        Search boards, projects or keywords...
+                    </div>
+                </div>
+            </div>
+            <div class="chat-widget-input-area">
+                <div class="d-flex gap-2">
+                    <input type="text" id="agent-chat-input" 
+                        class="input-zouic flex-grow-1"
+                        aria-label="Enter your message..."
+                        placeholder="Enter your message...">
+                    <button id="agent-chat-send" class="btn-zouic btn-zouic-primary btn-zouic-sm" aria-label="发送">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <button id="agent-chat-toggle" class="chat-widget-toggle" aria-label="AI Assistant" aria-expanded="false">
+            <i class="fas fa-robot" style="font-size: 1.25rem;" aria-hidden="true"></i>
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatToggle = document.getElementById('agent-chat-toggle');
+            const chatContainer = document.getElementById('agent-chat-container');
+            const chatClose = document.getElementById('agent-chat-close');
+            const chatInput = document.getElementById('agent-chat-input');
+            const chatSend = document.getElementById('agent-chat-send');
+            const chatMessages = document.getElementById('agent-chat-messages');
+            
+            let agentSessionId = null;
+            
+            if (chatToggle && chatContainer) {
+                chatToggle.addEventListener('click', function() {
+                    chatContainer.classList.toggle('open');
+                    var isOpen = chatContainer.classList.contains('open');
+                    chatToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    if (isOpen) {
+                        chatInput.focus();
+                    }
+                });
+            }
+            
+            if (chatClose && chatContainer) {
+                chatClose.addEventListener('click', function() {
+                    chatContainer.classList.remove('open');
+                    chatToggle.setAttribute('aria-expanded', 'false');
+                    chatToggle.focus();
+                });
+            }
+            
+            const addMessage = function(text, isUser = false) {
+                const div = document.createElement('div');
+                div.className = 'd-flex align-items-start gap-2 mb-4' + (isUser ? ' flex-row-reverse' : '');
+                
+                const avatar = document.createElement('div');
+                avatar.className = 'chat-widget-toggle flex-shrink-0';
+                avatar.style.cssText = 'width: 32px; height: 32px; font-size: 0.75rem;';
+                avatar.innerHTML = isUser ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
+                
+                const bubble = document.createElement('div');
+                bubble.className = 'rounded-lg px-3 py-2 text-sm ' +
+                    (isUser ? 'rounded-tr-none' : 'rounded-tl-none');
+                bubble.style.cssText = isUser 
+                    ? 'background-color: rgba(0, 229, 255, 0.15); color: var(--color-text-primary);'
+                    : 'background-color: rgba(255, 0, 110, 0.15); color: var(--color-text-primary);';
+                bubble.textContent = text;
+                
+                div.appendChild(isUser ? bubble : avatar);
+                div.appendChild(isUser ? avatar : bubble);
+                chatMessages.appendChild(div);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            };
+            
+            const sendMessage = async function() {
+                const message = chatInput.value.trim();
+                if (!message) return;
+                
+                addMessage(message, true);
+                chatInput.value = '';
+                
+                try {
+                    const response = await fetch('/api/agent/query', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ input: message, session_id: agentSessionId })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        agentSessionId = data.session_id;
+                        if (data.response && data.response.text) {
+                            addMessage(data.response.text, false);
+                        }
+                    } else {
+                        addMessage('操作失败，请重试', false);
+                    }
+                } catch (error) {
+                    addMessage('网络错误，请重试', false);
+                }
+            };
+            
+            if (chatSend) chatSend.addEventListener('click', sendMessage);
+            if (chatInput) {
+                chatInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') sendMessage();
+                });
+            }
+        });
+        
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+</body>
+</html>

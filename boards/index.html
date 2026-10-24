@@ -1,36 +1,53 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head><link rel="alternate" hreflang="zh" href="https://www.zouic.com/boards"><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/boards"><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/boards">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="description" content="浏览和搜索各类开源开发板，包括ESP32、STM32、RP2040、RISC-V等，查看详细规格参数和技术文档。">
     <meta name="keywords" content="开发板库,ESP32开发板,STM32开发板,RP2040,RISC-V开发板,硬件开发板">
+    
     <meta name="author" content="ZouIC">
-    <meta name="theme-color" content="#00d4aa">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
-    <link rel="canonical" href="https://zouic.com/boards">
     
-    <link rel="alternate" hreflang="zh" href="https://zouic.com/boards" />
-    <link rel="alternate" hreflang="en" href="https://zouic.com/en/boards" />
-    <link rel="alternate" hreflang="x-default" href="https://zouic.com/boards" />
+    
+    
+    
+    
+    
+    <link rel="canonical" href="https://www.zouic.com/boards">
+    
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/boards" />
+    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/boards" />
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/boards" />
+    
+    
     
     <meta property="og:title" content="开发板库 - 开源开发板数据库 | ZouIC">
     <meta property="og:description" content="浏览和搜索各类开源开发板，包括ESP32、STM32、RP2040、RISC-V等，查看详细规格参数和技术文档。">
-    <meta property="og:url" content="https://zouic.com/boards">
+    <meta property="og:url" content="https://www.zouic.com/boards">
     <meta property="og:type" content="object">
     <meta property="og:site_name" content="ZouIC">
-    <meta property="og:image" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ZouIC%20open%20source%20hardware%20development%20board%20platform%20logo&amp;image_size=landscape_16_9">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="开发板库 - 开源开发板数据库 | ZouIC">
     <meta name="twitter:description" content="浏览和搜索各类开源开发板，包括ESP32、STM32、RP2040、RISC-V等，查看详细规格参数和技术文档。">
-    <meta name="twitter:image" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ZouIC%20open%20source%20hardware%20development%20board%20platform%20logo&amp;image_size=landscape_16_9">
-    <meta name="twitter:site" content="@zouic">
-    <meta name="twitter:creator" content="@zouic">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/boards", "name": "\u5f00\u53d1\u677f\u5e93", "position": 2}]}
+    </script>
     
     
     
@@ -42,9 +59,13 @@
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     
+    
     <!-- External Stylesheets -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
     
     <!-- ZouIC Design System -->
     <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261023e">
@@ -64,12 +85,12 @@
         .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
         .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
         .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
-        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.15); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
         .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
         .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
-        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 212, 170, 0.3); }
-        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(14, 165, 233, 0.3); }
-        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(139, 92, 246, 0.3); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
         .text-yellow-500 { color: #fbbf24; }
         .text-green-500 { color: #10b981; }
         .text-red-500 { color: #ef4444; }
@@ -80,6 +101,8 @@
         .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
         @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
     </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261023b">
+    
 </head>
 <body>
     <a href="#main-content" class="skip-link">跳转到主要内容</a>
@@ -90,6 +113,9 @@
             <a class="navbar-brand" href="/">
                 <i class="fas fa-microchip"></i> ZouIC
             </a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
+                <span class="nav-hud-dot"></span>SYS.ONLINE
+            </span>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -116,6 +142,8 @@
                             <li><a class="dropdown-item" href="/open-source"><i class="fas fa-code-branch me-2"></i>开源项目</a></li>
                             <li><a class="dropdown-item" href="/articles"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li>
                             <li><a class="dropdown-item" href="/contribute"><i class="fas fa-handshake me-2"></i>贡献指南</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/dashuju"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li>
                         </ul>
                     </li>
                     <li class="nav-item d-lg-none"><a class="nav-link" href="/search"><i class="fas fa-search me-1"></i>搜索</a></li>
@@ -124,7 +152,7 @@
                     <div class="input-group input-group-zouic">
                         <input type="text" id="searchQuery" class="form-control input-zouic" 
                                placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" style="width: 200px;">
-                        <select id="searchType" class="form-select input-zouic" style="width: auto; flex: 0 0 auto;">
+                        <select id="searchType" class="form-select input-zouic" aria-label="搜索类型:" style="width: auto; flex: 0 0 auto;">
                             <option value="">全部分类</option>
                             <option value="board">开发板库</option>
                             <option value="project">Demo项目</option>
@@ -293,7 +321,7 @@
                              data-gpio="30"
                              data-haystack="esp32-s3-devkitc espressif esp32 高性能双核处理器，支持wi-fi 6和ble 5.0，内置ai协处理器，适合物联网和边缘ai应用 wi-fi 6 ble 5.0 usb otg i2c spi uart adc dac">
                             <div class="position-relative h-100">
-                                <a href="/board/1" class="card-zouic board-card text-decoration-none d-block h-100">
+                                <a href="/board/esp32-s3-devkitc" class="card-zouic board-card text-decoration-none d-block h-100">
                                     
 
 
@@ -364,7 +392,7 @@
                              data-gpio="19"
                              data-haystack="esp32-c3-devkitm espressif esp32 risc-v架构，低成本低功耗，适合入门级物联网项目 wi-fi ble 5.0 i2c spi uart">
                             <div class="position-relative h-100">
-                                <a href="/board/2" class="card-zouic board-card text-decoration-none d-block h-100">
+                                <a href="/board/esp32-c3-devkitm" class="card-zouic board-card text-decoration-none d-block h-100">
                                     
 
 
@@ -435,7 +463,7 @@
                              data-gpio="37"
                              data-haystack="stm32f103c8t6 blue pill stmicroelectronics stm32 经典arm cortex-m3，适合工业控制和电机驱动项目 usb i2c spi uart can adc">
                             <div class="position-relative h-100">
-                                <a href="/board/3" class="card-zouic board-card text-decoration-none d-block h-100">
+                                <a href="/board/stm32f103c8t6-blue-pill" class="card-zouic board-card text-decoration-none d-block h-100">
                                     
 
 
@@ -506,7 +534,7 @@
                              data-gpio="144"
                              data-haystack="stm32f407zgt6 discovery stmicroelectronics stm32 高性能arm cortex-m4带dsp，适合复杂信号处理和工业应用 usb otg i2c spi uart can ethernet sdio adc dac">
                             <div class="position-relative h-100">
-                                <a href="/board/4" class="card-zouic board-card text-decoration-none d-block h-100">
+                                <a href="/board/stm32f407zgt6-discovery" class="card-zouic board-card text-decoration-none d-block h-100">
                                     
 
 
@@ -577,7 +605,7 @@
                              data-gpio="26"
                              data-haystack="raspberry pi pico raspberry pi rp2040 双核arm cortex-m0+，可编程pio，10年供货承诺，适合教育和diy项目 usb i2c spi uart pio">
                             <div class="position-relative h-100">
-                                <a href="/board/5" class="card-zouic board-card text-decoration-none d-block h-100">
+                                <a href="/board/raspberry-pi-pico" class="card-zouic board-card text-decoration-none d-block h-100">
                                     
 
 
@@ -648,7 +676,7 @@
                              data-gpio="22"
                              data-haystack="raspberry pi pico w raspberry pi rp2040 pico升级版，内置wi-fi和ble，适合无线物联网项目 wi-fi ble usb i2c spi uart pio">
                             <div class="position-relative h-100">
-                                <a href="/board/6" class="card-zouic board-card text-decoration-none d-block h-100">
+                                <a href="/board/raspberry-pi-pico-w" class="card-zouic board-card text-decoration-none d-block h-100">
                                     
 
 
@@ -719,7 +747,7 @@
                              data-gpio="20"
                              data-haystack="arduino uno r4 minima arduino ra4m1 经典uno的升级版，ra4m1处理器，适合教育和入门项目 usb-c i2c spi uart can">
                             <div class="position-relative h-100">
-                                <a href="/board/7" class="card-zouic board-card text-decoration-none d-block h-100">
+                                <a href="/board/arduino-uno-r4-minima" class="card-zouic board-card text-decoration-none d-block h-100">
                                     
 
 
@@ -789,7 +817,7 @@
                              data-gpio="22"
                              data-haystack="arduino nano esp32 arduino esp32 nano尺寸，esp32-s3核心，适合紧凑的物联网项目 wi-fi ble usb-c i2c spi uart">
                             <div class="position-relative h-100">
-                                <a href="/board/8" class="card-zouic board-card text-decoration-none d-block h-100">
+                                <a href="/board/arduino-nano-esp32" class="card-zouic board-card text-decoration-none d-block h-100">
                                     
 
 
@@ -860,7 +888,7 @@
                              data-gpio="40"
                              data-haystack="hifive unmatched sifive risc-v 高性能risc-v sbc，适合linux开发和高性能计算 ethernet usb 3.0 pcie i2c spi uart gpio">
                             <div class="position-relative h-100">
-                                <a href="/board/9" class="card-zouic board-card text-decoration-none d-block h-100">
+                                <a href="/board/hifive-unmatched" class="card-zouic board-card text-decoration-none d-block h-100">
                                     
 
 
@@ -931,7 +959,7 @@
                              data-gpio="32"
                              data-haystack="sifive hifive 1 rev b sifive risc-v sifive首款量产risc-v开发板，适合学习和原型开发 usb i2c spi uart adc pwm">
                             <div class="position-relative h-100">
-                                <a href="/board/10" class="card-zouic board-card text-decoration-none d-block h-100">
+                                <a href="/board/sifive-hifive-1-rev-b" class="card-zouic board-card text-decoration-none d-block h-100">
                                     
 
 
@@ -1002,7 +1030,7 @@
                              data-gpio="48"
                              data-haystack="sifive hifive 2 sifive risc-v hifive 1升级版，更多gpio和外设，适合物联网应用 usb i2c spi uart adc pwm qspi">
                             <div class="position-relative h-100">
-                                <a href="/board/11" class="card-zouic board-card text-decoration-none d-block h-100">
+                                <a href="/board/sifive-hifive-2" class="card-zouic board-card text-decoration-none d-block h-100">
                                     
 
 
@@ -1073,7 +1101,7 @@
                              data-gpio="40"
                              data-haystack="starfive visionfive 2 starfive risc-v 高性能risc-v sbc，支持gpu和ai加速，适合边缘计算和ai应用 ethernet usb 3.0 hdmi mipi-dsi pcie i2c spi uart">
                             <div class="position-relative h-100">
-                                <a href="/board/12" class="card-zouic board-card text-decoration-none d-block h-100">
+                                <a href="/board/starfive-visionfive-2" class="card-zouic board-card text-decoration-none d-block h-100">
                                     
 
 
@@ -1144,7 +1172,7 @@
                              data-gpio="48"
                              data-haystack="sipeed maixduino sipeed risc-v ai视觉开发板，内置k210芯片，支持神经网络推理，适合aiot应用 usb i2c spi uart lcd camera ai accelerator">
                             <div class="position-relative h-100">
-                                <a href="/board/13" class="card-zouic board-card text-decoration-none d-block h-100">
+                                <a href="/board/sipeed-maixduino" class="card-zouic board-card text-decoration-none d-block h-100">
                                     
 
 
@@ -1215,7 +1243,7 @@
                              data-gpio="22"
                              data-haystack="bouffalo lab bl602 bouffalo lab risc-v 低功耗wi-fi+ble risc-v mcu，适合物联网和智能家居应用 wi-fi ble 5.0 usb i2c spi uart adc dac">
                             <div class="position-relative h-100">
-                                <a href="/board/14" class="card-zouic board-card text-decoration-none d-block h-100">
+                                <a href="/board/bouffalo-lab-bl602" class="card-zouic board-card text-decoration-none d-block h-100">
                                     
 
 
@@ -1286,7 +1314,7 @@
                              data-gpio="34"
                              data-haystack="esp32-c6 espressif risc-v 乐鑫首款risc-v esp32芯片，支持wi-fi 6和ble 5.0，兼容性强 wi-fi 6 ble 5.0 usb i2c spi uart adc dac rmt">
                             <div class="position-relative h-100">
-                                <a href="/board/15" class="card-zouic board-card text-decoration-none d-block h-100">
+                                <a href="/board/esp32-c6" class="card-zouic board-card text-decoration-none d-block h-100">
                                     
 
 
@@ -1357,7 +1385,7 @@
                              data-gpio="80"
                              data-haystack="ch32v307 wch risc-v 南京沁恒risc-v mcu，丰富外设，性价比高，适合工业控制 usb i2c spi uart can adc dac eth">
                             <div class="position-relative h-100">
-                                <a href="/board/16" class="card-zouic board-card text-decoration-none d-block h-100">
+                                <a href="/board/ch32v307" class="card-zouic board-card text-decoration-none d-block h-100">
                                     
 
 
@@ -1428,7 +1456,7 @@
                              data-gpio="48"
                              data-haystack="gd32vf103vbt6 gigadevice risc-v 国产risc-v mcu，引脚兼容stm32，适合低成本嵌入式项目 usb i2c spi uart can adc">
                             <div class="position-relative h-100">
-                                <a href="/board/17" class="card-zouic board-card text-decoration-none d-block h-100">
+                                <a href="/board/gd32vf103vbt6" class="card-zouic board-card text-decoration-none d-block h-100">
                                     
 
 
@@ -1499,7 +1527,7 @@
                              data-gpio="28"
                              data-haystack="nearlink devkit pro huawei nearlink 华为星闪技术开发板，支持nearlink协议，低时延高可靠通信，适合物联网和智能家居应用 nearlink wi-fi 6 ble 5.2 usb-c i2c spi uart adc dac">
                             <div class="position-relative h-100">
-                                <a href="/board/18" class="card-zouic board-card text-decoration-none d-block h-100">
+                                <a href="/board/nearlink-devkit-pro" class="card-zouic board-card text-decoration-none d-block h-100">
                                     
 
 
@@ -1570,7 +1598,7 @@
                              data-gpio="16"
                              data-haystack="nearlink sensor node huawei nearlink 星闪传感器节点，超低功耗设计，支持星闪低功耗模式，适合电池供电的传感器网络 nearlink ble 5.0 i2c spi uart adc">
                             <div class="position-relative h-100">
-                                <a href="/board/19" class="card-zouic board-card text-decoration-none d-block h-100">
+                                <a href="/board/nearlink-sensor-node" class="card-zouic board-card text-decoration-none d-block h-100">
                                     
 
 
@@ -1641,7 +1669,7 @@
                              data-gpio="32"
                              data-haystack="nearlink gateway huawei nearlink 星闪网关设备，支持星闪高速模式，可连接多个星闪设备，构建星闪物联网网络 nearlink wi-fi 6 ble 5.2 ethernet usb 3.0 i2c spi uart can">
                             <div class="position-relative h-100">
-                                <a href="/board/20" class="card-zouic board-card text-decoration-none d-block h-100">
+                                <a href="/board/nearlink-gateway" class="card-zouic board-card text-decoration-none d-block h-100">
                                     
 
 
@@ -1865,18 +1893,15 @@
             <div class="newsletter-card">
                 <div class="row align-items-center">
                     <div class="col-lg-7">
-                        <h3 class="text-xl font-bold mb-2">走在技术前沿</h3>
-                        <p class="text-secondary text-sm mb-4 mb-lg-0">每周获取精选开发板推荐、热门趋势和独家硬件工程技巧</p>
+                        <h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p>
                     </div>
                     <div class="col-lg-5">
-                        <form id="newsletterForm" class="newsletter-form" onsubmit="handleNewsletter(event)">
-                            <input type="email" id="newsletterEmail" class="input-zouic" placeholder="输入你的邮箱地址" required>
-                            <button type="submit" class="btn-zouic btn-zouic-primary btn-zouic-lg">订阅</button>
-                        </form>
+                        <a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a>
                         <div class="newsletter-benefits">
                             <span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span>
                             <span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span>
-                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 无垃圾邮件，随时退订</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span>
                         </div>
                     </div>
                 </div>
@@ -1918,7 +1943,7 @@
                         <div class="footer-slash-tags">
                             <span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span>
                             <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span>
-                            <a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商资质">
+                            <a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商">
                                 <i class="fab fa-weixin"></i> 企业微信服务商
                             </a>
                         </div>
@@ -1929,7 +1954,8 @@
                         <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a>
                         <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a>
                         <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a>
-                        <a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋（微信内搜索）"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a>
+                        <a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a>
                         <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a>
                         <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a>
                         <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
@@ -1951,6 +1977,7 @@
                         <li><a href="/documentation">技术文档</a></li>
                         <li><a href="/cases">项目案例</a></li>
                         <li><a href="/help">文档中心</a></li>
+                        <li><a href="/dashuju">数据大屏</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-2 mb-4 mb-md-0">
@@ -1959,7 +1986,7 @@
                         <li><a href="/open-source">开源项目</a></li>
                         <li><a href="/articles">技术文章</a></li>
                         <li><a href="/contribute">贡献指南</a></li>
-                        <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-2">
@@ -1975,6 +2002,7 @@
             <div class="footer-bottom">
                 <p>© 2026 ZouIC. All rights reserved.</p>
                 <p>平台聚合的开源项目遵循其各自的开源许可证。详情请参阅 <a href="/licenses">开源协议</a> 页面。</p>
+                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
             </div>
         </div>
     </footer>
@@ -2127,8 +2155,8 @@
                     <i class="fas fa-robot"></i>
                     <span>AI Assistant</span>
                 </div>
-                <button id="agent-chat-close" class="btn-zouic btn-zouic-ghost btn-zouic-sm" style="color: rgba(255,255,255,0.8);">
-                    <i class="fas fa-times"></i>
+                <button id="agent-chat-close" class="btn-zouic btn-zouic-ghost btn-zouic-sm" aria-label="关闭" style="color: rgba(255,255,255,0.8);">
+                    <i class="fas fa-times" aria-hidden="true"></i>
                 </button>
             </div>
             <div id="agent-chat-messages" class="chat-widget-messages">
@@ -2136,7 +2164,7 @@
                     <div class="chat-widget-toggle" style="width: 32px; height: 32px; font-size: 0.75rem; flex-shrink: 0;">
                         <i class="fas fa-robot"></i>
                     </div>
-                    <div class="bg-secondary/50 rounded-lg rounded-tl-none p-3 text-sm" style="background-color: rgba(14, 165, 233, 0.15);">
+                    <div class="bg-secondary/50 rounded-lg rounded-tl-none p-3 text-sm" style="background-color: rgba(255, 0, 110, 0.15);">
                         Search boards, projects or keywords...
                     </div>
                 </div>
@@ -2145,15 +2173,16 @@
                 <div class="d-flex gap-2">
                     <input type="text" id="agent-chat-input" 
                         class="input-zouic flex-grow-1"
+                        aria-label="Enter your message..."
                         placeholder="Enter your message...">
-                    <button id="agent-chat-send" class="btn-zouic btn-zouic-primary btn-zouic-sm">
-                        <i class="fas fa-paper-plane"></i>
+                    <button id="agent-chat-send" class="btn-zouic btn-zouic-primary btn-zouic-sm" aria-label="发送">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <button id="agent-chat-toggle" class="chat-widget-toggle">
-            <i class="fas fa-robot" style="font-size: 1.25rem;"></i>
+        <button id="agent-chat-toggle" class="chat-widget-toggle" aria-label="AI Assistant" aria-expanded="false">
+            <i class="fas fa-robot" style="font-size: 1.25rem;" aria-hidden="true"></i>
         </button>
     </div>
 
@@ -2171,7 +2200,9 @@
             if (chatToggle && chatContainer) {
                 chatToggle.addEventListener('click', function() {
                     chatContainer.classList.toggle('open');
-                    if (chatContainer.classList.contains('open')) {
+                    var isOpen = chatContainer.classList.contains('open');
+                    chatToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    if (isOpen) {
                         chatInput.focus();
                     }
                 });
@@ -2180,6 +2211,8 @@
             if (chatClose && chatContainer) {
                 chatClose.addEventListener('click', function() {
                     chatContainer.classList.remove('open');
+                    chatToggle.setAttribute('aria-expanded', 'false');
+                    chatToggle.focus();
                 });
             }
             
@@ -2196,8 +2229,8 @@
                 bubble.className = 'rounded-lg px-3 py-2 text-sm ' +
                     (isUser ? 'rounded-tr-none' : 'rounded-tl-none');
                 bubble.style.cssText = isUser 
-                    ? 'background-color: rgba(0, 212, 170, 0.15); color: var(--color-text-primary);'
-                    : 'background-color: rgba(14, 165, 233, 0.15); color: var(--color-text-primary);';
+                    ? 'background-color: rgba(0, 229, 255, 0.15); color: var(--color-text-primary);'
+                    : 'background-color: rgba(255, 0, 110, 0.15); color: var(--color-text-primary);';
                 bubble.textContent = text;
                 
                 div.appendChild(isUser ? bubble : avatar);
@@ -2276,32 +2309,9 @@
             document.body.appendChild(toast);
             setTimeout(function() { toast.remove(); }, 3000);
         };
-        
-        // --- Newsletter form handler ---
-        window.handleNewsletter = function(e) {
-            e.preventDefault();
-            const emailInput = document.getElementById('newsletterEmail');
-            if (!emailInput || !emailInput.value.trim()) return;
-            
-            const btn = e.target.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
-            btn.textContent = '已订阅！';
-            btn.disabled = true;
-            
-            // Simulate subscription (in production, send to API)
-            setTimeout(function() {
-                btn.textContent = '✓ ' + originalText;
-                btn.disabled = false;
-                emailInput.value = '';
-                
-                // Show toast
-                const toast = document.createElement('div');
-                toast.className = 'toast-zouic toast-zouic-success show';
-                toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已订阅！';
-                document.body.appendChild(toast);
-                setTimeout(function() { toast.remove(); }, 3000);
-            }, 1000);
-        };
     </script>
+    
+    
+    
 </body>
 </html>

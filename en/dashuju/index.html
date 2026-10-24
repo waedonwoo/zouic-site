@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Live ZouIC dashboard for inbound traffic and content assets: page views, unique visitors, traffic sources, top pages, crawler activity and conversion funnel.">
+    <meta name="keywords" content="data dashboard,traffic analytics,website statistics,visitor analytics,SEO data">
+    
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    
+    
+    
+    
+    <link rel="canonical" href="https://www.zouic.com/en/dashuju">
+    
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/dashuju" />
+    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/dashuju" />
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/dashuju" />
+    
+    
+    
+    <meta property="og:title" content="Data Dashboard - Traffic &amp; Content Analytics | ZouIC">
+    <meta property="og:description" content="Live ZouIC dashboard for inbound traffic and content assets: page views, unique visitors, traffic sources, top pages, crawler activity and conversion funnel.">
+    <meta property="og:url" content="https://www.zouic.com/en/dashuju">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ZouIC open source development board platform · GeekWeidong">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Data Dashboard - Traffic &amp; Content Analytics | ZouIC">
+    <meta name="twitter:description" content="Live ZouIC dashboard for inbound traffic and content assets: page views, unique visitors, traffic sources, top pages, crawler activity and conversion funnel.">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "description": "Live ZouIC dashboard for inbound traffic and content assets: page views, unique visitors, traffic sources, top pages, crawler activity and conversion funnel.", "inLanguage": "en", "isPartOf": {"@id": "https://www.zouic.com/#website"}, "name": "Data Dashboard - Traffic \u0026 Content Analytics | ZouIC", "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/dashuju"}]}
+    </script>
+    
+    
+    <title>Data Dashboard - Traffic &amp; Content Analytics | ZouIC</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    
+    <!-- External Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    
+    <!-- ZouIC Design System -->
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261023e">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261023e">
+    <noscript>
+        <style>
+            /* 关闭 JS 时不要因为滚动动画而隐藏内容 */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261023b">
+    
+    <link rel="stylesheet" href="/static/css/dashuju.css?v=20261024b">
+    <script src="/static/js/echarts.min.js?v=5.5.1" defer></script>
+
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand" href="/en/">
+                <i class="fas fa-microchip"></i> ZouIC
+            </a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
+                <span class="nav-hud-dot"></span>SYS.ONLINE
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/en/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/boards">Boards</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/board-guide">Documentation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/all-projects"><i class="fas fa-project-diagram me-1"></i>External Projects</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/en/products"><i class="fas fa-box me-2"></i>Products</a></li>
+                            <li><a class="dropdown-item" href="/en/services"><i class="fas fa-cogs me-2"></i>Services</a></li>
+                            <li><a class="dropdown-item" href="/en/news"><i class="fas fa-newspaper me-2"></i>Industry News</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/tutorials"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li>
+                            <li><a class="dropdown-item" href="/en/documentation"><i class="fas fa-book me-2"></i>Documentation</a></li>
+                            <li><a class="dropdown-item" href="/en/cases"><i class="fas fa-briefcase me-2"></i>Project Cases</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/open-source"><i class="fas fa-code-branch me-2"></i>Open Source Projects</a></li>
+                            <li><a class="dropdown-item" href="/en/articles"><i class="fas fa-pen-fancy me-2"></i>Articles</a></li>
+                            <li><a class="dropdown-item" href="/en/contribute"><i class="fas fa-handshake me-2"></i>Contribute</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/dashuju"><i class="fas fa-chart-line me-2"></i>Data Dashboard</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-lg-none"><a class="nav-link" href="/en/search"><i class="fas fa-search me-1"></i>Search</a></li>
+                </ul>
+                <form id="searchForm" class="d-flex me-3 d-none d-lg-flex">
+                    <div class="input-group input-group-zouic">
+                        <input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="Search boards, projects or keywords..." aria-label="Search" style="width: 200px;">
+                        <select id="searchType" class="form-select input-zouic" aria-label="Search Type:" style="width: auto; flex: 0 0 auto;">
+                            <option value="">All Categories</option>
+                            <option value="board">Boards</option>
+                            <option value="project">Projects</option>
+                        </select>
+                        <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Search">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i> English
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/dashuju">
+                                <i class="fas fa-language me-2"></i> 中文
+                            </a></li>
+                            <li><a class="dropdown-item" href="/en/dashuju">
+                                <i class="fas fa-language me-2"></i> English
+                            </a></li>
+                        </ul>
+                    </div>
+                    
+                    <a href="/en/login" class="btn-zouic btn-zouic-ghost btn-zouic-sm">Login</a>
+                    <a href="/en/register" class="btn-zouic btn-zouic-primary btn-zouic-sm">Register</a>
+                    
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        
+<div class="dash-screen" id="dashScreen">
+    <div class="container dash-container">
+        <header class="dash-head">
+            <div class="dash-brand">
+                <div class="dash-brand-mark" aria-hidden="true">Z</div>
+                <div>
+                    <h1>ZouIC · Data Dashboard</h1>
+                    <p>Inbound traffic and content asset monitoring</p>
+                </div>
+            </div>
+            <div class="dash-clock" aria-label="Local time">
+                <div>
+                    <span>Date</span>
+                    <strong id="dashDate">—</strong>
+                </div>
+                <div>
+                    <span>Local time</span>
+                    <strong id="dashClock">09:24:14</strong>
+                </div>
+            </div>
+            <div class="dash-live"><span class="dash-dot"></span>LIVE · Updated <span id="dashUpdated">09:24:14</span></div>
+        </header>
+
+        <section class="dash-kpis" aria-label="Data Dashboard">
+            <div class="dash-kpi">
+                <div class="dash-kpi-label">Total page views</div>
+                <div class="dash-kpi-value" data-kpi="total_pv">0</div>
+                <div class="dash-kpi-sub">Since tracking started · Unique visitors 0</div>
+            </div>
+            <div class="dash-kpi">
+                <div class="dash-kpi-label">Views today</div>
+                <div class="dash-kpi-value" data-kpi="today_pv">0</div>
+                <div class="dash-kpi-sub">visitors <span data-kpi="today_uv">0</span></div>
+            </div>
+            <div class="dash-kpi">
+                <div class="dash-kpi-label">Views yesterday</div>
+                <div class="dash-kpi-value">0</div>
+                <div class="dash-kpi-sub">views</div>
+            </div>
+            <div class="dash-kpi">
+                <div class="dash-kpi-label">Views this month</div>
+                <div class="dash-kpi-value">0</div>
+                <div class="dash-kpi-sub">Visitors this month 0</div>
+            </div>
+            <div class="dash-kpi">
+                <div class="dash-kpi-label">Views last month</div>
+                <div class="dash-kpi-value">0</div>
+                <div class="dash-kpi-sub">views</div>
+            </div>
+            <div class="dash-kpi">
+                <div class="dash-kpi-label">Bot hits this month</div>
+                <div class="dash-kpi-value">0</div>
+                <div class="dash-kpi-sub">0 Active sources</div>
+            </div>
+            <div class="dash-kpi">
+                <div class="dash-kpi-label">Leads this month</div>
+                <div class="dash-kpi-value">0</div>
+                <div class="dash-kpi-sub">Total leads 0</div>
+            </div>
+        </section>
+
+        <div class="dash-grid">
+            <section class="dash-panel dash-col-3">
+                <div class="dash-panel-head">
+                    <h2 class="dash-panel-title">Traffic sources</h2>
+                    <span class="dash-panel-meta">30D</span>
+                </div>
+                <div id="sourceChart" class="dash-chart dash-chart-sm"></div>
+                <ul class="dash-list">
+                    
+                </ul>
+            </section>
+
+            <section class="dash-panel dash-col-6">
+                <div class="dash-panel-head">
+                    <h2 class="dash-panel-title">30-day traffic trend</h2>
+                    <span class="dash-panel-meta">PV / UV · 30D</span>
+                </div>
+                <div id="trendChart" class="dash-chart"></div>
+                <div class="dash-engage" style="grid-template-columns:repeat(3,1fr);">
+                    <div><span>Page views</span><strong>0</strong></div>
+                    <div><span>Unique visitors</span><strong>0</strong></div>
+                    <div><span>Top pages</span><strong>0</strong></div>
+                </div>
+            </section>
+
+            <section class="dash-panel dash-col-3">
+                <div class="dash-panel-head">
+                    <h2 class="dash-panel-title">Content mix</h2>
+                    <span class="dash-panel-meta">45</span>
+                </div>
+                <ul class="dash-list dash-dist">
+                    
+                    
+                    <li>
+                        <div class="dash-dist-row">
+                            <span>Boards</span>
+                            <span>20<em>44.4%</em></span>
+                        </div>
+                        <div class="dash-bar"><span style="width: 44.4%"></span></div>
+                    </li>
+                    
+                    
+                    <li>
+                        <div class="dash-dist-row">
+                            <span>Demo projects</span>
+                            <span>8<em>17.8%</em></span>
+                        </div>
+                        <div class="dash-bar"><span style="width: 17.8%"></span></div>
+                    </li>
+                    
+                    
+                    <li>
+                        <div class="dash-dist-row">
+                            <span>Aggregated projects</span>
+                            <span>14<em>31.1%</em></span>
+                        </div>
+                        <div class="dash-bar"><span style="width: 31.1%"></span></div>
+                    </li>
+                    
+                    
+                    <li>
+                        <div class="dash-dist-row">
+                            <span>Articles</span>
+                            <span>3<em>6.7%</em></span>
+                        </div>
+                        <div class="dash-bar"><span style="width: 6.7%"></span></div>
+                    </li>
+                    
+                </ul>
+                <div class="dash-subhead">Devices</div>
+                <ul class="dash-list">
+                    
+                    <li><span class="dash-list-label">No data yet. Browse the site to start collecting.</span></li>
+                    
+                </ul>
+            </section>
+
+            <section class="dash-panel dash-col-4">
+                <div class="dash-panel-head">
+                    <h2 class="dash-panel-title">Data assets</h2>
+                    <span class="dash-panel-meta">DATA ASSETS</span>
+                </div>
+                <div class="dash-assets">
+                    <div class="dash-asset">
+                        <strong>45</strong>
+                        <span>Content items</span>
+                    </div>
+                    <div class="dash-asset">
+                        <strong>71</strong>
+                        <span>Built pages</span>
+                    </div>
+                    <div class="dash-asset">
+                        <strong>100%</strong>
+                        <span>Structured data</span>
+                    </div>
+                </div>
+                <div class="dash-subhead">Top pages</div>
+                <ul class="dash-list">
+                    
+                    <li><span class="dash-list-label">No data yet. Browse the site to start collecting.</span></li>
+                    
+                </ul>
+            </section>
+
+            <section class="dash-panel dash-col-4">
+                <div class="dash-panel-head">
+                    <h2 class="dash-panel-title">AI crawlers &amp; indexing</h2>
+                    <span class="dash-panel-meta">0 / Active sources</span>
+                </div>
+                <div class="dash-assets" style="grid-template-columns:1fr 1fr;">
+                    <div class="dash-asset">
+                        <strong>0</strong>
+                        <span>Total crawls</span>
+                    </div>
+                    <div class="dash-asset">
+                        <strong>0</strong>
+                        <span>Active sources</span>
+                    </div>
+                </div>
+                <ul class="dash-list dash-dist">
+                    
+                    <li><div class="dash-empty">No crawler hits this month</div></li>
+                    
+                </ul>
+            </section>
+
+            <section class="dash-panel dash-col-4">
+                <div class="dash-panel-head">
+                    <h2 class="dash-panel-title">Inbound funnel</h2>
+                    <span class="dash-panel-meta">MTD</span>
+                </div>
+                <div class="dash-funnel">
+                    
+                    <div class="dash-funnel-stage">
+                        <div class="dash-funnel-top">
+                            <span>Visitors</span>
+                            <span><strong>0</strong><em>0%</em></span>
+                        </div>
+                        <div class="dash-funnel-bar"><span style="width: 0%"></span></div>
+                    </div>
+                    
+                    <div class="dash-funnel-stage">
+                        <div class="dash-funnel-top">
+                            <span>Latest leads</span>
+                            <span><strong>0</strong><em>0%</em></span>
+                        </div>
+                        <div class="dash-funnel-bar"><span style="width: 0%"></span></div>
+                    </div>
+                    
+                    <div class="dash-funnel-stage">
+                        <div class="dash-funnel-top">
+                            <span>Members</span>
+                            <span><strong>0</strong><em>0%</em></span>
+                        </div>
+                        <div class="dash-funnel-bar"><span style="width: 0%"></span></div>
+                    </div>
+                    
+                </div>
+                <div class="dash-subhead">Engagement</div>
+                <div class="dash-engage">
+                    <div><span>Leads today</span><strong>0</strong></div>
+                    <div><span>Total leads</span><strong>0</strong></div>
+                    <div><span>Comments</span><strong>0</strong></div>
+                    <div><span>Favorites</span><strong>0</strong></div>
+                </div>
+            </section>
+
+            <section class="dash-panel dash-col-8">
+                <div class="dash-panel-head">
+                    <h2 class="dash-panel-title">Live visitor stream</h2>
+                    <span class="dash-panel-meta"><span id="liveCount">0</span> records</span>
+                </div>
+                <div class="dash-table-wrap">
+                    <table class="dash-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Path</th>
+                                <th>Source</th>
+                                <th>Device</th>
+                                <th>IP</th>
+                            </tr>
+                        </thead>
+                        <tbody id="liveRows">
+                            
+                            <tr><td colspan="5"><div class="dash-empty">No data yet. Browse the site to start collecting.</div></td></tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="dash-panel dash-col-4">
+                <div class="dash-panel-head">
+                    <h2 class="dash-panel-title">Site health</h2>
+                    <span class="dash-panel-meta">SEO</span>
+                </div>
+                <ul class="dash-health">
+                    <li><span>Built pages</span><b>71</b></li>
+                    <li><span>Sitemap URLs</span><b>68</b></li>
+                    <li><span>Structured data</span><b class="ok">100%</b></li>
+                    <li><span>llms.txt</span><b class="ok">OK</b></li>
+                    <li><span>Article markdown</span><b>3</b></li>
+                    <li><span>Last build</span><b>10-24 09:23</b></li>
+                </ul>
+                <div class="dash-subhead">Latest leads</div>
+                <ul class="dash-list">
+                    
+                    <li><span class="dash-list-label">No leads yet</span></li>
+                    
+                </ul>
+            </section>
+        </div>
+
+        <footer class="dash-foot">
+            <span>Static builds show a snapshot from the last export; run the Flask app for live stats.</span>
+            <span>Updated <strong>2026-10-24 09:24:14</strong></span>
+        </footer>
+    </div>
+</div>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Newsletter Section -->
+    <section class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h3 class="text-xl font-bold mb-2">Follow @GeekWaedon for Weekly Updates</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">Board picks, project breakdowns and hardware engineering tips, first published on WeChat and Knowledge Planet.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <a href="/en/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">See How to Follow</a>
+                        <div class="newsletter-benefits">
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Weekly curated board picks</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Exclusive project deep-dives</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Updated on WeChat and Knowledge Planet</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4" aria-label="Produced by">
+        <div class="author-card">
+            <div class="author-card-info">
+                <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
+                <div>
+                    <div class="author-card-name">Created by GeekWaedon <span>@GeekWaedon</span></div>
+                    <div class="author-card-bio">Hardware maker and AI practitioner. This entire website was built hands-on with AI tools.</div>
+                </div>
+            </div>
+            <div class="author-card-actions">
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Join my Knowledge Planet</a>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;GeekWaedon&#34;</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-zouic" role="contentinfo">
+        <div class="container">
+            <div class="row footer-main">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
+                    <a href="/en/" class="footer-brand" aria-label="ZouIC home">
+                        <i class="fas fa-microchip"></i>
+                        <span>ZouIC</span>
+                    </a>
+                    <p class="footer-tagline">Open source projects aggregated on this platform follow their respective open source licenses. For details, please see the</p>
+
+                    <div class="footer-meta">
+                        <p class="footer-author">
+                            Produced by · <strong>GeekWaedon</strong>
+                            <span class="footer-author-handle">@GeekWaedon</span>
+                        </p>
+                        <div class="footer-slash-tags">
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware enthusiast</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI practitioner</span>
+                            <a href="/en/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom service provider">
+                                <i class="fab fa-weixin"></i> WeCom service provider
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a>
+                        <a href="/en/#follow" class="footer-social-link" aria-label="WeChat Official Account · GeekWaedon" title="WeChat Official Account · GeekWaedon"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a>
+                        <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="/en/products">Products</a></li>
+                        <li><a href="/en/services">Services</a></li>
+                        <li><a href="/en/news">Industry News</a></li>
+                        <li><a href="/en/boards">Development Boards</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="/en/tutorials">Tutorials</a></li>
+                        <li><a href="/en/documentation">Documentation</a></li>
+                        <li><a href="/en/cases">Project Cases</a></li>
+                        <li><a href="/en/help">Documentation</a></li>
+                        <li><a href="/en/dashuju">Data Dashboard</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Open Source</h5>
+                    <ul>
+                        <li><a href="/en/open-source">Open Source Projects</a></li>
+                        <li><a href="/en/articles">Articles</a></li>
+                        <li><a href="/en/contribute">Contribute</a></li>
+                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h5>About</h5>
+                    <ul>
+                        <li><a href="/en/about">About Us</a></li>
+                        <li><a href="/en/about#contact">Contact Us</a></li>
+                        <li><a href="/en/licenses">Open Source Licenses</a></li>
+                        <li><a href="/en/about#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ZouIC. All rights reserved.</p>
+                <p>Open source projects aggregated on this platform follow their respective open source licenses. For details, please see the <a href="/en/licenses">Open Source Licenses</a> page.</p>
+                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // 先把 html 标记为 reveal-ready，CSS 才隐藏"未进入视口"的区块；
+            // 若观察器异常，2 秒后兜底全部显示，避免整屏空白。
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <!-- AI Chat Widget -->
+    <div class="chat-widget">
+        <div id="agent-chat-container" class="chat-widget-container">
+            <div class="chat-widget-header">
+                <div class="d-flex align-items-center gap-2">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Assistant</span>
+                </div>
+                <button id="agent-chat-close" class="btn-zouic btn-zouic-ghost btn-zouic-sm" aria-label="Close" style="color: rgba(255,255,255,0.8);">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div id="agent-chat-messages" class="chat-widget-messages">
+                <div class="d-flex align-items-start gap-2 mb-4">
+                    <div class="chat-widget-toggle" style="width: 32px; height: 32px; font-size: 0.75rem; flex-shrink: 0;">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="bg-secondary/50 rounded-lg rounded-tl-none p-3 text-sm" style="background-color: rgba(255, 0, 110, 0.15);">
+                        Search boards, projects or keywords...
+                    </div>
+                </div>
+            </div>
+            <div class="chat-widget-input-area">
+                <div class="d-flex gap-2">
+                    <input type="text" id="agent-chat-input" 
+                        class="input-zouic flex-grow-1"
+                        aria-label="Enter your message..."
+                        placeholder="Enter your message...">
+                    <button id="agent-chat-send" class="btn-zouic btn-zouic-primary btn-zouic-sm" aria-label="Send">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <button id="agent-chat-toggle" class="chat-widget-toggle" aria-label="AI Assistant" aria-expanded="false">
+            <i class="fas fa-robot" style="font-size: 1.25rem;" aria-hidden="true"></i>
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatToggle = document.getElementById('agent-chat-toggle');
+            const chatContainer = document.getElementById('agent-chat-container');
+            const chatClose = document.getElementById('agent-chat-close');
+            const chatInput = document.getElementById('agent-chat-input');
+            const chatSend = document.getElementById('agent-chat-send');
+            const chatMessages = document.getElementById('agent-chat-messages');
+            
+            let agentSessionId = null;
+            
+            if (chatToggle && chatContainer) {
+                chatToggle.addEventListener('click', function() {
+                    chatContainer.classList.toggle('open');
+                    var isOpen = chatContainer.classList.contains('open');
+                    chatToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    if (isOpen) {
+                        chatInput.focus();
+                    }
+                });
+            }
+            
+            if (chatClose && chatContainer) {
+                chatClose.addEventListener('click', function() {
+                    chatContainer.classList.remove('open');
+                    chatToggle.setAttribute('aria-expanded', 'false');
+                    chatToggle.focus();
+                });
+            }
+            
+            const addMessage = function(text, isUser = false) {
+                const div = document.createElement('div');
+                div.className = 'd-flex align-items-start gap-2 mb-4' + (isUser ? ' flex-row-reverse' : '');
+                
+                const avatar = document.createElement('div');
+                avatar.className = 'chat-widget-toggle flex-shrink-0';
+                avatar.style.cssText = 'width: 32px; height: 32px; font-size: 0.75rem;';
+                avatar.innerHTML = isUser ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
+                
+                const bubble = document.createElement('div');
+                bubble.className = 'rounded-lg px-3 py-2 text-sm ' +
+                    (isUser ? 'rounded-tr-none' : 'rounded-tl-none');
+                bubble.style.cssText = isUser 
+                    ? 'background-color: rgba(0, 229, 255, 0.15); color: var(--color-text-primary);'
+                    : 'background-color: rgba(255, 0, 110, 0.15); color: var(--color-text-primary);';
+                bubble.textContent = text;
+                
+                div.appendChild(isUser ? bubble : avatar);
+                div.appendChild(isUser ? avatar : bubble);
+                chatMessages.appendChild(div);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            };
+            
+            const sendMessage = async function() {
+                const message = chatInput.value.trim();
+                if (!message) return;
+                
+                addMessage(message, true);
+                chatInput.value = '';
+                
+                try {
+                    const response = await fetch('/api/agent/query', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ input: message, session_id: agentSessionId })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        agentSessionId = data.session_id;
+                        if (data.response && data.response.text) {
+                            addMessage(data.response.text, false);
+                        }
+                    } else {
+                        addMessage('Operation failed, please try again', false);
+                    }
+                } catch (error) {
+                    addMessage('Network error, please try again', false);
+                }
+            };
+            
+            if (chatSend) chatSend.addEventListener('click', sendMessage);
+            if (chatInput) {
+                chatInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') sendMessage();
+                });
+            }
+        });
+        
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Copied';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Removed from favorites');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Saved to favorites');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+<script>
+window.__DASH__ = {
+    liveEnabled: false,
+    trend: {"labels": ["09-25", "09-26", "09-27", "09-28", "09-29", "09-30", "10-01", "10-02", "10-03", "10-04", "10-05", "10-06", "10-07", "10-08", "10-09", "10-10", "10-11", "10-12", "10-13", "10-14", "10-15", "10-16", "10-17", "10-18", "10-19", "10-20", "10-21", "10-22", "10-23", "10-24"], "pv": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "uv": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
+    sources: [],
+    i18n: {
+        pv: "Page views",
+        uv: "Unique visitors",
+        sources: "Traffic sources",
+        fail: "Chart library unavailable; data lists remain visible",
+        noData: "No data yet. Browse the site to start collecting.",
+        sourceNames: {
+            direct: "Direct",
+            search: "Search",
+            social: "Community",
+            referral: "Referral",
+            internal: "Internal",
+            bot: "Bot"
+        },
+        deviceNames: {
+            desktop: "Desktop",
+            mobile: "Mobile",
+            bot: "Bot"
+        }
+    }
+};
+
+(function () {
+    var SOURCE_COLORS = {
+        direct: '#00e5ff', search: '#8b5cf6', social: '#00d4aa',
+        referral: '#f5a524', internal: '#5b7c99', bot: '#ff5c7a'
+    };
+
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+    function tick() {
+        var now = new Date();
+        var dateEl = document.getElementById('dashDate');
+        var clockEl = document.getElementById('dashClock');
+        if (dateEl) dateEl.textContent = now.getFullYear() + '.' + pad(now.getMonth() + 1) + '.' + pad(now.getDate());
+        if (clockEl) clockEl.textContent = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
+    }
+
+    function chartFail(id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<div class="dash-nochart">' + window.__DASH__.i18n.fail + '</div>';
+    }
+
+    function initCharts() {
+        var data = window.__DASH__;
+        if (!window.echarts) {
+            chartFail('trendChart');
+            chartFail('sourceChart');
+            return;
+        }
+        var trendEl = document.getElementById('trendChart');
+        var sourceEl = document.getElementById('sourceChart');
+        var axis = {
+            axisLine: { lineStyle: { color: 'rgba(0,229,255,.18)' } },
+            axisLabel: { color: 'rgba(139,190,215,.72)', fontSize: 10, fontFamily: 'Share Tech Mono, monospace' },
+            splitLine: { lineStyle: { color: 'rgba(0,229,255,.07)' } }
+        };
+        var trend = echarts.init(trendEl, null, { renderer: 'canvas' });
+        trend.setOption({            backgroundColor: 'transparent',
+            grid: { left: 8, right: 12, top: 34, bottom: 4, containLabel: true },
+            tooltip: {
+                trigger: 'axis',
+                backgroundColor: 'rgba(6,15,28,.94)',
+                borderColor: 'rgba(0,229,255,.35)',
+                textStyle: { color: '#dff7ff', fontSize: 11 }
+            },
+            legend: {
+                top: 0, right: 0, icon: 'roundRect', itemWidth: 10, itemHeight: 4,
+                textStyle: { color: 'rgba(160,200,220,.85)', fontSize: 10 }
+            },
+            xAxis: Object.assign({ type: 'category', boundaryGap: false, data: data.trend.labels }, axis, { splitLine: { show: false } }),
+            yAxis: Object.assign({ type: 'value', minInterval: 1 }, axis),
+            series: [
+                {
+                    name: data.i18n.pv, type: 'line', smooth: true, symbol: 'none',
+                    data: data.trend.pv,
+                    lineStyle: { width: 2, color: '#00e5ff', shadowColor: 'rgba(0,229,255,.55)', shadowBlur: 12 },
+                    areaStyle: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                            { offset: 0, color: 'rgba(0,229,255,.34)' },
+                            { offset: 1, color: 'rgba(0,229,255,0)' }
+                        ])
+                    }
+                },
+                {
+                    name: data.i18n.uv, type: 'line', smooth: true, symbol: 'none',
+                    data: data.trend.uv,
+                    lineStyle: { width: 1.6, color: '#8b5cf6', type: 'dashed' }
+                }
+            ]
+        });
+
+        var hasTrend = data.trend.pv.some(function (v) { return v > 0; });
+        if (!hasTrend) {
+            var veil = document.createElement('div');
+            veil.className = 'dash-chart-veil';
+            veil.textContent = data.i18n.noData;
+            trendEl.appendChild(veil);
+        }
+
+        var sourceData = data.sources.map(function (s) {
+            return {
+                name: data.i18n.sourceNames[s.key] || s.key,
+                value: s.count,
+                itemStyle: { color: SOURCE_COLORS[s.key] || '#5b7c99' }
+            };
+        });
+        var source = null;
+        if (!sourceData.length) {
+            sourceEl.innerHTML = '<div class="dash-nochart">' + data.i18n.noData + '</div>';
+        } else {
+            source = echarts.init(sourceEl, null, { renderer: 'canvas' });
+            source.setOption({
+                backgroundColor: 'transparent',
+                tooltip: {
+                    trigger: 'item',
+                    backgroundColor: 'rgba(6,15,28,.94)',
+                    borderColor: 'rgba(0,229,255,.35)',
+                    textStyle: { color: '#dff7ff', fontSize: 11 }
+                },
+                series: [{
+                    type: 'pie', radius: ['56%', '78%'], center: ['50%', '52%'],
+                    avoidLabelOverlap: true, label: { show: false }, labelLine: { show: false },
+                    itemStyle: { borderColor: 'rgba(5,10,20,.9)', borderWidth: 2 },
+                    data: sourceData
+                }]
+            });
+        }
+        window.addEventListener('resize', function () {
+            trend.resize();
+            if (source) source.resize();
+        });
+    }
+
+    function renderRealtime(rows) {
+        var tbody = document.getElementById('liveRows');
+        if (!tbody || !rows) return;
+        var i18n = window.__DASH__.i18n;
+        var frag = document.createDocumentFragment();
+        rows.forEach(function (v) {
+            var tr = document.createElement('tr');
+            var cells = [v.created_at, v.path, i18n.sourceNames[v.source] || v.source,
+                         i18n.deviceNames[v.device] || v.device, v.ip];
+            cells.forEach(function (text, idx) {
+                var td = document.createElement('td');
+                if (idx === 0 || idx === 4) td.className = 'dash-mono';
+                if (idx === 1) {
+                    var span = document.createElement('span');
+                    span.className = 'dash-path';
+                    span.title = text;
+                    span.textContent = text;
+                    td.appendChild(span);
+                } else if (idx === 2) {
+                    var tag = document.createElement('span');
+                    tag.className = 'dash-tag' + (v.source === 'search' ? ' violet' : (v.source === 'social' ? ' teal' : ''));
+                    tag.textContent = text;
+                    td.appendChild(tag);
+                } else {
+                    td.textContent = text;
+                }
+                tr.appendChild(td);
+            });
+            frag.appendChild(tr);
+        });
+        tbody.innerHTML = '';
+        tbody.appendChild(frag);
+        var lc = document.getElementById('liveCount');
+        if (lc) lc.textContent = rows.length;
+    }
+
+    var pollTimer = null;
+    function pollLive() {
+        fetch('/api/dashboard/live', { cache: 'no-store', headers: { 'Accept': 'application/json' } })
+            .then(function (r) {
+                if (!r.ok) throw new Error('offline');
+                if ((r.headers.get('content-type') || '').indexOf('json') === -1) throw new Error('not-json');
+                return r.json();
+            })
+            .then(function (data) {
+                var pv = document.querySelector('[data-kpi="today_pv"]');
+                var uv = document.querySelector('[data-kpi="today_uv"]');
+                if (pv) pv.textContent = Number(data.today_pv || 0).toLocaleString();
+                if (uv) uv.textContent = Number(data.today_uv || 0).toLocaleString();
+                var up = document.getElementById('dashUpdated');
+                if (up && data.server_time) up.textContent = data.server_time;
+                renderRealtime(data.recent || []);
+            })
+            .catch(function () {
+                if (pollTimer) { clearInterval(pollTimer); pollTimer = null; }
+            });
+    }
+
+    tick();
+    setInterval(tick, 1000);
+    window.addEventListener('load', function () {
+        initCharts();
+        if (window.__DASH__.liveEnabled) pollTimer = setInterval(pollLive, 20000);
+    });
+})();
+</script>
+
+</body>
+</html>

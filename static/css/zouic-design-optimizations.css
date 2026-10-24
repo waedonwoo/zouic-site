@@ -1971,6 +1971,7 @@ a.ext-hero-stat:hover {
 .ext-source {
     display: flex;
     align-items: center;
+    min-width: 0;
     gap: 8px;
     padding: 10px 12px;
     border-radius: var(--radius-lg);
@@ -1998,9 +1999,12 @@ a.ext-hero-stat:hover {
 
 .ext-source-desc {
     margin-left: auto;
+    min-width: 0;
+    overflow: hidden;
     font-size: 11px;
     color: var(--color-text-tertiary);
     white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 @media (max-width: 767px) {

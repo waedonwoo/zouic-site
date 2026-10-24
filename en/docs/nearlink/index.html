@@ -1,40 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><link rel="alternate" hreflang="zh" href="https://www.zouic.com/docs/nearlink"><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/docs/nearlink"><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/docs/nearlink">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="星闪技术开发文档，包括SDK使用指南、API参考和示例代码">
-    <meta name="keywords" content="星闪技术,NearLink,SDK,API,开发文档">
+    <meta name="description" content="NearLink development documentation, including SDK guides, API reference and sample code">
+    <meta name="keywords" content="NearLink,SDK,API,development documentation">
+    
     <meta name="author" content="ZouIC">
-    <meta name="theme-color" content="#00d4aa">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
-    <link rel="canonical" href="https://zouic.com/docs/nearlink">
     
-    <link rel="alternate" hreflang="zh" href="https://zouic.com/docs/nearlink" />
-    <link rel="alternate" hreflang="en" href="https://zouic.com/en/docs/nearlink" />
-    <link rel="alternate" hreflang="x-default" href="https://zouic.com/docs/nearlink" />
     
-    <meta property="og:title" content="星闪技术 (NearLink) - ZouIC">
-    <meta property="og:description" content="星闪技术开发文档">
-    <meta property="og:url" content="https://zouic.com/docs/nearlink">
+    
+    
+    
+    
+    <link rel="canonical" href="https://www.zouic.com/en/docs/nearlink">
+    
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/docs/nearlink" />
+    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/docs/nearlink" />
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/docs/nearlink" />
+    
+    
+    
+    <meta property="og:title" content="NearLink Technology - ZouIC">
+    <meta property="og:description" content="NearLink development documentation, including SDK guides, API reference and sample code">
+    <meta property="og:url" content="https://www.zouic.com/en/docs/nearlink">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="ZouIC">
-    <meta property="og:image" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ZouIC%20open%20source%20hardware%20development%20board%20platform%20logo&amp;image_size=landscape_16_9">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ZouIC open source development board platform · GeekWeidong">
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="星闪技术 (NearLink) - ZouIC">
-    <meta name="twitter:description" content="星闪技术开发文档">
-    <meta name="twitter:image" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ZouIC%20open%20source%20hardware%20development%20board%20platform%20logo&amp;image_size=landscape_16_9">
-    <meta name="twitter:site" content="@zouic">
-    <meta name="twitter:creator" content="@zouic">
+    <meta name="twitter:title" content="NearLink Technology - ZouIC">
+    <meta name="twitter:description" content="NearLink development documentation, including SDK guides, API reference and sample code">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     
     
     
-    <title>星闪技术 (NearLink) - ZouIC</title>
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/docs/nearlink", "name": "NearLink Docs", "position": 2}]}
+    </script>
+    
+    
+    
+    <title>NearLink Technology - ZouIC</title>
     
     <!-- Resource Hints -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -42,9 +59,13 @@
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     
+    
     <!-- External Stylesheets -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
     
     <!-- ZouIC Design System -->
     <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261023e">
@@ -64,12 +85,12 @@
         .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
         .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
         .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
-        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.15); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
         .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
         .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
-        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 212, 170, 0.3); }
-        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(14, 165, 233, 0.3); }
-        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(139, 92, 246, 0.3); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
         .text-yellow-500 { color: #fbbf24; }
         .text-green-500 { color: #10b981; }
         .text-red-500 { color: #ef4444; }
@@ -80,22 +101,27 @@
         .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
         @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
     </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261023b">
+    
 </head>
 <body>
-    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航">
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Main navigation">
         <div class="container">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="/en/">
                 <i class="fas fa-microchip"></i> ZouIC
             </a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
+                <span class="nav-hud-dot"></span>SYS.ONLINE
+            </span>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="/en/boards">Boards</a></li>
                     <li class="nav-item"><a class="nav-link" href="/en/board-guide">Documentation</a></li>
                     <li class="nav-item"><a class="nav-link" href="/en/projects">Projects</a></li>
@@ -116,6 +142,8 @@
                             <li><a class="dropdown-item" href="/en/open-source"><i class="fas fa-code-branch me-2"></i>Open Source Projects</a></li>
                             <li><a class="dropdown-item" href="/en/articles"><i class="fas fa-pen-fancy me-2"></i>Articles</a></li>
                             <li><a class="dropdown-item" href="/en/contribute"><i class="fas fa-handshake me-2"></i>Contribute</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/dashuju"><i class="fas fa-chart-line me-2"></i>Data Dashboard</a></li>
                         </ul>
                     </li>
                     <li class="nav-item d-lg-none"><a class="nav-link" href="/en/search"><i class="fas fa-search me-1"></i>Search</a></li>
@@ -124,7 +152,7 @@
                     <div class="input-group input-group-zouic">
                         <input type="text" id="searchQuery" class="form-control input-zouic" 
                                placeholder="Search boards, projects or keywords..." aria-label="Search" style="width: 200px;">
-                        <select id="searchType" class="form-select input-zouic" style="width: auto; flex: 0 0 auto;">
+                        <select id="searchType" class="form-select input-zouic" aria-label="Search Type:" style="width: auto; flex: 0 0 auto;">
                             <option value="">All Categories</option>
                             <option value="board">Boards</option>
                             <option value="project">Projects</option>
@@ -162,8 +190,8 @@
     <section class="py-12" style="background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);">
         <div class="container">
             <div class="text-center text-white">
-                <h1 class="text-4xl font-bold mb-4">星闪技术 (NearLink)</h1>
-                <p class="text-lg">华为星闪技术开发文档与SDK使用指南</p>
+                <h1 class="text-4xl font-bold mb-4">NearLink Technology</h1>
+                <p class="text-lg">Huawei NearLink development documentation and SDK guide</p>
             </div>
         </div>
     </section>
@@ -175,25 +203,25 @@
                     <nav class="sticky-top" style="top: 20px;">
                         <ul class="list-group">
                             <li class="list-group-item bg-dark border-secondary">
-                                <a href="#overview" class="text-primary hover-underline">概述</a>
+                                <a href="#overview" class="text-primary hover-underline">Overview</a>
                             </li>
                             <li class="list-group-item bg-dark border-secondary">
-                                <a href="#installation" class="text-primary hover-underline">环境搭建</a>
+                                <a href="#installation" class="text-primary hover-underline">Setup</a>
                             </li>
                             <li class="list-group-item bg-dark border-secondary">
-                                <a href="#quickstart" class="text-primary hover-underline">快速开始</a>
+                                <a href="#quickstart" class="text-primary hover-underline">Quick start</a>
                             </li>
                             <li class="list-group-item bg-dark border-secondary">
-                                <a href="#api" class="text-primary hover-underline">API参考</a>
+                                <a href="#api" class="text-primary hover-underline">API reference</a>
                             </li>
                             <li class="list-group-item bg-dark border-secondary">
-                                <a href="#protocol" class="text-primary hover-underline">通信协议</a>
+                                <a href="#protocol" class="text-primary hover-underline">Protocol</a>
                             </li>
                             <li class="list-group-item bg-dark border-secondary">
-                                <a href="#examples" class="text-primary hover-underline">示例代码</a>
+                                <a href="#examples" class="text-primary hover-underline">Examples</a>
                             </li>
                             <li class="list-group-item bg-dark border-secondary">
-                                <a href="#compatibility" class="text-primary hover-underline">兼容性测试</a>
+                                <a href="#compatibility" class="text-primary hover-underline">Compatibility testing</a>
                             </li>
                         </ul>
                     </nav>
@@ -201,20 +229,20 @@
 
                 <div class="col-lg-9">
                     <div id="overview" class="mb-12">
-                        <h2 class="text-2xl font-bold mb-4">概述</h2>
-                        <p class="text-secondary mb-4">星闪技术（NearLink）是华为公司推出的新一代无线短距通信技术，融合了蓝牙和Wi-Fi的优势，提供更低时延、更高可靠性和更大容量的通信能力。</p>
+                        <h2 class="text-2xl font-bold mb-4">Overview</h2>
+                        <p class="text-secondary mb-4">NearLink is Huawei&#39;s new-generation short-range wireless technology. It combines the strengths of Bluetooth and Wi-Fi to deliver lower latency, higher reliability and greater capacity.</p>
                         <div class="card-dark p-6 mb-4">
-                            <h3 class="text-lg font-bold mb-3">技术特性</h3>
+                            <h3 class="text-lg font-bold mb-3">Technical features</h3>
                             <ul class="list-unstyled space-y-2">
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>超低时延：端到端时延低至2ms</li>
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>高可靠性：传输成功率超过99.9%</li>
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>大容量：支持数百个设备并发连接</li>
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>低功耗：支持多种功耗模式</li>
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>高安全性：支持加密通信</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>Ultra-low latency: end-to-end latency as low as 2 ms</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>High reliability: transmission success rate above 99.9%</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>Large capacity: supports hundreds of concurrent device connections</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>Low power: multiple power modes</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>High security: encrypted communication</li>
                             </ul>
                         </div>
                         <div class="card-dark p-6">
-                            <h3 class="text-lg font-bold mb-3">支持的开发板</h3>
+                            <h3 class="text-lg font-bold mb-3">Supported development boards</h3>
                             <ul class="list-unstyled space-y-2">
                                 <li><i class="fas fa-microchip text-orange-500 mr-2"></i>NearLink DevKit Pro (Hi3881)</li>
                                 <li><i class="fas fa-microchip text-orange-500 mr-2"></i>NearLink Sensor Node (Hi3882)</li>
@@ -224,17 +252,17 @@
                     </div>
 
                     <div id="installation" class="mb-12">
-                        <h2 class="text-2xl font-bold mb-4">环境搭建</h2>
+                        <h2 class="text-2xl font-bold mb-4">Setup</h2>
                         <div class="card-dark p-6 mb-4">
-                            <h3 class="text-lg font-bold mb-3">硬件要求</h3>
+                            <h3 class="text-lg font-bold mb-3">Hardware requirements</h3>
                             <ul class="list-unstyled space-y-2 mb-4">
-                                <li><i class="fas fa-desktop text-blue-500 mr-2"></i>支持星闪技术的开发板（Hi3881/Hi3882/Hi3883）</li>
-                                <li><i class="fas fa-cable text-blue-500 mr-2"></i>USB-C数据线</li>
-                                <li><i class="fas fa-laptop text-blue-500 mr-2"></i>Windows/macOS/Linux主机</li>
+                                <li><i class="fas fa-desktop text-blue-500 mr-2"></i>A NearLink-capable development board (Hi3881/Hi3882/Hi3883)</li>
+                                <li><i class="fas fa-plug text-primary mr-2"></i>USB-C cable</li>
+                                <li><i class="fas fa-laptop text-blue-500 mr-2"></i>Windows/macOS/Linux host</li>
                             </ul>
                         </div>
                         <div class="card-dark p-6">
-                            <h3 class="text-lg font-bold mb-3">软件安装</h3>
+                            <h3 class="text-lg font-bold mb-3">Software installation</h3>
                             <pre class="bg-black p-4 rounded text-sm overflow-x-auto"><code># 安装Python依赖
 pip install flask flask-sqlalchemy flask-login
 
@@ -242,8 +270,8 @@ pip install flask flask-sqlalchemy flask-login
 pip install nearlink-sdk
 
 # 克隆项目
-git clone https://github.com/zouic/zouic.git
-cd zouic
+git clone https://github.com/waedonwoo/zouic-site.git
+cd zouic-site
 
 # 运行应用
 python run.py</code></pre>
@@ -251,27 +279,27 @@ python run.py</code></pre>
                     </div>
 
                     <div id="quickstart" class="mb-12">
-                        <h2 class="text-2xl font-bold mb-4">快速开始</h2>
+                        <h2 class="text-2xl font-bold mb-4">Quick start</h2>
                         <div class="card-dark p-6">
-                            <h3 class="text-lg font-bold mb-3">第一步：设备发现</h3>
+                            <h3 class="text-lg font-bold mb-3">Step 1: Device discovery</h3>
                             <pre class="bg-black p-4 rounded text-sm overflow-x-auto mb-4"><code>from app.services.nearlink_sdk import nearlink_sdk
 
-# 开始设备发现
+# Start device discovery
 nearlink_sdk.start_discovery(timeout=5)
 
 # 获取发现的设备
 devices = nearlink_sdk.get_discovered_devices()
 for device in devices:
     print(f"设备: {device.name}, ID: {device.device_id}")</code></pre>
-                            <h3 class="text-lg font-bold mb-3">第二步：连接设备</h3>
-                            <pre class="bg-black p-4 rounded text-sm overflow-x-auto mb-4"><code># 连接到指定设备
+                            <h3 class="text-lg font-bold mb-3">Step 2: Connect to a device</h3>
+                            <pre class="bg-black p-4 rounded text-sm overflow-x-auto mb-4"><code># Connect to the specified device
 success = nearlink_sdk.connect('nl_device_001')
 if success:
     print("连接成功")
 else:
     print("连接失败")</code></pre>
-                            <h3 class="text-lg font-bold mb-3">第三步：数据传输</h3>
-                            <pre class="bg-black p-4 rounded text-sm overflow-x-auto"><code># 发送数据
+                            <h3 class="text-lg font-bold mb-3">Step 3: Data transfer</h3>
+                            <pre class="bg-black p-4 rounded text-sm overflow-x-auto"><code># Send data
 data = {'temperature': 25.5, 'humidity': 60}
 success = nearlink_sdk.send_json(data)
 
@@ -282,90 +310,90 @@ print(f"设备信息: {info}")</code></pre>
                     </div>
 
                     <div id="api" class="mb-12">
-                        <h2 class="text-2xl font-bold mb-4">API参考</h2>
+                        <h2 class="text-2xl font-bold mb-4">API reference</h2>
                         <div class="card-dark p-6 mb-4">
-                            <h3 class="text-lg font-bold mb-3">RESTful API端点</h3>
+                            <h3 class="text-lg font-bold mb-3">RESTful API endpoints</h3>
                             <table class="w-full">
                                 <thead>
                                     <tr class="border-b border-secondary">
-                                        <th class="text-left py-2">端点</th>
-                                        <th class="text-left py-2">方法</th>
-                                        <th class="text-left py-2">描述</th>
+                                        <th class="text-left py-2">Endpoint</th>
+                                        <th class="text-left py-2">Method</th>
+                                        <th class="text-left py-2">Description</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="border-b border-secondary">
                                         <td class="py-2 text-primary">/api/nearlink/discover</td>
                                         <td class="py-2">GET</td>
-                                        <td class="py-2">开始设备发现</td>
+                                        <td class="py-2">Start device discovery</td>
                                     </tr>
                                     <tr class="border-b border-secondary">
                                         <td class="py-2 text-primary">/api/nearlink/devices</td>
                                         <td class="py-2">GET</td>
-                                        <td class="py-2">获取已发现的设备列表</td>
+                                        <td class="py-2">List discovered devices</td>
                                     </tr>
                                     <tr class="border-b border-secondary">
                                         <td class="py-2 text-primary">/api/nearlink/connect</td>
                                         <td class="py-2">POST</td>
-                                        <td class="py-2">连接到指定设备</td>
+                                        <td class="py-2">Connect to the specified device</td>
                                     </tr>
                                     <tr class="border-b border-secondary">
                                         <td class="py-2 text-primary">/api/nearlink/disconnect</td>
                                         <td class="py-2">POST</td>
-                                        <td class="py-2">断开连接</td>
+                                        <td class="py-2">Disconnect</td>
                                     </tr>
                                     <tr class="border-b border-secondary">
                                         <td class="py-2 text-primary">/api/nearlink/send</td>
                                         <td class="py-2">POST</td>
-                                        <td class="py-2">发送数据</td>
+                                        <td class="py-2">Send data</td>
                                     </tr>
                                     <tr>
                                         <td class="py-2 text-primary">/api/nearlink/device_info</td>
                                         <td class="py-2">GET</td>
-                                        <td class="py-2">获取设备信息</td>
+                                        <td class="py-2">Get device information</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div class="card-dark p-6">
-                            <h3 class="text-lg font-bold mb-3">SDK方法</h3>
+                            <h3 class="text-lg font-bold mb-3">SDK methods</h3>
                             <table class="w-full">
                                 <thead>
                                     <tr class="border-b border-secondary">
-                                        <th class="text-left py-2">方法</th>
-                                        <th class="text-left py-2">参数</th>
-                                        <th class="text-left py-2">返回值</th>
+                                        <th class="text-left py-2">Method</th>
+                                        <th class="text-left py-2">Parameters</th>
+                                        <th class="text-left py-2">Returns</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="border-b border-secondary">
                                         <td class="py-2 text-primary">start_discovery(timeout)</td>
-                                        <td class="py-2">timeout: int (发现超时时间)</td>
-                                        <td class="py-2">None</td>
+                                        <td class="py-2">timeout: int (discovery timeout)</td>
+                                        <td class="py-2">—</td>
                                     </tr>
                                     <tr class="border-b border-secondary">
                                         <td class="py-2 text-primary">get_discovered_devices()</td>
-                                        <td class="py-2">None</td>
+                                        <td class="py-2">—</td>
                                         <td class="py-2">List[NearLinkDevice]</td>
                                     </tr>
                                     <tr class="border-b border-secondary">
                                         <td class="py-2 text-primary">connect(device_id)</td>
-                                        <td class="py-2">device_id: str (设备ID)</td>
+                                        <td class="py-2">device_id: str (device ID)</td>
                                         <td class="py-2">bool</td>
                                     </tr>
                                     <tr class="border-b border-secondary">
                                         <td class="py-2 text-primary">disconnect()</td>
-                                        <td class="py-2">None</td>
-                                        <td class="py-2">None</td>
+                                        <td class="py-2">—</td>
+                                        <td class="py-2">—</td>
                                     </tr>
                                     <tr class="border-b border-secondary">
                                         <td class="py-2 text-primary">send_json(data)</td>
-                                        <td class="py-2">data: dict (JSON数据)</td>
+                                        <td class="py-2">data: dict (JSON data)</td>
                                         <td class="py-2">bool</td>
                                     </tr>
                                     <tr>
                                         <td class="py-2 text-primary">read_device_info()</td>
-                                        <td class="py-2">None</td>
+                                        <td class="py-2">—</td>
                                         <td class="py-2">Dict</td>
                                     </tr>
                                 </tbody>
@@ -374,11 +402,11 @@ print(f"设备信息: {info}")</code></pre>
                     </div>
 
                     <div id="protocol" class="mb-12">
-                        <h2 class="text-2xl font-bold mb-4">通信协议</h2>
+                        <h2 class="text-2xl font-bold mb-4">Protocol</h2>
                         <div class="card-dark p-6 mb-4">
-                            <h3 class="text-lg font-bold mb-3">数据包结构</h3>
+                            <h3 class="text-lg font-bold mb-3">Packet structure</h3>
                             <pre class="bg-black p-4 rounded text-sm overflow-x-auto"><code>┌─────────────────────────────────────────────┐
-│ 星闪协议数据包结构                           │
+│ NearLink packet structure                   │
 ├─────────┬─────────┬─────────┬───────────────┤
 │ Command │ Flags   │ Source  │ Destination   │
 │ (1 byte)│ (1 byte)│ (2 bytes)│ (2 bytes)    │
@@ -387,50 +415,50 @@ print(f"设备信息: {info}")</code></pre>
 └─────────────────────────────────────────────┘</code></pre>
                         </div>
                         <div class="card-dark p-6">
-                            <h3 class="text-lg font-bold mb-3">命令类型</h3>
+                            <h3 class="text-lg font-bold mb-3">Command types</h3>
                             <table class="w-full">
                                 <thead>
                                     <tr class="border-b border-secondary">
-                                        <th class="text-left py-2">命令码</th>
-                                        <th class="text-left py-2">名称</th>
-                                        <th class="text-left py-2">描述</th>
+                                        <th class="text-left py-2">Command code</th>
+                                        <th class="text-left py-2">Name</th>
+                                        <th class="text-left py-2">Description</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="border-b border-secondary">
                                         <td class="py-2">0x01</td>
                                         <td class="py-2">DISCOVER</td>
-                                        <td class="py-2">设备发现</td>
+                                        <td class="py-2">Device discovery</td>
                                     </tr>
                                     <tr class="border-b border-secondary">
                                         <td class="py-2">0x02</td>
                                         <td class="py-2">CONNECT</td>
-                                        <td class="py-2">连接请求</td>
+                                        <td class="py-2">Connection request</td>
                                     </tr>
                                     <tr class="border-b border-secondary">
                                         <td class="py-2">0x03</td>
                                         <td class="py-2">DISCONNECT</td>
-                                        <td class="py-2">断开连接</td>
+                                        <td class="py-2">Disconnect</td>
                                     </tr>
                                     <tr class="border-b border-secondary">
                                         <td class="py-2">0x04</td>
                                         <td class="py-2">DATA</td>
-                                        <td class="py-2">数据传输</td>
+                                        <td class="py-2">Data transfer</td>
                                     </tr>
                                     <tr class="border-b border-secondary">
                                         <td class="py-2">0x05</td>
                                         <td class="py-2">ACK</td>
-                                        <td class="py-2">确认响应</td>
+                                        <td class="py-2">Acknowledgement</td>
                                     </tr>
                                     <tr class="border-b border-secondary">
                                         <td class="py-2">0x06</td>
                                         <td class="py-2">NACK</td>
-                                        <td class="py-2">否定响应</td>
+                                        <td class="py-2">Negative acknowledgement</td>
                                     </tr>
                                     <tr>
                                         <td class="py-2">0x07</td>
                                         <td class="py-2">HEARTBEAT</td>
-                                        <td class="py-2">心跳包</td>
+                                        <td class="py-2">Heartbeat</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -438,14 +466,14 @@ print(f"设备信息: {info}")</code></pre>
                     </div>
 
                     <div id="examples" class="mb-12">
-                        <h2 class="text-2xl font-bold mb-4">示例代码</h2>
+                        <h2 class="text-2xl font-bold mb-4">Examples</h2>
                         <div class="card-dark p-6 mb-4">
-                            <h3 class="text-lg font-bold mb-3">完整示例：传感器数据采集</h3>
+                            <h3 class="text-lg font-bold mb-3">Complete example: sensor data collection</h3>
                             <pre class="bg-black p-4 rounded text-sm overflow-x-auto"><code>from app.services.nearlink_sdk import nearlink_sdk
 import time
 
 def collect_sensor_data():
-    # 开始设备发现
+    # Start device discovery
     nearlink_sdk.start_discovery(timeout=5)
     
     # 获取传感器设备
@@ -489,7 +517,7 @@ if __name__ == '__main__':
     collect_sensor_data()</code></pre>
                         </div>
                         <div class="card-dark p-6">
-                            <h3 class="text-lg font-bold mb-3">Web应用集成示例</h3>
+                            <h3 class="text-lg font-bold mb-3">Web app integration example</h3>
                             <pre class="bg-black p-4 rounded text-sm overflow-x-auto"><code>// JavaScript示例：使用REST API
 async function discoverDevices() {
     const response = await fetch('/api/nearlink/discover');
@@ -528,48 +556,48 @@ discoverDevices().then(devices => {
                     </div>
 
                     <div id="compatibility" class="mb-12">
-                        <h2 class="text-2xl font-bold mb-4">兼容性测试</h2>
+                        <h2 class="text-2xl font-bold mb-4">Compatibility testing</h2>
                         <div class="card-dark p-6">
-                            <h3 class="text-lg font-bold mb-3">测试环境</h3>
+                            <h3 class="text-lg font-bold mb-3">Test environment</h3>
                             <ul class="list-unstyled space-y-2 mb-4">
-                                <li><i class="fas fa-desktop text-blue-500 mr-2"></i>操作系统：Windows 10/11, macOS 12+, Ubuntu 20.04+</li>
-                                <li><i class="fas fa-microchip text-blue-500 mr-2"></i>开发板：NearLink DevKit Pro (Hi3881)</li>
-                                <li><i class="fas fa-wifi text-blue-500 mr-2"></i>星闪协议版本：1.0</li>
+                                <li><i class="fas fa-desktop text-blue-500 mr-2"></i>OS: Windows 10/11, macOS 12+, Ubuntu 20.04+</li>
+                                <li><i class="fas fa-microchip text-blue-500 mr-2"></i>Board: NearLink DevKit Pro (Hi3881)</li>
+                                <li><i class="fas fa-wifi text-blue-500 mr-2"></i>NearLink protocol version: 1.0</li>
                             </ul>
-                            <h3 class="text-lg font-bold mb-3">测试结果</h3>
+                            <h3 class="text-lg font-bold mb-3">Test results</h3>
                             <table class="w-full">
                                 <thead>
                                     <tr class="border-b border-secondary">
-                                        <th class="text-left py-2">测试项</th>
-                                        <th class="text-left py-2">结果</th>
-                                        <th class="text-left py-2">备注</th>
+                                        <th class="text-left py-2">Test case</th>
+                                        <th class="text-left py-2">Result</th>
+                                        <th class="text-left py-2">Notes</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="border-b border-secondary">
-                                        <td class="py-2">设备发现</td>
-                                        <td class="py-2 text-green-500">通过</td>
-                                        <td class="py-2">支持广播模式发现</td>
+                                        <td class="py-2">Device discovery</td>
+                                        <td class="py-2 text-green-500">Pass</td>
+                                        <td class="py-2">Broadcast-mode discovery supported</td>
                                     </tr>
                                     <tr class="border-b border-secondary">
-                                        <td class="py-2">连接建立</td>
-                                        <td class="py-2 text-green-500">通过</td>
-                                        <td class="py-2">支持自动重连</td>
+                                        <td class="py-2">Connection setup</td>
+                                        <td class="py-2 text-green-500">Pass</td>
+                                        <td class="py-2">Automatic reconnection supported</td>
                                     </tr>
                                     <tr class="border-b border-secondary">
-                                        <td class="py-2">数据传输</td>
-                                        <td class="py-2 text-green-500">通过</td>
-                                        <td class="py-2">支持JSON和二进制数据</td>
+                                        <td class="py-2">Data transfer</td>
+                                        <td class="py-2 text-green-500">Pass</td>
+                                        <td class="py-2">JSON and binary data supported</td>
                                     </tr>
                                     <tr class="border-b border-secondary">
-                                        <td class="py-2">心跳检测</td>
-                                        <td class="py-2 text-green-500">通过</td>
-                                        <td class="py-2">支持超时自动断开</td>
+                                        <td class="py-2">Heartbeat detection</td>
+                                        <td class="py-2 text-green-500">Pass</td>
+                                        <td class="py-2">Automatic disconnect on timeout</td>
                                     </tr>
                                     <tr>
-                                        <td class="py-2">多设备并发</td>
-                                        <td class="py-2 text-green-500">通过</td>
-                                        <td class="py-2">支持多设备同时连接</td>
+                                        <td class="py-2">Multiple concurrent devices</td>
+                                        <td class="py-2 text-green-500">Pass</td>
+                                        <td class="py-2">Simultaneous connections to multiple devices</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -589,18 +617,15 @@ discoverDevices().then(devices => {
             <div class="newsletter-card">
                 <div class="row align-items-center">
                     <div class="col-lg-7">
-                        <h3 class="text-xl font-bold mb-2">Stay Ahead of the Curve</h3>
-                        <p class="text-secondary text-sm mb-4 mb-lg-0">Get weekly curated picks, trending boards, and exclusive hardware engineering tips delivered to your inbox</p>
+                        <h3 class="text-xl font-bold mb-2">Follow @GeekWaedon for Weekly Updates</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">Board picks, project breakdowns and hardware engineering tips, first published on WeChat and Knowledge Planet.</p>
                     </div>
                     <div class="col-lg-5">
-                        <form id="newsletterForm" class="newsletter-form" onsubmit="handleNewsletter(event)">
-                            <input type="email" id="newsletterEmail" class="input-zouic" placeholder="Enter your email address" required>
-                            <button type="submit" class="btn-zouic btn-zouic-primary btn-zouic-lg">Subscribe</button>
-                        </form>
+                        <a href="/en/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">See How to Follow</a>
                         <div class="newsletter-benefits">
                             <span class="newsletter-benefit"><i class="fas fa-check"></i> Weekly curated board picks</span>
                             <span class="newsletter-benefit"><i class="fas fa-check"></i> Exclusive project deep-dives</span>
-                            <span class="newsletter-benefit"><i class="fas fa-check"></i> No spam, unsubscribe anytime</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Updated on WeChat and Knowledge Planet</span>
                         </div>
                     </div>
                 </div>
@@ -608,7 +633,7 @@ discoverDevices().then(devices => {
         </div>
     </section>
 
-    <section class="py-4" aria-label="出品人">
+    <section class="py-4" aria-label="Produced by">
         <div class="author-card">
             <div class="author-card-info">
                 <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
@@ -619,7 +644,7 @@ discoverDevices().then(devices => {
             </div>
             <div class="author-card-actions">
                 <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Join my Knowledge Planet</a>
-                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;极客微栋&#34;</span>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;GeekWaedon&#34;</span>
             </div>
         </div>
     </section>
@@ -628,7 +653,7 @@ discoverDevices().then(devices => {
         <div class="container">
             <div class="row footer-main">
                 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
-                    <a href="/" class="footer-brand" aria-label="ZouIC 首页">
+                    <a href="/en/" class="footer-brand" aria-label="ZouIC home">
                         <i class="fas fa-microchip"></i>
                         <span>ZouIC</span>
                     </a>
@@ -636,26 +661,27 @@ discoverDevices().then(devices => {
 
                     <div class="footer-meta">
                         <p class="footer-author">
-                            出品人 · <strong>极客微栋</strong>
+                            Produced by · <strong>GeekWaedon</strong>
                             <span class="footer-author-handle">@GeekWaedon</span>
                         </p>
                         <div class="footer-slash-tags">
-                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span>
-                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span>
-                            <a href="/en/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商资质">
-                                <i class="fab fa-weixin"></i> 企业微信服务商
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware enthusiast</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI practitioner</span>
+                            <a href="/en/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom service provider">
+                                <i class="fab fa-weixin"></i> WeCom service provider
                             </a>
                         </div>
                     </div>
 
                     <div class="footer-social">
-                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a>
-                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a>
-                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a>
-                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a>
-                        <a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋（微信内搜索）"><i class="fab fa-weixin"></i></a>
-                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a>
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a>
+                        <a href="/en/#follow" class="footer-social-link" aria-label="WeChat Official Account · GeekWaedon" title="WeChat Official Account · GeekWaedon"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a>
                         <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
@@ -675,6 +701,7 @@ discoverDevices().then(devices => {
                         <li><a href="/en/documentation">Documentation</a></li>
                         <li><a href="/en/cases">Project Cases</a></li>
                         <li><a href="/en/help">Documentation</a></li>
+                        <li><a href="/en/dashuju">Data Dashboard</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-2 mb-4 mb-md-0">
@@ -683,7 +710,7 @@ discoverDevices().then(devices => {
                         <li><a href="/en/open-source">Open Source Projects</a></li>
                         <li><a href="/en/articles">Articles</a></li>
                         <li><a href="/en/contribute">Contribute</a></li>
-                        <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-2">
@@ -699,12 +726,13 @@ discoverDevices().then(devices => {
             <div class="footer-bottom">
                 <p>© 2026 ZouIC. All rights reserved.</p>
                 <p>Open source projects aggregated on this platform follow their respective open source licenses. For details, please see the <a href="/en/licenses">Open Source Licenses</a> page.</p>
+                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
     </button>
 
@@ -851,8 +879,8 @@ discoverDevices().then(devices => {
                     <i class="fas fa-robot"></i>
                     <span>AI Assistant</span>
                 </div>
-                <button id="agent-chat-close" class="btn-zouic btn-zouic-ghost btn-zouic-sm" style="color: rgba(255,255,255,0.8);">
-                    <i class="fas fa-times"></i>
+                <button id="agent-chat-close" class="btn-zouic btn-zouic-ghost btn-zouic-sm" aria-label="Close" style="color: rgba(255,255,255,0.8);">
+                    <i class="fas fa-times" aria-hidden="true"></i>
                 </button>
             </div>
             <div id="agent-chat-messages" class="chat-widget-messages">
@@ -860,7 +888,7 @@ discoverDevices().then(devices => {
                     <div class="chat-widget-toggle" style="width: 32px; height: 32px; font-size: 0.75rem; flex-shrink: 0;">
                         <i class="fas fa-robot"></i>
                     </div>
-                    <div class="bg-secondary/50 rounded-lg rounded-tl-none p-3 text-sm" style="background-color: rgba(14, 165, 233, 0.15);">
+                    <div class="bg-secondary/50 rounded-lg rounded-tl-none p-3 text-sm" style="background-color: rgba(255, 0, 110, 0.15);">
                         Search boards, projects or keywords...
                     </div>
                 </div>
@@ -869,15 +897,16 @@ discoverDevices().then(devices => {
                 <div class="d-flex gap-2">
                     <input type="text" id="agent-chat-input" 
                         class="input-zouic flex-grow-1"
+                        aria-label="Enter your message..."
                         placeholder="Enter your message...">
-                    <button id="agent-chat-send" class="btn-zouic btn-zouic-primary btn-zouic-sm">
-                        <i class="fas fa-paper-plane"></i>
+                    <button id="agent-chat-send" class="btn-zouic btn-zouic-primary btn-zouic-sm" aria-label="Send">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <button id="agent-chat-toggle" class="chat-widget-toggle">
-            <i class="fas fa-robot" style="font-size: 1.25rem;"></i>
+        <button id="agent-chat-toggle" class="chat-widget-toggle" aria-label="AI Assistant" aria-expanded="false">
+            <i class="fas fa-robot" style="font-size: 1.25rem;" aria-hidden="true"></i>
         </button>
     </div>
 
@@ -895,7 +924,9 @@ discoverDevices().then(devices => {
             if (chatToggle && chatContainer) {
                 chatToggle.addEventListener('click', function() {
                     chatContainer.classList.toggle('open');
-                    if (chatContainer.classList.contains('open')) {
+                    var isOpen = chatContainer.classList.contains('open');
+                    chatToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    if (isOpen) {
                         chatInput.focus();
                     }
                 });
@@ -904,6 +935,8 @@ discoverDevices().then(devices => {
             if (chatClose && chatContainer) {
                 chatClose.addEventListener('click', function() {
                     chatContainer.classList.remove('open');
+                    chatToggle.setAttribute('aria-expanded', 'false');
+                    chatToggle.focus();
                 });
             }
             
@@ -920,8 +953,8 @@ discoverDevices().then(devices => {
                 bubble.className = 'rounded-lg px-3 py-2 text-sm ' +
                     (isUser ? 'rounded-tr-none' : 'rounded-tl-none');
                 bubble.style.cssText = isUser 
-                    ? 'background-color: rgba(0, 212, 170, 0.15); color: var(--color-text-primary);'
-                    : 'background-color: rgba(14, 165, 233, 0.15); color: var(--color-text-primary);';
+                    ? 'background-color: rgba(0, 229, 255, 0.15); color: var(--color-text-primary);'
+                    : 'background-color: rgba(255, 0, 110, 0.15); color: var(--color-text-primary);';
                 bubble.textContent = text;
                 
                 div.appendChild(isUser ? bubble : avatar);
@@ -985,11 +1018,11 @@ discoverDevices().then(devices => {
             if (saved.includes(id)) {
                 saved = saved.filter(function(i) { return i !== id; });
                 localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
-                showToast('已取消收藏');
+                showToast('Removed from favorites');
             } else {
                 saved.push(id);
                 localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
-                showToast('收藏成功');
+                showToast('Saved to favorites');
             }
         };
         
@@ -1000,32 +1033,9 @@ discoverDevices().then(devices => {
             document.body.appendChild(toast);
             setTimeout(function() { toast.remove(); }, 3000);
         };
-        
-        // --- Newsletter form handler ---
-        window.handleNewsletter = function(e) {
-            e.preventDefault();
-            const emailInput = document.getElementById('newsletterEmail');
-            if (!emailInput || !emailInput.value.trim()) return;
-            
-            const btn = e.target.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
-            btn.textContent = 'Subscribed!';
-            btn.disabled = true;
-            
-            // Simulate subscription (in production, send to API)
-            setTimeout(function() {
-                btn.textContent = '✓ ' + originalText;
-                btn.disabled = false;
-                emailInput.value = '';
-                
-                // Show toast
-                const toast = document.createElement('div');
-                toast.className = 'toast-zouic toast-zouic-success show';
-                toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Subscribed!';
-                document.body.appendChild(toast);
-                setTimeout(function() { toast.remove(); }, 3000);
-            }, 1000);
-        };
     </script>
+    
+    
+    
 </body>
 </html>
