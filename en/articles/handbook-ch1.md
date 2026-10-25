@@ -1,7 +1,7 @@
 # The right order for board selection: scenario, constraints, then the board
 
 > "Open Hardware Selection Handbook" · Geek Weidong @GeekWaedon
-> Original: https://www.zouic.com/articles/handbook-ch1
+> Original: https://www.zouic.com/articles/handbook-ch1/
 
 ## 1.1 A familiar script
 

@@ -1,7 +1,7 @@
 # 选型的正确顺序：先看场景，再看约束，最后看板卡
 
 > 《开源硬件实战选型手册》 · 极客微栋 @GeekWaedon
-> 原文：https://www.zouic.com/articles/handbook-ch1
+> 原文：https://www.zouic.com/articles/handbook-ch1/
 
 ## 1.1 一个熟悉的剧本
 

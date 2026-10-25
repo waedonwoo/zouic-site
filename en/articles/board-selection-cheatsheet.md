@@ -1,7 +1,7 @@
 # One-page cheat sheet: I want to build X — which board should I buy?
 
 > Appendix to the Open Hardware Selection Handbook · GeekWaedon
-> Original: https://www.zouic.com/articles/board-selection-cheatsheet
+> Original: https://www.zouic.com/articles/board-selection-cheatsheet/
 > Price bands: ¥ = under ~CNY 30, ¥¥ = CNY 30-100, ¥¥¥ = above CNY 100
 
 ## Decision tree (locate in 30 seconds)

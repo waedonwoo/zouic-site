@@ -1,7 +1,7 @@
 # 一页纸速查表：我要做 XX，该买哪块开发板
 
 > 《开源硬件实战选型手册》附录 · 极客微栋 @GeekWaedon
-> Original: https://www.zouic.com/articles/board-selection-cheatsheet
+> Original: https://www.zouic.com/articles/board-selection-cheatsheet/
 > 价格带约定：¥ = 约 30 元内，¥¥ = 30-100 元，¥¥¥ = 百元以上
 
 ## 决策树（30 秒定位）
