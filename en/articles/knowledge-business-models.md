@@ -1,4 +1,4 @@
-# Don’t Build a Harvesting Business: Five Paid-Knowledge Models and the Compounding Alternative
+# Don’t Build a Harvesting Business: Four Paid-Knowledge Models and the Compounding Alternative
 
 > How Shengcaiyoushu, Qunxiang, Shen Ge and Xingdong Jiaoyu actually make money — and what a solo content site can sustain
 > GeekWaedon · 2026-10-24
@@ -18,9 +18,7 @@ Sources are public reporting, company disclosures and public product pages, retr
 
 Descriptions of specific people and organisations only restate public reporting or public product information. They are not legal findings and do not characterise an entire business. Criticising a model and accusing a person are two different things.
 
-**About “Bu Da Ge”**
-
-> Verifiable public material is insufficient to confirm this operator’s products, pricing or delivery. Rather than replace facts with guesses, this essay does not treat them as a case study and discusses only the general “personal IP + community” structure.
+One sourcing rule applies throughout: <strong>any sample whose product structure, pricing or delivery cannot be confirmed from verifiable public material is left out</strong>. Better one fewer case study than filling the gap with guesses.
 
 ## 3. Four verifiable samples, two revenue structures
 
@@ -28,11 +26,10 @@ Start with the table. Prices differ by nearly two orders of magnitude, yet there
 
 | Sample | Product structure | Public price band | Main revenue | Delivery focus | Public controversy |
 | --- | --- | --- | --- | --- | --- |
-| Shengcaiyoushu | Annual membership UGC community | Started at CNY 365 with tiered increases; public sources later show roughly CNY 2,000-3,365 per year | Membership and renewals | Member-generated content, events, introductions | Value depends heavily on member initiative; anxiety marketing; content homogenisation |
+| Shengcaiyoushu | Annual membership UGC community | Tiered pricing; the public Knowledge Planet page shows CNY 3,365 per year in 2026 (lower during promotions) | Membership and renewals | Member-generated content, events, introductions | Value depends heavily on member initiative; anxiety marketing; content homogenisation |
 | Qunxiang | Founder IP + private domain + high-ticket community | Basic membership around CNY 1,999; private board publicly quoted around CNY 49,800 | Membership, private board, events, matchmaking | Circle, information, offline setting | “Gathers people but does not land deals”; pressure selling in the room; light delivery |
 | Shen Ge | IP matrix + tiered courses + private board + full-service packages | Courses CNY 2,980-9,980; private board CNY 80,000; full-service package CNY 2m per year | Courses, private board, managed accounts and packages | Methods, coaching, done-for-you accounts | Questionable reproducibility of case studies; public complaints of spend not matching results; accounts previously penalised for violations |
-| Xingdong Jiaoyu | Listed management-training company | Compact EMBA publicly CNY 39,800 per person (CNY 258,000 for a team of 10); Principal EMBA publicly CNY 498,000 per person | Course orders, large clients, consulting | Standardised courses, tools, consulting | Sales-driven, high selling costs; “network success” criticism; prepaid model |
-| Bu Da Ge | Insufficient verifiable public material | — | — | — | No case-level judgement |
+| Xingdong Jiaoyu | Listed management-training company | Compact EMBA publicly CNY 39,800 per person; Principal EMBA publicly CNY 498,000 per person (per public reporting and company materials) | Course orders, large clients, consulting | Standardised courses, tools, consulting | Sales-driven, high selling costs; “network success” criticism; prepaid model |
 
 Selling status has high margins and scales fast, but burns trust just as fast. Selling delivery is heavier and slower, yet accumulates work and repeat purchases.
 

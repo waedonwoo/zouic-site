@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="开源不等于随便用。本文讲清软件许可证（MIT / Apache-2.0 / GPL-3.0）与硬件许可证（CERN OHL v2 的 S/W/P 三个变体）的分工，说明为什么 CC 官方不推荐用 CC 协议许可软硬件，并给出复现前的自检清单。">
+    <meta name="keywords" content="开源许可证,开源硬件,CERN OHL,MIT,Apache-2.0,GPL-3.0,CC BY-SA,OSHWA,授权合规">
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <link rel="canonical" href="https://www.zouic.com/articles/open-hardware-license-guide">
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/articles/open-hardware-license-guide" />
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/open-hardware-license-guide" />
+    <meta property="og:title" content="开源硬件许可证怎么读：MIT、Apache-2.0、GPL-3.0、CERN OHL、CC BY-SA 一次讲清">
+    <meta property="og:description" content="开源不等于随便用。本文讲清软件许可证（MIT / Apache-2.0 / GPL-3.0）与硬件许可证（CERN OHL v2 的 S/W/P 三个变体）的分工，说明为什么 CC 官方不推荐用 CC 协议许可软硬件，并给出复现前的自检清单。">
+    <meta property="og:url" content="https://www.zouic.com/articles/open-hardware-license-guide">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="开源硬件许可证怎么读：MIT、Apache-2.0、GPL-3.0、CERN OHL、CC BY-SA 一次讲清">
+    <meta name="twitter:description" content="开源不等于随便用。本文讲清软件许可证（MIT / Apache-2.0 / GPL-3.0）与硬件许可证（CERN OHL v2 的 S/W/P 三个变体）的分工，说明为什么 CC 官方不推荐用 CC 协议许可软硬件，并给出复现前的自检清单。">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "开源硬件许可证怎么读：MIT、Apache-2.0、GPL-3.0、CERN OHL、CC BY-SA 一次讲清", "description": "开源不等于随便用。本文讲清软件许可证（MIT / Apache-2.0 / GPL-3.0）与硬件许可证（CERN OHL v2 的 S/W/P 三个变体）的分工，说明为什么 CC 官方不推荐用 CC 协议许可软硬件，并给出复现前的自检清单。", "about": "开源许可证,开源硬件,CERN OHL,MIT,Apache-2.0,GPL-3.0,CC BY-SA,OSHWA,授权合规", "author": {"@type": "Person", "name": "极客微栋 GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "inLanguage": "zh-CN", "datePublished": "2026-10-27", "dateModified": "2026-10-27", "image": "https://www.zouic.com/static/images/og-cover.jpg", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/open-hardware-license-guide/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "首页", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "技术文章", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/open-hardware-license-guide/", "name": "开源硬件许可证怎么读：MIT、Apache-2.0、GPL-3.0、CERN OHL、CC BY-SA 一次讲清", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "标 MIT 的硬件项目，我能直接生产来卖吗？", "acceptedAnswer": {"@type": "Answer", "text": "要看设计文件用的是哪套硬件许可证。MIT 通常只覆盖固件代码，电路与结构可能另有约定；OSHWA 的定义允许售卖，但前提是遵守该项目所选的许可证。"}}, {"@type": "Question", "name": "项目完全没写许可证怎么办？", "acceptedAnswer": {"@type": "Answer", "text": "默认视为保留所有权利。可以联系作者确认，或在取得书面授权前仅做学习研究用途。"}}, {"@type": "Question", "name": "GPL-3.0 的固件，改了之后必须开源吗？", "acceptedAnswer": {"@type": "Answer", "text": "如果你分发了修改后的固件，按 GPL-3.0 需要以同一许可证提供源代码；仅自己使用不分发则触发条件不同，具体见许可证全文。"}}, {"@type": "Question", "name": "CERN OHL 的 S / W / P 怎么选？", "acceptedAnswer": {"@type": "Answer", "text": "想让派生设计也必须开源选 S；只要求设计文件层面互惠选 W；希望最少限制选 P。"}}]}]}
+    </script>
+    <title>开源硬件许可证怎么读：MIT、Apache-2.0、GPL-3.0、CERN OHL、CC BY-SA 一次讲清 - ZouIC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261024b">
+    
+    <style>
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255,255,255,0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-6); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0,229,255,0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255,0,110,0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167,139,250,0.3); }
+        .text-green-500 { color: #10b981; }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .article-body p { line-height: 1.9; margin-bottom: 1.1rem; color: var(--color-text-primary); }
+        .article-body ul, .article-body ol { line-height: 1.9; margin-bottom: 1.1rem; }
+        .article-body li { margin-bottom: .4rem; }
+        .article-body table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .95rem; }
+        .article-body th, .article-body td { border: 1px solid var(--color-border-default); padding: .7rem .9rem; text-align: left; }
+        .article-body th { background: var(--color-bg-tertiary); color: var(--color-primary); }
+        .article-body code { background: rgba(0,229,255,0.1); color: var(--color-primary); padding: .1rem .4rem; border-radius: 6px; font-family: 'Share Tech Mono', monospace; }
+        .article-body a { color: var(--color-primary); text-decoration: none; border-bottom: 1px dashed rgba(0,229,255,0.4); }
+        .article-body a:hover { color: var(--color-secondary); }
+        .faq-item { border-bottom: 1px solid var(--color-border-default); padding: 1rem 0; }
+        .faq-q { font-weight: 600; color: var(--color-text-primary); margin-bottom: .4rem; }
+        .faq-a { color: var(--color-text-secondary); line-height: 1.8; }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261023b">
+
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+    
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航">
+        <div class="container">
+            <a class="navbar-brand" href="/"><i class="fas fa-microchip"></i> ZouIC</a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projects/">开源项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/all-projects/">开源项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/articles/">技术文章</a></li>
+                </ul>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文</button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/articles/open-hardware-license-guide/"><i class="fas fa-language me-2"></i> 中文</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main id="main-content">
+        <section class="page-hero page-hero-articles py-16">
+            <div class="container text-center">
+                <span class="badge badge-primary mb-3">免费公开 · 欢迎转发</span>
+                <h1 class="display-4 font-bold mb-4">开源硬件许可证怎么读：MIT、Apache-2.0、GPL-3.0、CERN OHL、CC BY-SA 一次讲清</h1>
+                <p class="text-secondary lead">开源不等于随便用：先看授权，再动手复刻</p>
+            </div>
+        </section>
+        <section class="py-8">
+            <div class="container article-body" style="max-width: 960px;">
+                <nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0">
+                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/articles/">技术文章</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">开源硬件许可证怎么读：MIT、Apache-2.0、GPL-3.0、CERN OHL、CC BY-SA 一次讲清</li>
+                </ol></nav>
+                
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">一、先分清：软件许可证管不了硬件</h2>
+            <p>大多数开源硬件项目其实是<strong>两套授权叠加</strong>：固件代码用软件许可证（MIT、Apache-2.0、GPL-3.0 等），电路与结构用硬件许可证（CERN OHL、TAPR OHL 等）。只看了仓库里的 LICENSE 就以为整块板子可以自由生产，是最常见的误解。</p>
+            <p>开源硬件的定义可参考 <a href="https://www.oshwa.org/definition/" rel="nofollow noopener" target="_blank">OSHWA 的 OSHW Definition 1.0</a>：设计文件必须公开、允许修改与派生、允许制造和销售，且不得歧视任何人与任何用途。注意其中一条常被忽略——<strong>开源硬件并不要求免费</strong>，按设计制造出来的产品可以正常售卖。</p>
+        </div>
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">二、三种常见软件许可证</h2>
+            <table>
+                <thead><tr><th>许可证</th><th>性质</th><th>你的义务</th><th>对复刻售卖的影响</th></tr></thead>
+                <tbody>
+                    <tr><td>MIT</td><td>宽松型（permissive）</td><td>保留版权声明与许可声明</td><td>影响最小，可闭源派生</td></tr>
+                    <tr><td>Apache-2.0</td><td>宽松型 + 专利授权</td><td>保留声明、变更说明、NOTICE 文件，并附带专利授权</td><td>可闭源派生，专利条款更明确</td></tr>
+                    <tr><td>GPL-3.0</td><td>强著佐权（copyleft）</td><td>分发衍生作品时必须以同一许可证提供源代码</td><td>改了固件并分发，就要开源你的改动</td></tr>
+                </tbody>
+            </table>
+            <p class="text-sm text-gray-400 mt-3">完整条文以 <a href="https://opensource.org/licenses/" rel="nofollow noopener" target="_blank">Open Source Initiative</a> 及各许可证官方文本为准，例如 <a href="https://opensource.org/license/gpl-3-0" rel="nofollow noopener" target="_blank">GPL-3.0 页面</a>。</p>
+        </div>
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">三、硬件许可证：CERN OHL v2 的三个变体</h2>
+            <p>CERN 为硬件设计的许可证目前是 <strong>version 2，并且分成三个变体</strong>（据 <a href="https://cern-ohl.web.cern.ch/" rel="nofollow noopener" target="_blank">CERN OHL 官方页</a>）：</p>
+            <table>
+                <thead><tr><th>变体</th><th>全称</th><th>含义</th></tr></thead>
+                <tbody>
+                    <tr><td>CERN-OHL-S</td><td>strongly reciprocal（强互惠）</td><td>派生设计必须以同等条件公开</td></tr>
+                    <tr><td>CERN-OHL-W</td><td>weakly reciprocal（弱互惠）</td><td>修改设计文件需公开，范围较 S 窄</td></tr>
+                    <tr><td>CERN-OHL-P</td><td>permissive（宽松）</td><td>保留署名即可，限制最少</td></tr>
+                </tbody>
+            </table>
+            <p>换句话说，看到一个硬件项目标着 CERN-OHL-S 和标 CERN-OHL-P，你能做的事完全不同——<strong>先看变体字母，再决定能不能闭源派生</strong>。</p>
+        </div>
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">四、CC BY-SA 能不能用在硬件上？</h2>
+            <p>不少项目把设计文件、文档或图片标成 CC BY-SA。需要知道的是，Creative Commons 官方在 <a href="https://creativecommons.org/faq/" rel="nofollow noopener" target="_blank">FAQ</a> 里明确表示：<strong>不建议把 CC 协议用于软件，也不建议用于硬件</strong>（原文：CC 不推荐使用其许可协议的类别只有计算机软件与硬件两类）。CC 协议可以用在软件文档这类内容上，但不适合承载电路与结构设计的授权。</p>
+            <p>所以，如果一个硬件项目的设计文件只写了 CC BY-SA，说明作者<strong>可能没有选用专门的硬件许可证</strong>；这种情况下要商用，最好直接联系作者取得书面确认。</p>
+        </div>
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">五、ZouIC 的标注规则</h2>
+            <ul>
+                <li><strong>仓库写明许可证的照录</strong>：如 MIT、Apache-2.0、GPL-3.0，直接展示原始值。</li>
+                <li><strong>原页面没写清的一律不猜</strong>：标注“以原页面标注为准”或“以原项目页标注为准”。</li>
+                <li><strong>报道类条目标注性质</strong>：Hackaday 条目标注“报道文章，非代码仓库；授权以原页面标注为准”。</li>
+                <li><strong>不做任何法律定性</strong>：本站提供的是索引与线索，不是授权意见书。</li>
+            </ul>
+            <p>逐条查看：<a href="/all-projects/">开源项目总库</a>；协议说明汇总见 <a href="/licenses/">开源协议</a> 页。</p>
+        </div>
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">六、复现前的五步自检</h2>
+            <ol>
+                <li>确认仓库里 LICENSE 文件的<strong>具体名称与变体</strong>（不是“开源”两个字）。</li>
+                <li>区分<strong>固件</strong>与<strong>硬件</strong>两套授权，分别看。</li>
+                <li>检查设计文件是否为<strong>可修改的原生格式</strong>（如 KiCad 工程），而不是只有 PDF 或 Gerber。</li>
+                <li>要商用或量产，回到原页面找作者的<strong>商业授权</strong>说明，或直接联系。</li>
+                <li>没写许可证的项目，默认视为<strong>保留所有权利</strong>，不要想当然。</li>
+            </ol>
+            <p class="text-sm text-gray-400 mt-3">本文为通用知识整理，不构成法律意见；具体项目请以原作者公布的许可证全文为准。</p>
+        </div>
+        
+<section class="py-6"><div class="card-dark p-6"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>标 MIT 的硬件项目，我能直接生产来卖吗？</div><div class="faq-a">要看设计文件用的是哪套硬件许可证。MIT 通常只覆盖固件代码，电路与结构可能另有约定；OSHWA 的定义允许售卖，但前提是遵守该项目所选的许可证。</div></div><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>项目完全没写许可证怎么办？</div><div class="faq-a">默认视为保留所有权利。可以联系作者确认，或在取得书面授权前仅做学习研究用途。</div></div><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>GPL-3.0 的固件，改了之后必须开源吗？</div><div class="faq-a">如果你分发了修改后的固件，按 GPL-3.0 需要以同一许可证提供源代码；仅自己使用不分发则触发条件不同，具体见许可证全文。</div></div><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>CERN OHL 的 S / W / P 怎么选？</div><div class="faq-a">想让派生设计也必须开源选 S；只要求设计文件层面互惠选 W；希望最少限制选 P。</div></div></div></section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-zouic py-8 mt-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a class="navbar-brand mb-3 d-inline-block" href="/"><i class="fas fa-microchip"></i> ZouIC</a>
+                    <p class="text-secondary text-sm">全球开源硬件聚合平台，提供开发板数据库、项目搜索、技术文档一站式硬件开发资源。</p>
+                    <span class="badge badge-primary">SYS.STATUS: OPERATIONAL</span>
+                </div>
+                <div class="col-lg-2 col-6 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">产品</h6>
+                    <ul class="list-unstyled text-sm">
+                        <li><a class="text-secondary" href="/boards/">开源开发板</a></li>
+                        <li><a class="text-secondary" href="/projects/">开源项目</a></li>
+                        <li><a class="text-secondary" href="/compare/">参数对比</a></li>
+                        <li><a class="text-secondary" href="/board-guide/">文档中心</a></li>
+                    </ul></div>
+                <div class="col-lg-2 col-6 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">资源</h6>
+                    <ul class="list-unstyled text-sm">
+                        <li><a class="text-secondary" href="/tutorials/">开发板教程</a></li>
+                        <li><a class="text-secondary" href="/documentation/">技术文档</a></li>
+                        <li><a class="text-secondary" href="/articles/">技术文章</a></li>
+                        <li><a class="text-secondary" href="/open-source/">开源项目</a></li>
+                    </ul></div>
+                <div class="col-lg-4 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">社区</h6>
+                    <p class="text-secondary text-sm">与硬件开发者同行，贡献开发板 / 项目，共建开源硬件生态。</p>
+                    <a class="btn-zouic btn-zouic-primary btn-zouic-sm" href="/contribute/"><i class="fas fa-handshake me-1"></i> 贡献指南</a></div>
+            </div>
+            <hr class="border-secondary opacity-25">
+            <div class="d-flex justify-content-between flex-wrap text-gray-400 text-sm">
+                <span>© 2026 ZouIC // OPEN HARDWARE DEMO HUB</span>
+                <span>POWERED BY OPEN SOURCE // v2.0</span>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

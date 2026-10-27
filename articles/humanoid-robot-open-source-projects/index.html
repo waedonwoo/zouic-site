@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="从 Stanford Doggo 到 Berkeley Humanoid Lite、ToddlerBot、ElectronBot：8 个带真实代码仓库的机器人开源项目，逐条列出许可证与形态，并说明 GPL-3.0 与 MIT / Apache-2.0 在复刻售卖上的差别。">
+    <meta name="keywords" content="人形机器人,四足机器人,开源项目,Stanford Doggo,Berkeley Humanoid,ToddlerBot,ElectronBot,机器人开源,GitHub">
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <link rel="canonical" href="https://www.zouic.com/articles/humanoid-robot-open-source-projects">
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/articles/humanoid-robot-open-source-projects" />
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/humanoid-robot-open-source-projects" />
+    <meta property="og:title" content="人形与四足机器人开源项目清单：8 个能真正跑起来的仓库">
+    <meta property="og:description" content="从 Stanford Doggo 到 Berkeley Humanoid Lite、ToddlerBot、ElectronBot：8 个带真实代码仓库的机器人开源项目，逐条列出许可证与形态，并说明 GPL-3.0 与 MIT / Apache-2.0 在复刻售卖上的差别。">
+    <meta property="og:url" content="https://www.zouic.com/articles/humanoid-robot-open-source-projects">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="人形与四足机器人开源项目清单：8 个能真正跑起来的仓库">
+    <meta name="twitter:description" content="从 Stanford Doggo 到 Berkeley Humanoid Lite、ToddlerBot、ElectronBot：8 个带真实代码仓库的机器人开源项目，逐条列出许可证与形态，并说明 GPL-3.0 与 MIT / Apache-2.0 在复刻售卖上的差别。">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "人形与四足机器人开源项目清单：8 个能真正跑起来的仓库", "description": "从 Stanford Doggo 到 Berkeley Humanoid Lite、ToddlerBot、ElectronBot：8 个带真实代码仓库的机器人开源项目，逐条列出许可证与形态，并说明 GPL-3.0 与 MIT / Apache-2.0 在复刻售卖上的差别。", "about": "人形机器人,四足机器人,开源项目,Stanford Doggo,Berkeley Humanoid,ToddlerBot,ElectronBot,机器人开源,GitHub", "author": {"@type": "Person", "name": "极客微栋 GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "inLanguage": "zh-CN", "datePublished": "2026-10-27", "dateModified": "2026-10-27", "image": "https://www.zouic.com/static/images/og-cover.jpg", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/humanoid-robot-open-source-projects/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "首页", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "技术文章", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/humanoid-robot-open-source-projects/", "name": "人形与四足机器人开源项目清单：8 个能真正跑起来的仓库", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "这 8 个都能直接买到成品吗？", "acceptedAnswer": {"@type": "Answer", "text": "不都能。它们是开源仓库，需要自己准备物料制作；是否同时有商品化产品，以各项目主页说明为准。"}}, {"@type": "Question", "name": "新手适合从哪个开始？", "acceptedAnswer": {"@type": "Answer", "text": "结构最简单的四足或桌面型更友好，例如 Stanford Doggo、OpenCat ESP32。"}}, {"@type": "Question", "name": "GPL-3.0 项目我能做来卖吗？", "acceptedAnswer": {"@type": "Answer", "text": "售卖本身通常不被禁止，但你修改并分发固件时，需要按 GPL-3.0 提供源代码。硬件部分还要看它选用的硬件许可证。"}}, {"@type": "Question", "name": "许可证写错了吗？", "acceptedAnswer": {"@type": "Answer", "text": "如发现与仓库当前 LICENSE 不一致，请通过 <a href=\"/contribute/\">贡献指南</a> 反馈，我们会核对后修正。"}}]}]}
+    </script>
+    <title>人形与四足机器人开源项目清单：8 个能真正跑起来的仓库 - ZouIC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261024b">
+    
+    <style>
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255,255,255,0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-6); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0,229,255,0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255,0,110,0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167,139,250,0.3); }
+        .text-green-500 { color: #10b981; }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .article-body p { line-height: 1.9; margin-bottom: 1.1rem; color: var(--color-text-primary); }
+        .article-body ul, .article-body ol { line-height: 1.9; margin-bottom: 1.1rem; }
+        .article-body li { margin-bottom: .4rem; }
+        .article-body table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .95rem; }
+        .article-body th, .article-body td { border: 1px solid var(--color-border-default); padding: .7rem .9rem; text-align: left; }
+        .article-body th { background: var(--color-bg-tertiary); color: var(--color-primary); }
+        .article-body code { background: rgba(0,229,255,0.1); color: var(--color-primary); padding: .1rem .4rem; border-radius: 6px; font-family: 'Share Tech Mono', monospace; }
+        .article-body a { color: var(--color-primary); text-decoration: none; border-bottom: 1px dashed rgba(0,229,255,0.4); }
+        .article-body a:hover { color: var(--color-secondary); }
+        .faq-item { border-bottom: 1px solid var(--color-border-default); padding: 1rem 0; }
+        .faq-q { font-weight: 600; color: var(--color-text-primary); margin-bottom: .4rem; }
+        .faq-a { color: var(--color-text-secondary); line-height: 1.8; }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261023b">
+
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+    
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航">
+        <div class="container">
+            <a class="navbar-brand" href="/"><i class="fas fa-microchip"></i> ZouIC</a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projects/">开源项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/all-projects/">开源项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/articles/">技术文章</a></li>
+                </ul>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文</button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/articles/humanoid-robot-open-source-projects/"><i class="fas fa-language me-2"></i> 中文</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main id="main-content">
+        <section class="page-hero page-hero-articles py-16">
+            <div class="container text-center">
+                <span class="badge badge-primary mb-3">免费公开 · 欢迎转发</span>
+                <h1 class="display-4 font-bold mb-4">人形与四足机器人开源项目清单：8 个能真正跑起来的仓库</h1>
+                <p class="text-secondary lead">不是渲染图，是能 clone 下来跑的仓库</p>
+            </div>
+        </section>
+        <section class="py-8">
+            <div class="container article-body" style="max-width: 960px;">
+                <nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0">
+                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/articles/">技术文章</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">人形与四足机器人开源项目清单：8 个能真正跑起来的仓库</li>
+                </ol></nav>
+                
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">先说口径：这 8 个里不全是“人形”</h2>
+            <p>坦白讲清楚：ZouIC 目前机器人方向收录 <strong>8 条</strong>，站内归入“人形机器人”这一类，但其中既有人形/双足，也有四足与桌面小机器人。<strong>这里如实标注形态，不做包装</strong>，因为对想动手的人来说，形态比标签重要。</p>
+            <p>共同点是：全部来自 GitHub 真实仓库，许可证明确，不是概念视频。</p>
+        </div>
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">八个项目一览</h2>
+            <table>
+                <thead><tr><th>项目</th><th>形态</th><th>许可证</th><th>仓库</th></tr></thead>
+                <tbody>
+                    <tr><td><a href="/external/github/Nate711/StanfordDoggoProject/">Stanford Doggo</a></td><td>四足（弹跳式）</td><td>MIT</td><td>Nate711/StanfordDoggoProject</td></tr>
+                    <tr><td><a href="/external/github/HybridRobotics/berkeley-humanoid-lite/">Berkeley Humanoid Lite</a></td><td>双足人形</td><td>MIT</td><td>HybridRobotics/berkeley-humanoid-lite</td></tr>
+                    <tr><td><a href="/external/github/PetoiCamp/OpenCatEsp32-Quadruped-Robot/">OpenCat ESP32</a></td><td>四足（ESP32 主控）</td><td>MIT</td><td>PetoiCamp/OpenCatEsp32-Quadruped-Robot</td></tr>
+                    <tr><td><a href="/external/github/apirrone/Open_Duck_Mini/">Open Duck Mini v2</a></td><td>小型双足</td><td>Apache-2.0</td><td>apirrone/Open_Duck_Mini</td></tr>
+                    <tr><td><a href="/external/github/hshi74/toddlerbot/">ToddlerBot</a></td><td>小型人形</td><td>MIT</td><td>hshi74/toddlerbot</td></tr>
+                    <tr><td><a href="/external/github/peng-zhihui/ElectronBot/">ElectronBot</a></td><td>桌面机器人</td><td>GPL-3.0</td><td>peng-zhihui/ElectronBot</td></tr>
+                    <tr><td><a href="/external/github/Roboparty/roboto_origin/">Roboto Origin</a></td><td>桌面/教育机器人</td><td>GPL-3.0</td><td>Roboparty/roboto_origin</td></tr>
+                    <tr><td><a href="/external/github/Vector-Wangel/XLeRobot/">XLeRobot</a></td><td>家用机械臂机器人</td><td>Apache-2.0</td><td>Vector-Wangel/XLeRobot</td></tr>
+                </tbody>
+            </table>
+            <p class="text-sm text-gray-400 mt-3">许可证取自各仓库公开标注，2026-10-27 核对；以仓库实际 LICENSE 文件为准。</p>
+        </div>
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">许可证差别，比性能差别更影响你能做什么</h2>
+            <ul>
+                <li><strong>MIT（4 个）</strong>与 <strong>Apache-2.0（2 个）</strong>：宽松，保留声明即可，改了固件可以闭源分发；Apache-2.0 还附带明确的专利授权。</li>
+                <li><strong>GPL-3.0（2 个）</strong>：ElectronBot 与 Roboto Origin。你改了代码并对外分发，就要以同一许可证公开源代码——打算做成品售卖的，这一步必须先想清楚。</li>
+                <li><strong>硬件部分另算</strong>：上表是代码仓库的许可证，结构件与电路可能另有硬件许可证，复刻前请回到仓库确认。</li>
+            </ul>
+        </div>
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">上手建议</h2>
+            <ol>
+                <li><strong>先读仓库的 README 与 BOM</strong>，确认零件是否买得到、是否需要 3D 打印或 CNC。</li>
+                <li><strong>从四足或桌面型起步</strong>：Stanford Doggo、OpenCat 这类结构相对简单，调试成本低于双足。</li>
+                <li><strong>双足先看仿真</strong>：Berkeley Humanoid Lite、ToddlerBot 通常提供仿真环境，先在仿真里跑通再上实物，省下摔机成本。</li>
+                <li><strong>主控选型</strong>：ESP32 类项目成本最低，可对照站内 <a href="/board/esp32-s3-devkitc/">ESP32-S3-DevKitC</a> 看参数。</li>
+            </ol>
+        </div>
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">关于引用与授权</h2>
+            <p>以上项目<strong>仅供开发者参考</strong>：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。商用前请回到原仓库确认许可证全文与硬件授权范围。更多机器人与硬件项目见 <a href="/all-projects/">开源项目总库</a>。</p>
+        </div>
+        
+<section class="py-6"><div class="card-dark p-6"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>这 8 个都能直接买到成品吗？</div><div class="faq-a">不都能。它们是开源仓库，需要自己准备物料制作；是否同时有商品化产品，以各项目主页说明为准。</div></div><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>新手适合从哪个开始？</div><div class="faq-a">结构最简单的四足或桌面型更友好，例如 Stanford Doggo、OpenCat ESP32。</div></div><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>GPL-3.0 项目我能做来卖吗？</div><div class="faq-a">售卖本身通常不被禁止，但你修改并分发固件时，需要按 GPL-3.0 提供源代码。硬件部分还要看它选用的硬件许可证。</div></div><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>许可证写错了吗？</div><div class="faq-a">如发现与仓库当前 LICENSE 不一致，请通过 <a href="/contribute/">贡献指南</a> 反馈，我们会核对后修正。</div></div></div></section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-zouic py-8 mt-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a class="navbar-brand mb-3 d-inline-block" href="/"><i class="fas fa-microchip"></i> ZouIC</a>
+                    <p class="text-secondary text-sm">全球开源硬件聚合平台，提供开发板数据库、项目搜索、技术文档一站式硬件开发资源。</p>
+                    <span class="badge badge-primary">SYS.STATUS: OPERATIONAL</span>
+                </div>
+                <div class="col-lg-2 col-6 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">产品</h6>
+                    <ul class="list-unstyled text-sm">
+                        <li><a class="text-secondary" href="/boards/">开源开发板</a></li>
+                        <li><a class="text-secondary" href="/projects/">开源项目</a></li>
+                        <li><a class="text-secondary" href="/compare/">参数对比</a></li>
+                        <li><a class="text-secondary" href="/board-guide/">文档中心</a></li>
+                    </ul></div>
+                <div class="col-lg-2 col-6 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">资源</h6>
+                    <ul class="list-unstyled text-sm">
+                        <li><a class="text-secondary" href="/tutorials/">开发板教程</a></li>
+                        <li><a class="text-secondary" href="/documentation/">技术文档</a></li>
+                        <li><a class="text-secondary" href="/articles/">技术文章</a></li>
+                        <li><a class="text-secondary" href="/open-source/">开源项目</a></li>
+                    </ul></div>
+                <div class="col-lg-4 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">社区</h6>
+                    <p class="text-secondary text-sm">与硬件开发者同行，贡献开发板 / 项目，共建开源硬件生态。</p>
+                    <a class="btn-zouic btn-zouic-primary btn-zouic-sm" href="/contribute/"><i class="fas fa-handshake me-1"></i> 贡献指南</a></div>
+            </div>
+            <hr class="border-secondary opacity-25">
+            <div class="d-flex justify-content-between flex-wrap text-gray-400 text-sm">
+                <span>© 2026 ZouIC // OPEN HARDWARE DEMO HUB</span>
+                <span>POWERED BY OPEN SOURCE // v2.0</span>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

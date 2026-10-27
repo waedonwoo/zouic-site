@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="ZouIC 从 Hackaday 公开页面收录的开源硬件项目，仅供开发者选型参考。">
+    <meta name="keywords" content="Hackaday,开源硬件">
+    
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    
+    
+    
+    
+    <link rel="canonical" href="https://www.zouic.com/source/hackaday">
+    
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/source/hackaday" />
+    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/source/hackaday" />
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/source/hackaday" />
+    
+    
+    
+    
+    <meta property="og:title" content="Hackaday 开源项目">
+    <meta property="og:description" content="ZouIC 从 Hackaday 公开页面收录的开源硬件项目，仅供开发者选型参考。">
+    <meta property="og:url" content="https://www.zouic.com/source/hackaday">
+    <meta property="og:type" content="collection">
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hackaday 开源项目">
+    <meta name="twitter:description" content="ZouIC 从 Hackaday 公开页面收录的开源硬件项目，仅供开发者选型参考。">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/source/hackaday/", "name": "\u9875\u9762", "position": 2}]}
+    </script>
+    
+    
+    
+    <title>Hackaday 开源项目 - ZouIC</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    
+    <!-- External Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    
+    <!-- ZouIC Design System -->
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261027a">
+    <noscript>
+        <style>
+            /* 关闭 JS 时不要因为滚动动画而隐藏内容 */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261023b">
+    
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-microchip"></i> ZouIC
+            </a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
+                <span class="nav-hud-dot"></span>SYS.ONLINE
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/all-projects/"><i class="fas fa-project-diagram me-1"></i>开源项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li>
+                            <li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li>
+                            <li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li>
+                            <li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li>
+                            <li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li>
+                            <li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li>
+                            <li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li>
+                </ul>
+                <form id="searchForm" class="d-flex me-3 d-none d-lg-flex">
+                    <div class="input-group input-group-zouic">
+                        <input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" style="width: 200px;">
+                        <select id="searchType" class="form-select input-zouic" aria-label="搜索类型:" style="width: auto; flex: 0 0 auto;">
+                            <option value="">全部分类</option>
+                            <option value="board">开源开发板</option>
+                            <option value="project">开源项目</option>
+                        </select>
+                        <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i> 中文
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/source/hackaday/">
+                                <i class="fas fa-language me-2"></i> 中文
+                            </a></li>
+                            <li><a class="dropdown-item" href="/en/source/hackaday/">
+                                <i class="fas fa-language me-2"></i> English
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        
+<div class="ext-page">
+
+    <section class="ext-hero">
+        <div class="ext-hero-grid" aria-hidden="true"></div>
+        <div class="container">
+            <div class="ext-hero-inner">
+                <div class="ext-hero-copy">
+                    <span class="ext-eyebrow"><i class="fas fa-wrench"></i> CURATED OPEN HARDWARE</span>
+                    <h1 class="ext-hero-title">Hackaday</h1>
+                    <p class="ext-hero-desc">
+                        ZouIC 从该平台公开页面收录的开源硬件项目，内容与原页面保持一致；仅供开发者选型参考，版权与授权归原作者，遵循其各自开源协议。
+                    </p>
+                    
+                    <p class="ext-hero-desc" style="opacity:.8;">
+                        Hackaday 条目是社区的项目报道而非代码仓库：点进原文可以看到完整拆解、原理图与作者给出的仓库链接。
+                    </p>
+                    
+                    
+                    <div class="ext-hero-actions">
+                        <a href="/all-projects/" class="btn-zouic btn-zouic-secondary">
+                            <i class="fas fa-layer-group me-2"></i>返回开源项目总库
+                        </a>
+                        
+                        <a href="https://hackaday.com" target="_blank" rel="noopener noreferrer" class="btn-zouic btn-zouic-ghost">
+                            <i class="fas fa-wrench me-2"></i>访问原平台
+                        </a>
+                        
+                    </div>
+                </div>
+                <div class="ext-hero-stats">
+                    <div class="ext-hero-stat ext-hero-stat--total">
+                        <span class="ext-hero-stat-value">38</span>
+                        <span class="ext-hero-stat-label">总项目数</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container ext-body">
+        
+        <div class="ext-grid">
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/3d-printed-robot-arm-built-for-learning-purposes/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/03/mini_arm_new_thumbnail_cce844-rotated-e1774230428943.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/03/mini_arm_new_thumbnail_cce844-rotated-e1774230428943.jpg" alt="3D Printed Robot Arm Built For Learning Purposes" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">robotics</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/3d-printed-robot-arm-built-for-learning-purposes/">3D Printed Robot Arm Built For Learning Purposes</a></h3>
+                        <p class="ext-card-desc line-clamp-2">If you want to work with robots you can do all sorts of learning with software and simulation, but nothing quite beats getting to grips with real machinery. That was …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Zoe Skyforest</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/5-ghz-drone-video-with-an-esp32/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/10/espr2-fmrx-featured.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/10/espr2-fmrx-featured.jpg" alt="5 GHz Drone Video, With An ESP32" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">esp32</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/5-ghz-drone-video-with-an-esp32/">5 GHz Drone Video, With An ESP32</a></h3>
+                        <p class="ext-card-desc line-clamp-2">With the ESP32 series of microcontrollers having had hidden software-defined radio (SDR) facility revealed, we’re now moving on from the announcement into projects making use of the finding. [Twotoz] has …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Jenny List</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/ai-controls-iphone-via-esp32/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/10/A-7-ESP32-lets-an-AI-set-an-alarm-on-a-stock-iPhone-no-Mac-no-jailbreak-0-20-screenshot-1.png');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/10/A-7-ESP32-lets-an-AI-set-an-alarm-on-a-stock-iPhone-no-Mac-no-jailbreak-0-20-screenshot-1.png" alt="AI Controls iPhone Via ESP32" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">ai_hardware</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/ai-controls-iphone-via-esp32/">AI Controls iPhone Via ESP32</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Do you want to get an AI agent to do something to an iPhone? You could try and jailbreak the device and do some heavy software hacking, or… you could …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Zoe Skyforest</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/an-esp32-development-board-for-sailors/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2021/04/sailor_hat_feature.png');">
+                        <img src="https://hackaday.com/wp-content/uploads/2021/04/sailor_hat_feature.png" alt="An ESP32 Development Board For Sailors" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">ai_hardware</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/an-esp32-development-board-for-sailors/">An ESP32 Development Board For Sailors</a></h3>
+                        <p class="ext-card-desc line-clamp-2">[Matti Airas] wanted to have a better electronics platform for making his boat smarter, more connected, and safer. He found traditional marine electronics expensive and not suited for hacking and …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Anool Mahidharia</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/announcing-the-2025-hackaday-superconference-communicator-badge/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2025/10/2025_supercon_badge_communicator.png');">
+                        <img src="https://hackaday.com/wp-content/uploads/2025/10/2025_supercon_badge_communicator.png" alt="Announcing the 2025 Hackaday Superconference Communicator Badge" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">ai_hardware</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/announcing-the-2025-hackaday-superconference-communicator-badge/">Announcing the 2025 Hackaday Superconference Communicator Badge</a></h3>
+                        <p class="ext-card-desc line-clamp-2">It’s the moment you hard-core hardware nerds have been waiting for: the reveal of the 2025 Hackaday Supercon Communicator Badge. And this year, we’ve outdone ourselves, but that’s thanks to …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Elliot Williams</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/breaking-enigma-with-an-fpga-just-like-at-bletchly-park/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/05/fpga-enigma-feat.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/05/fpga-enigma-feat.jpg" alt="Breaking Enigma with an FPGA, Just like at Bletchley Park" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/breaking-enigma-with-an-fpga-just-like-at-bletchly-park/">Breaking Enigma with an FPGA, Just like at Bletchley Park</a></h3>
+                        <p class="ext-card-desc line-clamp-2">The pioneering work done by Alan Turing and others at Bletchley Park in England was perhaps as important in the history of technology as it was the history of the …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Tyler August</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/building-a-simple-internet-radio/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/10/F5UUYGVMVA11SYU-1-1.webp');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/10/F5UUYGVMVA11SYU-1-1.webp" alt="Building a Simple Internet Radio" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/building-a-simple-internet-radio/">Building a Simple Internet Radio</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Broadcast radio isn’t as popular as it once was, its popularity suffering in turn due to technologies like MP3 players and music streaming services. If you don’t fancy either of …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Zoe Skyforest</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/building-an-m7-pan-tilt-head-controller/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/10/Live-motion-tracking-using-hacked-soonpho-m7-and-a-custom-yolo-vision-model-0-41-screenshot.png');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/10/Live-motion-tracking-using-hacked-soonpho-m7-and-a-custom-yolo-vision-model-0-41-screenshot.png" alt="Building An M7 Pan Tilt Head Controller" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">ai_hardware</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/building-an-m7-pan-tilt-head-controller/">Building An M7 Pan Tilt Head Controller</a></h3>
+                        <p class="ext-card-desc line-clamp-2">The Soonpho M7 Pan Tilt Head is a useful photography tool for remotely aiming a decently-sized camera. Only, [Kyle Housley] wanted a little more control than was available out of …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Zoe Skyforest</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/espressifs-new-esp32-s31-dual-core-risc-v-with-wifi-6-and-gbit-ethernet/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/04/esp32_s31_espressif.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/04/esp32_s31_espressif.jpg" alt="Espressif’s New ESP32-S31: Dual-Core RISC-V with WiFi 6 and GBit Ethernet" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">esp32</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/espressifs-new-esp32-s31-dual-core-risc-v-with-wifi-6-and-gbit-ethernet/">Espressif’s New ESP32-S31: Dual-Core RISC-V with WiFi 6 and GBit Ethernet</a></h3>
+                        <p class="ext-card-desc line-clamp-2">In a move that’s no doubt going to upset and confuse many, Espressif has released its newest microcontroller — the ESP32-S31. The confusing part here is that the ESP32-S series …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Maya Posch</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/floss-weekly-episode-874-really-we-do-pdfs/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2021/06/Pipewire.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2021/06/Pipewire.jpg" alt="FLOSS Weekly Episode 874: Really, We Do PDFs" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">risc_v</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/floss-weekly-episode-874-really-we-do-pdfs/">FLOSS Weekly Episode 874: Really, We Do PDFs</a></h3>
+                        <p class="ext-card-desc line-clamp-2">This week Jonathan chats with Andrea Gallo about RISC-V! What does it mean for RISC-V to be an Open ISA? Where is RISC-V popping up, and what’s the new frontier? …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Jonathan Bennett</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/fpga-for-all-cern-releases-colibri-vhdl-library/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/09/colibri_cover_art-1024x614-1.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/09/colibri_cover_art-1024x614-1.jpg" alt="FPGA for All — CERN Releases “colibri” VHDL Library" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">ai_hardware</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/fpga-for-all-cern-releases-colibri-vhdl-library/">FPGA for All — CERN Releases “colibri” VHDL Library</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Since you’re reading Hackaday, we’re pretty sure CERN needs no introduction, so we’ll get right to it– they’re giving back again, this time with a VHDL library called “colibri” containing …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Tyler August</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/gluing-8192-mcus-together-to-make-a-gpu/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/07/mcu_cluster_bitluni_youtube.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/07/mcu_cluster_bitluni_youtube.jpg" alt="Gluing 8192 MCUs Together to Make a GPU" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/gluing-8192-mcus-together-to-make-a-gpu/">Gluing 8192 MCUs Together to Make a GPU</a></h3>
+                        <p class="ext-card-desc line-clamp-2">What do you get when you take 8,192 CH570 MCUs, put them on custom PCBs, and write firmware for this interconnected gaggle of cores? In the case of [bitluni]’s project, …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Maya Posch</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/hackaday-europe-2026-outdoors-with-robots/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/09/hackaday-europe-2026-erin-kennedy-outdoors-with-robots-mp4-shot0005_featured.png');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/09/hackaday-europe-2026-erin-kennedy-outdoors-with-robots-mp4-shot0005_featured.png" alt="Hackaday Europe 2026: Outdoors with Robots" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">robotics</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/hackaday-europe-2026-outdoors-with-robots/">Hackaday Europe 2026: Outdoors with Robots</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Erin Kennedy has been building robots for over a decade now, with a focus on smaller bots that interact with, or maybe even clean up, the outdoor environment. Still other …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Elliot Williams</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/homebrew-68k-machine-has-a-pci-bus/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/08/img_20260819_215428_c-e1787210997954.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/08/img_20260819_215428_c-e1787210997954.jpg" alt="Homebrew 68K Machine Has a PCI Bus" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/homebrew-68k-machine-has-a-pci-bus/">Homebrew 68K Machine Has a PCI Bus</a></h3>
+                        <p class="ext-card-desc line-clamp-2">The Peripheral Component Interconnect (PCI) bus was first introduced all the way back in 1992. It quickly became the standard way to interface add-on cards on the PC platform, supplanting …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Zoe Skyforest</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/let-hauntimator-steer-your-next-animatronic-display/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/02/Halloween-Props-with-1031_Systems-11-10-screenshot-banner.png');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/02/Halloween-Props-with-1031_Systems-11-10-screenshot-banner.png" alt="Let Hauntimator Steer Your Next Animatronic Display" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">vision</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/let-hauntimator-steer-your-next-animatronic-display/">Let Hauntimator Steer Your Next Animatronic Display</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Animatronic displays aren’t just for Halloween, and hackers today have incredible access to effective, affordable parts with which to make spectacles of light, sound, and movement. But the hardware is …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Donald Papp</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/modos-is-open-hardware-easy-on-the-eyes/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2025/09/modos-paper-monitor-13-front-back-wide-crop-01_jpg_gallery-lg.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2025/09/modos-paper-monitor-13-front-back-wide-crop-01_jpg_gallery-lg.jpg" alt="Modos is Open Hardware, Easy on the Eyes" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/modos-is-open-hardware-easy-on-the-eyes/">Modos is Open Hardware, Easy on the Eyes</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Since e-ink first hit the market a couple decades back, there’s always murmurs of “that’d be great as a second monitor”— but very, very few monitors have ever been made. …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Tyler August</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/open-source-multimeter-raises-the-bar-for-diy-tools/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2024/12/hydrameter_feat2.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2024/12/hydrameter_feat2.jpg" alt="Open Source Multimeter Raises the Bar for DIY Tools" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">ai_hardware</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/open-source-multimeter-raises-the-bar-for-diy-tools/">Open Source Multimeter Raises the Bar for DIY Tools</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Whether you only dabble in electronics as a hobby or it’s your full-time job, there are few tools as indispensable as the multimeter. In fact, we’d be willing to bet …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Tom Nardi</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/open-source-watch-movement-really-ticks-all-the-boxes/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2025/06/OM-openmovement_OM10-02_VA_01_3-auto.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2025/06/OM-openmovement_OM10-02_VA_01_3-auto.jpg" alt="Open Source Watch Movement Really Ticks All the Boxes" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">wearable</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/open-source-watch-movement-really-ticks-all-the-boxes/">Open Source Watch Movement Really Ticks All the Boxes</a></h3>
+                        <p class="ext-card-desc line-clamp-2">When you think of open-source hardware, you probably think of electronics and maker tools– RepRap, Arduino, Adafruit, et cetera. Yet open source is an ethos and license, and is in …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Tyler August</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/open-source-forced-innovation-and-making-good-products/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2020/02/3D-Printering-Header-New.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2020/02/3D-Printering-Header-New.jpg" alt="Open Source, Forced Innovation, and Making Good Products" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/open-source-forced-innovation-and-making-good-products/">Open Source, Forced Innovation, and Making Good Products</a></h3>
+                        <p class="ext-card-desc line-clamp-2">The open-source hardware business landscape is no doubt a tough one, but is it actually tougher than for closed-source hardware? That question has been on our minds since the announcement …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Elliot Williams</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/performance-improvements-for-open-source-80386/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/07/386-featured.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/07/386-featured.jpg" alt="Performance Improvements For Open-Source 80386" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/performance-improvements-for-open-source-80386/">Performance Improvements For Open-Source 80386</a></h3>
+                        <p class="ext-card-desc line-clamp-2">The Intel 80386 is a rather fascinating slice of computer history. It marked the first 32 bit X86 processor, and was a staple of early desktop computing. Like all chips, …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Fenix Guthrie</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/pi-compute-module-is-love-child-of-raspberry-and-arduino/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2020/12/pi-compute-dev-main.jpeg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2020/12/pi-compute-dev-main.jpeg" alt="Pi Compute Module is Love-child of Raspberry and Arduino" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/pi-compute-module-is-love-child-of-raspberry-and-arduino/">Pi Compute Module is Love-child of Raspberry and Arduino</a></h3>
+                        <p class="ext-card-desc line-clamp-2">The Raspberry Pi compute module is a powerful piece of hardware, especially for the price. With it, you get more IO than a normal Pi, plus the ability to design …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Bryan Cockfield</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/pi-pico-demos-therefore-it-is/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/06/sum-ergo-demonstro.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/06/sum-ergo-demonstro.jpg" alt="Pi Pico Demos, Therefore It Is" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/pi-pico-demos-therefore-it-is/">Pi Pico Demos, Therefore It Is</a></h3>
+                        <p class="ext-card-desc line-clamp-2">A good demo, like [Linus Akesson]’s Sum Ergo Demonstrato, looks like magic to the average hacker. To normies who don’t know the limitations of the RP2350, they don’t see the …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Tyler August</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/pinch-puts-an-arduino-on-a-usb-c-connector/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/07/pinch_feat.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/07/pinch_feat.jpg" alt="Pinch Puts an Arduino On a USB-C Connector" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/pinch-puts-an-arduino-on-a-usb-c-connector/">Pinch Puts an Arduino On a USB-C Connector</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Compared to the Arduino Uno of old, modern microcontrollers are absolutely tiny — especially for the amount of processing power and I/O you get. But if you need something really small, …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Tom Nardi</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/reachy-mini-desktop-robot-gets-all-local-conversational-ai/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/06/Reachy-Mini-Featured.png');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/06/Reachy-Mini-Featured.png" alt="Reachy Mini Desktop Robot Gets All-local, Conversational AI" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">ai_hardware</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/reachy-mini-desktop-robot-gets-all-local-conversational-ai/">Reachy Mini Desktop Robot Gets All-local, Conversational AI</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Reachy Mini is a limbless desktop robot from Hugging Face made for human interaction experiments, and to give you an idea of what it’s like is a guide on how …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Donald Papp</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/review-inkplate-6plus/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2021/06/inkplate6p_feat2.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2021/06/inkplate6p_feat2.jpg" alt="Review: Inkplate 6PLUS" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">vision</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/review-inkplate-6plus/">Review: Inkplate 6PLUS</a></h3>
+                        <p class="ext-card-desc line-clamp-2">While the price of electronic paper has dropped considerably over the last few years, it’s still relatively expensive when compared to more traditional display technology. Accordingly, we’ve seen a lot …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Tom Nardi</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/robot-looks-exactly-like-a-roll-of-filament-if-filament-had-eyes/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/02/A-Robot-In-Disguise-Spooly-McSpoolBot-3dprinting-robot-50-6-screenshot-banner.png');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/02/A-Robot-In-Disguise-Spooly-McSpoolBot-3dprinting-robot-50-6-screenshot-banner.png" alt="Robot Looks Exactly Like a Roll of Filament, If Filament Had Eyes" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">robotics</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/robot-looks-exactly-like-a-roll-of-filament-if-filament-had-eyes/">Robot Looks Exactly Like a Roll of Filament, If Filament Had Eyes</a></h3>
+                        <p class="ext-card-desc line-clamp-2">[Matt Denton]’s SpoolBot is a surprisingly agile remote-controlled robot that doesn’t just repurpose filament spool leftovers. It looks exactly like a 2 kg spool of filament; that’s real filament wound …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Donald Papp</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/robotic-screw-and-bolt-sorter-seeks-a-new-challenge/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/08/Robotic-sorter.png');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/08/Robotic-sorter.png" alt="Robotic Screw and Bolt Sorter Seeks a New Challenge" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">ai_hardware</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/robotic-screw-and-bolt-sorter-seeks-a-new-challenge/">Robotic Screw and Bolt Sorter Seeks a New Challenge</a></h3>
+                        <p class="ext-card-desc line-clamp-2">As someone who disassembles and repairs hardware, [Aad] eventually ended up with a huge collection of mixed bolts and screws. This led to creating the automatic bolt and screw sorting …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Donald Papp</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/so-you-want-to-make-your-sdr-work-on-other-frequencies/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2021/07/esp32-linux-featured.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2021/07/esp32-linux-featured.jpg" alt="So You Want To Make Your SDR Work On Other Frequencies" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/so-you-want-to-make-your-sdr-work-on-other-frequencies/">So You Want To Make Your SDR Work On Other Frequencies</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Perhaps the most exciting news of the past few weeks in the world of hardware hacking has been the unlocking of hidden SDR functionality in the Wi-Fi radios found on …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Jenny List</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/the-fpga-chronicles-exploring-the-tang-nano-20k/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/09/FPGAchronicles.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/09/FPGAchronicles.jpg" alt="The FPGA Chronicles: Exploring the Tang Nano 20K" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">nvidia</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/the-fpga-chronicles-exploring-the-tang-nano-20k/">The FPGA Chronicles: Exploring the Tang Nano 20K</a></h3>
+                        <p class="ext-card-desc line-clamp-2">FPGAs used to be mysterious, expensive devices, but these days you can buy surprisingly capable boards for very little money. Some years ago, I did an FPGA Bootcamp over on …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Al Williams</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/the-fpga-chronicles-open-source-it/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/09/FPGAchronicles.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/09/FPGAchronicles.jpg" alt="The FPGA Chronicles: Open Source It" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/the-fpga-chronicles-open-source-it/">The FPGA Chronicles: Open Source It</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Last time, we looked at getting started with the GOWIN tools and a Tang Nano 20K FPGA. The software from GOWIN isn’t bad, but it isn’t open source, and there …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Al Williams</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/the-fpga-chronicles-ready-to-probe/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/09/FPGAchronicles.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/09/FPGAchronicles.jpg" alt="The FPGA Chronicles: Ready to Probe" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">ai_hardware</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/the-fpga-chronicles-ready-to-probe/">The FPGA Chronicles: Ready to Probe</a></h3>
+                        <p class="ext-card-desc line-clamp-2">In the last few installments, we looked at using the Tang Nano 20K with both the GOWIN tools and some open-source tools. The open-source tools certainly had the advantage of …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Al Williams</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/this-esp8266-dev-board-has-a-surprising-story-behind-it/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2021/04/maloufesp_feat.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2021/04/maloufesp_feat.jpg" alt="This ESP8266 Dev Board Has A Surprising Story Behind It" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/this-esp8266-dev-board-has-a-surprising-story-behind-it/">This ESP8266 Dev Board Has A Surprising Story Behind It</a></h3>
+                        <p class="ext-card-desc line-clamp-2">If you’re looking to get started with the ESP8266, there’s no shortage of development boards out there to select from. But we don’t think you’ll find one with a more …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Tom Nardi</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/to-build-more-believable-bots-simulate-the-neurochemistry/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/07/Kindalive-banner.png');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/07/Kindalive-banner.png" alt="To Build More Believable Bots, Simulate The Neurochemistry" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">robotics</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/to-build-more-believable-bots-simulate-the-neurochemistry/">To Build More Believable Bots, Simulate The Neurochemistry</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Giving machines the ability to communicate nonverbally has real value, and [Drew Smith] clearly thinks your robot deserves better than an emoji. He shared a very interesting approach with his …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Donald Papp</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/today-in-edinburgh-the-open-source-hardware-summit/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2025/05/ohsw_summit_featured.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2025/05/ohsw_summit_featured.jpg" alt="Today in Edinburgh: The Open Hardware Summit" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/today-in-edinburgh-the-open-source-hardware-summit/">Today in Edinburgh: The Open Hardware Summit</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Just a quickie for anyone who is in the neighborhood, today the Open Source Hardware Association’s annual Open Hardware Summit conference starts in Edinburgh, Scotland. If you’re able to make …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Elliot Williams</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/turning-the-raspberry-pi-into-a-mcu-programmer/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2020/09/piprog_feat.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2020/09/piprog_feat.jpg" alt="Turning the Raspberry Pi into a MCU Programmer" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/turning-the-raspberry-pi-into-a-mcu-programmer/">Turning the Raspberry Pi into a MCU Programmer</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Once you graduate beyond development boards like the Arduino or Wemos D1, you’ll find yourself in the market for a dedicated programmer. In most cases, your needs can be met …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Tom Nardi</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/using-fishing-wire-to-hold-in-pin-headers-is-a-nifty-trick/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2021/12/FE60kdRWQAQq0sh.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2021/12/FE60kdRWQAQq0sh.jpg" alt="Using Fishing Wire To Hold In Pin Headers Is A Nifty Trick" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/using-fishing-wire-to-hold-in-pin-headers-is-a-nifty-trick/">Using Fishing Wire To Hold In Pin Headers Is A Nifty Trick</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Working on a breadboard, one can get used to the benefits of being able to readily plug and unplug jumper wires to reconfigure a project. One could only dream of …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Zoe Skyforest</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/wch-ch32m030-another-microcontroller-to-watch-out-for/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/01/ch32M030-featured.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/01/ch32M030-featured.jpg" alt="WCH CH32M030: Another Microcontroller To Watch Out For" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">wearable</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/wch-ch32m030-another-microcontroller-to-watch-out-for/">WCH CH32M030: Another Microcontroller To Watch Out For</a></h3>
+                        <p class="ext-card-desc line-clamp-2">One of the joys of writing for Hackaday comes in following the world of new semiconductor devices, spotting interesting ones while they are still just entries on manufacturer websites, and …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Jenny List</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/worlds-cheapest-arm-debugger-is-actually-risc-v/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2025/10/CMSIS_DAP_INTERFACE-featured.png');">
+                        <img src="https://hackaday.com/wp-content/uploads/2025/10/CMSIS_DAP_INTERFACE-featured.png" alt="World’s Cheapest ARM Debugger Is Actually RISC-V" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                            <span class="ext-card-category">risc_v</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/worlds-cheapest-arm-debugger-is-actually-risc-v/">World’s Cheapest ARM Debugger Is Actually RISC-V</a></h3>
+                        <p class="ext-card-desc line-clamp-2">[bogdanthegeek] has a lot of experience with the ARM platform, and their latest escapade into working with cheap ARM chips recovered from disposable vapes involved a realization that it was …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Dave Rowntree</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+
+        <p class="source-disclaimer">
+            <i class="fas fa-scale-balanced me-1"></i>
+            以上项目均来自该平台的公开页面，ZouIC 只做收录与索引，不托管代码与文件；项目仅供开发者参考，版权与授权归原作者，遵循其各自开源协议。
+        </p>
+    </div>
+</div>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Newsletter Section (首页已有完整关注区，不重复) -->
+    
+    <section class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a>
+                        <div class="newsletter-benefits">
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="py-4" aria-label="出品人">
+        <div class="author-card">
+            <div class="author-card-info">
+                <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
+                <div>
+                    <div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div>
+                    <div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div>
+                </div>
+            </div>
+            <div class="author-card-actions">
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-zouic" role="contentinfo">
+        <div class="container">
+            <div class="row footer-main">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
+                    <a href="/" class="footer-brand" aria-label="ZouIC 首页">
+                        <i class="fas fa-microchip"></i>
+                        <span>ZouIC</span>
+                    </a>
+                    <p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p>
+
+                    <div class="footer-meta">
+                        <p class="footer-author">
+                            出品人 · <strong>极客微栋</strong>
+                            <span class="footer-author-handle">@GeekWaedon</span>
+                        </p>
+                        <div class="footer-slash-tags">
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span>
+                            <a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商">
+                                <i class="fab fa-weixin"></i> 企业微信服务商
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a>
+                        <a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a>
+                        <a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a>
+                        <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>产品</h5>
+                    <ul>
+                        <li><a href="/products/">产品介绍</a></li>
+                        <li><a href="/services/">服务说明</a></li>
+                        <li><a href="/services/website-building/">建站服务</a></li>
+                        <li><a href="/news/">站内动态</a></li>
+                        <li><a href="/boards/">开源开发板</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>资源</h5>
+                    <ul>
+                        <li><a href="/board-guide/">选型指南</a></li>
+                        <li><a href="/compare/">开发板对比</a></li>
+                        <li><a href="/tutorials/">开发板教程</a></li>
+                        <li><a href="/documentation/">技术文档</a></li>
+                        <li><a href="/cases/">项目案例</a></li>
+                        <li><a href="/help/">文档中心</a></li>
+                        <li><a href="/dashuju/">数据大屏</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>开源生态</h5>
+                    <ul>
+                        <li><a href="/open-source/">开源项目</a></li>
+                        <li><a href="/all-projects/">开源项目</a></li>
+                        <li><a href="/articles/">技术文章</a></li>
+                        <li><a href="/contribute/">贡献指南</a></li>
+                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h5>关于</h5>
+                    <ul>
+                        <li><a href="/about/">关于我们</a></li>
+                        <li><a href="/about/#contact">联系我们</a></li>
+                        <li><a href="/licenses/">开源协议</a></li>
+                        <li><a href="/about/#privacy">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ZouIC. All rights reserved.</p>
+                <p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p>
+                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // 先把 html 标记为 reveal-ready，CSS 才隐藏"未进入视口"的区块；
+            // 若观察器异常，2 秒后兜底全部显示，避免整屏空白。
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+</body>
+</html>

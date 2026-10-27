@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="CrowdSupply 上大多是众筹中的开源硬件。下单前先确认开源范围、许可证变体、设计文件格式、固件维护与交付状态——本文给出 6 条可执行检查项，并列出本站收录的真实项目示例。">
+    <meta name="keywords" content="CrowdSupply,开源硬件,众筹,开源许可证,硬件众筹,FPGA,开源示波器,避坑">
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <link rel="canonical" href="https://www.zouic.com/articles/crowdsupply-open-hardware-checklist">
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/articles/crowdsupply-open-hardware-checklist" />
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/crowdsupply-open-hardware-checklist" />
+    <meta property="og:title" content="在 CrowdSupply 支持开源硬件前，先看这 6 件事">
+    <meta property="og:description" content="CrowdSupply 上大多是众筹中的开源硬件。下单前先确认开源范围、许可证变体、设计文件格式、固件维护与交付状态——本文给出 6 条可执行检查项，并列出本站收录的真实项目示例。">
+    <meta property="og:url" content="https://www.zouic.com/articles/crowdsupply-open-hardware-checklist">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="在 CrowdSupply 支持开源硬件前，先看这 6 件事">
+    <meta name="twitter:description" content="CrowdSupply 上大多是众筹中的开源硬件。下单前先确认开源范围、许可证变体、设计文件格式、固件维护与交付状态——本文给出 6 条可执行检查项，并列出本站收录的真实项目示例。">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "在 CrowdSupply 支持开源硬件前，先看这 6 件事", "description": "CrowdSupply 上大多是众筹中的开源硬件。下单前先确认开源范围、许可证变体、设计文件格式、固件维护与交付状态——本文给出 6 条可执行检查项，并列出本站收录的真实项目示例。", "about": "CrowdSupply,开源硬件,众筹,开源许可证,硬件众筹,FPGA,开源示波器,避坑", "author": {"@type": "Person", "name": "极客微栋 GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "inLanguage": "zh-CN", "datePublished": "2026-10-27", "dateModified": "2026-10-27", "image": "https://www.zouic.com/static/images/og-cover.jpg", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/crowdsupply-open-hardware-checklist/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "首页", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "技术文章", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/crowdsupply-open-hardware-checklist/", "name": "在 CrowdSupply 支持开源硬件前，先看这 6 件事", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "CrowdSupply 上的项目一定开源吗？", "acceptedAnswer": {"@type": "Answer", "text": "多数以开源硬件为主，但每个项目的开放范围不同（硬件/固件/文档），需在项目页确认。"}}, {"@type": "Question", "name": "众筹项目的交付时间是固定的吗？", "acceptedAnswer": {"@type": "Answer", "text": "不固定。众筹的交付时间与最终规格都可能调整，下单前看项目页当前状态。"}}, {"@type": "Question", "name": "本站会代为销售吗？", "acceptedAnswer": {"@type": "Answer", "text": "不会。ZouIC 只做收录与索引，点击链接跳转到项目原页面。"}}, {"@type": "Question", "name": "发现项目信息过期怎么办？", "acceptedAnswer": {"@type": "Answer", "text": "通过 <a href=\"/contribute/\">贡献指南</a> 反馈，我们核对原页面后修正。"}}]}]}
+    </script>
+    <title>在 CrowdSupply 支持开源硬件前，先看这 6 件事 - ZouIC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261024b">
+    
+    <style>
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255,255,255,0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-6); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0,229,255,0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255,0,110,0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167,139,250,0.3); }
+        .text-green-500 { color: #10b981; }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .article-body p { line-height: 1.9; margin-bottom: 1.1rem; color: var(--color-text-primary); }
+        .article-body ul, .article-body ol { line-height: 1.9; margin-bottom: 1.1rem; }
+        .article-body li { margin-bottom: .4rem; }
+        .article-body table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .95rem; }
+        .article-body th, .article-body td { border: 1px solid var(--color-border-default); padding: .7rem .9rem; text-align: left; }
+        .article-body th { background: var(--color-bg-tertiary); color: var(--color-primary); }
+        .article-body code { background: rgba(0,229,255,0.1); color: var(--color-primary); padding: .1rem .4rem; border-radius: 6px; font-family: 'Share Tech Mono', monospace; }
+        .article-body a { color: var(--color-primary); text-decoration: none; border-bottom: 1px dashed rgba(0,229,255,0.4); }
+        .article-body a:hover { color: var(--color-secondary); }
+        .faq-item { border-bottom: 1px solid var(--color-border-default); padding: 1rem 0; }
+        .faq-q { font-weight: 600; color: var(--color-text-primary); margin-bottom: .4rem; }
+        .faq-a { color: var(--color-text-secondary); line-height: 1.8; }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261023b">
+
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+    
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航">
+        <div class="container">
+            <a class="navbar-brand" href="/"><i class="fas fa-microchip"></i> ZouIC</a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projects/">开源项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/all-projects/">开源项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/articles/">技术文章</a></li>
+                </ul>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文</button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/articles/crowdsupply-open-hardware-checklist/"><i class="fas fa-language me-2"></i> 中文</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main id="main-content">
+        <section class="page-hero page-hero-articles py-16">
+            <div class="container text-center">
+                <span class="badge badge-primary mb-3">免费公开 · 欢迎转发</span>
+                <h1 class="display-4 font-bold mb-4">在 CrowdSupply 支持开源硬件前，先看这 6 件事</h1>
+                <p class="text-secondary lead">众筹不是现货，“开源”也有范围</p>
+            </div>
+        </section>
+        <section class="py-8">
+            <div class="container article-body" style="max-width: 960px;">
+                <nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0">
+                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/articles/">技术文章</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">在 CrowdSupply 支持开源硬件前，先看这 6 件事</li>
+                </ol></nav>
+                
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">它和买一块开发板不是一回事</h2>
+            <p>CrowdSupply 上的多数项目是<strong>众筹</strong>：你付的是支持一台尚未量产的设备，交付时间、最终规格与售后都可能变化。这不是缺点，而是这类平台的运作方式——但下单前值得把规则看清楚。</p>
+            <p>ZouIC 目前收录 <strong>15 个</strong> CrowdSupply 项目，逐条可在 <a href="/source/crowdsupply/">CrowdSupply 来源页</a> 查看。</p>
+        </div>
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">下单前的 6 项检查</h2>
+            <ol>
+                <li><strong>开源范围问清“三件套”</strong>：硬件设计（原理图/PCB）、固件、文档，到底开放哪几项？只开放固件不等于开源硬件。</li>
+                <li><strong>看硬件许可证的变体</strong>：若是 CERN OHL，注意是 S（强互惠）、W（弱互惠）还是 P（宽松）——这决定你改了设计之后能不能闭源。</li>
+                <li><strong>确认设计文件是可修改的原生格式</strong>，而不是只给 PDF 或 Gerber；这一点与 <a href="/articles/open-hardware-license-guide/">开源硬件许可证怎么读</a> 里讲的原则一致。</li>
+                <li><strong>查交付状态</strong>：项目页上是众筹中、生产中还是已发货；已发货的项目通常还能查到后续固件更新记录。</li>
+                <li><strong>看固件与社区维护情况</strong>：仓库最后一次提交时间、issue 是否有人回应，比宣传页更能说明后续体验。</li>
+                <li><strong>想转售或二次开发，先联系项目方</strong>：商标与商业授权往往不在开源许可证覆盖范围内。</li>
+            </ol>
+        </div>
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">本站收录的几个真实例子</h2>
+            <table>
+                <thead><tr><th>项目</th><th>一句话介绍</th><th>类型</th></tr></thead>
+                <tbody>
+                    <tr><td><a href="/external/crowdsupply/0xda-usb-cereal/">USB-Cereal</a></td><td>开源 USB Type-C 配件，用于日志抓取、CLI 交互与固件更新</td><td>调试工具</td></tr>
+                    <tr><td><a href="/external/crowdsupply/1bitsquared-icebreaker-bitsy-fpga/">iCEBreaker-bitsy FPGA</a></td><td>Teensy 尺寸的开源 iCE40 FPGA 开发板</td><td>FPGA 开发板</td></tr>
+                    <tr><td><a href="/external/crowdsupply/aeroscope-labs-aeroscope-wireless-oscilloscope/">Aeroscope</a></td><td>无线示波器</td><td>测试测量</td></tr>
+                    <tr><td><a href="/external/crowdsupply/alaskit-hegduino-v2/">HEGduino V2</a></td><td>近红外与血流生物反馈套件</td><td>生物传感</td></tr>
+                    <tr><td><a href="/external/crowdsupply/alt-shift-buskill/">BusKill</a></td><td>笔记本用的 USB 断线锁（kill cord）</td><td>安全配件</td></tr>
+                </tbody>
+            </table>
+            <p class="text-sm text-gray-400 mt-3">介绍文字取自各项目公开页面；授权标注为“以原项目页标注为准”，请以项目页为准。</p>
+        </div>
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">如果你只是想要一块能立刻用的板子</h2>
+            <p>众筹适合追新，但不适合“这周就要上手”。站内 <a href="/boards/">开源开发板</a> 里是现货可得的主流板卡，例如 <a href="/board/esp32-s3-devkitc/">ESP32-S3-DevKitC</a>、<a href="/board/raspberry-pi-pico/">Raspberry Pi Pico</a>，资料与社区都更成熟。想先看更多项目，去 <a href="/all-projects/">开源项目总库</a>。</p>
+        </div>
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">关于引用与授权</h2>
+            <p>本页内容<strong>仅供开发者参考</strong>：ZouIC 只做收录与索引，不托管代码与文件，也不参与任何交易；版权与授权归原项目方，遵循其各自开源协议。下单前请以项目官方页面的最新说明为准。</p>
+        </div>
+        
+<section class="py-6"><div class="card-dark p-6"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>CrowdSupply 上的项目一定开源吗？</div><div class="faq-a">多数以开源硬件为主，但每个项目的开放范围不同（硬件/固件/文档），需在项目页确认。</div></div><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>众筹项目的交付时间是固定的吗？</div><div class="faq-a">不固定。众筹的交付时间与最终规格都可能调整，下单前看项目页当前状态。</div></div><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>本站会代为销售吗？</div><div class="faq-a">不会。ZouIC 只做收录与索引，点击链接跳转到项目原页面。</div></div><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>发现项目信息过期怎么办？</div><div class="faq-a">通过 <a href="/contribute/">贡献指南</a> 反馈，我们核对原页面后修正。</div></div></div></section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-zouic py-8 mt-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a class="navbar-brand mb-3 d-inline-block" href="/"><i class="fas fa-microchip"></i> ZouIC</a>
+                    <p class="text-secondary text-sm">全球开源硬件聚合平台，提供开发板数据库、项目搜索、技术文档一站式硬件开发资源。</p>
+                    <span class="badge badge-primary">SYS.STATUS: OPERATIONAL</span>
+                </div>
+                <div class="col-lg-2 col-6 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">产品</h6>
+                    <ul class="list-unstyled text-sm">
+                        <li><a class="text-secondary" href="/boards/">开源开发板</a></li>
+                        <li><a class="text-secondary" href="/projects/">开源项目</a></li>
+                        <li><a class="text-secondary" href="/compare/">参数对比</a></li>
+                        <li><a class="text-secondary" href="/board-guide/">文档中心</a></li>
+                    </ul></div>
+                <div class="col-lg-2 col-6 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">资源</h6>
+                    <ul class="list-unstyled text-sm">
+                        <li><a class="text-secondary" href="/tutorials/">开发板教程</a></li>
+                        <li><a class="text-secondary" href="/documentation/">技术文档</a></li>
+                        <li><a class="text-secondary" href="/articles/">技术文章</a></li>
+                        <li><a class="text-secondary" href="/open-source/">开源项目</a></li>
+                    </ul></div>
+                <div class="col-lg-4 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">社区</h6>
+                    <p class="text-secondary text-sm">与硬件开发者同行，贡献开发板 / 项目，共建开源硬件生态。</p>
+                    <a class="btn-zouic btn-zouic-primary btn-zouic-sm" href="/contribute/"><i class="fas fa-handshake me-1"></i> 贡献指南</a></div>
+            </div>
+            <hr class="border-secondary opacity-25">
+            <div class="d-flex justify-content-between flex-wrap text-gray-400 text-sm">
+                <span>© 2026 ZouIC // OPEN HARDWARE DEMO HUB</span>
+                <span>POWERED BY OPEN SOURCE // v2.0</span>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

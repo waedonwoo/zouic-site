@@ -24,7 +24,7 @@
     <meta name="twitter:description" content="ESP32 与 STM32 是两类定位完全不同的芯片：一个主打无线连接与生态，一个主打实时控制与性能。本文用真实参数对比，帮你按项目需求做选择。">
     <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     <script type="application/ld+json">
-        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "ESP32 vs STM32：2026 开发板怎么选？", "description": "ESP32 与 STM32 是两类定位完全不同的芯片：一个主打无线连接与生态，一个主打实时控制与性能。本文用真实参数对比，帮你按项目需求做选择。", "about": "ESP32,STM32,开发板选型,ESP32-S3,STM32F103,无线,RTOS", "author": {"@type": "Person", "name": "极客微栋 GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "inLanguage": "zh-CN", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "image": "https://www.zouic.com/static/images/og-cover.jpg", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/esp32-vs-stm32/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "首页", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "技术文章", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/esp32-vs-stm32/", "name": "ESP32 vs STM32：2026 开发板怎么选？", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ESP32 能替代 STM32 吗？", "acceptedAnswer": {"@type": "Answer", "text": "不能简单替代。ESP32 主频更高、带无线，但实时外设和确定性不如 STM32；涉及精确时序的控制仍建议 STM32。"}}, {"@type": "Question", "name": "新手先学 ESP32 还是 STM32？", "acceptedAnswer": {"@type": "Answer", "text": "想做物联网 / 联网项目从 ESP32 入手最快；想打牢嵌入式基础、做控制类项目从 STM32 更系统。"}}, {"@type": "Question", "name": "ESP32-S3 和 ESP32 老款差在哪？", "acceptedAnswer": {"@type": "Answer", "text": "S3 是双核、带 AI 指令扩展、USB 原生支持，更适合边缘 AI 与人机交互；老款 ESP32 单核、性价比仍在。"}}]}]}
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "ESP32 vs STM32：2026 开发板怎么选？", "description": "ESP32 与 STM32 是两类定位完全不同的芯片：一个主打无线连接与生态，一个主打实时控制与性能。本文用真实参数对比，帮你按项目需求做选择。", "about": "ESP32,STM32,开发板选型,ESP32-S3,STM32F103,无线,RTOS", "author": {"@type": "Person", "name": "极客微栋 GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "inLanguage": "zh-CN", "datePublished": "2026-10-27", "dateModified": "2026-10-27", "image": "https://www.zouic.com/static/images/og-cover.jpg", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/esp32-vs-stm32/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "首页", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "技术文章", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/esp32-vs-stm32/", "name": "ESP32 vs STM32：2026 开发板怎么选？", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ESP32 能替代 STM32 吗？", "acceptedAnswer": {"@type": "Answer", "text": "不能简单替代。ESP32 主频更高、带无线，但实时外设和确定性不如 STM32；涉及精确时序的控制仍建议 STM32。"}}, {"@type": "Question", "name": "新手先学 ESP32 还是 STM32？", "acceptedAnswer": {"@type": "Answer", "text": "想做物联网 / 联网项目从 ESP32 入手最快；想打牢嵌入式基础、做控制类项目从 STM32 更系统。"}}, {"@type": "Question", "name": "ESP32-S3 和 ESP32 老款差在哪？", "acceptedAnswer": {"@type": "Answer", "text": "S3 是双核、带 AI 指令扩展、USB 原生支持，更适合边缘 AI 与人机交互；老款 ESP32 单核、性价比仍在。"}}]}]}
     </script>
     <title>ESP32 vs STM32：2026 开发板怎么选？ - ZouIC</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -75,10 +75,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/boards/">开发板库</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li>
                     <li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/projects/">Demo项目</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/all-projects/">外部平台项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projects/">开源项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/all-projects/">开源项目</a></li>
                     <li class="nav-item"><a class="nav-link" href="/articles/">技术文章</a></li>
                 </ul>
                 <div class="d-flex gap-2 align-items-center">
@@ -125,7 +125,7 @@
                     <tr><td>适合场景</td><td>IoT、智能家居、边缘 AI</td><td>电机控制、传感器采集、实时外设</td></tr>
                 </tbody>
             </table>
-            <p class="text-sm text-gray-400 mt-3">数据来自站内开发板库：<a href="/board/esp32-s3-devkitc/">ESP32-S3-DevKitC</a> 与 <a href="/board/stm32f103c8t6-blue-pill/">STM32F103C8T6 Blue Pill</a>。</p>
+            <p class="text-sm text-gray-400 mt-3">数据来自站内开源开发板：<a href="/board/esp32-s3-devkitc/">ESP32-S3-DevKitC</a> 与 <a href="/board/stm32f103c8t6-blue-pill/">STM32F103C8T6 Blue Pill</a>。</p>
         </div>
         <div class="card-dark p-6 mb-5">
             <h2 class="section-title text-2xl font-bold mb-4">按需求选</h2>
@@ -137,7 +137,7 @@
         </div>
         <div class="card-dark p-6 mb-5">
             <h2 class="section-title text-2xl font-bold mb-4">在 ZouIC 上继续看</h2>
-            <p>想横向比更多板子，用 <a href="/compare/">参数对比工具</a>；想找项目灵感，去 <a href="/projects/">Demo 项目库</a>；完整清单见 <a href="/boards/">开发板库</a>。</p>
+            <p>想横向比更多板子，用 <a href="/compare/">参数对比工具</a>；想找项目灵感，去 <a href="/projects/">开源项目库</a>；完整清单见 <a href="/boards/">开源开发板</a>。</p>
         </div>
         
 <section class="py-6"><div class="card-dark p-6"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>ESP32 能替代 STM32 吗？</div><div class="faq-a">不能简单替代。ESP32 主频更高、带无线，但实时外设和确定性不如 STM32；涉及精确时序的控制仍建议 STM32。</div></div><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>新手先学 ESP32 还是 STM32？</div><div class="faq-a">想做物联网 / 联网项目从 ESP32 入手最快；想打牢嵌入式基础、做控制类项目从 STM32 更系统。</div></div><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>ESP32-S3 和 ESP32 老款差在哪？</div><div class="faq-a">S3 是双核、带 AI 指令扩展、USB 原生支持，更适合边缘 AI 与人机交互；老款 ESP32 单核、性价比仍在。</div></div></div></section>
@@ -150,13 +150,13 @@
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <a class="navbar-brand mb-3 d-inline-block" href="/"><i class="fas fa-microchip"></i> ZouIC</a>
-                    <p class="text-secondary text-sm">全球开源开发板 Demo 聚合平台，提供开发板数据库、项目搜索、技术文档一站式硬件开发资源。</p>
+                    <p class="text-secondary text-sm">全球开源硬件聚合平台，提供开发板数据库、项目搜索、技术文档一站式硬件开发资源。</p>
                     <span class="badge badge-primary">SYS.STATUS: OPERATIONAL</span>
                 </div>
                 <div class="col-lg-2 col-6 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">产品</h6>
                     <ul class="list-unstyled text-sm">
-                        <li><a class="text-secondary" href="/boards/">开发板库</a></li>
-                        <li><a class="text-secondary" href="/projects/">Demo项目</a></li>
+                        <li><a class="text-secondary" href="/boards/">开源开发板</a></li>
+                        <li><a class="text-secondary" href="/projects/">开源项目</a></li>
                         <li><a class="text-secondary" href="/compare/">参数对比</a></li>
                         <li><a class="text-secondary" href="/board-guide/">文档中心</a></li>
                     </ul></div>

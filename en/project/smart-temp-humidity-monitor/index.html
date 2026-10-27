@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="Monitors temperature and humidity with a DHT22 sensor and uploads readings to the cloud over Wi-Fi - ZouIC - Global open-source development board Demo…">
-    <meta name="keywords" content="Smart Temperature &amp; Humidity Monitor, Arduino, open source development board,hardware development,Demo project,embedded development,ESP32,STM32,RP2040,RISC-V,Arduino,MicroPython">
+    <meta name="description" content="Monitors temperature and humidity with a DHT22 sensor and uploads readings to the cloud over Wi-Fi - ZouIC aggregates open source hardware projects from…">
+    <meta name="keywords" content="Smart Temperature &amp; Humidity Monitor, Arduino, open source hardware,open source projects,GitHub,Hackster.io,CrowdSupply,Hackaday,Seeed Studio,development board,embedded">
     
     <meta name="author" content="ZouIC">
     <meta name="theme-color" content="#00E5FF">
@@ -45,7 +45,7 @@
     
     
     <script type="application/ld+json">
-        {"@context": "https://schema.org", "@graph": [{"@type": "CreativeWork", "author": {"@type": "Organization", "name": "ZouIC"}, "description": "\u4f7f\u7528DHT22\u4f20\u611f\u5668\u76d1\u6d4b\u6e29\u6e7f\u5ea6\uff0c\u901a\u8fc7WiFi\u4e0a\u4f20\u5230\u4e91\u7aef", "inLanguage": "en", "license": "MIT", "name": "\u667a\u80fd\u6e29\u6e7f\u5ea6\u76d1\u6d4b\u7cfb\u7edf", "programmingLanguage": "C++", "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/project/smart-temp-humidity-monitor/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/projects", "name": "Demo Projects", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/project/smart-temp-humidity-monitor/", "name": "\u667a\u80fd\u6e29\u6e7f\u5ea6\u76d1\u6d4b\u7cfb\u7edf", "position": 3}]}]}
+        {"@context": "https://schema.org", "@graph": [{"@type": "CreativeWork", "author": {"@type": "Organization", "name": "ZouIC"}, "description": "\u4f7f\u7528DHT22\u4f20\u611f\u5668\u76d1\u6d4b\u6e29\u6e7f\u5ea6\uff0c\u901a\u8fc7WiFi\u4e0a\u4f20\u5230\u4e91\u7aef", "inLanguage": "en", "license": "MIT", "name": "\u667a\u80fd\u6e29\u6e7f\u5ea6\u76d1\u6d4b\u7cfb\u7edf", "programmingLanguage": "C++", "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/project/smart-temp-humidity-monitor/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/projects", "name": "Open Source Projects", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/project/smart-temp-humidity-monitor/", "name": "\u667a\u80fd\u6e29\u6e7f\u5ea6\u76d1\u6d4b\u7cfb\u7edf", "position": 3}]}]}
     </script>
     
     
@@ -67,7 +67,7 @@
     
     <!-- ZouIC Design System -->
     <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
-    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261024b">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261027a">
     <noscript>
         <style>
             /* 关闭 JS 时不要因为滚动动画而隐藏内容 */
@@ -120,10 +120,9 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link" href="/en/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/en/boards/">Boards</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/all-projects/"><i class="fas fa-project-diagram me-1"></i>Open Source Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/boards/">Open Source Boards</a></li>
                     <li class="nav-item"><a class="nav-link" href="/en/board-guide/">Documentation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/en/projects/">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/en/all-projects/"><i class="fas fa-project-diagram me-1"></i>External Projects</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             More
@@ -152,8 +151,8 @@
                                placeholder="Search boards, projects or keywords..." aria-label="Search" style="width: 200px;">
                         <select id="searchType" class="form-select input-zouic" aria-label="Search Type:" style="width: auto; flex: 0 0 auto;">
                             <option value="">All Categories</option>
-                            <option value="board">Boards</option>
-                            <option value="project">Projects</option>
+                            <option value="board">Open Source Boards</option>
+                            <option value="project">Open Source Projects</option>
                         </select>
                         <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Search">
                             <i class="fas fa-search" aria-hidden="true"></i>
@@ -186,7 +185,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-transparent">
                     <li class="breadcrumb-item"><a href="/en/">Home</a></li>
-                    <li class="breadcrumb-item"><a href="/en/projects/">Demo Projects</a></li>
+                    <li class="breadcrumb-item"><a href="/en/projects/">Open Source Projects</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Smart Temperature &amp; Humidity Monitor</li>
                 </ol>
             </nav>
@@ -216,7 +215,7 @@
                     
                     <span class="badge badge-secondary align-self-center">Sample project — source link pending</span>
                     
-                    <button id="shareBtn" class="btn btn-outline-light" data-url="http://localhost/project/smart-temp-humidity-monitor/">
+                    <button id="shareBtn" class="btn btn-outline-light" data-url="https://www.zouic.com/en/project/smart-temp-humidity-monitor">
                         <i class="fas fa-share"></i> Share
                     </button>
                 </div>
@@ -362,7 +361,7 @@
                         <div class="space-y-2">
                             <a href="/en/projects/" class="d-flex items-center gap-2 p-2 rounded hover:bg-dark transition-colors">
                                 <i class="fas fa-layer-group text-primary"></i>
-                                <span>Demo Projects</span>
+                                <span>Open Source Projects</span>
                             </a>
                             <a href="/en/board-guide/" class="d-flex items-center gap-2 p-2 rounded hover:bg-dark transition-colors">
                                 <i class="fas fa-compass text-primary"></i>
@@ -489,7 +488,7 @@
                         <i class="fas fa-microchip"></i>
                         <span>ZouIC</span>
                     </a>
-                    <p class="footer-tagline">Open source projects aggregated on this platform follow their respective open source licenses. For details, please see the</p>
+                    <p class="footer-tagline">Quality open hardware projects from platforms worldwide · For developer reference only</p>
 
                     <div class="footer-meta">
                         <p class="footer-author">
@@ -513,6 +512,8 @@
                         <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a>
                         <a href="/en/#follow" class="footer-social-link" aria-label="WeChat Official Account · GeekWaedon" title="WeChat Official Account · GeekWaedon"><i class="fab fa-weixin"></i></a>
                         <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a>
+                        <a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a>
                         <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a>
                         <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
                     </div>
@@ -561,7 +562,7 @@
             </div>
             <div class="footer-bottom">
                 <p>© 2026 ZouIC. All rights reserved.</p>
-                <p>Open source projects aggregated on this platform follow their respective open source licenses. For details, please see the <a href="/en/licenses/">Open Source Licenses</a> page.</p>
+                <p>Projects aggregated here are for developer reference only: ZouIC indexes them and hosts no code or files; copyright and licensing stay with their authors. For details, see the <a href="/en/licenses/">Open Source Licenses</a> page.</p>
                 <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
             </div>
         </div>

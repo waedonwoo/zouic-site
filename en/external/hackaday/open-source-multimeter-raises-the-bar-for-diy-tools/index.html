@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Whether you only dabble in electronics as a hobby or it’s your full-time job, there are few tools as indispensable as the multimeter. In fact, we’d be…">
+    <meta name="keywords" content="Open Source Multimeter Raises the Bar for DIY Tools, hackaday">
+    
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    
+    
+    
+    
+    <link rel="canonical" href="https://www.zouic.com/en/external/hackaday/open-source-multimeter-raises-the-bar-for-diy-tools">
+    
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/external/hackaday/open-source-multimeter-raises-the-bar-for-diy-tools" />
+    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/external/hackaday/open-source-multimeter-raises-the-bar-for-diy-tools" />
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/external/hackaday/open-source-multimeter-raises-the-bar-for-diy-tools" />
+    
+    
+    
+    
+    <meta property="og:title" content="Open Source Multimeter Raises the Bar for DIY Tools - ZouIC">
+    <meta property="og:description" content="Whether you only dabble in electronics as a hobby or it’s your full-time job, there are few tools as indispensable as the multimeter. In fact, we’d be willing to bet …read more">
+    <meta property="og:url" content="https://www.zouic.com/en/external/hackaday/open-source-multimeter-raises-the-bar-for-diy-tools">
+    <meta property="og:type" content="creativework">
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ZouIC open source development board platform · GeekWeidong">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Open Source Multimeter Raises the Bar for DIY Tools - ZouIC">
+    <meta name="twitter:description" content="Whether you only dabble in electronics as a hobby or it’s your full-time job, there are few tools as indispensable as the multimeter. In fact, we’d be willing to bet …read more">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/all-projects", "name": "Open Source Projects", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/external/hackaday/open-source-multimeter-raises-the-bar-for-diy-tools/", "name": "Project Details", "position": 3}]}
+    </script>
+    
+    
+    
+    <title>Open Source Multimeter Raises the Bar for DIY Tools - Hackaday</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    
+    <!-- External Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    
+    <!-- ZouIC Design System -->
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261027a">
+    <noscript>
+        <style>
+            /* 关闭 JS 时不要因为滚动动画而隐藏内容 */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261023b">
+    
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand" href="/en/">
+                <i class="fas fa-microchip"></i> ZouIC
+            </a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
+                <span class="nav-hud-dot"></span>SYS.ONLINE
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/en/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/all-projects/"><i class="fas fa-project-diagram me-1"></i>Open Source Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/boards/">Open Source Boards</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/board-guide/">Documentation</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/en/products/"><i class="fas fa-box me-2"></i>Products</a></li>
+                            <li><a class="dropdown-item" href="/en/services/"><i class="fas fa-cogs me-2"></i>Services</a></li>
+                            <li><a class="dropdown-item" href="/en/news/"><i class="fas fa-newspaper me-2"></i>Site Updates</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li>
+                            <li><a class="dropdown-item" href="/en/documentation/"><i class="fas fa-book me-2"></i>Documentation</a></li>
+                            <li><a class="dropdown-item" href="/en/cases/"><i class="fas fa-briefcase me-2"></i>Project Cases</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/open-source/"><i class="fas fa-code-branch me-2"></i>Open Source Projects</a></li>
+                            <li><a class="dropdown-item" href="/en/articles/"><i class="fas fa-pen-fancy me-2"></i>Articles</a></li>
+                            <li><a class="dropdown-item" href="/en/contribute/"><i class="fas fa-handshake me-2"></i>Contribute</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/dashuju/"><i class="fas fa-chart-line me-2"></i>Data Dashboard</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-lg-none"><a class="nav-link" href="/en/search/"><i class="fas fa-search me-1"></i>Search</a></li>
+                </ul>
+                <form id="searchForm" class="d-flex me-3 d-none d-lg-flex">
+                    <div class="input-group input-group-zouic">
+                        <input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="Search boards, projects or keywords..." aria-label="Search" style="width: 200px;">
+                        <select id="searchType" class="form-select input-zouic" aria-label="Search Type:" style="width: auto; flex: 0 0 auto;">
+                            <option value="">All Categories</option>
+                            <option value="board">Open Source Boards</option>
+                            <option value="project">Open Source Projects</option>
+                        </select>
+                        <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Search">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i> English
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/external/hackaday/open-source-multimeter-raises-the-bar-for-diy-tools/">
+                                <i class="fas fa-language me-2"></i> 中文
+                            </a></li>
+                            <li><a class="dropdown-item" href="/en/external/hackaday/open-source-multimeter-raises-the-bar-for-diy-tools/">
+                                <i class="fas fa-language me-2"></i> English
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        
+<div class="container">
+    <div class="row mb-6">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb" class="mt-4">
+                <ol class="breadcrumb bg-transparent">
+                    <li class="breadcrumb-item"><a href="/en/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/en/all-projects/">All projects</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Open Source Multimeter Raises the Bar for DIY Tools</li>
+                </ol>
+            </nav>
+            <a href="/en/all-projects/" class="btn btn-outline-secondary mb-4">
+                <i class="fas fa-arrow-left mr-2"></i> Back to List
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            
+            <div class="card-dark rounded-lg mb-6 overflow-hidden">
+                <img loading="lazy" decoding="async" src="https://hackaday.com/wp-content/uploads/2024/12/hydrameter_feat2.jpg" alt="Open Source Multimeter Raises the Bar for DIY Tools" class="w-full" style="max-height: 400px; object-fit: cover;">
+            </div>
+            
+
+            <div class="card-dark rounded-lg p-6 mb-6">
+                <div class="d-flex items-start justify-between mb-6">
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="badge badge-accent">
+                                <i class="fas fa-wrench mr-1"></i> Hackaday
+                            </span>
+                            <a class="badge badge-primary" href="/en/source/hackaday/">
+                                <i class="fas fa-layer-group mr-1"></i> All from this source
+                            </a>
+                            
+                            <span class="badge badge-secondary">
+                                <i class="fas fa-scale-balanced mr-1"></i> 报道文章，非代码仓库；授权以原页面标注为准
+                            </span>
+                            
+                            
+                            <span class="badge badge-secondary">ai_hardware</span>
+                            
+                        </div>
+                        <p class="text-secondary mb-3" style="font-size:.85rem;">
+                            <i class="fas fa-circle-info mr-1"></i>
+                            Indexed by ZouIC from the source platform public page, for developer reference only. Copyright and licensing stay with the author; get code and files from the original platform.
+                        </p>
+                        <h1 class="display-4">Open Source Multimeter Raises the Bar for DIY Tools</h1>
+                        
+                        <p class="text-secondary mt-2">Published 2024-12-25</p>
+                        
+                    </div>
+                </div>
+
+                
+                
+
+                <p class="text-lg mb-6">Whether you only dabble in electronics as a hobby or it’s your full-time job, there are few tools as indispensable as the multimeter. In fact, we’d be willing to bet …read more</p>
+
+                
+                
+
+                
+                <div class="mb-6">
+                    <h3 class="h4 mb-3">Tags</h3>
+                    <div class="flex flex-wrap gap-2">
+                        
+                        <a href="/en/search/?q=ai_hardware&type=project" class="badge badge-primary text-decoration-none">ai_hardware</a>
+                        
+                    </div>
+                </div>
+                
+
+                
+                
+                
+                
+                
+                <div class="mb-6">
+                    <h3 class="h4 mb-4">Technical Specifications</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        
+                        <div class="p-4 rounded-lg" style="background-color: rgba(255,255,255,0.05);">
+                            <div class="text-sm text-secondary">
+                                
+                                来源平台
+                                
+                            </div>
+                            
+                            <div class="font-medium mt-1">Hackaday</div>
+                            
+                        </div>
+                        
+                        <div class="p-4 rounded-lg" style="background-color: rgba(255,255,255,0.05);">
+                            <div class="text-sm text-secondary">
+                                
+                                收录说明
+                                
+                            </div>
+                            
+                            <div class="font-medium mt-1">内容抓取自原平台公开页面，仅作开发者选型参考</div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                
+
+                
+                <div class="mb-6">
+                    <h3 class="h4 mb-4">相关资源与购买渠道</h3>
+                    <div class="row">
+                        
+                        <div class="col-md-6 mb-3">
+                            
+                            <a href="https://hackaday.com/2024/12/25/open-source-multimeter-raises-the-bar-for-diy-tools/" target="_blank" rel="noopener noreferrer" class="card-dark p-4 rounded-lg hover:border-primary transition-colors d-block">
+                                <i class="fas fa-external-link-alt text-primary mr-2"></i> 在原平台查看原始页面
+                            </a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                
+
+                
+
+                
+                <div class="mb-6">
+                    <h3 class="h4 mb-4">Similar Hardware Projects</h3>
+                    <div class="row">
+                        
+                        <div class="col-md-6 mb-3">
+                            <a href="/en/external/hackster/ai-agent-beats-arm-cmsis-nn-by-3-74x-on-nrf54lm20-66158a/"
+                               class="card-dark p-4 rounded-lg d-block hover:border-primary transition-colors">
+                                <div class="font-medium">AI Agent Beats ARM CMSIS-NN by 3.74x on nRF54LM20</div>
+                                
+                                <div class="text-secondary mt-1" style="font-size: 0.8rem;">
+                                    
+                                    
+                                    
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <a href="/en/external/web/ai-art-frame-jsmq6z59/"
+                               class="card-dark p-4 rounded-lg d-block hover:border-primary transition-colors">
+                                <div class="font-medium">AI Art Frame</div>
+                                
+                                <div class="text-secondary mt-1" style="font-size: 0.8rem;">
+                                    <i class="fas fa-industry me-1"></i>SwitchBot
+                                    
+                                    
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <a href="/en/external/hackaday/ai-controls-iphone-via-esp32/"
+                               class="card-dark p-4 rounded-lg d-block hover:border-primary transition-colors">
+                                <div class="font-medium">AI Controls iPhone Via ESP32</div>
+                                
+                                <div class="text-secondary mt-1" style="font-size: 0.8rem;">
+                                    
+                                    
+                                    
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <a href="/en/external/github/m5-ai-pyramid/"
+                               class="card-dark p-4 rounded-lg d-block hover:border-primary transition-colors">
+                                <div class="font-medium">AI Pyramid</div>
+                                
+                                <div class="text-secondary mt-1" style="font-size: 0.8rem;">
+                                    <i class="fas fa-industry me-1"></i>M5Stack
+                                    <span class="ms-2"><i class="fas fa-microchip me-1"></i>AX8850</span>
+                                    
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <a href="/en/external/hackaday/an-esp32-development-board-for-sailors/"
+                               class="card-dark p-4 rounded-lg d-block hover:border-primary transition-colors">
+                                <div class="font-medium">An ESP32 Development Board For Sailors</div>
+                                
+                                <div class="text-secondary mt-1" style="font-size: 0.8rem;">
+                                    
+                                    
+                                    
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <a href="/en/external/hackaday/announcing-the-2025-hackaday-superconference-communicator-badge/"
+                               class="card-dark p-4 rounded-lg d-block hover:border-primary transition-colors">
+                                <div class="font-medium">Announcing the 2025 Hackaday Superconference Communicator Badge</div>
+                                
+                                <div class="text-secondary mt-1" style="font-size: 0.8rem;">
+                                    
+                                    
+                                    
+                                </div>
+                            </a>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card-dark rounded-lg p-6 mb-6">
+                <h3 class="h4 mb-4">Project Info</h3>
+                <div class="space-y-3">
+                    <div class="d-flex justify-content-between">
+                        <span class="text-secondary">Source Platform</span>
+                        <span class="font-medium">Hackaday</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span class="text-secondary">Category</span>
+                        <span class="font-medium">ai_hardware</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span class="text-secondary">License</span>
+                        <span class="font-medium">报道文章，非代码仓库；授权以原页面标注为准</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span class="text-secondary">Views</span>
+                        <span class="font-medium">0</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span class="text-secondary">Likes</span>
+                        <span class="font-medium">0</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span class="text-secondary">Discussions</span>
+                        <span class="font-medium">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-dark rounded-lg p-6 mb-6">
+                <h3 class="h4 mb-4">Author Info</h3>
+                
+                <div class="flex items-center">
+                    
+                    <div class="rounded-circle w-12 h-12 mr-3 bg-secondary"></div>
+                    
+                    <div>
+                        <div class="font-bold">Tom Nardi</div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="card-dark rounded-lg p-6 mb-6">
+                <h3 class="h4 mb-4">Related Links</h3>
+                <div class="space-y-2">
+                    
+                    <a href="https://hackaday.com/2024/12/25/open-source-multimeter-raises-the-bar-for-diy-tools/" target="_blank" rel="noopener noreferrer" 
+                       class="btn btn-primary btn-sm w-full">
+                        <i class="fas fa-external-link-alt mr-2"></i> View Original Page
+                    </a>
+                    
+                    
+                    <a href="https://hackaday.com/2024/12/25/open-source-multimeter-raises-the-bar-for-diy-tools/" target="_blank" rel="noopener noreferrer" 
+                       class="btn btn-outline-secondary btn-sm w-full">
+                        <i class="fas fa-book mr-2"></i> Technical Docs
+                    </a>
+                    
+                    
+                </div>
+            </div>
+
+            <div class="card-dark rounded-lg p-6 mb-6">
+                <h3 class="h4 mb-4">Keep exploring</h3>
+                <div class="space-y-2">
+                    <a href="/en/all-projects/" class="d-flex items-center gap-2 text-primary hover-underline">
+                        <i class="fas fa-layer-group"></i> All projects
+                    </a>
+                    <a href="/en/boards/" class="d-flex items-center gap-2 text-primary hover-underline">
+                        <i class="fas fa-microchip"></i> Development Boards
+                    </a>
+                    <a href="/en/board-guide/" class="d-flex items-center gap-2 text-primary hover-underline">
+                        <i class="fas fa-compass"></i> Board Selection Guide
+                    </a>
+                    <a href="/en/articles/" class="d-flex items-center gap-2 text-primary hover-underline">
+                        <i class="fas fa-newspaper"></i> Articles
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-dark rounded-lg p-6">
+                <h3 class="h4 mb-3">Citation Note</h3>
+                <p class="text-sm text-secondary">
+                    This content is sourced from Hackaday Platform，All rights reserved by the original author.
+                    This platform only provides indexing and summaries. For detailed content, please visit the original link.
+                </p>
+                
+                <div class="mt-3">
+                    <span class="badge badge-accent">报道文章，非代码仓库；授权以原页面标注为准</span>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Newsletter Section (首页已有完整关注区，不重复) -->
+    
+    <section class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h3 class="text-xl font-bold mb-2">Follow @GeekWaedon for Weekly Updates</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">Board picks, project breakdowns and hardware engineering tips, first published on WeChat and Knowledge Planet.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <a href="/en/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">See How to Follow</a>
+                        <div class="newsletter-benefits">
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Weekly curated board picks</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Exclusive project deep-dives</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Updated on WeChat and Knowledge Planet</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="py-4" aria-label="Produced by">
+        <div class="author-card">
+            <div class="author-card-info">
+                <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
+                <div>
+                    <div class="author-card-name">Created by GeekWaedon <span>@GeekWaedon</span></div>
+                    <div class="author-card-bio">Hardware maker and AI practitioner. This entire website was built hands-on with AI tools.</div>
+                </div>
+            </div>
+            <div class="author-card-actions">
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Join my Knowledge Planet</a>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;GeekWaedon&#34;</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-zouic" role="contentinfo">
+        <div class="container">
+            <div class="row footer-main">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
+                    <a href="/en/" class="footer-brand" aria-label="ZouIC home">
+                        <i class="fas fa-microchip"></i>
+                        <span>ZouIC</span>
+                    </a>
+                    <p class="footer-tagline">Quality open hardware projects from platforms worldwide · For developer reference only</p>
+
+                    <div class="footer-meta">
+                        <p class="footer-author">
+                            Produced by · <strong>GeekWaedon</strong>
+                            <span class="footer-author-handle">@GeekWaedon</span>
+                        </p>
+                        <div class="footer-slash-tags">
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware enthusiast</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI practitioner</span>
+                            <a href="/en/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom service provider">
+                                <i class="fab fa-weixin"></i> WeCom service provider
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a>
+                        <a href="/en/#follow" class="footer-social-link" aria-label="WeChat Official Account · GeekWaedon" title="WeChat Official Account · GeekWaedon"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a>
+                        <a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a>
+                        <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="/en/products/">Products</a></li>
+                        <li><a href="/en/services/">Services</a></li>
+                        <li><a href="/en/services/website-building/">Website building</a></li>
+                        <li><a href="/en/news/">Site Updates</a></li>
+                        <li><a href="/en/boards/">Development Boards</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="/en/board-guide/">Board selection guide</a></li>
+                        <li><a href="/en/compare/">Board comparison</a></li>
+                        <li><a href="/en/tutorials/">Tutorials</a></li>
+                        <li><a href="/en/documentation/">Documentation</a></li>
+                        <li><a href="/en/cases/">Project Cases</a></li>
+                        <li><a href="/en/help/">Documentation</a></li>
+                        <li><a href="/en/dashuju/">Data Dashboard</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Open Source</h5>
+                    <ul>
+                        <li><a href="/en/open-source/">Open Source Projects</a></li>
+                        <li><a href="/en/all-projects/">All projects</a></li>
+                        <li><a href="/en/articles/">Articles</a></li>
+                        <li><a href="/en/contribute/">Contribute</a></li>
+                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h5>About</h5>
+                    <ul>
+                        <li><a href="/en/about/">About Us</a></li>
+                        <li><a href="/en/about/#contact">Contact Us</a></li>
+                        <li><a href="/en/licenses/">Open Source Licenses</a></li>
+                        <li><a href="/en/about/#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ZouIC. All rights reserved.</p>
+                <p>Projects aggregated here are for developer reference only: ZouIC indexes them and hosts no code or files; copyright and licensing stay with their authors. For details, see the <a href="/en/licenses/">Open Source Licenses</a> page.</p>
+                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // 先把 html 标记为 reveal-ready，CSS 才隐藏"未进入视口"的区块；
+            // 若观察器异常，2 秒后兜底全部显示，避免整屏空白。
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Copied';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Removed from favorites');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Saved to favorites');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+</body>
+</html>

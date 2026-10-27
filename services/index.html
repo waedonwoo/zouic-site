@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="ZouIC 提供企业官网建设、GEO 代运营与企业微信生态服务，以及开源硬件培训、技术咨询与定制开发。">
-    <meta name="keywords" content="企业官网建设,GEO代运营,企业微信,硬件培训,技术咨询,定制开发">
+    <meta name="description" content="ZouIC 提供企业官网建设与 GEO 代运营，并承接面向硬件厂商的内容营销推广：文章、视频与全渠道分发，账号均可查证。">
+    <meta name="keywords" content="内容营销,硬件推广合作,开源硬件软文,开发板评测,电子元器件推广,企业官网建设,GEO代运营,企业微信,硬件培训,技术咨询,定制开发">
     
     <meta name="author" content="ZouIC">
     <meta name="theme-color" content="#00E5FF">
@@ -28,8 +28,8 @@
     
     
     
-    <meta property="og:title" content="服务说明 · 企业官网/GEO + 硬件技术服务 | ZouIC">
-    <meta property="og:description" content="ZouIC 提供企业官网建设、GEO 代运营与企业微信生态服务，以及开源硬件培训、技术咨询与定制开发。">
+    <meta property="og:title" content="服务说明 · 企业官网/GEO + 内容营销推广合作 + 硬件技术服务 | ZouIC">
+    <meta property="og:description" content="ZouIC 提供企业官网建设与 GEO 代运营，并承接面向硬件厂商的内容营销推广：文章、视频与全渠道分发，账号均可查证。">
     <meta property="og:url" content="https://www.zouic.com/services">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ZouIC">
@@ -39,8 +39,8 @@
     <meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋">
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="服务说明 · 企业官网/GEO + 硬件技术服务 | ZouIC">
-    <meta name="twitter:description" content="ZouIC 提供企业官网建设、GEO 代运营与企业微信生态服务，以及开源硬件培训、技术咨询与定制开发。">
+    <meta name="twitter:title" content="服务说明 · 企业官网/GEO + 内容营销推广合作 + 硬件技术服务 | ZouIC">
+    <meta name="twitter:description" content="ZouIC 提供企业官网建设与 GEO 代运营，并承接面向硬件厂商的内容营销推广：文章、视频与全渠道分发，账号均可查证。">
     <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     
     
@@ -52,7 +52,7 @@
     
     
     
-    <title>服务说明 · 企业官网/GEO + 硬件技术服务 | ZouIC</title>
+    <title>服务说明 · 企业官网/GEO + 内容营销推广合作 + 硬件技术服务 | ZouIC</title>
     
     <!-- Resource Hints -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -70,7 +70,7 @@
     
     <!-- ZouIC Design System -->
     <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
-    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261024b">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261027a">
     <noscript>
         <style>
             /* 关闭 JS 时不要因为滚动动画而隐藏内容 */
@@ -123,10 +123,9 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/boards/">开发板库</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/all-projects/"><i class="fas fa-project-diagram me-1"></i>开源项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li>
                     <li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/projects/">Demo项目</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/all-projects/"><i class="fas fa-project-diagram me-1"></i>外部平台项目</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             更多
@@ -155,8 +154,8 @@
                                placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" style="width: 200px;">
                         <select id="searchType" class="form-select input-zouic" aria-label="搜索类型:" style="width: auto; flex: 0 0 auto;">
                             <option value="">全部分类</option>
-                            <option value="board">开发板库</option>
-                            <option value="project">Demo项目</option>
+                            <option value="board">开源开发板</option>
+                            <option value="project">开源项目</option>
                         </select>
                         <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索">
                             <i class="fas fa-search" aria-hidden="true"></i>
@@ -209,6 +208,263 @@
                 <div class="col-lg-4 text-lg-end">
                     <a href="/services/website-building/#audit" class="btn-zouic btn-zouic-primary" style="padding:12px 28px;">
                         <i class="fas fa-magnifying-glass-chart me-2"></i>免费获取 30 分钟可见性审计
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== 内容营销与推广合作 ==================== -->
+<section class="py-16" id="content-promotion">
+    <div class="container">
+        <div class="text-center mb-10">
+            <span class="section-zouic-badge">
+                <i class="fas fa-bullhorn me-1"></i> 内容营销 · 推广合作
+            </span>
+            <h2 class="section-zouic-title mt-3 mb-3">面向硬件厂商的内容营销与推广</h2>
+            <p class="text-secondary" style="max-width:840px;margin:0 auto;line-height:1.9;font-size:15px;">
+                选题围绕开源硬件、开发板与模组、嵌入式与元器件展开。如果你的客户是开发者、工程师或硬件采购方，可以用文章、视频与全渠道分发的组合，把真实的使用体验讲给这批人听。内容由本人撰写与出镜，不代笔、不搬运、不刷量。
+            </p>
+        </div>
+
+        <!-- 出品人名片 -->
+        <div class="card-dark p-6 p-lg-8 mb-10" style="border:1px solid rgba(0,229,255,.28);border-radius:16px;">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-8">
+                    <div class="flex flex-wrap items-center gap-3 mb-3">
+                        <h3 class="text-2xl font-bold mb-0">极客微栋 <span style="color:var(--color-primary);font-size:16px;">@GeekWaedon</span></h3>
+                        <span class="badge badge-primary">十余年市场营销推广经验</span>
+                    </div>
+                    <p class="text-secondary mb-4" style="font-size:14px;line-height:1.85;">
+                        长期做技术与市场之间的那层翻译：把硬件参数翻译成选型理由，把产品功能翻译成使用场景。ZouIC 本身是同一套方法的公开样本——站内 250 条开源硬件收录、8 篇可查证的长文，都是自己搭、自己写、自己运营出来的。
+                    </p>
+                    <div class="row g-3 text-center text-lg-start">
+                        <div class="col-4">
+                            <div class="font-bold" style="font-size:22px;color:var(--color-primary);">10+</div>
+                            <div class="text-xs text-secondary">年市场推广经验</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="font-bold" style="font-size:22px;color:var(--color-primary);">10,000+</div>
+                            <div class="text-xs text-secondary">全网粉丝</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="font-bold" style="font-size:22px;color:var(--color-primary);">11</div>
+                            <div class="text-xs text-secondary">个分发渠道</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <p class="text-xs text-secondary mb-2" style="line-height:1.7;">合作咨询邮件（说明产品、人群、期望产出与预算区间）</p>
+                    <a href="mailto:waedon@outlook.com?subject=%E5%86%85%E5%AE%B9%E8%90%A5%E9%94%80%E6%8E%A8%E5%B9%BF%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2" class="btn-zouic btn-zouic-primary" style="padding:12px 26px;display:inline-block;">
+                        <i class="fas fa-envelope me-2"></i>邮件沟通合作
+                    </a>
+                    <p class="text-xs text-secondary mt-3 mb-0" style="line-height:1.7;">通常 1 个工作日内回复可行性与初步方案。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 渠道矩阵 -->
+        <h3 class="text-xl font-bold mb-2">分发渠道：账号均可自行核证</h3>
+        <p class="text-secondary mb-6" style="font-size:13.5px;line-height:1.8;">
+            以下为本人实际运营、且已在站脚公开的分发渠道，有主页的一律直接给出链接，投放前可自行点开核验。微信公众号在页面底部可扫码关注。
+        </p>
+        <div class="row g-3 mb-10">
+            <div class="col-md-6 col-lg-4">
+                <a href="/#follow" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="flex items-center gap-2 font-bold"><i class="fab fa-weixin" style="color:#4ade80;"></i> 微信公众号</span>
+                        <i class="fas fa-arrow-right text-xs text-secondary"></i>
+                    </div>
+                    <p class="text-xs text-secondary mb-0" style="line-height:1.7;">图文主阵地｜底部扫码或搜索「极客微栋」关注</p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="flex items-center gap-2 font-bold"><i class="fab fa-tiktok" style="color:var(--color-accent);"></i> 抖音</span>
+                        <i class="fas fa-arrow-up-right-from-square text-xs text-secondary"></i>
+                    </div>
+                    <p class="text-xs text-secondary mb-0" style="line-height:1.7;">短视频：开箱、实测、快速对比</p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="flex items-center gap-2 font-bold"><i class="fas fa-video" style="color:#07c160;"></i> 微信视频号</span>
+                        <i class="fas fa-arrow-up-right-from-square text-xs text-secondary"></i>
+                    </div>
+                    <p class="text-xs text-secondary mb-0" style="line-height:1.7;">短视频｜微信生态内分发，需装微信的手机打开</p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="flex items-center gap-2 font-bold"><i class="fab fa-bilibili" style="color:#fb7299;"></i> 哔哩哔哩</span>
+                        <i class="fas fa-arrow-up-right-from-square text-xs text-secondary"></i>
+                    </div>
+                    <p class="text-xs text-secondary mb-0" style="line-height:1.7;">中长视频：拆解、教程、项目复现</p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="flex items-center gap-2 font-bold"><i class="fab fa-zhihu" style="color:var(--color-primary);"></i> 知乎</span>
+                        <i class="fas fa-arrow-up-right-from-square text-xs text-secondary"></i>
+                    </div>
+                    <p class="text-xs text-secondary mb-0" style="line-height:1.7;">长文与回答：选型分析、行业观点</p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="flex items-center gap-2 font-bold"><i class="fas fa-newspaper" style="color:var(--color-secondary);"></i> 今日头条</span>
+                        <i class="fas fa-arrow-up-right-from-square text-xs text-secondary"></i>
+                    </div>
+                    <p class="text-xs text-secondary mb-0" style="line-height:1.7;">图文资讯：泛科技人群触达</p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="flex items-center gap-2 font-bold"><i class="fas fa-tv" style="color:#4ade80;"></i> 爱奇艺号</span>
+                        <i class="fas fa-arrow-up-right-from-square text-xs text-secondary"></i>
+                    </div>
+                    <p class="text-xs text-secondary mb-0" style="line-height:1.7;">中长视频：教程、拆解、深度评测</p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="flex items-center gap-2 font-bold"><i class="fab fa-weibo" style="color:var(--color-accent);"></i> 微博</span>
+                        <i class="fas fa-arrow-up-right-from-square text-xs text-secondary"></i>
+                    </div>
+                    <p class="text-xs text-secondary mb-0" style="line-height:1.7;">短动态与热点：传播链路短、扩散快</p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="flex items-center gap-2 font-bold"><i class="fab fa-qq" style="color:var(--color-primary);"></i> 企鹅号</span>
+                        <i class="fas fa-arrow-up-right-from-square text-xs text-secondary"></i>
+                    </div>
+                    <p class="text-xs text-secondary mb-0" style="line-height:1.7;">资讯图文：腾讯系信息流收录</p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="flex items-center gap-2 font-bold"><i class="fab fa-youtube" style="color:#f87171;"></i> YouTube</span>
+                        <i class="fas fa-arrow-up-right-from-square text-xs text-secondary"></i>
+                    </div>
+                    <p class="text-xs text-secondary mb-0" style="line-height:1.7;">英文视频：触达中文圈之外的开发者</p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="flex items-center gap-2 font-bold"><i class="fas fa-star" style="color:#fbbf24;"></i> 知识星球</span>
+                        <i class="fas fa-arrow-up-right-from-square text-xs text-secondary"></i>
+                    </div>
+                    <p class="text-xs text-secondary mb-0" style="line-height:1.7;">付费社群：长期读者沉淀，适合深度答疑</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- 承接形式 -->
+        <h3 class="text-xl font-bold mb-6">可承接的内容形式</h3>
+        <div class="row g-4 mb-10">
+            <div class="col-lg-4">
+                <div class="card-dark p-6 h-100" style="border-radius:14px;">
+                    <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-file-lines text-primary fa-lg"></i>
+                    </div>
+                    <h4 class="font-bold mb-3">文章</h4>
+                    <ul class="list-unstyled text-secondary" style="font-size:13.5px;line-height:2;">
+                        <li><i class="fas fa-check text-primary me-2"></i>产品评测 / 实测上手</li>
+                        <li><i class="fas fa-check text-primary me-2"></i>同类选型横向对比</li>
+                        <li><i class="fas fa-check text-primary me-2"></i>分步教程与踩坑复盘</li>
+                        <li><i class="fas fa-check text-primary me-2"></i>行业观点 / 趋势解读</li>
+                    </ul>
+                    <p class="text-xs text-secondary border-top border-secondary pt-3 mb-0" style="line-height:1.8;">
+                        稿件按 SEO / GEO 结构组织，兼顾搜索收录与 AI 问答引用。
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card-dark p-6 h-100" style="border-radius:14px;">
+                    <div class="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-video text-accent fa-lg"></i>
+                    </div>
+                    <h4 class="font-bold mb-3">视频</h4>
+                    <ul class="list-unstyled text-secondary" style="font-size:13.5px;line-height:2;">
+                        <li><i class="fas fa-check text-accent me-2"></i>开箱与外观工艺解读</li>
+                        <li><i class="fas fa-check text-accent me-2"></i>对比评测与实测数据</li>
+                        <li><i class="fas fa-check text-accent me-2"></i>分步教程 / 应用演示</li>
+                        <li><i class="fas fa-check text-accent me-2"></i>口播观点与知识点</li>
+                    </ul>
+                    <p class="text-xs text-secondary border-top border-secondary pt-3 mb-0" style="line-height:1.8;">
+                        脚本、拍摄、剪辑与封面由本人完成，成片含字幕。
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card-dark p-6 h-100" style="border-radius:14px;border:1px solid rgba(0,229,255,.35);">
+                    <div class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-diagram-project text-secondary fa-lg"></i>
+                    </div>
+                    <h4 class="font-bold mb-3">组合投放</h4>
+                    <ul class="list-unstyled text-secondary" style="font-size:13.5px;line-height:2;">
+                        <li><i class="fas fa-check text-secondary me-2"></i>选题策划与内容排期</li>
+                        <li><i class="fas fa-check text-secondary me-2"></i>图文 + 视频内容矩阵</li>
+                        <li><i class="fas fa-check text-secondary me-2"></i>多渠道同步分发</li>
+                        <li><i class="fas fa-check text-secondary me-2"></i>站内专题沉淀长尾流量</li>
+                    </ul>
+                    <p class="text-xs text-secondary border-top border-secondary pt-3 mb-0" style="line-height:1.8;">
+                        适合新品发布、品类卡位与长期获客。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 适合 / 不适合 -->
+        <div class="row g-4 mb-10">
+            <div class="col-lg-6">
+                <div class="card-dark p-6 h-100" style="border-left:3px solid #4ade80;border-radius:14px;">
+                    <h4 class="font-bold mb-4" style="color:#4ade80;"><i class="fas fa-circle-check me-2"></i>适合合作的方向</h4>
+                    <ul class="list-unstyled text-secondary mb-0" style="font-size:14px;line-height:2.1;">
+                        <li><i class="fas fa-plus text-xs me-2" style="color:#4ade80;"></i>开源硬件、开发板与模组厂商</li>
+                        <li><i class="fas fa-plus text-xs me-2" style="color:#4ade80;"></i>电子元器件、仪器工具、PCBA 与制造服务</li>
+                        <li><i class="fas fa-plus text-xs me-2" style="color:#4ade80;"></i>开发者工具、EDA、云与 AI 平台</li>
+                        <li><i class="fas fa-plus text-xs me-2" style="color:#4ade80;"></i>技术教育与社区活动</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card-dark p-6 h-100" style="border-left:3px solid #f87171;border-radius:14px;">
+                    <h4 class="font-bold mb-4" style="color:#f87171;"><i class="fas fa-circle-xmark me-2"></i>这些不做，先说清楚</h4>
+                    <ul class="list-unstyled text-secondary mb-0" style="font-size:14px;line-height:2.1;">
+                        <li><i class="fas fa-minus text-xs me-2" style="color:#f87171;"></i>需要刷量、虚假数据或不实对比的推广</li>
+                        <li><i class="fas fa-minus text-xs me-2" style="color:#f87171;"></i>参数失真、资质或功效无法验证的产品</li>
+                        <li><i class="fas fa-minus text-xs me-2" style="color:#f87171;"></i>要求承诺搜索排名、成交量或投资收益</li>
+                        <li><i class="fas fa-minus text-xs me-2" style="color:#f87171;"></i>与开源协议及合规要求冲突的内容</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 报价与联系 -->
+        <div class="card-dark p-6 p-lg-8" style="border-radius:16px;">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-8">
+                    <h4 class="font-bold mb-3">报价方式：按需求议价</h4>
+                    <p class="text-secondary mb-0" style="font-size:14px;line-height:1.9;">
+                        篇幅、产出数量与分发渠道不同，报价差异较大，因此不设统一标价。请邮件说明产品、目标人群、期望产出与预算区间，我会在 1 个工作日内回复可行性与初步方案。可以承诺的是内容真实与交付时间；排名、成交量这类结果，不做承诺。
+                    </p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="mailto:waedon@outlook.com?subject=%E5%86%85%E5%AE%B9%E8%90%A5%E9%94%80%E6%8E%A8%E5%B9%BF%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2" class="btn-zouic btn-zouic-primary" style="padding:12px 26px;display:inline-block;">
+                        <i class="fas fa-envelope me-2"></i>发邮件说明需求
                     </a>
                 </div>
             </div>
@@ -431,7 +687,7 @@
                         <i class="fas fa-microchip"></i>
                         <span>ZouIC</span>
                     </a>
-                    <p class="footer-tagline">平台聚合的开源项目遵循其各自的开源许可证。详情请参阅</p>
+                    <p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p>
 
                     <div class="footer-meta">
                         <p class="footer-author">
@@ -455,6 +711,8 @@
                         <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a>
                         <a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a>
                         <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a>
+                        <a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a>
                         <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a>
                         <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
                     </div>
@@ -466,7 +724,7 @@
                         <li><a href="/services/">服务说明</a></li>
                         <li><a href="/services/website-building/">建站服务</a></li>
                         <li><a href="/news/">站内动态</a></li>
-                        <li><a href="/boards/">开发板库</a></li>
+                        <li><a href="/boards/">开源开发板</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-2 mb-4 mb-md-0">
@@ -485,7 +743,7 @@
                     <h5>开源生态</h5>
                     <ul>
                         <li><a href="/open-source/">开源项目</a></li>
-                        <li><a href="/all-projects/">全部项目</a></li>
+                        <li><a href="/all-projects/">开源项目</a></li>
                         <li><a href="/articles/">技术文章</a></li>
                         <li><a href="/contribute/">贡献指南</a></li>
                         <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
@@ -503,7 +761,7 @@
             </div>
             <div class="footer-bottom">
                 <p>© 2026 ZouIC. All rights reserved.</p>
-                <p>平台聚合的开源项目遵循其各自的开源许可证。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p>
+                <p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p>
                 <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
             </div>
         </div>

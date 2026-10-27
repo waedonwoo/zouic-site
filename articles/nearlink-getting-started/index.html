@@ -24,7 +24,7 @@
     <meta name="twitter:description" content="星闪（NearLink）是新一代短距通信标准。本文基于站内真实开发板，带你了解 DevKit 套件、网关与传感节点能做什么、怎么起步。">
     <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     <script type="application/ld+json">
-        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "星闪 NearLink 开发实战：从 DevKit 到第一缕数据", "description": "星闪（NearLink）是新一代短距通信标准。本文基于站内真实开发板，带你了解 DevKit 套件、网关与传感节点能做什么、怎么起步。", "about": "星闪,NearLink,短距通信,开发板,DevKit,网关,传感节点", "author": {"@type": "Person", "name": "极客微栋 GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "inLanguage": "zh-CN", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "image": "https://www.zouic.com/static/images/og-cover.jpg", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/nearlink-getting-started/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "首页", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "技术文章", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/nearlink-getting-started/", "name": "星闪 NearLink 开发实战：从 DevKit 到第一缕数据", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "星闪和蓝牙怎么选？", "acceptedAnswer": {"@type": "Answer", "text": "星闪时延更低、并发更强，适合对实时性敏感的场景；蓝牙生态更普及，适合消费配件。"}}, {"@type": "Question", "name": "NearLink DevKit Pro 适合新手吗？", "acceptedAnswer": {"@type": "Answer", "text": "它定位全功能评估，资料较全，是上手星闪最稳妥的起点。"}}]}]}
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "星闪 NearLink 开发实战：从 DevKit 到第一缕数据", "description": "星闪（NearLink）是新一代短距通信标准。本文基于站内真实开发板，带你了解 DevKit 套件、网关与传感节点能做什么、怎么起步。", "about": "星闪,NearLink,短距通信,开发板,DevKit,网关,传感节点", "author": {"@type": "Person", "name": "极客微栋 GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "inLanguage": "zh-CN", "datePublished": "2026-10-27", "dateModified": "2026-10-27", "image": "https://www.zouic.com/static/images/og-cover.jpg", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/nearlink-getting-started/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "首页", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "技术文章", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/nearlink-getting-started/", "name": "星闪 NearLink 开发实战：从 DevKit 到第一缕数据", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "星闪和蓝牙怎么选？", "acceptedAnswer": {"@type": "Answer", "text": "星闪时延更低、并发更强，适合对实时性敏感的场景；蓝牙生态更普及，适合消费配件。"}}, {"@type": "Question", "name": "NearLink DevKit Pro 适合新手吗？", "acceptedAnswer": {"@type": "Answer", "text": "它定位全功能评估，资料较全，是上手星闪最稳妥的起点。"}}]}]}
     </script>
     <title>星闪 NearLink 开发实战：从 DevKit 到第一缕数据 - ZouIC</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -75,10 +75,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/boards/">开发板库</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li>
                     <li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/projects/">Demo项目</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/all-projects/">外部平台项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projects/">开源项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/all-projects/">开源项目</a></li>
                     <li class="nav-item"><a class="nav-link" href="/articles/">技术文章</a></li>
                 </ul>
                 <div class="d-flex gap-2 align-items-center">
@@ -143,13 +143,13 @@
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <a class="navbar-brand mb-3 d-inline-block" href="/"><i class="fas fa-microchip"></i> ZouIC</a>
-                    <p class="text-secondary text-sm">全球开源开发板 Demo 聚合平台，提供开发板数据库、项目搜索、技术文档一站式硬件开发资源。</p>
+                    <p class="text-secondary text-sm">全球开源硬件聚合平台，提供开发板数据库、项目搜索、技术文档一站式硬件开发资源。</p>
                     <span class="badge badge-primary">SYS.STATUS: OPERATIONAL</span>
                 </div>
                 <div class="col-lg-2 col-6 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">产品</h6>
                     <ul class="list-unstyled text-sm">
-                        <li><a class="text-secondary" href="/boards/">开发板库</a></li>
-                        <li><a class="text-secondary" href="/projects/">Demo项目</a></li>
+                        <li><a class="text-secondary" href="/boards/">开源开发板</a></li>
+                        <li><a class="text-secondary" href="/projects/">开源项目</a></li>
                         <li><a class="text-secondary" href="/compare/">参数对比</a></li>
                         <li><a class="text-secondary" href="/board-guide/">文档中心</a></li>
                     </ul></div>

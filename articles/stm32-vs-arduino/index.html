@@ -24,7 +24,7 @@
     <meta name="twitter:description" content="玩熟 Arduino 后，STM32 是自然的进阶。本文讲清两者差异、为什么进阶、以及最低成本的过渡方案（Blue Pill）。">
     <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     <script type="application/ld+json">
-        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "STM32 vs Arduino：从 8 位到 32 位怎么过渡", "description": "玩熟 Arduino 后，STM32 是自然的进阶。本文讲清两者差异、为什么进阶、以及最低成本的过渡方案（Blue Pill）。", "about": "STM32,Arduino,过渡,Blue Pill,32位,嵌入式进阶", "author": {"@type": "Person", "name": "极客微栋 GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "inLanguage": "zh-CN", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "image": "https://www.zouic.com/static/images/og-cover.jpg", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/stm32-vs-arduino/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "首页", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "技术文章", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/stm32-vs-arduino/", "name": "STM32 vs Arduino：从 8 位到 32 位怎么过渡", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "STM32 难学吗？", "acceptedAnswer": {"@type": "Answer", "text": "比 Arduino 陡，但有 CubeMX 图形化配置与海量例程，Blue Pill 十几元试错成本很低。"}}, {"@type": "Question", "name": "Blue Pill 能当 Arduino 用吗？", "acceptedAnswer": {"@type": "Answer", "text": "可以，社区有 Arduino 核心支持，能几乎无痛迁移既有代码。"}}]}]}
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "STM32 vs Arduino：从 8 位到 32 位怎么过渡", "description": "玩熟 Arduino 后，STM32 是自然的进阶。本文讲清两者差异、为什么进阶、以及最低成本的过渡方案（Blue Pill）。", "about": "STM32,Arduino,过渡,Blue Pill,32位,嵌入式进阶", "author": {"@type": "Person", "name": "极客微栋 GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "inLanguage": "zh-CN", "datePublished": "2026-10-27", "dateModified": "2026-10-27", "image": "https://www.zouic.com/static/images/og-cover.jpg", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/stm32-vs-arduino/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "首页", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "技术文章", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/stm32-vs-arduino/", "name": "STM32 vs Arduino：从 8 位到 32 位怎么过渡", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "STM32 难学吗？", "acceptedAnswer": {"@type": "Answer", "text": "比 Arduino 陡，但有 CubeMX 图形化配置与海量例程，Blue Pill 十几元试错成本很低。"}}, {"@type": "Question", "name": "Blue Pill 能当 Arduino 用吗？", "acceptedAnswer": {"@type": "Answer", "text": "可以，社区有 Arduino 核心支持，能几乎无痛迁移既有代码。"}}]}]}
     </script>
     <title>STM32 vs Arduino：从 8 位到 32 位怎么过渡 - ZouIC</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -75,10 +75,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/boards/">开发板库</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li>
                     <li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/projects/">Demo项目</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/all-projects/">外部平台项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projects/">开源项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/all-projects/">开源项目</a></li>
                     <li class="nav-item"><a class="nav-link" href="/articles/">技术文章</a></li>
                 </ul>
                 <div class="d-flex gap-2 align-items-center">
@@ -135,13 +135,13 @@
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <a class="navbar-brand mb-3 d-inline-block" href="/"><i class="fas fa-microchip"></i> ZouIC</a>
-                    <p class="text-secondary text-sm">全球开源开发板 Demo 聚合平台，提供开发板数据库、项目搜索、技术文档一站式硬件开发资源。</p>
+                    <p class="text-secondary text-sm">全球开源硬件聚合平台，提供开发板数据库、项目搜索、技术文档一站式硬件开发资源。</p>
                     <span class="badge badge-primary">SYS.STATUS: OPERATIONAL</span>
                 </div>
                 <div class="col-lg-2 col-6 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">产品</h6>
                     <ul class="list-unstyled text-sm">
-                        <li><a class="text-secondary" href="/boards/">开发板库</a></li>
-                        <li><a class="text-secondary" href="/projects/">Demo项目</a></li>
+                        <li><a class="text-secondary" href="/boards/">开源开发板</a></li>
+                        <li><a class="text-secondary" href="/projects/">开源项目</a></li>
                         <li><a class="text-secondary" href="/compare/">参数对比</a></li>
                         <li><a class="text-secondary" href="/board-guide/">文档中心</a></li>
                     </ul></div>

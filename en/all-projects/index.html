@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="Aggregate high-quality open source development board projects and technical resources from CrowdSupply, Hackaday, and Hackster.io platforms.">
-    <meta name="keywords" content="CrowdSupply,Hackaday,Hackster.io,open source projects,development board projects">
+    <meta name="description" content="One hub for all open source projects: in-site development boards, hands-on cases, and open hardware projects from GitHub, Seeed Studio and more, with…">
+    <meta name="keywords" content="open source projects,open source hardware,GitHub,Seeed Studio,CrowdSupply,Hackaday,Hackster.io">
     
     <meta name="author" content="ZouIC">
     <meta name="theme-color" content="#00E5FF">
@@ -28,8 +28,8 @@
     
     
     
-    <meta property="og:title" content="All Projects - Aggregating CrowdSupply, Hackaday, Hackster.io Projects | ZouIC">
-    <meta property="og:description" content="Aggregate high-quality open source development board projects and technical resources from CrowdSupply, Hackaday, and Hackster.io platforms.">
+    <meta property="og:title" content="Open Source Projects - ZouIC Boards, GitHub and Seeed Studio in One Hub | ZouIC">
+    <meta property="og:description" content="One hub for all open source projects: in-site development boards, hands-on cases, and open hardware projects from GitHub, Seeed Studio and more, with unified filters and pagination.">
     <meta property="og:url" content="https://www.zouic.com/en/all-projects">
     <meta property="og:type" content="collection">
     <meta property="og:site_name" content="ZouIC">
@@ -39,15 +39,15 @@
     <meta property="og:image:alt" content="ZouIC open source development board platform · GeekWeidong">
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="All Projects - Aggregating CrowdSupply, Hackaday, Hackster.io Projects | ZouIC">
-    <meta name="twitter:description" content="Aggregate high-quality open source development board projects and technical resources from CrowdSupply, Hackaday, and Hackster.io platforms.">
+    <meta name="twitter:title" content="Open Source Projects - ZouIC Boards, GitHub and Seeed Studio in One Hub | ZouIC">
+    <meta name="twitter:description" content="One hub for all open source projects: in-site development boards, hands-on cases, and open hardware projects from GitHub, Seeed Studio and more, with unified filters and pagination.">
     <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     
     
     
     
     <script type="application/ld+json">
-        {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/all-projects/", "name": "All Projects", "position": 2}]}
+        {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/all-projects/", "name": "Open Source Projects", "position": 2}]}
     </script>
     
     
@@ -70,7 +70,7 @@
     
     <!-- ZouIC Design System -->
     <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
-    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261024b">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261027a">
     <noscript>
         <style>
             /* 关闭 JS 时不要因为滚动动画而隐藏内容 */
@@ -123,10 +123,9 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link" href="/en/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/en/boards/">Boards</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/all-projects/"><i class="fas fa-project-diagram me-1"></i>Open Source Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/boards/">Open Source Boards</a></li>
                     <li class="nav-item"><a class="nav-link" href="/en/board-guide/">Documentation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/en/projects/">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/en/all-projects/"><i class="fas fa-project-diagram me-1"></i>External Projects</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             More
@@ -155,8 +154,8 @@
                                placeholder="Search boards, projects or keywords..." aria-label="Search" style="width: 200px;">
                         <select id="searchType" class="form-select input-zouic" aria-label="Search Type:" style="width: auto; flex: 0 0 auto;">
                             <option value="">All Categories</option>
-                            <option value="board">Boards</option>
-                            <option value="project">Projects</option>
+                            <option value="board">Open Source Boards</option>
+                            <option value="project">Open Source Projects</option>
                         </select>
                         <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Search">
                             <i class="fas fa-search" aria-hidden="true"></i>
@@ -200,28 +199,64 @@
                 </div>
                 <div class="ext-hero-stats">
                     <div class="ext-hero-stat ext-hero-stat--total">
-                        <span class="ext-hero-stat-value">16</span>
+                        <span class="ext-hero-stat-value">250</span>
                         <span class="ext-hero-stat-label">Total projects</span>
                     </div>
                     
                     
-                    <a class="ext-hero-stat ext-hero-stat--link" href="/en/all-projects/?platform=github">
-                        <span class="ext-hero-stat-value">13</span>
+                    <a class="ext-hero-stat ext-hero-stat--link" href="/en/source/board/">
+                        <span class="ext-hero-stat-value">20</span>
+                        <span class="ext-hero-stat-label"><i class="fas fa-microchip"></i> ZouIC Boards</span>
+                    </a>
+                    
+                    
+                    
+                    <a class="ext-hero-stat ext-hero-stat--link" href="/en/source/site/">
+                        <span class="ext-hero-stat-value">8</span>
+                        <span class="ext-hero-stat-label"><i class="fas fa-diagram-project"></i> ZouIC Projects</span>
+                    </a>
+                    
+                    
+                    
+                    <a class="ext-hero-stat ext-hero-stat--link" href="/en/source/github/">
+                        <span class="ext-hero-stat-value">124</span>
                         <span class="ext-hero-stat-label"><i class="fab fa-github"></i> GitHub</span>
                     </a>
                     
                     
                     
-                    <a class="ext-hero-stat ext-hero-stat--link" href="/en/all-projects/?platform=seeed">
+                    <a class="ext-hero-stat ext-hero-stat--link" href="/en/source/seeed/">
                         <span class="ext-hero-stat-value">3</span>
                         <span class="ext-hero-stat-label"><i class="fas fa-seedling"></i> Seeed Studio</span>
                     </a>
                     
                     
                     
+                    <a class="ext-hero-stat ext-hero-stat--link" href="/en/source/crowdsupply/">
+                        <span class="ext-hero-stat-value">15</span>
+                        <span class="ext-hero-stat-label"><i class="fas fa-shopping-cart"></i> CrowdSupply</span>
+                    </a>
                     
                     
                     
+                    <a class="ext-hero-stat ext-hero-stat--link" href="/en/source/hackaday/">
+                        <span class="ext-hero-stat-value">38</span>
+                        <span class="ext-hero-stat-label"><i class="fas fa-wrench"></i> Hackaday</span>
+                    </a>
+                    
+                    
+                    
+                    <a class="ext-hero-stat ext-hero-stat--link" href="/en/source/hackster/">
+                        <span class="ext-hero-stat-value">24</span>
+                        <span class="ext-hero-stat-label"><i class="fas fa-robot"></i> Hackster.io</span>
+                    </a>
+                    
+                    
+                    
+                    <a class="ext-hero-stat ext-hero-stat--link" href="/en/source/web/">
+                        <span class="ext-hero-stat-value">18</span>
+                        <span class="ext-hero-stat-label"><i class="fas fa-globe"></i> Official Site</span>
+                    </a>
                     
                     
                 </div>
@@ -230,6 +265,14 @@
     </section>
 
     <div class="container ext-body">
+
+        <div class="hub-disclaimer-bar" style="display:flex;align-items:flex-start;gap:.6rem;padding:.75rem 1rem;margin-bottom:1.25rem;border:1px solid var(--color-border-default);border-radius:var(--radius-lg);background:rgba(0,229,255,.06);font-size:.85rem;line-height:1.6;">
+            <i class="fas fa-scale-balanced" style="margin-top:.15rem;"></i>
+            <span>
+                For developer reference only: ZouIC indexes these projects and hosts no code or files. Copyright and licensing stay with their authors under each project license.
+                <a href="/en/licenses/">Open Source Licenses</a>
+            </span>
+        </div>
 
         
 
@@ -245,16 +288,34 @@
                     </a>
                     
                     
-                    <a href="/en/all-projects/?platform=github"
+                    <a href="/en/source/board/"
                        class="ext-chip ext-filter-badge ext-filter-platform "
-                       data-value="github">
-                        <i class="fab fa-github"></i> GitHub
-                        <span class="ext-chip-count">13</span>
+                       data-value="board">
+                        <i class="fas fa-microchip"></i> ZouIC Boards
+                        <span class="ext-chip-count">20</span>
                     </a>
                     
                     
                     
-                    <a href="/en/all-projects/?platform=seeed"
+                    <a href="/en/source/site/"
+                       class="ext-chip ext-filter-badge ext-filter-platform "
+                       data-value="site">
+                        <i class="fas fa-diagram-project"></i> ZouIC Projects
+                        <span class="ext-chip-count">8</span>
+                    </a>
+                    
+                    
+                    
+                    <a href="/en/source/github/"
+                       class="ext-chip ext-filter-badge ext-filter-platform "
+                       data-value="github">
+                        <i class="fab fa-github"></i> GitHub
+                        <span class="ext-chip-count">124</span>
+                    </a>
+                    
+                    
+                    
+                    <a href="/en/source/seeed/"
                        class="ext-chip ext-filter-badge ext-filter-platform "
                        data-value="seeed">
                         <i class="fas fa-seedling"></i> Seeed Studio
@@ -263,9 +324,39 @@
                     
                     
                     
+                    <a href="/en/source/crowdsupply/"
+                       class="ext-chip ext-filter-badge ext-filter-platform "
+                       data-value="crowdsupply">
+                        <i class="fas fa-shopping-cart"></i> CrowdSupply
+                        <span class="ext-chip-count">15</span>
+                    </a>
                     
                     
                     
+                    <a href="/en/source/hackaday/"
+                       class="ext-chip ext-filter-badge ext-filter-platform "
+                       data-value="hackaday">
+                        <i class="fas fa-wrench"></i> Hackaday
+                        <span class="ext-chip-count">38</span>
+                    </a>
+                    
+                    
+                    
+                    <a href="/en/source/hackster/"
+                       class="ext-chip ext-filter-badge ext-filter-platform "
+                       data-value="hackster">
+                        <i class="fas fa-robot"></i> Hackster.io
+                        <span class="ext-chip-count">24</span>
+                    </a>
+                    
+                    
+                    
+                    <a href="/en/source/web/"
+                       class="ext-chip ext-filter-badge ext-filter-platform "
+                       data-value="web">
+                        <i class="fas fa-globe"></i> Official Site
+                        <span class="ext-chip-count">18</span>
+                    </a>
                     
                     
                 </div>
@@ -287,6 +378,24 @@
                         AI
                     </a>
                     
+                    <a href="/en/all-projects/?category=ai_hardware"
+                       class="ext-chip ext-filter-badge ext-filter-category "
+                       data-value="ai_hardware">
+                        AI Hardware
+                    </a>
+                    
+                    <a href="/en/all-projects/?category=esp32"
+                       class="ext-chip ext-filter-badge ext-filter-category "
+                       data-value="esp32">
+                        ESP32
+                    </a>
+                    
+                    <a href="/en/all-projects/?category=general"
+                       class="ext-chip ext-filter-badge ext-filter-category "
+                       data-value="general">
+                        General Board
+                    </a>
+                    
                     <a href="/en/all-projects/?category=humanoid_robot"
                        class="ext-chip ext-filter-badge ext-filter-category "
                        data-value="humanoid_robot">
@@ -305,6 +414,48 @@
                         IoT
                     </a>
                     
+                    <a href="/en/all-projects/?category=nrf"
+                       class="ext-chip ext-filter-badge ext-filter-category "
+                       data-value="nrf">
+                        nRF
+                    </a>
+                    
+                    <a href="/en/all-projects/?category=nvidia"
+                       class="ext-chip ext-filter-badge ext-filter-category "
+                       data-value="nvidia">
+                        NVIDIA
+                    </a>
+                    
+                    <a href="/en/all-projects/?category=risc_v"
+                       class="ext-chip ext-filter-badge ext-filter-category "
+                       data-value="risc_v">
+                        RISC-V
+                    </a>
+                    
+                    <a href="/en/all-projects/?category=robotics"
+                       class="ext-chip ext-filter-badge ext-filter-category "
+                       data-value="robotics">
+                        Robotics
+                    </a>
+                    
+                    <a href="/en/all-projects/?category=stm32"
+                       class="ext-chip ext-filter-badge ext-filter-category "
+                       data-value="stm32">
+                        STM32
+                    </a>
+                    
+                    <a href="/en/all-projects/?category=vision"
+                       class="ext-chip ext-filter-badge ext-filter-category "
+                       data-value="vision">
+                        Machine Vision
+                    </a>
+                    
+                    <a href="/en/all-projects/?category=wearable"
+                       class="ext-chip ext-filter-badge ext-filter-category "
+                       data-value="wearable">
+                        Wearable
+                    </a>
+                    
                 </div>
             </div>
         </div>
@@ -314,326 +465,26 @@
         <div class="ext-grid">
             
             <div class="ext-card-wrap"
-                 data-platform="github"
-                 data-category="humanoid_robot">
-                <div class="ext-card ext-card--github">
+                 data-platform="board"
+                 data-category="general">
+                <div class="ext-card ext-card--board">
                     
-                    <a href="/en/external/github/peng-zhihui/ElectronBot/"
+                    <a href="/en/board/arduino-nano-esp32/"
                        class="ext-card-cover ext-card-cover--text">
                         <span class="ext-card-cover-slug" aria-hidden="true">
-                            ElectronBot
+                            arduino-nano-esp32
                         </span>
 
                         <span class="ext-card-cover-initial-wrap" aria-hidden="true">
                             <span class="ext-card-cover-initial-glow"></span>
                             <span class="ext-card-cover-initial">
-                                E
+                                A
                             </span>
                         </span>
 
                         <span class="ext-card-cover-platform">
-                            <i class="fab fa-github"></i>
-                            GitHub
-                        </span>
-
-                        
-                        
-                        <span class="ext-card-cover-lang">
-                            C
-                        </span>
-                        
-                    </a>
-                    
-
-                    <div class="ext-card-body">
-                        <div class="ext-card-eyebrow">
-                            <span class="ext-card-platform">
-                                <i class="fab fa-github"></i>
-                                GitHub
-                            </span>
-                            
-                            <span class="ext-card-category">Humanoid Robot</span>
-                            
-                        </div>
-
-                        <h3 class="ext-card-title">
-                            <a href="/en/external/github/peng-zhihui/ElectronBot/">
-                                ElectronBot
-                            </a>
-                        </h3>
-
-                        <p class="ext-card-desc line-clamp-2">A desktop-scale robot companion inspired by EVE from WALL-E. It has USB communication, a display screen and a multi-DOF robotic arm, and supports custom motions and interactions. GPL-3.0 licensed. One of the core projects in GeekWaedon&#39;s &#34;Quantum Plan&#34; series.</p>
-
-                        
-                        
-                        <div class="ext-card-tags">
-                            
-                            <span class="ext-card-tag">robot</span>
-                            
-                            <span class="ext-card-tag">desktop</span>
-                            
-                            <span class="ext-card-tag">C</span>
-                            
-                            <span class="ext-card-tag">GPL-3.0</span>
-                            
-                            
-                            <span class="ext-card-tag ext-card-tag--more">+1</span>
-                            
-                        </div>
-                        
-
-                        
-                        
-                        <div class="ext-card-stats">
-                            
-                            <span><i class="fas fa-star"></i> 9562</span>
-                            
-                            
-                            <span><i class="fas fa-code-branch"></i> 2063</span>
-                            
-                            
-                            <span><i class="fas fa-circle-dot"></i> 88</span>
-                            
-                        </div>
-                        
-
-                        <div class="ext-card-footer">
-                            
-                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/12994887?v=4" alt="peng-zhihui" class="ext-card-avatar">
-                            
-                            <span class="ext-card-author">peng-zhihui</span>
-                            
-                            <span class="ext-card-license">GPL-3.0</span>
-                            
-                            <span class="ext-card-footer-arrow" aria-hidden="true">
-                                <i class="fas fa-arrow-right"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="ext-card-wrap"
-                 data-platform="github"
-                 data-category="iot">
-                <div class="ext-card ext-card--github">
-                    
-                    <a href="/en/external/github/peng-zhihui/HoloCubic/"
-                       class="ext-card-cover ext-card-cover--text">
-                        <span class="ext-card-cover-slug" aria-hidden="true">
-                            HoloCubic
-                        </span>
-
-                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
-                            <span class="ext-card-cover-initial-glow"></span>
-                            <span class="ext-card-cover-initial">
-                                H
-                            </span>
-                        </span>
-
-                        <span class="ext-card-cover-platform">
-                            <i class="fab fa-github"></i>
-                            GitHub
-                        </span>
-
-                        
-                        
-                        <span class="ext-card-cover-lang">
-                            C
-                        </span>
-                        
-                    </a>
-                    
-
-                    <div class="ext-card-body">
-                        <div class="ext-card-eyebrow">
-                            <span class="ext-card-platform">
-                                <i class="fab fa-github"></i>
-                                GitHub
-                            </span>
-                            
-                            <span class="ext-card-category">IoT</span>
-                            
-                        </div>
-
-                        <h3 class="ext-card-title">
-                            <a href="/en/external/github/peng-zhihui/HoloCubic/">
-                                HoloCubic
-                            </a>
-                        </h3>
-
-                        <p class="ext-card-desc line-clamp-2">A pseudo-holographic transparent desktop display with network connectivity, designed and open-sourced by GeekWaedon. A transparent LCD panel plus a custom optical structure creates a floating effect, and Wi-Fi lets you refresh content remotely. Often used for desktop ambience and information display. GPL-3.0 licensed.</p>
-
-                        
-                        
-                        <div class="ext-card-tags">
-                            
-                            <span class="ext-card-tag">display</span>
-                            
-                            <span class="ext-card-tag">hologram</span>
-                            
-                            <span class="ext-card-tag">WiFi</span>
-                            
-                            <span class="ext-card-tag">C</span>
-                            
-                            
-                            <span class="ext-card-tag ext-card-tag--more">+1</span>
-                            
-                        </div>
-                        
-
-                        
-                        
-                        <div class="ext-card-stats">
-                            
-                            <span><i class="fas fa-star"></i> 6744</span>
-                            
-                            
-                            <span><i class="fas fa-code-branch"></i> 1275</span>
-                            
-                            
-                            <span><i class="fas fa-circle-dot"></i> 53</span>
-                            
-                        </div>
-                        
-
-                        <div class="ext-card-footer">
-                            
-                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/12994887?v=4" alt="peng-zhihui" class="ext-card-avatar">
-                            
-                            <span class="ext-card-author">peng-zhihui</span>
-                            
-                            <span class="ext-card-license">GPL-3.0</span>
-                            
-                            <span class="ext-card-footer-arrow" aria-hidden="true">
-                                <i class="fas fa-arrow-right"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="ext-card-wrap"
-                 data-platform="github"
-                 data-category="humanoid_robot">
-                <div class="ext-card ext-card--github">
-                    
-                    <a href="/en/external/github/Vector-Wangel/XLeRobot/"
-                       class="ext-card-cover ext-card-cover--text">
-                        <span class="ext-card-cover-slug" aria-hidden="true">
-                            XLeRobot
-                        </span>
-
-                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
-                            <span class="ext-card-cover-initial-glow"></span>
-                            <span class="ext-card-cover-initial">
-                                X
-                            </span>
-                        </span>
-
-                        <span class="ext-card-cover-platform">
-                            <i class="fab fa-github"></i>
-                            GitHub
-                        </span>
-
-                        
-                        
-                        <span class="ext-card-cover-lang">
-                            Python
-                        </span>
-                        
-                    </a>
-                    
-
-                    <div class="ext-card-body">
-                        <div class="ext-card-eyebrow">
-                            <span class="ext-card-platform">
-                                <i class="fab fa-github"></i>
-                                GitHub
-                            </span>
-                            
-                            <span class="ext-card-category">Humanoid Robot</span>
-                            
-                        </div>
-
-                        <h3 class="ext-card-title">
-                            <a href="/en/external/github/Vector-Wangel/XLeRobot/">
-                                XLeRobot
-                            </a>
-                        </h3>
-
-                        <p class="ext-card-desc line-clamp-2">低成本双臂移动家用机器人，整机组装成本 $660、装配时间 &lt;4 小时。双臂 SO-100/SO-101 机械臂 + 移动底座，基于 HuggingFace LeRobot 数据驱动策略，支持浏览器 Mujoco + 3DGS 可视化仿真，中英双语文档齐全。Apache-2.0 许可。</p>
-
-                        
-                        
-                        <div class="ext-card-tags">
-                            
-                            <span class="ext-card-tag">humanoid</span>
-                            
-                            <span class="ext-card-tag">dual-arm</span>
-                            
-                            <span class="ext-card-tag">mobile</span>
-                            
-                            <span class="ext-card-tag">LeRobot</span>
-                            
-                            
-                            <span class="ext-card-tag ext-card-tag--more">+2</span>
-                            
-                        </div>
-                        
-
-                        
-                        
-                        <div class="ext-card-stats">
-                            
-                            <span><i class="fas fa-star"></i> 5639</span>
-                            
-                            
-                            <span><i class="fas fa-code-branch"></i> 620</span>
-                            
-                            
-                            <span><i class="fas fa-circle-dot"></i> 39</span>
-                            
-                        </div>
-                        
-
-                        <div class="ext-card-footer">
-                            
-                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/71222522?v=4" alt="Vector-Wangel" class="ext-card-avatar">
-                            
-                            <span class="ext-card-author">Vector-Wangel</span>
-                            
-                            <span class="ext-card-license">Apache-2.0</span>
-                            
-                            <span class="ext-card-footer-arrow" aria-hidden="true">
-                                <i class="fas fa-arrow-right"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="ext-card-wrap"
-                 data-platform="seeed"
-                 data-category="iot">
-                <div class="ext-card ext-card--seeed">
-                    
-                    <a href="/en/external/seeed/xiao-esp32s3/"
-                       class="ext-card-cover ext-card-cover--text">
-                        <span class="ext-card-cover-slug" aria-hidden="true">
-                            xiao-esp32s3
-                        </span>
-
-                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
-                            <span class="ext-card-cover-initial-glow"></span>
-                            <span class="ext-card-cover-initial">
-                                X
-                            </span>
-                        </span>
-
-                        <span class="ext-card-cover-platform">
-                            <i class="fas fa-seedling"></i>
-                            Seeed Studio
+                            <i class="fas fa-microchip"></i>
+                            ZouIC Boards
                         </span>
 
                         
@@ -644,56 +495,57 @@
                     <div class="ext-card-body">
                         <div class="ext-card-eyebrow">
                             <span class="ext-card-platform">
-                                <i class="fas fa-seedling"></i>
-                                Seeed Studio
+                                <i class="fas fa-microchip"></i>
+                                ZouIC Boards
                             </span>
                             
-                            <span class="ext-card-category">IoT</span>
+                            <span class="ext-card-category">General Board</span>
                             
                         </div>
 
                         <h3 class="ext-card-title">
-                            <a href="/en/external/seeed/xiao-esp32s3/">
-                                XIAO ESP32S3
+                            <a href="/en/board/arduino-nano-esp32/">
+                                Arduino Nano ESP32
                             </a>
                         </h3>
 
-                        <p class="ext-card-desc line-clamp-2">The flagship model in Seeed Studio&#39;s thumb-sized XIAO development board series. ESP32-S3 dual-core at 240 MHz, 8 MB PSRAM + 8 MB Flash, Wi-Fi + BLE 5.0, USB-C power. Full Arduino / MicroPython support, measuring just 21 × 17.8 mm.</p>
+                        <p class="ext-card-desc line-clamp-2">Nano尺寸，ESP32-S3核心，适合紧凑的物联网项目</p>
+
+                        
+                        
+                        <div class="flex flex-wrap gap-2 text-secondary mt-1" style="font-size: 0.78rem;">
+                            
+                            <span><i class="fas fa-microchip me-1"></i>ESP32-S3</span>
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        
 
                         
                         
                         <div class="ext-card-tags">
+                            
+                            <span class="ext-card-tag">Arduino</span>
+                            
+                            <span class="ext-card-tag">ESP32</span>
                             
                             <span class="ext-card-tag">ESP32-S3</span>
                             
-                            <span class="ext-card-tag">tiny</span>
-                            
-                            <span class="ext-card-tag">WiFi</span>
-                            
-                            <span class="ext-card-tag">BLE-5.0</span>
-                            
-                            
-                            <span class="ext-card-tag ext-card-tag--more">+3</span>
                             
                         </div>
                         
 
                         
-                        
-                        <div class="ext-card-stats">
-                            
-                            
-                            
-                        </div>
                         
 
                         <div class="ext-card-footer">
                             
-                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/11678055?v=4" alt="Seeed Studio" class="ext-card-avatar">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
                             
-                            <span class="ext-card-author">Seeed Studio</span>
-                            
-                            <span class="ext-card-license">Open Source Hardware</span>
+                            <span class="ext-card-author">Arduino</span>
                             
                             <span class="ext-card-footer-arrow" aria-hidden="true">
                                 <i class="fas fa-arrow-right"></i>
@@ -704,420 +556,26 @@
             </div>
             
             <div class="ext-card-wrap"
-                 data-platform="github"
-                 data-category="humanoid_robot">
-                <div class="ext-card ext-card--github">
+                 data-platform="board"
+                 data-category="general">
+                <div class="ext-card ext-card--board">
                     
-                    <a href="/en/external/github/apirrone/Open_Duck_Mini/"
+                    <a href="/en/board/arduino-uno-r4-minima/"
                        class="ext-card-cover ext-card-cover--text">
                         <span class="ext-card-cover-slug" aria-hidden="true">
-                            Open_Duck_Mini
+                            arduino-uno-r4-minima
                         </span>
 
                         <span class="ext-card-cover-initial-wrap" aria-hidden="true">
                             <span class="ext-card-cover-initial-glow"></span>
                             <span class="ext-card-cover-initial">
-                                O
+                                A
                             </span>
                         </span>
 
                         <span class="ext-card-cover-platform">
-                            <i class="fab fa-github"></i>
-                            GitHub
-                        </span>
-
-                        
-                        
-                        <span class="ext-card-cover-lang">
-                            Python
-                        </span>
-                        
-                    </a>
-                    
-
-                    <div class="ext-card-body">
-                        <div class="ext-card-eyebrow">
-                            <span class="ext-card-platform">
-                                <i class="fab fa-github"></i>
-                                GitHub
-                            </span>
-                            
-                            <span class="ext-card-category">Humanoid Robot</span>
-                            
-                        </div>
-
-                        <h3 class="ext-card-title">
-                            <a href="/en/external/github/apirrone/Open_Duck_Mini/">
-                                Open Duck Mini v2
-                            </a>
-                        </h3>
-
-                        <p class="ext-card-desc line-clamp-2">An open-source mini humanoid robot based on the BDX droid design, with the v2 branch as the main development line. Python-controlled, Apache 2.0 licensed.</p>
-
-                        
-                        
-                        <div class="ext-card-tags">
-                            
-                            <span class="ext-card-tag">humanoid</span>
-                            
-                            <span class="ext-card-tag">bipedal</span>
-                            
-                            <span class="ext-card-tag">servo</span>
-                            
-                            <span class="ext-card-tag">Raspberry-Pi</span>
-                            
-                            
-                            <span class="ext-card-tag ext-card-tag--more">+1</span>
-                            
-                        </div>
-                        
-
-                        
-                        
-                        <div class="ext-card-stats">
-                            
-                            <span><i class="fas fa-star"></i> 4522</span>
-                            
-                            
-                            <span><i class="fas fa-code-branch"></i> 574</span>
-                            
-                            
-                            <span><i class="fas fa-circle-dot"></i> 31</span>
-                            
-                        </div>
-                        
-
-                        <div class="ext-card-footer">
-                            
-                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/6552564?v=4" alt="apirrone" class="ext-card-avatar">
-                            
-                            <span class="ext-card-author">apirrone</span>
-                            
-                            <span class="ext-card-license">Apache-2.0</span>
-                            
-                            <span class="ext-card-footer-arrow" aria-hidden="true">
-                                <i class="fas fa-arrow-right"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="ext-card-wrap"
-                 data-platform="github"
-                 data-category="industrial">
-                <div class="ext-card ext-card--github">
-                    
-                    <a href="/en/external/github/odriverobotics/ODrive/"
-                       class="ext-card-cover ext-card-cover--text">
-                        <span class="ext-card-cover-slug" aria-hidden="true">
-                            ODrive
-                        </span>
-
-                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
-                            <span class="ext-card-cover-initial-glow"></span>
-                            <span class="ext-card-cover-initial">
-                                O
-                            </span>
-                        </span>
-
-                        <span class="ext-card-cover-platform">
-                            <i class="fab fa-github"></i>
-                            GitHub
-                        </span>
-
-                        
-                        
-                        <span class="ext-card-cover-lang">
-                            C++
-                        </span>
-                        
-                    </a>
-                    
-
-                    <div class="ext-card-body">
-                        <div class="ext-card-eyebrow">
-                            <span class="ext-card-platform">
-                                <i class="fab fa-github"></i>
-                                GitHub
-                            </span>
-                            
-                            <span class="ext-card-category">Industrial</span>
-                            
-                        </div>
-
-                        <h3 class="ext-card-title">
-                            <a href="/en/external/github/odriverobotics/ODrive/">
-                                ODrive
-                            </a>
-                        </h3>
-
-                        <p class="ext-card-desc line-clamp-2">A high-performance open-source motor controller supporting BLDC, brushed DC and stepper motors, with built-in FOC control. Hardware and firmware are fully open, MIT licensed, with an active community.</p>
-
-                        
-                        
-                        <div class="ext-card-tags">
-                            
-                            <span class="ext-card-tag">motor</span>
-                            
-                            <span class="ext-card-tag">FOC</span>
-                            
-                            <span class="ext-card-tag">BLDC</span>
-                            
-                            <span class="ext-card-tag">STM32</span>
-                            
-                            
-                            <span class="ext-card-tag ext-card-tag--more">+1</span>
-                            
-                        </div>
-                        
-
-                        
-                        
-                        <div class="ext-card-stats">
-                            
-                            <span><i class="fas fa-star"></i> 3809</span>
-                            
-                            
-                            <span><i class="fas fa-code-branch"></i> 1758</span>
-                            
-                            
-                            <span><i class="fas fa-circle-dot"></i> 17</span>
-                            
-                        </div>
-                        
-
-                        <div class="ext-card-footer">
-                            
-                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/75926039?v=4" alt="ODrive Robotics" class="ext-card-avatar">
-                            
-                            <span class="ext-card-author">ODrive Robotics</span>
-                            
-                            <span class="ext-card-license">MIT</span>
-                            
-                            <span class="ext-card-footer-arrow" aria-hidden="true">
-                                <i class="fas fa-arrow-right"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="ext-card-wrap"
-                 data-platform="github"
-                 data-category="ai">
-                <div class="ext-card ext-card--github">
-                    
-                    <a href="/en/external/github/openmv/openmv/"
-                       class="ext-card-cover ext-card-cover--text">
-                        <span class="ext-card-cover-slug" aria-hidden="true">
-                            openmv
-                        </span>
-
-                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
-                            <span class="ext-card-cover-initial-glow"></span>
-                            <span class="ext-card-cover-initial">
-                                O
-                            </span>
-                        </span>
-
-                        <span class="ext-card-cover-platform">
-                            <i class="fab fa-github"></i>
-                            GitHub
-                        </span>
-
-                        
-                        
-                        <span class="ext-card-cover-lang">
-                            C
-                        </span>
-                        
-                    </a>
-                    
-
-                    <div class="ext-card-body">
-                        <div class="ext-card-eyebrow">
-                            <span class="ext-card-platform">
-                                <i class="fab fa-github"></i>
-                                GitHub
-                            </span>
-                            
-                            <span class="ext-card-category">AI</span>
-                            
-                        </div>
-
-                        <h3 class="ext-card-title">
-                            <a href="/en/external/github/openmv/openmv/">
-                                OpenMV
-                            </a>
-                        </h3>
-
-                        <p class="ext-card-desc line-clamp-2">A low-cost machine vision development board and firmware framework programmed in MicroPython, with built-in image capture, edge detection, color tracking and neural-network inference.</p>
-
-                        
-                        
-                        <div class="ext-card-tags">
-                            
-                            <span class="ext-card-tag">camera</span>
-                            
-                            <span class="ext-card-tag">vision</span>
-                            
-                            <span class="ext-card-tag">MicroPython</span>
-                            
-                            <span class="ext-card-tag">ML</span>
-                            
-                            
-                        </div>
-                        
-
-                        
-                        
-                        <div class="ext-card-stats">
-                            
-                            <span><i class="fas fa-star"></i> 2887</span>
-                            
-                            
-                            <span><i class="fas fa-code-branch"></i> 1279</span>
-                            
-                            
-                            <span><i class="fas fa-circle-dot"></i> 64</span>
-                            
-                        </div>
-                        
-
-                        <div class="ext-card-footer">
-                            
-                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/12023962?v=4" alt="OpenMV Inc." class="ext-card-avatar">
-                            
-                            <span class="ext-card-author">OpenMV Inc.</span>
-                            
-                            <span class="ext-card-footer-arrow" aria-hidden="true">
-                                <i class="fas fa-arrow-right"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="ext-card-wrap"
-                 data-platform="github"
-                 data-category="humanoid_robot">
-                <div class="ext-card ext-card--github">
-                    
-                    <a href="/en/external/github/Roboparty/roboto_origin/"
-                       class="ext-card-cover ext-card-cover--text">
-                        <span class="ext-card-cover-slug" aria-hidden="true">
-                            roboto_origin
-                        </span>
-
-                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
-                            <span class="ext-card-cover-initial-glow"></span>
-                            <span class="ext-card-cover-initial">
-                                R
-                            </span>
-                        </span>
-
-                        <span class="ext-card-cover-platform">
-                            <i class="fab fa-github"></i>
-                            GitHub
-                        </span>
-
-                        
-                        
-                        <span class="ext-card-cover-lang">
-                            Python/C++
-                        </span>
-                        
-                    </a>
-                    
-
-                    <div class="ext-card-body">
-                        <div class="ext-card-eyebrow">
-                            <span class="ext-card-platform">
-                                <i class="fab fa-github"></i>
-                                GitHub
-                            </span>
-                            
-                            <span class="ext-card-category">Humanoid Robot</span>
-                            
-                        </div>
-
-                        <h3 class="ext-card-title">
-                            <a href="/en/external/github/Roboparty/roboto_origin/">
-                                Roboto Origin
-                            </a>
-                        </h3>
-
-                        <p class="ext-card-desc line-clamp-2">上海 RoboParty 开源的全流程 DIY 人形机器人原型。结构设计、PCB、固件、训练部署代码全部开放，淘宝采购 + 嘉立创打样即可完整复现，支持 ROS2 Humble + Isaac Sim + Isaac Lab 强化学习训练。GPL-3.0 许可，QQ 群 546376843。</p>
-
-                        
-                        
-                        <div class="ext-card-tags">
-                            
-                            <span class="ext-card-tag">humanoid</span>
-                            
-                            <span class="ext-card-tag">ROS2</span>
-                            
-                            <span class="ext-card-tag">Isaac-Sim</span>
-                            
-                            <span class="ext-card-tag">Isaac-Lab</span>
-                            
-                            
-                            <span class="ext-card-tag ext-card-tag--more">+2</span>
-                            
-                        </div>
-                        
-
-                        
-                        
-                        <div class="ext-card-stats">
-                            
-                            <span><i class="fas fa-star"></i> 2745</span>
-                            
-                            
-                            <span><i class="fas fa-code-branch"></i> 384</span>
-                            
-                            
-                        </div>
-                        
-
-                        <div class="ext-card-footer">
-                            
-                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/210536682?v=4" alt="Roboparty" class="ext-card-avatar">
-                            
-                            <span class="ext-card-author">Roboparty</span>
-                            
-                            <span class="ext-card-license">GPL-3.0</span>
-                            
-                            <span class="ext-card-footer-arrow" aria-hidden="true">
-                                <i class="fas fa-arrow-right"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="ext-card-wrap"
-                 data-platform="github"
-                 data-category="humanoid_robot">
-                <div class="ext-card ext-card--github">
-                    
-                    <a href="/en/external/github/Nate711/StanfordDoggoProject/"
-                       class="ext-card-cover ext-card-cover--text">
-                        <span class="ext-card-cover-slug" aria-hidden="true">
-                            StanfordDoggoProject
-                        </span>
-
-                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
-                            <span class="ext-card-cover-initial-glow"></span>
-                            <span class="ext-card-cover-initial">
-                                S
-                            </span>
-                        </span>
-
-                        <span class="ext-card-cover-platform">
-                            <i class="fab fa-github"></i>
-                            GitHub
+                            <i class="fas fa-microchip"></i>
+                            ZouIC Boards
                         </span>
 
                         
@@ -1128,62 +586,55 @@
                     <div class="ext-card-body">
                         <div class="ext-card-eyebrow">
                             <span class="ext-card-platform">
-                                <i class="fab fa-github"></i>
-                                GitHub
+                                <i class="fas fa-microchip"></i>
+                                ZouIC Boards
                             </span>
                             
-                            <span class="ext-card-category">Humanoid Robot</span>
+                            <span class="ext-card-category">General Board</span>
                             
                         </div>
 
                         <h3 class="ext-card-title">
-                            <a href="/en/external/github/Nate711/StanfordDoggoProject/">
-                                Stanford Doggo
+                            <a href="/en/board/arduino-uno-r4-minima/">
+                                Arduino UNO R4 Minima
                             </a>
                         </h3>
 
-                        <p class="ext-card-desc line-clamp-2">Stanford&#39;s open-source quadruped robot Doggo, built on Raspberry Pi + STM32 + brushless DC motors. It supports jumping, flipping, trotting and other gaits. MIT licensed.</p>
+                        <p class="ext-card-desc line-clamp-2">经典UNO的升级版，RA4M1处理器，适合教育和入门项目</p>
+
+                        
+                        
+                        <div class="flex flex-wrap gap-2 text-secondary mt-1" style="font-size: 0.78rem;">
+                            
+                            <span><i class="fas fa-microchip me-1"></i>RA4M1</span>
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        
 
                         
                         
                         <div class="ext-card-tags">
                             
-                            <span class="ext-card-tag">quadruped</span>
+                            <span class="ext-card-tag">Arduino</span>
                             
-                            <span class="ext-card-tag">legged</span>
+                            <span class="ext-card-tag">RA4M1</span>
                             
-                            <span class="ext-card-tag">STM32</span>
-                            
-                            <span class="ext-card-tag">Raspberry Pi</span>
-                            
-                            
-                            <span class="ext-card-tag ext-card-tag--more">+1</span>
                             
                         </div>
                         
 
                         
-                        
-                        <div class="ext-card-stats">
-                            
-                            <span><i class="fas fa-star"></i> 2570</span>
-                            
-                            
-                            <span><i class="fas fa-code-branch"></i> 751</span>
-                            
-                            
-                            <span><i class="fas fa-circle-dot"></i> 11</span>
-                            
-                        </div>
                         
 
                         <div class="ext-card-footer">
                             
-                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/1295426?v=4" alt="Nathan Kau" class="ext-card-avatar">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
                             
-                            <span class="ext-card-author">Nathan Kau</span>
-                            
-                            <span class="ext-card-license">MIT</span>
+                            <span class="ext-card-author">Arduino</span>
                             
                             <span class="ext-card-footer-arrow" aria-hidden="true">
                                 <i class="fas fa-arrow-right"></i>
@@ -1194,104 +645,14 @@
             </div>
             
             <div class="ext-card-wrap"
-                 data-platform="seeed"
-                 data-category="industrial">
-                <div class="ext-card ext-card--seeed">
+                 data-platform="board"
+                 data-category="general">
+                <div class="ext-card ext-card--board">
                     
-                    <a href="/en/external/seeed/reterminal/"
+                    <a href="/en/board/bouffalo-lab-bl602/"
                        class="ext-card-cover ext-card-cover--text">
                         <span class="ext-card-cover-slug" aria-hidden="true">
-                            reterminal
-                        </span>
-
-                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
-                            <span class="ext-card-cover-initial-glow"></span>
-                            <span class="ext-card-cover-initial">
-                                R
-                            </span>
-                        </span>
-
-                        <span class="ext-card-cover-platform">
-                            <i class="fas fa-seedling"></i>
-                            Seeed Studio
-                        </span>
-
-                        
-                        
-                    </a>
-                    
-
-                    <div class="ext-card-body">
-                        <div class="ext-card-eyebrow">
-                            <span class="ext-card-platform">
-                                <i class="fas fa-seedling"></i>
-                                Seeed Studio
-                            </span>
-                            
-                            <span class="ext-card-category">Industrial</span>
-                            
-                        </div>
-
-                        <h3 class="ext-card-title">
-                            <a href="/en/external/seeed/reterminal/">
-                                reTerminal
-                            </a>
-                        </h3>
-
-                        <p class="ext-card-desc line-clamp-2">An HMI terminal from Seeed Studio. Based on the Raspberry Pi CM4 (quad-core Cortex-A72 @ 1.5 GHz), it includes a 5-inch IPS touchscreen (1280×720), 4 GB RAM + 32 GB eMMC, dual-band Wi-Fi/Bluetooth 5.0, Gigabit Ethernet and a crypto co-processor. Raspberry Pi OS comes preinstalled; suited to industrial HMI and IoT edge gateway scenarios.</p>
-
-                        
-                        
-                        <div class="ext-card-tags">
-                            
-                            <span class="ext-card-tag">Raspberry Pi</span>
-                            
-                            <span class="ext-card-tag">CM4</span>
-                            
-                            <span class="ext-card-tag">HMI</span>
-                            
-                            <span class="ext-card-tag">touchscreen</span>
-                            
-                            
-                            <span class="ext-card-tag ext-card-tag--more">+3</span>
-                            
-                        </div>
-                        
-
-                        
-                        
-                        <div class="ext-card-stats">
-                            
-                            
-                            
-                        </div>
-                        
-
-                        <div class="ext-card-footer">
-                            
-                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/11678055?v=4" alt="Seeed Studio" class="ext-card-avatar">
-                            
-                            <span class="ext-card-author">Seeed Studio</span>
-                            
-                            <span class="ext-card-license">Open Source Hardware</span>
-                            
-                            <span class="ext-card-footer-arrow" aria-hidden="true">
-                                <i class="fas fa-arrow-right"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="ext-card-wrap"
-                 data-platform="github"
-                 data-category="humanoid_robot">
-                <div class="ext-card ext-card--github">
-                    
-                    <a href="/en/external/github/HybridRobotics/berkeley-humanoid-lite/"
-                       class="ext-card-cover ext-card-cover--text">
-                        <span class="ext-card-cover-slug" aria-hidden="true">
-                            berkeley-humanoid-lite
+                            bouffalo-lab-bl602
                         </span>
 
                         <span class="ext-card-cover-initial-wrap" aria-hidden="true">
@@ -1302,15 +663,11 @@
                         </span>
 
                         <span class="ext-card-cover-platform">
-                            <i class="fab fa-github"></i>
-                            GitHub
+                            <i class="fas fa-microchip"></i>
+                            ZouIC Boards
                         </span>
 
                         
-                        
-                        <span class="ext-card-cover-lang">
-                            Python
-                        </span>
                         
                     </a>
                     
@@ -1318,60 +675,57 @@
                     <div class="ext-card-body">
                         <div class="ext-card-eyebrow">
                             <span class="ext-card-platform">
-                                <i class="fab fa-github"></i>
-                                GitHub
+                                <i class="fas fa-microchip"></i>
+                                ZouIC Boards
                             </span>
                             
-                            <span class="ext-card-category">Humanoid Robot</span>
+                            <span class="ext-card-category">General Board</span>
                             
                         </div>
 
                         <h3 class="ext-card-title">
-                            <a href="/en/external/github/HybridRobotics/berkeley-humanoid-lite/">
-                                Berkeley Humanoid Lite
+                            <a href="/en/board/bouffalo-lab-bl602/">
+                                Bouffalo Lab BL602
                             </a>
                         </h3>
 
-                        <p class="ext-card-desc line-clamp-2">A small open-source humanoid robot platform from the Berkeley Hybrid Robotics team, MIT licensed. It ships with a Python control stack and simulation environment for dexterous manipulation and whole-body locomotion research.</p>
+                        <p class="ext-card-desc line-clamp-2">低功耗Wi-Fi+BLE RISC-V MCU，适合物联网和智能家居应用</p>
+
+                        
+                        
+                        <div class="flex flex-wrap gap-2 text-secondary mt-1" style="font-size: 0.78rem;">
+                            
+                            <span><i class="fas fa-microchip me-1"></i>BL602</span>
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        
 
                         
                         
                         <div class="ext-card-tags">
                             
-                            <span class="ext-card-tag">humanoid</span>
+                            <span class="ext-card-tag">Bouffalo Lab</span>
                             
-                            <span class="ext-card-tag">PyTorch</span>
+                            <span class="ext-card-tag">RISC-V</span>
                             
-                            <span class="ext-card-tag">simulation</span>
-                            
-                            <span class="ext-card-tag">MIT</span>
+                            <span class="ext-card-tag">BL602</span>
                             
                             
                         </div>
                         
 
                         
-                        
-                        <div class="ext-card-stats">
-                            
-                            <span><i class="fas fa-star"></i> 1992</span>
-                            
-                            
-                            <span><i class="fas fa-code-branch"></i> 316</span>
-                            
-                            
-                            <span><i class="fas fa-circle-dot"></i> 8</span>
-                            
-                        </div>
                         
 
                         <div class="ext-card-footer">
                             
-                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/10053058?v=4" alt="Hybrid Robotics Lab" class="ext-card-avatar">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
                             
-                            <span class="ext-card-author">Hybrid Robotics Lab</span>
-                            
-                            <span class="ext-card-license">MIT</span>
+                            <span class="ext-card-author">Bouffalo Lab</span>
                             
                             <span class="ext-card-footer-arrow" aria-hidden="true">
                                 <i class="fas fa-arrow-right"></i>
@@ -1382,26 +736,26 @@
             </div>
             
             <div class="ext-card-wrap"
-                 data-platform="seeed"
-                 data-category="iot">
-                <div class="ext-card ext-card--seeed">
+                 data-platform="board"
+                 data-category="general">
+                <div class="ext-card ext-card--board">
                     
-                    <a href="/en/external/seeed/Quantum-Mini-Linux-Development-Kit/"
+                    <a href="/en/board/ch32v307/"
                        class="ext-card-cover ext-card-cover--text">
                         <span class="ext-card-cover-slug" aria-hidden="true">
-                            Quantum-Mini-Linux-Development-Kit
+                            ch32v307
                         </span>
 
                         <span class="ext-card-cover-initial-wrap" aria-hidden="true">
                             <span class="ext-card-cover-initial-glow"></span>
                             <span class="ext-card-cover-initial">
-                                Q
+                                C
                             </span>
                         </span>
 
                         <span class="ext-card-cover-platform">
-                            <i class="fas fa-seedling"></i>
-                            Seeed Studio
+                            <i class="fas fa-microchip"></i>
+                            ZouIC Boards
                         </span>
 
                         
@@ -1412,56 +766,785 @@
                     <div class="ext-card-body">
                         <div class="ext-card-eyebrow">
                             <span class="ext-card-platform">
-                                <i class="fas fa-seedling"></i>
-                                Seeed Studio
+                                <i class="fas fa-microchip"></i>
+                                ZouIC Boards
                             </span>
                             
-                            <span class="ext-card-category">IoT</span>
+                            <span class="ext-card-category">General Board</span>
                             
                         </div>
 
                         <h3 class="ext-card-title">
-                            <a href="/en/external/seeed/Quantum-Mini-Linux-Development-Kit/">
-                                Quantum Mini Linux Dev Kit
+                            <a href="/en/board/ch32v307/">
+                                CH32V307
                             </a>
                         </h3>
 
-                        <p class="ext-card-desc line-clamp-2">One of the world&#39;s smallest Linux development boards, launched by GeekWaedon with Seeed Studio. The SoM, Quark-N (Allwinner H3 quad-core Cortex-A7 + Mali400 GPU), measures just 31×22 mm; the Atom-N carrier board is 40×35 mm and integrates a microphone, MPU6050, IPS screen and Wi-Fi/Bluetooth. GPL-3.0 licensed.</p>
+                        <p class="ext-card-desc line-clamp-2">南京沁恒RISC-V MCU，丰富外设，性价比高，适合工业控制</p>
+
+                        
+                        
+                        <div class="flex flex-wrap gap-2 text-secondary mt-1" style="font-size: 0.78rem;">
+                            
+                            <span><i class="fas fa-microchip me-1"></i>CH32V307</span>
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        
 
                         
                         
                         <div class="ext-card-tags">
                             
-                            <span class="ext-card-tag">Linux</span>
+                            <span class="ext-card-tag">WCH</span>
                             
-                            <span class="ext-card-tag">Allwinner H3</span>
+                            <span class="ext-card-tag">RISC-V</span>
                             
-                            <span class="ext-card-tag">Cortex-A7</span>
+                            <span class="ext-card-tag">CH32V307</span>
                             
-                            <span class="ext-card-tag">M.2</span>
-                            
-                            
-                            <span class="ext-card-tag ext-card-tag--more">+4</span>
                             
                         </div>
                         
 
                         
-                        
-                        <div class="ext-card-stats">
-                            
-                            
-                            
-                        </div>
                         
 
                         <div class="ext-card-footer">
                             
-                            <img loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/12994887?v=4" alt="peng-zhihui × Seeed Studio" class="ext-card-avatar">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
                             
-                            <span class="ext-card-author">peng-zhihui × Seeed Studio</span>
+                            <span class="ext-card-author">WCH</span>
                             
-                            <span class="ext-card-license">GPL-3.0</span>
+                            <span class="ext-card-footer-arrow" aria-hidden="true">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap"
+                 data-platform="board"
+                 data-category="general">
+                <div class="ext-card ext-card--board">
+                    
+                    <a href="/en/board/esp32-c3-devkitm/"
+                       class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">
+                            esp32-c3-devkitm
+                        </span>
+
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">
+                                E
+                            </span>
+                        </span>
+
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-microchip"></i>
+                            ZouIC Boards
+                        </span>
+
+                        
+                        
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-microchip"></i>
+                                ZouIC Boards
+                            </span>
+                            
+                            <span class="ext-card-category">General Board</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title">
+                            <a href="/en/board/esp32-c3-devkitm/">
+                                ESP32-C3-DevKitM
+                            </a>
+                        </h3>
+
+                        <p class="ext-card-desc line-clamp-2">RISC-V架构，低成本低功耗，适合入门级物联网项目</p>
+
+                        
+                        
+                        <div class="flex flex-wrap gap-2 text-secondary mt-1" style="font-size: 0.78rem;">
+                            
+                            <span><i class="fas fa-microchip me-1"></i>ESP32-C3</span>
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        
+
+                        
+                        
+                        <div class="ext-card-tags">
+                            
+                            <span class="ext-card-tag">Espressif</span>
+                            
+                            <span class="ext-card-tag">ESP32</span>
+                            
+                            <span class="ext-card-tag">ESP32-C3</span>
+                            
+                            
+                        </div>
+                        
+
+                        
+                        
+
+                        <div class="ext-card-footer">
+                            
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            
+                            <span class="ext-card-author">Espressif</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap"
+                 data-platform="board"
+                 data-category="general">
+                <div class="ext-card ext-card--board">
+                    
+                    <a href="/en/board/esp32-c6/"
+                       class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">
+                            esp32-c6
+                        </span>
+
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">
+                                E
+                            </span>
+                        </span>
+
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-microchip"></i>
+                            ZouIC Boards
+                        </span>
+
+                        
+                        
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-microchip"></i>
+                                ZouIC Boards
+                            </span>
+                            
+                            <span class="ext-card-category">General Board</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title">
+                            <a href="/en/board/esp32-c6/">
+                                ESP32-C6
+                            </a>
+                        </h3>
+
+                        <p class="ext-card-desc line-clamp-2">乐鑫首款RISC-V ESP32芯片，支持Wi-Fi 6和BLE 5.0，兼容性强</p>
+
+                        
+                        
+                        <div class="flex flex-wrap gap-2 text-secondary mt-1" style="font-size: 0.78rem;">
+                            
+                            <span><i class="fas fa-microchip me-1"></i>ESP32-C6</span>
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        
+
+                        
+                        
+                        <div class="ext-card-tags">
+                            
+                            <span class="ext-card-tag">Espressif</span>
+                            
+                            <span class="ext-card-tag">RISC-V</span>
+                            
+                            <span class="ext-card-tag">ESP32-C6</span>
+                            
+                            
+                        </div>
+                        
+
+                        
+                        
+
+                        <div class="ext-card-footer">
+                            
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            
+                            <span class="ext-card-author">Espressif</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap"
+                 data-platform="board"
+                 data-category="general">
+                <div class="ext-card ext-card--board">
+                    
+                    <a href="/en/board/esp32-s3-devkitc/"
+                       class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">
+                            esp32-s3-devkitc
+                        </span>
+
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">
+                                E
+                            </span>
+                        </span>
+
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-microchip"></i>
+                            ZouIC Boards
+                        </span>
+
+                        
+                        
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-microchip"></i>
+                                ZouIC Boards
+                            </span>
+                            
+                            <span class="ext-card-category">General Board</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title">
+                            <a href="/en/board/esp32-s3-devkitc/">
+                                ESP32-S3-DevKitC
+                            </a>
+                        </h3>
+
+                        <p class="ext-card-desc line-clamp-2">高性能双核处理器，支持Wi-Fi 6和BLE 5.0，内置AI协处理器，适合物联网和边缘AI应用</p>
+
+                        
+                        
+                        <div class="flex flex-wrap gap-2 text-secondary mt-1" style="font-size: 0.78rem;">
+                            
+                            <span><i class="fas fa-microchip me-1"></i>ESP32-S3</span>
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        
+
+                        
+                        
+                        <div class="ext-card-tags">
+                            
+                            <span class="ext-card-tag">Espressif</span>
+                            
+                            <span class="ext-card-tag">ESP32</span>
+                            
+                            <span class="ext-card-tag">ESP32-S3</span>
+                            
+                            
+                        </div>
+                        
+
+                        
+                        
+
+                        <div class="ext-card-footer">
+                            
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            
+                            <span class="ext-card-author">Espressif</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap"
+                 data-platform="board"
+                 data-category="general">
+                <div class="ext-card ext-card--board">
+                    
+                    <a href="/en/board/gd32vf103vbt6/"
+                       class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">
+                            gd32vf103vbt6
+                        </span>
+
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">
+                                G
+                            </span>
+                        </span>
+
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-microchip"></i>
+                            ZouIC Boards
+                        </span>
+
+                        
+                        
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-microchip"></i>
+                                ZouIC Boards
+                            </span>
+                            
+                            <span class="ext-card-category">General Board</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title">
+                            <a href="/en/board/gd32vf103vbt6/">
+                                GD32VF103VBT6
+                            </a>
+                        </h3>
+
+                        <p class="ext-card-desc line-clamp-2">国产RISC-V MCU，引脚兼容STM32，适合低成本嵌入式项目</p>
+
+                        
+                        
+                        <div class="flex flex-wrap gap-2 text-secondary mt-1" style="font-size: 0.78rem;">
+                            
+                            <span><i class="fas fa-microchip me-1"></i>GD32VF103</span>
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        
+
+                        
+                        
+                        <div class="ext-card-tags">
+                            
+                            <span class="ext-card-tag">GigaDevice</span>
+                            
+                            <span class="ext-card-tag">RISC-V</span>
+                            
+                            <span class="ext-card-tag">GD32VF103</span>
+                            
+                            
+                        </div>
+                        
+
+                        
+                        
+
+                        <div class="ext-card-footer">
+                            
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            
+                            <span class="ext-card-author">GigaDevice</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap"
+                 data-platform="board"
+                 data-category="general">
+                <div class="ext-card ext-card--board">
+                    
+                    <a href="/en/board/hifive-unmatched/"
+                       class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">
+                            hifive-unmatched
+                        </span>
+
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">
+                                H
+                            </span>
+                        </span>
+
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-microchip"></i>
+                            ZouIC Boards
+                        </span>
+
+                        
+                        
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-microchip"></i>
+                                ZouIC Boards
+                            </span>
+                            
+                            <span class="ext-card-category">General Board</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title">
+                            <a href="/en/board/hifive-unmatched/">
+                                HiFive Unmatched
+                            </a>
+                        </h3>
+
+                        <p class="ext-card-desc line-clamp-2">高性能RISC-V SBC，适合Linux开发和高性能计算</p>
+
+                        
+                        
+                        <div class="flex flex-wrap gap-2 text-secondary mt-1" style="font-size: 0.78rem;">
+                            
+                            <span><i class="fas fa-microchip me-1"></i>Freedom U740</span>
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        
+
+                        
+                        
+                        <div class="ext-card-tags">
+                            
+                            <span class="ext-card-tag">SiFive</span>
+                            
+                            <span class="ext-card-tag">RISC-V</span>
+                            
+                            <span class="ext-card-tag">Freedom U740</span>
+                            
+                            
+                        </div>
+                        
+
+                        
+                        
+
+                        <div class="ext-card-footer">
+                            
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            
+                            <span class="ext-card-author">SiFive</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap"
+                 data-platform="board"
+                 data-category="general">
+                <div class="ext-card ext-card--board">
+                    
+                    <a href="/en/board/nearlink-devkit-pro/"
+                       class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">
+                            nearlink-devkit-pro
+                        </span>
+
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">
+                                N
+                            </span>
+                        </span>
+
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-microchip"></i>
+                            ZouIC Boards
+                        </span>
+
+                        
+                        
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-microchip"></i>
+                                ZouIC Boards
+                            </span>
+                            
+                            <span class="ext-card-category">General Board</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title">
+                            <a href="/en/board/nearlink-devkit-pro/">
+                                NearLink DevKit Pro
+                            </a>
+                        </h3>
+
+                        <p class="ext-card-desc line-clamp-2">华为星闪技术开发板，支持NearLink协议，低时延高可靠通信，适合物联网和智能家居应用</p>
+
+                        
+                        
+                        <div class="flex flex-wrap gap-2 text-secondary mt-1" style="font-size: 0.78rem;">
+                            
+                            <span><i class="fas fa-microchip me-1"></i>Hi3881</span>
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        
+
+                        
+                        
+                        <div class="ext-card-tags">
+                            
+                            <span class="ext-card-tag">Huawei</span>
+                            
+                            <span class="ext-card-tag">NearLink</span>
+                            
+                            <span class="ext-card-tag">Hi3881</span>
+                            
+                            
+                        </div>
+                        
+
+                        
+                        
+
+                        <div class="ext-card-footer">
+                            
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            
+                            <span class="ext-card-author">Huawei</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap"
+                 data-platform="board"
+                 data-category="general">
+                <div class="ext-card ext-card--board">
+                    
+                    <a href="/en/board/nearlink-gateway/"
+                       class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">
+                            nearlink-gateway
+                        </span>
+
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">
+                                N
+                            </span>
+                        </span>
+
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-microchip"></i>
+                            ZouIC Boards
+                        </span>
+
+                        
+                        
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-microchip"></i>
+                                ZouIC Boards
+                            </span>
+                            
+                            <span class="ext-card-category">General Board</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title">
+                            <a href="/en/board/nearlink-gateway/">
+                                NearLink Gateway
+                            </a>
+                        </h3>
+
+                        <p class="ext-card-desc line-clamp-2">星闪网关设备，支持星闪高速模式，可连接多个星闪设备，构建星闪物联网网络</p>
+
+                        
+                        
+                        <div class="flex flex-wrap gap-2 text-secondary mt-1" style="font-size: 0.78rem;">
+                            
+                            <span><i class="fas fa-microchip me-1"></i>Hi3883</span>
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        
+
+                        
+                        
+                        <div class="ext-card-tags">
+                            
+                            <span class="ext-card-tag">Huawei</span>
+                            
+                            <span class="ext-card-tag">NearLink</span>
+                            
+                            <span class="ext-card-tag">Hi3883</span>
+                            
+                            
+                        </div>
+                        
+
+                        
+                        
+
+                        <div class="ext-card-footer">
+                            
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            
+                            <span class="ext-card-author">Huawei</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap"
+                 data-platform="board"
+                 data-category="general">
+                <div class="ext-card ext-card--board">
+                    
+                    <a href="/en/board/nearlink-sensor-node/"
+                       class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">
+                            nearlink-sensor-node
+                        </span>
+
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">
+                                N
+                            </span>
+                        </span>
+
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-microchip"></i>
+                            ZouIC Boards
+                        </span>
+
+                        
+                        
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-microchip"></i>
+                                ZouIC Boards
+                            </span>
+                            
+                            <span class="ext-card-category">General Board</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title">
+                            <a href="/en/board/nearlink-sensor-node/">
+                                NearLink Sensor Node
+                            </a>
+                        </h3>
+
+                        <p class="ext-card-desc line-clamp-2">星闪传感器节点，超低功耗设计，支持星闪低功耗模式，适合电池供电的传感器网络</p>
+
+                        
+                        
+                        <div class="flex flex-wrap gap-2 text-secondary mt-1" style="font-size: 0.78rem;">
+                            
+                            <span><i class="fas fa-microchip me-1"></i>Hi3882</span>
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        
+
+                        
+                        
+                        <div class="ext-card-tags">
+                            
+                            <span class="ext-card-tag">Huawei</span>
+                            
+                            <span class="ext-card-tag">NearLink</span>
+                            
+                            <span class="ext-card-tag">Hi3882</span>
+                            
+                            
+                        </div>
+                        
+
+                        
+                        
+
+                        <div class="ext-card-footer">
+                            
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            
+                            <span class="ext-card-author">Huawei</span>
                             
                             <span class="ext-card-footer-arrow" aria-hidden="true">
                                 <i class="fas fa-arrow-right"></i>
@@ -1479,17 +1562,69 @@
             
             
             
+            
             <a class="ext-page-link is-active"
-               href="/en/all-projects/?page=1">1</a>
+               href="/en/all-projects/">1</a>
+            
+            
             
             
             
             <a class="ext-page-link "
-               href="/en/all-projects/?page=2">2</a>
+               href="/en/all-projects/page/2/">2</a>
             
             
             
-            <a class="ext-page-link" href="/en/all-projects/?page=2" aria-label="Next">
+            
+            
+            <a class="ext-page-link "
+               href="/en/all-projects/page/3/">3</a>
+            
+            
+            
+            
+            
+            <a class="ext-page-link "
+               href="/en/all-projects/page/4/">4</a>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <a class="ext-page-link" href="/en/all-projects/page/2/" aria-label="Next">
                 <i class="fas fa-chevron-right"></i>
             </a>
             
@@ -1645,7 +1780,7 @@
                         <i class="fas fa-microchip"></i>
                         <span>ZouIC</span>
                     </a>
-                    <p class="footer-tagline">Open source projects aggregated on this platform follow their respective open source licenses. For details, please see the</p>
+                    <p class="footer-tagline">Quality open hardware projects from platforms worldwide · For developer reference only</p>
 
                     <div class="footer-meta">
                         <p class="footer-author">
@@ -1669,6 +1804,8 @@
                         <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a>
                         <a href="/en/#follow" class="footer-social-link" aria-label="WeChat Official Account · GeekWaedon" title="WeChat Official Account · GeekWaedon"><i class="fab fa-weixin"></i></a>
                         <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a>
+                        <a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a>
                         <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a>
                         <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
                     </div>
@@ -1717,7 +1854,7 @@
             </div>
             <div class="footer-bottom">
                 <p>© 2026 ZouIC. All rights reserved.</p>
-                <p>Open source projects aggregated on this platform follow their respective open source licenses. For details, please see the <a href="/en/licenses/">Open Source Licenses</a> page.</p>
+                <p>Projects aggregated here are for developer reference only: ZouIC indexes them and hosts no code or files; copyright and licensing stay with their authors. For details, see the <a href="/en/licenses/">Open Source Licenses</a> page.</p>
                 <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
             </div>
         </div>

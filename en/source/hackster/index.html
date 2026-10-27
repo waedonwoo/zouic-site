@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Open hardware projects indexed by ZouIC from Hackster.io public pages.">
+    <meta name="keywords" content="Hackster.io,open source hardware">
+    
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    
+    
+    
+    
+    <link rel="canonical" href="https://www.zouic.com/en/source/hackster">
+    
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/source/hackster" />
+    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/source/hackster" />
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/source/hackster" />
+    
+    
+    
+    
+    <meta property="og:title" content="Hackster.io Open Source Projects">
+    <meta property="og:description" content="Open hardware projects indexed by ZouIC from Hackster.io public pages.">
+    <meta property="og:url" content="https://www.zouic.com/en/source/hackster">
+    <meta property="og:type" content="collection">
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ZouIC open source development board platform · GeekWeidong">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hackster.io Open Source Projects">
+    <meta name="twitter:description" content="Open hardware projects indexed by ZouIC from Hackster.io public pages.">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/source/hackster/", "name": "Page", "position": 2}]}
+    </script>
+    
+    
+    
+    <title>Hackster.io Open Source Projects - ZouIC</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    
+    <!-- External Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    
+    <!-- ZouIC Design System -->
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261027a">
+    <noscript>
+        <style>
+            /* 关闭 JS 时不要因为滚动动画而隐藏内容 */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261023b">
+    
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand" href="/en/">
+                <i class="fas fa-microchip"></i> ZouIC
+            </a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
+                <span class="nav-hud-dot"></span>SYS.ONLINE
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/en/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/all-projects/"><i class="fas fa-project-diagram me-1"></i>Open Source Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/boards/">Open Source Boards</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/board-guide/">Documentation</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/en/products/"><i class="fas fa-box me-2"></i>Products</a></li>
+                            <li><a class="dropdown-item" href="/en/services/"><i class="fas fa-cogs me-2"></i>Services</a></li>
+                            <li><a class="dropdown-item" href="/en/news/"><i class="fas fa-newspaper me-2"></i>Site Updates</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li>
+                            <li><a class="dropdown-item" href="/en/documentation/"><i class="fas fa-book me-2"></i>Documentation</a></li>
+                            <li><a class="dropdown-item" href="/en/cases/"><i class="fas fa-briefcase me-2"></i>Project Cases</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/open-source/"><i class="fas fa-code-branch me-2"></i>Open Source Projects</a></li>
+                            <li><a class="dropdown-item" href="/en/articles/"><i class="fas fa-pen-fancy me-2"></i>Articles</a></li>
+                            <li><a class="dropdown-item" href="/en/contribute/"><i class="fas fa-handshake me-2"></i>Contribute</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/dashuju/"><i class="fas fa-chart-line me-2"></i>Data Dashboard</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-lg-none"><a class="nav-link" href="/en/search/"><i class="fas fa-search me-1"></i>Search</a></li>
+                </ul>
+                <form id="searchForm" class="d-flex me-3 d-none d-lg-flex">
+                    <div class="input-group input-group-zouic">
+                        <input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="Search boards, projects or keywords..." aria-label="Search" style="width: 200px;">
+                        <select id="searchType" class="form-select input-zouic" aria-label="Search Type:" style="width: auto; flex: 0 0 auto;">
+                            <option value="">All Categories</option>
+                            <option value="board">Open Source Boards</option>
+                            <option value="project">Open Source Projects</option>
+                        </select>
+                        <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Search">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i> English
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/source/hackster/">
+                                <i class="fas fa-language me-2"></i> 中文
+                            </a></li>
+                            <li><a class="dropdown-item" href="/en/source/hackster/">
+                                <i class="fas fa-language me-2"></i> English
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        
+<div class="ext-page">
+
+    <section class="ext-hero">
+        <div class="ext-hero-grid" aria-hidden="true"></div>
+        <div class="container">
+            <div class="ext-hero-inner">
+                <div class="ext-hero-copy">
+                    <span class="ext-eyebrow"><i class="fas fa-robot"></i> CURATED OPEN HARDWARE</span>
+                    <h1 class="ext-hero-title">Hackster.io</h1>
+                    <p class="ext-hero-desc">
+                        Open source hardware projects indexed by ZouIC from public pages of this platform. For developer reference only; copyright and licensing stay with their authors.
+                    </p>
+                    
+                    
+                    <div class="ext-hero-actions">
+                        <a href="/en/all-projects/" class="btn-zouic btn-zouic-secondary">
+                            <i class="fas fa-layer-group me-2"></i>Back to the hub
+                        </a>
+                        
+                        <a href="https://www.hackster.io" target="_blank" rel="noopener noreferrer" class="btn-zouic btn-zouic-ghost">
+                            <i class="fas fa-robot me-2"></i>Visit source
+                        </a>
+                        
+                    </div>
+                </div>
+                <div class="ext-hero-stats">
+                    <div class="ext-hero-stat ext-hero-stat--total">
+                        <span class="ext-hero-stat-value">24</span>
+                        <span class="ext-hero-stat-label">Total projects</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container ext-body">
+        
+        <div class="ext-grid">
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/7-segment-display-modular-hw-sw-97ad2f/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">7-segment-display-modular-hw-sw-97ad2f</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">7</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">vision</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/7-segment-display-modular-hw-sw-97ad2f/">7 Segment Display - Modular HW/SW</a></h3>
+                        <p class="ext-card-desc line-clamp-2">No matter if you want to do a simple counter, a clock or a fully integrated Home Assistant visualizer. With this set you can do it all.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Janster Benksterinho</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/ai-agent-beats-arm-cmsis-nn-by-3-74x-on-nrf54lm20-66158a/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">ai-agent-beats-arm-cmsis-nn-by-3-74x-on-nrf54lm20-66158a</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">A</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">ai_hardware</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/ai-agent-beats-arm-cmsis-nn-by-3-74x-on-nrf54lm20-66158a/">AI Agent Beats ARM CMSIS-NN by 3.74x on nRF54LM20</a></h3>
+                        <p class="ext-card-desc line-clamp-2">How an autonomous gemini-4-argon Hardware-in-the-Loop (HIL) agent wrote a kernel on Cortex-M33F that outperforms official ARM CMSIS-NN s4.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Maksim Masalski</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/aqua-mitra-smart-aquarium-companion-f29fdc/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">aqua-mitra-smart-aquarium-companion-f29fdc</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">A</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">ai_hardware</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/aqua-mitra-smart-aquarium-companion-f29fdc/">Aqua Mitra – Smart Aquarium Companion</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Edge AI for water quality monitoring, predictive maintenance, and sustainable aquaculture.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Ankur Majumdar</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/bensterini-s-lab-a64afc/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">bensterini-s-lab-a64afc</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">B</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/bensterini-s-lab-a64afc/">Bensterini&#39;s Lab</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Follow me on my quest to automate my lab aka my workshop aka my home office. With custom builds and a Home Assistant Backbone</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Janster Benksterinho</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/bringing-up-an-imx219-video-pipeline-on-amd-kria-kv260-54889f/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">bringing-up-an-imx219-video-pipeline-on-amd-kria-kv260-54889f</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">B</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/bringing-up-an-imx219-video-pipeline-on-amd-kria-kv260-54889f/">Bringing up an IMX219 video pipeline on AMD Kria KV260</a></h3>
+                        <p class="ext-card-desc line-clamp-2">This project walks through how to bring up an IMX219 video pipeline on an AMD Kria KV260 board.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Alen Issac Cherian</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/cavitasense-ultrasonic-thermal-pump-cavitation-predictor-04b242/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">cavitasense-ultrasonic-thermal-pump-cavitation-predictor-04b242</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">C</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">ai_hardware</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/cavitasense-ultrasonic-thermal-pump-cavitation-predictor-04b242/">CavitaSense – Ultrasonic &amp; Thermal Pump Cavitation Predictor</a></h3>
+                        <p class="ext-card-desc line-clamp-2">An ultra-low-power edge monitor that uses the nRF54LM20’s Axon NPU and acoustic AI to detect industrial pump cavitation and bearing wear wee</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Pt All things</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/clawd-handy-the-open-source-ai-gadget-in-your-pocket-59d65d/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">clawd-handy-the-open-source-ai-gadget-in-your-pocket-59d65d</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">C</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">ai_hardware</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/clawd-handy-the-open-source-ai-gadget-in-your-pocket-59d65d/">Clawd Handy: The Open-Source AI Gadget in Your Pocket</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Open-source Claude AI handheld on Adafruit MEMENTO: voice chat, retro cam, live space &amp; weather data, ESP-NOW friends and games.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Vikash Singh Thakur</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/controlpi-a95968/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">controlpi-a95968</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">C</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">ai_hardware</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/controlpi-a95968/">ControlPi</a></h3>
+                        <p class="ext-card-desc line-clamp-2">A Raspberry Pi CM5-powered Control Center for my upcoming homelab project that manages SBCs and Docker Containers from a single Interface.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Arnov Sharma</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/desk-watch-arduino-uno-console-melody-teacher-editions-0709c7/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">desk-watch-arduino-uno-console-melody-teacher-editions-0709c7</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">D</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">wearable</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/desk-watch-arduino-uno-console-melody-teacher-editions-0709c7/">Desk Watch: Arduino UNO Console — MELODY &amp; TEACHER Editions</a></h3>
+                        <p class="ext-card-desc line-clamp-2">An Arduino UNO Grove desk console with climate alerts, music and a TEACHER Edition combining exam timing and paper collection.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Pr.Belamine Makerlab</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/din-rail-power-monitor-reading-shelly-em-directly-esp32-17f8cc/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">din-rail-power-monitor-reading-shelly-em-directly-esp32-17f8cc</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">D</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">ai_hardware</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/din-rail-power-monitor-reading-shelly-em-directly-esp32-17f8cc/">DIN Rail Power Monitor Reading Shelly EM Directly (ESP32)</a></h3>
+                        <p class="ext-card-desc line-clamp-2">ESP32 + OLED in a 3D printed DIN case polling a Shelly EM on the LAN, no Home Assistant: watts, voltage, kWh history, siren, web UI.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Massimiliano Sandrin</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/diy-digital-microscope-for-electronics-smd-soldering-51d642/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">diy-digital-microscope-for-electronics-smd-soldering-51d642</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">D</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">vision</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/diy-digital-microscope-for-electronics-smd-soldering-51d642/">DIY Digital Microscope for Electronics &amp; SMD Soldering</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Turn a cheap $3 OV7670 camera module into a zero-latency, standalone digital microscope with manual focus and direct ILI9341 display stream</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">DSN Industries</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/edgepulse-tinyml-acoustic-vibration-predictive-maintenance-41ff68/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">edgepulse-tinyml-acoustic-vibration-predictive-maintenance-41ff68</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">E</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">ai_hardware</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/edgepulse-tinyml-acoustic-vibration-predictive-maintenance-41ff68/">EdgePulse:TinyML Acoustic &amp; Vibration Predictive Maintenance</a></h3>
+                        <p class="ext-card-desc line-clamp-2">I am building EdgePulse, an ultra-low-power, non-invasive predictive maintenance sensor node powered by the Nordic nRF54LM20 DK.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Yuvraj Balinge</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/esp32-s3-smart-matrix-64x64-wall-clock-dc318d/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">esp32-s3-smart-matrix-64x64-wall-clock-dc318d</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">E</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">esp32</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/esp32-s3-smart-matrix-64x64-wall-clock-dc318d/">ESP32-S3 Smart Matrix(64x64) Wall Clock</a></h3>
+                        <p class="ext-card-desc line-clamp-2">ESP32-S3 smart dashboard for 64x64 HUB75 RGB matrix: NTP clock, SHTC3 climate, live weather, and REST API flight tracker animation.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Divyanshu Tungriya</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/fallout-terminal-rev-1-0-3df16d/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">fallout-terminal-rev-1-0-3df16d</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">F</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/fallout-terminal-rev-1-0-3df16d/">FALLOUT TERMINAL Rev 1.0</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Made a Replica of Terminal from Fallout, powered by Lattepanda MU</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Arnov Sharma</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/i-trained-my-own-30m-parameter-ai-to-run-on-an-esp32-898629/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">i-trained-my-own-30m-parameter-ai-to-run-on-an-esp32-898629</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">I</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">ai_hardware</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/i-trained-my-own-30m-parameter-ai-to-run-on-an-esp32-898629/">I Trained My Own 30M Parameter AI to Run on an ESP32</a></h3>
+                        <p class="ext-card-desc line-clamp-2">An experimental language model I trained from scratch, running offline on ESP32-S3 with a touchscreen chat interface.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Marina</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/interlligent-pv-energy-management-controller-f645e6/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">interlligent-pv-energy-management-controller-f645e6</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">I</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/interlligent-pv-energy-management-controller-f645e6/">Interlligent PV Energy Management Controller</a></h3>
+                        <p class="ext-card-desc line-clamp-2">An intelligent Energy Management Controller to monitor and direct energy to the most appropriate load according to Seasons and Time.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Ray Smith</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/loopmaxpro-ea923b/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">loopmaxpro-ea923b</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">L</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/loopmaxpro-ea923b/">LoopMaxPro</a></h3>
+                        <p class="ext-card-desc line-clamp-2">One embedded OS, many boards, any module. System services, a web console and an SDK for Wi-Fi microcontrollers.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Ferna</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/mini-retro-tv-a-tiny-video-player-with-esp-32-582d9f/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">mini-retro-tv-a-tiny-video-player-with-esp-32-582d9f</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">M</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">esp32</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/mini-retro-tv-a-tiny-video-player-with-esp-32-582d9f/">Mini Retro TV: A Tiny Video Player with ESP-32</a></h3>
+                        <p class="ext-card-desc line-clamp-2">This project explores video playback on an ESP32-S3 using its 2.4-inch ST7789 SPI IPS display.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Tech Talkies</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/neuralgrid-smart-predictive-load-intelligence-system-1ca653/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">neuralgrid-smart-predictive-load-intelligence-system-1ca653</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">N</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">ai_hardware</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/neuralgrid-smart-predictive-load-intelligence-system-1ca653/">NeuralGrid- Smart Predictive Load Intelligence System</a></h3>
+                        <p class="ext-card-desc line-clamp-2">AI-powered Smart Predictive Load Intelligence for real-time load identification, risk prediction, and automated overload prevention.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">SYEDA NOOR FATIMA</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/pyportal-galaxy-viewer-bf7b13/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">pyportal-galaxy-viewer-bf7b13</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">P</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/pyportal-galaxy-viewer-bf7b13/">PyPortal Galaxy Viewer</a></h3>
+                        <p class="ext-card-desc line-clamp-2">A PyPortal visualization that scroll across the largest images of our universe, bringing the vastness of space to the desktop</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Bob Hammell</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/reaction-time-duel-a-two-player-reaction-game-663ede/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">reaction-time-duel-a-two-player-reaction-game-663ede</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">R</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">esp32</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/reaction-time-duel-a-two-player-reaction-game-663ede/">Reaction Time Duel: a Two Player Reaction Game</a></h3>
+                        <p class="ext-card-desc line-clamp-2">A DIY two-player reaction-time game powered by ESP32, featuring RGB LEDs, an OLED, multiple game modes, and a custom 3D-printed enclosure.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">smmaazulhaque</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/smart-18650-battery-charger-with-oled-e4940c/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">smart-18650-battery-charger-with-oled-e4940c</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">S</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">nvidia</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/smart-18650-battery-charger-with-oled-e4940c/">Smart 18650 Battery Charger with OLED</a></h3>
+                        <p class="ext-card-desc line-clamp-2">A 3D-printed 18650 charger with OLED display for real-time current, voltage, battery level and charging capacity monitoring.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Bambu3design</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/tiny-autonomous-robot-with-2d-3d-slam-using-a-tof-camera-2000f2/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">tiny-autonomous-robot-with-2d-3d-slam-using-a-tof-camera-2000f2</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">T</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">robotics</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/tiny-autonomous-robot-with-2d-3d-slam-using-a-tof-camera-2000f2/">Tiny Autonomous Robot with 2D &amp; 3D SLAM Using a ToF Camera</a></h3>
+                        <p class="ext-card-desc line-clamp-2">A 100 × 100 × 50 mm robot combining Raspberry Pi, Arduino, an Arducam ToF camera and ROS 2 for autonomous navigation and 3D mapping.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">J Led</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/ultra-low-power-co-monitor-using-crowpanel-e-paper-d2a9fc/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">ultra-low-power-co-monitor-using-crowpanel-e-paper-d2a9fc</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">U</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                            <span class="ext-card-category">esp32</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/ultra-low-power-co-monitor-using-crowpanel-e-paper-d2a9fc/">Ultra-Low-Power CO₂ Monitor Using CrowPanel E-Paper</a></h3>
+                        <p class="ext-card-desc line-clamp-2">A low-power consumption CO2 concentration monitor using Sensirion&#39;s SCD41 and Elecrow&#39;s CrowPanel ESP32 E-Paper Display.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">cubic9com</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+
+        <p class="source-disclaimer">
+            <i class="fas fa-scale-balanced me-1"></i>
+            All projects come from public pages of this platform. ZouIC indexes them and hosts no code or files; they are for developer reference only, under each project own license.
+        </p>
+    </div>
+</div>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Newsletter Section (首页已有完整关注区，不重复) -->
+    
+    <section class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h3 class="text-xl font-bold mb-2">Follow @GeekWaedon for Weekly Updates</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">Board picks, project breakdowns and hardware engineering tips, first published on WeChat and Knowledge Planet.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <a href="/en/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">See How to Follow</a>
+                        <div class="newsletter-benefits">
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Weekly curated board picks</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Exclusive project deep-dives</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Updated on WeChat and Knowledge Planet</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="py-4" aria-label="Produced by">
+        <div class="author-card">
+            <div class="author-card-info">
+                <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
+                <div>
+                    <div class="author-card-name">Created by GeekWaedon <span>@GeekWaedon</span></div>
+                    <div class="author-card-bio">Hardware maker and AI practitioner. This entire website was built hands-on with AI tools.</div>
+                </div>
+            </div>
+            <div class="author-card-actions">
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Join my Knowledge Planet</a>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;GeekWaedon&#34;</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-zouic" role="contentinfo">
+        <div class="container">
+            <div class="row footer-main">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
+                    <a href="/en/" class="footer-brand" aria-label="ZouIC home">
+                        <i class="fas fa-microchip"></i>
+                        <span>ZouIC</span>
+                    </a>
+                    <p class="footer-tagline">Quality open hardware projects from platforms worldwide · For developer reference only</p>
+
+                    <div class="footer-meta">
+                        <p class="footer-author">
+                            Produced by · <strong>GeekWaedon</strong>
+                            <span class="footer-author-handle">@GeekWaedon</span>
+                        </p>
+                        <div class="footer-slash-tags">
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware enthusiast</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI practitioner</span>
+                            <a href="/en/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom service provider">
+                                <i class="fab fa-weixin"></i> WeCom service provider
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a>
+                        <a href="/en/#follow" class="footer-social-link" aria-label="WeChat Official Account · GeekWaedon" title="WeChat Official Account · GeekWaedon"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a>
+                        <a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a>
+                        <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="/en/products/">Products</a></li>
+                        <li><a href="/en/services/">Services</a></li>
+                        <li><a href="/en/services/website-building/">Website building</a></li>
+                        <li><a href="/en/news/">Site Updates</a></li>
+                        <li><a href="/en/boards/">Development Boards</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="/en/board-guide/">Board selection guide</a></li>
+                        <li><a href="/en/compare/">Board comparison</a></li>
+                        <li><a href="/en/tutorials/">Tutorials</a></li>
+                        <li><a href="/en/documentation/">Documentation</a></li>
+                        <li><a href="/en/cases/">Project Cases</a></li>
+                        <li><a href="/en/help/">Documentation</a></li>
+                        <li><a href="/en/dashuju/">Data Dashboard</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Open Source</h5>
+                    <ul>
+                        <li><a href="/en/open-source/">Open Source Projects</a></li>
+                        <li><a href="/en/all-projects/">All projects</a></li>
+                        <li><a href="/en/articles/">Articles</a></li>
+                        <li><a href="/en/contribute/">Contribute</a></li>
+                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h5>About</h5>
+                    <ul>
+                        <li><a href="/en/about/">About Us</a></li>
+                        <li><a href="/en/about/#contact">Contact Us</a></li>
+                        <li><a href="/en/licenses/">Open Source Licenses</a></li>
+                        <li><a href="/en/about/#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ZouIC. All rights reserved.</p>
+                <p>Projects aggregated here are for developer reference only: ZouIC indexes them and hosts no code or files; copyright and licensing stay with their authors. For details, see the <a href="/en/licenses/">Open Source Licenses</a> page.</p>
+                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // 先把 html 标记为 reveal-ready，CSS 才隐藏"未进入视口"的区块；
+            // 若观察器异常，2 秒后兜底全部显示，避免整屏空白。
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Copied';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Removed from favorites');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Saved to favorites');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+</body>
+</html>
