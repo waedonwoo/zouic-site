@@ -32,6 +32,9 @@
     <meta property="og:description" content="ZouIC 入站流量与内容资产实时数据大屏：访问量、独立访客、来源分布、热门页面、爬虫抓取与转化漏斗。">
     <meta property="og:url" content="https://www.zouic.com/dashuju">
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_CN">
+    
+    
     <meta property="og:site_name" content="ZouIC">
     <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     <meta property="og:image:width" content="1200">
@@ -99,7 +102,7 @@
         .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
         @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
     </style>
-    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261023b">
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028a">
     
     <link rel="stylesheet" href="/static/css/dashuju.css?v=20261024b">
     <script src="/static/js/echarts.min.js?v=5.5.1" defer></script>
@@ -127,9 +130,9 @@
                     <li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li>
                     <li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             更多
-                        </a>
+                        </button>
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li>
                             <li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li>
@@ -200,10 +203,10 @@
                 </div>
                 <div>
                     <span>本地时间</span>
-                    <strong id="dashClock">19:09:16</strong>
+                    <strong id="dashClock">00:27:53</strong>
                 </div>
             </div>
-            <div class="dash-live"><span class="dash-dot"></span>实时 · 更新时间 <span id="dashUpdated">19:09:16</span></div>
+            <div class="dash-live"><span class="dash-dot"></span>实时 · 更新时间 <span id="dashUpdated">00:27:53</span></div>
         </header>
 
         <section class="dash-kpis" aria-label="数据大屏">
@@ -214,12 +217,12 @@
             </div>
             <div class="dash-kpi">
                 <div class="dash-kpi-label">今日访问量</div>
-                <div class="dash-kpi-value" data-kpi="today_pv">13</div>
-                <div class="dash-kpi-sub">人 <span data-kpi="today_uv">1</span></div>
+                <div class="dash-kpi-value" data-kpi="today_pv">0</div>
+                <div class="dash-kpi-sub">人 <span data-kpi="today_uv">0</span></div>
             </div>
             <div class="dash-kpi">
                 <div class="dash-kpi-label">昨日访问量</div>
-                <div class="dash-kpi-value">0</div>
+                <div class="dash-kpi-value">13</div>
                 <div class="dash-kpi-sub">次</div>
             </div>
             <div class="dash-kpi">
@@ -636,7 +639,7 @@
                     <li><span>结构化数据覆盖</span><b class="ok">100%</b></li>
                     <li><span>llms.txt</span><b class="ok">正常</b></li>
                     <li><span>文章 Markdown</span><b>3</b></li>
-                    <li><span>最近构建</span><b>10-27 19:06</b></li>
+                    <li><span>最近构建</span><b>10-27 19:09</b></li>
                 </ul>
                 <div class="dash-subhead">最新咨询线索</div>
                 <ul class="dash-list">
@@ -649,7 +652,7 @@
 
         <footer class="dash-foot">
             <span>静态站点展示最近一次构建的数据快照；本地/动态部署时为实时统计。</span>
-            <span>更新时间 <strong>2026-10-27 19:09:16</strong></span>
+            <span>更新时间 <strong>2026-10-28 00:27:53</strong></span>
         </footer>
     </div>
 </div>
@@ -966,7 +969,7 @@
 <script>
 window.__DASH__ = {
     liveEnabled: false,
-    trend: {"labels": ["09-28", "09-29", "09-30", "10-01", "10-02", "10-03", "10-04", "10-05", "10-06", "10-07", "10-08", "10-09", "10-10", "10-11", "10-12", "10-13", "10-14", "10-15", "10-16", "10-17", "10-18", "10-19", "10-20", "10-21", "10-22", "10-23", "10-24", "10-25", "10-26", "10-27"], "pv": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 140, 0, 0, 13], "uv": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1]},
+    trend: {"labels": ["09-29", "09-30", "10-01", "10-02", "10-03", "10-04", "10-05", "10-06", "10-07", "10-08", "10-09", "10-10", "10-11", "10-12", "10-13", "10-14", "10-15", "10-16", "10-17", "10-18", "10-19", "10-20", "10-21", "10-22", "10-23", "10-24", "10-25", "10-26", "10-27", "10-28"], "pv": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 140, 0, 0, 13, 0], "uv": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0]},
     sources: [{"count": 153, "key": "direct"}],
     i18n: {
         pv: "\u8bbf\u95ee\u91cf PV",

@@ -32,6 +32,9 @@
     <meta property="og:description" content="12 个高频场景的开发板速查：先场景、再约束、后选型，附新手三问与反选清单。">
     <meta property="og:url" content="https://www.zouic.com/articles/board-selection-cheatsheet">
     <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="article:published_time" content="2026-10-23">
+    <meta property="article:modified_time" content="2026-10-27">
     <meta property="og:site_name" content="ZouIC">
     <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     <meta property="og:image:width" content="1200">
@@ -45,7 +48,7 @@
     
     
     <script type="application/ld+json">
-        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "about": "\u5f00\u53d1\u677f\u9009\u578b,ESP32,STM32,\u6811\u8393\u6d3ePico,RISC-V,\u661f\u95ea,\u901f\u67e5\u8868", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "12 \u4e2a\u9ad8\u9891\u573a\u666f\u7684\u5f00\u53d1\u677f\u901f\u67e5\uff1a\u5148\u573a\u666f\u3001\u518d\u7ea6\u675f\u3001\u540e\u9009\u578b\uff0c\u9644\u65b0\u624b\u4e09\u95ee\u4e0e\u53cd\u9009\u6e05\u5355\u3002", "headline": "\u4e00\u9875\u7eb8\u901f\u67e5\u8868\uff1a\u6211\u8981\u505a XX\uff0c\u8be5\u4e70\u54ea\u5757\u5f00\u53d1\u677f", "image": "https://www.zouic.com/static/images/og-cover.png", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/board-selection-cheatsheet/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/board-selection-cheatsheet/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/board-selection-cheatsheet/", "name": "\u4e00\u9875\u7eb8\u901f\u67e5\u8868\uff1a\u6211\u8981\u505a XX\uff0c\u8be5\u4e70\u54ea\u5757\u5f00\u53d1\u677f", "position": 3}]}]}
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "about": "\u5f00\u53d1\u677f\u9009\u578b,ESP32,STM32,\u6811\u8393\u6d3ePico,RISC-V,\u661f\u95ea,\u901f\u67e5\u8868", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "dateModified": "2026-10-27", "datePublished": "2026-10-23", "description": "12 \u4e2a\u9ad8\u9891\u573a\u666f\u7684\u5f00\u53d1\u677f\u901f\u67e5\uff1a\u5148\u573a\u666f\u3001\u518d\u7ea6\u675f\u3001\u540e\u9009\u578b\uff0c\u9644\u65b0\u624b\u4e09\u95ee\u4e0e\u53cd\u9009\u6e05\u5355\u3002", "headline": "\u4e00\u9875\u7eb8\u901f\u67e5\u8868\uff1a\u6211\u8981\u505a XX\uff0c\u8be5\u4e70\u54ea\u5757\u5f00\u53d1\u677f", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/board-selection-cheatsheet/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/board-selection-cheatsheet/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/board-selection-cheatsheet/", "name": "\u4e00\u9875\u7eb8\u901f\u67e5\u8868\uff1a\u6211\u8981\u505a XX\uff0c\u8be5\u4e70\u54ea\u5757\u5f00\u53d1\u677f", "position": 3}]}]}
     </script>
     
     
@@ -99,7 +102,7 @@
         .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
         @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
     </style>
-    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261023b">
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028a">
     
 </head>
 <body>
@@ -124,9 +127,9 @@
                     <li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li>
                     <li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             更多
-                        </a>
+                        </button>
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li>
                             <li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li>
