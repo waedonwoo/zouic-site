@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="RISC-V 开源指令集正在从学术走向量产。本文盘点站内可查的真实 RISC-V 开发板，按架构定位与预算给你选型建议。">
+    <meta name="keywords" content="RISC-V,开发板,CH32V307,GD32VF103,SiFive,StarFive,开源指令集">
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <link rel="canonical" href="https://www.zouic.com/articles/riscv-dev-board-guide">
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/articles/riscv-dev-board-guide" />
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/riscv-dev-board-guide" />
+    <meta property="og:title" content="RISC-V 开发板选型指南（2026）">
+    <meta property="og:description" content="RISC-V 开源指令集正在从学术走向量产。本文盘点站内可查的真实 RISC-V 开发板，按架构定位与预算给你选型建议。">
+    <meta property="og:url" content="https://www.zouic.com/articles/riscv-dev-board-guide">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RISC-V 开发板选型指南（2026）">
+    <meta name="twitter:description" content="RISC-V 开源指令集正在从学术走向量产。本文盘点站内可查的真实 RISC-V 开发板，按架构定位与预算给你选型建议。">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "RISC-V 开发板选型指南（2026）", "description": "RISC-V 开源指令集正在从学术走向量产。本文盘点站内可查的真实 RISC-V 开发板，按架构定位与预算给你选型建议。", "about": "RISC-V,开发板,CH32V307,GD32VF103,SiFive,StarFive,开源指令集", "author": {"@type": "Person", "name": "极客微栋 GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "inLanguage": "zh-CN", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "image": "https://www.zouic.com/static/images/og-cover.jpg", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/riscv-dev-board-guide/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "首页", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "技术文章", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/riscv-dev-board-guide/", "name": "RISC-V 开发板选型指南（2026）", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "RISC-V 开发板和 ARM 板最大区别？", "acceptedAnswer": {"@type": "Answer", "text": "RISC-V 指令集开源、可自由扩展，ARM 需授权；软件生态 ARM 更成熟，RISC-V 追赶很快。"}}, {"@type": "Question", "name": "RISC-V 能跑 Linux 吗？", "acceptedAnswer": {"@type": "Answer", "text": "可以，64 位 RISC-V（如 StarFive VisionFive 2）已有较完整的 Linux 发行版支持。"}}]}]}
+    </script>
+    <title>RISC-V 开发板选型指南（2026） - ZouIC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261024b">
+    
+    <style>
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255,255,255,0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-6); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0,229,255,0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255,0,110,0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167,139,250,0.3); }
+        .text-green-500 { color: #10b981; }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .article-body p { line-height: 1.9; margin-bottom: 1.1rem; color: var(--color-text-primary); }
+        .article-body ul, .article-body ol { line-height: 1.9; margin-bottom: 1.1rem; }
+        .article-body li { margin-bottom: .4rem; }
+        .article-body table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .95rem; }
+        .article-body th, .article-body td { border: 1px solid var(--color-border-default); padding: .7rem .9rem; text-align: left; }
+        .article-body th { background: var(--color-bg-tertiary); color: var(--color-primary); }
+        .article-body code { background: rgba(0,229,255,0.1); color: var(--color-primary); padding: .1rem .4rem; border-radius: 6px; font-family: 'Share Tech Mono', monospace; }
+        .article-body a { color: var(--color-primary); text-decoration: none; border-bottom: 1px dashed rgba(0,229,255,0.4); }
+        .article-body a:hover { color: var(--color-secondary); }
+        .faq-item { border-bottom: 1px solid var(--color-border-default); padding: 1rem 0; }
+        .faq-q { font-weight: 600; color: var(--color-text-primary); margin-bottom: .4rem; }
+        .faq-a { color: var(--color-text-secondary); line-height: 1.8; }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261023b">
+
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+    
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航">
+        <div class="container">
+            <a class="navbar-brand" href="/"><i class="fas fa-microchip"></i> ZouIC</a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/boards/">开发板库</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projects/">Demo项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/all-projects/">外部平台项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/articles/">技术文章</a></li>
+                </ul>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文</button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/articles/riscv-dev-board-guide/"><i class="fas fa-language me-2"></i> 中文</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main id="main-content">
+        <section class="page-hero page-hero-articles py-16">
+            <div class="container text-center">
+                <span class="badge badge-primary mb-3">免费公开 · 欢迎转发</span>
+                <h1 class="display-4 font-bold mb-4">RISC-V 开发板选型指南（2026）</h1>
+                <p class="text-secondary lead">从 MCU 到 Linux 开发板，一条龙</p>
+            </div>
+        </section>
+        <section class="py-8">
+            <div class="container article-body" style="max-width: 960px;">
+                <nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0">
+                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/articles/">技术文章</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">RISC-V 开发板选型指南（2026）</li>
+                </ol></nav>
+                
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">为什么关注 RISC-V</h2>
+            <p>RISC-V 是<strong>开源、免费、可扩展</strong>的指令集架构，不受单一厂商绑定。2026 年它在 MCU 与边缘计算两端都在加速落地，从几块钱的 CH32V 到能跑 Linux 的 StarFive 应有尽有。</p>
+        </div>
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">站内能查到的 RISC-V 板子</h2>
+            <table>
+                <thead><tr><th>开发板</th><th>定位</th><th>看点</th></tr></thead>
+                <tbody>
+                    <tr><td><a href="/board/ch32v307/">CH32V307</a></td><td>入门 MCU</td><td>国产、便宜、带以太网，适合学生与低成本控制</td></tr>
+                    <tr><td><a href="/board/gd32vf103vbt6/">GD32VF103</a></td><td>入门 MCU</td><td>兆易创新，兼容生态，GPIO 丰富</td></tr>
+                    <tr><td><a href="/board/sifive-hifive-2/">SiFive HiFive 2</a></td><td>评估 / 教学</td><td>RISC-V 奠基公司出品，生态成熟</td></tr>
+                    <tr><td><a href="/board/starfive-visionfive-2/">StarFive VisionFive 2</a></td><td>Linux 单板</td><td>四核、能跑完整 Linux，可作小型开发主机</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">选型建议</h2>
+            <ul>
+                <li><strong>学指令集 / 低成本实验</strong>：选 CH32V307 或 GD32VF103，几十元入门。</li>
+                <li><strong>做教学 / 评估</strong>：SiFive HiFive 2 文档与工具链最完善。</li>
+                <li><strong>跑 Linux / 边缘网关</strong>：StarFive VisionFive 2 是唯一现实选择。</li>
+            </ul>
+            <p class="text-sm text-gray-400 mt-3">更多前沿专题见 <a href="/category/risc_v/">RISC-V 专题页</a>。</p>
+        </div>
+        
+<section class="py-6"><div class="card-dark p-6"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>RISC-V 开发板和 ARM 板最大区别？</div><div class="faq-a">RISC-V 指令集开源、可自由扩展，ARM 需授权；软件生态 ARM 更成熟，RISC-V 追赶很快。</div></div><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>RISC-V 能跑 Linux 吗？</div><div class="faq-a">可以，64 位 RISC-V（如 StarFive VisionFive 2）已有较完整的 Linux 发行版支持。</div></div></div></section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-zouic py-8 mt-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a class="navbar-brand mb-3 d-inline-block" href="/"><i class="fas fa-microchip"></i> ZouIC</a>
+                    <p class="text-secondary text-sm">全球开源开发板 Demo 聚合平台，提供开发板数据库、项目搜索、技术文档一站式硬件开发资源。</p>
+                    <span class="badge badge-primary">SYS.STATUS: OPERATIONAL</span>
+                </div>
+                <div class="col-lg-2 col-6 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">产品</h6>
+                    <ul class="list-unstyled text-sm">
+                        <li><a class="text-secondary" href="/boards/">开发板库</a></li>
+                        <li><a class="text-secondary" href="/projects/">Demo项目</a></li>
+                        <li><a class="text-secondary" href="/compare/">参数对比</a></li>
+                        <li><a class="text-secondary" href="/board-guide/">文档中心</a></li>
+                    </ul></div>
+                <div class="col-lg-2 col-6 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">资源</h6>
+                    <ul class="list-unstyled text-sm">
+                        <li><a class="text-secondary" href="/tutorials/">开发板教程</a></li>
+                        <li><a class="text-secondary" href="/documentation/">技术文档</a></li>
+                        <li><a class="text-secondary" href="/articles/">技术文章</a></li>
+                        <li><a class="text-secondary" href="/open-source/">开源项目</a></li>
+                    </ul></div>
+                <div class="col-lg-4 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">社区</h6>
+                    <p class="text-secondary text-sm">与硬件开发者同行，贡献开发板 / 项目，共建开源硬件生态。</p>
+                    <a class="btn-zouic btn-zouic-primary btn-zouic-sm" href="/contribute/"><i class="fas fa-handshake me-1"></i> 贡献指南</a></div>
+            </div>
+            <hr class="border-secondary opacity-25">
+            <div class="d-flex justify-content-between flex-wrap text-gray-400 text-sm">
+                <span>© 2026 ZouIC // OPEN HARDWARE DEMO HUB</span>
+                <span>POWERED BY OPEN SOURCE // v2.0</span>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

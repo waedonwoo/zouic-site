@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="RP2040 是树莓派基金会自研的双核 MCU，性价比极高。本文带你用 MicroPython 在 Pico 上点亮第一个项目，并对比 Pico 与 Pico W。">
+    <meta name="keywords" content="RP2040,树莓派Pico,MicroPython,入门,创客,双核MCU">
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <link rel="canonical" href="https://www.zouic.com/articles/rp2040-beginner">
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/articles/rp2040-beginner" />
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/rp2040-beginner" />
+    <meta property="og:title" content="树莓派 Pico / RP2040 入门：MicroPython 第一个项目">
+    <meta property="og:description" content="RP2040 是树莓派基金会自研的双核 MCU，性价比极高。本文带你用 MicroPython 在 Pico 上点亮第一个项目，并对比 Pico 与 Pico W。">
+    <meta property="og:url" content="https://www.zouic.com/articles/rp2040-beginner">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="树莓派 Pico / RP2040 入门：MicroPython 第一个项目">
+    <meta name="twitter:description" content="RP2040 是树莓派基金会自研的双核 MCU，性价比极高。本文带你用 MicroPython 在 Pico 上点亮第一个项目，并对比 Pico 与 Pico W。">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "树莓派 Pico / RP2040 入门：MicroPython 第一个项目", "description": "RP2040 是树莓派基金会自研的双核 MCU，性价比极高。本文带你用 MicroPython 在 Pico 上点亮第一个项目，并对比 Pico 与 Pico W。", "about": "RP2040,树莓派Pico,MicroPython,入门,创客,双核MCU", "author": {"@type": "Person", "name": "极客微栋 GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "inLanguage": "zh-CN", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "image": "https://www.zouic.com/static/images/og-cover.jpg", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/rp2040-beginner/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "首页", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "技术文章", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/rp2040-beginner/", "name": "树莓派 Pico / RP2040 入门：MicroPython 第一个项目", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "RP2040 和 Arduino 比哪个好入门？", "acceptedAnswer": {"@type": "Answer", "text": "两者都友好；RP2040 性能更强、价格更低，但 Arduino 生态更庞大。新手从兴趣点选即可。"}}, {"@type": "Question", "name": "Pico W 的 Wi-Fi 好用吗？", "acceptedAnswer": {"@type": "Answer", "text": "板载无线开箱即用，MicroPython 里有现成网络库，做联网项目很方便。"}}]}]}
+    </script>
+    <title>树莓派 Pico / RP2040 入门：MicroPython 第一个项目 - ZouIC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261024b">
+    
+    <style>
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255,255,255,0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-6); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0,229,255,0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255,0,110,0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167,139,250,0.3); }
+        .text-green-500 { color: #10b981; }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .article-body p { line-height: 1.9; margin-bottom: 1.1rem; color: var(--color-text-primary); }
+        .article-body ul, .article-body ol { line-height: 1.9; margin-bottom: 1.1rem; }
+        .article-body li { margin-bottom: .4rem; }
+        .article-body table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .95rem; }
+        .article-body th, .article-body td { border: 1px solid var(--color-border-default); padding: .7rem .9rem; text-align: left; }
+        .article-body th { background: var(--color-bg-tertiary); color: var(--color-primary); }
+        .article-body code { background: rgba(0,229,255,0.1); color: var(--color-primary); padding: .1rem .4rem; border-radius: 6px; font-family: 'Share Tech Mono', monospace; }
+        .article-body a { color: var(--color-primary); text-decoration: none; border-bottom: 1px dashed rgba(0,229,255,0.4); }
+        .article-body a:hover { color: var(--color-secondary); }
+        .faq-item { border-bottom: 1px solid var(--color-border-default); padding: 1rem 0; }
+        .faq-q { font-weight: 600; color: var(--color-text-primary); margin-bottom: .4rem; }
+        .faq-a { color: var(--color-text-secondary); line-height: 1.8; }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261023b">
+
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+    
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航">
+        <div class="container">
+            <a class="navbar-brand" href="/"><i class="fas fa-microchip"></i> ZouIC</a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/boards/">开发板库</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projects/">Demo项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/all-projects/">外部平台项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/articles/">技术文章</a></li>
+                </ul>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文</button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/articles/rp2040-beginner/"><i class="fas fa-language me-2"></i> 中文</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main id="main-content">
+        <section class="page-hero page-hero-articles py-16">
+            <div class="container text-center">
+                <span class="badge badge-primary mb-3">免费公开 · 欢迎转发</span>
+                <h1 class="display-4 font-bold mb-4">树莓派 Pico / RP2040 入门：MicroPython 第一个项目</h1>
+                <p class="text-secondary lead">双核、便宜、文档友好，新手首选之一</p>
+            </div>
+        </section>
+        <section class="py-8">
+            <div class="container article-body" style="max-width: 960px;">
+                <nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0">
+                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/articles/">技术文章</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">树莓派 Pico / RP2040 入门：MicroPython 第一个项目</li>
+                </ol></nav>
+                
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">为什么推荐 RP2040</h2>
+            <p>RP2040 是树莓派基金会推出的双核 Arm Cortex-M0+ 微控制器，<strong>价格极低、资料极全、PIO 外设独特</strong>，非常适合入门与创客项目。</p>
+        </div>
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">Pico 与 Pico W 怎么选</h2>
+            <table>
+                <thead><tr><th></th><th><a href="/board/raspberry-pi-pico/">Pico</a></th><th><a href="/board/raspberry-pi-pico-w/">Pico W</a></th></tr></thead>
+                <tbody>
+                    <tr><td>无线</td><td>无</td><td><span class="text-green-500">板载 Wi-Fi + BLE</span></td></tr>
+                    <tr><td>价格</td><td>约 ¥20</td><td>约 ¥35</td></tr>
+                    <tr><td>选谁</td><td>纯控制 / 学习</td><td>联网 / IoT</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">第一个 MicroPython 程序</h2>
+            <p>烧录 MicroPython 固件后，用 Thonny 连接，输入：</p>
+            <p><code>from machine import Pin<br>import time<br>led = Pin(25, Pin.OUT)<br>while True:<br>&nbsp;&nbsp;led.toggle(); time.sleep(0.5)</code></p>
+            <p>即可让板载 LED 闪烁。下一步可以接传感器、读 I2C、做小车——<a href="/projects/">Demo 项目库</a>里有不少 Pico 灵感。</p>
+        </div>
+        
+<section class="py-6"><div class="card-dark p-6"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>RP2040 和 Arduino 比哪个好入门？</div><div class="faq-a">两者都友好；RP2040 性能更强、价格更低，但 Arduino 生态更庞大。新手从兴趣点选即可。</div></div><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>Pico W 的 Wi-Fi 好用吗？</div><div class="faq-a">板载无线开箱即用，MicroPython 里有现成网络库，做联网项目很方便。</div></div></div></section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-zouic py-8 mt-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a class="navbar-brand mb-3 d-inline-block" href="/"><i class="fas fa-microchip"></i> ZouIC</a>
+                    <p class="text-secondary text-sm">全球开源开发板 Demo 聚合平台，提供开发板数据库、项目搜索、技术文档一站式硬件开发资源。</p>
+                    <span class="badge badge-primary">SYS.STATUS: OPERATIONAL</span>
+                </div>
+                <div class="col-lg-2 col-6 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">产品</h6>
+                    <ul class="list-unstyled text-sm">
+                        <li><a class="text-secondary" href="/boards/">开发板库</a></li>
+                        <li><a class="text-secondary" href="/projects/">Demo项目</a></li>
+                        <li><a class="text-secondary" href="/compare/">参数对比</a></li>
+                        <li><a class="text-secondary" href="/board-guide/">文档中心</a></li>
+                    </ul></div>
+                <div class="col-lg-2 col-6 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">资源</h6>
+                    <ul class="list-unstyled text-sm">
+                        <li><a class="text-secondary" href="/tutorials/">开发板教程</a></li>
+                        <li><a class="text-secondary" href="/documentation/">技术文档</a></li>
+                        <li><a class="text-secondary" href="/articles/">技术文章</a></li>
+                        <li><a class="text-secondary" href="/open-source/">开源项目</a></li>
+                    </ul></div>
+                <div class="col-lg-4 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">社区</h6>
+                    <p class="text-secondary text-sm">与硬件开发者同行，贡献开发板 / 项目，共建开源硬件生态。</p>
+                    <a class="btn-zouic btn-zouic-primary btn-zouic-sm" href="/contribute/"><i class="fas fa-handshake me-1"></i> 贡献指南</a></div>
+            </div>
+            <hr class="border-secondary opacity-25">
+            <div class="d-flex justify-content-between flex-wrap text-gray-400 text-sm">
+                <span>© 2026 ZouIC // OPEN HARDWARE DEMO HUB</span>
+                <span>POWERED BY OPEN SOURCE // v2.0</span>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

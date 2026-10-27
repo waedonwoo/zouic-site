@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="ESP32 与 STM32 是两类定位完全不同的芯片：一个主打无线连接与生态，一个主打实时控制与性能。本文用真实参数对比，帮你按项目需求做选择。">
+    <meta name="keywords" content="ESP32,STM32,开发板选型,ESP32-S3,STM32F103,无线,RTOS">
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <link rel="canonical" href="https://www.zouic.com/articles/esp32-vs-stm32">
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/articles/esp32-vs-stm32" />
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/esp32-vs-stm32" />
+    <meta property="og:title" content="ESP32 vs STM32：2026 开发板怎么选？">
+    <meta property="og:description" content="ESP32 与 STM32 是两类定位完全不同的芯片：一个主打无线连接与生态，一个主打实时控制与性能。本文用真实参数对比，帮你按项目需求做选择。">
+    <meta property="og:url" content="https://www.zouic.com/articles/esp32-vs-stm32">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ESP32 vs STM32：2026 开发板怎么选？">
+    <meta name="twitter:description" content="ESP32 与 STM32 是两类定位完全不同的芯片：一个主打无线连接与生态，一个主打实时控制与性能。本文用真实参数对比，帮你按项目需求做选择。">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "ESP32 vs STM32：2026 开发板怎么选？", "description": "ESP32 与 STM32 是两类定位完全不同的芯片：一个主打无线连接与生态，一个主打实时控制与性能。本文用真实参数对比，帮你按项目需求做选择。", "about": "ESP32,STM32,开发板选型,ESP32-S3,STM32F103,无线,RTOS", "author": {"@type": "Person", "name": "极客微栋 GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "inLanguage": "zh-CN", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "image": "https://www.zouic.com/static/images/og-cover.jpg", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/esp32-vs-stm32/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "首页", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "技术文章", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/esp32-vs-stm32/", "name": "ESP32 vs STM32：2026 开发板怎么选？", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ESP32 能替代 STM32 吗？", "acceptedAnswer": {"@type": "Answer", "text": "不能简单替代。ESP32 主频更高、带无线，但实时外设和确定性不如 STM32；涉及精确时序的控制仍建议 STM32。"}}, {"@type": "Question", "name": "新手先学 ESP32 还是 STM32？", "acceptedAnswer": {"@type": "Answer", "text": "想做物联网 / 联网项目从 ESP32 入手最快；想打牢嵌入式基础、做控制类项目从 STM32 更系统。"}}, {"@type": "Question", "name": "ESP32-S3 和 ESP32 老款差在哪？", "acceptedAnswer": {"@type": "Answer", "text": "S3 是双核、带 AI 指令扩展、USB 原生支持，更适合边缘 AI 与人机交互；老款 ESP32 单核、性价比仍在。"}}]}]}
+    </script>
+    <title>ESP32 vs STM32：2026 开发板怎么选？ - ZouIC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261024b">
+    
+    <style>
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255,255,255,0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-6); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0,229,255,0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255,0,110,0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167,139,250,0.3); }
+        .text-green-500 { color: #10b981; }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .article-body p { line-height: 1.9; margin-bottom: 1.1rem; color: var(--color-text-primary); }
+        .article-body ul, .article-body ol { line-height: 1.9; margin-bottom: 1.1rem; }
+        .article-body li { margin-bottom: .4rem; }
+        .article-body table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .95rem; }
+        .article-body th, .article-body td { border: 1px solid var(--color-border-default); padding: .7rem .9rem; text-align: left; }
+        .article-body th { background: var(--color-bg-tertiary); color: var(--color-primary); }
+        .article-body code { background: rgba(0,229,255,0.1); color: var(--color-primary); padding: .1rem .4rem; border-radius: 6px; font-family: 'Share Tech Mono', monospace; }
+        .article-body a { color: var(--color-primary); text-decoration: none; border-bottom: 1px dashed rgba(0,229,255,0.4); }
+        .article-body a:hover { color: var(--color-secondary); }
+        .faq-item { border-bottom: 1px solid var(--color-border-default); padding: 1rem 0; }
+        .faq-q { font-weight: 600; color: var(--color-text-primary); margin-bottom: .4rem; }
+        .faq-a { color: var(--color-text-secondary); line-height: 1.8; }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261023b">
+
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+    
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航">
+        <div class="container">
+            <a class="navbar-brand" href="/"><i class="fas fa-microchip"></i> ZouIC</a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/boards/">开发板库</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projects/">Demo项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/all-projects/">外部平台项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/articles/">技术文章</a></li>
+                </ul>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文</button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/articles/esp32-vs-stm32/"><i class="fas fa-language me-2"></i> 中文</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main id="main-content">
+        <section class="page-hero page-hero-articles py-16">
+            <div class="container text-center">
+                <span class="badge badge-primary mb-3">免费公开 · 欢迎转发</span>
+                <h1 class="display-4 font-bold mb-4">ESP32 vs STM32：2026 开发板怎么选？</h1>
+                <p class="text-secondary lead">无线派 vs 控制派，一张表说清</p>
+            </div>
+        </section>
+        <section class="py-8">
+            <div class="container article-body" style="max-width: 960px;">
+                <nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0">
+                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/articles/">技术文章</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">ESP32 vs STM32：2026 开发板怎么选？</li>
+                </ol></nav>
+                
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">先说结论：它们不是替代关系</h2>
+            <p>很多新手纠结「ESP32 好还是 STM32 好」，其实两者<strong>定位不同</strong>。ESP32 是乐鑫（Espressif）的<strong>Wi-Fi + 蓝牙 SoC</strong>，强在连接与软件生态；STM32 是意法半导体（ST）的<strong>Arm Cortex-M 微控制器</strong>家族，强在实时性、外设与性能梯度。选错不是性能不够，而是「用大炮打蚊子」或「小马拉大车」。</p>
+        </div>
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">核心参数对比</h2>
+            <table>
+                <thead><tr><th>维度</th><th>ESP32-S3</th><th>STM32F103C8T6（Blue Pill）</th></tr></thead>
+                <tbody>
+                    <tr><td>架构</td><td>Xtensa LX7 双核 240MHz</td><td>Arm Cortex-M3 72MHz</td></tr>
+                    <tr><td>无线</td><td><span class="text-green-500">Wi-Fi 6 + BLE 5.0 内置</span></td><td>无（需外接模块）</td></tr>
+                    <tr><td>Flash / RAM</td><td>8MB / 512KB</td><td>64KB Flash / 20KB RAM</td></tr>
+                    <tr><td>典型价格</td><td>¥30–60</td><td>¥8–15</td></tr>
+                    <tr><td>开发框架</td><td>Arduino、ESP-IDF、MicroPython</td><td>STM32CubeIDE、Arduino（第三方核心）</td></tr>
+                    <tr><td>适合场景</td><td>IoT、智能家居、边缘 AI</td><td>电机控制、传感器采集、实时外设</td></tr>
+                </tbody>
+            </table>
+            <p class="text-sm text-gray-400 mt-3">数据来自站内开发板库：<a href="/board/esp32-s3-devkitc/">ESP32-S3-DevKitC</a> 与 <a href="/board/stm32f103c8t6-blue-pill/">STM32F103C8T6 Blue Pill</a>。</p>
+        </div>
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">按需求选</h2>
+            <ul>
+                <li><strong>要做联网 / 远程控制 / App 交互</strong> → 直接上 ESP32，省掉无线通信的麻烦。</li>
+                <li><strong>要精确时序 / 多路 PWM / 电机驱动</strong> → 选 STM32，实时性与外设更稳。</li>
+                <li><strong>既要无线又要多路控制</strong> → 常见做法是 ESP32 做通信 + STM32 做执行，两者串口配合。</li>
+            </ul>
+        </div>
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">在 ZouIC 上继续看</h2>
+            <p>想横向比更多板子，用 <a href="/compare/">参数对比工具</a>；想找项目灵感，去 <a href="/projects/">Demo 项目库</a>；完整清单见 <a href="/boards/">开发板库</a>。</p>
+        </div>
+        
+<section class="py-6"><div class="card-dark p-6"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>ESP32 能替代 STM32 吗？</div><div class="faq-a">不能简单替代。ESP32 主频更高、带无线，但实时外设和确定性不如 STM32；涉及精确时序的控制仍建议 STM32。</div></div><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>新手先学 ESP32 还是 STM32？</div><div class="faq-a">想做物联网 / 联网项目从 ESP32 入手最快；想打牢嵌入式基础、做控制类项目从 STM32 更系统。</div></div><div class="faq-item"><div class="faq-q"><i class="fas fa-circle-question text-secondary me-2"></i>ESP32-S3 和 ESP32 老款差在哪？</div><div class="faq-a">S3 是双核、带 AI 指令扩展、USB 原生支持，更适合边缘 AI 与人机交互；老款 ESP32 单核、性价比仍在。</div></div></div></section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-zouic py-8 mt-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a class="navbar-brand mb-3 d-inline-block" href="/"><i class="fas fa-microchip"></i> ZouIC</a>
+                    <p class="text-secondary text-sm">全球开源开发板 Demo 聚合平台，提供开发板数据库、项目搜索、技术文档一站式硬件开发资源。</p>
+                    <span class="badge badge-primary">SYS.STATUS: OPERATIONAL</span>
+                </div>
+                <div class="col-lg-2 col-6 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">产品</h6>
+                    <ul class="list-unstyled text-sm">
+                        <li><a class="text-secondary" href="/boards/">开发板库</a></li>
+                        <li><a class="text-secondary" href="/projects/">Demo项目</a></li>
+                        <li><a class="text-secondary" href="/compare/">参数对比</a></li>
+                        <li><a class="text-secondary" href="/board-guide/">文档中心</a></li>
+                    </ul></div>
+                <div class="col-lg-2 col-6 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">资源</h6>
+                    <ul class="list-unstyled text-sm">
+                        <li><a class="text-secondary" href="/tutorials/">开发板教程</a></li>
+                        <li><a class="text-secondary" href="/documentation/">技术文档</a></li>
+                        <li><a class="text-secondary" href="/articles/">技术文章</a></li>
+                        <li><a class="text-secondary" href="/open-source/">开源项目</a></li>
+                    </ul></div>
+                <div class="col-lg-4 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">社区</h6>
+                    <p class="text-secondary text-sm">与硬件开发者同行，贡献开发板 / 项目，共建开源硬件生态。</p>
+                    <a class="btn-zouic btn-zouic-primary btn-zouic-sm" href="/contribute/"><i class="fas fa-handshake me-1"></i> 贡献指南</a></div>
+            </div>
+            <hr class="border-secondary opacity-25">
+            <div class="d-flex justify-content-between flex-wrap text-gray-400 text-sm">
+                <span>© 2026 ZouIC // OPEN HARDWARE DEMO HUB</span>
+                <span>POWERED BY OPEN SOURCE // v2.0</span>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
