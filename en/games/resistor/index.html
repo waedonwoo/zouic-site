@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Free 60-second game: read 4-band and 5-band resistor color codes against the clock. Includes a printable color-code cheat sheet and reading-trap tips.">
+    <meta name="keywords" content="resistor color code, color code calculator, 4 band resistor, 5 band resistor, electronics quiz, hardware engineer game">
+    
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    
+    
+    
+    
+    <link rel="canonical" href="https://www.zouic.com/en/games/resistor">
+    
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/games/resistor" />
+    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/games/resistor" />
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/games/resistor" />
+    
+    
+    
+    
+    <meta property="og:title" content="Resistor Color Code Challenge — 60-Second Quiz for Hardware Engineers">
+    <meta property="og:description" content="Free 60-second game: read 4-band and 5-band resistor color codes against the clock. Includes a printable color-code cheat sheet and reading-trap tips.">
+    <meta property="og:url" content="https://www.zouic.com/en/games/resistor">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    
+    
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ZouIC open source development board platform · GeekWeidong">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Resistor Color Code Challenge — 60-Second Quiz for Hardware Engineers">
+    <meta name="twitter:description" content="Free 60-second game: read 4-band and 5-band resistor color codes against the clock. Includes a printable color-code cheat sheet and reading-trap tips.">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "applicationCategory": "Game", "browserRequirements": "Requires JavaScript", "description": "Free 60-second game: read 4-band and 5-band resistor color codes against the clock. Includes a printable color-code cheat sheet and reading-trap tips.", "inLanguage": "en", "name": "Resistor Color Code Challenge", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}, "operatingSystem": "Any", "url": "https://www.zouic.com/en/games/resistor/"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "For a 4-band resistor: band 1 and 2 are significant digits, band 3 is the multiplier (power of ten), band 4 is tolerance. A 5-band resistor adds one more significant digit."}, "name": "How do you read a resistor color code?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "The tolerance band (gold, silver or brown) sits slightly farther from its neighbour and closer to the lead end. Gold and silver never appear as the first band."}, "name": "How can I tell which end of the resistor to start reading from?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "SMD resistors use printed digits instead of colors: three digits mean two significant figures plus a multiplier, e.g. 103 = 10\u00d710\u00b3 = 10 k\u03a9."}, "name": "How do SMD resistors show their value?"}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/en/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/en/games/resistor/", "name": "Games", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/en/games/resistor/", "name": "Resistor Color Code Challenge", "position": 3}]}]}
+    </script>
+    
+    
+    <title>Resistor Color Code Challenge — 60-Second Quiz for Hardware Engineers</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    
+    <!-- External Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    
+    <!-- ZouIC Design System -->
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261027a">
+    <noscript>
+        <style>
+            /* 关闭 JS 时不要因为滚动动画而隐藏内容 */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028a">
+    
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand" href="/en/">
+                <i class="fas fa-microchip"></i> ZouIC
+            </a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
+                <span class="nav-hud-dot"></span>SYS.ONLINE
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/en/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/all-projects/"><i class="fas fa-project-diagram me-1"></i>Open Source Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/boards/">Open Source Boards</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/board-guide/">Documentation</a></li>
+                    <li class="nav-item dropdown">
+                        <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/en/products/"><i class="fas fa-box me-2"></i>Products</a></li>
+                            <li><a class="dropdown-item" href="/en/services/"><i class="fas fa-cogs me-2"></i>Services</a></li>
+                            <li><a class="dropdown-item" href="/en/news/"><i class="fas fa-newspaper me-2"></i>Site Updates</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li>
+                            <li><a class="dropdown-item" href="/en/documentation/"><i class="fas fa-book me-2"></i>Documentation</a></li>
+                            <li><a class="dropdown-item" href="/en/cases/"><i class="fas fa-briefcase me-2"></i>Project Cases</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/open-source/"><i class="fas fa-code-branch me-2"></i>Open Source Projects</a></li>
+                            <li><a class="dropdown-item" href="/en/articles/"><i class="fas fa-pen-fancy me-2"></i>Articles</a></li>
+                            <li><a class="dropdown-item" href="/en/contribute/"><i class="fas fa-handshake me-2"></i>Contribute</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/dashuju/"><i class="fas fa-chart-line me-2"></i>Data Dashboard</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-lg-none"><a class="nav-link" href="/en/search/"><i class="fas fa-search me-1"></i>Search</a></li>
+                </ul>
+                <form id="searchForm" class="d-flex me-3 d-none d-lg-flex">
+                    <div class="input-group input-group-zouic">
+                        <input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="Search boards, projects or keywords..." aria-label="Search" style="width: 200px;">
+                        <select id="searchType" class="form-select input-zouic" aria-label="Search Type:" style="width: auto; flex: 0 0 auto;">
+                            <option value="">All Categories</option>
+                            <option value="board">Open Source Boards</option>
+                            <option value="project">Open Source Projects</option>
+                        </select>
+                        <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Search">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i> English
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/games/resistor/">
+                                <i class="fas fa-language me-2"></i> 中文
+                            </a></li>
+                            <li><a class="dropdown-item" href="/en/games/resistor/">
+                                <i class="fas fa-language me-2"></i> English
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        
+<style>
+.rz-hero { padding: 3rem 0 1.5rem; text-align: center; }
+.rz-hero h1 { font-size: 2rem; font-weight: 800; margin-bottom: .5rem; }
+.rz-hero p { color: var(--color-text-secondary, #9aa4b2); max-width: 560px; margin: 0 auto; }
+.rz-panel { max-width: 720px; margin: 0 auto; background: rgba(13,20,32,.72); border: 1px solid rgba(0,229,255,.18); border-radius: 16px; padding: 1.5rem; }
+.rz-hud { display: flex; justify-content: space-between; gap: .75rem; flex-wrap: wrap; margin-bottom: 1rem; font-family: 'Share Tech Mono', monospace; }
+.rz-hud .rz-stat { background: rgba(0,229,255,.08); border: 1px solid rgba(0,229,255,.22); border-radius: 8px; padding: .35rem .8rem; font-size: .95rem; }
+.rz-hud .rz-stat strong { color: #00e5ff; margin-left: .35rem; }
+.rz-timebar { height: 6px; background: rgba(255,255,255,.08); border-radius: 3px; overflow: hidden; margin-bottom: 1.25rem; }
+.rz-timebar > div { height: 100%; width: 100%; background: linear-gradient(90deg,#00e5ff,#7c4dff); transition: width .2s linear; }
+.rz-stage { display: flex; justify-content: center; padding: 1.5rem 0 1.75rem; }
+.rz-resistor { display: flex; align-items: center; width: 100%; max-width: 460px; }
+.rz-lead { flex: 1; height: 6px; background: linear-gradient(180deg,#cfd8dc,#90a4ae); border-radius: 3px; }
+.rz-body { position: relative; width: 62%; height: 92px; background: linear-gradient(180deg,#e8d5a8 0%,#d9bd82 45%,#c9a96b 100%); border-radius: 26px; box-shadow: inset 0 -8px 14px rgba(0,0,0,.18), 0 6px 18px rgba(0,0,0,.35); }
+.rz-band { position: absolute; top: 0; bottom: 0; width: 9%; border-radius: 3px; box-shadow: inset -2px 0 3px rgba(0,0,0,.15); }
+.rz-answers { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.rz-answers button { padding: .9rem .5rem; font-family: 'Share Tech Mono', monospace; font-size: 1.05rem; background: rgba(255,255,255,.05); border: 1px solid rgba(0,229,255,.25); border-radius: 10px; color: #e8eef5; cursor: pointer; transition: all .15s; }
+.rz-answers button:hover { background: rgba(0,229,255,.14); transform: translateY(-2px); }
+.rz-answers button.rz-right { background: rgba(46,204,113,.28); border-color: #2ecc71; }
+.rz-answers button.rz-wrong { background: rgba(231,76,60,.28); border-color: #e74c3c; }
+.rz-answers button:disabled { cursor: default; opacity: .85; }
+.rz-mode { font-size: .8rem; color: #9aa4b2; text-align: center; margin-top: .75rem; }
+.rz-mode .badge { background: rgba(124,77,255,.2); border: 1px solid rgba(124,77,255,.45); color: #c3b3ff; border-radius: 6px; padding: .15rem .55rem; }
+.rz-overlay { text-align: center; padding: 2rem 1rem; }
+.rz-overlay h2 { font-size: 1.5rem; margin-bottom: .75rem; }
+.rz-overlay .rz-big { font-family: 'Share Tech Mono', monospace; font-size: 3rem; color: #00e5ff; margin: .5rem 0; }
+.rz-overlay .rz-tier { font-size: 1.1rem; color: #ffc107; margin-bottom: 1rem; }
+.rz-overlay p { color: #9aa4b2; }
+.rz-btnrow { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; margin-top: 1.25rem; }
+.rz-guide { max-width: 720px; margin: 3rem auto 0; }
+.rz-guide h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+.rz-guide h3 { font-size: 1.05rem; margin: 1.5rem 0 .5rem; color: #00e5ff; }
+.rz-guide p, .rz-guide li { color: #b9c2cf; line-height: 1.8; font-size: .95rem; }
+.rz-table { width: 100%; border-collapse: collapse; font-size: .85rem; margin: .75rem 0; }
+.rz-table th, .rz-table td { border: 1px solid rgba(255,255,255,.1); padding: .4rem .5rem; text-align: center; }
+.rz-table th { background: rgba(0,229,255,.1); }
+.rz-chip { display: inline-block; width: 14px; height: 14px; border-radius: 3px; vertical-align: -2px; margin-right: 6px; border: 1px solid rgba(255,255,255,.25); }
+.rz-next { margin-top: 2rem; padding: 1.1rem 1.25rem; border: 1px dashed rgba(0,229,255,.35); border-radius: 12px; text-align: center; }
+@media (max-width: 540px) { .rz-answers { grid-template-columns: 1fr; } .rz-body { height: 76px; } }
+</style>
+
+<section class="rz-hero">
+    <h1>Resistor Color Code Challenge</h1>
+    <p>A 60-second sprint: read resistor values and tolerances from the color bands. Streaks earn bonus points.</p>
+</section>
+
+<div class="container pb-4">
+    <div class="rz-panel">
+        <div class="rz-hud">
+            <span class="rz-stat">Score<strong id="rzScore">0</strong></span>
+            <span class="rz-stat">Streak<strong id="rzStreak">0</strong></span>
+            <span class="rz-stat">Time<strong id="rzTime">60</strong>s</span>
+        </div>
+        <div class="rz-timebar"><div id="rzBar"></div></div>
+
+        <div id="rzStart" class="rz-overlay">
+            <h2>Ready?</h2>
+            <p>Rules: pick 1 of 4 answers. Correct = +10 pts, each extra streak adds +2 (cap +10). A wrong answer resets your streak. After 5 straight correct answers, 5-band resistors start to appear.</p>
+            <p id="rzBestRow" style="display:none">Personal best: <strong id="rzBest" class="text-info">0</strong></p>
+            <div class="rz-btnrow">
+                <button class="btn btn-primary btn-lg" id="rzStartBtn">Start</button>
+            </div>
+        </div>
+
+        <div id="rzPlay" style="display:none">
+            <div class="rz-stage">
+                <div class="rz-resistor">
+                    <div class="rz-lead"></div>
+                    <div class="rz-body" id="rzBody"></div>
+                    <div class="rz-lead"></div>
+                </div>
+            </div>
+            <div class="rz-answers" id="rzAnswers"></div>
+            <div class="rz-mode"><span class="badge" id="rzMode">4 bands</span></div>
+        </div>
+
+        <div id="rzEnd" class="rz-overlay" style="display:none">
+            <h2>Time is up!</h2>
+            <div class="rz-big" id="rzFinal">0</div>
+            <div class="rz-tier" id="rzTier"></div>
+            <p id="rzSummary"></p>
+            <p id="rzNewBest" style="color:#2ecc71;display:none">New personal best!</p>
+            <div class="rz-btnrow">
+                <button class="btn btn-outline-light" id="rzShareBtn">Copy result</button>
+                <button class="btn btn-primary" id="rzAgainBtn">Play again</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="rz-guide">
+        <h2>Resistor color code cheat sheet</h2>
+        <p>4-band resistors: bands 1-2 are significant digits, band 3 is the multiplier (power of ten), band 4 is tolerance. 5-band resistors add one more significant digit: bands 1-3 are digits, band 4 the multiplier, band 5 the tolerance.</p>
+        <table class="rz-table">
+            <thead><tr>
+                <th>Color</th><th>Digit</th>
+                <th>Multiplier</th><th>Tolerance</th>
+            </tr></thead>
+            <tbody id="rzTableBody"></tbody>
+        </table>
+        <h3>The three most common misreads</h3>
+        <ul>
+            <li>Finding the starting end: the tolerance band (gold/silver/brown) is spaced farther from its neighbour and sits closer to the lead end. Gold and silver never appear as band 1.</li>
+            <li>On 5-band resistors the third digit band is easily mistaken for the multiplier — count the bands before you read.</li>
+            <li>SMD resistors use printed digits instead of colors: 103 = 10×10³ = 10 kΩ; four-digit parts simply add one more significant digit.</li>
+        </ul>
+        <div class="rz-next">
+            <p class="mb-2">Resistors done — now pick the right dev board:</p>
+            <a href="/en/articles/board-selection-cheatsheet/" class="btn btn-outline-info btn-sm">One-page cheatsheet: which board for which project</a>
+        </div>
+    </div>
+</div>
+
+<script id="rz-i18n" type="application/json">
+{
+    "correct": "Correct!",
+    "wrong": "Wrong \u2014 the answer was ",
+    "bands4": "4 bands",
+    "bands5": "5 bands",
+    "summaryTpl": "{n} correct \u00b7 best streak {s}",
+    "tier1": "Bench Rookie",
+    "tier2": "Line Inspector",
+    "tier3": "Lab Veteran",
+    "tier4": "Human Resistor Decoder",
+    "shareTpl": "I scored {score} pts ({tier}) in the ZouIC Resistor Color Code Challenge \u2014 how many can you read in 60 seconds? https://www.zouic.com/en/games/resistor/",
+    "copied": "Copied \u2014 paste it anywhere",
+    "colorNames": "Black,Brown,Red,Orange,Yellow,Green,Blue,Violet,Grey,White,Gold,Silver"
+}
+</script>
+<script src="/static/js/resistor-game.js?v=20261028a" defer></script>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Newsletter Section (首页已有完整关注区，不重复) -->
+    
+    <section class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h3 class="text-xl font-bold mb-2">Follow @GeekWaedon for Weekly Updates</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">Board picks, project breakdowns and hardware engineering tips, first published on WeChat and Knowledge Planet.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <a href="/en/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">See How to Follow</a>
+                        <div class="newsletter-benefits">
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Weekly curated board picks</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Exclusive project deep-dives</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Updated on WeChat and Knowledge Planet</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="py-4" aria-label="Produced by">
+        <div class="author-card">
+            <div class="author-card-info">
+                <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
+                <div>
+                    <div class="author-card-name">Created by GeekWaedon <span>@GeekWaedon</span></div>
+                    <div class="author-card-bio">Hardware maker and AI practitioner. This entire website was built hands-on with AI tools.</div>
+                </div>
+            </div>
+            <div class="author-card-actions">
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Join my Knowledge Planet</a>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;GeekWaedon&#34;</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-zouic" role="contentinfo">
+        <div class="container">
+            <div class="row footer-main">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
+                    <a href="/en/" class="footer-brand" aria-label="ZouIC home">
+                        <i class="fas fa-microchip"></i>
+                        <span>ZouIC</span>
+                    </a>
+                    <p class="footer-tagline">Quality open hardware projects from platforms worldwide · For developer reference only</p>
+
+                    <div class="footer-meta">
+                        <p class="footer-author">
+                            Produced by · <strong>GeekWaedon</strong>
+                            <span class="footer-author-handle">@GeekWaedon</span>
+                        </p>
+                        <div class="footer-slash-tags">
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware enthusiast</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI practitioner</span>
+                            <a href="/en/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom service provider">
+                                <i class="fab fa-weixin"></i> WeCom service provider
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a>
+                        <a href="/en/#follow" class="footer-social-link" aria-label="WeChat Official Account · GeekWaedon" title="WeChat Official Account · GeekWaedon"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a>
+                        <a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a>
+                        <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="/en/products/">Products</a></li>
+                        <li><a href="/en/services/">Services</a></li>
+                        <li><a href="/en/services/website-building/">Website building</a></li>
+                        <li><a href="/en/news/">Site Updates</a></li>
+                        <li><a href="/en/boards/">Development Boards</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="/en/board-guide/">Board selection guide</a></li>
+                        <li><a href="/en/compare/">Board comparison</a></li>
+                        <li><a href="/en/tutorials/">Tutorials</a></li>
+                        <li><a href="/en/documentation/">Documentation</a></li>
+                        <li><a href="/en/cases/">Project Cases</a></li>
+                        <li><a href="/en/help/">Documentation</a></li>
+                        <li><a href="/en/games/resistor/">Resistor Color Code Challenge</a></li>
+                        <li><a href="/en/dashuju/">Data Dashboard</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Open Source</h5>
+                    <ul>
+                        <li><a href="/en/open-source/">Open Source Projects</a></li>
+                        <li><a href="/en/all-projects/">All projects</a></li>
+                        <li><a href="/en/articles/">Articles</a></li>
+                        <li><a href="/en/contribute/">Contribute</a></li>
+                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h5>About</h5>
+                    <ul>
+                        <li><a href="/en/about/">About Us</a></li>
+                        <li><a href="/en/about/#contact">Contact Us</a></li>
+                        <li><a href="/en/licenses/">Open Source Licenses</a></li>
+                        <li><a href="/en/about/#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ZouIC. All rights reserved.</p>
+                <p>Projects aggregated here are for developer reference only: ZouIC indexes them and hosts no code or files; copyright and licensing stay with their authors. For details, see the <a href="/en/licenses/">Open Source Licenses</a> page.</p>
+                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // 先把 html 标记为 reveal-ready，CSS 才隐藏"未进入视口"的区块；
+            // 若观察器异常，2 秒后兜底全部显示，避免整屏空白。
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Copied';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Removed from favorites');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Saved to favorites');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+</body>
+</html>
