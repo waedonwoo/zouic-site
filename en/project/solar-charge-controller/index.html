@@ -22,7 +22,9 @@
     <link rel="canonical" href="https://www.zouic.com/en/project/solar-charge-controller">
     
     <link rel="alternate" hreflang="zh" href="https://www.zouic.com/project/solar-charge-controller" />
+    
     <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/project/solar-charge-controller" />
+    
     <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/project/solar-charge-controller" />
     
     
@@ -102,7 +104,7 @@
         .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
         @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
     </style>
-    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028a">
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028e">
     
 </head>
 <body>
@@ -133,6 +135,7 @@
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="/en/products/"><i class="fas fa-box me-2"></i>Products</a></li>
                             <li><a class="dropdown-item" href="/en/services/"><i class="fas fa-cogs me-2"></i>Services</a></li>
+                            <li><a class="dropdown-item" href="/en/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li>
                             <li><a class="dropdown-item" href="/en/news/"><i class="fas fa-newspaper me-2"></i>Site Updates</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="/en/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li>
@@ -294,8 +297,8 @@
                     </div>
 
                     <div class="card-dark p-6">
-                        <h3 class="font-bold mb-3">交流与反馈</h3>
-                        <p class="text-secondary mb-4" style="font-size:14px;">这个项目是站内示例，源码与细节持续补充中。有问题或想复刻，欢迎到知识星球或公众号交流。</p>
+                        <h3 class="font-bold mb-3">Questions and feedback</h3>
+                        <p class="text-secondary mb-4" style="font-size:14px;">This is an in-site sample project; source code and details are being expanded. If you have questions or want to rebuild it, reach out on Knowledge Planet or WeChat.</p>
                         <div class="d-flex gap-2 flex-wrap">
                             <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><i class="fas fa-star me-1"></i>Knowledge Planet</a>
                             <a href="/en/#follow" class="btn btn-outline-light btn-sm"><i class="fab fa-weixin me-1"></i>WeChat Official Account</a>
@@ -310,13 +313,13 @@
                         <div class="space-y-2">
                             
                             <a href="/en/board/esp32-s3-devkitc/" class="d-flex items-center gap-3 p-2 rounded hover:bg-dark transition-colors">
-                                <span class="badge badge-accent">ESP32</span>
+                                <span class="badge badge-accent">Xtensa</span>
                                 <span>ESP32-S3-DevKitC</span>
                             </a>
                             
-                            <a href="/en/board/stm32f407zgt6-discovery/" class="d-flex items-center gap-3 p-2 rounded hover:bg-dark transition-colors">
+                            <a href="/en/board/stm32f407vgt6-discovery/" class="d-flex items-center gap-3 p-2 rounded hover:bg-dark transition-colors">
                                 <span class="badge badge-accent">STM32</span>
-                                <span>STM32F407ZGT6 Discovery</span>
+                                <span>STM32F407VGT6 Discovery</span>
                             </a>
                             
                         </div>
@@ -333,7 +336,7 @@
                                     <span class="font-semibold">Motor PID Controller</span>
                                     <div class="flex gap-1">
                                         
-                                        <span class="text-xs badge badge-primary">工业</span>
+                                        <span class="text-xs badge badge-primary">Industrial</span>
                                         
                                     </div>
                                 </div>
@@ -344,7 +347,7 @@
                                     <span class="font-semibold">CAN Bus Data Acquisition</span>
                                     <div class="flex gap-1">
                                         
-                                        <span class="text-xs badge badge-primary">工业</span>
+                                        <span class="text-xs badge badge-primary">Industrial</span>
                                         
                                     </div>
                                 </div>
@@ -522,6 +525,7 @@
                         <li><a href="/en/products/">Products</a></li>
                         <li><a href="/en/services/">Services</a></li>
                         <li><a href="/en/services/website-building/">Website building</a></li>
+                        <li><a href="/en/services/component-matching/">元器件撮合</a></li>
                         <li><a href="/en/news/">Site Updates</a></li>
                         <li><a href="/en/boards/">Development Boards</a></li>
                     </ul>
@@ -545,6 +549,7 @@
                         <li><a href="/en/open-source/">Open Source Projects</a></li>
                         <li><a href="/en/all-projects/">All projects</a></li>
                         <li><a href="/en/articles/">Articles</a></li>
+                        
                         <li><a href="/en/contribute/">Contribute</a></li>
                         <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                     </ul>
@@ -557,6 +562,13 @@
                         <li><a href="/en/licenses/">Open Source Licenses</a></li>
                         <li><a href="/en/about/#privacy">Privacy Policy</a></li>
                     </ul>
+                </div>
+            </div>
+            <div class="footer-producer-bar">
+                <img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
+                <div style="line-height:1.6;">
+                    <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div>
+                    <div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/en/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div>
                 </div>
             </div>
             <div class="footer-bottom">

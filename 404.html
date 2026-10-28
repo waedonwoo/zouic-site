@@ -85,7 +85,7 @@
         .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
         @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
     </style>
-    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028a">
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028e">
     
 </head>
 <body>
@@ -116,6 +116,7 @@
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li>
                             <li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li>
+                            <li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li>
                             <li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li>
@@ -166,14 +167,31 @@
 
     <main id="main-content">
         
-<div class="container mt-8 text-center">
-    <div class="mb-6">
-        <i class="fas fa-exclamation-triangle text-6xl" style="color: #f59e0b;"></i>
+<section class="py-16">
+    <div class="container text-center" style="max-width: 820px;">
+        <div class="badge-zouic badge-zouic-primary mb-4">ERROR 404 // SIGNAL LOST</div>
+        <h1 class="text-4xl font-bold mb-3">404 - 页面未找到</h1>
+        <p class="text-secondary mb-6">抱歉，您访问的页面不存在或已被删除。</p>
+
+        <form action="/search/" method="get" class="error-search mx-auto mb-5" role="search">
+            <input type="search" name="q" class="input-zouic" autocomplete="off"
+                   placeholder="搜索开发板、项目或技术关键词..."
+                   aria-label="搜索开发板、项目或技术关键词...">
+            <button type="submit" class="btn-zouic btn-zouic-primary">
+                <i class="fas fa-search me-1" aria-hidden="true"></i>搜索
+            </button>
+        </form>
+
+        <div class="d-flex justify-content-center flex-wrap gap-2">
+            <a href="/" class="btn-zouic">
+                <i class="fas fa-house me-1" aria-hidden="true"></i>返回首页
+            </a>
+            <a href="/boards/" class="btn-zouic">开源开发板</a>
+            <a href="/all-projects/" class="btn-zouic">全部项目</a>
+            <a href="/documentation/" class="btn-zouic">技术文档</a>
+        </div>
     </div>
-    <h1 class="text-4xl font-bold mb-4" style="color: var(--text-primary);">404 - 页面未找到</h1>
-    <p class="text-lg mb-6" style="color: var(--text-secondary);">抱歉，您访问的页面不存在或已被删除。</p>
-    <a href="/" class="btn btn-primary">返回首页</a>
-</div>
+</section>
 
     </main>
 
@@ -262,6 +280,7 @@
                         <li><a href="/products/">产品介绍</a></li>
                         <li><a href="/services/">服务说明</a></li>
                         <li><a href="/services/website-building/">建站服务</a></li>
+                        <li><a href="/services/component-matching/">元器件撮合</a></li>
                         <li><a href="/news/">站内动态</a></li>
                         <li><a href="/boards/">开源开发板</a></li>
                     </ul>
@@ -283,8 +302,9 @@
                     <h5>开源生态</h5>
                     <ul>
                         <li><a href="/open-source/">开源项目</a></li>
-                        <li><a href="/all-projects/">开源项目</a></li>
+                        <li><a href="/all-projects/">全部项目</a></li>
                         <li><a href="/articles/">技术文章</a></li>
+                        <li><a href="/wechat/">公众号专栏</a></li>
                         <li><a href="/contribute/">贡献指南</a></li>
                         <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                     </ul>
@@ -297,6 +317,13 @@
                         <li><a href="/licenses/">开源协议</a></li>
                         <li><a href="/about/#privacy">隐私政策</a></li>
                     </ul>
+                </div>
+            </div>
+            <div class="footer-producer-bar">
+                <img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
+                <div style="line-height:1.6;">
+                    <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div>
+                    <div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div>
                 </div>
             </div>
             <div class="footer-bottom">

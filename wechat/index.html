@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="微信公众号「极客微栋 GeekWaedon」原创文章同步归档，共 13 篇：芯片、工控、AI 与机器人的硬核观察，全部首发于微信，由作者本人同步。">
+    <meta name="author" content="极客微栋 GeekWaedon">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <link rel="canonical" href="https://www.zouic.com/wechat/">
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/wechat/">
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/wechat/">
+    <meta property="og:title" content="公众号专栏 · 极客微栋 GeekWaedon">
+    <meta property="og:description" content="微信公众号原创文章同步归档，共 13 篇。">
+    <meta property="og:url" content="https://www.zouic.com/wechat/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZouIC">
+    <title>公众号专栏 · 极客微栋 GeekWaedon - ZouIC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261024b">
+    
+    <style>
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255,255,255,0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-6); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0,229,255,0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255,0,110,0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167,139,250,0.3); }
+        .text-green-500 { color: #10b981; }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .article-body p { line-height: 1.9; margin-bottom: 1.1rem; color: var(--color-text-primary); }
+        .article-body ul, .article-body ol { line-height: 1.9; margin-bottom: 1.1rem; }
+        .article-body li { margin-bottom: .4rem; }
+        .article-body table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .95rem; }
+        .article-body th, .article-body td { border: 1px solid var(--color-border-default); padding: .7rem .9rem; text-align: left; }
+        .article-body th { background: var(--color-bg-tertiary); color: var(--color-primary); }
+        .article-body code { background: rgba(0,229,255,0.1); color: var(--color-primary); padding: .1rem .4rem; border-radius: 6px; font-family: 'Share Tech Mono', monospace; }
+        .article-body a { color: var(--color-primary); text-decoration: none; border-bottom: 1px dashed rgba(0,229,255,0.4); }
+        .article-body a:hover { color: var(--color-secondary); }
+        .faq-item { border-bottom: 1px solid var(--color-border-default); padding: 1rem 0; }
+        .faq-q { font-weight: 600; color: var(--color-text-primary); margin-bottom: .4rem; }
+        .faq-a { color: var(--color-text-secondary); line-height: 1.8; }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261023b">
+
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+    
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航">
+        <div class="container">
+            <a class="navbar-brand" href="/"><i class="fas fa-microchip"></i> ZouIC</a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projects/">开源项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/all-projects/">开源项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://www.zouic.com/wechat/">技术文章</a></li>
+                </ul>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文</button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="https://www.zouic.com/wechat/"><i class="fas fa-language me-2"></i> 中文</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main id="main-content">
+        <section class="page-hero page-hero-articles py-16">
+            <div class="container text-center">
+                <span class="badge badge-primary mb-3"><i class="fab fa-weixin me-1"></i> 公众号专栏</span>
+                <h1 class="display-4 font-bold mb-4">「极客微栋 GeekWaedon」文章归档</h1>
+                <p class="text-secondary lead">芯片 · 工控 · AI · 机器人的硬核观察，全部首发于微信公众号，由作者本人同步至本站。</p>
+                <p class="text-gray-400 mb-0" style="font-size:13px;">
+                    已同步 13 篇 · 约 31262 字
+                    <span class="mx-2">·</span>
+                    <a href="/about/#follow" class="text-primary">微信内搜索「极客微栋」关注</a>
+                </p>
+            </div>
+        </section>
+        <section class="py-8">
+            <div class="container">
+                <nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-4">
+                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">公众号专栏</li>
+                </ol></nav>
+                <div class="row g-4">
+
+            <div class="col-md-6 col-lg-4">
+                <a href="/wechat/ai-20261027/" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <img src="/static/images/wechat/ai-20261027/cover.png" alt="AI没砸饭碗，先把进门那扇门关小了" loading="lazy" referrerpolicy="no-referrer" style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
+                    <h3 class="font-bold mt-3 mb-2" style="font-size:16px;line-height:1.6;">AI没砸饭碗，先把进门那扇门关小了</h3>
+                    <p class="text-secondary mb-2" style="font-size:13px;line-height:1.7;">美国总就业还在涨，但22到25岁、干着最容易被AI接管的活的年轻人，比同龄人少了19%的岗位。缺口不来自裁员，来自不招。</p>
+                    <p class="text-gray-400 mb-0" style="font-size:12px;">
+                        <i class="fas fa-calendar me-1"></i>2026-10-27
+                        <span class="mx-1">·</span>约 2494 字
+                    </p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="/wechat/article-20210714-3ea49a/" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <img src="/static/images/wechat/article-20210714-3ea49a/cover.png" alt="无人机电机是什么？有刷与无刷电机区别解析" loading="lazy" referrerpolicy="no-referrer" style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
+                    <h3 class="font-bold mt-3 mb-2" style="font-size:16px;line-height:1.6;">无人机电机是什么？有刷与无刷电机区别解析</h3>
+                    <p class="text-secondary mb-2" style="font-size:13px;line-height:1.7;">问电机是什么？电机俗称“马达”，是无人机的动力来源，无人机通过改变电机的转速来改变无人机的飞行状态。即改变每</p>
+                    <p class="text-gray-400 mb-0" style="font-size:12px;">
+                        <i class="fas fa-calendar me-1"></i>2021-07-14
+                        <span class="mx-1">·</span>约 926 字
+                    </p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="/wechat/google-call-20200524/" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <img src="/static/images/wechat/google-call-20200524/cover.png" alt="华为硬刚Google，为其皮糙肉厚倾情打Call" loading="lazy" referrerpolicy="no-referrer" style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
+                    <h3 class="font-bold mt-3 mb-2" style="font-size:16px;line-height:1.6;">华为硬刚Google，为其皮糙肉厚倾情打Call</h3>
+                    <p class="text-secondary mb-2" style="font-size:13px;line-height:1.7;">没有伤痕累累，哪来皮糙肉厚，英雄自古多磨难。回头看，崎岖坎坷，向前看，永不言弃。</p>
+                    <p class="text-gray-400 mb-0" style="font-size:12px;">
+                        <i class="fas fa-calendar me-1"></i>2020-05-24
+                        <span class="mx-1">·</span>约 1451 字
+                    </p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="/wechat/article-20200518-8b0882/" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <img src="/static/images/wechat/article-20200518-8b0882/cover.png" alt="天下苦美国霸权欺凌久矣，工业粮食自给自足才是王道" loading="lazy" referrerpolicy="no-referrer" style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
+                    <h3 class="font-bold mt-3 mb-2" style="font-size:16px;line-height:1.6;">天下苦美国霸权欺凌久矣，工业粮食自给自足才是王道</h3>
+                    <p class="text-secondary mb-2" style="font-size:13px;line-height:1.7;">天下库美国霸权欺凌久矣。谈，大门敞开；打，奉陪到底。芯片国产化，工业粮食的自给自足，中国制造2025、新基建、一带一路等也将全面而快速的展开，去美国化在全球共荣体也是迫不得已而为之的。</p>
+                    <p class="text-gray-400 mb-0" style="font-size:12px;">
+                        <i class="fas fa-calendar me-1"></i>2020-05-18
+                        <span class="mx-1">·</span>约 1077 字
+                    </p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="/wechat/article-20200517-8609ff/" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <img src="/static/images/wechat/article-20200517-8609ff/cover.png" alt="拼多多凳子没坐热又换成京东，连段永平王兴都欣赏的男人黄峥如何应对？" loading="lazy" referrerpolicy="no-referrer" style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
+                    <h3 class="font-bold mt-3 mb-2" style="font-size:16px;line-height:1.6;">拼多多凳子没坐热又换成京东，连段永平王兴都欣赏的男人黄峥如何应对？</h3>
+                    <p class="text-secondary mb-2" style="font-size:13px;line-height:1.7;">阿里靠蒋凡，腾讯有张小龙，美团王兴，京东徐雷，拼多多黄峥，今日头条张一鸣，快手宿华，互联网下半场的好戏刚刚开演。连段永平王兴都欣赏的男人黄峥的表演值得一看。</p>
+                    <p class="text-gray-400 mb-0" style="font-size:12px;">
+                        <i class="fas fa-calendar me-1"></i>2020-05-17
+                        <span class="mx-1">·</span>约 1137 字
+                    </p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="/wechat/article-20200505-56e7bd/" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <img src="/static/images/wechat/article-20200505-56e7bd/cover.png" alt="搞枪是不可能搞枪的，这辈子都不可能搞枪" loading="lazy" referrerpolicy="no-referrer" style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
+                    <h3 class="font-bold mt-3 mb-2" style="font-size:16px;line-height:1.6;">搞枪是不可能搞枪的，这辈子都不可能搞枪</h3>
+                    <p class="text-secondary mb-2" style="font-size:13px;line-height:1.7;">搞枪这件事，前浪推后浪，奔涌吧后浪，沙滩是你们的！你所热爱的，就是你的生活！</p>
+                    <p class="text-gray-400 mb-0" style="font-size:12px;">
+                        <i class="fas fa-calendar me-1"></i>2020-05-05
+                        <span class="mx-1">·</span>约 9298 字
+                    </p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="/wechat/article-20200504-8461c8/" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <img src="/static/images/wechat/article-20200504-8461c8/cover.png" alt="再登七娘山，反其道行之，遇见不一样的美景" loading="lazy" referrerpolicy="no-referrer" style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
+                    <h3 class="font-bold mt-3 mb-2" style="font-size:16px;line-height:1.6;">再登七娘山，反其道行之，遇见不一样的美景</h3>
+                    <p class="text-secondary mb-2" style="font-size:13px;line-height:1.7;">我们所热爱的就是我们的生活。</p>
+                    <p class="text-gray-400 mb-0" style="font-size:12px;">
+                        <i class="fas fa-calendar me-1"></i>2020-05-04
+                        <span class="mx-1">·</span>约 1488 字
+                    </p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="/wechat/article-20200503-f62426/" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <img src="/static/images/wechat/article-20200503-f62426/cover.png" alt="货币简史，以史为鉴，数字化货币时代即将启幕" loading="lazy" referrerpolicy="no-referrer" style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
+                    <h3 class="font-bold mt-3 mb-2" style="font-size:16px;line-height:1.6;">货币简史，以史为鉴，数字化货币时代即将启幕</h3>
+                    <p class="text-secondary mb-2" style="font-size:13px;line-height:1.7;">为什么说数字化货币时代即将启幕呢？</p>
+                    <p class="text-gray-400 mb-0" style="font-size:12px;">
+                        <i class="fas fa-calendar me-1"></i>2020-05-03
+                        <span class="mx-1">·</span>约 1488 字
+                    </p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="/wechat/article-20200412-f80ff9/" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <img src="/static/images/wechat/article-20200412-f80ff9/cover.png" alt="科技改变生活，工程师改变世界。但造个呼吸机还是南上加南" loading="lazy" referrerpolicy="no-referrer" style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
+                    <h3 class="font-bold mt-3 mb-2" style="font-size:16px;line-height:1.6;">科技改变生活，工程师改变世界。但造个呼吸机还是南上加南</h3>
+                    <p class="text-secondary mb-2" style="font-size:13px;line-height:1.7;">改变世界工程师却在造个呼吸机的问题上犯了南。</p>
+                    <p class="text-gray-400 mb-0" style="font-size:12px;">
+                        <i class="fas fa-calendar me-1"></i>2020-04-12
+                        <span class="mx-1">·</span>约 2972 字
+                    </p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="/wechat/article-20200405-ef52b5/" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <img src="/static/images/wechat/article-20200405-ef52b5/cover.png" alt="疯狂的呼吸机：如同工业皇冠的芯片制造，国产化任重道远" loading="lazy" referrerpolicy="no-referrer" style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
+                    <h3 class="font-bold mt-3 mb-2" style="font-size:16px;line-height:1.6;">疯狂的呼吸机：如同工业皇冠的芯片制造，国产化任重道远</h3>
+                    <p class="text-secondary mb-2" style="font-size:13px;line-height:1.7;">呼吸机这种医疗设备对可靠性和安全性有着严格要求，在核心零部件上我国国产化程度不高。国内抗击疫情的过程中，国产医疗器械发挥了中流砥柱的作用，倒逼呼吸机、温枪在内的国产医疗器械将加速国产替代进程。</p>
+                    <p class="text-gray-400 mb-0" style="font-size:12px;">
+                        <i class="fas fa-calendar me-1"></i>2020-04-05
+                        <span class="mx-1">·</span>约 4936 字
+                    </p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="/wechat/50-500-99-20200323/" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <img src="/static/images/wechat/50-500-99-20200323/cover.png" alt="疯狂的温枪：价值50却被疯炒到500+，99%的倒爷都没捞着钱。谁当了韭菜？谁又赚了钱？" loading="lazy" referrerpolicy="no-referrer" style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
+                    <h3 class="font-bold mt-3 mb-2" style="font-size:16px;line-height:1.6;">疯狂的温枪：价值50却被疯炒到500+，99%的倒爷都没捞着钱。谁当了韭菜？谁又赚了钱？</h3>
+                    <p class="text-secondary mb-2" style="font-size:13px;line-height:1.7;">新冠病毒肆虐全球，世界防疫大战吹响。口罩、消毒液、温枪等防疫物资必不可少，依然紧俏。既然有价有市，如何低成本“贩枪”或“造枪”？</p>
+                    <p class="text-gray-400 mb-0" style="font-size:12px;">
+                        <i class="fas fa-calendar me-1"></i>2020-03-23
+                        <span class="mx-1">·</span>约 1195 字
+                    </p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="/wechat/article-20200307-da6f03/" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <img src="/static/images/wechat/article-20200307-da6f03/cover.png" alt="疯狂的口罩机：罩罩几时有，口口问青天。苍天绕过谁，口罩难买回" loading="lazy" referrerpolicy="no-referrer" style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
+                    <h3 class="font-bold mt-3 mb-2" style="font-size:16px;line-height:1.6;">疯狂的口罩机：罩罩几时有，口口问青天。苍天绕过谁，口罩难买回</h3>
+                    <p class="text-secondary mb-2" style="font-size:13px;line-height:1.7;">疯狂的口罩机，一罩难求的境况下产业链如同新冠疫情的高烧而不退。我特意抽空梳理了口罩机产业链，顺便安利口罩常识，献给有需要的人。</p>
+                    <p class="text-gray-400 mb-0" style="font-size:12px;">
+                        <i class="fas fa-calendar me-1"></i>2020-03-07
+                        <span class="mx-1">·</span>约 1850 字
+                    </p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="/wechat/article-20200227-a8f7cf/" class="card-dark p-4 text-decoration-none d-block h-100" style="border-radius:12px;">
+                    <img src="/static/images/wechat/article-20200227-a8f7cf/cover.png" alt="一“枪”难求到一“芯”难求，倒爷骗子微商齐扎堆：疯狂的“疫资”" loading="lazy" referrerpolicy="no-referrer" style="width:100%;height:160px;object-fit:cover;border-radius:10px;">
+                    <h3 class="font-bold mt-3 mb-2" style="font-size:16px;line-height:1.6;">一“枪”难求到一“芯”难求，倒爷骗子微商齐扎堆：疯狂的“疫资”</h3>
+                    <p class="text-secondary mb-2" style="font-size:13px;line-height:1.7;">供不应求的现状造成一“枪”难求，测温枪的现货价格水涨船高，倒爷、骗子、微商扎堆于疯狂的“疫资”，你买到枪没？</p>
+                    <p class="text-gray-400 mb-0" style="font-size:12px;">
+                        <i class="fas fa-calendar me-1"></i>2020-02-27
+                        <span class="mx-1">·</span>约 950 字
+                    </p>
+                </a>
+            </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-zouic py-8 mt-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a class="navbar-brand mb-3 d-inline-block" href="/"><i class="fas fa-microchip"></i> ZouIC</a>
+                    <p class="text-secondary text-sm">全球开源硬件聚合平台，提供开发板数据库、项目搜索、技术文档一站式硬件开发资源。</p>
+                    <span class="badge badge-primary">SYS.STATUS: OPERATIONAL</span>
+                </div>
+                <div class="col-lg-2 col-6 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">产品</h6>
+                    <ul class="list-unstyled text-sm">
+                        <li><a class="text-secondary" href="/boards/">开源开发板</a></li>
+                        <li><a class="text-secondary" href="/projects/">开源项目</a></li>
+                        <li><a class="text-secondary" href="/compare/">参数对比</a></li>
+                        <li><a class="text-secondary" href="/board-guide/">文档中心</a></li>
+                    </ul></div>
+                <div class="col-lg-2 col-6 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">资源</h6>
+                    <ul class="list-unstyled text-sm">
+                        <li><a class="text-secondary" href="/tutorials/">开发板教程</a></li>
+                        <li><a class="text-secondary" href="/documentation/">技术文档</a></li>
+                        <li><a class="text-secondary" href="/articles/">技术文章</a></li>
+                        <li><a class="text-secondary" href="/wechat/">公众号专栏</a></li>
+                        <li><a class="text-secondary" href="/open-source/">开源项目</a></li>
+                    </ul></div>
+                <div class="col-lg-4 mb-4"><h6 class="text-uppercase text-gray-400 mb-3">社区</h6>
+                    <p class="text-secondary text-sm">与硬件开发者同行，贡献开发板 / 项目，共建开源硬件生态。</p>
+                    <a class="btn-zouic btn-zouic-primary btn-zouic-sm" href="/contribute/"><i class="fas fa-handshake me-1"></i> 贡献指南</a></div>
+            </div>
+            <hr class="border-secondary opacity-25">
+            <div class="d-flex justify-content-between flex-wrap text-gray-400 text-sm">
+                <span>© 2026 ZouIC // OPEN HARDWARE DEMO HUB</span>
+                <span>POWERED BY OPEN SOURCE // v2.0</span>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="NearLink development documentation, including SDK guides, API reference and sample code">
-    <meta name="keywords" content="NearLink,SDK,API,development documentation">
+    <meta name="description" content="A source-based overview of NearLink/SparkLink, the WS63 (Hi3863) platform and official documentation resources.">
+    <meta name="keywords" content="NearLink,SparkLink,WS63,Hi3863,Hi2821,SLE,OpenHarmony">
     
     <meta name="author" content="ZouIC">
     <meta name="theme-color" content="#00E5FF">
@@ -22,14 +22,16 @@
     <link rel="canonical" href="https://www.zouic.com/en/docs/nearlink">
     
     <link rel="alternate" hreflang="zh" href="https://www.zouic.com/docs/nearlink" />
+    
     <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/docs/nearlink" />
+    
     <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/docs/nearlink" />
     
     
     
     
-    <meta property="og:title" content="NearLink Technology - ZouIC">
-    <meta property="og:description" content="NearLink development documentation, including SDK guides, API reference and sample code">
+    <meta property="og:title" content="NearLink Technology Overview - ZouIC">
+    <meta property="og:description" content="A source-based overview of NearLink/SparkLink, the WS63 (Hi3863) platform and official documentation resources.">
     <meta property="og:url" content="https://www.zouic.com/en/docs/nearlink">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="en_US">
@@ -42,8 +44,8 @@
     <meta property="og:image:alt" content="ZouIC open source development board platform · GeekWeidong">
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="NearLink Technology - ZouIC">
-    <meta name="twitter:description" content="NearLink development documentation, including SDK guides, API reference and sample code">
+    <meta name="twitter:title" content="NearLink Technology Overview - ZouIC">
+    <meta name="twitter:description" content="A source-based overview of NearLink/SparkLink, the WS63 (Hi3863) platform and official documentation resources.">
     <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     
     
@@ -55,7 +57,7 @@
     
     
     
-    <title>NearLink Technology - ZouIC</title>
+    <title>NearLink Technology Overview - ZouIC</title>
     
     <!-- Resource Hints -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -105,7 +107,7 @@
         .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
         @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
     </style>
-    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028a">
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028e">
     
 </head>
 <body>
@@ -136,6 +138,7 @@
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="/en/products/"><i class="fas fa-box me-2"></i>Products</a></li>
                             <li><a class="dropdown-item" href="/en/services/"><i class="fas fa-cogs me-2"></i>Services</a></li>
+                            <li><a class="dropdown-item" href="/en/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li>
                             <li><a class="dropdown-item" href="/en/news/"><i class="fas fa-newspaper me-2"></i>Site Updates</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="/en/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li>
@@ -190,7 +193,7 @@
         <div class="container">
             <div class="text-center text-white">
                 <h1 class="text-4xl font-bold mb-4">NearLink Technology</h1>
-                <p class="text-lg">Huawei NearLink development documentation and SDK guide</p>
+                <p class="text-lg">Technology overview, official hardware and documentation index</p>
             </div>
         </div>
     </section>
@@ -205,22 +208,13 @@
                                 <a href="#overview" class="text-primary hover-underline">Overview</a>
                             </li>
                             <li class="list-group-item bg-dark border-secondary">
-                                <a href="#installation" class="text-primary hover-underline">Setup</a>
+                                <a href="#hardware" class="text-primary hover-underline">Official hardware</a>
                             </li>
                             <li class="list-group-item bg-dark border-secondary">
-                                <a href="#quickstart" class="text-primary hover-underline">Quick start</a>
+                                <a href="#resources" class="text-primary hover-underline">Official resources</a>
                             </li>
                             <li class="list-group-item bg-dark border-secondary">
-                                <a href="#api" class="text-primary hover-underline">API reference</a>
-                            </li>
-                            <li class="list-group-item bg-dark border-secondary">
-                                <a href="#protocol" class="text-primary hover-underline">Protocol</a>
-                            </li>
-                            <li class="list-group-item bg-dark border-secondary">
-                                <a href="#examples" class="text-primary hover-underline">Examples</a>
-                            </li>
-                            <li class="list-group-item bg-dark border-secondary">
-                                <a href="#compatibility" class="text-primary hover-underline">Compatibility testing</a>
+                                <a href="#faq" class="text-primary hover-underline">FAQ</a>
                             </li>
                         </ul>
                     </nav>
@@ -229,377 +223,94 @@
                 <div class="col-lg-9">
                     <div id="overview" class="mb-12">
                         <h2 class="text-2xl font-bold mb-4">Overview</h2>
-                        <p class="text-secondary mb-4">NearLink is Huawei&#39;s new-generation short-range wireless technology. It combines the strengths of Bluetooth and Wi-Fi to deliver lower latency, higher reliability and greater capacity.</p>
+                        <p class="text-secondary mb-4">NearLink (SparkLink) is a short-range wireless standard promoted by the SparkLink Alliance. It defines modes such as SLE (low energy) and SLB (high speed), aiming for a better balance between latency, concurrency and reliability.</p>
                         <div class="card-dark p-6 mb-4">
                             <h3 class="text-lg font-bold mb-3">Technical features</h3>
                             <ul class="list-unstyled space-y-2">
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>Ultra-low latency: end-to-end latency as low as 2 ms</li>
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>High reliability: transmission success rate above 99.9%</li>
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>Large capacity: supports hundreds of concurrent device connections</li>
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>Low power: multiple power modes</li>
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>High security: encrypted communication</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>Low latency: designed for real-time control and interactive use cases</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>High reliability: retransmission and interference-resistance mechanisms</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>Many connections: built for high-density device networks</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>Low power: SLE mode targets battery-powered devices</li>
                             </ul>
                         </div>
                         <div class="card-dark p-6">
-                            <h3 class="text-lg font-bold mb-3">Supported development boards</h3>
-                            <ul class="list-unstyled space-y-2">
-                                <li><i class="fas fa-microchip text-orange-500 mr-2"></i>NearLink DevKit Pro (Hi3881)</li>
-                                <li><i class="fas fa-microchip text-orange-500 mr-2"></i>NearLink Sensor Node (Hi3882)</li>
-                                <li><i class="fas fa-microchip text-orange-500 mr-2"></i>NearLink Gateway (Hi3883)</li>
-                            </ul>
+                            <p class="text-secondary mb-0"><i class="fas fa-circle-info text-primary mr-2"></i>This page only summarizes public vendor documentation and does not publish untested compatibility claims. Check HiSilicon and module vendor documents for final specifications, availability and tooling.</p>
                         </div>
                     </div>
 
-                    <div id="installation" class="mb-12">
-                        <h2 class="text-2xl font-bold mb-4">Setup</h2>
-                        <div class="card-dark p-6 mb-4">
-                            <h3 class="text-lg font-bold mb-3">Hardware requirements</h3>
-                            <ul class="list-unstyled space-y-2 mb-4">
-                                <li><i class="fas fa-desktop text-blue-500 mr-2"></i>A NearLink-capable development board (Hi3881/Hi3882/Hi3883)</li>
-                                <li><i class="fas fa-plug text-primary mr-2"></i>USB-C cable</li>
-                                <li><i class="fas fa-laptop text-blue-500 mr-2"></i>Windows/macOS/Linux host</li>
-                            </ul>
-                        </div>
-                        <div class="card-dark p-6">
-                            <h3 class="text-lg font-bold mb-3">Software installation</h3>
-                            <pre class="bg-black p-4 rounded text-sm overflow-x-auto"><code># 安装Python依赖
-pip install flask flask-sqlalchemy flask-login
-
-# 安装星闪SDK
-pip install nearlink-sdk
-
-# 克隆项目
-git clone https://github.com/waedonwoo/zouic-site.git
-cd zouic-site
-
-# 运行应用
-python run.py</code></pre>
-                        </div>
-                    </div>
-
-                    <div id="quickstart" class="mb-12">
-                        <h2 class="text-2xl font-bold mb-4">Quick start</h2>
-                        <div class="card-dark p-6">
-                            <h3 class="text-lg font-bold mb-3">Step 1: Device discovery</h3>
-                            <pre class="bg-black p-4 rounded text-sm overflow-x-auto mb-4"><code>from app.services.nearlink_sdk import nearlink_sdk
-
-# Start device discovery
-nearlink_sdk.start_discovery(timeout=5)
-
-# 获取发现的设备
-devices = nearlink_sdk.get_discovered_devices()
-for device in devices:
-    print(f"设备: {device.name}, ID: {device.device_id}")</code></pre>
-                            <h3 class="text-lg font-bold mb-3">Step 2: Connect to a device</h3>
-                            <pre class="bg-black p-4 rounded text-sm overflow-x-auto mb-4"><code># Connect to the specified device
-success = nearlink_sdk.connect('nl_device_001')
-if success:
-    print("连接成功")
-else:
-    print("连接失败")</code></pre>
-                            <h3 class="text-lg font-bold mb-3">Step 3: Data transfer</h3>
-                            <pre class="bg-black p-4 rounded text-sm overflow-x-auto"><code># Send data
-data = {'temperature': 25.5, 'humidity': 60}
-success = nearlink_sdk.send_json(data)
-
-# 读取设备信息
-info = nearlink_sdk.read_device_info()
-print(f"设备信息: {info}")</code></pre>
-                        </div>
-                    </div>
-
-                    <div id="api" class="mb-12">
-                        <h2 class="text-2xl font-bold mb-4">API reference</h2>
-                        <div class="card-dark p-6 mb-4">
-                            <h3 class="text-lg font-bold mb-3">RESTful API endpoints</h3>
-                            <table class="w-full">
+                    <div id="hardware" class="mb-12">
+                        <h2 class="text-2xl font-bold mb-4">Official hardware</h2>
+                        <p class="text-secondary mb-4">Publicly documented NearLink hardware is mainly based on the HiSilicon WS63 (Hi3863) family, plus Hi2821/BS21 and Hi3873 platforms, typically offered as development boards, modules and gateways.</p>
+                        <div class="table-responsive">
+                            <table class="table table-dark">
                                 <thead>
-                                    <tr class="border-b border-secondary">
-                                        <th class="text-left py-2">Endpoint</th>
-                                        <th class="text-left py-2">Method</th>
-                                        <th class="text-left py-2">Description</th>
+                                    <tr>
+                                        <th>Platform</th>
+                                        <th>Wireless</th>
+                                        <th>Typical form</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2 text-primary">/api/nearlink/discover</td>
-                                        <td class="py-2">GET</td>
-                                        <td class="py-2">Start device discovery</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2 text-primary">/api/nearlink/devices</td>
-                                        <td class="py-2">GET</td>
-                                        <td class="py-2">List discovered devices</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2 text-primary">/api/nearlink/connect</td>
-                                        <td class="py-2">POST</td>
-                                        <td class="py-2">Connect to the specified device</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2 text-primary">/api/nearlink/disconnect</td>
-                                        <td class="py-2">POST</td>
-                                        <td class="py-2">Disconnect</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2 text-primary">/api/nearlink/send</td>
-                                        <td class="py-2">POST</td>
-                                        <td class="py-2">Send data</td>
+                                    <tr>
+                                        <td>WS63 / Hi3863</td>
+                                        <td>Wi-Fi 6 + BLE 5.x + SLE 1.0</td>
+                                        <td>Development boards, modules</td>
                                     </tr>
                                     <tr>
-                                        <td class="py-2 text-primary">/api/nearlink/device_info</td>
-                                        <td class="py-2">GET</td>
-                                        <td class="py-2">Get device information</td>
+                                        <td>Hi2821 / BS21</td>
+                                        <td>SLE low energy</td>
+                                        <td>Compact boards, modules</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hi3873</td>
+                                        <td>SLE high speed / gateway</td>
+                                        <td>Ethernet modules, gateways</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <div class="card-dark p-6">
-                            <h3 class="text-lg font-bold mb-3">SDK methods</h3>
-                            <table class="w-full">
-                                <thead>
-                                    <tr class="border-b border-secondary">
-                                        <th class="text-left py-2">Method</th>
-                                        <th class="text-left py-2">Parameters</th>
-                                        <th class="text-left py-2">Returns</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2 text-primary">start_discovery(timeout)</td>
-                                        <td class="py-2">timeout: int (discovery timeout)</td>
-                                        <td class="py-2">—</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2 text-primary">get_discovered_devices()</td>
-                                        <td class="py-2">—</td>
-                                        <td class="py-2">List[NearLinkDevice]</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2 text-primary">connect(device_id)</td>
-                                        <td class="py-2">device_id: str (device ID)</td>
-                                        <td class="py-2">bool</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2 text-primary">disconnect()</td>
-                                        <td class="py-2">—</td>
-                                        <td class="py-2">—</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2 text-primary">send_json(data)</td>
-                                        <td class="py-2">data: dict (JSON data)</td>
-                                        <td class="py-2">bool</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-2 text-primary">read_device_info()</td>
-                                        <td class="py-2">—</td>
-                                        <td class="py-2">Dict</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <p class="text-secondary text-sm mt-3">ZouIC has not listed NearLink boards yet; entries are added only after official specifications and purchase channels are verified.</p>
+                    </div>
+
+                    <div id="resources" class="mb-12">
+                        <h2 class="text-2xl font-bold mb-4">Official resources</h2>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <a class="card-dark p-5 h-100 d-block text-decoration-none" href="https://docs.hisilicon.com/projects/fbb_ws63/master/get-started/index.html" target="_blank" rel="noopener noreferrer">
+                                    <h3 class="text-lg font-bold mb-2"><i class="fas fa-book-open text-primary mr-2"></i>WS63 Developer Center</h3>
+                                    <p class="text-secondary mb-0">Official HiSilicon quick start, environment setup, build and flashing documentation.</p>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a class="card-dark p-5 h-100 d-block text-decoration-none" href="https://www.openharmony.cn/" target="_blank" rel="noopener noreferrer">
+                                    <h3 class="text-lg font-bold mb-2"><i class="fas fa-code text-accent mr-2"></i>OpenHarmony Community</h3>
+                                    <p class="text-secondary mb-0">WS63-class platforms can run OpenHarmony; use the community repositories as the source of truth.</p>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a class="card-dark p-5 h-100 d-block text-decoration-none" href="https://www.sparklink.org.cn/" target="_blank" rel="noopener noreferrer">
+                                    <h3 class="text-lg font-bold mb-2"><i class="fas fa-tower-broadcast text-green-500 mr-2"></i>SparkLink Alliance</h3>
+                                    <p class="text-secondary mb-0">Public entry point for standards, white papers and industry updates.</p>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a class="card-dark p-5 h-100 d-block text-decoration-none" href="https://www.zouic.com/articles/nearlink-getting-started/" hreflang="zh-CN">
+                                    <h3 class="text-lg font-bold mb-2"><i class="fas fa-compass text-yellow-500 mr-2"></i>NearLink learning path</h3>
+                                    <p class="text-secondary mb-0">A curated path from platform selection to the first working example.</p>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <div id="protocol" class="mb-12">
-                        <h2 class="text-2xl font-bold mb-4">Protocol</h2>
-                        <div class="card-dark p-6 mb-4">
-                            <h3 class="text-lg font-bold mb-3">Packet structure</h3>
-                            <pre class="bg-black p-4 rounded text-sm overflow-x-auto"><code>┌─────────────────────────────────────────────┐
-│ NearLink packet structure                   │
-├─────────┬─────────┬─────────┬───────────────┤
-│ Command │ Flags   │ Source  │ Destination   │
-│ (1 byte)│ (1 byte)│ (2 bytes)│ (2 bytes)    │
-├─────────┴─────────┴─────────┴───────────────┤
-│              Payload (0-244 bytes)          │
-└─────────────────────────────────────────────┘</code></pre>
-                        </div>
+                    <div id="faq" class="mb-12">
+                        <h2 class="text-2xl font-bold mb-4">FAQ</h2>
                         <div class="card-dark p-6">
-                            <h3 class="text-lg font-bold mb-3">Command types</h3>
-                            <table class="w-full">
-                                <thead>
-                                    <tr class="border-b border-secondary">
-                                        <th class="text-left py-2">Command code</th>
-                                        <th class="text-left py-2">Name</th>
-                                        <th class="text-left py-2">Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2">0x01</td>
-                                        <td class="py-2">DISCOVER</td>
-                                        <td class="py-2">Device discovery</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2">0x02</td>
-                                        <td class="py-2">CONNECT</td>
-                                        <td class="py-2">Connection request</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2">0x03</td>
-                                        <td class="py-2">DISCONNECT</td>
-                                        <td class="py-2">Disconnect</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2">0x04</td>
-                                        <td class="py-2">DATA</td>
-                                        <td class="py-2">Data transfer</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2">0x05</td>
-                                        <td class="py-2">ACK</td>
-                                        <td class="py-2">Acknowledgement</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2">0x06</td>
-                                        <td class="py-2">NACK</td>
-                                        <td class="py-2">Negative acknowledgement</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-2">0x07</td>
-                                        <td class="py-2">HEARTBEAT</td>
-                                        <td class="py-2">Heartbeat</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div id="examples" class="mb-12">
-                        <h2 class="text-2xl font-bold mb-4">Examples</h2>
-                        <div class="card-dark p-6 mb-4">
-                            <h3 class="text-lg font-bold mb-3">Complete example: sensor data collection</h3>
-                            <pre class="bg-black p-4 rounded text-sm overflow-x-auto"><code>from app.services.nearlink_sdk import nearlink_sdk
-import time
-
-def collect_sensor_data():
-    # Start device discovery
-    nearlink_sdk.start_discovery(timeout=5)
-    
-    # 获取传感器设备
-    devices = nearlink_sdk.get_discovered_devices()
-    sensor_device = None
-    
-    for device in devices:
-        if 'Sensor' in device.name:
-            sensor_device = device
-            break
-    
-    if not sensor_device:
-        print("未找到传感器设备")
-        return
-    
-    # 连接设备
-    success = nearlink_sdk.connect(sensor_device.device_id)
-    if not success:
-        print("连接失败")
-        return
-    
-    print(f"已连接到 {sensor_device.name}")
-    
-    # 持续采集数据
-    try:
-        while True:
-            # 发送采集请求
-            nearlink_sdk.send_json({'command': 'read_sensors'})
-            
-            # 读取设备信息
-            info = nearlink_sdk.read_device_info()
-            print(f"设备信息: {info}")
-            
-            time.sleep(2)
-    except KeyboardInterrupt:
-        print("停止采集")
-    finally:
-        nearlink_sdk.disconnect()
-
-if __name__ == '__main__':
-    collect_sensor_data()</code></pre>
-                        </div>
-                        <div class="card-dark p-6">
-                            <h3 class="text-lg font-bold mb-3">Web app integration example</h3>
-                            <pre class="bg-black p-4 rounded text-sm overflow-x-auto"><code>// JavaScript示例：使用REST API
-async function discoverDevices() {
-    const response = await fetch('/api/nearlink/discover');
-    const data = await response.json();
-    console.log('发现的设备:', data.devices);
-    return data.devices;
-}
-
-async function connectDevice(deviceId) {
-    const response = await fetch('/api/nearlink/connect', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ device_id: deviceId })
-    });
-    return await response.json();
-}
-
-async function sendData(message) {
-    const response = await fetch('/api/nearlink/send', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message })
-    });
-    return await response.json();
-}
-
-// 使用示例
-discoverDevices().then(devices => {
-    if (devices.length > 0) {
-        connectDevice(devices[0].device_id).then(() => {
-            sendData('Hello NearLink!');
-        });
-    }
-});</code></pre>
-                        </div>
-                    </div>
-
-                    <div id="compatibility" class="mb-12">
-                        <h2 class="text-2xl font-bold mb-4">Compatibility testing</h2>
-                        <div class="card-dark p-6">
-                            <h3 class="text-lg font-bold mb-3">Test environment</h3>
-                            <ul class="list-unstyled space-y-2 mb-4">
-                                <li><i class="fas fa-desktop text-blue-500 mr-2"></i>OS: Windows 10/11, macOS 12+, Ubuntu 20.04+</li>
-                                <li><i class="fas fa-microchip text-blue-500 mr-2"></i>Board: NearLink DevKit Pro (Hi3881)</li>
-                                <li><i class="fas fa-wifi text-blue-500 mr-2"></i>NearLink protocol version: 1.0</li>
-                            </ul>
-                            <h3 class="text-lg font-bold mb-3">Test results</h3>
-                            <table class="w-full">
-                                <thead>
-                                    <tr class="border-b border-secondary">
-                                        <th class="text-left py-2">Test case</th>
-                                        <th class="text-left py-2">Result</th>
-                                        <th class="text-left py-2">Notes</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2">Device discovery</td>
-                                        <td class="py-2 text-green-500">Pass</td>
-                                        <td class="py-2">Broadcast-mode discovery supported</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2">Connection setup</td>
-                                        <td class="py-2 text-green-500">Pass</td>
-                                        <td class="py-2">Automatic reconnection supported</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2">Data transfer</td>
-                                        <td class="py-2 text-green-500">Pass</td>
-                                        <td class="py-2">JSON and binary data supported</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2">Heartbeat detection</td>
-                                        <td class="py-2 text-green-500">Pass</td>
-                                        <td class="py-2">Automatic disconnect on timeout</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-2">Multiple concurrent devices</td>
-                                        <td class="py-2 text-green-500">Pass</td>
-                                        <td class="py-2">Simultaneous connections to multiple devices</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <h3 class="text-lg font-bold mb-2">How does NearLink relate to Bluetooth and Wi-Fi?</h3>
+                            <p class="text-secondary mb-4">NearLink is a separate short-range standard positioned alongside Bluetooth and Wi-Fi. SoCs such as WS63 integrate Wi-Fi, BLE and SLE so developers can choose the right radio per use case.</p>
+                            <h3 class="text-lg font-bold mb-2">What can individual developers buy today?</h3>
+                            <p class="text-secondary mb-4">Development boards and modules based on WS63/Hi3863 and Hi2821/BS21 are available. Verify the exact chip, antenna configuration and SDK support before buying.</p>
+                            <h3 class="text-lg font-bold mb-2">Will ZouIC list NearLink boards?</h3>
+                            <p class="text-secondary mb-0">Yes, but only after official specifications, purchase links and documentation are verifiable, to avoid misleading estimates.</p>
                         </div>
                     </div>
                 </div>
@@ -694,6 +405,7 @@ discoverDevices().then(devices => {
                         <li><a href="/en/products/">Products</a></li>
                         <li><a href="/en/services/">Services</a></li>
                         <li><a href="/en/services/website-building/">Website building</a></li>
+                        <li><a href="/en/services/component-matching/">元器件撮合</a></li>
                         <li><a href="/en/news/">Site Updates</a></li>
                         <li><a href="/en/boards/">Development Boards</a></li>
                     </ul>
@@ -717,6 +429,7 @@ discoverDevices().then(devices => {
                         <li><a href="/en/open-source/">Open Source Projects</a></li>
                         <li><a href="/en/all-projects/">All projects</a></li>
                         <li><a href="/en/articles/">Articles</a></li>
+                        
                         <li><a href="/en/contribute/">Contribute</a></li>
                         <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                     </ul>
@@ -729,6 +442,13 @@ discoverDevices().then(devices => {
                         <li><a href="/en/licenses/">Open Source Licenses</a></li>
                         <li><a href="/en/about/#privacy">Privacy Policy</a></li>
                     </ul>
+                </div>
+            </div>
+            <div class="footer-producer-bar">
+                <img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
+                <div style="line-height:1.6;">
+                    <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div>
+                    <div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/en/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div>
                 </div>
             </div>
             <div class="footer-bottom">

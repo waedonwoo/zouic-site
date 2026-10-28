@@ -1280,6 +1280,25 @@ main {
     color: var(--color-text-tertiary);
 }
 
+.footer-producer-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 18px;
+    padding: 14px 18px;
+    border: 1px solid rgba(167, 139, 250, 0.28);
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.08), rgba(0, 229, 255, 0.05));
+}
+
+@media (max-width: 576px) {
+    .footer-producer-bar {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
 .footer-slash-tag {
     border: 1px solid var(--glass-stroke);
     background: rgba(255, 255, 255, 0.03);
@@ -1480,3 +1499,846 @@ main {
         animation: none !important;
     }
 }
+
+/* ============================================================
+   18. Full-site audit polish (2026-10-28)
+   Targeted fixes from the visual/code review: mobile section
+   alignment, card controls, empty states, article typography.
+   ============================================================ */
+
+/* Chinese hero headline: break after the comma instead of leaving
+   "聚合" alone on the second line. */
+/* Break the Chinese hero title after the comma so the phrase
+   "一站聚合" is never split across lines. */
+.hero-title-line {
+    display: block;
+}
+
+/* Headings balance their lines; body copy avoids orphan words. */
+.section-zouic-title,
+.hero-zouic-title,
+.page-hero h1,
+.compare-empty-title {
+    text-wrap: balance;
+}
+
+.section-zouic-desc,
+.hero-zouic-subtitle,
+.page-hero p,
+.compare-empty-steps {
+    text-wrap: pretty;
+}
+
+/* Mobile section headers: the desktop layer aligns the header to
+   flex-end, which right-shifts the copy once the header becomes a
+   column on small screens. Keep the copy flush left. */
+@media (max-width: 767.98px) {
+    .section-zouic-header {
+        align-items: flex-start;
+    }
+
+    .section-zouic-header > .btn-zouic {
+        align-self: flex-start;
+        margin-top: 0.25rem;
+    }
+}
+
+/* The legal disclaimer used to sit flush against the card grid. */
+.source-disclaimer {
+    margin: 1.25rem 0 0;
+    padding: 0.7rem 1rem;
+    border-left: 2px solid rgba(0, 229, 255, 0.5);
+    border-radius: 0 10px 10px 0;
+    background: rgba(0, 229, 255, 0.045);
+    color: var(--color-text-tertiary);
+    font-size: 0.82rem;
+    line-height: 1.7;
+}
+
+/* Compare control: a compact HUD pill in the card corner instead of a
+   bare checkbox that fell outside the card (top-3/right-3 are not
+   Bootstrap utilities). */
+.board-card {
+    position: relative;
+}
+
+.compare-checkbox-label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 12;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0.28rem 0.62rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    background: rgba(8, 8, 26, 0.62);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    color: rgba(234, 240, 255, 0.86);
+    font-family: var(--font-family-hud);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+
+.compare-checkbox-label:hover {
+    border-color: rgba(0, 229, 255, 0.6);
+    color: var(--color-primary);
+    box-shadow: 0 0 18px rgba(0, 229, 255, 0.18);
+}
+
+.compare-checkbox-label input {
+    position: relative;
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    border-radius: 3px;
+    background: rgba(8, 8, 26, 0.7);
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    transition: border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+
+.compare-checkbox-label input:checked {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.45);
+}
+
+.compare-checkbox-label input:checked::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid #04121c;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.compare-checkbox-label:has(input:checked) {
+    border-color: rgba(0, 229, 255, 0.75);
+    background: rgba(0, 229, 255, 0.16);
+    color: var(--color-primary);
+}
+
+#compareBtn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+/* Mobile board filters collapse behind one clear control. */
+.filter-toggle {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--glass-stroke);
+    border-radius: var(--radius-xl);
+    background: var(--glass-fill);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    color: var(--color-text-primary);
+    font-weight: 600;
+}
+
+.filter-toggle .fa-chevron-down {
+    transition: transform 0.2s ease;
+}
+
+.filter-toggle[aria-expanded="true"] .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+@media (max-width: 991.98px) {
+    #boardFilterCollapse {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Compare empty state: explain the flow instead of a lone sentence. */
+.compare-empty {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 3rem;
+    border: 1px solid var(--glass-stroke);
+    border-radius: var(--radius-2xl);
+    background: var(--glass-fill);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 18px 46px rgba(0, 0, 0, 0.28);
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    backdrop-filter: blur(var(--glass-blur));
+}
+
+.compare-empty-icon {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1rem;
+    border: 1px solid rgba(0, 229, 255, 0.28);
+    border-radius: 50%;
+    background: rgba(0, 229, 255, 0.08);
+    box-shadow: 0 0 32px rgba(0, 229, 255, 0.14);
+    color: var(--color-primary);
+    font-size: 1.45rem;
+}
+
+.compare-empty-title {
+    margin-bottom: 0.65rem;
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+}
+
+.compare-empty-steps {
+    max-width: 30rem;
+    margin: 0 auto 1.25rem;
+    color: var(--color-text-tertiary);
+    font-size: 0.86rem;
+    line-height: 1.8;
+}
+
+.compare-empty-suggest {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--hairline);
+    color: var(--color-text-tertiary);
+    font-size: 0.8rem;
+}
+
+.compare-empty-suggest a {
+    padding: 0.24rem 0.65rem;
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    border-radius: 999px;
+    background: rgba(0, 229, 255, 0.06);
+    font-family: var(--font-family-hud);
+    text-decoration: none;
+}
+
+/* Article heroes: darken the busy illustration behind the title,
+   subtitle and byline; use a calmer title scale on phones. */
+.page-hero-articles::before {
+    background:
+        radial-gradient(ellipse 76% 94% at 50% 42%, rgba(10, 10, 31, 0.9) 0%, rgba(10, 10, 31, 0.76) 56%, rgba(10, 10, 31, 0.4) 84%, rgba(10, 10, 31, 0.1) 100%),
+        linear-gradient(135deg, rgba(10, 10, 31, 0.97) 0%, rgba(10, 10, 31, 0.9) 48%, rgba(10, 10, 31, 0.97) 100%);
+}
+
+.page-hero-articles .lead,
+.page-hero-articles .text-secondary {
+    text-shadow: 0 1px 14px rgba(10, 10, 31, 0.85);
+}
+
+.article-hero h1 {
+    font-size: clamp(2rem, 3.1vw + 1.1rem, 3.4rem);
+    line-height: 1.2;
+}
+
+@media (max-width: 575.98px) {
+    .article-hero h1 {
+        font-size: 1.95rem;
+        line-height: 1.3;
+    }
+}
+
+/* A two-column table of contents fills the card on desktop. */
+.article-toc {
+    columns: 2;
+    column-gap: 2.5rem;
+}
+
+.article-toc li {
+    break-inside: avoid;
+}
+
+@media (max-width: 767.98px) {
+    .article-toc {
+        columns: 1;
+    }
+}
+
+/* Keep price ranges on one line with tabular digits. */
+.board-card-price,
+.card-zouic-hw-price {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+/* Mobile footer: left-aligned stacks read faster than centred rows,
+   and the extra bottom room keeps the back-to-top button clear of
+   the legal copy. */
+@media (max-width: 767.98px) {
+    .footer-zouic {
+        padding-bottom: 6rem;
+    }
+
+    .footer-zouic .col-md-2,
+    .footer-zouic .col-md-3,
+    .footer-zouic h5 {
+        text-align: left;
+    }
+
+    .footer-zouic ul {
+        display: block;
+        text-align: left;
+    }
+
+    .footer-zouic li {
+        margin-bottom: 0.45rem;
+    }
+
+    .footer-zouic li:last-child {
+        margin-bottom: 0;
+    }
+
+    .footer-bottom {
+        text-align: left;
+    }
+}
+
+/* 404: a compact search row turns a dead end into a next step. */
+.error-search {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 540px;
+}
+
+.error-search .input-zouic {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+@media (max-width: 575.98px) {
+    .error-search {
+        flex-direction: column;
+    }
+
+    .error-search .btn-zouic {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Long-tail articles now share the current shell; these rules replace the
+   small inline stylesheet the old standalone generator used. */
+.legacy-article p {
+    color: var(--color-text-secondary);
+    line-height: 1.95;
+    margin-bottom: 1.05rem;
+}
+
+.legacy-article .card-dark p:last-child {
+    margin-bottom: 0;
+}
+
+.legacy-article h2.section-title {
+    font-size: 1.4rem;
+}
+
+.legacy-article ul,
+.legacy-article ol {
+    color: var(--color-text-secondary);
+    line-height: 1.95;
+    padding-left: 1.3rem;
+    margin-bottom: 1.05rem;
+}
+
+.legacy-article li {
+    margin-bottom: 0.4rem;
+}
+
+.legacy-article strong {
+    color: #fff;
+    font-weight: 700;
+}
+
+.legacy-article a {
+    color: var(--color-primary);
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(0, 229, 255, 0.4);
+}
+
+.legacy-article a:hover {
+    color: var(--color-secondary);
+}
+
+.legacy-article code {
+    background: rgba(0, 229, 255, 0.1);
+    color: var(--color-primary);
+    padding: 0.1rem 0.35rem;
+    border-radius: 6px;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.legacy-article table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    margin: 1rem 0 0.75rem;
+    font-size: 0.94rem;
+}
+
+.legacy-article th,
+.legacy-article td {
+    border: 1px solid var(--color-border-default);
+    padding: 0.65rem 0.8rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+.legacy-article th {
+    background: var(--color-bg-tertiary);
+    color: var(--color-primary);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.legacy-article .text-green-500 { color: #34d399; }
+.legacy-article .text-yellow-500 { color: #fbbf24; }
+.legacy-article .text-gray-400 { color: var(--color-text-tertiary); }
+
+.legacy-article pre {
+    background: rgba(4, 8, 24, 0.85);
+    border: 1px solid rgba(0, 229, 255, 0.22);
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    overflow-x: auto;
+    margin: 0.9rem 0;
+}
+
+.legacy-article pre code {
+    background: transparent;
+    color: #9be7f2;
+    padding: 0;
+    line-height: 1.75;
+    font-size: 0.86rem;
+    white-space: pre;
+}
+
+@media (max-width: 575.98px) {
+    .legacy-article th,
+    .legacy-article td {
+        padding: 0.55rem 0.65rem;
+        font-size: 0.85rem;
+    }
+
+    .legacy-article th:first-child,
+    .legacy-article td:first-child {
+        white-space: nowrap;
+    }
+}
+
+.legacy-faq .faq-item {
+    border-bottom: 1px solid var(--color-border-default);
+    padding: 1rem 0;
+}
+
+.legacy-faq .faq-item:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.legacy-faq .faq-q {
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 0.4rem;
+}
+
+.legacy-faq .faq-a {
+    color: var(--color-text-secondary);
+    line-height: 1.85;
+    margin: 0;
+}
+
+/* License & data provenance cards */
+.license-mini {
+    background: rgba(8, 14, 32, 0.72);
+    border: 1px solid var(--color-border-default);
+    border-radius: 12px;
+    padding: 1.15rem 1.2rem;
+}
+
+.license-mini h3 {
+    font-size: 1.02rem;
+    line-height: 1.45;
+}
+
+.license-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--color-primary);
+    font-size: 0.86rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(0, 229, 255, 0.45);
+    padding-bottom: 0.1rem;
+}
+
+.license-link:hover {
+    color: #fff;
+    border-bottom-color: var(--color-primary);
+}
+
+.license-link i {
+    font-size: 0.72rem;
+}
+
+.license-callout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background: rgba(0, 229, 255, 0.06);
+    border: 1px solid rgba(0, 229, 255, 0.24);
+    border-left: 4px solid var(--color-primary);
+    border-radius: 12px;
+    padding: 1rem 1.15rem;
+}
+
+@media (max-width: 575.98px) {
+    .license-callout {
+        align-items: flex-start;
+    }
+}
+
+/* Board data provenance */
+.board-source-note {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background: rgba(0, 229, 255, 0.05);
+    border: 1px dashed rgba(0, 229, 255, 0.28);
+    border-radius: 12px;
+    padding: 0.95rem 1.1rem;
+}
+
+.board-source-note .text-secondary {
+    line-height: 1.8;
+}
+
+.license-mini i {
+    font-size: 1.15rem;
+}
+
+@media (max-width: 575.98px) {
+    .board-source-note {
+        align-items: flex-start;
+    }
+}
+
+/* Compare differences filter */
+.compare-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.85rem 1.2rem;
+    margin-bottom: 0.9rem;
+}
+
+.compare-diff-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.45rem 0.85rem;
+    border: 1px solid rgba(0, 229, 255, 0.32);
+    border-radius: 999px;
+    background: rgba(0, 229, 255, 0.06);
+    color: var(--color-text-secondary);
+    font-size: 0.86rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.compare-diff-toggle:hover {
+    border-color: var(--color-primary);
+    color: var(--color-text-primary);
+}
+
+.compare-diff-toggle input {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border: 1px solid rgba(0, 229, 255, 0.55);
+    border-radius: 4px;
+    background: transparent;
+    display: inline-grid;
+    place-content: center;
+    margin: 0;
+    cursor: pointer;
+}
+
+.compare-diff-toggle input::before {
+    content: "";
+    width: 8px;
+    height: 5px;
+    border-left: 2px solid #04101f;
+    border-bottom: 2px solid #04101f;
+    transform: rotate(-45deg) scale(0);
+    transition: transform 0.12s ease;
+}
+
+.compare-diff-toggle input:checked {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.compare-diff-toggle input:checked::before {
+    transform: rotate(-45deg) scale(1);
+}
+
+.compare-diff-count {
+    color: var(--color-text-tertiary);
+    font-size: 0.82rem;
+}
+
+.compare-source-note {
+    color: var(--color-text-tertiary);
+    font-size: 0.8rem;
+    line-height: 1.7;
+    margin: 0.95rem 0 0;
+}
+
+/* Board architecture quick nav */
+.arch-quicknav {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-bottom: 1.25rem;
+    padding: 0.7rem 0.85rem;
+    background: rgba(8, 14, 32, 0.66);
+    border: 1px solid var(--color-border-default);
+    border-radius: 14px;
+}
+
+.arch-quicknav-label {
+    flex: none;
+    color: var(--color-text-tertiary);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding-left: 0.2rem;
+}
+
+.arch-quicknav-track {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.15rem;
+    scrollbar-width: thin;
+}
+
+.arch-quick {
+    flex: none;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    background: rgba(15, 23, 42, 0.6);
+    color: var(--color-text-secondary);
+    font-size: 0.84rem;
+    line-height: 1.2;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.arch-quick em {
+    font-style: normal;
+    font-size: 0.72rem;
+    color: var(--color-text-tertiary);
+    font-variant-numeric: tabular-nums;
+}
+
+.arch-quick:hover {
+    border-color: rgba(0, 229, 255, 0.55);
+    color: var(--color-text-primary);
+}
+
+.arch-quick.is-active {
+    background: rgba(0, 229, 255, 0.14);
+    border-color: var(--color-primary);
+    color: var(--color-text-primary);
+    box-shadow: 0 0 16px rgba(0, 229, 255, 0.12);
+}
+
+.arch-quick.is-active em {
+    color: var(--color-primary);
+}
+
+@media (max-width: 767.98px) {
+    .arch-quicknav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.55rem;
+    }
+
+    .arch-quicknav-track {
+        width: 100%;
+    }
+}
+
+/* ---------- Vendor zone header + series chips (board list) ---------- */
+.vendor-spotlight[hidden],
+.series-chip-group[hidden] {
+    display: none !important;
+}
+
+.filter-chip em {
+    font-style: normal;
+    margin-left: 0.28rem;
+    font-size: 0.74em;
+    opacity: 0.62;
+}
+
+.vendor-spotlight {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.15rem 1.35rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid rgba(0, 229, 255, 0.22);
+    border-radius: 18px;
+    background:
+        radial-gradient(120% 140% at 0% 0%, rgba(0, 229, 255, 0.12), transparent 55%),
+        linear-gradient(135deg, rgba(0, 229, 255, 0.06), rgba(255, 0, 200, 0.05));
+    overflow: hidden;
+}
+
+.vendor-spotlight::after {
+    content: "";
+    position: absolute;
+    inset: auto -40px -70px auto;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(255, 0, 200, 0.16), transparent 65%);
+    pointer-events: none;
+}
+
+.vendor-spotlight-copy {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+}
+
+.vendor-spotlight-kicker {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 0.3rem;
+}
+
+.vendor-spotlight-name {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--color-text-primary);
+}
+
+.vendor-spotlight-meta {
+    margin: 0.35rem 0 0;
+    font-size: 0.88rem;
+    color: var(--color-text-secondary);
+}
+
+.vendor-spotlight-series {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 0.8rem;
+}
+
+.vendor-series-chip {
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    background: rgba(0, 229, 255, 0.06);
+    color: var(--color-text-secondary);
+    border-radius: 999px;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.78rem;
+    line-height: 1.3;
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+.vendor-series-chip em {
+    font-style: normal;
+    margin-left: 0.3rem;
+    opacity: 0.6;
+    font-size: 0.85em;
+}
+
+.vendor-series-chip:hover,
+.vendor-series-chip.is-active {
+    color: var(--color-text-primary);
+    border-color: var(--color-primary);
+    background: rgba(0, 229, 255, 0.16);
+}
+
+.vendor-spotlight-actions {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.55rem;
+    flex-shrink: 0;
+}
+
+.vendor-spotlight-reset {
+    border: 0;
+    background: transparent;
+    color: var(--color-text-tertiary);
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding: 0;
+}
+
+.vendor-spotlight-reset:hover {
+    color: var(--color-primary);
+}
+
+@media (max-width: 767.98px) {
+    .vendor-spotlight {
+        flex-direction: column;
+        padding: 1rem 1.1rem;
+    }
+
+    .vendor-spotlight-actions {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .vendor-spotlight-name {
+        font-size: 1.2rem;
+    }
+}
+
+/* ===== 极客微栋 · 履历时间线（首页 / 关于 / 撮合页通用） ===== */
+.cm-timeline { position: relative; margin: 0; padding: 0; list-style: none; }
+.cm-timeline::before { content: ""; position: absolute; left: 11px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(180deg, rgba(167,139,250,.55), rgba(0,229,255,.55)); }
+.cm-timeline li { position: relative; padding-left: 38px; }
+.cm-timeline li:last-child { padding-bottom: 0; }
+.cm-tl-dot { position: absolute; left: 0; top: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--color-bg-secondary); border: 2px solid var(--color-primary); color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
+.cm-tl-phase { font-size: 12px; font-weight: 700; letter-spacing: .5px; }

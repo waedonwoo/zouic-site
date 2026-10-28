@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="description" content="Nano-sized board with an ESP32-S3 core, ideal for compact IoT projects - ZouIC aggregates open source hardware projects from GitHub, Hackster.io…">
-    <meta name="keywords" content="Arduino Nano ESP32, ESP32, open source hardware,open source projects,GitHub,Hackster.io,CrowdSupply,Hackaday,Seeed Studio,development board,embedded">
+    <meta name="keywords" content="Arduino Nano ESP32, Xtensa, open source hardware,open source projects,GitHub,Hackster.io,CrowdSupply,Hackaday,Seeed Studio,development board,embedded">
     
     <meta name="author" content="ZouIC">
     <meta name="theme-color" content="#00E5FF">
@@ -22,7 +22,9 @@
     <link rel="canonical" href="https://www.zouic.com/en/board/arduino-nano-esp32">
     
     <link rel="alternate" hreflang="zh" href="https://www.zouic.com/board/arduino-nano-esp32" />
+    
     <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/board/arduino-nano-esp32" />
+    
     <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/board/arduino-nano-esp32" />
     
     
@@ -48,7 +50,7 @@
     
     
     <script type="application/ld+json">
-        {"@context": "https://schema.org", "@graph": [{"@type": "Product", "additionalProperty": [{"@type": "PropertyValue", "name": "Architecture", "value": "ESP32"}, {"@type": "PropertyValue", "name": "CPU Speed", "value": "240MHz"}, {"@type": "PropertyValue", "name": "Flash", "value": "8MB"}, {"@type": "PropertyValue", "name": "RAM", "value": "512KB"}], "brand": {"@type": "Brand", "name": "Arduino"}, "category": "general", "description": "Nano\u5c3a\u5bf8\uff0cESP32-S3\u6838\u5fc3\uff0c\u9002\u5408\u7d27\u51d1\u7684\u7269\u8054\u7f51\u9879\u76ee", "image": "https://www.zouic.com/static/images/og-cover.jpg", "model": "ESP32-S3", "name": "Arduino Nano ESP32", "offers": {"@type": "AggregateOffer", "availability": "https://schema.org/InStock", "highPrice": "200", "lowPrice": "100", "priceCurrency": "CNY"}, "url": "https://www.zouic.com/board/arduino-nano-esp32/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/boards", "name": "Boards", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/board/arduino-nano-esp32/", "name": "Arduino Nano ESP32", "position": 3}]}]}
+        {"@context": "https://schema.org", "@graph": [{"@type": "Product", "additionalProperty": [{"@type": "PropertyValue", "name": "Architecture", "value": "Xtensa"}, {"@type": "PropertyValue", "name": "CPU Speed", "value": "240MHz"}, {"@type": "PropertyValue", "name": "Flash", "value": "8MB"}, {"@type": "PropertyValue", "name": "RAM", "value": "512KB"}], "brand": {"@type": "Brand", "name": "Arduino"}, "category": "general", "description": "Nano-sized board with an ESP32-S3 core, ideal for compact IoT projects", "image": "https://www.zouic.com/static/images/og-cover.jpg", "model": "ESP32-S3", "name": "Arduino Nano ESP32", "offers": {"@type": "AggregateOffer", "availability": "https://schema.org/InStock", "highPrice": "200", "lowPrice": "100", "priceCurrency": "CNY"}, "url": "https://www.zouic.com/board/arduino-nano-esp32/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/boards", "name": "Boards", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/board/arduino-nano-esp32/", "name": "Arduino Nano ESP32", "position": 3}]}]}
     </script>
     
     
@@ -102,7 +104,7 @@
         .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
         @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
     </style>
-    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028a">
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028e">
     
 </head>
 <body>
@@ -133,6 +135,7 @@
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="/en/products/"><i class="fas fa-box me-2"></i>Products</a></li>
                             <li><a class="dropdown-item" href="/en/services/"><i class="fas fa-cogs me-2"></i>Services</a></li>
+                            <li><a class="dropdown-item" href="/en/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li>
                             <li><a class="dropdown-item" href="/en/news/"><i class="fas fa-newspaper me-2"></i>Site Updates</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="/en/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li>
@@ -214,9 +217,9 @@
                 <div class="row mt-4">
                     <div class="col-lg-8">
                         <div class="d-flex gap-4 mb-4">
-                            <a href="/en/boards/?arch=ESP32" class="badge badge-primary text-decoration-none">ESP32</a>
+                            <a href="/en/boards/?arch=Xtensa" class="badge badge-primary text-decoration-none">Xtensa</a>
                             <a href="/en/boards/?vendor=Arduino" class="badge badge-secondary text-decoration-none">Arduino</a>
-                            <span class="badge badge-accent">¥100-200</span>
+                            <span class="badge badge-accent" title="Price ranges are indicative; check the official store">¥100-200</span>
                         </div>
                         <h1 class="text-3xl font-bold mb-4">Arduino Nano ESP32</h1>
                         <p class="text-secondary">Nano-sized board with an ESP32-S3 core, ideal for compact IoT projects</p>
@@ -237,7 +240,7 @@
                             <div class="card-zouic-body">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <h4 class="font-bold">Quick specs</h4>
-                                    <span class="engineer-badge"><i class="fas fa-check-circle"></i> Engineer Verified</span>
+                                    <span class="engineer-badge"><i class="fas fa-book-open"></i> From vendor docs</span>
                                 </div>
                                 <div class="quick-specs mb-3">
                                     <div class="quick-spec">
@@ -341,7 +344,7 @@
                             <div class="space-y-2">
                                 <div class="d-flex justify-content-between">
                                     <span class="text-secondary">Chip Architecture</span>
-                                    <span>ESP32</span>
+                                    <span>Xtensa</span>
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <span class="text-secondary">Vendor</span>
@@ -382,12 +385,57 @@
                 </div>
             </div>
 
+            <div class="mt-6" id="sources">
+                <h3 class="section-title text-xl font-bold">Official links and data notes</h3>
+                <div class="card-dark p-6">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            
+                            <a href="/en/documentation/#arduino-docs" class="license-mini d-block h-100 text-decoration-none">
+                                <i class="fas fa-book-open text-primary mb-2"></i>
+                                <h4 class="font-bold mb-1">Documentation</h4>
+                                <p class="text-secondary text-sm mb-0">Getting-started docs grouped by chip family</p>
+                            </a>
+                            
+                        </div>
+                        <div class="col-md-4">
+                            
+                            <a href="#buy" class="license-mini d-block h-100 text-decoration-none">
+                                <i class="fas fa-cart-shopping text-secondary mb-2"></i>
+                                <h4 class="font-bold mb-1">Where to Buy</h4>
+                                <p class="text-secondary text-sm mb-0">Compare third-party listings</p>
+                            </a>
+                            
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <a href="https://www.arduino.cc/" target="_blank" rel="noopener noreferrer nofollow" class="license-mini d-block h-100 text-decoration-none">
+                                <i class="fas fa-globe text-accent mb-2"></i>
+                                <h4 class="font-bold mb-1">Vendor website</h4>
+                                <p class="text-secondary text-sm mb-0">Arduino official website</p>
+                            </a>
+                        </div>
+                        
+                    </div>
+                    <div class="board-source-note mt-4">
+                        <div>
+                            <p class="text-secondary text-sm mb-1">Specifications are compiled from public vendor materials for selection reference only. Licenses for hardware design files and documentation are determined by the vendor or project owner; ZouIC does not grant them.</p>
+                            <p class="text-secondary text-xs mb-0"><i class="fas fa-clock-rotate-left me-1"></i>Last verified 2026-10-28</p>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="/en/licenses/#hardware" class="btn-zouic btn-zouic-ghost btn-zouic-sm">Read the hardware license notes</a>
+                            <a href="/en/contribute/" class="btn-zouic btn-zouic-ghost btn-zouic-sm">Submit a correction</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="mt-6">
                 <h3 class="section-title text-xl font-bold">Getting started</h3>
                 <div class="card-dark p-6">
                     <div class="row">
                         <div class="col-md-4">
-                            <a href="/en/documentation/#esp32-docs" class="text-center mb-4 d-block text-decoration-none hover-underline">
+                            <a href="/en/documentation/#arduino-docs" class="text-center mb-4 d-block text-decoration-none hover-underline">
                                 <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-2">
                                     <i class="fas fa-download text-primary"></i>
                                 </div>
@@ -425,7 +473,7 @@
                 <div class="card-dark p-6">
                     <div class="row g-4">
                         <div class="col-md-3">
-                            <a href="/en/documentation/#esp32-docs" class="d-block text-center p-4 hover-underline" aria-label="Official docs">
+                            <a href="/en/documentation/#arduino-docs" class="d-block text-center p-4 hover-underline" aria-label="Official docs">
                                 <i class="fas fa-book text-primary fa-2x mb-2"></i>
                                 <h4 class="font-bold">Official docs</h4>
                                 <p class="text-secondary text-sm">Chip manuals and development guides</p>
@@ -493,7 +541,7 @@
                     
                     <div class="col-md-6 col-lg-3">
                         <a href="/en/board/esp32-s3-devkitc/" class="card-dark p-4 h-100 d-block text-decoration-none">
-                            <span class="badge badge-primary mb-2">ESP32</span>
+                            <span class="badge badge-primary mb-2">Xtensa</span>
                             <h4 class="font-bold mb-1">ESP32-S3-DevKitC</h4>
                             <p class="text-secondary text-sm mb-1">ESP32-S3</p>
                             <span class="text-secondary text-sm">¥100-200</span>
@@ -501,17 +549,56 @@
                     </div>
                     
                     <div class="col-md-6 col-lg-3">
-                        <a href="/en/board/esp32-c3-devkitm/" class="card-dark p-4 h-100 d-block text-decoration-none">
-                            <span class="badge badge-primary mb-2">ESP32</span>
-                            <h4 class="font-bold mb-1">ESP32-C3-DevKitM</h4>
-                            <p class="text-secondary text-sm mb-1">ESP32-C3</p>
-                            <span class="text-secondary text-sm">¥50-100</span>
+                        <a href="/en/board/xiao-esp32-s3/" class="card-dark p-4 h-100 d-block text-decoration-none">
+                            <span class="badge badge-primary mb-2">Xtensa</span>
+                            <h4 class="font-bold mb-1">XIAO ESP32-S3</h4>
+                            <p class="text-secondary text-sm mb-1">ESP32-S3R8</p>
+                            <span class="text-secondary text-sm">Check official channels</span>
+                        </a>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <a href="/en/board/xiao-esp32-s3-sense/" class="card-dark p-4 h-100 d-block text-decoration-none">
+                            <span class="badge badge-primary mb-2">Xtensa</span>
+                            <h4 class="font-bold mb-1">XIAO ESP32-S3 Sense</h4>
+                            <p class="text-secondary text-sm mb-1">ESP32-S3R8</p>
+                            <span class="text-secondary text-sm">Check official channels</span>
+                        </a>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <a href="/en/board/sensecap-indicator/" class="card-dark p-4 h-100 d-block text-decoration-none">
+                            <span class="badge badge-primary mb-2">Xtensa</span>
+                            <h4 class="font-bold mb-1">SenseCAP Indicator</h4>
+                            <p class="text-secondary text-sm mb-1">ESP32-S3 + RP2040</p>
+                            <span class="text-secondary text-sm">Check official channels</span>
                         </a>
                     </div>
                     
                 </div>
                 <div class="mt-3">
-                    <a href="/en/boards/?arch=ESP32" class="text-primary hover-underline">View All ESP32 Development Boards <i class="fas fa-arrow-right"></i></a>
+                    <a href="/en/boards/?arch=Xtensa" class="text-primary hover-underline">View All Xtensa Development Boards <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+
+            
+            <div class="mt-6">
+                <h3 class="section-title text-xl font-bold">More from this vendor</h3>
+                <div class="row g-4">
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <a href="/en/board/arduino-uno-r4-minima/" class="card-dark p-4 h-100 d-block text-decoration-none">
+                            <span class="badge badge-secondary mb-2">Arduino</span>
+                            <h4 class="font-bold mb-1">Arduino UNO R4 Minima</h4>
+                            <p class="text-secondary text-sm mb-1">RA4M1</p>
+                            <span class="text-secondary text-sm">¥100-200</span>
+                        </a>
+                    </div>
+                    
+                </div>
+                <div class="mt-3">
+                    <a href="/en/boards/?vendor=Arduino" class="text-primary hover-underline">View All Arduino Development Boards <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             
@@ -875,6 +962,7 @@
                         <li><a href="/en/products/">Products</a></li>
                         <li><a href="/en/services/">Services</a></li>
                         <li><a href="/en/services/website-building/">Website building</a></li>
+                        <li><a href="/en/services/component-matching/">元器件撮合</a></li>
                         <li><a href="/en/news/">Site Updates</a></li>
                         <li><a href="/en/boards/">Development Boards</a></li>
                     </ul>
@@ -898,6 +986,7 @@
                         <li><a href="/en/open-source/">Open Source Projects</a></li>
                         <li><a href="/en/all-projects/">All projects</a></li>
                         <li><a href="/en/articles/">Articles</a></li>
+                        
                         <li><a href="/en/contribute/">Contribute</a></li>
                         <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                     </ul>
@@ -910,6 +999,13 @@
                         <li><a href="/en/licenses/">Open Source Licenses</a></li>
                         <li><a href="/en/about/#privacy">Privacy Policy</a></li>
                     </ul>
+                </div>
+            </div>
+            <div class="footer-producer-bar">
+                <img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
+                <div style="line-height:1.6;">
+                    <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div>
+                    <div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/en/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div>
                 </div>
             </div>
             <div class="footer-bottom">

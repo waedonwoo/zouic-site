@@ -22,7 +22,9 @@
     <link rel="canonical" href="https://www.zouic.com/board/raspberry-pi-pico-w">
     
     <link rel="alternate" hreflang="zh" href="https://www.zouic.com/board/raspberry-pi-pico-w" />
+    
     <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/board/raspberry-pi-pico-w" />
+    
     <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/board/raspberry-pi-pico-w" />
     
     
@@ -102,7 +104,7 @@
         .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
         @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
     </style>
-    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028a">
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028e">
     
 </head>
 <body>
@@ -133,6 +135,7 @@
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li>
                             <li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li>
+                            <li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li>
                             <li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li>
@@ -216,7 +219,7 @@
                         <div class="d-flex gap-4 mb-4">
                             <a href="/boards/?arch=RP2040" class="badge badge-primary text-decoration-none">RP2040</a>
                             <a href="/boards/?vendor=Raspberry%20Pi" class="badge badge-secondary text-decoration-none">Raspberry Pi</a>
-                            <span class="badge badge-accent">¥50-100</span>
+                            <span class="badge badge-accent" title="价格区间为参考值，以官方渠道为准">¥50-100</span>
                         </div>
                         <h1 class="text-3xl font-bold mb-4">Raspberry Pi Pico W</h1>
                         <p class="text-secondary">Pico升级版，内置Wi-Fi和BLE，适合无线物联网项目</p>
@@ -237,7 +240,7 @@
                             <div class="card-zouic-body">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <h4 class="font-bold">快速参数</h4>
-                                    <span class="engineer-badge"><i class="fas fa-check-circle"></i> 工程师验证</span>
+                                    <span class="engineer-badge"><i class="fas fa-book-open"></i> 官方资料整理</span>
                                 </div>
                                 <div class="quick-specs mb-3">
                                     <div class="quick-spec">
@@ -245,7 +248,7 @@
                                         <span class="quick-spec-label">主频</span>
                                     </div>
                                     <div class="quick-spec">
-                                        <span class="quick-spec-value">22</span>
+                                        <span class="quick-spec-value">26</span>
                                         <span class="quick-spec-label">GPIO</span>
                                     </div>
                                     <div class="quick-spec">
@@ -382,13 +385,58 @@
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <span class="text-secondary">GPIO数量</span>
-                                    <span>22个</span>
+                                    <span>26个</span>
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <span class="text-secondary">功耗</span>
                                     <span>30mA-80mA</span>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6" id="sources">
+                <h3 class="section-title text-xl font-bold">官方资料与数据说明</h3>
+                <div class="card-dark p-6">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            
+                            <a href="/documentation/#rp2040-docs" class="license-mini d-block h-100 text-decoration-none">
+                                <i class="fas fa-book-open text-primary mb-2"></i>
+                                <h4 class="font-bold mb-1">技术文档</h4>
+                                <p class="text-secondary text-sm mb-0">按芯片架构整理的入门文档</p>
+                            </a>
+                            
+                        </div>
+                        <div class="col-md-4">
+                            
+                            <a href="#buy" class="license-mini d-block h-100 text-decoration-none">
+                                <i class="fas fa-cart-shopping text-secondary mb-2"></i>
+                                <h4 class="font-bold mb-1">购买渠道</h4>
+                                <p class="text-secondary text-sm mb-0">第三方平台比价入口</p>
+                            </a>
+                            
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <a href="https://www.raspberrypi.com/" target="_blank" rel="noopener noreferrer nofollow" class="license-mini d-block h-100 text-decoration-none">
+                                <i class="fas fa-globe text-accent mb-2"></i>
+                                <h4 class="font-bold mb-1">厂商官网</h4>
+                                <p class="text-secondary text-sm mb-0">Raspberry Pi 官方网站</p>
+                            </a>
+                        </div>
+                        
+                    </div>
+                    <div class="board-source-note mt-4">
+                        <div>
+                            <p class="text-secondary text-sm mb-1">参数依据厂商公开资料整理，仅作选型参考；硬件设计文件与文档的许可由厂商或项目方决定，本站不代为授权。</p>
+                            <p class="text-secondary text-xs mb-0"><i class="fas fa-clock-rotate-left me-1"></i>最后核对 2026-10-28</p>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="/licenses/#hardware" class="btn-zouic btn-zouic-ghost btn-zouic-sm">查看硬件许可说明</a>
+                            <a href="/contribute/" class="btn-zouic btn-zouic-ghost btn-zouic-sm">提交更正</a>
                         </div>
                     </div>
                 </div>
@@ -520,9 +568,39 @@
                         </a>
                     </div>
                     
+                    <div class="col-md-6 col-lg-3">
+                        <a href="/board/xiao-rp2040/" class="card-dark p-4 h-100 d-block text-decoration-none">
+                            <span class="badge badge-primary mb-2">RP2040</span>
+                            <h4 class="font-bold mb-1">XIAO RP2040</h4>
+                            <p class="text-secondary text-sm mb-1">RP2040</p>
+                            <span class="text-secondary text-sm">以官方渠道为准</span>
+                        </a>
+                    </div>
+                    
                 </div>
                 <div class="mt-3">
                     <a href="/boards/?arch=RP2040" class="text-primary hover-underline">查看全部 RP2040 开源开发板 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+
+            
+            <div class="mt-6">
+                <h3 class="section-title text-xl font-bold">同厂商开发板</h3>
+                <div class="row g-4">
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <a href="/board/raspberry-pi-pico/" class="card-dark p-4 h-100 d-block text-decoration-none">
+                            <span class="badge badge-secondary mb-2">Raspberry Pi</span>
+                            <h4 class="font-bold mb-1">Raspberry Pi Pico</h4>
+                            <p class="text-secondary text-sm mb-1">RP2040</p>
+                            <span class="text-secondary text-sm">¥20-50</span>
+                        </a>
+                    </div>
+                    
+                </div>
+                <div class="mt-3">
+                    <a href="/boards/?vendor=Raspberry%20Pi" class="text-primary hover-underline">查看全部 Raspberry Pi 开源开发板 <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             
@@ -907,6 +985,7 @@
                         <li><a href="/products/">产品介绍</a></li>
                         <li><a href="/services/">服务说明</a></li>
                         <li><a href="/services/website-building/">建站服务</a></li>
+                        <li><a href="/services/component-matching/">元器件撮合</a></li>
                         <li><a href="/news/">站内动态</a></li>
                         <li><a href="/boards/">开源开发板</a></li>
                     </ul>
@@ -928,8 +1007,9 @@
                     <h5>开源生态</h5>
                     <ul>
                         <li><a href="/open-source/">开源项目</a></li>
-                        <li><a href="/all-projects/">开源项目</a></li>
+                        <li><a href="/all-projects/">全部项目</a></li>
                         <li><a href="/articles/">技术文章</a></li>
+                        <li><a href="/wechat/">公众号专栏</a></li>
                         <li><a href="/contribute/">贡献指南</a></li>
                         <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                     </ul>
@@ -942,6 +1022,13 @@
                         <li><a href="/licenses/">开源协议</a></li>
                         <li><a href="/about/#privacy">隐私政策</a></li>
                     </ul>
+                </div>
+            </div>
+            <div class="footer-producer-bar">
+                <img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
+                <div style="line-height:1.6;">
+                    <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div>
+                    <div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div>
                 </div>
             </div>
             <div class="footer-bottom">

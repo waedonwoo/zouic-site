@@ -22,7 +22,9 @@
     <link rel="canonical" href="https://www.zouic.com/about">
     
     <link rel="alternate" hreflang="zh" href="https://www.zouic.com/about" />
+    
     <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/about" />
+    
     <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/about" />
     
     
@@ -102,7 +104,7 @@
         .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
         @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
     </style>
-    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028a">
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028e">
     
 </head>
 <body>
@@ -133,6 +135,7 @@
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li>
                             <li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li>
+                            <li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li>
                             <li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li>
@@ -191,11 +194,25 @@
                     <li class="breadcrumb-item active" aria-current="page">关于我们</li>
                 </ol>
             </nav>
-            <div class="text-center mt-8">
-                <h1 class="text-3xl font-bold mb-4">关于我们 ZouIC</h1>
-                <p class="text-secondary text-lg">
-                    ZouIC 是一个开源开发板聚合平台，致力于为全球开发者提供一站式的硬件开发资源服务。
-                </p>
+            <div class="row align-items-center g-5 mt-4">
+                <div class="col-lg-4 text-center text-lg-start">
+                    <img src="/static/images/author/avatar.png" alt="极客微栋 @GeekWaedon 头像"
+                         width="168" height="168" loading="eager" decoding="async"
+                         style="border-radius:50%;border:3px solid rgba(167,139,250,.55);background:var(--color-bg-tertiary);max-width:200px;">
+                </div>
+                <div class="col-lg-8">
+                    <span class="section-zouic-badge" style="background:rgba(167,139,250,.12);color:#a78bfa;"><i class="fas fa-user me-1"></i>关于我们</span>
+                    <h1 class="text-3xl font-bold mb-2 mt-3" style="line-height:1.3;">极客微栋 <span style="font-size:18px;color:var(--color-text-secondary);font-weight:500;">@GeekWaedon</span></h1>
+                    <p class="text-secondary text-lg mb-3" style="line-height:1.85;">
+                        从数码产品的研发测试，到电子产业媒体的项目经理，再到元器件电商与分销供应链的营销——一个把「器件—行业—渠道」三段经历串起来的真实从业者。ZouIC 是这套方法公开跑出来的样本。
+                    </p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge-zouic badge-zouic-accent"><i class="fas fa-play-circle me-1"></i>自制视频数千条</span>
+                        <span class="badge-zouic badge-zouic-primary"><i class="fas fa-users me-1"></i>全网粉丝破万</span>
+                        <span class="badge-zouic badge-zouic-secondary"><i class="fa-solid fa-timeline me-1"></i>10+ 年跨三领域</span>
+                        <span class="badge-zouic badge-zouic-primary"><i class="fas fa-scale-balanced me-1"></i>中立 · 不压货不赚差价</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -242,7 +259,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold">丰富的开发板数据库</h4>
-                                <p class="text-secondary">收录 20 款主流开发板，包含详细的技术规格和参数对比</p>
+                                <p class="text-secondary">收录 67 款主流开发板，包含详细的技术规格和参数对比</p>
                             </div>
                         </div>
                     </div>
@@ -283,7 +300,13 @@
             </div>
 
             <div class="card-dark p-8 mt-6">
-                <h2 class="text-2xl font-bold mb-4">出品人：极客微栋 <span class="text-secondary" style="font-size:16px;font-weight:500;">@GeekWaedon</span></h2>
+                <div class="d-flex align-items-center gap-3 mb-4">
+                    <img src="/static/images/author/avatar.png" alt="极客微栋 @GeekWaedon" width="64" height="64" loading="lazy" decoding="async" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-0">极客微栋 <span class="text-secondary" style="font-size:16px;font-weight:500;">@GeekWaedon</span></h2>
+                        <div class="text-xs text-secondary mt-1">数码研发测试 → 电子媒体 PM → 元器件分销营销</div>
+                    </div>
+                </div>
 
                 <div class="about-slash-strip mb-5">
                     <span class="about-slash-chip"><i class="fas fa-microchip"></i> 硬件爱好者</span>
@@ -300,6 +323,25 @@
                 <p class="text-secondary mb-0">
                     如果这里的资料对你有帮助，欢迎加入知识星球，那里有更深入的实战笔记，也可以直接向我提问。
                 </p>
+
+                <h3 class="font-bold mt-5 mb-3" style="font-size:18px;"><i class="fas fa-timeline me-2" style="color:var(--color-primary);"></i>三段经历，串成做撮合的底气</h3>
+                <ul class="cm-timeline mb-4">
+                    <li>
+                        <span class="cm-tl-dot">01</span>
+                        <div class="cm-tl-phase">数码产品研发测试</div>
+                        <p class="text-secondary mb-0" style="font-size:13.5px;line-height:1.8;">U 盘、MP4、数码相框、苹果配件、机顶盒、POS 机、安防摄像头——摸透通用器件的参数、规格书与量产工艺。</p>
+                    </li>
+                    <li>
+                        <span class="cm-tl-dot">02</span>
+                        <div class="cm-tl-phase">电子产业媒体项目经理</div>
+                        <p class="text-secondary mb-0" style="font-size:13.5px;line-height:1.8;">思锐达传媒、维科网、寻材问料——跑通产业链，攒下原厂、方案商与制造采购的人脉。</p>
+                    </li>
+                    <li>
+                        <span class="cm-tl-dot">03</span>
+                        <div class="cm-tl-phase">元器件分销与供应链营销</div>
+                        <p class="text-secondary mb-0" style="font-size:13.5px;line-height:1.8;">展会操盘 + 线上线下投放，把「供需怎么碰头」跑成肌肉记忆——这正是撮合的核心。</p>
+                    </li>
+                </ul>
                 <div class="row g-3 mb-4 mt-3">
                     <div class="col-6 col-md-3">
                         <a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer" class="card-dark p-3 block text-decoration-none text-center"><i class="fab fa-github d-block mb-2"></i>GitHub</a>
@@ -637,6 +679,7 @@
                         <li><a href="/products/">产品介绍</a></li>
                         <li><a href="/services/">服务说明</a></li>
                         <li><a href="/services/website-building/">建站服务</a></li>
+                        <li><a href="/services/component-matching/">元器件撮合</a></li>
                         <li><a href="/news/">站内动态</a></li>
                         <li><a href="/boards/">开源开发板</a></li>
                     </ul>
@@ -658,8 +701,9 @@
                     <h5>开源生态</h5>
                     <ul>
                         <li><a href="/open-source/">开源项目</a></li>
-                        <li><a href="/all-projects/">开源项目</a></li>
+                        <li><a href="/all-projects/">全部项目</a></li>
                         <li><a href="/articles/">技术文章</a></li>
+                        <li><a href="/wechat/">公众号专栏</a></li>
                         <li><a href="/contribute/">贡献指南</a></li>
                         <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                     </ul>
@@ -672,6 +716,13 @@
                         <li><a href="/licenses/">开源协议</a></li>
                         <li><a href="/about/#privacy">隐私政策</a></li>
                     </ul>
+                </div>
+            </div>
+            <div class="footer-producer-bar">
+                <img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
+                <div style="line-height:1.6;">
+                    <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div>
+                    <div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div>
                 </div>
             </div>
             <div class="footer-bottom">

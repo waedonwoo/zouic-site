@@ -22,7 +22,9 @@
     <link rel="canonical" href="https://www.zouic.com/licenses">
     
     <link rel="alternate" hreflang="zh" href="https://www.zouic.com/licenses" />
+    
     <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/licenses" />
+    
     <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/licenses" />
     
     
@@ -105,7 +107,7 @@
         .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
         @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
     </style>
-    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028a">
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028e">
     
 </head>
 <body>
@@ -136,6 +138,7 @@
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li>
                             <li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li>
+                            <li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li>
                             <li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li>
@@ -209,11 +212,105 @@
                 </p>
             </div>
 
+            <div id="hardware" class="card-dark p-6 mb-6">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+                    <h2 class="section-title text-2xl font-bold mb-0">硬件开源协议</h2>
+                    <span class="badge-zouic badge-zouic-accent">OPEN HARDWARE</span>
+                </div>
+                <p class="text-secondary mb-4">开发板、原理图和硬件设计文件常用独立于软件的许可协议。以下只做摘要，具体权利与义务以官方协议原文为准。</p>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="license-mini h-100">
+                            <h3 class="font-bold mb-2">CERN Open Hardware Licence v2</h3>
+                            <p class="text-secondary text-sm mb-3">面向硬件设计的 copyleft 协议，分为 S（强 copyleft）、W（弱 copyleft）和 P（宽松）三档，覆盖修改、制造与分发。</p>
+                            <a href="https://ohwr.org/cernohl" target="_blank" rel="noopener noreferrer" class="license-link">查看协议原文 <i class="fas fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="license-mini h-100">
+                            <h3 class="font-bold mb-2">TAPR Open Hardware License</h3>
+                            <p class="text-secondary text-sm mb-3">较早的开源硬件协议，要求公开设计文档，衍生设计通常需要沿用同一协议。</p>
+                            <a href="https://www.tapr.org/ohl.html" target="_blank" rel="noopener noreferrer" class="license-link">查看协议原文 <i class="fas fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="license-mini h-100">
+                            <h3 class="font-bold mb-2">Solderpad Hardware License 2.0</h3>
+                            <p class="text-secondary text-sm mb-3">基于 Apache 2.0 改写的硬件许可，包含专利授权，并对衍生设计给出较清晰的条款。</p>
+                            <a href="https://solderpad.org/licenses/" target="_blank" rel="noopener noreferrer" class="license-link">查看协议原文 <i class="fas fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="license-mini h-100">
+                            <h3 class="font-bold mb-2">Creative Commons（文档与图片）</h3>
+                            <p class="text-secondary text-sm mb-3">常用于教程、文档和图片。BY 要求署名，SA 要求衍生作品同协议共享，NC 禁止商业使用，ND 禁止演绎。</p>
+                            <a href="https://creativecommons.org/share-your-work/cclicenses/" target="_blank" rel="noopener noreferrer" class="license-link">查看协议原文 <i class="fas fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="site-data" class="card-dark p-6 mb-6">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+                    <h2 class="section-title text-2xl font-bold mb-0">本站数据与内容许可</h2>
+                    <span class="badge badge-primary">开发板参数最后核对：2026-10-28</span>
+                </div>
+                <p class="text-secondary mb-4">ZouIC 只做聚合与索引，不替代原始项目、厂商文档或任何许可授权。以下边界适用于全站。</p>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="license-mini h-100">
+                            <h3 class="font-bold mb-2"><i class="fas fa-pen-nib text-primary me-2"></i>站内原创内容</h3>
+                            <p class="text-secondary text-sm mb-0">本站撰写的选型指南、对比说明与文章，版权归 ZouIC 所有。欢迎注明出处并链接原文后引用，请勿整站搬运或用于训练未经授权的模型。</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="license-mini h-100">
+                            <h3 class="font-bold mb-2"><i class="fas fa-microchip text-primary me-2"></i>开发板参数</h3>
+                            <p class="text-secondary text-sm mb-0">整理自厂商公开的产品页、数据手册与开发文档，仅作选型参考；参数、价格与供货情况以厂商最新资料为准。</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="license-mini h-100">
+                            <h3 class="font-bold mb-2"><i class="fas fa-code-branch text-secondary me-2"></i>外部项目元数据</h3>
+                            <p class="text-secondary text-sm mb-0">来自 GitHub、Hackster、CrowdSupply、Hackaday 等平台的公开信息，版权与许可归原作者。本站保留来源链接和许可证字段，使用前请回到原仓库核对。</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="license-mini h-100">
+                            <h3 class="font-bold mb-2"><i class="fas fa-copyright text-accent me-2"></i>商标与图片</h3>
+                            <p class="text-secondary text-sm mb-0">开发板名称、商标与产品图片归各厂商或原作者所有。本站与厂商无隶属关系，不代为授予任何硬件、软件或商标许可。</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="license-mini h-100">
+                            <h3 class="font-bold mb-2"><i class="fas fa-newspaper text-secondary me-2"></i>公众号转载内容</h3>
+                            <p class="text-secondary text-sm mb-0">「公众号文章」栏目收录已公开发布的技术文章，版权归原作者与相应公众号所有。本站保留来源与作者信息，仅用于存档和学习交流；如权利人不希望被收录，请联系我们删除或调整。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="license-callout mt-4">
+                    <div>
+                        <strong>发现错误或有授权疑问？</strong>
+                        <p class="text-secondary text-sm mb-0">如果你发现参数有误、来源缺失或认为本站内容侵犯了你的权利，请提交更正或联系我们，我们会尽快核实处理。</p>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a href="/contribute/" class="btn-zouic btn-zouic-primary btn-zouic-sm">提交更正</a>
+                        <a href="/about#contact" class="btn-zouic btn-zouic-ghost btn-zouic-sm">联系我们</a>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-lg-3">
                     <div class="card-dark p-4 sticky-top">
                         <h4 class="font-bold mb-4">协议目录</h4>
                         <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link text-secondary hover-underline" href="#hardware">硬件开源协议</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-secondary hover-underline" href="#site-data">本站数据与内容许可</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link text-secondary hover-underline" href="#mit">MIT License</a>
                             </li>
@@ -1734,6 +1831,7 @@ END OF TERMS AND CONDITIONS</pre>
                         <li><a href="/products/">产品介绍</a></li>
                         <li><a href="/services/">服务说明</a></li>
                         <li><a href="/services/website-building/">建站服务</a></li>
+                        <li><a href="/services/component-matching/">元器件撮合</a></li>
                         <li><a href="/news/">站内动态</a></li>
                         <li><a href="/boards/">开源开发板</a></li>
                     </ul>
@@ -1755,8 +1853,9 @@ END OF TERMS AND CONDITIONS</pre>
                     <h5>开源生态</h5>
                     <ul>
                         <li><a href="/open-source/">开源项目</a></li>
-                        <li><a href="/all-projects/">开源项目</a></li>
+                        <li><a href="/all-projects/">全部项目</a></li>
                         <li><a href="/articles/">技术文章</a></li>
+                        <li><a href="/wechat/">公众号专栏</a></li>
                         <li><a href="/contribute/">贡献指南</a></li>
                         <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                     </ul>
@@ -1769,6 +1868,13 @@ END OF TERMS AND CONDITIONS</pre>
                         <li><a href="/licenses/">开源协议</a></li>
                         <li><a href="/about/#privacy">隐私政策</a></li>
                     </ul>
+                </div>
+            </div>
+            <div class="footer-producer-bar">
+                <img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
+                <div style="line-height:1.6;">
+                    <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div>
+                    <div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div>
                 </div>
             </div>
             <div class="footer-bottom">

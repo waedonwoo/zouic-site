@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="星闪技术开发文档，包括SDK使用指南、API参考和示例代码">
-    <meta name="keywords" content="星闪技术,NearLink,SDK,API,开发文档">
+    <meta name="description" content="星闪（NearLink）技术概览、WS63（Hi3863）等官方硬件与开发资料索引。">
+    <meta name="keywords" content="星闪技术,NearLink,SparkLink,WS63,Hi3863,SLE,OpenHarmony">
     
     <meta name="author" content="ZouIC">
     <meta name="theme-color" content="#00E5FF">
@@ -22,14 +22,16 @@
     <link rel="canonical" href="https://www.zouic.com/docs/nearlink">
     
     <link rel="alternate" hreflang="zh" href="https://www.zouic.com/docs/nearlink" />
+    
     <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/docs/nearlink" />
+    
     <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/docs/nearlink" />
     
     
     
     
     <meta property="og:title" content="星闪技术 (NearLink) - ZouIC">
-    <meta property="og:description" content="星闪技术开发文档">
+    <meta property="og:description" content="星闪（NearLink）技术概览与官方资料索引。">
     <meta property="og:url" content="https://www.zouic.com/docs/nearlink">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="zh_CN">
@@ -43,7 +45,7 @@
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="星闪技术 (NearLink) - ZouIC">
-    <meta name="twitter:description" content="星闪技术开发文档">
+    <meta name="twitter:description" content="星闪（NearLink）技术概览与官方资料索引。">
     <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     
     
@@ -105,7 +107,7 @@
         .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
         @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
     </style>
-    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028a">
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028e">
     
 </head>
 <body>
@@ -136,6 +138,7 @@
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li>
                             <li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li>
+                            <li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li>
                             <li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li>
@@ -190,7 +193,7 @@
         <div class="container">
             <div class="text-center text-white">
                 <h1 class="text-4xl font-bold mb-4">星闪技术 (NearLink)</h1>
-                <p class="text-lg">华为星闪技术开发文档与SDK使用指南</p>
+                <p class="text-lg">技术概览、官方硬件与开发资料索引</p>
             </div>
         </div>
     </section>
@@ -205,22 +208,13 @@
                                 <a href="#overview" class="text-primary hover-underline">概述</a>
                             </li>
                             <li class="list-group-item bg-dark border-secondary">
-                                <a href="#installation" class="text-primary hover-underline">环境搭建</a>
+                                <a href="#hardware" class="text-primary hover-underline">官方硬件</a>
                             </li>
                             <li class="list-group-item bg-dark border-secondary">
-                                <a href="#quickstart" class="text-primary hover-underline">快速开始</a>
+                                <a href="#resources" class="text-primary hover-underline">官方资料</a>
                             </li>
                             <li class="list-group-item bg-dark border-secondary">
-                                <a href="#api" class="text-primary hover-underline">API参考</a>
-                            </li>
-                            <li class="list-group-item bg-dark border-secondary">
-                                <a href="#protocol" class="text-primary hover-underline">通信协议</a>
-                            </li>
-                            <li class="list-group-item bg-dark border-secondary">
-                                <a href="#examples" class="text-primary hover-underline">示例代码</a>
-                            </li>
-                            <li class="list-group-item bg-dark border-secondary">
-                                <a href="#compatibility" class="text-primary hover-underline">兼容性测试</a>
+                                <a href="#faq" class="text-primary hover-underline">常见问题</a>
                             </li>
                         </ul>
                     </nav>
@@ -229,377 +223,94 @@
                 <div class="col-lg-9">
                     <div id="overview" class="mb-12">
                         <h2 class="text-2xl font-bold mb-4">概述</h2>
-                        <p class="text-secondary mb-4">星闪技术（NearLink）是华为公司推出的新一代无线短距通信技术，融合了蓝牙和Wi-Fi的优势，提供更低时延、更高可靠性和更大容量的通信能力。</p>
+                        <p class="text-secondary mb-4">星闪（NearLink，SparkLink）是面向短距无线通信的技术标准，由星闪联盟推动，包含 SLE 低功耗与 SLB 高速等模式，目标是在时延、并发和可靠性之间取得更好的平衡。</p>
                         <div class="card-dark p-6 mb-4">
-                            <h3 class="text-lg font-bold mb-3">技术特性</h3>
+                            <h3 class="text-lg font-bold mb-3">技术特点</h3>
                             <ul class="list-unstyled space-y-2">
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>超低时延：端到端时延低至2ms</li>
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>高可靠性：传输成功率超过99.9%</li>
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>大容量：支持数百个设备并发连接</li>
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>低功耗：支持多种功耗模式</li>
-                                <li><i class="fas fa-check text-green-500 mr-2"></i>高安全性：支持加密通信</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>低时延：面向实时控制与交互类场景设计</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>高可靠：支持重传与抗干扰机制</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>多连接：面向高并发设备组网</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>低功耗：SLE 模式面向电池供电设备</li>
                             </ul>
                         </div>
                         <div class="card-dark p-6">
-                            <h3 class="text-lg font-bold mb-3">支持的开发板</h3>
-                            <ul class="list-unstyled space-y-2">
-                                <li><i class="fas fa-microchip text-orange-500 mr-2"></i>NearLink DevKit Pro (Hi3881)</li>
-                                <li><i class="fas fa-microchip text-orange-500 mr-2"></i>NearLink Sensor Node (Hi3882)</li>
-                                <li><i class="fas fa-microchip text-orange-500 mr-2"></i>NearLink Gateway (Hi3883)</li>
-                            </ul>
+                            <p class="text-secondary mb-0"><i class="fas fa-circle-info text-primary mr-2"></i>本页只整理厂商公开资料，不发布未经实测的兼容性结论。具体参数、供货与开发方式请以海思及模组厂商文档为准。</p>
                         </div>
                     </div>
 
-                    <div id="installation" class="mb-12">
-                        <h2 class="text-2xl font-bold mb-4">环境搭建</h2>
-                        <div class="card-dark p-6 mb-4">
-                            <h3 class="text-lg font-bold mb-3">硬件要求</h3>
-                            <ul class="list-unstyled space-y-2 mb-4">
-                                <li><i class="fas fa-desktop text-blue-500 mr-2"></i>支持星闪技术的开发板（Hi3881/Hi3882/Hi3883）</li>
-                                <li><i class="fas fa-plug text-primary mr-2"></i>USB-C数据线</li>
-                                <li><i class="fas fa-laptop text-blue-500 mr-2"></i>Windows/macOS/Linux主机</li>
-                            </ul>
-                        </div>
-                        <div class="card-dark p-6">
-                            <h3 class="text-lg font-bold mb-3">软件安装</h3>
-                            <pre class="bg-black p-4 rounded text-sm overflow-x-auto"><code># 安装Python依赖
-pip install flask flask-sqlalchemy flask-login
-
-# 安装星闪SDK
-pip install nearlink-sdk
-
-# 克隆项目
-git clone https://github.com/waedonwoo/zouic-site.git
-cd zouic-site
-
-# 运行应用
-python run.py</code></pre>
-                        </div>
-                    </div>
-
-                    <div id="quickstart" class="mb-12">
-                        <h2 class="text-2xl font-bold mb-4">快速开始</h2>
-                        <div class="card-dark p-6">
-                            <h3 class="text-lg font-bold mb-3">第一步：设备发现</h3>
-                            <pre class="bg-black p-4 rounded text-sm overflow-x-auto mb-4"><code>from app.services.nearlink_sdk import nearlink_sdk
-
-# 开始设备发现
-nearlink_sdk.start_discovery(timeout=5)
-
-# 获取发现的设备
-devices = nearlink_sdk.get_discovered_devices()
-for device in devices:
-    print(f"设备: {device.name}, ID: {device.device_id}")</code></pre>
-                            <h3 class="text-lg font-bold mb-3">第二步：连接设备</h3>
-                            <pre class="bg-black p-4 rounded text-sm overflow-x-auto mb-4"><code># 连接到指定设备
-success = nearlink_sdk.connect('nl_device_001')
-if success:
-    print("连接成功")
-else:
-    print("连接失败")</code></pre>
-                            <h3 class="text-lg font-bold mb-3">第三步：数据传输</h3>
-                            <pre class="bg-black p-4 rounded text-sm overflow-x-auto"><code># 发送数据
-data = {'temperature': 25.5, 'humidity': 60}
-success = nearlink_sdk.send_json(data)
-
-# 读取设备信息
-info = nearlink_sdk.read_device_info()
-print(f"设备信息: {info}")</code></pre>
-                        </div>
-                    </div>
-
-                    <div id="api" class="mb-12">
-                        <h2 class="text-2xl font-bold mb-4">API参考</h2>
-                        <div class="card-dark p-6 mb-4">
-                            <h3 class="text-lg font-bold mb-3">RESTful API端点</h3>
-                            <table class="w-full">
+                    <div id="hardware" class="mb-12">
+                        <h2 class="text-2xl font-bold mb-4">官方硬件</h2>
+                        <p class="text-secondary mb-4">目前公开资料较完整的星闪硬件主要来自海思 WS63（Hi3863）系列及 Hi2821/BS21、Hi3873 等平台，常见形态包括开发板、模组和网关。</p>
+                        <div class="table-responsive">
+                            <table class="table table-dark">
                                 <thead>
-                                    <tr class="border-b border-secondary">
-                                        <th class="text-left py-2">端点</th>
-                                        <th class="text-left py-2">方法</th>
-                                        <th class="text-left py-2">描述</th>
+                                    <tr>
+                                        <th>平台</th>
+                                        <th>无线能力</th>
+                                        <th>常见形态</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2 text-primary">/api/nearlink/discover</td>
-                                        <td class="py-2">GET</td>
-                                        <td class="py-2">开始设备发现</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2 text-primary">/api/nearlink/devices</td>
-                                        <td class="py-2">GET</td>
-                                        <td class="py-2">获取已发现的设备列表</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2 text-primary">/api/nearlink/connect</td>
-                                        <td class="py-2">POST</td>
-                                        <td class="py-2">连接到指定设备</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2 text-primary">/api/nearlink/disconnect</td>
-                                        <td class="py-2">POST</td>
-                                        <td class="py-2">断开连接</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2 text-primary">/api/nearlink/send</td>
-                                        <td class="py-2">POST</td>
-                                        <td class="py-2">发送数据</td>
+                                    <tr>
+                                        <td>WS63 / Hi3863</td>
+                                        <td>Wi-Fi 6 + BLE 5.x + SLE 1.0</td>
+                                        <td>开发板、模组</td>
                                     </tr>
                                     <tr>
-                                        <td class="py-2 text-primary">/api/nearlink/device_info</td>
-                                        <td class="py-2">GET</td>
-                                        <td class="py-2">获取设备信息</td>
+                                        <td>Hi2821 / BS21</td>
+                                        <td>SLE 低功耗</td>
+                                        <td>小型开发板、模组</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hi3873</td>
+                                        <td>SLE 高速/网关形态</td>
+                                        <td>网口模组、网关</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <div class="card-dark p-6">
-                            <h3 class="text-lg font-bold mb-3">SDK方法</h3>
-                            <table class="w-full">
-                                <thead>
-                                    <tr class="border-b border-secondary">
-                                        <th class="text-left py-2">方法</th>
-                                        <th class="text-left py-2">参数</th>
-                                        <th class="text-left py-2">返回值</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2 text-primary">start_discovery(timeout)</td>
-                                        <td class="py-2">timeout: int (发现超时时间)</td>
-                                        <td class="py-2">无</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2 text-primary">get_discovered_devices()</td>
-                                        <td class="py-2">无</td>
-                                        <td class="py-2">List[NearLinkDevice]</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2 text-primary">connect(device_id)</td>
-                                        <td class="py-2">device_id: str (设备ID)</td>
-                                        <td class="py-2">bool</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2 text-primary">disconnect()</td>
-                                        <td class="py-2">无</td>
-                                        <td class="py-2">无</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2 text-primary">send_json(data)</td>
-                                        <td class="py-2">data: dict (JSON数据)</td>
-                                        <td class="py-2">bool</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-2 text-primary">read_device_info()</td>
-                                        <td class="py-2">无</td>
-                                        <td class="py-2">Dict</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <p class="text-secondary text-sm mt-3">站内暂未收录星闪开发板，避免在参数未核实前上架；待官方规格与购买渠道确认后再补充。</p>
+                    </div>
+
+                    <div id="resources" class="mb-12">
+                        <h2 class="text-2xl font-bold mb-4">官方资料</h2>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <a class="card-dark p-5 h-100 d-block text-decoration-none" href="https://docs.hisilicon.com/projects/fbb_ws63/master/get-started/index.html" target="_blank" rel="noopener noreferrer">
+                                    <h3 class="text-lg font-bold mb-2"><i class="fas fa-book-open text-primary mr-2"></i>WS63 开发者中心</h3>
+                                    <p class="text-secondary mb-0">海思官方快速入门、环境搭建、编译与烧录文档。</p>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a class="card-dark p-5 h-100 d-block text-decoration-none" href="https://www.openharmony.cn/" target="_blank" rel="noopener noreferrer">
+                                    <h3 class="text-lg font-bold mb-2"><i class="fas fa-code text-accent mr-2"></i>OpenHarmony 社区</h3>
+                                    <p class="text-secondary mb-0">WS63 等平台可运行 OpenHarmony，资料与源码以社区仓库为准。</p>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a class="card-dark p-5 h-100 d-block text-decoration-none" href="https://www.sparklink.org.cn/" target="_blank" rel="noopener noreferrer">
+                                    <h3 class="text-lg font-bold mb-2"><i class="fas fa-tower-broadcast text-green-500 mr-2"></i>星闪联盟</h3>
+                                    <p class="text-secondary mb-0">标准、白皮书与产业动态的公开入口。</p>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a class="card-dark p-5 h-100 d-block text-decoration-none" href="https://www.zouic.com/articles/nearlink-getting-started/" hreflang="zh-CN">
+                                    <h3 class="text-lg font-bold mb-2"><i class="fas fa-compass text-yellow-500 mr-2"></i>星闪入门路线</h3>
+                                    <p class="text-secondary mb-0">从选型到跑通第一个示例的学习路径整理。</p>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <div id="protocol" class="mb-12">
-                        <h2 class="text-2xl font-bold mb-4">通信协议</h2>
-                        <div class="card-dark p-6 mb-4">
-                            <h3 class="text-lg font-bold mb-3">数据包结构</h3>
-                            <pre class="bg-black p-4 rounded text-sm overflow-x-auto"><code>┌─────────────────────────────────────────────┐
-│ NearLink packet structure                   │
-├─────────┬─────────┬─────────┬───────────────┤
-│ Command │ Flags   │ Source  │ Destination   │
-│ (1 byte)│ (1 byte)│ (2 bytes)│ (2 bytes)    │
-├─────────┴─────────┴─────────┴───────────────┤
-│              Payload (0-244 bytes)          │
-└─────────────────────────────────────────────┘</code></pre>
-                        </div>
+                    <div id="faq" class="mb-12">
+                        <h2 class="text-2xl font-bold mb-4">常见问题</h2>
                         <div class="card-dark p-6">
-                            <h3 class="text-lg font-bold mb-3">命令类型</h3>
-                            <table class="w-full">
-                                <thead>
-                                    <tr class="border-b border-secondary">
-                                        <th class="text-left py-2">命令码</th>
-                                        <th class="text-left py-2">名称</th>
-                                        <th class="text-left py-2">描述</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2">0x01</td>
-                                        <td class="py-2">DISCOVER</td>
-                                        <td class="py-2">设备发现</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2">0x02</td>
-                                        <td class="py-2">CONNECT</td>
-                                        <td class="py-2">连接请求</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2">0x03</td>
-                                        <td class="py-2">DISCONNECT</td>
-                                        <td class="py-2">断开连接</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2">0x04</td>
-                                        <td class="py-2">DATA</td>
-                                        <td class="py-2">数据传输</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2">0x05</td>
-                                        <td class="py-2">ACK</td>
-                                        <td class="py-2">确认响应</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2">0x06</td>
-                                        <td class="py-2">NACK</td>
-                                        <td class="py-2">否定响应</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-2">0x07</td>
-                                        <td class="py-2">HEARTBEAT</td>
-                                        <td class="py-2">心跳包</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div id="examples" class="mb-12">
-                        <h2 class="text-2xl font-bold mb-4">示例代码</h2>
-                        <div class="card-dark p-6 mb-4">
-                            <h3 class="text-lg font-bold mb-3">完整示例：传感器数据采集</h3>
-                            <pre class="bg-black p-4 rounded text-sm overflow-x-auto"><code>from app.services.nearlink_sdk import nearlink_sdk
-import time
-
-def collect_sensor_data():
-    # 开始设备发现
-    nearlink_sdk.start_discovery(timeout=5)
-    
-    # 获取传感器设备
-    devices = nearlink_sdk.get_discovered_devices()
-    sensor_device = None
-    
-    for device in devices:
-        if 'Sensor' in device.name:
-            sensor_device = device
-            break
-    
-    if not sensor_device:
-        print("未找到传感器设备")
-        return
-    
-    # 连接设备
-    success = nearlink_sdk.connect(sensor_device.device_id)
-    if not success:
-        print("连接失败")
-        return
-    
-    print(f"已连接到 {sensor_device.name}")
-    
-    # 持续采集数据
-    try:
-        while True:
-            # 发送采集请求
-            nearlink_sdk.send_json({'command': 'read_sensors'})
-            
-            # 读取设备信息
-            info = nearlink_sdk.read_device_info()
-            print(f"设备信息: {info}")
-            
-            time.sleep(2)
-    except KeyboardInterrupt:
-        print("停止采集")
-    finally:
-        nearlink_sdk.disconnect()
-
-if __name__ == '__main__':
-    collect_sensor_data()</code></pre>
-                        </div>
-                        <div class="card-dark p-6">
-                            <h3 class="text-lg font-bold mb-3">Web应用集成示例</h3>
-                            <pre class="bg-black p-4 rounded text-sm overflow-x-auto"><code>// JavaScript示例：使用REST API
-async function discoverDevices() {
-    const response = await fetch('/api/nearlink/discover');
-    const data = await response.json();
-    console.log('发现的设备:', data.devices);
-    return data.devices;
-}
-
-async function connectDevice(deviceId) {
-    const response = await fetch('/api/nearlink/connect', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ device_id: deviceId })
-    });
-    return await response.json();
-}
-
-async function sendData(message) {
-    const response = await fetch('/api/nearlink/send', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message })
-    });
-    return await response.json();
-}
-
-// 使用示例
-discoverDevices().then(devices => {
-    if (devices.length > 0) {
-        connectDevice(devices[0].device_id).then(() => {
-            sendData('Hello NearLink!');
-        });
-    }
-});</code></pre>
-                        </div>
-                    </div>
-
-                    <div id="compatibility" class="mb-12">
-                        <h2 class="text-2xl font-bold mb-4">兼容性测试</h2>
-                        <div class="card-dark p-6">
-                            <h3 class="text-lg font-bold mb-3">测试环境</h3>
-                            <ul class="list-unstyled space-y-2 mb-4">
-                                <li><i class="fas fa-desktop text-blue-500 mr-2"></i>操作系统：Windows 10/11, macOS 12+, Ubuntu 20.04+</li>
-                                <li><i class="fas fa-microchip text-blue-500 mr-2"></i>开发板：NearLink DevKit Pro (Hi3881)</li>
-                                <li><i class="fas fa-wifi text-blue-500 mr-2"></i>星闪协议版本：1.0</li>
-                            </ul>
-                            <h3 class="text-lg font-bold mb-3">测试结果</h3>
-                            <table class="w-full">
-                                <thead>
-                                    <tr class="border-b border-secondary">
-                                        <th class="text-left py-2">测试项</th>
-                                        <th class="text-left py-2">结果</th>
-                                        <th class="text-left py-2">备注</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2">设备发现</td>
-                                        <td class="py-2 text-green-500">通过</td>
-                                        <td class="py-2">支持广播模式发现</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2">连接建立</td>
-                                        <td class="py-2 text-green-500">通过</td>
-                                        <td class="py-2">支持自动重连</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2">数据传输</td>
-                                        <td class="py-2 text-green-500">通过</td>
-                                        <td class="py-2">支持JSON和二进制数据</td>
-                                    </tr>
-                                    <tr class="border-b border-secondary">
-                                        <td class="py-2">心跳检测</td>
-                                        <td class="py-2 text-green-500">通过</td>
-                                        <td class="py-2">支持超时自动断开</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-2">多设备并发</td>
-                                        <td class="py-2 text-green-500">通过</td>
-                                        <td class="py-2">支持多设备同时连接</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <h3 class="text-lg font-bold mb-2">星闪和蓝牙、Wi-Fi 是什么关系？</h3>
+                            <p class="text-secondary mb-4">星闪是独立的短距无线标准，定位上与蓝牙、Wi-Fi 互补。WS63 这类芯片把 Wi-Fi、BLE 与 SLE 集成在同一颗 SoC 中，便于按场景选择。</p>
+                            <h3 class="text-lg font-bold mb-2">个人开发者现在能买到什么？</h3>
+                            <p class="text-secondary mb-4">市面上已有基于 WS63/Hi3863、Hi2821/BS21 的开发板和模组，购买前请核对芯片型号、天线形态与配套 SDK。</p>
+                            <h3 class="text-lg font-bold mb-2">站内会收录星闪开发板吗？</h3>
+                            <p class="text-secondary mb-0">会，但只在官方规格、购买链接和资料入口都能核实后上架，避免用估算参数误导选型。</p>
                         </div>
                     </div>
                 </div>
@@ -694,6 +405,7 @@ discoverDevices().then(devices => {
                         <li><a href="/products/">产品介绍</a></li>
                         <li><a href="/services/">服务说明</a></li>
                         <li><a href="/services/website-building/">建站服务</a></li>
+                        <li><a href="/services/component-matching/">元器件撮合</a></li>
                         <li><a href="/news/">站内动态</a></li>
                         <li><a href="/boards/">开源开发板</a></li>
                     </ul>
@@ -715,8 +427,9 @@ discoverDevices().then(devices => {
                     <h5>开源生态</h5>
                     <ul>
                         <li><a href="/open-source/">开源项目</a></li>
-                        <li><a href="/all-projects/">开源项目</a></li>
+                        <li><a href="/all-projects/">全部项目</a></li>
                         <li><a href="/articles/">技术文章</a></li>
+                        <li><a href="/wechat/">公众号专栏</a></li>
                         <li><a href="/contribute/">贡献指南</a></li>
                         <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                     </ul>
@@ -729,6 +442,13 @@ discoverDevices().then(devices => {
                         <li><a href="/licenses/">开源协议</a></li>
                         <li><a href="/about/#privacy">隐私政策</a></li>
                     </ul>
+                </div>
+            </div>
+            <div class="footer-producer-bar">
+                <img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
+                <div style="line-height:1.6;">
+                    <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div>
+                    <div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div>
                 </div>
             </div>
             <div class="footer-bottom">
