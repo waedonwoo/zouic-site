@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="This project walks through how to create a Linux OS for the Kria KD240 Drives Kit in PetaLinux 2023.2">
+    <meta name="keywords" content="Getting Started with the Kria KD240 in PetaLinux 2023.2, hackster">
+    
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    
+    
+    
+    
+    <link rel="canonical" href="https://www.zouic.com/external/hackster/getting-started-with-the-kria-kd240-in-petalinux-2023-2-b54a78">
+    
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/external/hackster/getting-started-with-the-kria-kd240-in-petalinux-2023-2-b54a78" />
+    
+    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/external/hackster/getting-started-with-the-kria-kd240-in-petalinux-2023-2-b54a78" />
+    
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/external/hackster/getting-started-with-the-kria-kd240-in-petalinux-2023-2-b54a78" />
+    
+    
+    
+    
+    <meta property="og:title" content="Getting Started with the Kria KD240 in PetaLinux 2023.2 - ZouIC">
+    <meta property="og:description" content="This project walks through how to create a Linux OS for the Kria KD240 Drives Kit in PetaLinux 2023.2">
+    <meta property="og:url" content="https://www.zouic.com/external/hackster/getting-started-with-the-kria-kd240-in-petalinux-2023-2-b54a78">
+    <meta property="og:type" content="creativework">
+    <meta property="og:locale" content="zh_CN">
+    
+    
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Getting Started with the Kria KD240 in PetaLinux 2023.2 - ZouIC">
+    <meta name="twitter:description" content="This project walks through how to create a Linux OS for the Kria KD240 Drives Kit in PetaLinux 2023.2">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/all-projects", "name": "\u5f00\u6e90\u9879\u76ee", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/external/hackster/getting-started-with-the-kria-kd240-in-petalinux-2023-2-b54a78/", "name": "\u9879\u76ee\u8be6\u60c5", "position": 3}]}
+    </script>
+    
+    
+    
+    <title>Getting Started with the Kria KD240 in PetaLinux 2023.2 - Hackster.io</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    
+    <!-- External Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    
+    <!-- ZouIC Design System -->
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261027a">
+    <noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028e">
+    
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-microchip"></i> ZouIC
+            </a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
+                <span class="nav-hud-dot"></span>SYS.ONLINE
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/all-projects/"><i class="fas fa-project-diagram me-1"></i>开源项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li>
+                    <li class="nav-item dropdown">
+                        <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li>
+                            <li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li>
+                            <li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li>
+                            <li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li>
+                            <li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li>
+                            <li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li>
+                            <li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li>
+                            <li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li>
+                </ul>
+                <form id="searchForm" class="d-flex me-3 d-none d-lg-flex">
+                    <div class="input-group input-group-zouic">
+                        <input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" style="width: 200px;">
+                        <select id="searchType" class="form-select input-zouic" aria-label="搜索类型:" style="width: auto; flex: 0 0 auto;">
+                            <option value="">全部分类</option>
+                            <option value="board">开源开发板</option>
+                            <option value="project">开源项目</option>
+                        </select>
+                        <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i> 中文
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/external/hackster/getting-started-with-the-kria-kd240-in-petalinux-2023-2-b54a78/">
+                                <i class="fas fa-language me-2"></i> 中文
+                            </a></li>
+                            <li><a class="dropdown-item" href="/en/external/hackster/getting-started-with-the-kria-kd240-in-petalinux-2023-2-b54a78/">
+                                <i class="fas fa-language me-2"></i> English
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        
+<div class="container">
+    <div class="row mb-6">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb" class="mt-4">
+                <ol class="breadcrumb bg-transparent">
+                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/all-projects/">全部项目</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Getting Started with the Kria KD240 in PetaLinux 2023.2</li>
+                </ol>
+            </nav>
+            <a href="/all-projects/" class="btn btn-outline-secondary mb-4">
+                <i class="fas fa-arrow-left mr-2"></i> 返回列表
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            
+            <div class="card-dark rounded-lg mb-6 overflow-hidden">
+                <img loading="lazy" decoding="async" src="https://hackster.imgix.net/uploads/attachments/1668576/_M0gpVZxEWg.blob?auto=compress%2Cformat" alt="Getting Started with the Kria KD240 in PetaLinux 2023.2" class="w-full" style="max-height: 400px; object-fit: cover;">
+            </div>
+            
+
+            <div class="card-dark rounded-lg p-6 mb-6">
+                <div class="d-flex items-start justify-between mb-6">
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="badge badge-accent">
+                                <i class="fas fa-robot mr-1"></i> Hackster.io
+                            </span>
+                            <a class="badge badge-primary" href="/source/hackster/">
+                                <i class="fas fa-layer-group mr-1"></i> 该来源全部项目
+                            </a>
+                            
+                            <span class="badge badge-secondary">
+                                <i class="fas fa-scale-balanced mr-1"></i> 以原页面标注为准
+                            </span>
+                            
+                            
+                            <span class="badge badge-secondary">fpga</span>
+                            
+                        </div>
+                        <p class="text-secondary mb-3" style="font-size:.85rem;">
+                            <i class="fas fa-circle-info mr-1"></i>
+                            本项目由 ZouIC 从原平台公开页面收录，仅供开发者参考；版权与授权归原作者，遵循其各自开源协议。代码与文件请前往原平台获取。
+                        </p>
+                        <h1 class="display-4">Getting Started with the Kria KD240 in PetaLinux 2023.2</h1>
+                        
+                        <p class="text-secondary mt-2">发布于 2023-12-26</p>
+                        
+                    </div>
+                </div>
+
+                
+                
+
+                <p class="text-lg mb-6">This project walks through how to create a Linux OS for the Kria KD240 Drives Kit in PetaLinux 2023.2</p>
+
+                
+                
+
+                
+                <div class="mb-6">
+                    <h3 class="h4 mb-3">标签</h3>
+                    <div class="flex flex-wrap gap-2">
+                        
+                        <a href="/search/?q=AMD%20Xilinx&type=project" class="badge badge-primary text-decoration-none">AMD Xilinx</a>
+                        
+                        <a href="/search/?q=tutorial&type=project" class="badge badge-primary text-decoration-none">tutorial</a>
+                        
+                        <a href="/search/?q=intermediate&type=project" class="badge badge-primary text-decoration-none">intermediate</a>
+                        
+                    </div>
+                </div>
+                
+
+                
+                
+                
+                
+                
+                <div class="mb-6">
+                    <h3 class="h4 mb-4">技术规格详情</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        
+                        <div class="p-4 rounded-lg" style="background-color: rgba(255,255,255,0.05);">
+                            <div class="text-sm text-secondary">
+                                
+                                source platform
+                                
+                            </div>
+                            
+                            <div class="font-medium mt-1">Hackster.io</div>
+                            
+                        </div>
+                        
+                        <div class="p-4 rounded-lg" style="background-color: rgba(255,255,255,0.05);">
+                            <div class="text-sm text-secondary">
+                                
+                                listing note
+                                
+                            </div>
+                            
+                            <div class="font-medium mt-1">Metadata fetched from the public platform page; copyright belongs to the original author.</div>
+                            
+                        </div>
+                        
+                        <div class="p-4 rounded-lg" style="background-color: rgba(255,255,255,0.05);">
+                            <div class="text-sm text-secondary">
+                                
+                                difficulty
+                                
+                            </div>
+                            
+                            <div class="font-medium mt-1">intermediate</div>
+                            
+                        </div>
+                        
+                        <div class="p-4 rounded-lg" style="background-color: rgba(255,255,255,0.05);">
+                            <div class="text-sm text-secondary">
+                                
+                                content type
+                                
+                            </div>
+                            
+                            <div class="font-medium mt-1">tutorial</div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                
+
+                
+                <div class="mb-6">
+                    <h3 class="h4 mb-4">相关资源与购买渠道</h3>
+                    <div class="row">
+                        
+                        <div class="col-md-6 mb-3">
+                            
+                            <a href="https://www.hackster.io/whitney-knitter/getting-started-with-the-kria-kd240-in-petalinux-2023-2-b54a78" target="_blank" rel="noopener noreferrer" class="card-dark p-4 rounded-lg hover:border-primary transition-colors d-block">
+                                <i class="fas fa-external-link-alt text-primary mr-2"></i> 在原平台查看原始页面
+                            </a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                
+
+                
+                <div class="mb-6">
+                    <h3 class="h4 mb-4">统计数据</h3>
+                    <div class="flex flex-wrap gap-4">
+                        
+                        <div class="p-4 rounded-lg" style="background-color: rgba(255,255,255,0.05);">
+                            <div class="text-sm text-secondary">respects</div>
+                            <div class="text-xl font-bold">9</div>
+                        </div>
+                        
+                        <div class="p-4 rounded-lg" style="background-color: rgba(255,255,255,0.05);">
+                            <div class="text-sm text-secondary">views</div>
+                            <div class="text-xl font-bold">1675</div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+
+                
+                <div class="mb-6">
+                    <h3 class="h4 mb-4">同类项目推荐</h3>
+                    <div class="row">
+                        
+                        <div class="col-md-6 mb-3">
+                            <a href="/external/hackster/dsp-for-fpga-simple-fir-filter-in-verilog-91208d/"
+                               class="card-dark p-4 rounded-lg d-block hover:border-primary transition-colors">
+                                <div class="font-medium">DSP for FPGA: Simple FIR Filter in Verilog</div>
+                                
+                                <div class="text-secondary mt-1" style="font-size: 0.8rem;">
+                                    
+                                    
+                                    
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <a href="/external/hackster/introduction-to-using-axi-dma-in-embedded-linux-5264ec/"
+                               class="card-dark p-4 rounded-lg d-block hover:border-primary transition-colors">
+                                <div class="font-medium">Introduction to Using AXI DMA in Embedded Linux</div>
+                                
+                                <div class="text-secondary mt-1" style="font-size: 0.8rem;">
+                                    
+                                    
+                                    
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <a href="/external/hackster/fpga-based-edge-detection-using-hls-192ad2/"
+                               class="card-dark p-4 rounded-lg d-block hover:border-primary transition-colors">
+                                <div class="font-medium">FPGA-Based Edge Detection Using HLS</div>
+                                
+                                <div class="text-secondary mt-1" style="font-size: 0.8rem;">
+                                    
+                                    
+                                    
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <a href="/external/hackster/creating-a-zynq-or-fpga-based-image-processing-platform-e79394/"
+                               class="card-dark p-4 rounded-lg d-block hover:border-primary transition-colors">
+                                <div class="font-medium">Creating a Zynq or FPGA-Based, Image Processing Platform</div>
+                                
+                                <div class="text-secondary mt-1" style="font-size: 0.8rem;">
+                                    
+                                    
+                                    
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <a href="/external/hackster/a-practical-introduction-to-sram-memories-using-an-fpga-i-3f3992/"
+                               class="card-dark p-4 rounded-lg d-block hover:border-primary transition-colors">
+                                <div class="font-medium">A Practical Introduction to SRAM Memories Using an FPGA (I)</div>
+                                
+                                <div class="text-secondary mt-1" style="font-size: 0.8rem;">
+                                    
+                                    
+                                    
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <a href="/external/hackster/stereo-vision-and-lidar-powered-donkey-car-575769/"
+                               class="card-dark p-4 rounded-lg d-block hover:border-primary transition-colors">
+                                <div class="font-medium">Stereo Vision and LiDAR Powered Donkey Car</div>
+                                
+                                <div class="text-secondary mt-1" style="font-size: 0.8rem;">
+                                    
+                                    
+                                    
+                                </div>
+                            </a>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card-dark rounded-lg p-6 mb-6">
+                <h3 class="h4 mb-4">项目信息</h3>
+                <div class="space-y-3">
+                    <div class="d-flex justify-content-between">
+                        <span class="text-secondary">来源平台</span>
+                        <span class="font-medium">Hackster.io</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span class="text-secondary">分类</span>
+                        <span class="font-medium">fpga</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span class="text-secondary">许可证</span>
+                        
+                        <span class="font-medium">以原页面标注为准</span>
+                        
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span class="text-secondary">浏览次数</span>
+                        <span class="font-medium">1675</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span class="text-secondary">点赞数</span>
+                        <span class="font-medium">9</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span class="text-secondary">讨论数</span>
+                        <span class="font-medium">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-dark rounded-lg p-6 mb-6">
+                <h3 class="h4 mb-4">作者信息</h3>
+                
+                <div class="flex items-center">
+                    
+                    <div class="rounded-circle w-12 h-12 mr-3 bg-secondary"></div>
+                    
+                    <div>
+                        <div class="font-bold">Whitney Knitter</div>
+                        
+                        <a href="https://www.hackster.io/whitney-knitter" target="_blank" rel="noopener noreferrer" 
+                           class="text-sm text-primary hover-underline">查看主页</a>
+                        
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="card-dark rounded-lg p-6 mb-6">
+                <h3 class="h4 mb-4">相关链接</h3>
+                <div class="space-y-2">
+                    
+                    <a href="https://www.hackster.io/whitney-knitter/getting-started-with-the-kria-kd240-in-petalinux-2023-2-b54a78" target="_blank" rel="noopener noreferrer" 
+                       class="btn btn-primary btn-sm w-full">
+                        <i class="fas fa-external-link-alt mr-2"></i> 查看原始页面
+                    </a>
+                    
+                    
+                    <a href="https://www.hackster.io/whitney-knitter/getting-started-with-the-kria-kd240-in-petalinux-2023-2-b54a78" target="_blank" rel="noopener noreferrer" 
+                       class="btn btn-outline-secondary btn-sm w-full">
+                        <i class="fas fa-book mr-2"></i> 技术文档
+                    </a>
+                    
+                    
+                </div>
+            </div>
+
+            <div class="card-dark rounded-lg p-6 mb-6">
+                <h3 class="h4 mb-4">继续探索</h3>
+                <div class="space-y-2">
+                    <a href="/all-projects/" class="d-flex items-center gap-2 text-primary hover-underline">
+                        <i class="fas fa-layer-group"></i> 全部项目
+                    </a>
+                    <a href="/boards/" class="d-flex items-center gap-2 text-primary hover-underline">
+                        <i class="fas fa-microchip"></i> 开源开发板
+                    </a>
+                    <a href="/board-guide/" class="d-flex items-center gap-2 text-primary hover-underline">
+                        <i class="fas fa-compass"></i> 开发板选型指南
+                    </a>
+                    <a href="/articles/" class="d-flex items-center gap-2 text-primary hover-underline">
+                        <i class="fas fa-newspaper"></i> 技术文章
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-dark rounded-lg p-6">
+                <h3 class="h4 mb-3">引用说明</h3>
+                <p class="text-sm text-secondary">
+                    本内容来源于 Hackster.io 平台，版权归原作者所有。
+                    本平台仅提供索引和摘要，详细内容请访问原始链接。
+                </p>
+                
+                <div class="mt-3">
+                    <span class="badge badge-accent">以原页面标注为准</span>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Newsletter section (the home page already has a full follow block, so it is skipped there) -->
+    
+    <section id="follow" class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a>
+                        <div class="newsletter-benefits">
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="py-4" aria-label="出品人">
+        <div class="author-card">
+            <div class="author-card-info">
+                <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
+                <div>
+                    <div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div>
+                    <div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div>
+                </div>
+            </div>
+            <div class="author-card-actions">
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-zouic" role="contentinfo">
+        <div class="container">
+            <div class="row footer-main">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
+                    <a href="/" class="footer-brand" aria-label="ZouIC 首页">
+                        <i class="fas fa-microchip"></i>
+                        <span>ZouIC</span>
+                    </a>
+                    <p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p>
+
+                    <div class="footer-meta">
+                        <p class="footer-author">
+                            出品人 · <strong>极客微栋</strong>
+                            <span class="footer-author-handle">@GeekWaedon</span>
+                        </p>
+                        <div class="footer-slash-tags">
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span>
+                            <a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商">
+                                <i class="fab fa-weixin"></i> 企业微信服务商
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a>
+                        <a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a>
+                        <a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a>
+                        <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>产品</h5>
+                    <ul>
+                        <li><a href="/products/">产品介绍</a></li>
+                        <li><a href="/services/">服务说明</a></li>
+                        <li><a href="/services/website-building/">建站服务</a></li>
+                        <li><a href="/services/component-matching/">元器件撮合</a></li>
+                        <li><a href="/news/">站内动态</a></li>
+                        <li><a href="/boards/">开源开发板</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>资源</h5>
+                    <ul>
+                        <li><a href="/board-guide/">选型指南</a></li>
+                        <li><a href="/compare/">开发板对比</a></li>
+                        <li><a href="/tutorials/">开发板教程</a></li>
+                        <li><a href="/documentation/">技术文档</a></li>
+                        <li><a href="/cases/">项目案例</a></li>
+                        <li><a href="/help/">文档中心</a></li>
+                        <li><a href="/games/resistor/">色环电阻识别挑战</a></li>
+                        <li><a href="/dashuju/">数据大屏</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>开源生态</h5>
+                    <ul>
+                        <li><a href="/open-source/">开源项目</a></li>
+                        <li><a href="/all-projects/">全部项目</a></li>
+                        <li><a href="/articles/">技术文章</a></li>
+                        <li><a href="/wechat/">公众号专栏</a></li>
+                        <li><a href="/contribute/">贡献指南</a></li>
+                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h5>关于</h5>
+                    <ul>
+                        <li><a href="/about/">关于我们</a></li>
+                        <li><a href="/about/#contact">联系我们</a></li>
+                        <li><a href="/licenses/">开源协议</a></li>
+                        <li><a href="/about/#privacy">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-producer-bar">
+                <img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
+                <div style="line-height:1.6;">
+                    <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div>
+                    <div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ZouIC. All rights reserved.</p>
+                <p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p>
+                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    <script async src="https://zouic-global-monitor.waedon.workers.dev/tracker.js" data-site="zouic" data-endpoint="https://zouic-global-monitor.waedon.workers.dev/collect"></script>
+    
+    <img src="https://zouic-global-monitor.waedon.workers.dev/pixel?path=/external/hackster/getting-started-with-the-kria-kd240-in-petalinux-2023-2-b54a78/" alt="" width="1" height="1" style="display:none" aria-hidden="true">
+    
+    
+</body>
+</html>
