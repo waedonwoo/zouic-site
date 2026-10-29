@@ -75,7 +75,7 @@
     <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261027a">
     <noscript>
         <style>
-            /* 关闭 JS 时不要因为滚动动画而隐藏内容 */
+            /* With JS disabled, scroll-reveal must not hide content */
             .reveal { opacity: 1 !important; transform: none !important; }
             .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
         </style>
@@ -924,9 +924,9 @@
     </main>
 
     <!-- Footer -->
-    <!-- Newsletter Section (首页已有完整关注区，不重复) -->
+    <!-- Newsletter section (the home page already has a full follow block, so it is skipped there) -->
     
-    <section class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
+    <section id="follow" class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
         <div class="container">
             <div class="newsletter-card">
                 <div class="row align-items-center">
@@ -1050,8 +1050,8 @@
             <div class="footer-producer-bar">
                 <img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
                 <div style="line-height:1.6;">
-                    <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div>
-                    <div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/en/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div>
+                    <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">Built single-handedly by GeekWaedon (@GeekWaedon) · <span style="color:#a78bfa;">people and AI, working side by side</span></div>
+                    <div class="text-xs text-secondary">A one-person project run by a real human: the site build, the data pulls, the articles and the artwork all came from me (with a few AI agents). <a href="/en/about/" class="text-primary" style="text-decoration:none;">Meet the person behind it →</a></div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -1101,8 +1101,9 @@
             }
 
             // --- Scroll reveal ---
-            // 先把 html 标记为 reveal-ready，CSS 才隐藏"未进入视口"的区块；
-            // 若观察器异常，2 秒后兜底全部显示，避免整屏空白。
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
             const revealElements = document.querySelectorAll('.reveal');
             document.documentElement.classList.add('reveal-ready');
             if (revealElements.length > 0 && 'IntersectionObserver' in window) {
@@ -1239,6 +1240,8 @@
     </script>
     
     
+    
+    <script async src="https://zouic-global-monitor.waedon.workers.dev/tracker.js" data-site="zouic" data-endpoint="https://zouic-global-monitor.waedon.workers.dev/collect"></script>
     
     
 </body>

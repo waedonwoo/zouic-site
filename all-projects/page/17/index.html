@@ -78,7 +78,7 @@
     <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261027a">
     <noscript>
         <style>
-            /* 关闭 JS 时不要因为滚动动画而隐藏内容 */
+            /* With JS disabled, scroll-reveal must not hide content */
             .reveal { opacity: 1 !important; transform: none !important; }
             .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
         </style>
@@ -191,7 +191,7 @@
         
 <div class="ext-page">
 
-    <!-- ==================== 页头 ==================== -->
+    <!-- ==================== Header ==================== -->
     <section class="ext-hero">
         <div class="ext-hero-grid" aria-hidden="true"></div>
         <div class="container">
@@ -282,7 +282,7 @@
 
         
 
-        <!-- ==================== 筛选条 ==================== -->
+        <!-- ==================== Filter bar ==================== -->
         <div class="ext-filterbar">
             <div class="ext-filter-row">
                 <span class="ext-filter-label">平台筛选</span>
@@ -466,7 +466,7 @@
             </div>
         </div>
 
-        <!-- ==================== 项目网格 ==================== -->
+        <!-- ==================== Project grid ==================== -->
         
         <div class="ext-grid">
             
@@ -1584,7 +1584,7 @@
         </nav>
         
 
-        <!-- ==================== 数据来源 ==================== -->
+        <!-- ==================== Data sources ==================== -->
         <div class="ext-sources">
             <div class="ext-sources-head">
                 <h2>致谢原作者与平台</h2>
@@ -1623,8 +1623,8 @@
 
 <script>
 (function(){
-  // 静态页前端筛选：读取 URL 的 ?platform= / ?category=，
-  // 直接显隐卡片并同步筛选芯片的高亮状态，无需服务端渲染多份快照。
+  // Client-side filtering for the static build: read ?platform= / ?category= from
+  // the URL, toggle cards and highlight matching chips - no server-side snapshots.
   var params = new URLSearchParams(window.location.search);
   var wantPlatform = (params.get('platform') || '').trim();
   var wantCategory = (params.get('category') || '').trim();
@@ -1645,7 +1645,7 @@
     if (show) shown++;
   });
 
-  // 空状态：筛选后没有任何卡片时给个提示
+  // Empty state: show a hint when the filter hides every card
   var grid = document.querySelector('.ext-grid');
   if (grid && shown === 0) {
     var tip = document.createElement('div');
@@ -1685,9 +1685,9 @@
     </main>
 
     <!-- Footer -->
-    <!-- Newsletter Section (首页已有完整关注区，不重复) -->
+    <!-- Newsletter section (the home page already has a full follow block, so it is skipped there) -->
     
-    <section class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
+    <section id="follow" class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
         <div class="container">
             <div class="newsletter-card">
                 <div class="row align-items-center">
@@ -1862,8 +1862,9 @@
             }
 
             // --- Scroll reveal ---
-            // 先把 html 标记为 reveal-ready，CSS 才隐藏"未进入视口"的区块；
-            // 若观察器异常，2 秒后兜底全部显示，避免整屏空白。
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
             const revealElements = document.querySelectorAll('.reveal');
             document.documentElement.classList.add('reveal-ready');
             if (revealElements.length > 0 && 'IntersectionObserver' in window) {
@@ -2000,6 +2001,8 @@
     </script>
     
     
+    
+    <script async src="https://zouic-global-monitor.waedon.workers.dev/tracker.js" data-site="zouic" data-endpoint="https://zouic-global-monitor.waedon.workers.dev/collect"></script>
     
     
 </body>

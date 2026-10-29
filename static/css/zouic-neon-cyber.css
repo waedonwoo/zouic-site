@@ -2349,6 +2349,8 @@ main {
 .ai-bubble-bot { background: var(--color-bg-secondary, #0f172a); border: 1px solid rgba(167, 139, 250, .30); }
 .ai-bubble-followup { border-style: dashed; }
 #ai-assistant .badge-zouic { cursor: pointer; border: none; }
+/* Status chip sits on its own line inside a bubble, so it never runs into the answer text. */
+.ai-bubble .badge-zouic { display: table; margin: 0 0 6px; cursor: default; }
 #aiChips .badge-zouic { display: inline-block; }
 @media (max-width: 575.98px) {
     #ai-assistant .card-dark.p-4 { padding: 12px !important; }
