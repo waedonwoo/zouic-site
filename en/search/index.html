@@ -395,6 +395,47 @@
                             <a href="/en/projects/" class="btn-zouic btn-zouic-secondary">Browse Projects</a>
                         </div>
                     </div>
+
+                    
+
+                    
+
+<section class="card-dark p-5 mb-4" id="ai-assistant"
+         data-endpoint="/api/ai/chat"
+         data-lang="en">
+    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
+        <div>
+            <h2 class="h5 font-bold mb-1">
+                <i class="fas fa-robot text-primary me-2" aria-hidden="true"></i>AI board selector
+            </h2>
+            <p class="text-secondary text-sm mb-0">Tell us the use case, budget and interfaces. The assistant only picks from boards and projects already listed on ZouIC.</p>
+        </div>
+        <button type="button" class="btn-zouic btn-zouic-secondary btn-zouic-sm" id="aiToggle"
+                aria-expanded="false" aria-controls="aiPanel">Open assistant</button>
+    </div>
+
+    <div id="aiPanel" class="d-none">
+        <div class="d-flex flex-column gap-2 mb-3" id="aiChips">
+            
+            <button type="button" class="badge-zouic badge-zouic-primary text-start" data-prompt="WiFi sensor, low power, under $15">WiFi sensor, low power, under $15</button>
+            
+        </div>
+
+        <form id="aiForm" class="d-flex gap-2 mb-3">
+            <label class="visually-hidden" for="aiInput">Describe what you need</label>
+            <input id="aiInput" class="input-zouic flex-grow-1" type="text" maxlength="400" autocomplete="off"
+                   placeholder="e.g. a board with a camera that runs MicroPython, under $30">
+            <button type="submit" class="btn-zouic btn-zouic-primary" id="aiSend">Ask</button>
+        </form>
+
+        <div id="aiLog" class="d-flex flex-column gap-3" aria-live="polite"></div>
+        <div id="aiPicks" class="row g-3 mt-2"></div>
+        <p class="text-secondary text-xs mt-3 mb-0" id="aiFootnote">Answers come from an open-weight model working on on-site listings; confirm specs and prices on the vendor page.</p>
+    </div>
+</section>
+
+<script type="application/json" id="aiAssistantLabels">{"error": "The assistant cannot answer right now. Please try again later.", "limited": "You reached the question limit for this hour. Please try again later.", "model": "Model", "more": "Keep asking", "offline": "The assistant is offline right now (no model key configured, or the daily budget is spent). The links below are real on-site listings; leave your requirements on the contact page and a human will reply.", "picks": "Matching on-site listings", "source": "View listing", "thinking": "Checking the catalogue\u2026"}</script>
+<script src="/static/js/ai-assistant.js" defer></script>
                 </main>
             </div>
         </div>

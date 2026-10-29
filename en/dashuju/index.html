@@ -196,8 +196,8 @@
             <div class="dash-brand">
                 <div class="dash-brand-mark" aria-hidden="true">Z</div>
                 <div>
-                    <h1>ZouIC · 全球流量监控</h1>
-                    <p>PV · IP · SEO · GEO · 四站全局 — 数据中台实时聚合</p>
+                    <h1>ZouIC · 全站流量监控</h1>
+                    <p>PV · IP · SEO · GEO · 实时数据大屏</p>
                 </div>
             </div>
             <div class="dash-clock" aria-label="时间">
@@ -209,12 +209,6 @@
 
         <div id="dashBanner" class="dash-banner" hidden></div>
 
-        <!-- 站点切换 -->
-        <nav class="dash-tabs" id="dashTabs" aria-label="站点切换">
-            <button class="dash-tab is-active" data-site="all">全局总览</button>
-            <!-- 其余站点 tab 由 JS 渲染 -->
-        </nav>
-
         <!-- KPI -->
         <section class="dash-kpis" aria-label="核心指标">
             <div class="dash-kpi"><div class="dash-kpi-label">今日 PV</div><div class="dash-kpi-value" data-kpi="pv_today">—</div><div class="dash-kpi-sub">UV <span data-kpi="uv_today">—</span></div></div>
@@ -224,6 +218,8 @@
             <div class="dash-kpi"><div class="dash-kpi-label">累计 PV</div><div class="dash-kpi-value" data-kpi="pv_total">—</div><div class="dash-kpi-sub">累计 UV <span data-kpi="uv_total">—</span></div></div>
             <div class="dash-kpi"><div class="dash-kpi-label">SEO+GEO 爬虫</div><div class="dash-kpi-value" data-kpi="bots_30d">—</div><div class="dash-kpi-sub">近 30 日抓取</div></div>
         </section>
+
+        
 
         <div class="dash-grid">
             <!-- 趋势 -->
@@ -282,8 +278,8 @@
                 <div class="dash-panel-head"><h2 class="dash-panel-title">实时访问流</h2><span class="dash-panel-meta">最近 25 条</span></div>
                 <div class="dash-log-wrap">
                     <table class="dash-log-table" id="logTable">
-                        <thead><tr><th>时间</th><th>站点</th><th>页面</th><th>来源</th><th>地域</th><th>设备</th><th>类型</th></tr></thead>
-                        <tbody><tr><td colspan="7" class="dash-empty">加载中…</td></tr></tbody>
+                        <thead><tr><th>时间</th><th>页面</th><th>来源</th><th>地域</th><th>设备</th><th>类型</th></tr></thead>
+                        <tbody><tr><td colspan="6" class="dash-empty">加载中…</td></tr></tbody>
                     </table>
                 </div>
             </section>
@@ -291,7 +287,7 @@
 
         <footer class="dash-foot">
             <span>数据中台：Cloudflare Worker + D1 · IP 仅存当日哈希，不留原始地址</span>
-            <span>ZouIC Global Monitor · 极客微栋 @GeekWaedon</span>
+            <span>ZouIC Site Monitor · 极客微栋 @GeekWaedon</span>
         </footer>
     </div>
 </div>
@@ -300,9 +296,7 @@
 (function () {
     'use strict';
     var API = (window.MONITOR_API || '').replace(/\/$/, '');
-    var tabsEl = document.getElementById('dashTabs');
     var bannerEl = document.getElementById('dashBanner');
-    var currentSite = 'all';
     var charts = {};
 
     /* ---------- 时钟 ---------- */
@@ -398,14 +392,14 @@
 
     function renderLog(rows) {
         var tb = document.querySelector('#logTable tbody');
-        if (!rows.length) { tb.innerHTML = '<tr><td colspan="7" class="dash-empty">暂无访问记录</td></tr>'; return; }
+        if (!rows.length) { tb.innerHTML = '<tr><td colspan="6" class="dash-empty">暂无访问记录</td></tr>'; return; }
         tb.innerHTML = rows.map(function (r) {
             var t = new Date(r.ts * 1000);
             var p = function (x) { return (x < 10 ? '0' : '') + x; };
             var time = p(t.getHours()) + ':' + p(t.getMinutes()) + ':' + p(t.getSeconds());
             var cls = r.ua_class === 'human' ? '<span class="dash-badge ok">访客</span>' : r.ua_class === 'seo' ? '<span class="dash-badge seo">SEO</span>' : r.ua_class === 'geo' ? '<span class="dash-badge geo">GEO</span>' : '<span class="dash-badge bot">' + esc(r.ua_name || '爬虫') + '</span>';
             var ref = r.ref_type === 'direct' ? '直接' : (REF_LABEL[r.ref_type] || r.ref_type) + (r.ref_host ? ' · ' + esc(r.ref_host) : '');
-            return '<tr><td>' + time + '</td><td>' + esc(r.site) + '</td><td class="dash-log-path">' + esc(r.path) + '</td><td>' + ref + '</td><td>' + esc(COUNTRY[r.country] || r.country || '—') + '</td><td>' + esc(DEV_LABEL[r.device] || r.device || '—') + '</td><td>' + cls + '</td></tr>';
+            return '<tr><td>' + time + '</td><td class="dash-log-path">' + esc(r.path) + '</td><td>' + ref + '</td><td>' + esc(COUNTRY[r.country] || r.country || '—') + '</td><td>' + esc(DEV_LABEL[r.device] || r.device || '—') + '</td><td>' + cls + '</td></tr>';
         }).join('');
     }
 
@@ -432,13 +426,13 @@
         bannerEl.textContent = msg;
     }
 
-    function loadSummary(site) {
+    function loadSummary() {
         if (!API) {
             banner('⚠ 数据中台未连接：MONITOR_API 尚未配置（部署 Worker 后在路由 config 中填入地址）。以下为演示数据，仅展示大屏形态，非真实流量。', true);
             applySummary(demoData());
             return;
         }
-        fetch(API + '/api/summary?site=' + encodeURIComponent(site) + '&days=30')
+        fetch(API + '/api/summary?site=zouic&days=30')
             .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
             .then(function (d) {
                 if (!d.ok) throw new Error(d.error || 'unknown');
@@ -450,30 +444,6 @@
                 applySummary(demoData());
             });
     }
-
-    function loadSites() {
-        if (!API) { addSiteTab({ slug: 'evergear', name: '恒齿减速机' }); addSiteTab({ slug: 'wzrfhb', name: '瑞峰环保' }); addSiteTab({ slug: 'lsheropen', name: '英雄金笔丽水' }); return; }
-        fetch(API + '/api/sites').then(function (r) { return r.json(); }).then(function (d) {
-            (d.sites || []).forEach(addSiteTab);
-        }).catch(function () { /* 忽略，tab 保持全局 */ });
-    }
-
-    function addSiteTab(s) {
-        var b = document.createElement('button');
-        b.className = 'dash-tab';
-        b.setAttribute('data-site', s.slug);
-        b.textContent = s.name + (s.today_pv != null ? ' · ' + fmt(s.today_pv) : '');
-        b.addEventListener('click', function () { switchSite(s.slug); });
-        tabsEl.appendChild(b);
-    }
-
-    function switchSite(slug) {
-        currentSite = slug;
-        tabsEl.querySelectorAll('.dash-tab').forEach(function (t) { t.classList.toggle('is-active', t.getAttribute('data-site') === slug); });
-        loadSummary(slug);
-    }
-
-    tabsEl.querySelector('[data-site="all"]').addEventListener('click', function () { switchSite('all'); });
 
     /* ---------- 演示数据（明确标注，杜绝 LTD 式以假乱真） ---------- */
     function demoData() {
@@ -498,7 +468,7 @@
     }
 
     /* ---------- 启动 ---------- */
-    function boot() { loadSites(); loadSummary(currentSite); }
+    function boot() { loadSummary(); }
     if (document.readyState === 'complete' || document.readyState === 'interactive') setTimeout(boot, 300);
     else window.addEventListener('DOMContentLoaded', function () { setTimeout(boot, 300); });
 })();

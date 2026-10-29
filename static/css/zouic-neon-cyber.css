@@ -2342,3 +2342,14 @@ main {
 .cm-timeline li:last-child { padding-bottom: 0; }
 .cm-tl-dot { position: absolute; left: 0; top: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--color-bg-secondary); border: 2px solid var(--color-primary); color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
 .cm-tl-phase { font-size: 12px; font-weight: 700; letter-spacing: .5px; }
+
+/* ===== AI 选型助手（/api/ai/chat 前端） ===== */
+.ai-bubble { border-radius: var(--radius-lg, 14px); padding: 12px 14px; }
+.ai-bubble-user { background: rgba(0, 229, 255, .10); border: 1px solid rgba(0, 229, 255, .35); }
+.ai-bubble-bot { background: var(--color-bg-secondary, #0f172a); border: 1px solid rgba(167, 139, 250, .30); }
+.ai-bubble-followup { border-style: dashed; }
+#ai-assistant .badge-zouic { cursor: pointer; border: none; }
+#aiChips .badge-zouic { display: inline-block; }
+@media (max-width: 575.98px) {
+    #ai-assistant .card-dark.p-4 { padding: 12px !important; }
+}

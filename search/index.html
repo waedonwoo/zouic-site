@@ -395,6 +395,51 @@
                             <a href="/projects/" class="btn-zouic btn-zouic-secondary">浏览项目</a>
                         </div>
                     </div>
+
+                    
+
+                    
+
+<section class="card-dark p-5 mb-4" id="ai-assistant"
+         data-endpoint="/api/ai/chat"
+         data-lang="zh">
+    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
+        <div>
+            <h2 class="h5 font-bold mb-1">
+                <i class="fas fa-robot text-primary me-2" aria-hidden="true"></i>AI 选型助手
+            </h2>
+            <p class="text-secondary text-sm mb-0">说出你的场景、预算和接口需求，助手只在站内收录的开发板与项目里帮你挑。</p>
+        </div>
+        <button type="button" class="btn-zouic btn-zouic-secondary btn-zouic-sm" id="aiToggle"
+                aria-expanded="false" aria-controls="aiPanel">打开助手</button>
+    </div>
+
+    <div id="aiPanel" class="d-none">
+        <div class="d-flex flex-column gap-2 mb-3" id="aiChips">
+            
+            <button type="button" class="badge-zouic badge-zouic-primary text-start" data-prompt="做个 WiFi 传感器网关">做个 WiFi 传感器网关</button>
+            
+            <button type="button" class="badge-zouic badge-zouic-primary text-start" data-prompt="想跑小语言模型">想跑小语言模型</button>
+            
+            <button type="button" class="badge-zouic badge-zouic-primary text-start" data-prompt="入门学单片机">入门学单片机</button>
+            
+        </div>
+
+        <form id="aiForm" class="d-flex gap-2 mb-3">
+            <label class="visually-hidden" for="aiInput">描述你的选型需求</label>
+            <input id="aiInput" class="input-zouic flex-grow-1" type="text" maxlength="400" autocomplete="off"
+                   placeholder="例如：需要一块带摄像头、能跑 MicroPython 的板子，预算 200 元内">
+            <button type="submit" class="btn-zouic btn-zouic-primary" id="aiSend">提问</button>
+        </form>
+
+        <div id="aiLog" class="d-flex flex-column gap-3" aria-live="polite"></div>
+        <div id="aiPicks" class="row g-3 mt-2"></div>
+        <p class="text-secondary text-xs mt-3 mb-0" id="aiFootnote">回答由开源大模型基于站内数据生成，参数与价格请以厂商页面为准。</p>
+    </div>
+</section>
+
+<script type="application/json" id="aiAssistantLabels">{"error": "\u52a9\u624b\u6682\u65f6\u65e0\u6cd5\u56de\u7b54\uff0c\u8bf7\u7a0d\u540e\u518d\u8bd5\u3002", "limited": "\u63d0\u95ee\u9891\u7387\u5df2\u8fbe\u4e0a\u9650\uff0c\u8bf7\u4e00\u5c0f\u65f6\u540e\u518d\u8bd5\u3002", "model": "\u6a21\u578b", "more": "\u7ee7\u7eed\u8ffd\u95ee", "offline": "\u52a9\u624b\u5f53\u524d\u79bb\u7ebf\uff1a\u7ad9\u65b9\u672a\u914d\u7f6e\u6a21\u578b\u5bc6\u94a5\u6216\u5df2\u7528\u5b8c\u5f53\u65e5\u989d\u5ea6\u3002\u4ee5\u4e0b\u94fe\u63a5\u662f\u7ad9\u5185\u771f\u5b9e\u6761\u76ee\uff0c\u9700\u6c42\u53ef\u4ee5\u7559\u5728\u8054\u7cfb\u6211\u4eec\u9875\uff0c\u6211\u4eec\u4f1a\u4eba\u5de5\u56de\u590d\u3002", "picks": "\u7ad9\u5185\u5339\u914d\u6761\u76ee", "source": "\u67e5\u770b\u6761\u76ee", "thinking": "\u52a9\u624b\u6b63\u5728\u67e5\u9605\u7ad9\u5185\u6570\u636e\u2026"}</script>
+<script src="/static/js/ai-assistant.js" defer></script>
                 </main>
             </div>
         </div>
