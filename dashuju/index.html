@@ -106,8 +106,9 @@
     </style>
     <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028e">
     
-    <link rel="stylesheet" href="/static/css/dashuju.css?v=20261024b">
+    <link rel="stylesheet" href="/static/css/dashuju.css?v=20261029a">
     <script src="/static/js/echarts.min.js?v=5.5.1" defer></script>
+    <script>window.MONITOR_API = "";</script>
 
 </head>
 <body>
@@ -195,476 +196,313 @@
             <div class="dash-brand">
                 <div class="dash-brand-mark" aria-hidden="true">Z</div>
                 <div>
-                    <h1>ZouIC · 数据大屏</h1>
-                    <p>入站流量与内容资产实时监控</p>
+                    <h1>ZouIC · 全球流量监控</h1>
+                    <p>PV · IP · SEO · GEO · 四站全局 — 数据中台实时聚合</p>
                 </div>
             </div>
-            <div class="dash-clock" aria-label="本地时间">
-                <div>
-                    <span>日期</span>
-                    <strong id="dashDate">—</strong>
-                </div>
-                <div>
-                    <span>本地时间</span>
-                    <strong id="dashClock">17:00:01</strong>
-                </div>
+            <div class="dash-clock" aria-label="时间">
+                <div><span>日期</span><strong id="dashDate">—</strong></div>
+                <div><span>时间</span><strong id="dashClock">—</strong></div>
             </div>
-            <div class="dash-live"><span class="dash-dot"></span>实时 · 更新时间 <span id="dashUpdated">17:00:01</span></div>
+            <div class="dash-live"><span class="dash-dot"></span>更新于 <span id="dashUpdated">—</span></div>
         </header>
 
-        <section class="dash-kpis" aria-label="数据大屏">
-            <div class="dash-kpi">
-                <div class="dash-kpi-label">访问总量</div>
-                <div class="dash-kpi-value" data-kpi="total_pv">1,407</div>
-                <div class="dash-kpi-sub">自统计启用以来 · 独立访客 1</div>
-            </div>
-            <div class="dash-kpi">
-                <div class="dash-kpi-label">今日访问量</div>
-                <div class="dash-kpi-value" data-kpi="today_pv">1,254</div>
-                <div class="dash-kpi-sub">人 <span data-kpi="today_uv">1</span></div>
-            </div>
-            <div class="dash-kpi">
-                <div class="dash-kpi-label">昨日访问量</div>
-                <div class="dash-kpi-value">13</div>
-                <div class="dash-kpi-sub">次</div>
-            </div>
-            <div class="dash-kpi">
-                <div class="dash-kpi-label">本月访问量</div>
-                <div class="dash-kpi-value">1,407</div>
-                <div class="dash-kpi-sub">本月访客 1</div>
-            </div>
-            <div class="dash-kpi">
-                <div class="dash-kpi-label">上月访问量</div>
-                <div class="dash-kpi-value">0</div>
-                <div class="dash-kpi-sub">次</div>
-            </div>
-            <div class="dash-kpi">
-                <div class="dash-kpi-label">本月爬虫抓取</div>
-                <div class="dash-kpi-value">7</div>
-                <div class="dash-kpi-sub">1 活跃来源</div>
-            </div>
-            <div class="dash-kpi">
-                <div class="dash-kpi-label">本月线索</div>
-                <div class="dash-kpi-value">0</div>
-                <div class="dash-kpi-sub">累计线索 0</div>
-            </div>
+        <div id="dashBanner" class="dash-banner" hidden></div>
+
+        <!-- 站点切换 -->
+        <nav class="dash-tabs" id="dashTabs" aria-label="站点切换">
+            <button class="dash-tab is-active" data-site="all">全局总览</button>
+            <!-- 其余站点 tab 由 JS 渲染 -->
+        </nav>
+
+        <!-- KPI -->
+        <section class="dash-kpis" aria-label="核心指标">
+            <div class="dash-kpi"><div class="dash-kpi-label">今日 PV</div><div class="dash-kpi-value" data-kpi="pv_today">—</div><div class="dash-kpi-sub">UV <span data-kpi="uv_today">—</span></div></div>
+            <div class="dash-kpi"><div class="dash-kpi-label">昨日 PV</div><div class="dash-kpi-value" data-kpi="pv_yesterday">—</div><div class="dash-kpi-sub">同比基线</div></div>
+            <div class="dash-kpi"><div class="dash-kpi-label">近 7 日 PV</div><div class="dash-kpi-value" data-kpi="pv_7d">—</div><div class="dash-kpi-sub">UV <span data-kpi="uv_7d">—</span></div></div>
+            <div class="dash-kpi"><div class="dash-kpi-label">近 30 日 PV</div><div class="dash-kpi-value" data-kpi="pv_30d">—</div><div class="dash-kpi-sub">真实访客</div></div>
+            <div class="dash-kpi"><div class="dash-kpi-label">累计 PV</div><div class="dash-kpi-value" data-kpi="pv_total">—</div><div class="dash-kpi-sub">累计 UV <span data-kpi="uv_total">—</span></div></div>
+            <div class="dash-kpi"><div class="dash-kpi-label">SEO+GEO 爬虫</div><div class="dash-kpi-value" data-kpi="bots_30d">—</div><div class="dash-kpi-sub">近 30 日抓取</div></div>
         </section>
 
         <div class="dash-grid">
-            <section class="dash-panel dash-col-3">
-                <div class="dash-panel-head">
-                    <h2 class="dash-panel-title">流量来源分布</h2>
-                    <span class="dash-panel-meta">30D</span>
-                </div>
-                <div id="sourceChart" class="dash-chart dash-chart-sm"></div>
-                <ul class="dash-list">
-                    
-                    <li>
-                        <span class="dash-list-label"><span class="dash-swatch" data-source="direct"></span>直接访问</span>
-                        <span class="dash-list-value">1,407</span>
-                    </li>
-                    
-                </ul>
-            </section>
-
+            <!-- 趋势 -->
             <section class="dash-panel dash-col-6">
-                <div class="dash-panel-head">
-                    <h2 class="dash-panel-title">近 30 天访问趋势</h2>
-                    <span class="dash-panel-meta">PV / UV · 30D</span>
-                </div>
+                <div class="dash-panel-head"><h2 class="dash-panel-title">流量趋势</h2><span class="dash-panel-meta">PV / UV · 30D</span></div>
                 <div id="trendChart" class="dash-chart"></div>
-                <div class="dash-engage" style="grid-template-columns:repeat(3,1fr);">
-                    <div><span>访问量 PV</span><strong>1,407</strong></div>
-                    <div><span>独立访客 UV</span><strong>1</strong></div>
-                    <div><span>热门页面</span><strong>10</strong></div>
-                </div>
             </section>
 
+            <!-- 来源 -->
             <section class="dash-panel dash-col-3">
-                <div class="dash-panel-head">
-                    <h2 class="dash-panel-title">内容发布占比</h2>
-                    <span class="dash-panel-meta">300</span>
-                </div>
-                <ul class="dash-list dash-dist">
-                    
-                    
-                    <li>
-                        <div class="dash-dist-row">
-                            <span>开发板</span>
-                            <span>67<em>22.3%</em></span>
-                        </div>
-                        <div class="dash-bar"><span style="width: 22.3%"></span></div>
-                    </li>
-                    
-                    
-                    <li>
-                        <div class="dash-dist-row">
-                            <span>开源项目</span>
-                            <span>8<em>2.7%</em></span>
-                        </div>
-                        <div class="dash-bar"><span style="width: 2.7%"></span></div>
-                    </li>
-                    
-                    
-                    <li>
-                        <div class="dash-dist-row">
-                            <span>聚合项目</span>
-                            <span>222<em>74.0%</em></span>
-                        </div>
-                        <div class="dash-bar"><span style="width: 74.0%"></span></div>
-                    </li>
-                    
-                    
-                    <li>
-                        <div class="dash-dist-row">
-                            <span>技术文章</span>
-                            <span>3<em>1.0%</em></span>
-                        </div>
-                        <div class="dash-bar"><span style="width: 1.0%"></span></div>
-                    </li>
-                    
-                </ul>
-                <div class="dash-subhead">访问设备</div>
-                <ul class="dash-list">
-                    
-                    <li>
-                        <span class="dash-list-label">桌面端</span>
-                        <span class="dash-list-value">1,407</span>
-                    </li>
-                    
-                </ul>
+                <div class="dash-panel-head"><h2 class="dash-panel-title">来源分布</h2><span class="dash-panel-meta">30D</span></div>
+                <div id="sourceChart" class="dash-chart dash-chart-sm"></div>
             </section>
 
-            <section class="dash-panel dash-col-4">
-                <div class="dash-panel-head">
-                    <h2 class="dash-panel-title">数据资产</h2>
-                    <span class="dash-panel-meta">DATA ASSETS</span>
-                </div>
-                <div class="dash-assets">
-                    <div class="dash-asset">
-                        <strong>300</strong>
-                        <span>内容条目</span>
-                    </div>
-                    <div class="dash-asset">
-                        <strong>387</strong>
-                        <span>已生成页面</span>
-                    </div>
-                    <div class="dash-asset">
-                        <strong>99%</strong>
-                        <span>结构化数据覆盖</span>
-                    </div>
-                </div>
-                <div class="dash-subhead">热门页面</div>
-                <ul class="dash-list">
-                    
-                    <li>
-                        <span class="dash-list-label"><span class="dash-mono">/compare/</span></span>
-                        <span class="dash-list-value">76 <em style="font-style:normal;color:rgba(120,165,190,.62);">/ 1</em></span>
-                    </li>
-                    
-                    <li>
-                        <span class="dash-list-label"><span class="dash-mono">/search/</span></span>
-                        <span class="dash-list-value">61 <em style="font-style:normal;color:rgba(120,165,190,.62);">/ 1</em></span>
-                    </li>
-                    
-                    <li>
-                        <span class="dash-list-label"><span class="dash-mono">/boards/</span></span>
-                        <span class="dash-list-value">36 <em style="font-style:normal;color:rgba(120,165,190,.62);">/ 1</em></span>
-                    </li>
-                    
-                    <li>
-                        <span class="dash-list-label"><span class="dash-mono">/all-projects/</span></span>
-                        <span class="dash-list-value">19 <em style="font-style:normal;color:rgba(120,165,190,.62);">/ 1</em></span>
-                    </li>
-                    
-                    <li>
-                        <span class="dash-list-label"><span class="dash-mono">/projects/</span></span>
-                        <span class="dash-list-value">6 <em style="font-style:normal;color:rgba(120,165,190,.62);">/ 1</em></span>
-                    </li>
-                    
-                </ul>
+            <!-- 设备 -->
+            <section class="dash-panel dash-col-3">
+                <div class="dash-panel-head"><h2 class="dash-panel-title">设备分布</h2><span class="dash-panel-meta">30D</span></div>
+                <div id="deviceChart" class="dash-chart dash-chart-sm"></div>
             </section>
 
-            <section class="dash-panel dash-col-4">
-                <div class="dash-panel-head">
-                    <h2 class="dash-panel-title">AI 爬虫与索引数据</h2>
-                    <span class="dash-panel-meta">1 / 活跃来源</span>
-                </div>
-                <div class="dash-assets" style="grid-template-columns:1fr 1fr;">
-                    <div class="dash-asset">
-                        <strong>7</strong>
-                        <span>累计抓取</span>
-                    </div>
-                    <div class="dash-asset">
-                        <strong>1</strong>
-                        <span>活跃来源</span>
-                    </div>
-                </div>
-                <ul class="dash-list dash-dist">
-                    
-                    <li>
-                        <div class="dash-dist-row">
-                            <span>Bot</span>
-                            <span>7<em>100.0%</em></span>
-                        </div>
-                        <div class="dash-bar"><span style="width: 100.0%"></span></div>
-                    </li>
-                    
-                </ul>
+            <!-- SEO -->
+            <section class="dash-panel dash-col-3">
+                <div class="dash-panel-head"><h2 class="dash-panel-title">SEO 搜索引擎爬虫</h2><span class="dash-panel-meta">抓取次数 · 30D</span></div>
+                <div id="seoChart" class="dash-chart dash-chart-sm"></div>
+                <p class="dash-hint">搜索引擎蜘蛛抓取频次反映收录意愿。</p>
             </section>
 
-            <section class="dash-panel dash-col-4">
-                <div class="dash-panel-head">
-                    <h2 class="dash-panel-title">入站转化漏斗</h2>
-                    <span class="dash-panel-meta">MTD</span>
-                </div>
-                <div class="dash-funnel">
-                    
-                    <div class="dash-funnel-stage">
-                        <div class="dash-funnel-top">
-                            <span>访问用户</span>
-                            <span><strong>1</strong><em>100.0%</em></span>
-                        </div>
-                        <div class="dash-funnel-bar"><span style="width: 100.0%"></span></div>
-                    </div>
-                    
-                    <div class="dash-funnel-stage">
-                        <div class="dash-funnel-top">
-                            <span>最新咨询线索</span>
-                            <span><strong>0</strong><em>0.0%</em></span>
-                        </div>
-                        <div class="dash-funnel-bar"><span style="width: 0.0%"></span></div>
-                    </div>
-                    
-                    <div class="dash-funnel-stage">
-                        <div class="dash-funnel-top">
-                            <span>注册会员</span>
-                            <span><strong>0</strong><em>0.0%</em></span>
-                        </div>
-                        <div class="dash-funnel-bar"><span style="width: 0.0%"></span></div>
-                    </div>
-                    
-                </div>
-                <div class="dash-subhead">交互数据</div>
-                <div class="dash-engage">
-                    <div><span>今日线索</span><strong>0</strong></div>
-                    <div><span>累计线索</span><strong>0</strong></div>
-                    <div><span>项目评论</span><strong>0</strong></div>
-                    <div><span>收藏互动</span><strong>0</strong></div>
-                </div>
+            <!-- GEO -->
+            <section class="dash-panel dash-col-3">
+                <div class="dash-panel-head"><h2 class="dash-panel-title">GEO AI 爬虫</h2><span class="dash-panel-meta">抓取次数 · 30D</span></div>
+                <div id="geoChart" class="dash-chart dash-chart-sm"></div>
+                <p class="dash-hint">AI 助手（ChatGPT/Claude/Perplexity 等）抓取是生成式引擎引用的前提。</p>
             </section>
 
-            <section class="dash-panel dash-col-8">
-                <div class="dash-panel-head">
-                    <h2 class="dash-panel-title">实时访问记录</h2>
-                    <span class="dash-panel-meta"><span id="liveCount">20</span> 条记录</span>
-                </div>
-                <div class="dash-table-wrap">
-                    <table class="dash-table">
-                        <thead>
-                            <tr>
-                                <th>时间</th>
-                                <th>访问路径</th>
-                                <th>来源</th>
-                                <th>设备</th>
-                                <th>IP</th>
-                            </tr>
-                        </thead>
-                        <tbody id="liveRows">
-                            
-                            <tr>
-                                <td class="dash-mono">10-28 14:47:51</td>
-                                <td><span class="dash-path" title="/all-projects/page/25/">/all-projects/page/25/</span></td>
-                                <td><span class="dash-tag ">直接访问</span></td>
-                                <td>桌面端</td>
-                                <td class="dash-mono">127.0.*.*</td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="dash-mono">10-28 14:47:51</td>
-                                <td><span class="dash-path" title="/all-projects/page/23/">/all-projects/page/23/</span></td>
-                                <td><span class="dash-tag ">直接访问</span></td>
-                                <td>桌面端</td>
-                                <td class="dash-mono">127.0.*.*</td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="dash-mono">10-28 14:47:50</td>
-                                <td><span class="dash-path" title="/all-projects/page/20/">/all-projects/page/20/</span></td>
-                                <td><span class="dash-tag ">直接访问</span></td>
-                                <td>桌面端</td>
-                                <td class="dash-mono">127.0.*.*</td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="dash-mono">10-28 14:47:50</td>
-                                <td><span class="dash-path" title="/all-projects/page/19/">/all-projects/page/19/</span></td>
-                                <td><span class="dash-tag ">直接访问</span></td>
-                                <td>桌面端</td>
-                                <td class="dash-mono">127.0.*.*</td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="dash-mono">10-28 14:47:50</td>
-                                <td><span class="dash-path" title="/all-projects/page/18/">/all-projects/page/18/</span></td>
-                                <td><span class="dash-tag ">直接访问</span></td>
-                                <td>桌面端</td>
-                                <td class="dash-mono">127.0.*.*</td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="dash-mono">10-28 14:47:50</td>
-                                <td><span class="dash-path" title="/all-projects/page/13/">/all-projects/page/13/</span></td>
-                                <td><span class="dash-tag ">直接访问</span></td>
-                                <td>桌面端</td>
-                                <td class="dash-mono">127.0.*.*</td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="dash-mono">10-28 14:47:28</td>
-                                <td><span class="dash-path" title="/external/github/raspberry-pi-ai-hat-plus/">/external/github/raspberry-pi-ai-hat-plus/</span></td>
-                                <td><span class="dash-tag ">直接访问</span></td>
-                                <td>桌面端</td>
-                                <td class="dash-mono">127.0.*.*</td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="dash-mono">10-28 14:47:28</td>
-                                <td><span class="dash-path" title="/external/github/raspberry-pi-ai-camera/">/external/github/raspberry-pi-ai-camera/</span></td>
-                                <td><span class="dash-tag ">直接访问</span></td>
-                                <td>桌面端</td>
-                                <td class="dash-mono">127.0.*.*</td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="dash-mono">10-28 14:47:28</td>
-                                <td><span class="dash-path" title="/external/github/coreink-ap4qwpuu/">/external/github/coreink-ap4qwpuu/</span></td>
-                                <td><span class="dash-tag ">直接访问</span></td>
-                                <td>桌面端</td>
-                                <td class="dash-mono">127.0.*.*</td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="dash-mono">10-28 14:47:28</td>
-                                <td><span class="dash-path" title="/external/github/bangle-js-2-3hnengpl/">/external/github/bangle-js-2-3hnengpl/</span></td>
-                                <td><span class="dash-tag ">直接访问</span></td>
-                                <td>桌面端</td>
-                                <td class="dash-mono">127.0.*.*</td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="dash-mono">10-28 14:47:28</td>
-                                <td><span class="dash-path" title="/external/github/watchy-kx9xmicz/">/external/github/watchy-kx9xmicz/</span></td>
-                                <td><span class="dash-tag ">直接访问</span></td>
-                                <td>桌面端</td>
-                                <td class="dash-mono">127.0.*.*</td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="dash-mono">10-28 14:47:27</td>
-                                <td><span class="dash-path" title="/all-projects/page/28/">/all-projects/page/28/</span></td>
-                                <td><span class="dash-tag ">直接访问</span></td>
-                                <td>桌面端</td>
-                                <td class="dash-mono">127.0.*.*</td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="dash-mono">10-28 14:47:27</td>
-                                <td><span class="dash-path" title="/all-projects/page/19/">/all-projects/page/19/</span></td>
-                                <td><span class="dash-tag ">直接访问</span></td>
-                                <td>桌面端</td>
-                                <td class="dash-mono">127.0.*.*</td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="dash-mono">10-28 14:47:27</td>
-                                <td><span class="dash-path" title="/all-projects/page/10/">/all-projects/page/10/</span></td>
-                                <td><span class="dash-tag ">直接访问</span></td>
-                                <td>桌面端</td>
-                                <td class="dash-mono">127.0.*.*</td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="dash-mono">10-28 14:47:27</td>
-                                <td><span class="dash-path" title="/all-projects/page/9/">/all-projects/page/9/</span></td>
-                                <td><span class="dash-tag ">直接访问</span></td>
-                                <td>桌面端</td>
-                                <td class="dash-mono">127.0.*.*</td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="dash-mono">10-28 14:47:27</td>
-                                <td><span class="dash-path" title="/all-projects/page/8/">/all-projects/page/8/</span></td>
-                                <td><span class="dash-tag ">直接访问</span></td>
-                                <td>桌面端</td>
-                                <td class="dash-mono">127.0.*.*</td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="dash-mono">10-28 14:46:42</td>
-                                <td><span class="dash-path" title="/all-projects/page/8/">/all-projects/page/8/</span></td>
-                                <td><span class="dash-tag ">直接访问</span></td>
-                                <td>桌面端</td>
-                                <td class="dash-mono">127.0.*.*</td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="dash-mono">10-28 14:46:35</td>
-                                <td><span class="dash-path" title="/search/">/search/</span></td>
-                                <td><span class="dash-tag ">直接访问</span></td>
-                                <td>桌面端</td>
-                                <td class="dash-mono">127.0.*.*</td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="dash-mono">10-28 14:46:35</td>
-                                <td><span class="dash-path" title="/external/github/coreink-ap4qwpuu/">/external/github/coreink-ap4qwpuu/</span></td>
-                                <td><span class="dash-tag ">直接访问</span></td>
-                                <td>桌面端</td>
-                                <td class="dash-mono">127.0.*.*</td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="dash-mono">10-28 14:46:35</td>
-                                <td><span class="dash-path" title="/external/github/bangle-js-2-3hnengpl/">/external/github/bangle-js-2-3hnengpl/</span></td>
-                                <td><span class="dash-tag ">直接访问</span></td>
-                                <td>桌面端</td>
-                                <td class="dash-mono">127.0.*.*</td>
-                            </tr>
-                            
-                        </tbody>
+            <!-- 国家地域 -->
+            <section class="dash-panel dash-col-3">
+                <div class="dash-panel-head"><h2 class="dash-panel-title">访客地域 Top 10</h2><span class="dash-panel-meta">IP 归属 · 30D</span></div>
+                <div id="countryChart" class="dash-chart dash-chart-sm"></div>
+            </section>
+
+            <!-- 热门页 -->
+            <section class="dash-panel dash-col-6">
+                <div class="dash-panel-head"><h2 class="dash-panel-title">热门页面 Top 10</h2><span class="dash-panel-meta">PV · 30D</span></div>
+                <ul class="dash-list dash-dist" id="topPages"><li class="dash-empty">加载中…</li></ul>
+            </section>
+
+            <!-- 站点健康 -->
+            <section class="dash-panel dash-col-6">
+                <div class="dash-panel-head"><h2 class="dash-panel-title">SEO / GEO 站点健康</h2><span class="dash-panel-meta">每日 10:00 自动巡检</span></div>
+                <div class="dash-health-grid" id="healthGrid"><span class="dash-empty">加载中…</span></div>
+                <p class="dash-hint">llms.txt 是 AI 搜索引擎（GEO）的内容入口；sitemap.xml 决定传统搜索引擎收录。</p>
+            </section>
+
+            <!-- 实时日志 -->
+            <section class="dash-panel dash-col-12">
+                <div class="dash-panel-head"><h2 class="dash-panel-title">实时访问流</h2><span class="dash-panel-meta">最近 25 条</span></div>
+                <div class="dash-log-wrap">
+                    <table class="dash-log-table" id="logTable">
+                        <thead><tr><th>时间</th><th>站点</th><th>页面</th><th>来源</th><th>地域</th><th>设备</th><th>类型</th></tr></thead>
+                        <tbody><tr><td colspan="7" class="dash-empty">加载中…</td></tr></tbody>
                     </table>
                 </div>
-            </section>
-
-            <section class="dash-panel dash-col-4">
-                <div class="dash-panel-head">
-                    <h2 class="dash-panel-title">站点健康</h2>
-                    <span class="dash-panel-meta">SEO</span>
-                </div>
-                <ul class="dash-health">
-                    <li><span>已生成页面</span><b>387</b></li>
-                    <li><span>Sitemap 收录</span><b>519</b></li>
-                    <li><span>结构化数据覆盖</span><b class="warn">99%</b></li>
-                    <li><span>llms.txt</span><b class="ok">正常</b></li>
-                    <li><span>文章 Markdown</span><b>3</b></li>
-                    <li><span>最近构建</span><b>10-28 16:44</b></li>
-                </ul>
-                <div class="dash-subhead">最新咨询线索</div>
-                <ul class="dash-list">
-                    
-                    <li><span class="dash-list-label">暂无咨询线索</span></li>
-                    
-                </ul>
             </section>
         </div>
 
         <footer class="dash-foot">
-            <span>静态站点展示最近一次构建的数据快照；本地/动态部署时为实时统计。</span>
-            <span>更新时间 <strong>2026-10-28 17:00:01</strong></span>
+            <span>数据中台：Cloudflare Worker + D1 · IP 仅存当日哈希，不留原始地址</span>
+            <span>ZouIC Global Monitor · 极客微栋 @GeekWaedon</span>
         </footer>
     </div>
 </div>
+
+<script>
+(function () {
+    'use strict';
+    var API = (window.MONITOR_API || '').replace(/\/$/, '');
+    var tabsEl = document.getElementById('dashTabs');
+    var bannerEl = document.getElementById('dashBanner');
+    var currentSite = 'all';
+    var charts = {};
+
+    /* ---------- 时钟 ---------- */
+    function tick() {
+        var n = new Date();
+        var p = function (x) { return (x < 10 ? '0' : '') + x; };
+        document.getElementById('dashDate').textContent = n.getFullYear() + '-' + p(n.getMonth() + 1) + '-' + p(n.getDate());
+        document.getElementById('dashClock').textContent = p(n.getHours()) + ':' + p(n.getMinutes()) + ':' + p(n.getSeconds());
+    }
+    tick(); setInterval(tick, 1000);
+
+    function fmt(n) { return (n || 0).toLocaleString('en-US'); }
+    function setKpi(k, v) { var el = document.querySelector('[data-kpi="' + k + '"]'); if (el) el.textContent = fmt(v); }
+
+    /* ---------- ECharts 基础 ---------- */
+    function chart(id) {
+        if (charts[id]) return charts[id];
+        var el = document.getElementById(id);
+        if (!el || !window.echarts) return null;
+        var c = echarts.init(el, null, { renderer: 'canvas' });
+        charts[id] = c;
+        return c;
+    }
+    var AXIS = { axisLine: { lineStyle: { color: 'rgba(0,229,255,.25)' } }, axisLabel: { color: '#8fa8c8', fontSize: 11 }, splitLine: { lineStyle: { color: 'rgba(0,229,255,.08)' } } };
+    var C = { cyan: '#00e5ff', teal: '#00d4aa', violet: '#8b5cf6', amber: '#f5a524', red: '#ff5c7a', blue: '#4f8cff' };
+
+    window.addEventListener('resize', function () { Object.values(charts).forEach(function (c) { c.resize(); }); });
+
+    /* ---------- 渲染 ---------- */
+    function renderTrend(trend) {
+        var c = chart('trendChart'); if (!c) return;
+        var days = trend.map(function (r) { return r.day.slice(5); });
+        c.setOption({
+            grid: { left: 46, right: 16, top: 34, bottom: 26 },
+            legend: { data: ['PV', 'UV'], textStyle: { color: '#8fa8c8' }, top: 0 },
+            tooltip: { trigger: 'axis' },
+            xAxis: { type: 'category', data: days, ...AXIS, boundaryGap: false },
+            yAxis: { type: 'value', ...AXIS },
+            series: [
+                { name: 'PV', type: 'line', smooth: true, data: trend.map(function (r) { return r.pv; }), lineStyle: { color: C.cyan, width: 2 }, itemStyle: { color: C.cyan }, areaStyle: { color: { type: 'linear', x: 0, y: 0, x2: 0, y2: 1, colorStops: [{ offset: 0, color: 'rgba(0,229,255,.35)' }, { offset: 1, color: 'rgba(0,229,255,0)' }] } } },
+                { name: 'UV', type: 'line', smooth: true, data: trend.map(function (r) { return r.uv; }), lineStyle: { color: C.violet, width: 2 }, itemStyle: { color: C.violet } }
+            ]
+        });
+    }
+
+    function renderPie(id, data, colors) {
+        var c = chart(id); if (!c) return;
+        c.setOption({
+            tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
+            legend: { orient: 'vertical', right: 6, top: 'middle', textStyle: { color: '#8fa8c8', fontSize: 11 } },
+            color: colors,
+            series: [{ type: 'pie', radius: ['42%', '68%'], center: ['36%', '52%'], data: data, label: { show: false }, emphasis: { label: { show: false } } }]
+        });
+    }
+
+    var REF_LABEL = { direct: '直接访问', search: '搜索引擎', social: '社交媒体', referral: '外部引荐', campaign: '广告活动' };
+    var DEV_LABEL = { desktop: '桌面端', mobile: '移动端', tablet: '平板' };
+    var COUNTRY = { CN: '中国大陆', US: '美国', HK: '中国香港', TW: '中国台湾', JP: '日本', SG: '新加坡', KR: '韩国', DE: '德国', T1: '匿名专线', XX: '其他' };
+
+    function renderBars(id, data, color) {
+        var c = chart(id); if (!c) return;
+        var names = data.map(function (r) { return r.k; }).reverse();
+        var vals = data.map(function (r) { return r.v; }).reverse();
+        c.setOption({
+            grid: { left: 90, right: 40, top: 8, bottom: 8 },
+            tooltip: { trigger: 'item' },
+            xAxis: { type: 'value', ...AXIS, splitLine: { show: false }, axisLabel: { show: false } },
+            yAxis: { type: 'category', data: names, ...AXIS, splitLine: { show: false }, axisLabel: { color: '#a9c1de', fontSize: 11 } },
+            series: [{ type: 'bar', data: vals, barWidth: 10, itemStyle: { color: color, borderRadius: [0, 5, 5, 0] }, label: { show: true, position: 'right', color: '#8fa8c8', fontSize: 11 } }]
+        });
+    }
+
+    function renderPages(pages) {
+        var el = document.getElementById('topPages');
+        var max = Math.max.apply(null, pages.map(function (p) { return p.v; }).concat([1]));
+        el.innerHTML = pages.length ? pages.map(function (p) {
+            var pct = (p.v * 100 / max).toFixed(1);
+            return '<li><div class="dash-dist-row"><span style="max-width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">' + esc(p.k) + '</span><span>' + fmt(p.v) + '</span></div><div class="dash-bar"><span style="width:' + pct + '%"></span></div></li>';
+        }).join('') : '<li class="dash-empty">暂无数据</li>';
+    }
+
+    function renderHealth(rows) {
+        var el = document.getElementById('healthGrid');
+        if (!rows.length) { el.innerHTML = '<span class="dash-empty">巡检数据尚未生成（每日 10:00 自动执行）</span>'; return; }
+        el.innerHTML = rows.map(function (h) {
+            function badge(ok, label) { return '<span class="dash-badge ' + (ok ? 'ok' : 'bad') + '">' + label + (ok ? ' ✓' : ' ✗') + '</span>'; }
+            return '<div class="dash-health-card">' +
+                '<div class="dash-health-name">' + esc(h.site) + ' <em>' + (h.ttfb_ms || 0) + 'ms</em></div>' +
+                '<div class="dash-health-badges">' + badge(h.https_ok, 'HTTPS') + badge(h.sitemap_ok, 'sitemap') + badge(h.llms_ok, 'llms.txt') + badge(h.robots_ok, 'robots') + '</div>' +
+                '</div>';
+        }).join('');
+    }
+
+    function renderLog(rows) {
+        var tb = document.querySelector('#logTable tbody');
+        if (!rows.length) { tb.innerHTML = '<tr><td colspan="7" class="dash-empty">暂无访问记录</td></tr>'; return; }
+        tb.innerHTML = rows.map(function (r) {
+            var t = new Date(r.ts * 1000);
+            var p = function (x) { return (x < 10 ? '0' : '') + x; };
+            var time = p(t.getHours()) + ':' + p(t.getMinutes()) + ':' + p(t.getSeconds());
+            var cls = r.ua_class === 'human' ? '<span class="dash-badge ok">访客</span>' : r.ua_class === 'seo' ? '<span class="dash-badge seo">SEO</span>' : r.ua_class === 'geo' ? '<span class="dash-badge geo">GEO</span>' : '<span class="dash-badge bot">' + esc(r.ua_name || '爬虫') + '</span>';
+            var ref = r.ref_type === 'direct' ? '直接' : (REF_LABEL[r.ref_type] || r.ref_type) + (r.ref_host ? ' · ' + esc(r.ref_host) : '');
+            return '<tr><td>' + time + '</td><td>' + esc(r.site) + '</td><td class="dash-log-path">' + esc(r.path) + '</td><td>' + ref + '</td><td>' + esc(COUNTRY[r.country] || r.country || '—') + '</td><td>' + esc(DEV_LABEL[r.device] || r.device || '—') + '</td><td>' + cls + '</td></tr>';
+        }).join('');
+    }
+
+    function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+    /* ---------- 数据加载 ---------- */
+    function applySummary(d) {
+        Object.keys(d.kpi).forEach(function (k) { setKpi(k, d.kpi[k]); });
+        renderTrend(d.trend);
+        renderPie('sourceChart', d.sources.map(function (s) { return { name: REF_LABEL[s.k] || s.k, value: s.v }; }), [C.cyan, C.violet, C.teal, C.amber, C.blue]);
+        renderPie('deviceChart', d.devices.map(function (s) { return { name: DEV_LABEL[s.k] || s.k, value: s.v }; }), [C.cyan, C.teal, C.violet]);
+        renderBars('seoChart', d.seo_bots, { type: 'linear', x: 0, y: 0, x2: 1, y2: 0, colorStops: [{ offset: 0, color: C.teal }, { offset: 1, color: 'rgba(0,212,170,.3)' }] });
+        renderBars('geoChart', d.geo_bots, { type: 'linear', x: 0, y: 0, x2: 1, y2: 0, colorStops: [{ offset: 0, color: C.violet }, { offset: 1, color: 'rgba(139,92,246,.3)' }] });
+        renderBars('countryChart', d.countries.map(function (r) { return { k: COUNTRY[r.k] || r.k, v: r.v }; }), { type: 'linear', x: 0, y: 0, x2: 1, y2: 0, colorStops: [{ offset: 0, color: C.cyan }, { offset: 1, color: 'rgba(0,229,255,.3)' }] });
+        renderPages(d.pages);
+        renderHealth(d.health);
+        renderLog(d.recent);
+        document.getElementById('dashUpdated').textContent = new Date().toLocaleTimeString('zh-CN', { hour12: false });
+    }
+
+    function banner(msg, isDemo) {
+        bannerEl.hidden = false;
+        bannerEl.className = 'dash-banner' + (isDemo ? ' demo' : '');
+        bannerEl.textContent = msg;
+    }
+
+    function loadSummary(site) {
+        if (!API) {
+            banner('⚠ 数据中台未连接：MONITOR_API 尚未配置（部署 Worker 后在路由 config 中填入地址）。以下为演示数据，仅展示大屏形态，非真实流量。', true);
+            applySummary(demoData());
+            return;
+        }
+        fetch(API + '/api/summary?site=' + encodeURIComponent(site) + '&days=30')
+            .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+            .then(function (d) {
+                if (!d.ok) throw new Error(d.error || 'unknown');
+                bannerEl.hidden = true;
+                applySummary(d);
+            })
+            .catch(function (e) {
+                banner('⚠ 数据中台连接失败（' + e.message + '）。以下为演示数据，非真实流量。', true);
+                applySummary(demoData());
+            });
+    }
+
+    function loadSites() {
+        if (!API) { addSiteTab({ slug: 'evergear', name: '恒齿减速机' }); addSiteTab({ slug: 'wzrfhb', name: '瑞峰环保' }); addSiteTab({ slug: 'lsheropen', name: '英雄金笔丽水' }); return; }
+        fetch(API + '/api/sites').then(function (r) { return r.json(); }).then(function (d) {
+            (d.sites || []).forEach(addSiteTab);
+        }).catch(function () { /* 忽略，tab 保持全局 */ });
+    }
+
+    function addSiteTab(s) {
+        var b = document.createElement('button');
+        b.className = 'dash-tab';
+        b.setAttribute('data-site', s.slug);
+        b.textContent = s.name + (s.today_pv != null ? ' · ' + fmt(s.today_pv) : '');
+        b.addEventListener('click', function () { switchSite(s.slug); });
+        tabsEl.appendChild(b);
+    }
+
+    function switchSite(slug) {
+        currentSite = slug;
+        tabsEl.querySelectorAll('.dash-tab').forEach(function (t) { t.classList.toggle('is-active', t.getAttribute('data-site') === slug); });
+        loadSummary(slug);
+    }
+
+    tabsEl.querySelector('[data-site="all"]').addEventListener('click', function () { switchSite('all'); });
+
+    /* ---------- 演示数据（明确标注，杜绝 LTD 式以假乱真） ---------- */
+    function demoData() {
+        var trend = [], base = 60 + Math.floor(Math.random() * 40);
+        for (var i = 29; i >= 0; i--) {
+            var d = new Date(Date.now() - i * 86400e3);
+            var pv = Math.round(base + Math.sin(i / 4) * 25 + Math.random() * 30);
+            trend.push({ day: d.toISOString().slice(0, 10), pv: pv, uv: Math.round(pv * 0.62) });
+        }
+        return {
+            kpi: { pv_today: trend[29].pv, pv_yesterday: trend[28].pv, pv_7d: 1024, pv_30d: 3960, pv_total: 5821, uv_today: 38, uv_7d: 615, uv_total: 2240, bots_30d: 486 },
+            trend: trend,
+            sources: [{ k: 'search', v: 1520 }, { k: 'direct', v: 1180 }, { k: 'referral', v: 640 }, { k: 'social', v: 420 }, { k: 'campaign', v: 200 }],
+            devices: [{ k: 'desktop', v: 2280 }, { k: 'mobile', v: 1510 }, { k: 'tablet', v: 170 }],
+            countries: [{ k: 'CN', v: 2610 }, { k: 'US', v: 480 }, { k: 'HK', v: 260 }, { k: 'JP', v: 190 }, { k: 'SG', v: 150 }, { k: 'DE', v: 120 }],
+            pages: [{ k: '/', v: 1240 }, { k: '/services/component-matching/', v: 620 }, { k: '/wechat/', v: 480 }, { k: '/boards/', v: 390 }, { k: '/about/', v: 330 }],
+            seo_bots: [{ k: '百度 Baiduspider', v: 388 }, { k: 'Googlebot', v: 240 }, { k: 'bingbot', v: 96 }],
+            geo_bots: [{ k: 'ChatGPT GPTBot', v: 84 }, { k: 'Claude', v: 52 }, { k: 'Perplexity', v: 31 }, { k: '豆包 Bytespider', v: 27 }],
+            health: [],
+            recent: []
+        };
+    }
+
+    /* ---------- 启动 ---------- */
+    function boot() { loadSites(); loadSummary(currentSite); }
+    if (document.readyState === 'complete' || document.readyState === 'interactive') setTimeout(boot, 300);
+    else window.addEventListener('DOMContentLoaded', function () { setTimeout(boot, 300); });
+})();
+</script>
 
     </main>
 
@@ -985,211 +823,6 @@
     
     
     
-<script>
-window.__DASH__ = {
-    liveEnabled: false,
-    trend: {"labels": ["09-29", "09-30", "10-01", "10-02", "10-03", "10-04", "10-05", "10-06", "10-07", "10-08", "10-09", "10-10", "10-11", "10-12", "10-13", "10-14", "10-15", "10-16", "10-17", "10-18", "10-19", "10-20", "10-21", "10-22", "10-23", "10-24", "10-25", "10-26", "10-27", "10-28"], "pv": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 140, 0, 0, 13, 1254], "uv": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1]},
-    sources: [{"count": 1407, "key": "direct"}],
-    i18n: {
-        pv: "\u8bbf\u95ee\u91cf PV",
-        uv: "\u72ec\u7acb\u8bbf\u5ba2 UV",
-        sources: "\u6d41\u91cf\u6765\u6e90\u5206\u5e03",
-        fail: "\u56fe\u8868\u5e93\u672a\u52a0\u8f7d\uff0c\u6570\u636e\u5217\u8868\u4ecd\u53ef\u67e5\u770b",
-        noData: "\u6682\u65e0\u6570\u636e\uff0c\u8bbf\u95ee\u7ad9\u5185\u9875\u9762\u540e\u81ea\u52a8\u7edf\u8ba1",
-        sourceNames: {
-            direct: "\u76f4\u63a5\u8bbf\u95ee",
-            search: "\u641c\u7d22\u5f15\u64ce",
-            social: "\u793e\u533a/\u793e\u4ea4",
-            referral: "\u5916\u90e8\u5f15\u8350",
-            internal: "\u7ad9\u5185\u8df3\u8f6c",
-            bot: "\u722c\u866b"
-        },
-        deviceNames: {
-            desktop: "\u684c\u9762\u7aef",
-            mobile: "\u79fb\u52a8\u7aef",
-            bot: "\u673a\u5668\u4eba"
-        }
-    }
-};
-
-(function () {
-    var SOURCE_COLORS = {
-        direct: '#00e5ff', search: '#8b5cf6', social: '#00d4aa',
-        referral: '#f5a524', internal: '#5b7c99', bot: '#ff5c7a'
-    };
-
-    function pad(n) { return n < 10 ? '0' + n : '' + n; }
-
-    function tick() {
-        var now = new Date();
-        var dateEl = document.getElementById('dashDate');
-        var clockEl = document.getElementById('dashClock');
-        if (dateEl) dateEl.textContent = now.getFullYear() + '.' + pad(now.getMonth() + 1) + '.' + pad(now.getDate());
-        if (clockEl) clockEl.textContent = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
-    }
-
-    function chartFail(id) {
-        var el = document.getElementById(id);
-        if (el) el.innerHTML = '<div class="dash-nochart">' + window.__DASH__.i18n.fail + '</div>';
-    }
-
-    function initCharts() {
-        var data = window.__DASH__;
-        if (!window.echarts) {
-            chartFail('trendChart');
-            chartFail('sourceChart');
-            return;
-        }
-        var trendEl = document.getElementById('trendChart');
-        var sourceEl = document.getElementById('sourceChart');
-        var axis = {
-            axisLine: { lineStyle: { color: 'rgba(0,229,255,.18)' } },
-            axisLabel: { color: 'rgba(139,190,215,.72)', fontSize: 10, fontFamily: 'Share Tech Mono, monospace' },
-            splitLine: { lineStyle: { color: 'rgba(0,229,255,.07)' } }
-        };
-        var trend = echarts.init(trendEl, null, { renderer: 'canvas' });
-        trend.setOption({            backgroundColor: 'transparent',
-            grid: { left: 8, right: 12, top: 34, bottom: 4, containLabel: true },
-            tooltip: {
-                trigger: 'axis',
-                backgroundColor: 'rgba(6,15,28,.94)',
-                borderColor: 'rgba(0,229,255,.35)',
-                textStyle: { color: '#dff7ff', fontSize: 11 }
-            },
-            legend: {
-                top: 0, right: 0, icon: 'roundRect', itemWidth: 10, itemHeight: 4,
-                textStyle: { color: 'rgba(160,200,220,.85)', fontSize: 10 }
-            },
-            xAxis: Object.assign({ type: 'category', boundaryGap: false, data: data.trend.labels }, axis, { splitLine: { show: false } }),
-            yAxis: Object.assign({ type: 'value', minInterval: 1 }, axis),
-            series: [
-                {
-                    name: data.i18n.pv, type: 'line', smooth: true, symbol: 'none',
-                    data: data.trend.pv,
-                    lineStyle: { width: 2, color: '#00e5ff', shadowColor: 'rgba(0,229,255,.55)', shadowBlur: 12 },
-                    areaStyle: {
-                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                            { offset: 0, color: 'rgba(0,229,255,.34)' },
-                            { offset: 1, color: 'rgba(0,229,255,0)' }
-                        ])
-                    }
-                },
-                {
-                    name: data.i18n.uv, type: 'line', smooth: true, symbol: 'none',
-                    data: data.trend.uv,
-                    lineStyle: { width: 1.6, color: '#8b5cf6', type: 'dashed' }
-                }
-            ]
-        });
-
-        var hasTrend = data.trend.pv.some(function (v) { return v > 0; });
-        if (!hasTrend) {
-            var veil = document.createElement('div');
-            veil.className = 'dash-chart-veil';
-            veil.textContent = data.i18n.noData;
-            trendEl.appendChild(veil);
-        }
-
-        var sourceData = data.sources.map(function (s) {
-            return {
-                name: data.i18n.sourceNames[s.key] || s.key,
-                value: s.count,
-                itemStyle: { color: SOURCE_COLORS[s.key] || '#5b7c99' }
-            };
-        });
-        var source = null;
-        if (!sourceData.length) {
-            sourceEl.innerHTML = '<div class="dash-nochart">' + data.i18n.noData + '</div>';
-        } else {
-            source = echarts.init(sourceEl, null, { renderer: 'canvas' });
-            source.setOption({
-                backgroundColor: 'transparent',
-                tooltip: {
-                    trigger: 'item',
-                    backgroundColor: 'rgba(6,15,28,.94)',
-                    borderColor: 'rgba(0,229,255,.35)',
-                    textStyle: { color: '#dff7ff', fontSize: 11 }
-                },
-                series: [{
-                    type: 'pie', radius: ['56%', '78%'], center: ['50%', '52%'],
-                    avoidLabelOverlap: true, label: { show: false }, labelLine: { show: false },
-                    itemStyle: { borderColor: 'rgba(5,10,20,.9)', borderWidth: 2 },
-                    data: sourceData
-                }]
-            });
-        }
-        window.addEventListener('resize', function () {
-            trend.resize();
-            if (source) source.resize();
-        });
-    }
-
-    function renderRealtime(rows) {
-        var tbody = document.getElementById('liveRows');
-        if (!tbody || !rows) return;
-        var i18n = window.__DASH__.i18n;
-        var frag = document.createDocumentFragment();
-        rows.forEach(function (v) {
-            var tr = document.createElement('tr');
-            var cells = [v.created_at, v.path, i18n.sourceNames[v.source] || v.source,
-                         i18n.deviceNames[v.device] || v.device, v.ip];
-            cells.forEach(function (text, idx) {
-                var td = document.createElement('td');
-                if (idx === 0 || idx === 4) td.className = 'dash-mono';
-                if (idx === 1) {
-                    var span = document.createElement('span');
-                    span.className = 'dash-path';
-                    span.title = text;
-                    span.textContent = text;
-                    td.appendChild(span);
-                } else if (idx === 2) {
-                    var tag = document.createElement('span');
-                    tag.className = 'dash-tag' + (v.source === 'search' ? ' violet' : (v.source === 'social' ? ' teal' : ''));
-                    tag.textContent = text;
-                    td.appendChild(tag);
-                } else {
-                    td.textContent = text;
-                }
-                tr.appendChild(td);
-            });
-            frag.appendChild(tr);
-        });
-        tbody.innerHTML = '';
-        tbody.appendChild(frag);
-        var lc = document.getElementById('liveCount');
-        if (lc) lc.textContent = rows.length;
-    }
-
-    var pollTimer = null;
-    function pollLive() {
-        fetch('/api/dashboard/live', { cache: 'no-store', headers: { 'Accept': 'application/json' } })
-            .then(function (r) {
-                if (!r.ok) throw new Error('offline');
-                if ((r.headers.get('content-type') || '').indexOf('json') === -1) throw new Error('not-json');
-                return r.json();
-            })
-            .then(function (data) {
-                var pv = document.querySelector('[data-kpi="today_pv"]');
-                var uv = document.querySelector('[data-kpi="today_uv"]');
-                if (pv) pv.textContent = Number(data.today_pv || 0).toLocaleString();
-                if (uv) uv.textContent = Number(data.today_uv || 0).toLocaleString();
-                var up = document.getElementById('dashUpdated');
-                if (up && data.server_time) up.textContent = data.server_time;
-                renderRealtime(data.recent || []);
-            })
-            .catch(function () {
-                if (pollTimer) { clearInterval(pollTimer); pollTimer = null; }
-            });
-    }
-
-    tick();
-    setInterval(tick, 1000);
-    window.addEventListener('load', function () {
-        initCharts();
-        if (window.__DASH__.liveEnabled) pollTimer = setInterval(pollLive, 20000);
-    });
-})();
-</script>
-
+    
 </body>
 </html>

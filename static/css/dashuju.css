@@ -574,3 +574,113 @@
     .dash-live { font-size: 0.62rem; padding: 6px 10px; }
     .dash-kpi { padding: 12px 12px 10px; }
 }
+
+/* ============ v2 全局监控大屏新增（站点切换 / 健康 / 日志 / 徽章） ============ */
+.dash-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 18px 0 22px;
+}
+.dash-tab {
+    appearance: none;
+    border: 1px solid var(--dash-line);
+    background: rgba(9, 17, 31, 0.72);
+    color: #8fa8c8;
+    font-size: 13px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+.dash-tab:hover { color: var(--dash-cyan); border-color: rgba(0, 229, 255, 0.45); }
+.dash-tab.is-active {
+    color: #04121c;
+    background: linear-gradient(120deg, var(--dash-cyan), var(--dash-teal));
+    border-color: transparent;
+    font-weight: 600;
+    box-shadow: 0 0 18px rgba(0, 229, 255, 0.35);
+}
+.dash-banner {
+    border: 1px solid rgba(245, 165, 36, 0.5);
+    background: rgba(245, 165, 36, 0.1);
+    color: #ffd28a;
+    font-size: 13px;
+    line-height: 1.7;
+    border-radius: 10px;
+    padding: 10px 16px;
+    margin: 0 0 18px;
+}
+.dash-banner.demo { border-color: rgba(245, 165, 36, 0.7); background: rgba(245, 165, 36, 0.14); }
+.dash-hint { margin: 10px 0 0; font-size: 12px; color: #6c86a8; line-height: 1.6; }
+.dash-badge {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+.dash-badge.ok   { color: var(--dash-teal);  border-color: rgba(0, 212, 170, 0.45); background: rgba(0, 212, 170, 0.08); }
+.dash-badge.bad  { color: var(--dash-red);   border-color: rgba(255, 92, 122, 0.45); background: rgba(255, 92, 122, 0.08); }
+.dash-badge.seo  { color: var(--dash-cyan);  border-color: rgba(0, 229, 255, 0.4);  background: rgba(0, 229, 255, 0.08); }
+.dash-badge.geo  { color: var(--dash-violet);border-color: rgba(139, 92, 246, 0.45); background: rgba(139, 92, 246, 0.1); }
+.dash-badge.bot  { color: #8fa8c8; border-color: rgba(143, 168, 200, 0.35); background: rgba(143, 168, 200, 0.08); }
+
+.dash-health-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 12px;
+}
+.dash-health-card {
+    border: 1px solid var(--dash-line);
+    background: rgba(4, 12, 24, 0.6);
+    border-radius: 10px;
+    padding: 12px 14px;
+}
+.dash-health-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #dbe7f5;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.dash-health-name em { font-style: normal; font-size: 11px; color: #6c86a8; font-weight: 400; }
+.dash-health-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.dash-log-wrap { overflow-x: auto; }
+.dash-log-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.dash-log-table th {
+    text-align: left;
+    color: #6c86a8;
+    font-weight: 500;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--dash-line);
+    white-space: nowrap;
+}
+.dash-log-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid rgba(0, 229, 255, 0.06);
+    color: #a9c1de;
+    white-space: nowrap;
+}
+.dash-log-table tr:hover td { background: rgba(0, 229, 255, 0.045); }
+.dash-log-path { max-width: 320px; overflow: hidden; text-overflow: ellipsis; }
+.dash-foot {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 26px;
+    padding-top: 14px;
+    border-top: 1px solid var(--dash-line);
+    font-size: 12px;
+    color: #6c86a8;
+}
+@media (max-width: 768px) {
+    .dash-tabs { gap: 8px; }
+    .dash-tab { padding: 6px 12px; font-size: 12px; }
+}
