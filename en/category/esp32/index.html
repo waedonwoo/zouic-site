@@ -1,0 +1,2493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="ESP32 open source projects built with ESP-IDF and Arduino: sensor gateways, battery powered nodes, audio interfaces and display terminals on Wi-Fi and BLE.">
+    <meta name="keywords" content="esp32 open source projects,esp-idf,arduino,esp32-s3,esp32-c3,ble">
+    
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <link rel="canonical" href="https://www.zouic.com/en/category/esp32/">
+    
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/category/esp32/" />
+    
+    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/category/esp32/" />
+    
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/category/esp32/" />
+    
+    
+    
+    
+    <meta property="og:title" content="ESP32 Open Source Projects - ESP-IDF, Arduino and Low Power | ZouIC">
+    <meta property="og:description" content="ESP32 open source projects built with ESP-IDF and Arduino: sensor gateways, battery powered nodes, audio interfaces and display terminals on Wi-Fi and BLE.">
+    <meta property="og:url" content="https://www.zouic.com/en/category/esp32/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    
+    
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ZouIC open source development board platform · GeekWeidong">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ESP32 Open Source Projects - ESP-IDF, Arduino and Low Power | ZouIC">
+    <meta name="twitter:description" content="ESP32 open source projects built with ESP-IDF and Arduino: sensor gateways, battery powered nodes, audio interfaces and display terminals on Wi-Fi and BLE.">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "description": "ESP32 open source projects built with ESP-IDF and Arduino: sensor gateways, battery powered nodes, audio interfaces and display terminals on Wi-Fi and BLE.", "inLanguage": "en", "isPartOf": {"@id": "https://www.zouic.com/#website"}, "mainEntity": {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "name": "5 GHz Drone Video, With An ESP32", "position": 1, "url": "https://www.zouic.com/external/hackaday/5-ghz-drone-video-with-an-esp32/"}, {"@type": "ListItem", "name": "Atom Echo", "position": 2, "url": "https://www.zouic.com/external/github/atom-echo-ndjvwkps/"}, {"@type": "ListItem", "name": "Atom VoiceS3R", "position": 3, "url": "https://www.zouic.com/external/github/m5-atom-voices3r/"}, {"@type": "ListItem", "name": "AtomS3", "position": 4, "url": "https://www.zouic.com/external/github/atoms3-17dx47ms/"}, {"@type": "ListItem", "name": "AtomS3R AI Chatbot Kit", "position": 5, "url": "https://www.zouic.com/external/github/m5-atoms3r-ai-chatbot/"}, {"@type": "ListItem", "name": "Bittle X V2", "position": 6, "url": "https://www.zouic.com/external/github/petoi-bittle-x-v2/"}, {"@type": "ListItem", "name": "Cardputer ADV", "position": 7, "url": "https://www.zouic.com/external/github/cardputer-adv-tjwudu2x/"}, {"@type": "ListItem", "name": "Cardputer v1.1", "position": 8, "url": "https://www.zouic.com/external/github/cardputer-v1-1-jnhmxzvk/"}, {"@type": "ListItem", "name": "Cheap Yellow Display (CYD)", "position": 9, "url": "https://www.zouic.com/external/github/cheap-yellow-display-cyd-5oxsf72e/"}, {"@type": "ListItem", "name": "Core2", "position": 10, "url": "https://www.zouic.com/external/github/core2-mcmcvkr6/"}, {"@type": "ListItem", "name": "CoreInk", "position": 11, "url": "https://www.zouic.com/external/github/coreink-ap4qwpuu/"}, {"@type": "ListItem", "name": "CoreS3", "position": 12, "url": "https://www.zouic.com/external/github/cores3-btpjduw5/"}, {"@type": "ListItem", "name": "CrowPanel Advance 7\"", "position": 13, "url": "https://www.zouic.com/external/github/crowpanel-advance-7-ixoeh7tu/"}, {"@type": "ListItem", "name": "Deauther Watch V4S", "position": 14, "url": "https://www.zouic.com/external/web/deauther-watch-v4s-cnkn7kjr/"}, {"@type": "ListItem", "name": "ESP32-C6-Touch-AMOLED-2.16", "position": 15, "url": "https://www.zouic.com/external/github/esp32-c6-touch-amoled-2-16-xkxumudf/"}, {"@type": "ListItem", "name": "ESP32-P4-Function-EV-Board", "position": 16, "url": "https://www.zouic.com/external/github/espressif-esp32-p4-function-ev/"}, {"@type": "ListItem", "name": "ESP32-S3 1.75\" AMOLED Round Touch Display Dev Board (466x466)", "position": 17, "url": "https://www.zouic.com/external/github/esp32-s3-1-75-amoled-round-touch-display-dev-board-466x466-3fcjbwbb/"}, {"@type": "ListItem", "name": "ESP32-S3 Smart Matrix(64x64) Wall Clock", "position": 18, "url": "https://www.zouic.com/external/hackster/esp32-s3-smart-matrix-64x64-wall-clock-dc318d/"}, {"@type": "ListItem", "name": "ESP32-S3-BOX-3", "position": 19, "url": "https://www.zouic.com/external/github/esp32-s3-box-3-qwq4b4ve/"}, {"@type": "ListItem", "name": "ESP32-S3-Korvo-2 V3.1", "position": 20, "url": "https://www.zouic.com/external/github/espressif-esp32-s3-korvo-2/"}, {"@type": "ListItem", "name": "Espressif\u2019s New ESP32-S31: Dual-Core RISC-V with WiFi 6 and GBit Ethernet", "position": 21, "url": "https://www.zouic.com/external/hackaday/espressifs-new-esp32-s31-dual-core-risc-v-with-wifi-6-and-gbit-ethernet/"}, {"@type": "ListItem", "name": "Guition 4848S040 wall panel", "position": 22, "url": "https://www.zouic.com/external/github/guition-4848s040-wall-panel-w7gcjdbi/"}, {"@type": "ListItem", "name": "Guition JC2432W328", "position": 23, "url": "https://www.zouic.com/external/github/guition-jc2432w328-ttqfsxau/"}, {"@type": "ListItem", "name": "Guition JC3248W535", "position": 24, "url": "https://www.zouic.com/external/github/guition-jc3248w535-ih7vgt5e/"}, {"@type": "ListItem", "name": "Guition JC4827W543", "position": 25, "url": "https://www.zouic.com/external/github/guition-jc4827w543-kapsjqes/"}, {"@type": "ListItem", "name": "HA Voice Preview Edition", "position": 26, "url": "https://www.zouic.com/external/github/ha-voice-preview-edition-v855579n/"}, {"@type": "ListItem", "name": "Inkplate 10", "position": 27, "url": "https://www.zouic.com/external/github/inkplate-10-kruwzicx/"}, {"@type": "ListItem", "name": "Inkplate 2", "position": 28, "url": "https://www.zouic.com/external/github/inkplate-2-vjvr8srv/"}, {"@type": "ListItem", "name": "Inkplate 6", "position": 29, "url": "https://www.zouic.com/external/github/inkplate-6-ouzcrash/"}, {"@type": "ListItem", "name": "Inkplate 6COLOR", "position": 30, "url": "https://www.zouic.com/external/github/inkplate-6color-tm75thie/"}, {"@type": "ListItem", "name": "JARVIS Desk Bot", "position": 31, "url": "https://www.zouic.com/external/github/jarvis-desk-bot/"}, {"@type": "ListItem", "name": "M5Dial", "position": 32, "url": "https://www.zouic.com/external/github/m5dial-wm6guyzn/"}, {"@type": "ListItem", "name": "M5StickC PLUS2", "position": 33, "url": "https://www.zouic.com/external/github/m5stickc-plus2-tum39jj8/"}, {"@type": "ListItem", "name": "M5StickS3", "position": 34, "url": "https://www.zouic.com/external/github/m5sticks3-hlw4qqv1/"}, {"@type": "ListItem", "name": "Mini Retro TV: A Tiny Video Player with ESP-32", "position": 35, "url": "https://www.zouic.com/external/hackster/mini-retro-tv-a-tiny-video-player-with-esp-32-582d9f/"}, {"@type": "ListItem", "name": "NOTE4", "position": 36, "url": "https://www.zouic.com/external/github/note4-i8er6xqe/"}, {"@type": "ListItem", "name": "NOTE4C", "position": 37, "url": "https://www.zouic.com/external/github/note4c-fbtc7npa/"}, {"@type": "ListItem", "name": "PaperDIY", "position": 38, "url": "https://www.zouic.com/external/github/m5stack-paperdiy/"}, {"@type": "ListItem", "name": "PaperS3", "position": 39, "url": "https://www.zouic.com/external/github/papers3-3fyzvam3/"}, {"@type": "ListItem", "name": "Reaction Time Duel: a Two Player Reaction Game", "position": 40, "url": "https://www.zouic.com/external/hackster/reaction-time-duel-a-two-player-reaction-game-663ede/"}, {"@type": "ListItem", "name": "reTerminal E1001", "position": 41, "url": "https://www.zouic.com/external/github/reterminal-e1001-3jgu1e9t/"}, {"@type": "ListItem", "name": "reTerminal E1002", "position": 42, "url": "https://www.zouic.com/external/github/reterminal-e1002-uhcenaer/"}, {"@type": "ListItem", "name": "reTerminal E1003", "position": 43, "url": "https://www.zouic.com/external/github/reterminal-e1003-bt2vxzsx/"}, {"@type": "ListItem", "name": "reTerminal E1004", "position": 44, "url": "https://www.zouic.com/external/github/reterminal-e1004-fqnezcm1/"}, {"@type": "ListItem", "name": "SenseCAP Watcher", "position": 45, "url": "https://www.zouic.com/external/github/seeed-sensecap-watcher/"}, {"@type": "ListItem", "name": "StackChan AI Desktop Robot (ESP32-S3)", "position": 46, "url": "https://www.zouic.com/external/github/stackchan-ai-desktop-robot-dpcfbwv8/"}, {"@type": "ListItem", "name": "Sunton 7\" (8048S070)", "position": 47, "url": "https://www.zouic.com/external/github/sunton-7-8048s070-q7tjumzx/"}, {"@type": "ListItem", "name": "T-Beam Supreme", "position": 48, "url": "https://www.zouic.com/external/github/t-beam-supreme-hs6kycrj/"}], "itemListOrder": "https://schema.org/ItemListOrderDescending", "numberOfItems": 83}, "name": "ESP32 Open Source Projects - ESP-IDF, Arduino and Low Power | ZouIC", "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/category/esp32/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/category", "name": "Categories", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/category/esp32/", "name": "ESP32", "position": 3}]}]}
+    </script>
+    
+    
+    <title>ESP32 Open Source Projects - ESP-IDF, Arduino and Low Power | ZouIC</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    
+    <!-- External Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    
+    <!-- ZouIC Design System -->
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261027a">
+    <noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261029f">
+    
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand" href="/en/">
+                <i class="fas fa-microchip"></i> ZouIC
+            </a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
+                <span class="nav-hud-dot"></span>SYS.ONLINE
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/en/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/all-projects/"><i class="fas fa-project-diagram me-1"></i>Open Source Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/boards/">Open Source Boards</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/board-guide/">Documentation</a></li>
+                    <li class="nav-item dropdown">
+                        <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/en/products/"><i class="fas fa-box me-2"></i>Products</a></li>
+                            <li><a class="dropdown-item" href="/en/services/"><i class="fas fa-cogs me-2"></i>Services</a></li>
+                            <li><a class="dropdown-item" href="/en/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li>
+                            <li><a class="dropdown-item" href="/en/news/"><i class="fas fa-newspaper me-2"></i>Site Updates</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li>
+                            <li><a class="dropdown-item" href="/en/documentation/"><i class="fas fa-book me-2"></i>Documentation</a></li>
+                            <li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li>
+                            <li><a class="dropdown-item" href="/en/cases/"><i class="fas fa-briefcase me-2"></i>Project Cases</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/open-source/"><i class="fas fa-code-branch me-2"></i>Open Source Projects</a></li>
+                            <li><a class="dropdown-item" href="/en/articles/"><i class="fas fa-pen-fancy me-2"></i>Articles</a></li>
+                            <li><a class="dropdown-item" href="/en/contribute/"><i class="fas fa-handshake me-2"></i>Contribute</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/dashuju/"><i class="fas fa-chart-line me-2"></i>Data Dashboard</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-lg-none"><a class="nav-link" href="/en/search/"><i class="fas fa-search me-1"></i>Search</a></li>
+                </ul>
+                <form id="searchForm" class="d-flex me-3 d-none d-lg-flex">
+                    <div class="input-group input-group-zouic">
+                        <input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="Search boards, projects or keywords..." aria-label="Search" style="width: 200px;">
+                        <select id="searchType" class="form-select input-zouic" aria-label="Search Type:" style="width: auto; flex: 0 0 auto;">
+                            <option value="">All Categories</option>
+                            <option value="board">Open Source Boards</option>
+                            <option value="project">Open Source Projects</option>
+                        </select>
+                        <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Search">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i> English
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/category/esp32/">
+                                <i class="fas fa-language me-2"></i> 中文
+                            </a></li>
+                            <li><a class="dropdown-item" href="/en/category/esp32/">
+                                <i class="fas fa-language me-2"></i> English
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        
+<div class="ext-page">
+
+    <section class="ext-hero">
+        <div class="ext-hero-grid" aria-hidden="true"></div>
+        <div class="container">
+            <div class="ext-hero-inner">
+                <div class="ext-hero-copy">
+                    <span class="ext-eyebrow"><i class="fas fa-diagram-project"></i> CATEGORY HUB</span>
+                    <h1 class="ext-hero-title">ESP32 开源项目</h1>
+                    
+                    <div class="ext-hero-actions">
+                        <a href="/en/all-projects/" class="btn-zouic btn-zouic-secondary">
+                            <i class="fas fa-layer-group me-2"></i>Back to the hub
+                        </a>
+                        <a href="/en/category/" class="btn-zouic btn-zouic-ghost">
+                            <i class="fas fa-compass me-2"></i>All Categories
+                        </a>
+                    </div>
+                </div>
+                <div class="ext-hero-stats">
+                    <div class="ext-hero-stat ext-hero-stat--total">
+                        <span class="ext-hero-stat-value">83</span>
+                        <span class="ext-hero-stat-label">Total projects</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container ext-body">
+
+        
+        <div class="hub-platform-row">
+            <span class="hub-platform-label">来源分布</span>
+            
+            <a class="hub-platform-chip" href="/en/source/github/">
+                github <b>76</b>
+            </a>
+            
+            <a class="hub-platform-chip" href="/en/source/hackster/">
+                hackster <b>4</b>
+            </a>
+            
+            <a class="hub-platform-chip" href="/en/source/hackaday/">
+                hackaday <b>2</b>
+            </a>
+            
+            <a class="hub-platform-chip" href="/en/source/web/">
+                web <b>1</b>
+            </a>
+            
+        </div>
+        
+
+        
+        <div class="ext-grid">
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/en/external/hackaday/5-ghz-drone-video-with-an-esp32/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/10/espr2-fmrx-featured.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/10/espr2-fmrx-featured.jpg" alt="5 GHz Drone Video, With An ESP32" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackaday/5-ghz-drone-video-with-an-esp32/">5 GHz Drone Video, With An ESP32</a></h3>
+                        <p class="ext-card-desc line-clamp-2">With the ESP32 series of microcontrollers having had hidden software-defined radio (SDR) facility revealed, we’re now moving on from the announcement into projects making use of the finding. [Twotoz] has …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Jenny List</span>
+                            
+                            <span class="ext-card-license">Article (no code repository); license per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/atom-echo-ndjvwkps/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">atom-echo-ndjvwkps</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">A</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/atom-echo-ndjvwkps/">Atom Echo</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Atom Echo is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">m5stack</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/m5-atom-voices3r/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">m5-atom-voices3r</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">A</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/m5-atom-voices3r/">Atom VoiceS3R</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Atom VoiceS3R is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">m5stack</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/atoms3-17dx47ms/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">atoms3-17dx47ms</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">A</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/atoms3-17dx47ms/">AtomS3</a></h3>
+                        <p class="ext-card-desc line-clamp-2">AtomS3 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">m5stack</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/m5-atoms3r-ai-chatbot/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">m5-atoms3r-ai-chatbot</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">A</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/m5-atoms3r-ai-chatbot/">AtomS3R AI Chatbot Kit</a></h3>
+                        <p class="ext-card-desc line-clamp-2">AtomS3R AI Chatbot Kit is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">m5stack</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/petoi-bittle-x-v2/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">petoi-bittle-x-v2</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">B</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/petoi-bittle-x-v2/">Bittle X V2</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Bittle X V2 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">PetoiCamp</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/cardputer-adv-tjwudu2x/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">cardputer-adv-tjwudu2x</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">C</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/cardputer-adv-tjwudu2x/">Cardputer ADV</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Cardputer ADV is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">m5stack</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/cardputer-v1-1-jnhmxzvk/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">cardputer-v1-1-jnhmxzvk</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">C</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/cardputer-v1-1-jnhmxzvk/">Cardputer v1.1</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Cardputer v1.1 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">m5stack</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/cheap-yellow-display-cyd-5oxsf72e/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">cheap-yellow-display-cyd-5oxsf72e</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">C</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/cheap-yellow-display-cyd-5oxsf72e/">Cheap Yellow Display (CYD)</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Cheap Yellow Display (CYD) is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">witnessmenow</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/core2-mcmcvkr6/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">core2-mcmcvkr6</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">C</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/core2-mcmcvkr6/">Core2</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Core2 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">m5stack</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/coreink-ap4qwpuu/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">coreink-ap4qwpuu</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">C</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/coreink-ap4qwpuu/">CoreInk</a></h3>
+                        <p class="ext-card-desc line-clamp-2">CoreInk is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">m5stack</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/cores3-btpjduw5/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">cores3-btpjduw5</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">C</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/cores3-btpjduw5/">CoreS3</a></h3>
+                        <p class="ext-card-desc line-clamp-2">CoreS3 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">m5stack</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/crowpanel-advance-7-ixoeh7tu/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">crowpanel-advance-7-ixoeh7tu</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">C</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/crowpanel-advance-7-ixoeh7tu/">CrowPanel Advance 7&#34;</a></h3>
+                        <p class="ext-card-desc line-clamp-2">CrowPanel Advance 7&#34; is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Elecrow-RD</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="web">
+                <div class="ext-card ext-card--web">
+                    
+                    <a href="/en/external/web/deauther-watch-v4s-cnkn7kjr/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">deauther-watch-v4s-cnkn7kjr</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">D</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-globe"></i>
+                            Official Site
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-globe"></i>
+                                Official Site
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/web/deauther-watch-v4s-cnkn7kjr/">Deauther Watch V4S</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Deauther Watch V4S is an open hardware project indexed from the official site. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">DSTIKE</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/esp32-c6-touch-amoled-2-16-xkxumudf/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">esp32-c6-touch-amoled-2-16-xkxumudf</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">E</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/esp32-c6-touch-amoled-2-16-xkxumudf/">ESP32-C6-Touch-AMOLED-2.16</a></h3>
+                        <p class="ext-card-desc line-clamp-2">ESP32-C6-Touch-AMOLED-2.16 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">waveshareteam</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/espressif-esp32-p4-function-ev/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">espressif-esp32-p4-function-ev</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">E</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/espressif-esp32-p4-function-ev/">ESP32-P4-Function-EV-Board</a></h3>
+                        <p class="ext-card-desc line-clamp-2">ESP32-P4-Function-EV-Board is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">espressif</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/esp32-s3-1-75-amoled-round-touch-display-dev-board-466x466-3fcjbwbb/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">esp32-s3-1-75-amoled-round-touch-display-dev-board-466x466-3fcjbwbb</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">E</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/esp32-s3-1-75-amoled-round-touch-display-dev-board-466x466-3fcjbwbb/">ESP32-S3 1.75&#34; AMOLED Round Touch Display Dev Board (466x466)</a></h3>
+                        <p class="ext-card-desc line-clamp-2">ESP32-S3 1.75&#34; AMOLED Round Touch Display Dev Board (466x466) is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">waveshareteam</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/esp32-s3-smart-matrix-64x64-wall-clock-dc318d/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">esp32-s3-smart-matrix-64x64-wall-clock-dc318d</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">E</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/esp32-s3-smart-matrix-64x64-wall-clock-dc318d/">ESP32-S3 Smart Matrix(64x64) Wall Clock</a></h3>
+                        <p class="ext-card-desc line-clamp-2">ESP32-S3 smart dashboard for 64x64 HUB75 RGB matrix: NTP clock, SHTC3 climate, live weather, and REST API flight tracker animation.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Divyanshu Tungriya</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/esp32-s3-box-3-qwq4b4ve/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">esp32-s3-box-3-qwq4b4ve</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">E</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/esp32-s3-box-3-qwq4b4ve/">ESP32-S3-BOX-3</a></h3>
+                        <p class="ext-card-desc line-clamp-2">ESP32-S3-BOX-3 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">espressif</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/espressif-esp32-s3-korvo-2/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">espressif-esp32-s3-korvo-2</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">E</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/espressif-esp32-s3-korvo-2/">ESP32-S3-Korvo-2 V3.1</a></h3>
+                        <p class="ext-card-desc line-clamp-2">ESP32-S3-Korvo-2 V3.1 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">espressif</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/en/external/hackaday/espressifs-new-esp32-s31-dual-core-risc-v-with-wifi-6-and-gbit-ethernet/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/04/esp32_s31_espressif.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/04/esp32_s31_espressif.jpg" alt="Espressif’s New ESP32-S31: Dual-Core RISC-V with WiFi 6 and GBit Ethernet" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackaday/espressifs-new-esp32-s31-dual-core-risc-v-with-wifi-6-and-gbit-ethernet/">Espressif’s New ESP32-S31: Dual-Core RISC-V with WiFi 6 and GBit Ethernet</a></h3>
+                        <p class="ext-card-desc line-clamp-2">In a move that’s no doubt going to upset and confuse many, Espressif has released its newest microcontroller — the ESP32-S31. The confusing part here is that the ESP32-S series …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Maya Posch</span>
+                            
+                            <span class="ext-card-license">Article (no code repository); license per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/guition-4848s040-wall-panel-w7gcjdbi/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">guition-4848s040-wall-panel-w7gcjdbi</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">G</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/guition-4848s040-wall-panel-w7gcjdbi/">Guition 4848S040 wall panel</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Guition 4848S040 wall panel is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">HASwitchPlate</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/guition-jc2432w328-ttqfsxau/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">guition-jc2432w328-ttqfsxau</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">G</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/guition-jc2432w328-ttqfsxau/">Guition JC2432W328</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Guition JC2432W328 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">OldNKrusty</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/guition-jc3248w535-ih7vgt5e/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">guition-jc3248w535-ih7vgt5e</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">G</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/guition-jc3248w535-ih7vgt5e/">Guition JC3248W535</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Guition JC3248W535 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">clowrey</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/guition-jc4827w543-kapsjqes/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">guition-jc4827w543-kapsjqes</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">G</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/guition-jc4827w543-kapsjqes/">Guition JC4827W543</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Guition JC4827W543 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">vldmr-d</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/ha-voice-preview-edition-v855579n/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">ha-voice-preview-edition-v855579n</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">H</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/ha-voice-preview-edition-v855579n/">HA Voice Preview Edition</a></h3>
+                        <p class="ext-card-desc line-clamp-2">HA Voice Preview Edition is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">esphome</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/inkplate-10-kruwzicx/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">inkplate-10-kruwzicx</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">I</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/inkplate-10-kruwzicx/">Inkplate 10</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Inkplate 10 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">SolderedElectronics</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/inkplate-2-vjvr8srv/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">inkplate-2-vjvr8srv</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">I</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/inkplate-2-vjvr8srv/">Inkplate 2</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Inkplate 2 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">SolderedElectronics</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/inkplate-6-ouzcrash/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">inkplate-6-ouzcrash</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">I</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/inkplate-6-ouzcrash/">Inkplate 6</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Inkplate 6 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">SolderedElectronics</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/inkplate-6color-tm75thie/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">inkplate-6color-tm75thie</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">I</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/inkplate-6color-tm75thie/">Inkplate 6COLOR</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Inkplate 6COLOR is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">SolderedElectronics</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/jarvis-desk-bot/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">jarvis-desk-bot</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">J</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/jarvis-desk-bot/">JARVIS Desk Bot</a></h3>
+                        <p class="ext-card-desc line-clamp-2">JARVIS Desk Bot is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">dreamhunter02</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/m5dial-wm6guyzn/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">m5dial-wm6guyzn</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">M</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/m5dial-wm6guyzn/">M5Dial</a></h3>
+                        <p class="ext-card-desc line-clamp-2">M5Dial is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">m5stack</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/m5stickc-plus2-tum39jj8/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">m5stickc-plus2-tum39jj8</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">M</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/m5stickc-plus2-tum39jj8/">M5StickC PLUS2</a></h3>
+                        <p class="ext-card-desc line-clamp-2">M5StickC PLUS2 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">m5stack</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/m5sticks3-hlw4qqv1/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">m5sticks3-hlw4qqv1</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">M</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/m5sticks3-hlw4qqv1/">M5StickS3</a></h3>
+                        <p class="ext-card-desc line-clamp-2">M5StickS3 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">m5stack</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/mini-retro-tv-a-tiny-video-player-with-esp-32-582d9f/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">mini-retro-tv-a-tiny-video-player-with-esp-32-582d9f</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">M</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/mini-retro-tv-a-tiny-video-player-with-esp-32-582d9f/">Mini Retro TV: A Tiny Video Player with ESP-32</a></h3>
+                        <p class="ext-card-desc line-clamp-2">This project explores video playback on an ESP32-S3 using its 2.4-inch ST7789 SPI IPS display.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Tech Talkies</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/note4-i8er6xqe/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">note4-i8er6xqe</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">N</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/note4-i8er6xqe/">NOTE4</a></h3>
+                        <p class="ext-card-desc line-clamp-2">NOTE4 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">itopinion</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/note4c-fbtc7npa/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">note4c-fbtc7npa</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">N</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/note4c-fbtc7npa/">NOTE4C</a></h3>
+                        <p class="ext-card-desc line-clamp-2">NOTE4C is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">fiedoruk</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/m5stack-paperdiy/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">m5stack-paperdiy</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">P</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/m5stack-paperdiy/">PaperDIY</a></h3>
+                        <p class="ext-card-desc line-clamp-2">PaperDIY is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">m5stack</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/papers3-3fyzvam3/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">papers3-3fyzvam3</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">P</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/papers3-3fyzvam3/">PaperS3</a></h3>
+                        <p class="ext-card-desc line-clamp-2">PaperS3 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">m5stack</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/reaction-time-duel-a-two-player-reaction-game-663ede/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">reaction-time-duel-a-two-player-reaction-game-663ede</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">R</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/reaction-time-duel-a-two-player-reaction-game-663ede/">Reaction Time Duel: a Two Player Reaction Game</a></h3>
+                        <p class="ext-card-desc line-clamp-2">A DIY two-player reaction-time game powered by ESP32, featuring RGB LEDs, an OLED, multiple game modes, and a custom 3D-printed enclosure.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">smmaazulhaque</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/reterminal-e1001-3jgu1e9t/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">reterminal-e1001-3jgu1e9t</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">R</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/reterminal-e1001-3jgu1e9t/">reTerminal E1001</a></h3>
+                        <p class="ext-card-desc line-clamp-2">reTerminal E1001 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Seeed-Studio</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/reterminal-e1002-uhcenaer/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">reterminal-e1002-uhcenaer</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">R</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/reterminal-e1002-uhcenaer/">reTerminal E1002</a></h3>
+                        <p class="ext-card-desc line-clamp-2">reTerminal E1002 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Seeed-Studio</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/reterminal-e1003-bt2vxzsx/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">reterminal-e1003-bt2vxzsx</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">R</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/reterminal-e1003-bt2vxzsx/">reTerminal E1003</a></h3>
+                        <p class="ext-card-desc line-clamp-2">reTerminal E1003 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Seeed-Studio</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/reterminal-e1004-fqnezcm1/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">reterminal-e1004-fqnezcm1</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">R</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/reterminal-e1004-fqnezcm1/">reTerminal E1004</a></h3>
+                        <p class="ext-card-desc line-clamp-2">reTerminal E1004 is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Seeed-Studio</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/seeed-sensecap-watcher/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">seeed-sensecap-watcher</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">S</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/seeed-sensecap-watcher/">SenseCAP Watcher</a></h3>
+                        <p class="ext-card-desc line-clamp-2">SenseCAP Watcher is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Seeed-Studio</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/stackchan-ai-desktop-robot-dpcfbwv8/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">stackchan-ai-desktop-robot-dpcfbwv8</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">S</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/stackchan-ai-desktop-robot-dpcfbwv8/">StackChan AI Desktop Robot (ESP32-S3)</a></h3>
+                        <p class="ext-card-desc line-clamp-2">StackChan AI Desktop Robot (ESP32-S3) is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">m5stack</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/sunton-7-8048s070-q7tjumzx/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">sunton-7-8048s070-q7tjumzx</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">S</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/sunton-7-8048s070-q7tjumzx/">Sunton 7&#34; (8048S070)</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Sunton 7&#34; (8048S070) is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">HarryVienna</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/en/external/github/t-beam-supreme-hs6kycrj/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">t-beam-supreme-hs6kycrj</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">T</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/github/t-beam-supreme-hs6kycrj/">T-Beam Supreme</a></h3>
+                        <p class="ext-card-desc line-clamp-2">T-Beam Supreme is an open hardware project indexed from GitHub. Open the original project page for the full description.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Xinyuan-LilyGO</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+
+        
+        
+        <nav class="pagination" aria-label="分页">
+            
+            <span class="page-link is-disabled">&laquo; 上一页</span>
+            
+
+            
+            
+            
+            
+            
+            <span class="page-link is-current" aria-current="page">1</span>
+            
+            
+            
+            <a class="page-link" href="/en/category/esp32/page/2/">2</a>
+            
+            
+            
+
+            
+            <a class="page-link" href="/en/category/esp32/page/2/" rel="next">下一页 &raquo;</a>
+            
+        </nav>
+        <p class="source-page-hint">Total projects 83 · 1 / 2</p>
+        
+
+        
+        <section class="hub-cross" aria-label="相关分类">
+            <h2 class="hub-cross-title">相关分类</h2>
+            <div class="hub-cross-grid">
+                
+                <a class="hub-cross-item" href="/en/category/fpga/">
+                    <span class="hub-cross-name">FPGA</span>
+                    <span class="hub-cross-count">733</span>
+                </a>
+                
+                <a class="hub-cross-item" href="/en/category/general/">
+                    <span class="hub-cross-name">General</span>
+                    <span class="hub-cross-count">231</span>
+                </a>
+                
+                <a class="hub-cross-item" href="/en/category/ai_hardware/">
+                    <span class="hub-cross-name">AI Hardware</span>
+                    <span class="hub-cross-count">173</span>
+                </a>
+                
+                <a class="hub-cross-item" href="/en/category/vision/">
+                    <span class="hub-cross-name">Computer Vision</span>
+                    <span class="hub-cross-count">119</span>
+                </a>
+                
+                <a class="hub-cross-item" href="/en/category/robotics/">
+                    <span class="hub-cross-name">Robotics</span>
+                    <span class="hub-cross-count">74</span>
+                </a>
+                
+                <a class="hub-cross-item" href="/en/category/iot/">
+                    <span class="hub-cross-name">IoT</span>
+                    <span class="hub-cross-count">62</span>
+                </a>
+                
+            </div>
+        </section>
+        
+
+        <p class="source-disclaimer">
+            <i class="fas fa-scale-balanced me-1"></i>
+            本页条目均来自各平台的公开页面，ZouIC 只做分类、索引与摘要，不托管代码与文件；项目仅供开发者参考，版权与授权归原作者，遵循其各自开源协议。
+        </p>
+    </div>
+</div>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Newsletter section (the home page already has a full follow block, so it is skipped there) -->
+    
+    <section id="follow" class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h3 class="text-xl font-bold mb-2">Follow @GeekWaedon for Weekly Updates</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">Board picks, project breakdowns and hardware engineering tips, first published on WeChat and Knowledge Planet.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <a href="/en/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">See How to Follow</a>
+                        <div class="newsletter-benefits">
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Weekly curated board picks</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Exclusive project deep-dives</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Updated on WeChat and Knowledge Planet</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="py-4" aria-label="Produced by">
+        <div class="author-card">
+            <div class="author-card-info">
+                <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
+                <div>
+                    <div class="author-card-name">Created by GeekWaedon <span>@GeekWaedon</span></div>
+                    <div class="author-card-bio">Hardware maker and AI practitioner. This entire website was built hands-on with AI tools.</div>
+                </div>
+            </div>
+            <div class="author-card-actions">
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Join my Knowledge Planet</a>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;GeekWaedon&#34;</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-zouic" role="contentinfo">
+        <div class="container">
+            <div class="row footer-main">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
+                    <a href="/en/" class="footer-brand" aria-label="ZouIC home">
+                        <i class="fas fa-microchip"></i>
+                        <span>ZouIC</span>
+                    </a>
+                    <p class="footer-tagline">Quality open hardware projects from platforms worldwide · For developer reference only</p>
+
+                    <div class="footer-meta">
+                        <p class="footer-author">
+                            Produced by · <strong>GeekWaedon</strong>
+                            <span class="footer-author-handle">@GeekWaedon</span>
+                        </p>
+                        <div class="footer-slash-tags">
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware enthusiast</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI practitioner</span>
+                            <a href="/en/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom service provider">
+                                <i class="fab fa-weixin"></i> WeCom service provider
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a>
+                        <a href="/en/#follow" class="footer-social-link" aria-label="WeChat Official Account · GeekWaedon" title="WeChat Official Account · GeekWaedon"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a>
+                        <a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a>
+                        <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="/en/products/">Products</a></li>
+                        <li><a href="/en/services/">Services</a></li>
+                        <li><a href="/en/services/website-building/">Website building</a></li>
+                        <li><a href="/en/services/component-matching/">元器件撮合</a></li>
+                        <li><a href="/en/news/">Site Updates</a></li>
+                        <li><a href="/en/boards/">Development Boards</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="/en/board-guide/">Board selection guide</a></li>
+                        <li><a href="/en/compare/">Board comparison</a></li>
+                        <li><a href="/en/tutorials/">Tutorials</a></li>
+                        <li><a href="/en/documentation/">Documentation</a></li>
+                        <li><a href="/en/cases/">Project Cases</a></li>
+                        <li><a href="/en/help/">Documentation</a></li>
+                        <li><a href="/en/games/resistor/">Resistor Color Code Challenge</a></li>
+                        <li><a href="/en/dashuju/">Data Dashboard</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Open Source</h5>
+                    <ul>
+                        <li><a href="/en/open-source/">Open Source Projects</a></li>
+                        <li><a href="/en/all-projects/">All projects</a></li>
+                        <li><a href="/en/articles/">Articles</a></li>
+                        
+                        <li><a href="/en/contribute/">Contribute</a></li>
+                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h5>About</h5>
+                    <ul>
+                        <li><a href="/en/about/">About Us</a></li>
+                        <li><a href="/en/about/#contact">Contact Us</a></li>
+                        <li><a href="/en/licenses/">Open Source Licenses</a></li>
+                        <li><a href="/en/about/#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-category-strip">
+                <span class="footer-category-label">热门分类</span>
+                <div class="footer-category-links">
+                    <a href="/en/category/">全部</a>
+                    
+                    <a href="/en/category/fpga/">FPGA</a>
+                    
+                    <a href="/en/category/general/">General</a>
+                    
+                    <a href="/en/category/ai_hardware/">AI Hardware</a>
+                    
+                    <a href="/en/category/vision/">Computer Vision</a>
+                    
+                    <a href="/en/category/esp32/">ESP32</a>
+                    
+                    <a href="/en/category/robotics/">Robotics</a>
+                    
+                    <a href="/en/source/github/">GitHub</a>
+                    <a href="/en/source/hackster/">Hackster.io</a>
+                    <a href="/resources/">资源导航</a>
+                </div>
+            </div>
+            
+            <div class="footer-producer-bar">
+                <img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
+                <div style="line-height:1.6;">
+                    <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">Built single-handedly by GeekWaedon (@GeekWaedon) · <span style="color:#a78bfa;">people and AI, working side by side</span></div>
+                    <div class="text-xs text-secondary">A one-person project run by a real human: the site build, the data pulls, the articles and the artwork all came from me (with a few AI agents). <a href="/en/about/" class="text-primary" style="text-decoration:none;">Meet the person behind it →</a></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ZouIC. All rights reserved.</p>
+                <p>Projects aggregated here are for developer reference only: ZouIC indexes them and hosts no code or files; copyright and licensing stay with their authors. For details, see the <a href="/en/licenses/">Open Source Licenses</a> page.</p>
+                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Copied';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Removed from favorites');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Saved to favorites');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+</body>
+</html>

@@ -1,0 +1,2421 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="AI 硬件开源项目合集：NPU 加速卡、AI 相机、边缘计算盒子，覆盖模型量化转换、推理框架部署与散热供电结构设计。（第 3 页 / 共 4 页）">
+    <meta name="keywords" content="AI硬件开源项目,边缘推理,NPU,AI相机,模型量化,推理部署">
+    
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <link rel="canonical" href="https://www.zouic.com/category/ai_hardware/page/3/">
+    
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/category/ai_hardware/page/3/" />
+    
+    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/category/ai_hardware/page/3/" />
+    
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/category/ai_hardware/page/3/" />
+    
+    
+    
+    
+    <meta property="og:title" content="AI 硬件开源项目 - 边缘推理、NPU 与 AI 相机 | ZouIC - 第 3 页">
+    <meta property="og:description" content="AI 硬件开源项目合集：NPU 加速卡、AI 相机、边缘计算盒子，覆盖模型量化转换、推理框架部署与散热供电结构设计。（第 3 页 / 共 4 页）">
+    <meta property="og:url" content="https://www.zouic.com/category/ai_hardware/page/3/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_CN">
+    
+    
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI 硬件开源项目 - 边缘推理、NPU 与 AI 相机 | ZouIC - 第 3 页">
+    <meta name="twitter:description" content="AI 硬件开源项目合集：NPU 加速卡、AI 相机、边缘计算盒子，覆盖模型量化转换、推理框架部署与散热供电结构设计。（第 3 页 / 共 4 页）">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "description": "AI \u786c\u4ef6\u5f00\u6e90\u9879\u76ee\u5408\u96c6\uff1aNPU \u52a0\u901f\u5361\u3001AI \u76f8\u673a\u3001\u8fb9\u7f18\u8ba1\u7b97\u76d2\u5b50\uff0c\u8986\u76d6\u6a21\u578b\u91cf\u5316\u8f6c\u6362\u3001\u63a8\u7406\u6846\u67b6\u90e8\u7f72\u4e0e\u6563\u70ed\u4f9b\u7535\u7ed3\u6784\u8bbe\u8ba1\u3002", "inLanguage": "zh-CN", "isPartOf": {"@id": "https://www.zouic.com/#website"}, "mainEntity": {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "name": "Autonomous AI-Native IDS: Raspberry Pi as an Edge SOC", "position": 1, "url": "https://www.zouic.com/external/hackster/autonomous-ai-native-ids-raspberry-pi-as-an-edge-soc-44544c/"}, {"@type": "ListItem", "name": "AI-powered high-quality anime for games", "position": 2, "url": "https://www.zouic.com/external/hackster/ai-powered-high-quality-anime-for-games-5e86b6/"}, {"@type": "ListItem", "name": "Smart Lost \u0026 Found with Edge AI", "position": 3, "url": "https://www.zouic.com/external/hackster/smart-lost-found-with-edge-ai-81da6c/"}, {"@type": "ListItem", "name": "Revolutionizing Kidney Tumor Diagnosis with MI210", "position": 4, "url": "https://www.zouic.com/external/hackster/revolutionizing-kidney-tumor-diagnosis-with-mi210-ab3a53/"}, {"@type": "ListItem", "name": "The Oracles of Damas", "position": 5, "url": "https://www.zouic.com/external/hackster/the-oracles-of-damas-87b608/"}, {"@type": "ListItem", "name": "18 Sharing AIE-ML graph model for Python simulation", "position": 6, "url": "https://www.zouic.com/external/hackster/18-sharing-aie-ml-graph-model-for-python-simulation-8cd62c/"}, {"@type": "ListItem", "name": "Streamline: AI-Powered Video Summarizer and Upscaler", "position": 7, "url": "https://www.zouic.com/external/hackster/streamline-ai-powered-video-summarizer-and-upscaler-2b92aa/"}, {"@type": "ListItem", "name": "Bridging Learning Gaps for Children with Disabilities", "position": 8, "url": "https://www.zouic.com/external/hackster/bridging-learning-gaps-for-children-with-disabilities-68cc05/"}, {"@type": "ListItem", "name": "13 Memory alignment in AI Engine", "position": 9, "url": "https://www.zouic.com/external/hackster/13-memory-alignment-in-ai-engine-5ee3c3/"}, {"@type": "ListItem", "name": "Map pin anomaly detection", "position": 10, "url": "https://www.zouic.com/external/hackster/map-pin-anomaly-detection-d70b42/"}, {"@type": "ListItem", "name": "AMD Ryzen AI NPU: Multi-Dimensional Shim DMA", "position": 11, "url": "https://www.zouic.com/external/hackster/amd-ryzen-ai-npu-multi-dimensional-shim-dma-9b8afd/"}, {"@type": "ListItem", "name": "Ambient mood orchestrator", "position": 12, "url": "https://www.zouic.com/external/hackster/ambient-mood-orchestrator-c03815/"}, {"@type": "ListItem", "name": "Appointment scheduling agent", "position": 13, "url": "https://www.zouic.com/external/hackster/appointment-scheduling-agent-aac523/"}, {"@type": "ListItem", "name": "Brainiak Topological Al drives LLM by loRa runtime adapters", "position": 14, "url": "https://www.zouic.com/external/hackster/brainiak-topological-al-drives-llm-by-lora-runtime-adapters-73a678/"}, {"@type": "ListItem", "name": "Iris: Your Personal Health Companion", "position": 15, "url": "https://www.zouic.com/external/hackster/iris-your-personal-health-companion-b966ba/"}, {"@type": "ListItem", "name": "InferPerf: PMU\u2011Driven AI Inference Profiler for Arm CPUs", "position": 16, "url": "https://www.zouic.com/external/hackster/inferperf-pmu-driven-ai-inference-profiler-for-arm-cpus-b8b7a3/"}, {"@type": "ListItem", "name": "AI Agent Beats ARM CMSIS-NN by 3.74x on nRF54LM20", "position": 17, "url": "https://www.zouic.com/external/hackster/ai-agent-beats-arm-cmsis-nn-by-3-74x-on-nrf54lm20-66158a/"}, {"@type": "ListItem", "name": "AI Art Frame", "position": 18, "url": "https://www.zouic.com/external/web/ai-art-frame-jsmq6z59/"}, {"@type": "ListItem", "name": "AI Controls iPhone Via ESP32", "position": 19, "url": "https://www.zouic.com/external/hackaday/ai-controls-iphone-via-esp32/"}, {"@type": "ListItem", "name": "AI Pyramid", "position": 20, "url": "https://www.zouic.com/external/github/m5-ai-pyramid/"}, {"@type": "ListItem", "name": "An ESP32 Development Board For Sailors", "position": 21, "url": "https://www.zouic.com/external/hackaday/an-esp32-development-board-for-sailors/"}, {"@type": "ListItem", "name": "Announcing the 2025 Hackaday Superconference Communicator Badge", "position": 22, "url": "https://www.zouic.com/external/hackaday/announcing-the-2025-hackaday-superconference-communicator-badge/"}, {"@type": "ListItem", "name": "Aqua Mitra \u2013 Smart Aquarium Companion", "position": 23, "url": "https://www.zouic.com/external/hackster/aqua-mitra-smart-aquarium-companion-f29fdc/"}, {"@type": "ListItem", "name": "Bar", "position": 24, "url": "https://www.zouic.com/external/github/busy-bar-bullswiw/"}, {"@type": "ListItem", "name": "Bee Eclipse", "position": 25, "url": "https://www.zouic.com/external/web/bee-eclipse/"}, {"@type": "ListItem", "name": "Bee Frontier", "position": 26, "url": "https://www.zouic.com/external/web/bee-frontier/"}, {"@type": "ListItem", "name": "Building An M7 Pan Tilt Head Controller", "position": 27, "url": "https://www.zouic.com/external/hackaday/building-an-m7-pan-tilt-head-controller/"}, {"@type": "ListItem", "name": "CavitaSense \u2013 Ultrasonic \u0026 Thermal Pump Cavitation Predictor", "position": 28, "url": "https://www.zouic.com/external/hackster/cavitasense-ultrasonic-thermal-pump-cavitation-predictor-04b242/"}, {"@type": "ListItem", "name": "Clawd Handy: The Open-Source AI Gadget in Your Pocket", "position": 29, "url": "https://www.zouic.com/external/hackster/clawd-handy-the-open-source-ai-gadget-in-your-pocket-59d65d/"}, {"@type": "ListItem", "name": "ControlPi", "position": 30, "url": "https://www.zouic.com/external/hackster/controlpi-a95968/"}, {"@type": "ListItem", "name": "Coralboard SL / SR", "position": 31, "url": "https://www.zouic.com/external/github/synaptics-coralboard/"}, {"@type": "ListItem", "name": "DIN Rail Power Monitor Reading Shelly EM Directly (ESP32)", "position": 32, "url": "https://www.zouic.com/external/hackster/din-rail-power-monitor-reading-shelly-em-directly-esp32-17f8cc/"}, {"@type": "ListItem", "name": "EdgePulse:TinyML Acoustic \u0026 Vibration Predictive Maintenance", "position": 33, "url": "https://www.zouic.com/external/hackster/edgepulse-tinyml-acoustic-vibration-predictive-maintenance-41ff68/"}, {"@type": "ListItem", "name": "FPGA for All \u2014 CERN Releases \u201ccolibri\u201d VHDL Library", "position": 34, "url": "https://www.zouic.com/external/hackaday/fpga-for-all-cern-releases-colibri-vhdl-library/"}, {"@type": "ListItem", "name": "Gravity Offline Voice Recognition", "position": 35, "url": "https://www.zouic.com/external/github/dfrobot-offline-voice/"}, {"@type": "ListItem", "name": "Grove Vision AI V2", "position": 36, "url": "https://www.zouic.com/external/github/seeed-grove-vision-ai-v2/"}, {"@type": "ListItem", "name": "Halo", "position": 37, "url": "https://www.zouic.com/external/github/halo-pk1fdv23/"}, {"@type": "ListItem", "name": "HUSKYLENS 2", "position": 38, "url": "https://www.zouic.com/external/github/dfrobot-huskylens-2/"}, {"@type": "ListItem", "name": "I Trained My Own 30M Parameter AI to Run on an ESP32", "position": 39, "url": "https://www.zouic.com/external/hackster/i-trained-my-own-30m-parameter-ai-to-run-on-an-esp32-898629/"}, {"@type": "ListItem", "name": "Insta360 X5", "position": 40, "url": "https://www.zouic.com/external/web/insta360-x5/"}, {"@type": "ListItem", "name": "LicheeRV Nano", "position": 41, "url": "https://www.zouic.com/external/github/sipeed-licheerv-nano/"}, {"@type": "ListItem", "name": "LLM630 Compute Kit", "position": 42, "url": "https://www.zouic.com/external/github/m5-llm630/"}, {"@type": "ListItem", "name": "MaixCAM", "position": 43, "url": "https://www.zouic.com/external/github/sipeed-maixcam/"}, {"@type": "ListItem", "name": "MaixCAM2", "position": 44, "url": "https://www.zouic.com/external/github/sipeed-maixcam2/"}, {"@type": "ListItem", "name": "Maple Eye ESP32-S3 Alef", "position": 45, "url": "https://www.zouic.com/external/crowdsupply/analoglamb-maple-eye-esp32-s3-alef/"}, {"@type": "ListItem", "name": "Memoket Gem", "position": 46, "url": "https://www.zouic.com/external/github/memoket-gem/"}, {"@type": "ListItem", "name": "NeuralGrid- Smart Predictive Load Intelligence System", "position": 47, "url": "https://www.zouic.com/external/hackster/neuralgrid-smart-predictive-load-intelligence-system-1ca653/"}, {"@type": "ListItem", "name": "NEWYES AS1505", "position": 48, "url": "https://www.zouic.com/external/web/newyes-as1505/"}], "itemListOrder": "https://schema.org/ItemListOrderDescending", "numberOfItems": 173}, "name": "AI \u786c\u4ef6\u5f00\u6e90\u9879\u76ee - \u8fb9\u7f18\u63a8\u7406\u3001NPU \u4e0e AI \u76f8\u673a | ZouIC", "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/category/ai_hardware/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/category", "name": "\u5206\u7c7b", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/category/ai_hardware/", "name": "AI \u786c\u4ef6", "position": 3}]}]}
+    </script>
+    
+    
+    <title>AI 硬件开源项目 - 边缘推理、NPU 与 AI 相机 | ZouIC - 第 3 页</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    
+    <!-- External Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    
+    <!-- ZouIC Design System -->
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261027a">
+    <noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261029f">
+    
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-microchip"></i> ZouIC
+            </a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
+                <span class="nav-hud-dot"></span>SYS.ONLINE
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/all-projects/"><i class="fas fa-project-diagram me-1"></i>开源项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li>
+                    <li class="nav-item dropdown">
+                        <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li>
+                            <li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li>
+                            <li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li>
+                            <li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li>
+                            <li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li>
+                            <li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li>
+                            <li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li>
+                            <li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li>
+                            <li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li>
+                </ul>
+                <form id="searchForm" class="d-flex me-3 d-none d-lg-flex">
+                    <div class="input-group input-group-zouic">
+                        <input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" style="width: 200px;">
+                        <select id="searchType" class="form-select input-zouic" aria-label="搜索类型:" style="width: auto; flex: 0 0 auto;">
+                            <option value="">全部分类</option>
+                            <option value="board">开源开发板</option>
+                            <option value="project">开源项目</option>
+                        </select>
+                        <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i> 中文
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/category/ai_hardware/page/3/">
+                                <i class="fas fa-language me-2"></i> 中文
+                            </a></li>
+                            <li><a class="dropdown-item" href="/en/category/ai_hardware/page/3/">
+                                <i class="fas fa-language me-2"></i> English
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        
+<div class="ext-page">
+
+    <section class="ext-hero">
+        <div class="ext-hero-grid" aria-hidden="true"></div>
+        <div class="container">
+            <div class="ext-hero-inner">
+                <div class="ext-hero-copy">
+                    <span class="ext-eyebrow"><i class="fas fa-diagram-project"></i> CATEGORY HUB</span>
+                    <h1 class="ext-hero-title">AI 硬件 开源项目</h1>
+                    
+                    <p class="ext-hero-desc">AI 硬件指把推理放到设备侧的板卡与模组：NPU 加速卡、AI 相机、边缘计算盒子，以及围绕它们做的散热、供电与结构设计。</p>
+                    
+                    <p class="ext-hero-desc">收录内容偏向可复现的工程实现——模型转换与量化、推理框架部署、算力与功耗的实测，而不是单纯的跑分。评估一块板子能不能用，先看它的模型格式支持和算子覆盖率。</p>
+                    
+                    <div class="ext-hero-actions">
+                        <a href="/all-projects/" class="btn-zouic btn-zouic-secondary">
+                            <i class="fas fa-layer-group me-2"></i>返回开源项目总库
+                        </a>
+                        <a href="/category/" class="btn-zouic btn-zouic-ghost">
+                            <i class="fas fa-compass me-2"></i>全部分类
+                        </a>
+                    </div>
+                </div>
+                <div class="ext-hero-stats">
+                    <div class="ext-hero-stat ext-hero-stat--total">
+                        <span class="ext-hero-stat-value">173</span>
+                        <span class="ext-hero-stat-label">总项目数</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container ext-body">
+
+        
+        <div class="hub-platform-row">
+            <span class="hub-platform-label">来源分布</span>
+            
+            <a class="hub-platform-chip" href="/source/hackster/">
+                hackster <b>120</b>
+            </a>
+            
+            <a class="hub-platform-chip" href="/source/github/">
+                github <b>26</b>
+            </a>
+            
+            <a class="hub-platform-chip" href="/source/web/">
+                web <b>17</b>
+            </a>
+            
+            <a class="hub-platform-chip" href="/source/hackaday/">
+                hackaday <b>9</b>
+            </a>
+            
+            <a class="hub-platform-chip" href="/source/crowdsupply/">
+                crowdsupply <b>1</b>
+            </a>
+            
+        </div>
+        
+
+        
+        <div class="ext-grid">
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/autonomous-ai-native-ids-raspberry-pi-as-an-edge-soc-44544c/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1945432/_D4QMPkZCTD.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1945432/_D4QMPkZCTD.blob?auto=compress%2Cformat" alt="Autonomous AI-Native IDS: Raspberry Pi as an Edge SOC" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/autonomous-ai-native-ids-raspberry-pi-as-an-edge-soc-44544c/">Autonomous AI-Native IDS: Raspberry Pi as an Edge SOC</a></h3>
+                        <p class="ext-card-desc line-clamp-2">🛡️ Free AI that blocks hackers while you sleep. Runs on cheap hardware. When someone in Tokyo gets attacked, you&#39;re protected in 30 seconds</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Andrei Toma</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/ai-powered-high-quality-anime-for-games-5e86b6/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1742654/_ic6UxFoUvX.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1742654/_ic6UxFoUvX.blob?auto=compress%2Cformat" alt="AI-powered high-quality anime for games" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/ai-powered-high-quality-anime-for-games-5e86b6/">AI-powered high-quality anime for games</a></h3>
+                        <p class="ext-card-desc line-clamp-2">We created high-quality anime-style graphics for games using Stable Diffusion.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Aoi</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/smart-lost-found-with-edge-ai-81da6c/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1884270/_W1wFxjohbI.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1884270/_W1wFxjohbI.blob?auto=compress%2Cformat" alt="Smart Lost &amp; Found with Edge AI" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/smart-lost-found-with-edge-ai-81da6c/">Smart Lost &amp; Found with Edge AI</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Real-time AI &amp; IoT platform to reunite people with belongings and loved ones at mega-events like the Mahakumbh.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Sujit Babar</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/revolutionizing-kidney-tumor-diagnosis-with-mi210-ab3a53/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1728617/_UvVyYlwLJm.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1728617/_UvVyYlwLJm.blob?auto=compress%2Cformat" alt="Revolutionizing Kidney Tumor Diagnosis with MI210" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/revolutionizing-kidney-tumor-diagnosis-with-mi210-ab3a53/">Revolutionizing Kidney Tumor Diagnosis with MI210</a></h3>
+                        <p class="ext-card-desc line-clamp-2">DoctorGPT-based MiniGPT-4 excels in kidney tumor detection with 93% sensitivity and 86% specificity, surpassing CNN models in accuracy.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Team lm-llm-doctor</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/the-oracles-of-damas-87b608/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1689181/_O9npawBCi3.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1689181/_O9npawBCi3.blob?auto=compress%2Cformat" alt="The Oracles of Damas" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/the-oracles-of-damas-87b608/">The Oracles of Damas</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Oracles tell eco-stories &amp; empower action! AI + storytelling gamifies sustainability. Build a greener future with The Nexus!</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Kirk Bowerman</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/18-sharing-aie-ml-graph-model-for-python-simulation-8cd62c/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1906178/_HD8g6T4Qgj.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1906178/_HD8g6T4Qgj.blob?auto=compress%2Cformat" alt="18 Sharing AIE-ML graph model for Python simulation" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/18-sharing-aie-ml-graph-model-for-python-simulation-8cd62c/">18 Sharing AIE-ML graph model for Python simulation</a></h3>
+                        <p class="ext-card-desc line-clamp-2">In this article we are looking at what files we can share from the AIE-ML compilation to run a python simulation without needing all sources</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Florent Werbrouck</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/streamline-ai-powered-video-summarizer-and-upscaler-2b92aa/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1739027/_Cwq651Dj1s.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1739027/_Cwq651Dj1s.blob?auto=compress%2Cformat" alt="Streamline: AI-Powered Video Summarizer and Upscaler" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/streamline-ai-powered-video-summarizer-and-upscaler-2b92aa/">Streamline: AI-Powered Video Summarizer and Upscaler</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Streamline is an AI-powered tool for video summarization, multi-language translation, and upscaling, making video content more accessible.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Team Depresso Espresso</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/bridging-learning-gaps-for-children-with-disabilities-68cc05/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1738434/_U4Ij1EZzHp.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1738434/_U4Ij1EZzHp.blob?auto=compress%2Cformat" alt="Bridging Learning Gaps for Children with Disabilities" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/bridging-learning-gaps-for-children-with-disabilities-68cc05/">Bridging Learning Gaps for Children with Disabilities</a></h3>
+                        <p class="ext-card-desc line-clamp-2">An AI-enhanced educational platform designed to facilitate the integration of children with disabilities into mainstream classrooms.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Sean Lin</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/13-memory-alignment-in-ai-engine-5ee3c3/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1897422/_7Z1qtMJi8U.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1897422/_7Z1qtMJi8U.blob?auto=compress%2Cformat" alt="13 Memory alignment in AI Engine" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/13-memory-alignment-in-ai-engine-5ee3c3/">13 Memory alignment in AI Engine</a></h3>
+                        <p class="ext-card-desc line-clamp-2">This tutorial is discussing about how I debugged an issue related to memory alignment in AIE-ML</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Florent Werbrouck</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/map-pin-anomaly-detection-d70b42/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1671934/_tAcaZMdBt2.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1671934/_tAcaZMdBt2.blob?auto=compress%2Cformat" alt="Map pin anomaly detection" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/map-pin-anomaly-detection-d70b42/">Map pin anomaly detection</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Use anomalib and OpenVINO to detect the map pins anomaly.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Wen-Liang Lin</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/amd-ryzen-ai-npu-multi-dimensional-shim-dma-9b8afd/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1928557/_4RbMBLRWgM.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1928557/_4RbMBLRWgM.blob?auto=compress%2Cformat" alt="AMD Ryzen AI NPU: Multi-Dimensional Shim DMA" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/amd-ryzen-ai-npu-multi-dimensional-shim-dma-9b8afd/">AMD Ryzen AI NPU: Multi-Dimensional Shim DMA</a></h3>
+                        <p class="ext-card-desc line-clamp-2">This session demonstrates Multi dimension DMA capabilities of AIE shim DMA of AMD Ryzen AI Phoenix using AIE DIALECTS and AIE API.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Tamilarasan Ravi</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/ambient-mood-orchestrator-c03815/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1740855/_d788hgq7PY.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1740855/_d788hgq7PY.blob?auto=compress%2Cformat" alt="Ambient mood orchestrator" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/ambient-mood-orchestrator-c03815/">Ambient mood orchestrator</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Detect the mood of PC AI users through facial emotion recognition utilizing AI algorithms and produce relevant ambient sounds.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Tasos</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/appointment-scheduling-agent-aac523/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1689584/_wqE5OisLQh.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1689584/_wqE5OisLQh.blob?auto=compress%2Cformat" alt="Appointment scheduling agent" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/appointment-scheduling-agent-aac523/">Appointment scheduling agent</a></h3>
+                        <p class="ext-card-desc line-clamp-2">A lot of customers facing services need appointment scheduling. An AI based appointment scheduling agent will ease the front desk.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Team East Coast Hackers</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/brainiak-topological-al-drives-llm-by-lora-runtime-adapters-73a678/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1974961/_gatwEtrMwX.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1974961/_gatwEtrMwX.blob?auto=compress%2Cformat" alt="Brainiak Topological Al drives LLM by loRa runtime adapters" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/brainiak-topological-al-drives-llm-by-lora-runtime-adapters-73a678/">Brainiak Topological Al drives LLM by loRa runtime adapters</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Brainiak core is a topological decision architecture that turns action results into next-step action capacity: statefull_infinite context</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Brainiak</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/iris-your-personal-health-companion-b966ba/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1727280/_KLgT8LvNQp.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1727280/_KLgT8LvNQp.blob?auto=compress%2Cformat" alt="Iris: Your Personal Health Companion" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/iris-your-personal-health-companion-b966ba/">Iris: Your Personal Health Companion</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Iris is a personalized health companion bot that provides accurate medical information and advice using advanced language models, featuring.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Nalinish Ranjan</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/inferperf-pmu-driven-ai-inference-profiler-for-arm-cpus-b8b7a3/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1990973/_q9NMa4Mlea.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1990973/_q9NMa4Mlea.blob?auto=compress%2Cformat" alt="InferPerf: PMU‑Driven AI Inference Profiler for Arm CPUs" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/inferperf-pmu-driven-ai-inference-profiler-for-arm-cpus-b8b7a3/">InferPerf: PMU‑Driven AI Inference Profiler for Arm CPUs</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Profiler that reveals AI inference bottlenecks on Arm Cortex‑A CPUs using PMU counters, flamegraphs, and microarchitectural analysis.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Matthew</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/ai-agent-beats-arm-cmsis-nn-by-3-74x-on-nrf54lm20-66158a/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">ai-agent-beats-arm-cmsis-nn-by-3-74x-on-nrf54lm20-66158a</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">A</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/ai-agent-beats-arm-cmsis-nn-by-3-74x-on-nrf54lm20-66158a/">AI Agent Beats ARM CMSIS-NN by 3.74x on nRF54LM20</a></h3>
+                        <p class="ext-card-desc line-clamp-2">How an autonomous gemini-4-argon Hardware-in-the-Loop (HIL) agent wrote a kernel on Cortex-M33F that outperforms official ARM CMSIS-NN s4.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Maksim Masalski</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="web">
+                <div class="ext-card ext-card--web">
+                    
+                    <a href="/external/web/ai-art-frame-jsmq6z59/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">ai-art-frame-jsmq6z59</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">A</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-globe"></i>
+                            Official Site
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-globe"></i>
+                                Official Site
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/web/ai-art-frame-jsmq6z59/">AI Art Frame</a></h3>
+                        <p class="ext-card-desc line-clamp-2">可展示 AI 生成图像的数字画框，也支持将照片转换为艺术图像。</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">SwitchBot</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/ai-controls-iphone-via-esp32/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/10/A-7-ESP32-lets-an-AI-set-an-alarm-on-a-stock-iPhone-no-Mac-no-jailbreak-0-20-screenshot-1.png');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/10/A-7-ESP32-lets-an-AI-set-an-alarm-on-a-stock-iPhone-no-Mac-no-jailbreak-0-20-screenshot-1.png" alt="AI Controls iPhone Via ESP32" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/ai-controls-iphone-via-esp32/">AI Controls iPhone Via ESP32</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Do you want to get an AI agent to do something to an iPhone? You could try and jailbreak the device and do some heavy software hacking, or… you could …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Zoe Skyforest</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/external/github/m5-ai-pyramid/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">m5-ai-pyramid</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">A</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/github/m5-ai-pyramid/">AI Pyramid</a></h3>
+                        <p class="ext-card-desc line-clamp-2">透明金字塔外壳里的边缘 AI 计算主机，可在本地独立运行适配的大语言模型与视觉模型。内置麦克风阵列与扬声器，通过以太网联网；此处为 4GB 内存版本。</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">dianjixz</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/an-esp32-development-board-for-sailors/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2021/04/sailor_hat_feature.png');">
+                        <img src="https://hackaday.com/wp-content/uploads/2021/04/sailor_hat_feature.png" alt="An ESP32 Development Board For Sailors" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/an-esp32-development-board-for-sailors/">An ESP32 Development Board For Sailors</a></h3>
+                        <p class="ext-card-desc line-clamp-2">[Matti Airas] wanted to have a better electronics platform for making his boat smarter, more connected, and safer. He found traditional marine electronics expensive and not suited for hacking and …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Anool Mahidharia</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/announcing-the-2025-hackaday-superconference-communicator-badge/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2025/10/2025_supercon_badge_communicator.png');">
+                        <img src="https://hackaday.com/wp-content/uploads/2025/10/2025_supercon_badge_communicator.png" alt="Announcing the 2025 Hackaday Superconference Communicator Badge" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/announcing-the-2025-hackaday-superconference-communicator-badge/">Announcing the 2025 Hackaday Superconference Communicator Badge</a></h3>
+                        <p class="ext-card-desc line-clamp-2">It’s the moment you hard-core hardware nerds have been waiting for: the reveal of the 2025 Hackaday Supercon Communicator Badge. And this year, we’ve outdone ourselves, but that’s thanks to …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Elliot Williams</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/aqua-mitra-smart-aquarium-companion-f29fdc/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">aqua-mitra-smart-aquarium-companion-f29fdc</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">A</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/aqua-mitra-smart-aquarium-companion-f29fdc/">Aqua Mitra – Smart Aquarium Companion</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Edge AI for water quality monitoring, predictive maintenance, and sustainable aquaculture.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Ankur Majumdar</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/external/github/busy-bar-bullswiw/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">busy-bar-bullswiw</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">B</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/github/busy-bar-bullswiw/">Bar</a></h3>
+                        <p class="ext-card-desc line-clamp-2">面向生产力的桌面设备，配备 72×16 LED 屏，支持显示忙碌状态、番茄钟，并可接入智能家居或 API。</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">busy-app</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="web">
+                <div class="ext-card ext-card--web">
+                    
+                    <a href="/external/web/bee-eclipse/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">bee-eclipse</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">B</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-globe"></i>
+                            Official Site
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-globe"></i>
+                                Official Site
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/web/bee-eclipse/">Bee Eclipse</a></h3>
+                        <p class="ext-card-desc line-clamp-2">信用卡大小的 AI 录音设备，通过 MagSafe 磁吸贴在手机背面，随时捕捉通话和面对面对话，自动生成摘要与待办事项。续航超过 21 天，单键操作，内置状态指示灯。部分高级功能需 Bee Pro 订阅。</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Amazon / Bee</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="web">
+                <div class="ext-card ext-card--web">
+                    
+                    <a href="/external/web/bee-frontier/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">bee-frontier</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">B</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-globe"></i>
+                            Official Site
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-globe"></i>
+                                Official Site
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/web/bee-frontier/">Bee Frontier</a></h3>
+                        <p class="ext-card-desc line-clamp-2">可戴在手腕或夹在衣服上的 AI 记忆设备，通过双麦克风降噪拾音，将日常对话整理为摘要、待办和提醒。IP67 防水防尘，续航约 7 天，USB-C 充电。单键可开始或停止记录，并支持通过软件集成 Alexa，该功能需 Bee Pro 订阅。</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Amazon / Bee</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/building-an-m7-pan-tilt-head-controller/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/10/Live-motion-tracking-using-hacked-soonpho-m7-and-a-custom-yolo-vision-model-0-41-screenshot.png');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/10/Live-motion-tracking-using-hacked-soonpho-m7-and-a-custom-yolo-vision-model-0-41-screenshot.png" alt="Building An M7 Pan Tilt Head Controller" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/building-an-m7-pan-tilt-head-controller/">Building An M7 Pan Tilt Head Controller</a></h3>
+                        <p class="ext-card-desc line-clamp-2">The Soonpho M7 Pan Tilt Head is a useful photography tool for remotely aiming a decently-sized camera. Only, [Kyle Housley] wanted a little more control than was available out of …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Zoe Skyforest</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/cavitasense-ultrasonic-thermal-pump-cavitation-predictor-04b242/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">cavitasense-ultrasonic-thermal-pump-cavitation-predictor-04b242</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">C</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/cavitasense-ultrasonic-thermal-pump-cavitation-predictor-04b242/">CavitaSense – Ultrasonic &amp; Thermal Pump Cavitation Predictor</a></h3>
+                        <p class="ext-card-desc line-clamp-2">An ultra-low-power edge monitor that uses the nRF54LM20’s Axon NPU and acoustic AI to detect industrial pump cavitation and bearing wear wee</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Pt All things</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/clawd-handy-the-open-source-ai-gadget-in-your-pocket-59d65d/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">clawd-handy-the-open-source-ai-gadget-in-your-pocket-59d65d</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">C</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/clawd-handy-the-open-source-ai-gadget-in-your-pocket-59d65d/">Clawd Handy: The Open-Source AI Gadget in Your Pocket</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Open-source Claude AI handheld on Adafruit MEMENTO: voice chat, retro cam, live space &amp; weather data, ESP-NOW friends and games.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Vikash Singh Thakur</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/controlpi-a95968/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">controlpi-a95968</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">C</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/controlpi-a95968/">ControlPi</a></h3>
+                        <p class="ext-card-desc line-clamp-2">A Raspberry Pi CM5-powered Control Center for my upcoming homelab project that manages SBCs and Docker Containers from a single Interface.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Arnov Sharma</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/external/github/synaptics-coralboard/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">synaptics-coralboard</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">C</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/github/synaptics-coralboard/">Coralboard SL / SR</a></h3>
+                        <p class="ext-card-desc line-clamp-2">由 Synaptics 与 Google Research 联合推出的低功耗边缘 AI 开发平台。SL 版搭载 Astra SL2619 处理器，集成 Coral NPU，配套 Torq 编译工具链，便于模型部署。</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">synaptics-astra-demos</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/din-rail-power-monitor-reading-shelly-em-directly-esp32-17f8cc/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">din-rail-power-monitor-reading-shelly-em-directly-esp32-17f8cc</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">D</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/din-rail-power-monitor-reading-shelly-em-directly-esp32-17f8cc/">DIN Rail Power Monitor Reading Shelly EM Directly (ESP32)</a></h3>
+                        <p class="ext-card-desc line-clamp-2">ESP32 + OLED in a 3D printed DIN case polling a Shelly EM on the LAN, no Home Assistant: watts, voltage, kWh history, siren, web UI.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Massimiliano Sandrin</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/edgepulse-tinyml-acoustic-vibration-predictive-maintenance-41ff68/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">edgepulse-tinyml-acoustic-vibration-predictive-maintenance-41ff68</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">E</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/edgepulse-tinyml-acoustic-vibration-predictive-maintenance-41ff68/">EdgePulse:TinyML Acoustic &amp; Vibration Predictive Maintenance</a></h3>
+                        <p class="ext-card-desc line-clamp-2">I am building EdgePulse, an ultra-low-power, non-invasive predictive maintenance sensor node powered by the Nordic nRF54LM20 DK.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Yuvraj Balinge</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday">
+                <div class="ext-card ext-card--hackaday">
+                    
+                    <a href="/external/hackaday/fpga-for-all-cern-releases-colibri-vhdl-library/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackaday.com/wp-content/uploads/2026/09/colibri_cover_art-1024x614-1.jpg');">
+                        <img src="https://hackaday.com/wp-content/uploads/2026/09/colibri_cover_art-1024x614-1.jpg" alt="FPGA for All — CERN Releases “colibri” VHDL Library" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackaday/fpga-for-all-cern-releases-colibri-vhdl-library/">FPGA for All — CERN Releases “colibri” VHDL Library</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Since you’re reading Hackaday, we’re pretty sure CERN needs no introduction, so we’ll get right to it– they’re giving back again, this time with a VHDL library called “colibri” containing …read more</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Tyler August</span>
+                            
+                            <span class="ext-card-license">报道文章，非代码仓库；授权以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/external/github/dfrobot-offline-voice/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">dfrobot-offline-voice</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">G</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/github/dfrobot-offline-voice/">Gravity Offline Voice Recognition</a></h3>
+                        <p class="ext-card-desc line-clamp-2">无需联网即可在本地识别预设语音指令的控制模块，并支持语音自学习录入新命令。通过 I2C 或 UART 将结果传给主控，适合制作语音声控灯具与互动机器人。</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">DFRobot</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/external/github/seeed-grove-vision-ai-v2/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">seeed-grove-vision-ai-v2</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">G</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/github/seeed-grove-vision-ai-v2/">Grove Vision AI V2</a></h3>
+                        <p class="ext-card-desc line-clamp-2">集成神经网络加速器的低功耗边缘视觉模块，可部署图像分类与目标检测模型。摄像头需另接，可搭配 XIAO 或其他主控板协同使用。</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Seeed-Studio</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/external/github/halo-pk1fdv23/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">halo-pk1fdv23</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">H</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/github/halo-pk1fdv23/">Halo</a></h3>
+                        <p class="ext-card-desc line-clamp-2">开源智能眼镜，配备彩色显示、双骨传导扬声器、双麦克风与低功耗端侧 AI 处理器。</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">brilliantlabsAR</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/external/github/dfrobot-huskylens-2/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">dfrobot-huskylens-2</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">H</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/github/dfrobot-huskylens-2/">HUSKYLENS 2</a></h3>
+                        <p class="ext-card-desc line-clamp-2">自带摄像头与交互触屏的开箱即用 AI 视觉传感器，预置多种经典识别算法，也支持部署自定义模型。可将识别结果输出给主控板，或通过 MCP 协议接入大模型应用。</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">DFRobot</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/i-trained-my-own-30m-parameter-ai-to-run-on-an-esp32-898629/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">i-trained-my-own-30m-parameter-ai-to-run-on-an-esp32-898629</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">I</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/i-trained-my-own-30m-parameter-ai-to-run-on-an-esp32-898629/">I Trained My Own 30M Parameter AI to Run on an ESP32</a></h3>
+                        <p class="ext-card-desc line-clamp-2">An experimental language model I trained from scratch, running offline on ESP32-S3 with a touchscreen chat interface.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Marina</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="web">
+                <div class="ext-card ext-card--web">
+                    
+                    <a href="/external/web/insta360-x5/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">insta360-x5</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">I</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-globe"></i>
+                            Official Site
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-globe"></i>
+                                Official Site
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/web/insta360-x5/">Insta360 X5</a></h3>
+                        <p class="ext-card-desc line-clamp-2">采用双 1/1.28 英寸传感器与三芯片 AI 影像系统的全景运动相机，支持 8K 30fps 全景拍摄、可更换镜头及 FlowState 防抖。可先记录完整场景，再在后期选择取景方向。</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Insta360</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/external/github/sipeed-licheerv-nano/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">sipeed-licheerv-nano</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">L</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/github/sipeed-licheerv-nano/">LicheeRV Nano</a></h3>
+                        <p class="ext-card-desc line-clamp-2">搭载 SG2002 芯片的微型 Linux 开发板，内置专用神经网络加速器。可外接摄像头与屏幕，用于制作本地轻量视觉识别与边缘计算项目。</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">sipeed</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/external/github/m5-llm630/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">m5-llm630</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">L</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/github/m5-llm630/">LLM630 Compute Kit</a></h3>
+                        <p class="ext-card-desc line-clamp-2">配备以太网与 Wi-Fi 的边缘 AI 计算套件，可部署适配的视觉、语音及小型语言模型。麦克风与扬声器需另行外接，适合搭建本地推理原型。</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">m5stack</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/external/github/sipeed-maixcam/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">sipeed-maixcam</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">M</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/github/sipeed-maixcam/">MaixCAM</a></h3>
+                        <p class="ext-card-desc line-clamp-2">自带摄像头与触摸屏的便携视觉开发设备，可在本地运行目标检测等模型。支持使用 MaixPy 编写逻辑，适合快速制作能在屏幕直观预览结果的 AI 原型。</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">sipeed</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/external/github/sipeed-maixcam2/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">sipeed-maixcam2</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">M</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/github/sipeed-maixcam2/">MaixCAM2</a></h3>
+                        <p class="ext-card-desc line-clamp-2">集摄像头、触屏和音频单元于一体的多模态 AI 开发设备。使用 MaixPy 快速部署视觉与语音应用，亦可在本地尝试运行适配的小型语言模型。</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">sipeed</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="crowdsupply">
+                <div class="ext-card ext-card--crowdsupply">
+                    
+                    <a href="/external/crowdsupply/analoglamb-maple-eye-esp32-s3-alef/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://www.crowdsupply.com/img/e516/73a245aa-f18a-4269-b248-2eda4ae2e516_open-graph.jpg');">
+                        <img src="https://www.crowdsupply.com/img/e516/73a245aa-f18a-4269-b248-2eda4ae2e516_open-graph.jpg" alt="Maple Eye ESP32-S3 Alef" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-shopping-cart"></i>
+                                CrowdSupply
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/crowdsupply/analoglamb-maple-eye-esp32-s3-alef/">Maple Eye ESP32-S3 Alef</a></h3>
+                        <p class="ext-card-desc line-clamp-2">A compact, open source, battery powered AI &amp; IoT development board with camera, microphone and displays</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">analoglamb</span>
+                            
+                            <span class="ext-card-license">以原项目页标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="github">
+                <div class="ext-card ext-card--github">
+                    
+                    <a href="/external/github/memoket-gem/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">memoket-gem</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">M</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/github/memoket-gem/">Memoket Gem</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Memoket Gem 是一款 11 克的双麦克风可穿戴录音设备，可搭配腕带或 Apple Watch 共戴表带。设备本机保存录音，通过蓝牙或 Wi-Fi 传至应用，再由云端服务转录并生成摘要、待办与跨对话记忆。官方标称连续录音最长 20 小时，硬件参考价 169 美元。</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">memoket</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/external/hackster/neuralgrid-smart-predictive-load-intelligence-system-1ca653/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">neuralgrid-smart-predictive-load-intelligence-system-1ca653</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">N</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-robot"></i>
+                            Hackster.io
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/hackster/neuralgrid-smart-predictive-load-intelligence-system-1ca653/">NeuralGrid- Smart Predictive Load Intelligence System</a></h3>
+                        <p class="ext-card-desc line-clamp-2">AI-powered Smart Predictive Load Intelligence for real-time load identification, risk prediction, and automated overload prevention.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">SYEDA NOOR FATIMA</span>
+                            
+                            <span class="ext-card-license">以原页面标注为准</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="web">
+                <div class="ext-card ext-card--web">
+                    
+                    <a href="/external/web/newyes-as1505/" class="ext-card-cover ext-card-cover--text">
+                        <span class="ext-card-cover-slug" aria-hidden="true">newyes-as1505</span>
+                        <span class="ext-card-cover-initial-wrap" aria-hidden="true">
+                            <span class="ext-card-cover-initial-glow"></span>
+                            <span class="ext-card-cover-initial">N</span>
+                        </span>
+                        <span class="ext-card-cover-platform">
+                            <i class="fas fa-globe"></i>
+                            Official Site
+                        </span>
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-globe"></i>
+                                Official Site
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/external/web/newyes-as1505/">NEWYES AS1505</a></h3>
+                        <p class="ext-card-desc line-clamp-2">配备触摸屏与摄像头的扫描翻译笔，可将印刷文字转成数字文本并朗读，支持语音和拍照翻译、词典查询及阅读辅助。适用于外语学习和文字摘录，具体语言支持随软件版本而异。</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">NEWYES</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+
+        
+        
+        <nav class="pagination" aria-label="分页">
+            
+            <a class="page-link" href="/category/ai_hardware/page/2/" rel="prev">&laquo; 上一页</a>
+            
+
+            
+            
+            
+            
+            
+            <a class="page-link" href="/category/ai_hardware/">1</a>
+            
+            
+            
+            <a class="page-link" href="/category/ai_hardware/page/2/">2</a>
+            
+            
+            
+            <span class="page-link is-current" aria-current="page">3</span>
+            
+            
+            
+            <a class="page-link" href="/category/ai_hardware/page/4/">4</a>
+            
+            
+            
+
+            
+            <a class="page-link" href="/category/ai_hardware/page/4/" rel="next">下一页 &raquo;</a>
+            
+        </nav>
+        <p class="source-page-hint">总项目数 173 · 3 / 4</p>
+        
+
+        
+        <section class="hub-cross" aria-label="相关分类">
+            <h2 class="hub-cross-title">相关分类</h2>
+            <div class="hub-cross-grid">
+                
+                <a class="hub-cross-item" href="/category/fpga/">
+                    <span class="hub-cross-name">FPGA</span>
+                    <span class="hub-cross-count">733</span>
+                </a>
+                
+                <a class="hub-cross-item" href="/category/general/">
+                    <span class="hub-cross-name">综合</span>
+                    <span class="hub-cross-count">231</span>
+                </a>
+                
+                <a class="hub-cross-item" href="/category/vision/">
+                    <span class="hub-cross-name">机器视觉</span>
+                    <span class="hub-cross-count">119</span>
+                </a>
+                
+                <a class="hub-cross-item" href="/category/esp32/">
+                    <span class="hub-cross-name">ESP32</span>
+                    <span class="hub-cross-count">83</span>
+                </a>
+                
+                <a class="hub-cross-item" href="/category/robotics/">
+                    <span class="hub-cross-name">机器人</span>
+                    <span class="hub-cross-count">74</span>
+                </a>
+                
+                <a class="hub-cross-item" href="/category/iot/">
+                    <span class="hub-cross-name">物联网</span>
+                    <span class="hub-cross-count">62</span>
+                </a>
+                
+            </div>
+        </section>
+        
+
+        <p class="source-disclaimer">
+            <i class="fas fa-scale-balanced me-1"></i>
+            本页条目均来自各平台的公开页面，ZouIC 只做分类、索引与摘要，不托管代码与文件；项目仅供开发者参考，版权与授权归原作者，遵循其各自开源协议。
+        </p>
+    </div>
+</div>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Newsletter section (the home page already has a full follow block, so it is skipped there) -->
+    
+    <section id="follow" class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a>
+                        <div class="newsletter-benefits">
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="py-4" aria-label="出品人">
+        <div class="author-card">
+            <div class="author-card-info">
+                <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
+                <div>
+                    <div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div>
+                    <div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div>
+                </div>
+            </div>
+            <div class="author-card-actions">
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-zouic" role="contentinfo">
+        <div class="container">
+            <div class="row footer-main">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
+                    <a href="/" class="footer-brand" aria-label="ZouIC 首页">
+                        <i class="fas fa-microchip"></i>
+                        <span>ZouIC</span>
+                    </a>
+                    <p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p>
+
+                    <div class="footer-meta">
+                        <p class="footer-author">
+                            出品人 · <strong>极客微栋</strong>
+                            <span class="footer-author-handle">@GeekWaedon</span>
+                        </p>
+                        <div class="footer-slash-tags">
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span>
+                            <a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商">
+                                <i class="fab fa-weixin"></i> 企业微信服务商
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a>
+                        <a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a>
+                        <a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a>
+                        <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>产品</h5>
+                    <ul>
+                        <li><a href="/products/">产品介绍</a></li>
+                        <li><a href="/services/">服务说明</a></li>
+                        <li><a href="/services/website-building/">建站服务</a></li>
+                        <li><a href="/services/component-matching/">元器件撮合</a></li>
+                        <li><a href="/news/">站内动态</a></li>
+                        <li><a href="/boards/">开源开发板</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>资源</h5>
+                    <ul>
+                        <li><a href="/board-guide/">选型指南</a></li>
+                        <li><a href="/compare/">开发板对比</a></li>
+                        <li><a href="/tutorials/">开发板教程</a></li>
+                        <li><a href="/documentation/">技术文档</a></li>
+                        <li><a href="/cases/">项目案例</a></li>
+                        <li><a href="/help/">文档中心</a></li>
+                        <li><a href="/games/resistor/">色环电阻识别挑战</a></li>
+                        <li><a href="/dashuju/">数据大屏</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>开源生态</h5>
+                    <ul>
+                        <li><a href="/open-source/">开源项目</a></li>
+                        <li><a href="/all-projects/">全部项目</a></li>
+                        <li><a href="/articles/">技术文章</a></li>
+                        <li><a href="/wechat/">公众号专栏</a></li>
+                        <li><a href="/contribute/">贡献指南</a></li>
+                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h5>关于</h5>
+                    <ul>
+                        <li><a href="/about/">关于我们</a></li>
+                        <li><a href="/about/#contact">联系我们</a></li>
+                        <li><a href="/licenses/">开源协议</a></li>
+                        <li><a href="/about/#privacy">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-category-strip">
+                <span class="footer-category-label">热门分类</span>
+                <div class="footer-category-links">
+                    <a href="/category/">全部</a>
+                    
+                    <a href="/category/fpga/">FPGA</a>
+                    
+                    <a href="/category/general/">综合</a>
+                    
+                    <a href="/category/ai_hardware/">AI 硬件</a>
+                    
+                    <a href="/category/vision/">机器视觉</a>
+                    
+                    <a href="/category/esp32/">ESP32</a>
+                    
+                    <a href="/category/robotics/">机器人</a>
+                    
+                    <a href="/source/github/">GitHub</a>
+                    <a href="/source/hackster/">Hackster.io</a>
+                    <a href="/resources/">资源导航</a>
+                </div>
+            </div>
+            
+            <div class="footer-producer-bar">
+                <img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
+                <div style="line-height:1.6;">
+                    <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div>
+                    <div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ZouIC. All rights reserved.</p>
+                <p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p>
+                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+</body>
+</html>

@@ -19,20 +19,23 @@
     
     
     
-    <link rel="canonical" href="https://www.zouic.com/en/dashuju">
     
-    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/dashuju" />
     
-    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/dashuju" />
     
-    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/dashuju" />
+    <link rel="canonical" href="https://www.zouic.com/en/dashuju/">
+    
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/dashuju/" />
+    
+    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/dashuju/" />
+    
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/dashuju/" />
     
     
     
     
     <meta property="og:title" content="Data Dashboard - Traffic &amp; Content Analytics | ZouIC">
     <meta property="og:description" content="Live ZouIC dashboard for inbound traffic and content assets: page views, unique visitors, traffic sources, top pages, crawler activity and conversion funnel.">
-    <meta property="og:url" content="https://www.zouic.com/en/dashuju">
+    <meta property="og:url" content="https://www.zouic.com/en/dashuju/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
     
@@ -104,11 +107,11 @@
         .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
         @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
     </style>
-    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028e">
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261029f">
     
     <link rel="stylesheet" href="/static/css/dashuju.css?v=20261029a">
     <script src="/static/js/echarts.min.js?v=5.5.1" defer></script>
-    <script>window.MONITOR_API = "https://zouic-monitor.ap-guangzhou.tencentscf.com";</script>
+    <script>window.MONITOR_API = "";</script>
 
 </head>
 <body>
@@ -279,8 +282,8 @@
                 <div class="dash-panel-head"><h2 class="dash-panel-title">实时访问流</h2><span class="dash-panel-meta">最近 25 条</span></div>
                 <div class="dash-log-wrap">
                     <table class="dash-log-table" id="logTable">
-                        <thead><tr><th>时间</th><th>页面</th><th>来源</th><th>地域</th><th>设备</th><th>类型</th></tr></thead>
-                        <tbody><tr><td colspan="6" class="dash-empty">加载中…</td></tr></tbody>
+                        <thead><tr><th>时间</th><th>页面</th><th>来源</th><th>IP</th><th>地域</th><th>设备</th><th>类型</th></tr></thead>
+                        <tbody><tr><td colspan="7" class="dash-empty">加载中…</td></tr></tbody>
                     </table>
                 </div>
             </section>
@@ -393,14 +396,14 @@
 
     function renderLog(rows) {
         var tb = document.querySelector('#logTable tbody');
-        if (!rows.length) { tb.innerHTML = '<tr><td colspan="6" class="dash-empty">暂无访问记录</td></tr>'; return; }
+        if (!rows.length) { tb.innerHTML = '<tr><td colspan="7" class="dash-empty">暂无访问记录</td></tr>'; return; }
         tb.innerHTML = rows.map(function (r) {
             var t = new Date(r.ts * 1000);
             var p = function (x) { return (x < 10 ? '0' : '') + x; };
             var time = p(t.getHours()) + ':' + p(t.getMinutes()) + ':' + p(t.getSeconds());
             var cls = r.ua_class === 'human' ? '<span class="dash-badge ok">访客</span>' : r.ua_class === 'seo' ? '<span class="dash-badge seo">SEO</span>' : r.ua_class === 'geo' ? '<span class="dash-badge geo">GEO</span>' : '<span class="dash-badge bot">' + esc(r.ua_name || '爬虫') + '</span>';
             var ref = r.ref_type === 'direct' ? '直接' : (REF_LABEL[r.ref_type] || r.ref_type) + (r.ref_host ? ' · ' + esc(r.ref_host) : '');
-            return '<tr><td>' + time + '</td><td class="dash-log-path">' + esc(r.path) + '</td><td>' + ref + '</td><td>' + esc(COUNTRY[r.country] || r.country || '—') + '</td><td>' + esc(DEV_LABEL[r.device] || r.device || '—') + '</td><td>' + cls + '</td></tr>';
+            return '<tr><td>' + time + '</td><td class="dash-log-path">' + esc(r.path) + '</td><td>' + ref + '</td><td>' + esc(r.ip || '—') + '</td><td>' + esc(COUNTRY[r.country] || r.country || '—') + '</td><td>' + esc(DEV_LABEL[r.device] || r.device || '—') + '</td><td>' + cls + '</td></tr>';
         }).join('');
     }
 
@@ -523,9 +526,11 @@
     if (aiRefreshBtn) aiRefreshBtn.addEventListener('click', function () { refreshAiInsight(aiRefreshBtn); });
 
     /* ---------- 启动 ---------- */
-    function boot() { loadSummary(); }
+    var _pollId = null;
+    function boot() { loadSummary(); if (API) _pollId = setInterval(loadSummary, 30000); }
     if (document.readyState === 'complete' || document.readyState === 'interactive') setTimeout(boot, 300);
     else window.addEventListener('DOMContentLoaded', function () { setTimeout(boot, 300); });
+    window.addEventListener('beforeunload', function () { if (_pollId) clearInterval(_pollId); });
 })();
 </script>
 
@@ -655,6 +660,30 @@
                     </ul>
                 </div>
             </div>
+            
+            <div class="footer-category-strip">
+                <span class="footer-category-label">热门分类</span>
+                <div class="footer-category-links">
+                    <a href="/en/category/">全部</a>
+                    
+                    <a href="/en/category/fpga/">FPGA</a>
+                    
+                    <a href="/en/category/general/">General</a>
+                    
+                    <a href="/en/category/ai_hardware/">AI Hardware</a>
+                    
+                    <a href="/en/category/vision/">Computer Vision</a>
+                    
+                    <a href="/en/category/esp32/">ESP32</a>
+                    
+                    <a href="/en/category/robotics/">Robotics</a>
+                    
+                    <a href="/en/source/github/">GitHub</a>
+                    <a href="/en/source/hackster/">Hackster.io</a>
+                    <a href="/resources/">资源导航</a>
+                </div>
+            </div>
+            
             <div class="footer-producer-bar">
                 <img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
                 <div style="line-height:1.6;">
@@ -848,10 +877,6 @@
     </script>
     
     
-    
-    <script async src="https://zouic-monitor.ap-guangzhou.tencentscf.com/tracker.js" data-site="zouic" data-endpoint="https://zouic-monitor.ap-guangzhou.tencentscf.com/collect"></script>
-    
-    <img src="https://zouic-monitor.ap-guangzhou.tencentscf.com/pixel?path=/dashuju/" alt="" width="1" height="1" style="display:none" aria-hidden="true">
     
     
 </body>

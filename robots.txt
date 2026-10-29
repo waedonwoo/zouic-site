@@ -1,48 +1,22 @@
+# ZouIC robots.txt
+# 站点为 GitHub Pages 静态托管，目录式 URL 一律带尾斜杠。
+
 User-agent: *
 Allow: /
-Allow: /boards/
-Allow: /projects/
-Allow: /board/
-Allow: /project/
-Allow: /search/
-Allow: /about/
-Allow: /help/
-Allow: /licenses/
-Allow: /external/
-Allow: /all-projects/
-Allow: /board-guide/
-Allow: /compare/
-Allow: /products/
-Allow: /services/
-Allow: /news/
-Allow: /tutorials/
-Allow: /documentation/
-Allow: /cases/
-Allow: /open-source/
-Allow: /articles/
-Allow: /docs/
-Allow: /category/
-Allow: /llms.txt
-Allow: /llms-full.txt
-Allow: /contribute/
 Disallow: /login/
 Disallow: /register/
 Disallow: /profile/
 Disallow: /settings/
 Disallow: /api/
 Disallow: /admin/
+Disallow: /*?q=
+Disallow: /*?page=
 
 Sitemap: https://www.zouic.com/sitemap.xml
-Host: https://www.zouic.com
 
-User-agent: Googlebot
-Crawl-delay: 1
-
-User-agent: Bingbot
-Crawl-delay: 2
-
+# 百度对 Crawl-delay 有效，给一个保守值；Google / Bing 已忽略该字段
 User-agent: Baiduspider
-Crawl-delay: 2
+Crawl-delay: 3
 
 # AI / LLM 爬虫：明确欢迎抓取，助力 GEO 可见性
 User-agent: GPTBot

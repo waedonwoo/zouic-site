@@ -2414,3 +2414,186 @@ main {
 @media (max-width: 575.98px) {
     #ai-assistant .card-dark.p-4 { padding: 12px !important; }
 }
+
+/* ── 页脚分类内链带：全站可见的分类枢纽入口 ───────────────── */
+.footer-category-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 0 0.25rem;
+    margin-bottom: 1rem;
+    border-top: 1px solid var(--color-border-muted);
+}
+
+.footer-category-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-tertiary);
+}
+
+.footer-category-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.footer-category-links a {
+    padding: 0.2rem 0.6rem;
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--color-border-muted);
+    border-radius: 999px;
+    text-decoration: none;
+    transition: color .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.footer-category-links a:hover {
+    color: #fff;
+    border-color: rgba(0, 229, 255, 0.45);
+    background: rgba(0, 229, 255, 0.1);
+}
+
+/* ── 分类聚合页 ──────────────────────────────────────────── */
+.hub-platform-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1.5rem 0 0.5rem;
+}
+
+.hub-platform-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-tertiary);
+    margin-right: 0.25rem;
+}
+
+.hub-platform-chip {
+    padding: 0.2rem 0.65rem;
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border-muted);
+    border-radius: 999px;
+    text-decoration: none;
+}
+
+.hub-platform-chip b { color: var(--color-primary); font-weight: 600; margin-left: 0.2rem; }
+
+.hub-platform-chip:hover { color: #fff; border-color: rgba(0, 229, 255, 0.45); }
+
+.hub-cross { margin: 2.5rem 0 1.5rem; }
+
+.hub-cross-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 0.85rem;
+}
+
+.hub-cross-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 0.6rem;
+}
+
+.hub-cross-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.65rem 0.9rem;
+    color: var(--color-text-secondary);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-default);
+    border-radius: 12px;
+    text-decoration: none;
+}
+
+.hub-cross-item:hover { color: #fff; border-color: var(--color-primary); }
+
+.hub-cross-count { font-size: 0.8rem; color: var(--color-text-tertiary); }
+
+/* 分类索引页 */
+.hub-index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0 3rem;
+}
+
+.hub-index-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.25rem 1.25rem 1.5rem;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--radius-xl);
+    text-decoration: none;
+    transition: transform .18s ease, border-color .18s ease;
+}
+
+.hub-index-card:hover { transform: translateY(-3px); border-color: var(--color-primary); }
+
+.hub-index-count {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--color-primary);
+}
+
+.hub-index-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.hub-index-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-tertiary);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.hub-index-arrow {
+    position: absolute;
+    right: 1.1rem;
+    bottom: 1.1rem;
+    color: var(--color-text-tertiary);
+}
+
+/* 开发板对比页的说明区：给工具页补一段可读正文 */
+.compare-intro {
+    max-width: 72ch;
+    margin-bottom: 0.5rem;
+}
+
+.compare-intro p {
+    margin-bottom: 0.85rem;
+    font-size: 0.9375rem;
+    line-height: 1.85;
+    color: var(--color-text-secondary);
+}
+
+.compare-intro-list {
+    margin: 1.25rem 0 0;
+    padding-left: 1.1rem;
+    list-style: disc;
+}
+
+.compare-intro-list li {
+    margin-bottom: 0.55rem;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+}
+
+.compare-intro-list strong { color: var(--color-text-primary); }

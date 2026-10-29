@@ -19,20 +19,23 @@
     
     
     
-    <link rel="canonical" href="https://www.zouic.com/compare">
     
-    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/compare" />
     
-    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/compare" />
     
-    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/compare" />
+    <link rel="canonical" href="https://www.zouic.com/compare/">
+    
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/compare/" />
+    
+    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/compare/" />
+    
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/compare/" />
     
     
     
     
     <meta property="og:title" content="开发板对比 - 规格参数对比 | ZouIC">
     <meta property="og:description" content="对比不同开发板的规格参数，帮助您选择最适合项目需求的开发板。">
-    <meta property="og:url" content="https://www.zouic.com/compare">
+    <meta property="og:url" content="https://www.zouic.com/compare/">
     <meta property="og:type" content="object">
     <meta property="og:locale" content="zh_CN">
     
@@ -57,7 +60,7 @@
     
     
     
-    <title>开发板对比 - ZouIC</title>
+    <title>开发板对比 - 规格参数对比 | ZouIC</title>
     
     <!-- Resource Hints -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -107,7 +110,7 @@
         .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
         @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
     </style>
-    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028e">
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261029f">
     
 </head>
 <body>
@@ -193,7 +196,19 @@
     <section class="py-8">
         <div class="container">
             <h1 class="text-3xl font-bold mb-4">开发板对比</h1>
-            <p class="text-secondary">对比选中的开发板参数</p>
+            <p class="text-secondary mb-6">对比选中的开发板参数</p>
+
+            
+            <div class="compare-intro">
+                <p>参数表能并列，是因为开发板的规格基本可以量化：主控型号、主频、Flash 与 RAM、GPIO 数量、无线能力、供电方式、板载调试器。把几块板子放进同一张表，差异会立刻显形。</p>
+                <p>但真正决定选型的往往不是表里最大的那个数字。同样标 240 MHz，带不带硬件浮点、有没有 PSRAM 扩展、能不能跑 MicroPython 或 RTOS，实际体验差别很大；同样标 30 个 GPIO，能不能同时用摄像头和 SD 卡又是另一回事。</p>
+                <p>所以这张表适合用来排除，不适合用来拍板。先用它把不满足硬性条件的板子筛掉，再回到单板详情页看引脚复用表、原理图和已知问题。</p>
+                <ul class="compare-intro-list">
+                    <li><strong>先定外设</strong>：需要摄像头、以太网、CAN 的项目，直接按外设筛，比按主频筛有效。</li>
+                    <li><strong>再看供电</strong>：电池供电要盯休眠电流与 LDO/DCDC 效率，这栏参数很少写在首页。</li>
+                    <li><strong>最后看生态</strong>：同价位下，文档完整度和社区问答量比多 20% 的主频更影响开发时间。</li>
+                </ul>
+            </div>
         </div>
     </section>
 
@@ -502,6 +517,30 @@
                     </ul>
                 </div>
             </div>
+            
+            <div class="footer-category-strip">
+                <span class="footer-category-label">热门分类</span>
+                <div class="footer-category-links">
+                    <a href="/category/">全部</a>
+                    
+                    <a href="/category/fpga/">FPGA</a>
+                    
+                    <a href="/category/general/">综合</a>
+                    
+                    <a href="/category/ai_hardware/">AI 硬件</a>
+                    
+                    <a href="/category/vision/">机器视觉</a>
+                    
+                    <a href="/category/esp32/">ESP32</a>
+                    
+                    <a href="/category/robotics/">机器人</a>
+                    
+                    <a href="/source/github/">GitHub</a>
+                    <a href="/source/hackster/">Hackster.io</a>
+                    <a href="/resources/">资源导航</a>
+                </div>
+            </div>
+            
             <div class="footer-producer-bar">
                 <img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
                 <div style="line-height:1.6;">
@@ -695,10 +734,6 @@
     </script>
     
     
-    
-    <script async src="https://zouic-monitor.ap-guangzhou.tencentscf.com/tracker.js" data-site="zouic" data-endpoint="https://zouic-monitor.ap-guangzhou.tencentscf.com/collect"></script>
-    
-    <img src="https://zouic-monitor.ap-guangzhou.tencentscf.com/pixel?path=/compare/" alt="" width="1" height="1" style="display:none" aria-hidden="true">
     
     
 </body>

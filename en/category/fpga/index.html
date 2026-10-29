@@ -1,0 +1,2252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Open source FPGA projects for AMD Xilinx Spartan, Artix and Zynq, Intel Altera and Lattice boards, covering Verilog and VHDL designs, HLS image pipelines…">
+    <meta name="keywords" content="fpga open source projects,verilog,vhdl,zynq,hls,axi dma,fpga image processing">
+    
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <link rel="canonical" href="https://www.zouic.com/en/category/fpga/">
+    
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/category/fpga/" />
+    
+    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/category/fpga/" />
+    
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/category/fpga/" />
+    
+    
+    
+    
+    <meta property="og:title" content="FPGA Open Source Projects - Verilog, VHDL, Zynq and HLS | ZouIC">
+    <meta property="og:description" content="Open source FPGA projects for AMD Xilinx Spartan, Artix and Zynq, Intel Altera and Lattice boards, covering Verilog and VHDL designs, HLS image pipelines, AXI DMA and DSP filters.">
+    <meta property="og:url" content="https://www.zouic.com/en/category/fpga/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    
+    
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ZouIC open source development board platform · GeekWeidong">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FPGA Open Source Projects - Verilog, VHDL, Zynq and HLS | ZouIC">
+    <meta name="twitter:description" content="Open source FPGA projects for AMD Xilinx Spartan, Artix and Zynq, Intel Altera and Lattice boards, covering Verilog and VHDL designs, HLS image pipelines, AXI DMA and DSP filters.">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "description": "Open source FPGA projects for AMD Xilinx Spartan, Artix and Zynq, Intel Altera and Lattice boards, covering Verilog and VHDL designs, HLS image pipelines, AXI DMA and DSP filters.", "inLanguage": "en", "isPartOf": {"@id": "https://www.zouic.com/#website"}, "mainEntity": {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "name": "DSP for FPGA: Simple FIR Filter in Verilog", "position": 1, "url": "https://www.zouic.com/external/hackster/dsp-for-fpga-simple-fir-filter-in-verilog-91208d/"}, {"@type": "ListItem", "name": "Introduction to Using AXI DMA in Embedded Linux", "position": 2, "url": "https://www.zouic.com/external/hackster/introduction-to-using-axi-dma-in-embedded-linux-5264ec/"}, {"@type": "ListItem", "name": "FPGA-Based Edge Detection Using HLS", "position": 3, "url": "https://www.zouic.com/external/hackster/fpga-based-edge-detection-using-hls-192ad2/"}, {"@type": "ListItem", "name": "Creating a Zynq or FPGA-Based, Image Processing Platform", "position": 4, "url": "https://www.zouic.com/external/hackster/creating-a-zynq-or-fpga-based-image-processing-platform-e79394/"}, {"@type": "ListItem", "name": "A Practical Introduction to SRAM Memories Using an FPGA (I)", "position": 5, "url": "https://www.zouic.com/external/hackster/a-practical-introduction-to-sram-memories-using-an-fpga-i-3f3992/"}, {"@type": "ListItem", "name": "Stereo Vision and LiDAR Powered Donkey Car", "position": 6, "url": "https://www.zouic.com/external/hackster/stereo-vision-and-lidar-powered-donkey-car-575769/"}, {"@type": "ListItem", "name": "Creating an FPGA-Based Low-Cost Imaging System", "position": 7, "url": "https://www.zouic.com/external/hackster/creating-an-fpga-based-low-cost-imaging-system-cb18af/"}, {"@type": "ListItem", "name": "Dual ARM Hello World on Zynq Using Vitis", "position": 8, "url": "https://www.zouic.com/external/hackster/dual-arm-hello-world-on-zynq-using-vitis-9fc8b7/"}, {"@type": "ListItem", "name": "UART Interface in VHDL for Basys3 Board", "position": 9, "url": "https://www.zouic.com/external/hackster/uart-interface-in-vhdl-for-basys3-board-eef170/"}, {"@type": "ListItem", "name": "Programming Python on Zynq FPGA", "position": 10, "url": "https://www.zouic.com/external/hackster/programming-python-on-zynq-fpga-ec4712/"}, {"@type": "ListItem", "name": "Integrating Zynq PS and PL with Memory-Mapped Registers", "position": 11, "url": "https://www.zouic.com/external/hackster/integrating-zynq-ps-and-pl-with-memory-mapped-registers-292a42/"}, {"@type": "ListItem", "name": "Using HLS on an FPGA-Based Image Processing Platform", "position": 12, "url": "https://www.zouic.com/external/hackster/using-hls-on-an-fpga-based-image-processing-platform-8f029f/"}, {"@type": "ListItem", "name": "Software Defined Radio on the FPGA", "position": 13, "url": "https://www.zouic.com/external/hackster/software-defined-radio-on-the-fpga-d35f33/"}, {"@type": "ListItem", "name": "Getting Started with the Kria KR260 in Vivado 2022.1", "position": 14, "url": "https://www.zouic.com/external/hackster/getting-started-with-the-kria-kr260-in-vivado-2022-1-33746d/"}, {"@type": "ListItem", "name": "Vitis-AI 1.3 Flow for Avnet VITIS Platforms", "position": 15, "url": "https://www.zouic.com/external/hackster/vitis-ai-1-3-flow-for-avnet-vitis-platforms-cd0c51/"}, {"@type": "ListItem", "name": "Introduction to Digital Filters using FPGA", "position": 16, "url": "https://www.zouic.com/external/hackster/introduction-to-digital-filters-using-fpga-35b7b7/"}, {"@type": "ListItem", "name": "FPGA Remote Programmer", "position": 17, "url": "https://www.zouic.com/external/hackster/fpga-remote-programmer-4d7b80/"}, {"@type": "ListItem", "name": "Xilinx DDS Compiler IP Tutorial on the Ultra96", "position": 18, "url": "https://www.zouic.com/external/hackster/xilinx-dds-compiler-ip-tutorial-on-the-ultra96-f820db/"}, {"@type": "ListItem", "name": "Vitis-AI 1.1 Flow for Avnet VITIS Platforms - Part 1", "position": 19, "url": "https://www.zouic.com/external/hackster/vitis-ai-1-1-flow-for-avnet-vitis-platforms-part-1-007b0e/"}, {"@type": "ListItem", "name": "Getting Started with the Kria KR260 in PetaLinux 2022.1", "position": 20, "url": "https://www.zouic.com/external/hackster/getting-started-with-the-kria-kr260-in-petalinux-2022-1-daec16/"}, {"@type": "ListItem", "name": "Use Python, Zynq and OpenCV to Implement Computer Vision", "position": 21, "url": "https://www.zouic.com/external/hackster/use-python-zynq-and-opencv-to-implement-computer-vision-361e1b/"}, {"@type": "ListItem", "name": "Getting Started with the Kria KV260 in Vivado 2021.1", "position": 22, "url": "https://www.zouic.com/external/hackster/getting-started-with-the-kria-kv260-in-vivado-2021-1-817ec2/"}, {"@type": "ListItem", "name": "Creating Xilinx Vivado board files for EBAZ4205", "position": 23, "url": "https://www.zouic.com/external/hackster/creating-xilinx-vivado-board-files-for-ebaz4205-a7b120/"}, {"@type": "ListItem", "name": "Playing audio with an FPGA", "position": 24, "url": "https://www.zouic.com/external/hackster/playing-audio-with-an-fpga-d2bc85/"}, {"@type": "ListItem", "name": "Vitis+PetaLinux 2022.1 \u0026 KRS 1.0 Install on Ubuntu 22.04", "position": 25, "url": "https://www.zouic.com/external/hackster/vitis-petalinux-2022-1-krs-1-0-install-on-ubuntu-22-04-145c1b/"}, {"@type": "ListItem", "name": "Add Custom IP Modules to Vivado Block Design", "position": 26, "url": "https://www.zouic.com/external/hackster/add-custom-ip-modules-to-vivado-block-design-77042d/"}, {"@type": "ListItem", "name": "Hello MicroBlaze on Arty-A7", "position": 27, "url": "https://www.zouic.com/external/hackster/hello-microblaze-on-arty-a7-70d9e1/"}, {"@type": "ListItem", "name": "How to Test Your Design with Vivado\u0027s Behavioral Simulation", "position": 28, "url": "https://www.zouic.com/external/hackster/how-to-test-your-design-with-vivado-s-behavioral-simulation-f01b43/"}, {"@type": "ListItem", "name": "Vitis-AI 1.2 Flow for Avnet VITIS Platforms", "position": 29, "url": "https://www.zouic.com/external/hackster/vitis-ai-1-2-flow-for-avnet-vitis-platforms-7cb3aa/"}, {"@type": "ListItem", "name": "Signal Processing with XADC and PYNQ", "position": 30, "url": "https://www.zouic.com/external/hackster/signal-processing-with-xadc-and-pynq-3c716c/"}, {"@type": "ListItem", "name": "Two Methods of Building PetaLinux for the Ultra96", "position": 31, "url": "https://www.zouic.com/external/hackster/two-methods-of-building-petalinux-for-the-ultra96-77c8e0/"}, {"@type": "ListItem", "name": "Face Detection and Tracking in Python on Ultra96-V2", "position": 32, "url": "https://www.zouic.com/external/hackster/face-detection-and-tracking-in-python-on-ultra96-v2-02d104/"}, {"@type": "ListItem", "name": "Getting Started with the Kria KV260 AI Vision Kit", "position": 33, "url": "https://www.zouic.com/external/hackster/getting-started-with-the-kria-kv260-ai-vision-kit-c6d6af/"}, {"@type": "ListItem", "name": "Training \u0026 Implementing a BNN Using Pynq", "position": 34, "url": "https://www.zouic.com/external/hackster/training-implementing-a-bnn-using-pynq-1210b9/"}, {"@type": "ListItem", "name": "Vivado, Vitis, \u0026 PetaLinux 2024.1 Install on Ubuntu 22.04", "position": 35, "url": "https://www.zouic.com/external/hackster/vivado-vitis-petalinux-2024-1-install-on-ubuntu-22-04-e76e91/"}, {"@type": "ListItem", "name": "RPi+PMOD Connector GPIO with Custom PL Design in Kria KR260", "position": 36, "url": "https://www.zouic.com/external/hackster/rpi-pmod-connector-gpio-with-custom-pl-design-in-kria-kr260-53c40e/"}, {"@type": "ListItem", "name": "Creating GUI App for the Ultra96 with Qt", "position": 37, "url": "https://www.zouic.com/external/hackster/creating-gui-app-for-the-ultra96-with-qt-28d308/"}, {"@type": "ListItem", "name": "FPGA Based Motor Control", "position": 38, "url": "https://www.zouic.com/external/hackster/fpga-based-motor-control-cd47e7/"}, {"@type": "ListItem", "name": "Getting Started with Avnet\u0027s ZUBoard-1CG", "position": 39, "url": "https://www.zouic.com/external/hackster/getting-started-with-avnet-s-zuboard-1cg-f1d793/"}, {"@type": "ListItem", "name": "Machine Learning at the Edge with Xilinx DNN Developer Kit", "position": 40, "url": "https://www.zouic.com/external/hackster/machine-learning-at-the-edge-with-xilinx-dnn-developer-kit-68c672/"}, {"@type": "ListItem", "name": "Designing a Custom AXI IP on Vitis", "position": 41, "url": "https://www.zouic.com/external/hackster/designing-a-custom-axi-ip-on-vitis-a0ad06/"}, {"@type": "ListItem", "name": "Vivado, Vitis, \u0026 PetaLinux 2023.1 Install on Ubuntu 22.04", "position": 42, "url": "https://www.zouic.com/external/hackster/vivado-vitis-petalinux-2023-1-install-on-ubuntu-22-04-ab28da/"}, {"@type": "ListItem", "name": "Using Vivado Remotely", "position": 43, "url": "https://www.zouic.com/external/hackster/using-vivado-remotely-0e302f/"}, {"@type": "ListItem", "name": "Doing Math in FPGA", "position": 44, "url": "https://www.zouic.com/external/hackster/doing-math-in-fpga-3aa701/"}, {"@type": "ListItem", "name": "Vivado, Vitis, \u0026 PetaLinux 2024.2 Install on Ubuntu", "position": 45, "url": "https://www.zouic.com/external/hackster/vivado-vitis-petalinux-2024-2-install-on-ubuntu-59f3c3/"}, {"@type": "ListItem", "name": "High Performance Imaging", "position": 46, "url": "https://www.zouic.com/external/hackster/high-performance-imaging-ac156d/"}, {"@type": "ListItem", "name": "Implementation of an IIR filter on FPGA from scratch", "position": 47, "url": "https://www.zouic.com/external/hackster/implementation-of-an-iir-filter-on-fpga-from-scratch-4b8539/"}, {"@type": "ListItem", "name": "Vivado, Vitis, \u0026 PetaLinux 2023.2 Install on Ubuntu", "position": 48, "url": "https://www.zouic.com/external/hackster/vivado-vitis-petalinux-2023-2-install-on-ubuntu-2f1b98/"}], "itemListOrder": "https://schema.org/ItemListOrderDescending", "numberOfItems": 733}, "name": "FPGA Open Source Projects - Verilog, VHDL, Zynq and HLS | ZouIC", "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/category/fpga/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/category", "name": "Categories", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/category/fpga/", "name": "FPGA", "position": 3}]}]}
+    </script>
+    
+    
+    <title>FPGA Open Source Projects - Verilog, VHDL, Zynq and HLS | ZouIC</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    
+    <!-- External Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    
+    <!-- ZouIC Design System -->
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261027a">
+    <noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261029f">
+    
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand" href="/en/">
+                <i class="fas fa-microchip"></i> ZouIC
+            </a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
+                <span class="nav-hud-dot"></span>SYS.ONLINE
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/en/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/all-projects/"><i class="fas fa-project-diagram me-1"></i>Open Source Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/boards/">Open Source Boards</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/en/board-guide/">Documentation</a></li>
+                    <li class="nav-item dropdown">
+                        <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/en/products/"><i class="fas fa-box me-2"></i>Products</a></li>
+                            <li><a class="dropdown-item" href="/en/services/"><i class="fas fa-cogs me-2"></i>Services</a></li>
+                            <li><a class="dropdown-item" href="/en/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li>
+                            <li><a class="dropdown-item" href="/en/news/"><i class="fas fa-newspaper me-2"></i>Site Updates</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li>
+                            <li><a class="dropdown-item" href="/en/documentation/"><i class="fas fa-book me-2"></i>Documentation</a></li>
+                            <li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li>
+                            <li><a class="dropdown-item" href="/en/cases/"><i class="fas fa-briefcase me-2"></i>Project Cases</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/open-source/"><i class="fas fa-code-branch me-2"></i>Open Source Projects</a></li>
+                            <li><a class="dropdown-item" href="/en/articles/"><i class="fas fa-pen-fancy me-2"></i>Articles</a></li>
+                            <li><a class="dropdown-item" href="/en/contribute/"><i class="fas fa-handshake me-2"></i>Contribute</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/en/dashuju/"><i class="fas fa-chart-line me-2"></i>Data Dashboard</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-lg-none"><a class="nav-link" href="/en/search/"><i class="fas fa-search me-1"></i>Search</a></li>
+                </ul>
+                <form id="searchForm" class="d-flex me-3 d-none d-lg-flex">
+                    <div class="input-group input-group-zouic">
+                        <input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="Search boards, projects or keywords..." aria-label="Search" style="width: 200px;">
+                        <select id="searchType" class="form-select input-zouic" aria-label="Search Type:" style="width: auto; flex: 0 0 auto;">
+                            <option value="">All Categories</option>
+                            <option value="board">Open Source Boards</option>
+                            <option value="project">Open Source Projects</option>
+                        </select>
+                        <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Search">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i> English
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/category/fpga/">
+                                <i class="fas fa-language me-2"></i> 中文
+                            </a></li>
+                            <li><a class="dropdown-item" href="/en/category/fpga/">
+                                <i class="fas fa-language me-2"></i> English
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        
+<div class="ext-page">
+
+    <section class="ext-hero">
+        <div class="ext-hero-grid" aria-hidden="true"></div>
+        <div class="container">
+            <div class="ext-hero-inner">
+                <div class="ext-hero-copy">
+                    <span class="ext-eyebrow"><i class="fas fa-diagram-project"></i> CATEGORY HUB</span>
+                    <h1 class="ext-hero-title">FPGA 开源项目</h1>
+                    
+                    <div class="ext-hero-actions">
+                        <a href="/en/all-projects/" class="btn-zouic btn-zouic-secondary">
+                            <i class="fas fa-layer-group me-2"></i>Back to the hub
+                        </a>
+                        <a href="/en/category/" class="btn-zouic btn-zouic-ghost">
+                            <i class="fas fa-compass me-2"></i>All Categories
+                        </a>
+                    </div>
+                </div>
+                <div class="ext-hero-stats">
+                    <div class="ext-hero-stat ext-hero-stat--total">
+                        <span class="ext-hero-stat-value">733</span>
+                        <span class="ext-hero-stat-label">Total projects</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container ext-body">
+
+        
+        <div class="hub-platform-row">
+            <span class="hub-platform-label">来源分布</span>
+            
+            <a class="hub-platform-chip" href="/en/source/hackster/">
+                hackster <b>733</b>
+            </a>
+            
+        </div>
+        
+
+        
+        <div class="ext-grid">
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/dsp-for-fpga-simple-fir-filter-in-verilog-91208d/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1268787/_HJyLfCmKac.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1268787/_HJyLfCmKac.blob?auto=compress%2Cformat" alt="DSP for FPGA: Simple FIR Filter in Verilog" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/dsp-for-fpga-simple-fir-filter-in-verilog-91208d/">DSP for FPGA: Simple FIR Filter in Verilog</a></h3>
+                        <p class="ext-card-desc line-clamp-2">This project walks through how to implement a simple FIR filter with pre-generated coefficients in Verilog.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Whitney Knitter</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/introduction-to-using-axi-dma-in-embedded-linux-5264ec/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1325080/_IlYnXwNQil.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1325080/_IlYnXwNQil.blob?auto=compress%2Cformat" alt="Introduction to Using AXI DMA in Embedded Linux" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/introduction-to-using-axi-dma-in-embedded-linux-5264ec/">Introduction to Using AXI DMA in Embedded Linux</a></h3>
+                        <p class="ext-card-desc line-clamp-2">This tutorial walks through an application that reads/writes data to DDR memory from the Linux userspace on the Zynq-based Arty Z7 FPGA.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Whitney Knitter</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/fpga-based-edge-detection-using-hls-192ad2/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/509428/2018-06-24_23_00_35_LmXWft4XUp.jpg?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/509428/2018-06-24_23_00_35_LmXWft4XUp.jpg?auto=compress%2Cformat" alt="FPGA-Based Edge Detection Using HLS" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/fpga-based-edge-detection-using-hls-192ad2/">FPGA-Based Edge Detection Using HLS</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Leveraging HLS functions to create a image processing solution which implements edge detection (Sobel) in programmable logic.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Adam Taylor</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/creating-a-zynq-or-fpga-based-image-processing-platform-e79394/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/483280/2018-05-11_21_31_28_PVA7xlU35b.jpg?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/483280/2018-05-11_21_31_28_PVA7xlU35b.jpg?auto=compress%2Cformat" alt="Creating a Zynq or FPGA-Based, Image Processing Platform" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/creating-a-zynq-or-fpga-based-image-processing-platform-e79394/">Creating a Zynq or FPGA-Based, Image Processing Platform</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Creating an image processing platform that enables HDMI input to output. This can be used as a base for HLS-based image processing demo.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Adam Taylor</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/a-practical-introduction-to-sram-memories-using-an-fpga-i-3f3992/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/613175/cmod-a7-35t-9_mod_SR2PnPLm34.png?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/613175/cmod-a7-35t-9_mod_SR2PnPLm34.png?auto=compress%2Cformat" alt="A Practical Introduction to SRAM Memories Using an FPGA (I)" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/a-practical-introduction-to-sram-memories-using-an-fpga-i-3f3992/">A Practical Introduction to SRAM Memories Using an FPGA (I)</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Let&#39;s learn everything about SRAM memories writing a controller in Verilog.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Salvador Canas</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/stereo-vision-and-lidar-powered-donkey-car-575769/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/636040/20181029_190542_zSGCcGVvvf.jpg?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/636040/20181029_190542_zSGCcGVvvf.jpg?auto=compress%2Cformat" alt="Stereo Vision and LiDAR Powered Donkey Car" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/stereo-vision-and-lidar-powered-donkey-car-575769/">Stereo Vision and LiDAR Powered Donkey Car</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Donkey Car featuring the Ultra96 board, a Raspberry Pi, FPGA accelerated stereo vision, MIPI CSI-2 image acquisition, a LiDAR sensor and AI.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Attila Tőkés</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/creating-an-fpga-based-low-cost-imaging-system-cb18af/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/536030/20180729_094618_vrzxIe00z0.jpg?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/536030/20180729_094618_vrzxIe00z0.jpg?auto=compress%2Cformat" alt="Creating an FPGA-Based Low-Cost Imaging System" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/creating-an-fpga-based-low-cost-imaging-system-cb18af/">Creating an FPGA-Based Low-Cost Imaging System</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Not all imaging systems need to be expensive. Solutions can be created using cost optimized FPGA and CMOS image sensors directly.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Adam Taylor</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/dual-arm-hello-world-on-zynq-using-vitis-9fc8b7/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1132660/_j5AzFbPUIt.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1132660/_j5AzFbPUIt.blob?auto=compress%2Cformat" alt="Dual ARM Hello World on Zynq Using Vitis" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/dual-arm-hello-world-on-zynq-using-vitis-9fc8b7/">Dual ARM Hello World on Zynq Using Vitis</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Take full advantage of Xilinx&#39;s Zynq FPGA chip by running both of its dual ARM cores simultaneously.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Whitney Knitter</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/uart-interface-in-vhdl-for-basys3-board-eef170/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1212388/_J5JdXgLsXu.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1212388/_J5JdXgLsXu.blob?auto=compress%2Cformat" alt="UART Interface in VHDL for Basys3 Board" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/uart-interface-in-vhdl-for-basys3-board-eef170/">UART Interface in VHDL for Basys3 Board</a></h3>
+                        <p class="ext-card-desc line-clamp-2">A tutorial on creating an UART interface between the Basys 3 board and the computer terminal in VHDL running on FPGA.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Alexey Sudbin</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/programming-python-on-zynq-fpga-ec4712/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/452943/29765235284_437892e637_z_GpBaMvR4CZ.jpg?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/452943/29765235284_437892e637_z_GpBaMvR4CZ.jpg?auto=compress%2Cformat" alt="Programming Python on Zynq FPGA" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/programming-python-on-zynq-fpga-ec4712/">Programming Python on Zynq FPGA</a></h3>
+                        <p class="ext-card-desc line-clamp-2">This getting started guide teaches you how to program Python on Digilent Arty Z7-20, the Xilinx Zynq Z7020 SoC platform.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Adam Taylor</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/integrating-zynq-ps-and-pl-with-memory-mapped-registers-292a42/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1311114/_R3GTfwDsAm.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1311114/_R3GTfwDsAm.blob?auto=compress%2Cformat" alt="Integrating Zynq PS and PL with Memory-Mapped Registers" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/integrating-zynq-ps-and-pl-with-memory-mapped-registers-292a42/">Integrating Zynq PS and PL with Memory-Mapped Registers</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Creating/packaging custom PL IP, then developing PS software to write/read its memory-mapped registers.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">J. Abate</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/using-hls-on-an-fpga-based-image-processing-platform-8f029f/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/492403/op_Fux9NcMllc.bmp?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/492403/op_Fux9NcMllc.bmp?auto=compress%2Cformat" alt="Using HLS on an FPGA-Based Image Processing Platform" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/using-hls-on-an-fpga-based-image-processing-platform-8f029f/">Using HLS on an FPGA-Based Image Processing Platform</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Building on the Zybo Z7 image processing application. This project demonstrates using HLS with C/C++ to accelerate image processing.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Adam Taylor</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/software-defined-radio-on-the-fpga-d35f33/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/464941/1503511073525_iexqWTjNDY.png?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/464941/1503511073525_iexqWTjNDY.png?auto=compress%2Cformat" alt="Software Defined Radio on the FPGA" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/software-defined-radio-on-the-fpga-d35f33/">Software Defined Radio on the FPGA</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Radio that works with analog signal is implemented digitally on FPGA via VHDL.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Team ElectroBeez</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/getting-started-with-the-kria-kr260-in-vivado-2022-1-33746d/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1475723/_w4IVM4qiyc.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1475723/_w4IVM4qiyc.blob?auto=compress%2Cformat" alt="Getting Started with the Kria KR260 in Vivado 2022.1" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/getting-started-with-the-kria-kr260-in-vivado-2022-1-33746d/">Getting Started with the Kria KR260 in Vivado 2022.1</a></h3>
+                        <p class="ext-card-desc line-clamp-2">This project walks through how to build a custom hardware design for the Kria KR260 Robotics Starter Kit in Vivado 2022.1</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Whitney Knitter</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/vitis-ai-1-3-flow-for-avnet-vitis-platforms-cd0c51/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1265317/vitis_ai_1_3_segs_and_land_detection_02_KNOjly1sxl.gif?auto=compress%2Cformat&amp;gifq=35');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1265317/vitis_ai_1_3_segs_and_land_detection_02_KNOjly1sxl.gif?auto=compress%2Cformat&amp;gifq=35" alt="Vitis-AI 1.3 Flow for Avnet VITIS Platforms" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/vitis-ai-1-3-flow-for-avnet-vitis-platforms-cd0c51/">Vitis-AI 1.3 Flow for Avnet VITIS Platforms</a></h3>
+                        <p class="ext-card-desc line-clamp-2">This guide provides detailed instructions for targeting the Xilinx Vitis-AI 1.3 flow for Avnet Vitis 2020.2 platforms.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Mario Bergeron</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/introduction-to-digital-filters-using-fpga-35b7b7/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1566525/_dmHTP1v2VG.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1566525/_dmHTP1v2VG.blob?auto=compress%2Cformat" alt="Introduction to Digital Filters using FPGA" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/introduction-to-digital-filters-using-fpga-35b7b7/">Introduction to Digital Filters using FPGA</a></h3>
+                        <p class="ext-card-desc line-clamp-2">How to sample with High Speed ADC and DAC in FPGA and perform signal processing on the received signal</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Adam Taylor</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/fpga-remote-programmer-4d7b80/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/925408/dsc_0011_gmC3yfRUH7.JPG?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/925408/dsc_0011_gmC3yfRUH7.JPG?auto=compress%2Cformat" alt="FPGA Remote Programmer" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/fpga-remote-programmer-4d7b80/">FPGA Remote Programmer</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Remote programmer for Xilinx FPGAs via WiFi and Ethernet. Raspberry Pi + Jtag Pi board.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Dominik Domański</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/xilinx-dds-compiler-ip-tutorial-on-the-ultra96-f820db/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1114109/_rPa7Afdqpx.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1114109/_rPa7Afdqpx.blob?auto=compress%2Cformat" alt="Xilinx DDS Compiler IP Tutorial on the Ultra96" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/xilinx-dds-compiler-ip-tutorial-on-the-ultra96-f820db/">Xilinx DDS Compiler IP Tutorial on the Ultra96</a></h3>
+                        <p class="ext-card-desc line-clamp-2">An introduction to the Xilinx direct digital synthesis compiler with simple implementation on the Ultra96 V2.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Whitney Knitter</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/vitis-ai-1-1-flow-for-avnet-vitis-platforms-part-1-007b0e/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1118819/pose_estimatton_animated_gif_DMtMHiYC0t.gif?auto=compress%2Cformat&amp;gifq=35');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1118819/pose_estimatton_animated_gif_DMtMHiYC0t.gif?auto=compress%2Cformat&amp;gifq=35" alt="Vitis-AI 1.1 Flow for Avnet VITIS Platforms - Part 1" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/vitis-ai-1-1-flow-for-avnet-vitis-platforms-part-1-007b0e/">Vitis-AI 1.1 Flow for Avnet VITIS Platforms - Part 1</a></h3>
+                        <p class="ext-card-desc line-clamp-2">This guide provides detailed instructions for targeting the DNNDK samples from the Xilinx Vitis-AI 1.1 flow for Avnet Vitis 2019.2 platforms</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Mario Bergeron</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/getting-started-with-the-kria-kr260-in-petalinux-2022-1-daec16/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1480390/_DkpWpMag9G.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1480390/_DkpWpMag9G.blob?auto=compress%2Cformat" alt="Getting Started with the Kria KR260 in PetaLinux 2022.1" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/getting-started-with-the-kria-kr260-in-petalinux-2022-1-daec16/">Getting Started with the Kria KR260 in PetaLinux 2022.1</a></h3>
+                        <p class="ext-card-desc line-clamp-2">This project walks through how to build a custom hardware design for the Kria KR260 Robotics Starter Kit in PetaLinux 2022.1</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Whitney Knitter</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/use-python-zynq-and-opencv-to-implement-computer-vision-361e1b/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/465316/cover_picture_D4gOQHSeFi.png?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/465316/cover_picture_D4gOQHSeFi.png?auto=compress%2Cformat" alt="Use Python, Zynq and OpenCV to Implement Computer Vision" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/use-python-zynq-and-opencv-to-implement-computer-vision-361e1b/">Use Python, Zynq and OpenCV to Implement Computer Vision</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Use Python, OpenCV libraries and the PYNQ frame to implement the computer vision on Arty Z7-20 Xilinx Zynq SoC platform.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Adam Taylor</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/getting-started-with-the-kria-kv260-in-vivado-2021-1-817ec2/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1361198/_NRttxYzjvc.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1361198/_NRttxYzjvc.blob?auto=compress%2Cformat" alt="Getting Started with the Kria KV260 in Vivado 2021.1" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/getting-started-with-the-kria-kv260-in-vivado-2021-1-817ec2/">Getting Started with the Kria KV260 in Vivado 2021.1</a></h3>
+                        <p class="ext-card-desc line-clamp-2">The project walks through how to create a custom hardware project for the Kria KV260 Vision AI Starter Kit in Vivado 2021.1</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Whitney Knitter</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/creating-xilinx-vivado-board-files-for-ebaz4205-a7b120/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1290891/_FEdAZLlKeU.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1290891/_FEdAZLlKeU.blob?auto=compress%2Cformat" alt="Creating Xilinx Vivado board files for EBAZ4205" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/creating-xilinx-vivado-board-files-for-ebaz4205-a7b120/">Creating Xilinx Vivado board files for EBAZ4205</a></h3>
+                        <p class="ext-card-desc line-clamp-2">In this tutorial you will learn how to create Xilinx Vivado board files for your custom board.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Mindaugas</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/playing-audio-with-an-fpga-d2bc85/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1098780/_HFtTlkiEqI.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1098780/_HFtTlkiEqI.blob?auto=compress%2Cformat" alt="Playing audio with an FPGA" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/playing-audio-with-an-fpga-d2bc85/">Playing audio with an FPGA</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Let´s take a look into the I2S specification and let us try to realize the first step to play audio files with an FPGA.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Daniel Kampert</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/vitis-petalinux-2022-1-krs-1-0-install-on-ubuntu-22-04-145c1b/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1475722/_jmCdLdsJEu.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1475722/_jmCdLdsJEu.blob?auto=compress%2Cformat" alt="Vitis+PetaLinux 2022.1 &amp; KRS 1.0 Install on Ubuntu 22.04" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/vitis-petalinux-2022-1-krs-1-0-install-on-ubuntu-22-04-145c1b/">Vitis+PetaLinux 2022.1 &amp; KRS 1.0 Install on Ubuntu 22.04</a></h3>
+                        <p class="ext-card-desc line-clamp-2">This project walks through the installation of Vitis and PetaLinux 2022.1 as well as KRS 1.0 on Ubuntu 22.04 Jammy Jellyfish.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Whitney Knitter</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/add-custom-ip-modules-to-vivado-block-design-77042d/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1258673/_DQM7S9FVWF.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1258673/_DQM7S9FVWF.blob?auto=compress%2Cformat" alt="Add Custom IP Modules to Vivado Block Design" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/add-custom-ip-modules-to-vivado-block-design-77042d/">Add Custom IP Modules to Vivado Block Design</a></h3>
+                        <p class="ext-card-desc line-clamp-2">See how to integrate custom RTL modules directly into Vivado block design flow.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Whitney Knitter</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/hello-microblaze-on-arty-a7-70d9e1/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1137613/_ABw2LhXtC1.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1137613/_ABw2LhXtC1.blob?auto=compress%2Cformat" alt="Hello MicroBlaze on Arty-A7" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/hello-microblaze-on-arty-a7-70d9e1/">Hello MicroBlaze on Arty-A7</a></h3>
+                        <p class="ext-card-desc line-clamp-2">See how to bring up Xilinx&#39;s soft-processor implementation, the MicroBlaze, on the Arty-A7 board.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Whitney Knitter</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/how-to-test-your-design-with-vivado-s-behavioral-simulation-f01b43/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1256570/_EGQSM8oN3k.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1256570/_EGQSM8oN3k.blob?auto=compress%2Cformat" alt="How to Test Your Design with Vivado&#39;s Behavioral Simulation" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/how-to-test-your-design-with-vivado-s-behavioral-simulation-f01b43/">How to Test Your Design with Vivado&#39;s Behavioral Simulation</a></h3>
+                        <p class="ext-card-desc line-clamp-2">This tutorial walks through a simple demonstration of how to deploy your testbench using Vivado&#39;s behavioral simulation.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Whitney Knitter</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/vitis-ai-1-2-flow-for-avnet-vitis-platforms-7cb3aa/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1209169/vitis_ai_1_2_animated_gif_take_02_0pov1W56Ev.gif?auto=compress%2Cformat&amp;gifq=35');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1209169/vitis_ai_1_2_animated_gif_take_02_0pov1W56Ev.gif?auto=compress%2Cformat&amp;gifq=35" alt="Vitis-AI 1.2 Flow for Avnet VITIS Platforms" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/vitis-ai-1-2-flow-for-avnet-vitis-platforms-7cb3aa/">Vitis-AI 1.2 Flow for Avnet VITIS Platforms</a></h3>
+                        <p class="ext-card-desc line-clamp-2">This guide provides detailed instructions for targeting the Xilinx Vitis-AI 1.2 flow for Avnet Vitis 2020.1 platforms.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Mario Bergeron</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/signal-processing-with-xadc-and-pynq-3c716c/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1254062/_5w3TYUxxRJ.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1254062/_5w3TYUxxRJ.blob?auto=compress%2Cformat" alt="Signal Processing with XADC and PYNQ" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/signal-processing-with-xadc-and-pynq-3c716c/">Signal Processing with XADC and PYNQ</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Creating a PYNQ image for the MicroZed 7010/20 and IO Carrier Card. Signal processing with XADC.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Adam Taylor</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/two-methods-of-building-petalinux-for-the-ultra96-77c8e0/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/518981/2018-07-08_13_49_41_fRrizfEUzt.jpg?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/518981/2018-07-08_13_49_41_fRrizfEUzt.jpg?auto=compress%2Cformat" alt="Two Methods of Building PetaLinux for the Ultra96" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/two-methods-of-building-petalinux-for-the-ultra96-77c8e0/">Two Methods of Building PetaLinux for the Ultra96</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Ultra96 combines WiFi, Bluetooth &amp; an SoC with programmable logic. Let&#39;s look at the different ways of building Linux projects aimed at it.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Adam Taylor</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/face-detection-and-tracking-in-python-on-ultra96-v2-02d104/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1157542/face_tracking_02_FgeM9qvoVN.gif?auto=compress%2Cformat&amp;gifq=35');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1157542/face_tracking_02_FgeM9qvoVN.gif?auto=compress%2Cformat&amp;gifq=35" alt="Face Detection and Tracking in Python on Ultra96-V2" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/face-detection-and-tracking-in-python-on-ultra96-v2-02d104/">Face Detection and Tracking in Python on Ultra96-V2</a></h3>
+                        <p class="ext-card-desc line-clamp-2">This guide provides detailed instructions on implementing face detection and face tracking in Python on the Ultra96-V2 platform.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Mario Bergeron</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/getting-started-with-the-kria-kv260-ai-vision-kit-c6d6af/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1302240/_fywLc1QWqf.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1302240/_fywLc1QWqf.blob?auto=compress%2Cformat" alt="Getting Started with the Kria KV260 AI Vision Kit" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/getting-started-with-the-kria-kv260-ai-vision-kit-c6d6af/">Getting Started with the Kria KV260 AI Vision Kit</a></h3>
+                        <p class="ext-card-desc line-clamp-2">This project walks through the out-of-the-box capabilities of the Kria K260 SoM development kit.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Whitney Knitter</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/training-implementing-a-bnn-using-pynq-1210b9/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/650059/image_4efiriqd8i_wrnau9vODh.jpg?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/650059/image_4efiriqd8i_wrnau9vODh.jpg?auto=compress%2Cformat" alt="Training &amp; Implementing a BNN Using Pynq" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/training-implementing-a-bnn-using-pynq-1210b9/">Training &amp; Implementing a BNN Using Pynq</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Using Pynq, we can implement an accelerated AI/ML on an FPGA without writing a line of HDL! Let&#39;s take a look at how we can this...</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Adam Taylor</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/vivado-vitis-petalinux-2024-1-install-on-ubuntu-22-04-e76e91/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1725268/_xRX4SZXAD8.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1725268/_xRX4SZXAD8.blob?auto=compress%2Cformat" alt="Vivado, Vitis, &amp; PetaLinux 2024.1 Install on Ubuntu 22.04" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/vivado-vitis-petalinux-2024-1-install-on-ubuntu-22-04-e76e91/">Vivado, Vitis, &amp; PetaLinux 2024.1 Install on Ubuntu 22.04</a></h3>
+                        <p class="ext-card-desc line-clamp-2">An updated installation guide for the 2024.1 version of the AMD FPGA Tools on an Ubuntu 22.04 host machine.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Whitney Knitter</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/rpi-pmod-connector-gpio-with-custom-pl-design-in-kria-kr260-53c40e/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1507666/_ut8z6HROru.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1507666/_ut8z6HROru.blob?auto=compress%2Cformat" alt="RPi+PMOD Connector GPIO with Custom PL Design in Kria KR260" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/rpi-pmod-connector-gpio-with-custom-pl-design-in-kria-kr260-53c40e/">RPi+PMOD Connector GPIO with Custom PL Design in Kria KR260</a></h3>
+                        <p class="ext-card-desc line-clamp-2">This project demonstrates how to implement a custom PL design on the KR260 utilizing its RPi &amp; PMOD connectors.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Whitney Knitter</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/creating-gui-app-for-the-ultra96-with-qt-28d308/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/951014/uploads2ftmp2f6cec95c6-174d-4696-8d97-1694ee8b30522fultra96qt_KIhG9y1Yzp.png?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/951014/uploads2ftmp2f6cec95c6-174d-4696-8d97-1694ee8b30522fultra96qt_KIhG9y1Yzp.png?auto=compress%2Cformat" alt="Creating GUI App for the Ultra96 with Qt" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/creating-gui-app-for-the-ultra96-with-qt-28d308/">Creating GUI App for the Ultra96 with Qt</a></h3>
+                        <p class="ext-card-desc line-clamp-2">In this tutorial you will learn how to set up Qt environment to build and debug applications created in Qt Creator for Xilinx Ultra96 board.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Mindaugas</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/fpga-based-motor-control-cd47e7/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1546624/_9cKKgtt5no.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1546624/_9cKKgtt5no.blob?auto=compress%2Cformat" alt="FPGA Based Motor Control" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/fpga-based-motor-control-cd47e7/">FPGA Based Motor Control</a></h3>
+                        <p class="ext-card-desc line-clamp-2">FPGA are ideal for precision motor control, in this project we are going to create a simple motor control application which we can build on.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Adam Taylor</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/getting-started-with-avnet-s-zuboard-1cg-f1d793/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1543161/_lDBS3t6Cbf.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1543161/_lDBS3t6Cbf.blob?auto=compress%2Cformat" alt="Getting Started with Avnet&#39;s ZUBoard-1CG" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/getting-started-with-avnet-s-zuboard-1cg-f1d793/">Getting Started with Avnet&#39;s ZUBoard-1CG</a></h3>
+                        <p class="ext-card-desc line-clamp-2">This project walks through how to get up and running on the ZU Board using Avnet&#39;s build scripts for Vivado &amp; PetaLinux 2022.1</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Whitney Knitter</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/machine-learning-at-the-edge-with-xilinx-dnn-developer-kit-68c672/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/882466/20190504_200638_FbEoCsf2q1.jpg?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/882466/20190504_200638_FbEoCsf2q1.jpg?auto=compress%2Cformat" alt="Machine Learning at the Edge with Xilinx DNN Developer Kit" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/machine-learning-at-the-edge-with-xilinx-dnn-developer-kit-68c672/">Machine Learning at the Edge with Xilinx DNN Developer Kit</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Programmable logic can accelerate machine learning inference. Let&#39;s take a look at how we can use the Xilinx DNNDK to do this.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Adam Taylor</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/designing-a-custom-axi-ip-on-vitis-a0ad06/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1164900/_m71n6elzls.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1164900/_m71n6elzls.blob?auto=compress%2Cformat" alt="Designing a Custom AXI IP on Vitis" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/designing-a-custom-axi-ip-on-vitis-a0ad06/">Designing a Custom AXI IP on Vitis</a></h3>
+                        <p class="ext-card-desc line-clamp-2">In this project I will show you how to create a custom AXI IP on Vitis, and the driver to manage it from Bare-Metal and Petalinux.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Pablo Trujillo</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/vivado-vitis-petalinux-2023-1-install-on-ubuntu-22-04-ab28da/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1616711/_bfb7MtmPsS.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1616711/_bfb7MtmPsS.blob?auto=compress%2Cformat" alt="Vivado, Vitis, &amp; PetaLinux 2023.1 Install on Ubuntu 22.04" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/vivado-vitis-petalinux-2023-1-install-on-ubuntu-22-04-ab28da/">Vivado, Vitis, &amp; PetaLinux 2023.1 Install on Ubuntu 22.04</a></h3>
+                        <p class="ext-card-desc line-clamp-2">A quick write-up guide on the installation process of AMD&#39;s FPGA development tools on Ubuntu 22.04 LTS.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Whitney Knitter</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/using-vivado-remotely-0e302f/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1367535/_0mDz5yGLSl.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1367535/_0mDz5yGLSl.blob?auto=compress%2Cformat" alt="Using Vivado Remotely" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/using-vivado-remotely-0e302f/">Using Vivado Remotely</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Vivado can be run remotely on a more powerful server for improved performance while still developing on the local FPGA board</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">NEXT_lab</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/doing-math-in-fpga-3aa701/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1586075/_pVPo8MfffO.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1586075/_pVPo8MfffO.blob?auto=compress%2Cformat" alt="Doing Math in FPGA" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/doing-math-in-fpga-3aa701/">Doing Math in FPGA</a></h3>
+                        <p class="ext-card-desc line-clamp-2">FPGA are great for implementing Math, lets look at how we can do simple and complex Math in FPGA.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Adam Taylor</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/vivado-vitis-petalinux-2024-2-install-on-ubuntu-59f3c3/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1825739/_C5tQIqK8he.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1825739/_C5tQIqK8he.blob?auto=compress%2Cformat" alt="Vivado, Vitis, &amp; PetaLinux 2024.2 Install on Ubuntu" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/vivado-vitis-petalinux-2024-2-install-on-ubuntu-59f3c3/">Vivado, Vitis, &amp; PetaLinux 2024.2 Install on Ubuntu</a></h3>
+                        <p class="ext-card-desc line-clamp-2">A reference guide for installing the 2024.2 version AMD FPGA toolset on Ubuntu.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Whitney Knitter</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/high-performance-imaging-ac156d/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1068290/_IjLNApvWJE.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1068290/_IjLNApvWJE.blob?auto=compress%2Cformat" alt="High Performance Imaging" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/high-performance-imaging-ac156d/">High Performance Imaging</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Using the Genesys ZU 3EG to implement an image processing pipeline with the latest Xilinx image processing IP cores.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Adam Taylor</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/implementation-of-an-iir-filter-on-fpga-from-scratch-4b8539/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1503633/_4OyqdccMeC.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1503633/_4OyqdccMeC.blob?auto=compress%2Cformat" alt="Implementation of an IIR filter on FPGA from scratch" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/implementation-of-an-iir-filter-on-fpga-from-scratch-4b8539/">Implementation of an IIR filter on FPGA from scratch</a></h3>
+                        <p class="ext-card-desc line-clamp-2">In this project we are going to implement an IIR filter in an FPGA from scratch using bilinear transform and the prewarping technique.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Pablo Trujillo</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackster">
+                <div class="ext-card ext-card--hackster">
+                    
+                    <a href="/en/external/hackster/vivado-vitis-petalinux-2023-2-install-on-ubuntu-2f1b98/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://hackster.imgix.net/uploads/attachments/1644406/_YD7hzjTbLz.blob?auto=compress%2Cformat');">
+                        <img src="https://hackster.imgix.net/uploads/attachments/1644406/_YD7hzjTbLz.blob?auto=compress%2Cformat" alt="Vivado, Vitis, &amp; PetaLinux 2023.2 Install on Ubuntu" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-robot"></i>
+                                Hackster.io
+                            </span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/en/external/hackster/vivado-vitis-petalinux-2023-2-install-on-ubuntu-2f1b98/">Vivado, Vitis, &amp; PetaLinux 2023.2 Install on Ubuntu</a></h3>
+                        <p class="ext-card-desc line-clamp-2">This project walks through how to install AMD&#39;s FPGA development tools on Ubuntu 20.04 &amp; 22.04 LTS.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Whitney Knitter</span>
+                            
+                            <span class="ext-card-license">License per the original page</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+
+        
+        
+        <nav class="pagination" aria-label="分页">
+            
+            <span class="page-link is-disabled">&laquo; 上一页</span>
+            
+
+            
+            
+            
+            
+            
+            <span class="page-link is-current" aria-current="page">1</span>
+            
+            
+            
+            <a class="page-link" href="/en/category/fpga/page/2/">2</a>
+            
+            
+            
+            <a class="page-link" href="/en/category/fpga/page/3/">3</a>
+            
+            
+            
+            <span class="page-ellipsis">…</span>
+            <a class="page-link" href="/en/category/fpga/page/16/">16</a>
+            
+
+            
+            <a class="page-link" href="/en/category/fpga/page/2/" rel="next">下一页 &raquo;</a>
+            
+        </nav>
+        <p class="source-page-hint">Total projects 733 · 1 / 16</p>
+        
+
+        
+        <section class="hub-cross" aria-label="相关分类">
+            <h2 class="hub-cross-title">相关分类</h2>
+            <div class="hub-cross-grid">
+                
+                <a class="hub-cross-item" href="/en/category/general/">
+                    <span class="hub-cross-name">General</span>
+                    <span class="hub-cross-count">231</span>
+                </a>
+                
+                <a class="hub-cross-item" href="/en/category/ai_hardware/">
+                    <span class="hub-cross-name">AI Hardware</span>
+                    <span class="hub-cross-count">173</span>
+                </a>
+                
+                <a class="hub-cross-item" href="/en/category/vision/">
+                    <span class="hub-cross-name">Computer Vision</span>
+                    <span class="hub-cross-count">119</span>
+                </a>
+                
+                <a class="hub-cross-item" href="/en/category/esp32/">
+                    <span class="hub-cross-name">ESP32</span>
+                    <span class="hub-cross-count">83</span>
+                </a>
+                
+                <a class="hub-cross-item" href="/en/category/robotics/">
+                    <span class="hub-cross-name">Robotics</span>
+                    <span class="hub-cross-count">74</span>
+                </a>
+                
+                <a class="hub-cross-item" href="/en/category/iot/">
+                    <span class="hub-cross-name">IoT</span>
+                    <span class="hub-cross-count">62</span>
+                </a>
+                
+            </div>
+        </section>
+        
+
+        <p class="source-disclaimer">
+            <i class="fas fa-scale-balanced me-1"></i>
+            本页条目均来自各平台的公开页面，ZouIC 只做分类、索引与摘要，不托管代码与文件；项目仅供开发者参考，版权与授权归原作者，遵循其各自开源协议。
+        </p>
+    </div>
+</div>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Newsletter section (the home page already has a full follow block, so it is skipped there) -->
+    
+    <section id="follow" class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h3 class="text-xl font-bold mb-2">Follow @GeekWaedon for Weekly Updates</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">Board picks, project breakdowns and hardware engineering tips, first published on WeChat and Knowledge Planet.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <a href="/en/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">See How to Follow</a>
+                        <div class="newsletter-benefits">
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Weekly curated board picks</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Exclusive project deep-dives</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Updated on WeChat and Knowledge Planet</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="py-4" aria-label="Produced by">
+        <div class="author-card">
+            <div class="author-card-info">
+                <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
+                <div>
+                    <div class="author-card-name">Created by GeekWaedon <span>@GeekWaedon</span></div>
+                    <div class="author-card-bio">Hardware maker and AI practitioner. This entire website was built hands-on with AI tools.</div>
+                </div>
+            </div>
+            <div class="author-card-actions">
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Join my Knowledge Planet</a>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;GeekWaedon&#34;</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-zouic" role="contentinfo">
+        <div class="container">
+            <div class="row footer-main">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
+                    <a href="/en/" class="footer-brand" aria-label="ZouIC home">
+                        <i class="fas fa-microchip"></i>
+                        <span>ZouIC</span>
+                    </a>
+                    <p class="footer-tagline">Quality open hardware projects from platforms worldwide · For developer reference only</p>
+
+                    <div class="footer-meta">
+                        <p class="footer-author">
+                            Produced by · <strong>GeekWaedon</strong>
+                            <span class="footer-author-handle">@GeekWaedon</span>
+                        </p>
+                        <div class="footer-slash-tags">
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware enthusiast</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI practitioner</span>
+                            <a href="/en/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom service provider">
+                                <i class="fab fa-weixin"></i> WeCom service provider
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a>
+                        <a href="/en/#follow" class="footer-social-link" aria-label="WeChat Official Account · GeekWaedon" title="WeChat Official Account · GeekWaedon"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a>
+                        <a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a>
+                        <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="/en/products/">Products</a></li>
+                        <li><a href="/en/services/">Services</a></li>
+                        <li><a href="/en/services/website-building/">Website building</a></li>
+                        <li><a href="/en/services/component-matching/">元器件撮合</a></li>
+                        <li><a href="/en/news/">Site Updates</a></li>
+                        <li><a href="/en/boards/">Development Boards</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="/en/board-guide/">Board selection guide</a></li>
+                        <li><a href="/en/compare/">Board comparison</a></li>
+                        <li><a href="/en/tutorials/">Tutorials</a></li>
+                        <li><a href="/en/documentation/">Documentation</a></li>
+                        <li><a href="/en/cases/">Project Cases</a></li>
+                        <li><a href="/en/help/">Documentation</a></li>
+                        <li><a href="/en/games/resistor/">Resistor Color Code Challenge</a></li>
+                        <li><a href="/en/dashuju/">Data Dashboard</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Open Source</h5>
+                    <ul>
+                        <li><a href="/en/open-source/">Open Source Projects</a></li>
+                        <li><a href="/en/all-projects/">All projects</a></li>
+                        <li><a href="/en/articles/">Articles</a></li>
+                        
+                        <li><a href="/en/contribute/">Contribute</a></li>
+                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h5>About</h5>
+                    <ul>
+                        <li><a href="/en/about/">About Us</a></li>
+                        <li><a href="/en/about/#contact">Contact Us</a></li>
+                        <li><a href="/en/licenses/">Open Source Licenses</a></li>
+                        <li><a href="/en/about/#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-category-strip">
+                <span class="footer-category-label">热门分类</span>
+                <div class="footer-category-links">
+                    <a href="/en/category/">全部</a>
+                    
+                    <a href="/en/category/fpga/">FPGA</a>
+                    
+                    <a href="/en/category/general/">General</a>
+                    
+                    <a href="/en/category/ai_hardware/">AI Hardware</a>
+                    
+                    <a href="/en/category/vision/">Computer Vision</a>
+                    
+                    <a href="/en/category/esp32/">ESP32</a>
+                    
+                    <a href="/en/category/robotics/">Robotics</a>
+                    
+                    <a href="/en/source/github/">GitHub</a>
+                    <a href="/en/source/hackster/">Hackster.io</a>
+                    <a href="/resources/">资源导航</a>
+                </div>
+            </div>
+            
+            <div class="footer-producer-bar">
+                <img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
+                <div style="line-height:1.6;">
+                    <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">Built single-handedly by GeekWaedon (@GeekWaedon) · <span style="color:#a78bfa;">people and AI, working side by side</span></div>
+                    <div class="text-xs text-secondary">A one-person project run by a real human: the site build, the data pulls, the articles and the artwork all came from me (with a few AI agents). <a href="/en/about/" class="text-primary" style="text-decoration:none;">Meet the person behind it →</a></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ZouIC. All rights reserved.</p>
+                <p>Projects aggregated here are for developer reference only: ZouIC indexes them and hosts no code or files; copyright and licensing stay with their authors. For details, see the <a href="/en/licenses/">Open Source Licenses</a> page.</p>
+                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Copied';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Removed from favorites');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Saved to favorites');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+</body>
+</html>
