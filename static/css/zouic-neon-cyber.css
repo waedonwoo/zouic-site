@@ -1206,6 +1206,65 @@ main {
     margin: 0 3px;
 }
 
+/* 静态分页（/source/<platform>/page/N/、/all-projects/page/N/）：
+   直接以 <a class="page-link"> 排列，不套 .page-item 包裹。 */
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin: 2rem 0 0.75rem;
+}
+
+.pagination .page-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    height: 38px;
+    padding: 0 0.75rem;
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1;
+    color: var(--color-text-secondary);
+    background: transparent;
+    border: 1px solid var(--color-border-default);
+    border-radius: 10px;
+    text-decoration: none;
+    transition: color .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.pagination .page-link:hover {
+    color: #ffffff;
+    border-color: rgba(0, 229, 255, 0.45);
+    background: rgba(0, 229, 255, 0.1);
+}
+
+.pagination .page-link.is-current {
+    color: var(--color-text-inverse);
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    font-weight: 600;
+}
+
+.pagination .page-link.is-disabled {
+    color: var(--color-text-tertiary);
+    border-color: var(--color-border-muted);
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+.pagination .page-ellipsis {
+    padding: 0 0.25rem;
+    color: var(--color-text-tertiary);
+}
+
+.source-page-hint {
+    margin: 0 0 1rem;
+    font-size: 0.8125rem;
+    color: var(--color-text-tertiary);
+}
+
 .breadcrumb {
     --bs-breadcrumb-divider-color: var(--color-text-tertiary);
     --bs-breadcrumb-item-active-color: var(--color-text-secondary);

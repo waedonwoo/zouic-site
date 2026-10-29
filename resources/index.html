@@ -1,0 +1,2149 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="50 个嵌入式与 Linux 开发常用入口：内核源码、U-Boot、Buildroot、开发板厂商资料、中文论坛、开源书与镜像站，附自撰用途摘要与可达性标注。">
+    <meta name="keywords" content="嵌入式资源,Linux内核,开发板资料,Buildroot,U-Boot,镜像站,中文论坛,开源书,资源导航">
+    
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    
+    
+    
+    
+    <link rel="canonical" href="https://www.zouic.com/resources">
+    
+    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/resources" />
+    
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/resources" />
+    
+    
+    
+    
+    <meta property="og:title" content="嵌入式与 Linux 开发资源导航 | ZouIC">
+    <meta property="og:description" content="50 个嵌入式与 Linux 开发常用入口：内核源码、U-Boot、Buildroot、开发板厂商资料、中文论坛、开源书与镜像站，附自撰用途摘要与可达性标注。">
+    <meta property="og:url" content="https://www.zouic.com/resources">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN">
+    
+    
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="嵌入式与 Linux 开发资源导航 | ZouIC">
+    <meta name="twitter:description" content="50 个嵌入式与 Linux 开发常用入口：内核源码、U-Boot、Buildroot、开发板厂商资料、中文论坛、开源书与镜像站，附自撰用途摘要与可达性标注。">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/resources/", "name": "\u9875\u9762", "position": 2}]}
+    </script>
+    
+    
+    
+    <title>嵌入式与 Linux 开发资源导航 | ZouIC</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    
+    <!-- External Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    
+    <!-- ZouIC Design System -->
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261027a">
+    <noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261028e">
+    
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-microchip"></i> ZouIC
+            </a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
+                <span class="nav-hud-dot"></span>SYS.ONLINE
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/all-projects/"><i class="fas fa-project-diagram me-1"></i>开源项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li>
+                    <li class="nav-item dropdown">
+                        <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li>
+                            <li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li>
+                            <li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li>
+                            <li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li>
+                            <li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li>
+                            <li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li>
+                            <li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li>
+                            <li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li>
+                            <li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li>
+                </ul>
+                <form id="searchForm" class="d-flex me-3 d-none d-lg-flex">
+                    <div class="input-group input-group-zouic">
+                        <input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" style="width: 200px;">
+                        <select id="searchType" class="form-select input-zouic" aria-label="搜索类型:" style="width: auto; flex: 0 0 auto;">
+                            <option value="">全部分类</option>
+                            <option value="board">开源开发板</option>
+                            <option value="project">开源项目</option>
+                        </select>
+                        <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i> 中文
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/resources/">
+                                <i class="fas fa-language me-2"></i> 中文
+                            </a></li>
+                            <li><a class="dropdown-item" href="/en/articles/">
+                                <i class="fas fa-language me-2"></i> English
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        
+<style>
+    .res-hero-stat {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-top: 1.25rem;
+    }
+    .res-hero-stat .v {
+        font-size: 1.75rem;
+        font-weight: 700;
+        line-height: 1.1;
+        color: var(--accent-primary, #00e5ff);
+    }
+    .res-hero-stat .k {
+        font-size: .8125rem;
+        color: var(--text-secondary, #9aa4b2);
+    }
+    .res-chip-row {
+        display: flex;
+        gap: .5rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+    }
+    .res-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: .375rem;
+        padding: .375rem .75rem;
+        font-size: .8125rem;
+        border-radius: 999px;
+        border: 1px solid var(--glass-stroke, rgba(255,255,255,.12));
+        color: var(--text-secondary, #9aa4b2);
+        text-decoration: none;
+        transition: all .18s ease;
+    }
+    .res-chip:hover {
+        color: var(--accent-primary, #00e5ff);
+        border-color: var(--accent-primary, #00e5ff);
+    }
+    .res-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 1.125rem 1.25rem;
+        border-radius: 12px;
+    }
+    .res-card h3 {
+        font-size: 1.0625rem;
+        font-weight: 600;
+        margin: 0 0 .25rem;
+        line-height: 1.35;
+    }
+    .res-card h3 a {
+        color: inherit;
+        text-decoration: none;
+    }
+    .res-card h3 a:hover {
+        color: var(--accent-primary, #00e5ff);
+    }
+    .res-host {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: .75rem;
+        color: var(--text-tertiary, #6b7684);
+        margin-bottom: .625rem;
+        word-break: break-all;
+    }
+    .res-desc {
+        font-size: .875rem;
+        line-height: 1.65;
+        color: var(--text-secondary, #9aa4b2);
+        margin-bottom: .875rem;
+        flex: 1;
+    }
+    .res-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .375rem;
+        align-items: center;
+    }
+    .res-note {
+        font-size: .75rem;
+        color: var(--text-tertiary, #6b7684);
+        margin-top: .5rem;
+        line-height: 1.5;
+    }
+    .res-mirror {
+        font-size: .8125rem;
+        margin-top: .5rem;
+    }
+    .res-mirror a {
+        color: var(--accent-primary, #00e5ff);
+        text-decoration: none;
+    }
+    .res-mirror a:hover {
+        text-decoration: underline;
+    }
+    .res-group {
+        scroll-margin-top: 96px;
+    }
+    .res-group[hidden] {
+        display: none !important;
+    }
+    .res-item[hidden] {
+        display: none !important;
+    }
+    #resSearch {
+        max-width: 420px;
+    }
+    .res-empty {
+        display: none;
+        padding: 2rem;
+        text-align: center;
+        color: var(--text-secondary, #9aa4b2);
+    }
+</style>
+
+<section class="py-8">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent">
+                <li class="breadcrumb-item"><a href="/">首页</a></li>
+                <li class="breadcrumb-item"><a href="/documentation/">技术文档</a></li>
+                <li class="breadcrumb-item active" aria-current="page">资源导航</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<section class="pb-6">
+    <div class="container">
+        <div class="card-dark p-8">
+            <span class="badge-zouic badge-zouic-accent mb-3">RESOURCE DIRECTORY</span>
+            <h1 class="text-3xl font-bold mb-3">嵌入式与 Linux 开发资源导航</h1>
+            <p class="text-secondary text-lg mb-0" style="max-width: 62rem;">
+                调试环境、查手册、找例程、翻论坛，日常离不开的就那么几十个站点。这里把它们按用途归拢，
+                每条附一句「它是干什么的、什么时候该来」——摘要由本站撰写，方便你判断要不要点。
+            </p>
+            <div class="res-hero-stat">
+                <div>
+                    <div class="v">50</div>
+                    <div class="k">收录入口</div>
+                </div>
+                <div>
+                    <div class="v">6</div>
+                    <div class="k">分类</div>
+                </div>
+                <div>
+                    <div class="v">37</div>
+                    <div class="k">实测可直达</div>
+                </div>
+                <div>
+                    <div class="v">2026-10-29</div>
+                    <div class="k">最近核对</div>
+                </div>
+            </div>
+            <p class="text-secondary mt-4 mb-0" style="font-size: .8125rem;">
+                <i class="fas fa-circle-info me-1"></i>
+                本页仅提供链接与自撰摘要，不镜像、不转载任何站点内容；页面内容的著作权归各站原作者所有。
+                带「脚本受限」标记的站点拒绝自动化请求，用浏览器访问通常正常。
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="pb-10">
+    <div class="container">
+        <div class="d-flex flex-wrap gap-3 align-items-center justify-content-between mb-4">
+            <div class="res-chip-row mb-0">
+                
+                <a class="res-chip" href="#core">
+                    <i class="fas fa-microchip"></i>内核、引导与构建
+                    <span style="opacity: .6;">8</span>
+                </a>
+                
+                <a class="res-chip" href="#vendor">
+                    <i class="fas fa-hard-drive"></i>开发板厂商资料中心
+                    <span style="opacity: .6;">8</span>
+                </a>
+                
+                <a class="res-chip" href="#community">
+                    <i class="fas fa-comments"></i>中文社区与论坛
+                    <span style="opacity: .6;">10</span>
+                </a>
+                
+                <a class="res-chip" href="#tutorial">
+                    <i class="fas fa-graduation-cap"></i>中文教学站与博客
+                    <span style="opacity: .6;">9</span>
+                </a>
+                
+                <a class="res-chip" href="#books">
+                    <i class="fas fa-book-open"></i>教程、开源书与文档
+                    <span style="opacity: .6;">9</span>
+                </a>
+                
+                <a class="res-chip" href="#tools">
+                    <i class="fas fa-toolbox"></i>镜像与常用工具
+                    <span style="opacity: .6;">6</span>
+                </a>
+                
+            </div>
+            <div class="input-group input-group-zouic" style="max-width: 420px;">
+                <input type="text" id="resSearch" class="form-control input-zouic"
+                       placeholder="搜索站点、用途或标签…" aria-label="搜索资源">
+                <button class="btn-zouic btn-zouic-ghost btn-zouic-sm" type="button" id="resClear" aria-label="清空">
+                    <i class="fas fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="res-empty" id="resEmpty">
+            没有匹配的站点。换个关键词试试，比如「内核」「STM32」「镜像」。
+        </div>
+
+        
+        <div class="res-group mb-8" id="core" data-group="core">
+            <div class="d-flex align-items-center gap-3 mb-2">
+                <h2 class="section-title text-2xl font-bold mb-0">
+                    <i class="fas fa-microchip me-2" style="opacity: .7;"></i>内核、引导与构建
+                </h2>
+                <span class="badge-zouic badge-zouic-secondary">Kernel / Bootloader / Buildroot / Distro</span>
+            </div>
+            <p class="text-secondary mb-4" style="max-width: 58rem;">从内核源码到根文件系统的主干工具链。做 BSP、裁剪系统、定位启动失败时，这几处是一手信息源，比二手教程可靠。</p>
+
+            <div class="row g-3">
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="Linux 内核官网 内核各分支（mainline / stable / longterm）的官方发布点，提供 tarball、changelog 与 git 仓库地址。动手移植前先在这里确认目标版本是否仍在长期维护。 Linux 内核 https://www.kernel.org/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://www.kernel.org/" target="_blank" rel="noopener noreferrer nofollow">Linux 内核官网
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.kernel.org</div>
+                        <div class="res-desc">内核各分支（mainline / stable / longterm）的官方发布点，提供 tarball、changelog 与 git 仓库地址。动手移植前先在这里确认目标版本是否仍在长期维护。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">Linux</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">内核</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="Linux 源码在线交叉索引 按版本、符号、文件三种维度检索内核源码，函数调用与结构体定义可一键跳转。读驱动时比在本地 grep 更快建立调用链。 源码阅读 驱动 https://elixir.bootlin.com/linux/latest/source">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://elixir.bootlin.com/linux/latest/source" target="_blank" rel="noopener noreferrer nofollow">Linux 源码在线交叉索引
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">elixir.bootlin.com</div>
+                        <div class="res-desc">按版本、符号、文件三种维度检索内核源码，函数调用与结构体定义可一键跳转。读驱动时比在本地 grep 更快建立调用链。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-warning">脚本受限</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">源码阅读</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">驱动</span>
+                            
+                        </div>
+                        
+                        <div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>有机器人校验，浏览器正常打开</div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="U-Boot 源码下载 DENX 维护的官方发布目录，按版本号排列 tar.bz2 与校验文件。板级移植时跟随 SoC 厂商 BSP 指定的版本，不要直接拿最新版。 Bootloader 移植 https://ftp.denx.de/pub/u-boot/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://ftp.denx.de/pub/u-boot/" target="_blank" rel="noopener noreferrer nofollow">U-Boot 源码下载
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">ftp.denx.de</div>
+                        <div class="res-desc">DENX 维护的官方发布目录，按版本号排列 tar.bz2 与校验文件。板级移植时跟随 SoC 厂商 BSP 指定的版本，不要直接拿最新版。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">Bootloader</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">移植</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="Buildroot 源码 各年度版本的源码包与 changelog。用它拉出交叉工具链和根文件系统，产物比 Yocto 轻，适合中小规模产品；定制深度要求高时再考虑 Yocto。 构建系统 根文件系统 https://buildroot.org/downloads/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://buildroot.org/downloads/" target="_blank" rel="noopener noreferrer nofollow">Buildroot 源码
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">buildroot.org</div>
+                        <div class="res-desc">各年度版本的源码包与 changelog。用它拉出交叉工具链和根文件系统，产物比 Yocto 轻，适合中小规模产品；定制深度要求高时再考虑 Yocto。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">构建系统</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">根文件系统</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="Debian 官网 稳定版与测试版的官方镜像入口，含 arm64 / armhf 的 netinst 安装器。需要长期稳定运行的设备端或基础镜像常从这里取。 发行版 https://www.debian.org/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://www.debian.org/" target="_blank" rel="noopener noreferrer nofollow">Debian 官网
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.debian.org</div>
+                        <div class="res-desc">稳定版与测试版的官方镜像入口，含 arm64 / armhf 的 netinst 安装器。需要长期稳定运行的设备端或基础镜像常从这里取。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">发行版</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="Ubuntu 官网 LTS 与过渡版本的发布页，服务器版、桌面版、云镜像分开提供。树莓派等 ARM 板卡另有专门镜像页，选型时注意 LTS 支持窗口。 发行版 https://ubuntu.com/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://ubuntu.com/" target="_blank" rel="noopener noreferrer nofollow">Ubuntu 官网
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">ubuntu.com</div>
+                        <div class="res-desc">LTS 与过渡版本的发布页，服务器版、桌面版、云镜像分开提供。树莓派等 ARM 板卡另有专门镜像页，选型时注意 LTS 支持窗口。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">发行版</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="GNU 项目官网 GCC、glibc、binutils、GDB、make 等基础工具的总入口，各项目手册与邮件列表在此索引。遇到工具链行为差异，查官方手册最准。 工具链 https://www.gnu.org/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://www.gnu.org/" target="_blank" rel="noopener noreferrer nofollow">GNU 项目官网
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.gnu.org</div>
+                        <div class="res-desc">GCC、glibc、binutils、GDB、make 等基础工具的总入口，各项目手册与邮件列表在此索引。遇到工具链行为差异，查官方手册最准。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">工具链</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="MicroPython 官方 官方固件下载与文档中心，按芯片端口分类，quickref 页列出各板可用模块。原清单指向的中文站已停更，以官方文档与 docs.micropython.org 为准。 MicroPython 固件 https://micropython.org/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://micropython.org/" target="_blank" rel="noopener noreferrer nofollow">MicroPython 官方
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">micropython.org</div>
+                        <div class="res-desc">官方固件下载与文档中心，按芯片端口分类，quickref 页列出各板可用模块。原清单指向的中文站已停更，以官方文档与 docs.micropython.org 为准。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-danger">入口已变更</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">MicroPython</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">固件</span>
+                            
+                        </div>
+                        
+                        <div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>原中文站 micropython.openioe.net 已无法解析</div>
+                        
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="res-group mb-8" id="vendor" data-group="vendor">
+            <div class="d-flex align-items-center gap-3 mb-2">
+                <h2 class="section-title text-2xl font-bold mb-0">
+                    <i class="fas fa-hard-drive me-2" style="opacity: .7;"></i>开发板厂商资料中心
+                </h2>
+                <span class="badge-zouic badge-zouic-secondary">Vendor Docs &amp; Examples</span>
+            </div>
+            <p class="text-secondary mb-4" style="max-width: 58rem;">国产开发板的资料大多由厂商自行分发，官方文档站的版本比网盘包新、比论坛帖全。拿到板子先按型号在这几处对齐 BSP 版本。</p>
+
+            <div class="row g-3">
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="百问网资料下载中心 韦东山团队的配套资料站，按课程与板卡（i.MX6ULL、STM32MP157、T113 等）归档源码、工具链与文档。跟课程学时按章节取对应资料包最省事。 i.MX6ULL STM32MP1 https://download.100ask.net/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://download.100ask.net/" target="_blank" rel="noopener noreferrer nofollow">百问网资料下载中心
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">download.100ask.net</div>
+                        <div class="res-desc">韦东山团队的配套资料站，按课程与板卡（i.MX6ULL、STM32MP157、T113 等）归档源码、工具链与文档。跟课程学时按章节取对应资料包最省事。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">i.MX6ULL</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">STM32MP1</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="野火资料下载中心 野火（EmbedFire）在线文档站，按板卡型号组织教程、例程与外设手册，可直接全文检索。比整包下载更容易定位到某一章的例程。 STM32 Linux https://doc.embedfire.com/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://doc.embedfire.com/" target="_blank" rel="noopener noreferrer nofollow">野火资料下载中心
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">doc.embedfire.com</div>
+                        <div class="res-desc">野火（EmbedFire）在线文档站，按板卡型号组织教程、例程与外设手册，可直接全文检索。比整包下载更容易定位到某一章的例程。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">STM32</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">Linux</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="正点原子资料下载中心 按 STM32 / i.MX6ULL / FPGA / Linux 分卷的资料总目录，含原理图、例程与视频配套文档。下载前核对板卡版本号，避免资料与硬件不符。 STM32 FPGA https://www.openedv.com/docs/index.html">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://www.openedv.com/docs/index.html" target="_blank" rel="noopener noreferrer nofollow">正点原子资料下载中心
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.openedv.com</div>
+                        <div class="res-desc">按 STM32 / i.MX6ULL / FPGA / Linux 分卷的资料总目录，含原理图、例程与视频配套文档。下载前核对板卡版本号，避免资料与硬件不符。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">STM32</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">FPGA</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="迅为电子官网 北京迅为（iTOP 系列）官网，产品页给出核心板规格、底板接口与 BSP 版本说明。做 i.MX6 / Exynos / RK 平台选型时可对比核心板尺寸与引脚定义。 i.MX6 核心板 http://www.topeetboard.com/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="http://www.topeetboard.com/" target="_blank" rel="noopener noreferrer nofollow">迅为电子官网
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.topeetboard.com</div>
+                        <div class="res-desc">北京迅为（iTOP 系列）官网，产品页给出核心板规格、底板接口与 BSP 版本说明。做 i.MX6 / Exynos / RK 平台选型时可对比核心板尺寸与引脚定义。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">i.MX6</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">核心板</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="小熊派实验例程 小熊派（BearPi）的例程仓库，覆盖 LiteOS、OpenHarmony 与常见外设驱动，每个目录都是能直接跑的最小工程。适合照着改第一版 bring-up 代码。 OpenHarmony LiteOS https://gitee.com/morixinguan/bear-pi">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://gitee.com/morixinguan/bear-pi" target="_blank" rel="noopener noreferrer nofollow">小熊派实验例程
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">gitee.com</div>
+                        <div class="res-desc">小熊派（BearPi）的例程仓库，覆盖 LiteOS、OpenHarmony 与常见外设驱动，每个目录都是能直接跑的最小工程。适合照着改第一版 bring-up 代码。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">OpenHarmony</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">LiteOS</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="荔枝派 Zero 指南 全志 V3s 平台的荔枝派 Zero 上手文档，从烧录、串口登录到主线内核编译都有分步记录。V3s 主线性好、成本低，是入门 Linux 板常选方案。 全志 V3s 主线内核 https://www.kancloud.cn/lichee/lpi0/317714">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://www.kancloud.cn/lichee/lpi0/317714" target="_blank" rel="noopener noreferrer nofollow">荔枝派 Zero 指南
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.kancloud.cn</div>
+                        <div class="res-desc">全志 V3s 平台的荔枝派 Zero 上手文档，从烧录、串口登录到主线内核编译都有分步记录。V3s 主线性好、成本低，是入门 Linux 板常选方案。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">全志 V3s</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">主线内核</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="电堂科技 面向 STM32 的中文教学站，内容偏外设实验与工程实践，配可下载的工程模板。从标准库转到 HAL 阶段、查具体外设配置时用得上。 STM32 外设 https://c.51diantang.com/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://c.51diantang.com/" target="_blank" rel="noopener noreferrer nofollow">电堂科技
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">c.51diantang.com</div>
+                        <div class="res-desc">面向 STM32 的中文教学站，内容偏外设实验与工程实践，配可下载的工程模板。从标准库转到 HAL 阶段、查具体外设配置时用得上。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">STM32</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">外设</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="KST-51 配套站点 青岛金思特官网，《手把手教你学 51 单片机》的配套资料出处，提供书中例程、开发板资料与工具下载。 51 单片机 教材配套 http://www.qdkingst.com/cn">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="http://www.qdkingst.com/cn" target="_blank" rel="noopener noreferrer nofollow">KST-51 配套站点
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.qdkingst.com</div>
+                        <div class="res-desc">青岛金思特官网，《手把手教你学 51 单片机》的配套资料出处，提供书中例程、开发板资料与工具下载。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">51 单片机</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">教材配套</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="res-group mb-8" id="community" data-group="community">
+            <div class="d-flex align-items-center gap-3 mb-2">
+                <h2 class="section-title text-2xl font-bold mb-0">
+                    <i class="fas fa-comments me-2" style="opacity: .7;"></i>中文社区与论坛
+                </h2>
+                <span class="badge-zouic badge-zouic-secondary">Forums &amp; Community</span>
+            </div>
+            <p class="text-secondary mb-4" style="max-width: 58rem;">板子跑不通例程时，答案大概率已经在这些论坛里。按板卡品牌找对应分区，比全网搜索命中率高得多。</p>
+
+            <div class="row g-3">
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="硬汉嵌入式论坛（安富莱） 安富莱 / 硬汉的官方论坛，STM32H7、RTOS、GUI 与仪器类板卡的实战帖集中，代码规范与工程实践讨论偏硬核。查 H7 外设时序、DMA 与 Cache 一致性问题时命中率高。 STM32H7 RTOS https://forum.anfulai.cn/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://forum.anfulai.cn/" target="_blank" rel="noopener noreferrer nofollow">硬汉嵌入式论坛（安富莱）
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">forum.anfulai.cn</div>
+                        <div class="res-desc">安富莱 / 硬汉的官方论坛，STM32H7、RTOS、GUI 与仪器类板卡的实战帖集中，代码规范与工程实践讨论偏硬核。查 H7 外设时序、DMA 与 Cache 一致性问题时命中率高。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">STM32H7</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">RTOS</span>
+                            
+                        </div>
+                        
+                        <div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>原域名 armbbs.cn 已跳转至此</div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="野火电子论坛 野火用户提问区，按板卡与模块分区，常见话题是外设初始化、时钟树配置、文件系统挂载。买板后例程跑不通，先按型号在这里搜。 STM32 Linux https://www.firebbs.cn/forum.php">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://www.firebbs.cn/forum.php" target="_blank" rel="noopener noreferrer nofollow">野火电子论坛
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.firebbs.cn</div>
+                        <div class="res-desc">野火用户提问区，按板卡与模块分区，常见话题是外设初始化、时钟树配置、文件系统挂载。买板后例程跑不通，先按型号在这里搜。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">STM32</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">Linux</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="正点原子论坛（开源电子网） 正点原子官方社区，STM32 / Linux / FPGA 分区齐全，帖子多带完整工程与波形截图。官方资料的勘误也常在这里先发布。 STM32 FPGA http://www.openedv.com/forum.php">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="http://www.openedv.com/forum.php" target="_blank" rel="noopener noreferrer nofollow">正点原子论坛（开源电子网）
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.openedv.com</div>
+                        <div class="res-desc">正点原子官方社区，STM32 / Linux / FPGA 分区齐全，帖子多带完整工程与波形截图。官方资料的勘误也常在这里先发布。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">STM32</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">FPGA</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="迅为 ARM 开发社区 迅为 iTOP 系列的技术支持论坛，BSP 更新、内核移植与安卓系统问题较多，官方会回帖。用其核心板做产品时是主要求助渠道。 ARM BSP http://bbs.topeetboard.com/forum.php">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="http://bbs.topeetboard.com/forum.php" target="_blank" rel="noopener noreferrer nofollow">迅为 ARM 开发社区
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">bbs.topeetboard.com</div>
+                        <div class="res-desc">迅为 iTOP 系列的技术支持论坛，BSP 更新、内核移植与安卓系统问题较多，官方会回帖。用其核心板做产品时是主要求助渠道。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">ARM</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">BSP</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="ST 中文社区 ST 官方中文社区，STM32 / STM8 的选型、固件库与 CubeMX 问题集中地。该域名近期访问不稳定，打不开时改用 ST 官网中文页或英文社区。 STM32 官方 https://www.stmcu.org.cn/module/forum/forum.php">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://www.stmcu.org.cn/module/forum/forum.php" target="_blank" rel="noopener noreferrer nofollow">ST 中文社区
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.stmcu.org.cn</div>
+                        <div class="res-desc">ST 官方中文社区，STM32 / STM8 的选型、固件库与 CubeMX 问题集中地。该域名近期访问不稳定，打不开时改用 ST 官网中文页或英文社区。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-warning">脚本受限</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">STM32</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">官方</span>
+                            
+                        </div>
+                        
+                        <div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>实测超时或重定向异常，可改用 community.st.com</div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="恩智浦技术社区 NXP 中文技术社区，i.MX、LPC、KW 系列的移植与量产问题讨论较多，原厂 FAE 会参与回复。做 i.MX RT 或 i.MX 8 系列时值得先搜一遍。 NXP i.MX https://www.nxpic.org.cn/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://www.nxpic.org.cn/" target="_blank" rel="noopener noreferrer nofollow">恩智浦技术社区
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.nxpic.org.cn</div>
+                        <div class="res-desc">NXP 中文技术社区，i.MX、LPC、KW 系列的移植与量产问题讨论较多，原厂 FAE 会参与回复。做 i.MX RT 或 i.MX 8 系列时值得先搜一遍。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">NXP</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">i.MX</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="芯路恒电子 / 小梅哥 FPGA 小梅哥（芯路恒）的 FPGA 教学与论坛，从 Verilog 语法到时序约束、SDRAM 控制器都有成套例程，配套板卡可直接跑。 FPGA Verilog http://www.corecourse.cn/forum.php">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="http://www.corecourse.cn/forum.php" target="_blank" rel="noopener noreferrer nofollow">芯路恒电子 / 小梅哥 FPGA
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.corecourse.cn</div>
+                        <div class="res-desc">小梅哥（芯路恒）的 FPGA 教学与论坛，从 Verilog 语法到时序约束、SDRAM 控制器都有成套例程，配套板卡可直接跑。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">FPGA</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">Verilog</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="创龙嵌入式开发者社区 创龙（Tronlong）用户社区，TI AM335x / AM57x、Xilinx Zynq 等平台的BSP 与工业应用帖较多。用其核心板做项目时，这里的资料常比官网更细。 TI Zynq http://www.51ele.net/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="http://www.51ele.net/" target="_blank" rel="noopener noreferrer nofollow">创龙嵌入式开发者社区
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.51ele.net</div>
+                        <div class="res-desc">创龙（Tronlong）用户社区，TI AM335x / AM57x、Xilinx Zynq 等平台的BSP 与工业应用帖较多。用其核心板做项目时，这里的资料常比官网更细。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">TI</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">Zynq</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="ChinaUnix 老牌 Unix / Linux 技术社区，内核、Shell、数据库与运维版块沉淀了大量长帖。查经典行为与历史坑，常能翻到十几年前的原始讨论。 Linux 运维 http://www.chinaunix.net/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="http://www.chinaunix.net/" target="_blank" rel="noopener noreferrer nofollow">ChinaUnix
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.chinaunix.net</div>
+                        <div class="res-desc">老牌 Unix / Linux 技术社区，内核、Shell、数据库与运维版块沉淀了大量长帖。查经典行为与历史坑，常能翻到十几年前的原始讨论。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">Linux</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">运维</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="21ic 电子网 国内电子行业门户，器件选型、行情资讯与工程师社区并存。查国产替代料、看行业动态或在论坛问电路设计问题时可用。 器件 行业 https://www.21ic.com/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://www.21ic.com/" target="_blank" rel="noopener noreferrer nofollow">21ic 电子网
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.21ic.com</div>
+                        <div class="res-desc">国内电子行业门户，器件选型、行情资讯与工程师社区并存。查国产替代料、看行业动态或在论坛问电路设计问题时可用。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">器件</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">行业</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="res-group mb-8" id="tutorial" data-group="tutorial">
+            <div class="d-flex align-items-center gap-3 mb-2">
+                <h2 class="section-title text-2xl font-bold mb-0">
+                    <i class="fas fa-graduation-cap me-2" style="opacity: .7;"></i>中文教学站与博客
+                </h2>
+                <span class="badge-zouic badge-zouic-secondary">Tutorials &amp; Blogs</span>
+            </div>
+            <p class="text-secondary mb-4" style="max-width: 58rem;">成体系的中文材料，适合按目录顺序读，而不是零散搜索。内核机制的深度分析尤其依赖这类长文。</p>
+
+            <div class="row g-3">
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="原子哥 正点原子旗下在线教学站，把板卡教程拆成可点播章节，覆盖 STM32、Linux 与 FPGA。适合按目录系统过一遍。 STM32 视频课 https://www.yuanzige.com/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://www.yuanzige.com/" target="_blank" rel="noopener noreferrer nofollow">原子哥
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.yuanzige.com</div>
+                        <div class="res-desc">正点原子旗下在线教学站，把板卡教程拆成可点播章节，覆盖 STM32、Linux 与 FPGA。适合按目录系统过一遍。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">STM32</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">视频课</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="宅学部落 专注嵌入式与 Linux 内核的中文教程站，C 语言、驱动模型、并发与内存管理都有成体系连载。文字密度高，适合当第二遍精读材料。 Linux 内核 C 语言 https://www.zhaixue.cc/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://www.zhaixue.cc/" target="_blank" rel="noopener noreferrer nofollow">宅学部落
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.zhaixue.cc</div>
+                        <div class="res-desc">专注嵌入式与 Linux 内核的中文教程站，C 语言、驱动模型、并发与内存管理都有成体系连载。文字密度高，适合当第二遍精读材料。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">Linux 内核</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">C 语言</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="单片机教程网 以 51、STM32、AVR 为主的教学与例程站，偏基础外设与课程设计题目，论坛里有不少学生项目的完整方案。做入门实验或找课设参考时好用。 51 STM32 http://www.51hei.com/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="http://www.51hei.com/" target="_blank" rel="noopener noreferrer nofollow">单片机教程网
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.51hei.com</div>
+                        <div class="res-desc">以 51、STM32、AVR 为主的教学与例程站，偏基础外设与课程设计题目，论坛里有不少学生项目的完整方案。做入门实验或找课设参考时好用。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">51</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">STM32</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="泰晓科技 泰晓科技技术博客，围绕 Linux 内核、实时性、RISC-V 与工具链写深度文章，同时维护 Linux Lab 等开源项目。想看中文的机制级分析可长期跟。 Linux RISC-V https://tinylab.org/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://tinylab.org/" target="_blank" rel="noopener noreferrer nofollow">泰晓科技
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">tinylab.org</div>
+                        <div class="res-desc">泰晓科技技术博客，围绕 Linux 内核、实时性、RISC-V 与工具链写深度文章，同时维护 Linux Lab 等开源项目。想看中文的机制级分析可长期跟。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">Linux</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">RISC-V</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="Linux Lab 嵌入式开发环境 用容器一键搭好内核 / 驱动开发与 QEMU 调试环境，省去手工配交叉工具链。想快速跑通一个可断点调试的内核实验环境时，从这里起步最快。 环境搭建 QEMU http://tinylab.org/using-linux-lab-to-do-embedded-linux-development/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="http://tinylab.org/using-linux-lab-to-do-embedded-linux-development/" target="_blank" rel="noopener noreferrer nofollow">Linux Lab 嵌入式开发环境
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">tinylab.org</div>
+                        <div class="res-desc">用容器一键搭好内核 / 驱动开发与 QEMU 调试环境，省去手工配交叉工具链。想快速跑通一个可断点调试的内核实验环境时，从这里起步最快。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">环境搭建</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">QEMU</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="Linux 内核之旅 以内核源码走读为主的中文站点，内存管理、进程调度、文件系统按模块成篇讲解，配流程图。适合配合源码逐章对照阅读。 内核 源码走读 http://www.kerneltravel.net/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="http://www.kerneltravel.net/" target="_blank" rel="noopener noreferrer nofollow">Linux 内核之旅
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.kerneltravel.net</div>
+                        <div class="res-desc">以内核源码走读为主的中文站点，内存管理、进程调度、文件系统按模块成篇讲解，配流程图。适合配合源码逐章对照阅读。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">内核</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">源码走读</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="蜗窝科技 Linux 内核子系统（时钟、电源管理、USB、显示）与 Android 底层的深度分析，文章长且带源码片段解读。查冷门子系统实现时价值很高。 内核子系统 Android http://www.wowotech.net/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="http://www.wowotech.net/" target="_blank" rel="noopener noreferrer nofollow">蜗窝科技
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.wowotech.net</div>
+                        <div class="res-desc">Linux 内核子系统（时钟、电源管理、USB、显示）与 Android 底层的深度分析，文章长且带源码片段解读。查冷门子系统实现时价值很高。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">内核子系统</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">Android</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="电子世家（电子导航） 电子类网址导航，把器件厂商、开发板、论坛与工具站按类别归拢。想快速建立某个细分方向的全貌时，先在这扫一遍比搜索引擎高效。 导航站 http://www.dianzishijia.com/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="http://www.dianzishijia.com/" target="_blank" rel="noopener noreferrer nofollow">电子世家（电子导航）
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.dianzishijia.com</div>
+                        <div class="res-desc">电子类网址导航，把器件厂商、开发板、论坛与工具站按类别归拢。想快速建立某个细分方向的全貌时，先在这扫一遍比搜索引擎高效。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">导航站</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="codingdict 类菜鸟教程式的编程教程站，覆盖多种语言与框架的入门语法，附在线示例。查某个 API 的最简用法够快，深入机制仍需回官方文档。 编程入门 https://codingdict.com/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://codingdict.com/" target="_blank" rel="noopener noreferrer nofollow">codingdict
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">codingdict.com</div>
+                        <div class="res-desc">类菜鸟教程式的编程教程站，覆盖多种语言与框架的入门语法，附在线示例。查某个 API 的最简用法够快，深入机制仍需回官方文档。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-warning">脚本受限</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">编程入门</span>
+                            
+                        </div>
+                        
+                        <div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>站点处于维护状态，部分页面可能打不开</div>
+                        
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="res-group mb-8" id="books" data-group="books">
+            <div class="d-flex align-items-center gap-3 mb-2">
+                <h2 class="section-title text-2xl font-bold mb-0">
+                    <i class="fas fa-book-open me-2" style="opacity: .7;"></i>教程、开源书与文档
+                </h2>
+                <span class="badge-zouic badge-zouic-secondary">Books &amp; References</span>
+            </div>
+            <p class="text-secondary mb-4" style="max-width: 58rem;">可以按章节读完的材料。中文开源书的优势是配套可运行实验，读完能直接落在自己机器上验证。</p>
+
+            <div class="row g-3">
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="Pro Git 中文版 Git 官方书的完整中文译本，从分支模型讲到服务器搭建与内部原理。前四章读完基本覆盖日常协作，遇到 rebase 冲突再回查对应章节。 Git 版本控制 https://git-scm.com/book/zh/v2">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener noreferrer nofollow">Pro Git 中文版
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">git-scm.com</div>
+                        <div class="res-desc">Git 官方书的完整中文译本，从分支模型讲到服务器搭建与内部原理。前四章读完基本覆盖日常协作，遇到 rebase 冲突再回查对应章节。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">Git</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">版本控制</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="Google 开源项目风格指南（中文版） Google 各语言编码规范的中文翻译，含 C++、Python、Java、Shell 的命名、注释与头文件约定。给团队定规范时可直接引用条目编号。 编码规范 https://zh-google-styleguide.readthedocs.io/en/latest">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://zh-google-styleguide.readthedocs.io/en/latest" target="_blank" rel="noopener noreferrer nofollow">Google 开源项目风格指南（中文版）
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">zh-google-styleguide.readthedocs.io</div>
+                        <div class="res-desc">Google 各语言编码规范的中文翻译，含 C++、Python、Java、Shell 的命名、注释与头文件约定。给团队定规范时可直接引用条目编号。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">编码规范</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="《C 语言编程透视》 泰晓科技出品的中文书，从编译、链接、装载到运行时逐层拆解 C 程序如何变成进程，配 gcc / objdump 实验。补编译链接这块底层认知的首选。 C 语言 编译链接 https://github.com/tinyclub/open-c-book">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://github.com/tinyclub/open-c-book" target="_blank" rel="noopener noreferrer nofollow">《C 语言编程透视》
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">github.com</div>
+                        <div class="res-desc">泰晓科技出品的中文书，从编译、链接、装载到运行时逐层拆解 C 程序如何变成进程，配 gcc / objdump 实验。补编译链接这块底层认知的首选。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-warning">脚本受限</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">C 语言</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">编译链接</span>
+                            
+                        </div>
+                        
+                        <div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>GitHub 直连偶发超时，可改用书栈网镜像阅读</div>
+                        
+                        
+                        <div class="res-mirror">
+                            <i class="fas fa-shuffle me-1"></i>替代入口：
+                            <a href="https://www.bookstack.cn/read/open-c-book/README.md" target="_blank" rel="noopener noreferrer nofollow">书栈网在线阅读</a>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="《Shell 编程范例》 同系列的 Shell 实战书，按任务组织（文本处理、进程控制、批量运维），每节给可运行脚本与解释。想理解写法而不只是查命令时看。 Shell 脚本 https://github.com/tinyclub/open-shell-book">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://github.com/tinyclub/open-shell-book" target="_blank" rel="noopener noreferrer nofollow">《Shell 编程范例》
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">github.com</div>
+                        <div class="res-desc">同系列的 Shell 实战书，按任务组织（文本处理、进程控制、批量运维），每节给可运行脚本与解释。想理解写法而不只是查命令时看。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-warning">脚本受限</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">Shell</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">脚本</span>
+                            
+                        </div>
+                        
+                        <div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>GitHub 直连偶发超时，可用书栈网镜像</div>
+                        
+                        
+                        <div class="res-mirror">
+                            <i class="fas fa-shuffle me-1"></i>替代入口：
+                            <a href="https://www.bookstack.cn/read/open-shell-book/README.md" target="_blank" rel="noopener noreferrer nofollow">书栈网在线阅读</a>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="《软件单元测试入门与实践》 致远电子出的单元测试入门材料（PDF），讲 C 语言项目如何搭测试框架、写断言与统计覆盖率。嵌入式项目想补测试环节时可作为起点。 单元测试 PDF https://www.zlg.cn/foxmail/weixinpdf/software_unit_test.pdf">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://www.zlg.cn/foxmail/weixinpdf/software_unit_test.pdf" target="_blank" rel="noopener noreferrer nofollow">《软件单元测试入门与实践》
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.zlg.cn</div>
+                        <div class="res-desc">致远电子出的单元测试入门材料（PDF），讲 C 语言项目如何搭测试框架、写断言与统计覆盖率。嵌入式项目想补测试环节时可作为起点。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">单元测试</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">PDF</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="PyQt5 教程 英文 PyQt5 上手教程，从窗口、布局、信号槽到打包发布按序推进，示例可直接运行。原清单中的中文教程站已无法访问，改用仍在维护的来源。 PyQt5 GUI https://www.pythonguis.com/pyqt5-tutorial/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://www.pythonguis.com/pyqt5-tutorial/" target="_blank" rel="noopener noreferrer nofollow">PyQt5 教程
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.pythonguis.com</div>
+                        <div class="res-desc">英文 PyQt5 上手教程，从窗口、布局、信号槽到打包发布按序推进，示例可直接运行。原清单中的中文教程站已无法访问，改用仍在维护的来源。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-danger">入口已变更</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">PyQt5</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">GUI</span>
+                            
+                        </div>
+                        
+                        <div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>原入口 code.py40.com 已无法连接</div>
+                        
+                        
+                        <div class="res-mirror">
+                            <i class="fas fa-shuffle me-1"></i>替代入口：
+                            <a href="https://zetcode.com/gui/pyqt5/" target="_blank" rel="noopener noreferrer nofollow">另一份仍在更新的教程（zetcode）</a>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="Qt 开源社区 qter 国内 Qt 社区，QML、嵌入式 Qt、交叉编译与打包问题讨论集中，也有教程与开源项目索引。做 Qt 上位机或嵌入式 GUI 时查交叉编译配置很有用。 Qt QML https://www.qter.org/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://www.qter.org/" target="_blank" rel="noopener noreferrer nofollow">Qt 开源社区 qter
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.qter.org</div>
+                        <div class="res-desc">国内 Qt 社区，QML、嵌入式 Qt、交叉编译与打包问题讨论集中，也有教程与开源项目索引。做 Qt 上位机或嵌入式 GUI 时查交叉编译配置很有用。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">Qt</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">QML</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="书栈网 BookStack 聚合开源技术书籍的在线阅读站，按语言与领域分类，可直接按章节读而不必 clone 仓库。需要快速浏览某本书的目录与内容时方便。 开源书 在线阅读 https://www.bookstack.cn/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://www.bookstack.cn/" target="_blank" rel="noopener noreferrer nofollow">书栈网 BookStack
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.bookstack.cn</div>
+                        <div class="res-desc">聚合开源技术书籍的在线阅读站，按语言与领域分类，可直接按章节读而不必 clone 仓库。需要快速浏览某本书的目录与内容时方便。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">开源书</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">在线阅读</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="CPP 代码示例聚合器 从大量开源项目中抽取函数调用示例并反查出处，输入类名或函数名即可看别人怎么用。读陌生库时比翻文档更快建立用法直觉。 代码示例 C++ https://www.hotexamples.com/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://www.hotexamples.com/" target="_blank" rel="noopener noreferrer nofollow">CPP 代码示例聚合器
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.hotexamples.com</div>
+                        <div class="res-desc">从大量开源项目中抽取函数调用示例并反查出处，输入类名或函数名即可看别人怎么用。读陌生库时比翻文档更快建立用法直觉。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-danger">入口已变更</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">代码示例</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">C++</span>
+                            
+                        </div>
+                        
+                        <div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>原 cpp.hotexamples.com 已下线，主站仍可用</div>
+                        
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="res-group mb-8" id="tools" data-group="tools">
+            <div class="d-flex align-items-center gap-3 mb-2">
+                <h2 class="section-title text-2xl font-bold mb-0">
+                    <i class="fas fa-toolbox me-2" style="opacity: .7;"></i>镜像与常用工具
+                </h2>
+                <span class="badge-zouic badge-zouic-secondary">Mirrors &amp; Tooling</span>
+            </div>
+            <p class="text-secondary mb-4" style="max-width: 58rem;">日常装机、抓包、连板子绕不开的几个入口。镜像站放在最前面，装系统或配包管理器时先换源能省掉大量等待。</p>
+
+            <div class="row g-3">
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="清华大学开源软件镜像站 国内最常用的镜像之一，覆盖发行版 ISO、apt / yum 源、PyPI、GitHub Release 与容器镜像。装系统或配包管理器时优先换成它。 镜像 apt https://mirrors.tuna.tsinghua.edu.cn/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer nofollow">清华大学开源软件镜像站
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">mirrors.tuna.tsinghua.edu.cn</div>
+                        <div class="res-desc">国内最常用的镜像之一，覆盖发行版 ISO、apt / yum 源、PyPI、GitHub Release 与容器镜像。装系统或配包管理器时优先换成它。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-warning">脚本受限</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">镜像</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">apt</span>
+                            
+                        </div>
+                        
+                        <div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>对脚本请求返回 403，浏览器正常访问</div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="中科大镜像站 USTC 镜像，同步范围与清华类似，部分源（Anaconda、Arch）更新更及时。清华源异常时可作为备份切换。 镜像 备份源 https://mirrors.ustc.edu.cn/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://mirrors.ustc.edu.cn/" target="_blank" rel="noopener noreferrer nofollow">中科大镜像站
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">mirrors.ustc.edu.cn</div>
+                        <div class="res-desc">USTC 镜像，同步范围与清华类似，部分源（Anaconda、Arch）更新更及时。清华源异常时可作为备份切换。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-warning">脚本受限</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">镜像</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">备份源</span>
+                            
+                        </div>
+                        
+                        <div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>对脚本请求返回 403，浏览器正常访问</div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="Wireshark 抓包与协议分析工具官方下载页，各平台安装包与源码都在此。调试网络协议、排查板卡通信异常时的必备工具。 抓包 协议 https://www.wireshark.org/#download">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://www.wireshark.org/#download" target="_blank" rel="noopener noreferrer nofollow">Wireshark
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.wireshark.org</div>
+                        <div class="res-desc">抓包与协议分析工具官方下载页，各平台安装包与源码都在此。调试网络协议、排查板卡通信异常时的必备工具。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">抓包</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">协议</span>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="MobaXterm Windows 下的终端工具箱，集成 SSH / SFTP、X11 转发、串口与多标签会话。同时看串口日志和传文件，用它一个就够。 串口 SSH https://mobaxterm.mobatek.net/download.html">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://mobaxterm.mobatek.net/download.html" target="_blank" rel="noopener noreferrer nofollow">MobaXterm
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">mobaxterm.mobatek.net</div>
+                        <div class="res-desc">Windows 下的终端工具箱，集成 SSH / SFTP、X11 转发、串口与多标签会话。同时看串口日志和传文件，用它一个就够。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-warning">脚本受限</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">串口</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">SSH</span>
+                            
+                        </div>
+                        
+                        <div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>下载页直连偶发 TLS 握手超时</div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="Stduino 面向 32 位 MCU 的图形化开发环境，接口风格接近 Arduino，底层走 HAL。教学场景出效果快，工程化项目仍建议回 CubeIDE / Keil。 IDE 教学 http://www.stduino.com/pindex.php">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="http://www.stduino.com/pindex.php" target="_blank" rel="noopener noreferrer nofollow">Stduino
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.stduino.com</div>
+                        <div class="res-desc">面向 32 位 MCU 的图形化开发环境，接口风格接近 Arduino，底层走 HAL。教学场景出效果快，工程化项目仍建议回 CubeIDE / Keil。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-warning">脚本受限</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">IDE</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">教学</span>
+                            
+                        </div>
+                        
+                        <div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>站点响应很慢，可能短时不可用</div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 res-item"
+                     data-search="iconfont 阿里巴巴矢量图标库 国内常用的免费图标与字体资源站，可按项目建库、批量下载 SVG / PNG，支持在线改色。原清单中的 easyicon 域名已失效，以 iconfont 替代。 图标 素材 https://www.iconfont.cn/">
+                    <div class="card-dark res-card">
+                        <h3>
+                            <a href="https://www.iconfont.cn/" target="_blank" rel="noopener noreferrer nofollow">iconfont 阿里巴巴矢量图标库
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="res-host">www.iconfont.cn</div>
+                        <div class="res-desc">国内常用的免费图标与字体资源站，可按项目建库、批量下载 SVG / PNG，支持在线改色。原清单中的 easyicon 域名已失效，以 iconfont 替代。</div>
+                        <div class="res-meta">
+                            
+                            <span class="badge-zouic badge-zouic-danger">入口已变更</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">图标</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">素材</span>
+                            
+                        </div>
+                        
+                        <div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>原 easyicon.net 已无法解析</div>
+                        
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="card-dark p-6 mt-6">
+            <h2 class="text-xl font-bold mb-3">关于这份清单</h2>
+            <ul class="text-secondary mb-0" style="font-size: .9375rem; line-height: 1.9; padding-left: 1.25rem;">
+                <li>入口以 2026-10-29 的实测结果为准，标注了四种状态：<strong>可直达</strong>（直连 200）、
+                    <strong>脚本受限</strong>（存在但拒绝自动化请求，浏览器可开）、<strong>入口已变更</strong>
+                    （原链接失效，已替换为仍可用的地址）。</li>
+                <li>失效的入口不做静默删除：「地瓜派 digoboy」在被收录时已跳转至无关的登录页，暂不提供链接；
+                    「easyicon」「code.py40.com」「cpp.hotexamples.com」「micropython.openioe.net」均已下线，
+                    分别以 iconfont、PythonGUIs / zetcode、hotexamples 主站、MicroPython 官方站替代，并在卡片上注明。</li>
+                <li>同一站点有多个入口的（例如野火的文档站与论坛、迅为的官网与社区）分开收录，因为用途不同。</li>
+                <li>如果你发现某个入口打不开了，可以在<a href="/contribute/">贡献指南</a>里反馈，核对后会更新这一页。</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<script>
+(function () {
+    var input = document.getElementById('resSearch');
+    var clearBtn = document.getElementById('resClear');
+    var empty = document.getElementById('resEmpty');
+    if (!input) return;
+    var items = Array.prototype.slice.call(document.querySelectorAll('.res-item'));
+    var groups = Array.prototype.slice.call(document.querySelectorAll('.res-group'));
+
+    function apply() {
+        var q = (input.value || '').trim().toLowerCase();
+        var shown = 0;
+        items.forEach(function (el) {
+            var hay = (el.getAttribute('data-search') || '').toLowerCase();
+            var hit = !q || hay.indexOf(q) !== -1;
+            el.hidden = !hit;
+            if (hit) shown++;
+        });
+        groups.forEach(function (g) {
+            var any = g.querySelectorAll('.res-item:not([hidden])').length > 0;
+            g.hidden = !any;
+        });
+        empty.style.display = shown === 0 ? 'block' : 'none';
+    }
+
+    input.addEventListener('input', apply);
+    if (clearBtn) {
+        clearBtn.addEventListener('click', function () {
+            input.value = '';
+            apply();
+            input.focus();
+        });
+    }
+})();
+</script>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Newsletter section (the home page already has a full follow block, so it is skipped there) -->
+    
+    <section id="follow" class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a>
+                        <div class="newsletter-benefits">
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="py-4" aria-label="出品人">
+        <div class="author-card">
+            <div class="author-card-info">
+                <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
+                <div>
+                    <div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div>
+                    <div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div>
+                </div>
+            </div>
+            <div class="author-card-actions">
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-zouic" role="contentinfo">
+        <div class="container">
+            <div class="row footer-main">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
+                    <a href="/" class="footer-brand" aria-label="ZouIC 首页">
+                        <i class="fas fa-microchip"></i>
+                        <span>ZouIC</span>
+                    </a>
+                    <p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p>
+
+                    <div class="footer-meta">
+                        <p class="footer-author">
+                            出品人 · <strong>极客微栋</strong>
+                            <span class="footer-author-handle">@GeekWaedon</span>
+                        </p>
+                        <div class="footer-slash-tags">
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span>
+                            <a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商">
+                                <i class="fab fa-weixin"></i> 企业微信服务商
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a>
+                        <a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a>
+                        <a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a>
+                        <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>产品</h5>
+                    <ul>
+                        <li><a href="/products/">产品介绍</a></li>
+                        <li><a href="/services/">服务说明</a></li>
+                        <li><a href="/services/website-building/">建站服务</a></li>
+                        <li><a href="/services/component-matching/">元器件撮合</a></li>
+                        <li><a href="/news/">站内动态</a></li>
+                        <li><a href="/boards/">开源开发板</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>资源</h5>
+                    <ul>
+                        <li><a href="/board-guide/">选型指南</a></li>
+                        <li><a href="/compare/">开发板对比</a></li>
+                        <li><a href="/tutorials/">开发板教程</a></li>
+                        <li><a href="/documentation/">技术文档</a></li>
+                        <li><a href="/cases/">项目案例</a></li>
+                        <li><a href="/help/">文档中心</a></li>
+                        <li><a href="/games/resistor/">色环电阻识别挑战</a></li>
+                        <li><a href="/dashuju/">数据大屏</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>开源生态</h5>
+                    <ul>
+                        <li><a href="/open-source/">开源项目</a></li>
+                        <li><a href="/all-projects/">全部项目</a></li>
+                        <li><a href="/articles/">技术文章</a></li>
+                        <li><a href="/wechat/">公众号专栏</a></li>
+                        <li><a href="/contribute/">贡献指南</a></li>
+                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h5>关于</h5>
+                    <ul>
+                        <li><a href="/about/">关于我们</a></li>
+                        <li><a href="/about/#contact">联系我们</a></li>
+                        <li><a href="/licenses/">开源协议</a></li>
+                        <li><a href="/about/#privacy">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-producer-bar">
+                <img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
+                <div style="line-height:1.6;">
+                    <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div>
+                    <div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ZouIC. All rights reserved.</p>
+                <p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p>
+                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    <script async src="https://zouic-monitor.ap-guangzhou.tencentscf.com/tracker.js" data-site="zouic" data-endpoint="https://zouic-monitor.ap-guangzhou.tencentscf.com/collect"></script>
+    
+    <img src="https://zouic-monitor.ap-guangzhou.tencentscf.com/pixel?path=/resources/" alt="" width="1" height="1" style="display:none" aria-hidden="true">
+    
+    
+</body>
+</html>
