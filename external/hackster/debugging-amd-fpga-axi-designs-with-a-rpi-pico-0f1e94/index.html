@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="「Debugging AMD FPGA AXI designs with a RPi Pico」是 ZouIC 收录的 Hackster.io fpga 开源项目：FPGA design use AXI networks, this can be a complex protocol to wor…。">
+    <meta name="description" content="「Debugging AMD FPGA AXI designs with a RPi Pico」是 ZouIC 收录的 Hackster.io fpga 开源项目：FPGA 设计离不开 AXI 网络，这套协议并不好调试——来看看如何用 UART 加树莓派 PICO 访问 AXI。查看技术栈、许可证与同类项目。">
     <meta name="keywords" content="Debugging AMD FPGA AXI designs with a RPi Pico,hackster,fpga,开源项目,开源硬件,开发板">
     
     <meta name="author" content="ZouIC">
@@ -32,7 +32,7 @@
     
     
     <meta property="og:title" content="Debugging AMD FPGA AXI designs with a RPi Pico · Hackster.io fpga 开源项目 | ZouIC">
-    <meta property="og:description" content="「Debugging AMD FPGA AXI designs with a RPi Pico」是 ZouIC 收录的 Hackster.io fpga 开源项目：FPGA design use AXI networks, this can be a complex protocol to wor…。">
+    <meta property="og:description" content="「Debugging AMD FPGA AXI designs with a RPi Pico」是 ZouIC 收录的 Hackster.io fpga 开源项目：FPGA 设计离不开 AXI 网络，这套协议并不好调试——来看看如何用 UART 加树莓派 PICO 访问 AXI。查看技术栈、许可证与同类项目。">
     <meta property="og:url" content="https://www.zouic.com/external/hackster/debugging-amd-fpga-axi-designs-with-a-rpi-pico-0f1e94/">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="zh_CN">
@@ -46,12 +46,12 @@
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Debugging AMD FPGA AXI designs with a RPi Pico · Hackster.io fpga 开源项目 | ZouIC">
-    <meta name="twitter:description" content="「Debugging AMD FPGA AXI designs with a RPi Pico」是 ZouIC 收录的 Hackster.io fpga 开源项目：FPGA design use AXI networks, this can be a complex protocol to wor…。">
+    <meta name="twitter:description" content="「Debugging AMD FPGA AXI designs with a RPi Pico」是 ZouIC 收录的 Hackster.io fpga 开源项目：FPGA 设计离不开 AXI 网络，这套协议并不好调试——来看看如何用 UART 加树莓派 PICO 访问 AXI。查看技术栈、许可证与同类项目。">
     <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     
     
     <script type="application/ld+json">
-        {"@context": "https://schema.org", "@graph": [{"@type": "CreativeWork", "author": {"@type": "Person", "name": "Adam Taylor", "url": "https://www.hackster.io/adam-taylor"}, "dateModified": "2023-02-05T19:17:38+00:00", "datePublished": "2023-02-06T09:18:29+00:00", "description": "FPGA design use AXI networks, this can be a complex protocol to work with. Lets look at how you can access AXI using a UART and RPi PICO", "image": "https://hackster.imgix.net/uploads/attachments/1552851/_tJgPnMunGG.blob?auto=compress%2Cformat", "inLanguage": "zh-CN", "isPartOf": {"@type": "CollectionPage", "name": "fpga", "url": "https://www.zouic.com/category/fpga/"}, "keywords": "AMD Xilinx, tutorial, intermediate", "mainEntityOfPage": {"@id": "https://www.zouic.com/external/hackster/debugging-amd-fpga-axi-designs-with-a-rpi-pico-0f1e94/", "@type": "WebPage"}, "name": "Debugging AMD FPGA AXI designs with a RPi Pico", "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/external/hackster/debugging-amd-fpga-axi-designs-with-a-rpi-pico-0f1e94/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/all-projects", "name": "\u5f00\u6e90\u9879\u76ee", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/category/fpga/", "name": "fpga", "position": 3}, {"@type": "ListItem", "item": "https://www.zouic.com/external/hackster/debugging-amd-fpga-axi-designs-with-a-rpi-pico-0f1e94/", "name": "Debugging AMD FPGA AXI designs with a RPi Pico", "position": 4}]}]}
+        {"@context": "https://schema.org", "@graph": [{"@type": "CreativeWork", "author": {"@type": "Person", "name": "Adam Taylor", "url": "https://www.hackster.io/adam-taylor"}, "dateModified": "2023-02-05T19:17:38+00:00", "datePublished": "2023-02-06T09:18:29+00:00", "description": "FPGA \u8bbe\u8ba1\u79bb\u4e0d\u5f00 AXI \u7f51\u7edc\uff0c\u8fd9\u5957\u534f\u8bae\u5e76\u4e0d\u597d\u8c03\u8bd5\u2014\u2014\u6765\u770b\u770b\u5982\u4f55\u7528 UART \u52a0\u6811\u8393\u6d3e PICO \u8bbf\u95ee AXI\u3002", "image": "https://hackster.imgix.net/uploads/attachments/1552851/_tJgPnMunGG.blob?auto=compress%2Cformat", "inLanguage": "zh-CN", "isPartOf": {"@type": "CollectionPage", "name": "fpga", "url": "https://www.zouic.com/category/fpga/"}, "keywords": "AMD Xilinx, tutorial, intermediate", "mainEntityOfPage": {"@id": "https://www.zouic.com/external/hackster/debugging-amd-fpga-axi-designs-with-a-rpi-pico-0f1e94/", "@type": "WebPage"}, "name": "Debugging AMD FPGA AXI designs with a RPi Pico", "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/external/hackster/debugging-amd-fpga-axi-designs-with-a-rpi-pico-0f1e94/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/all-projects", "name": "\u5f00\u6e90\u9879\u76ee", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/category/fpga/", "name": "fpga", "position": 3}, {"@type": "ListItem", "item": "https://www.zouic.com/external/hackster/debugging-amd-fpga-axi-designs-with-a-rpi-pico-0f1e94/", "name": "Debugging AMD FPGA AXI designs with a RPi Pico", "position": 4}]}]}
     </script>
     
     
@@ -252,7 +252,7 @@
                 
                 
 
-                <p class="text-lg mb-6">FPGA design use AXI networks, this can be a complex protocol to work with. Lets look at how you can access AXI using a UART and RPi PICO</p>
+                <p class="text-lg mb-6">FPGA 设计离不开 AXI 网络，这套协议并不好调试——来看看如何用 UART 加树莓派 PICO 访问 AXI。</p>
 
                 
                 

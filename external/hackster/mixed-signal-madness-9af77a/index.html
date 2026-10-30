@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="「Mixed Signal Madness」是 ZouIC 收录的 Hackster.io general 开源项目：We can generate analogue waveforms using digital IO and a Low Pass Fil…。查看技术栈、许可证与同类项目。">
+    <meta name="description" content="「Mixed Signal Madness」是 ZouIC 收录的 Hackster.io general 开源项目：用数字 IO 加低通滤波器就能产生模拟波形——本文看看具体怎么做。查看技术栈、许可证与同类项目。">
     <meta name="keywords" content="Mixed Signal Madness,hackster,general,开源项目,开源硬件,开发板">
     
     <meta name="author" content="ZouIC">
@@ -32,7 +32,7 @@
     
     
     <meta property="og:title" content="Mixed Signal Madness · Hackster.io general 开源项目 | ZouIC">
-    <meta property="og:description" content="「Mixed Signal Madness」是 ZouIC 收录的 Hackster.io general 开源项目：We can generate analogue waveforms using digital IO and a Low Pass Fil…。查看技术栈、许可证与同类项目。">
+    <meta property="og:description" content="「Mixed Signal Madness」是 ZouIC 收录的 Hackster.io general 开源项目：用数字 IO 加低通滤波器就能产生模拟波形——本文看看具体怎么做。查看技术栈、许可证与同类项目。">
     <meta property="og:url" content="https://www.zouic.com/external/hackster/mixed-signal-madness-9af77a/">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="zh_CN">
@@ -46,12 +46,12 @@
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Mixed Signal Madness · Hackster.io general 开源项目 | ZouIC">
-    <meta name="twitter:description" content="「Mixed Signal Madness」是 ZouIC 收录的 Hackster.io general 开源项目：We can generate analogue waveforms using digital IO and a Low Pass Fil…。查看技术栈、许可证与同类项目。">
+    <meta name="twitter:description" content="「Mixed Signal Madness」是 ZouIC 收录的 Hackster.io general 开源项目：用数字 IO 加低通滤波器就能产生模拟波形——本文看看具体怎么做。查看技术栈、许可证与同类项目。">
     <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     
     
     <script type="application/ld+json">
-        {"@context": "https://schema.org", "@graph": [{"@type": "CreativeWork", "author": {"@type": "Person", "name": "Adam Taylor", "url": "https://www.hackster.io/adam-taylor"}, "dateModified": "2024-06-30T19:05:14+00:00", "datePublished": "2024-07-15T08:31:18+00:00", "description": "We can generate analogue waveforms using digital IO and a Low Pass Filter lets take a look at how we can do that", "image": "https://hackster.imgix.net/uploads/attachments/1733376/_WrlM1UZWhg.blob?auto=compress%2Cformat", "inLanguage": "zh-CN", "isPartOf": {"@type": "CollectionPage", "name": "general", "url": "https://www.zouic.com/category/general/"}, "keywords": "AMD Xilinx, tutorial, beginner", "mainEntityOfPage": {"@id": "https://www.zouic.com/external/hackster/mixed-signal-madness-9af77a/", "@type": "WebPage"}, "name": "Mixed Signal Madness", "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/external/hackster/mixed-signal-madness-9af77a/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/all-projects", "name": "\u5f00\u6e90\u9879\u76ee", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/category/general/", "name": "general", "position": 3}, {"@type": "ListItem", "item": "https://www.zouic.com/external/hackster/mixed-signal-madness-9af77a/", "name": "Mixed Signal Madness", "position": 4}]}]}
+        {"@context": "https://schema.org", "@graph": [{"@type": "CreativeWork", "author": {"@type": "Person", "name": "Adam Taylor", "url": "https://www.hackster.io/adam-taylor"}, "dateModified": "2024-06-30T19:05:14+00:00", "datePublished": "2024-07-15T08:31:18+00:00", "description": "\u7528\u6570\u5b57 IO \u52a0\u4f4e\u901a\u6ee4\u6ce2\u5668\u5c31\u80fd\u4ea7\u751f\u6a21\u62df\u6ce2\u5f62\u2014\u2014\u672c\u6587\u770b\u770b\u5177\u4f53\u600e\u4e48\u505a\u3002", "image": "https://hackster.imgix.net/uploads/attachments/1733376/_WrlM1UZWhg.blob?auto=compress%2Cformat", "inLanguage": "zh-CN", "isPartOf": {"@type": "CollectionPage", "name": "general", "url": "https://www.zouic.com/category/general/"}, "keywords": "AMD Xilinx, tutorial, beginner", "mainEntityOfPage": {"@id": "https://www.zouic.com/external/hackster/mixed-signal-madness-9af77a/", "@type": "WebPage"}, "name": "Mixed Signal Madness", "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/external/hackster/mixed-signal-madness-9af77a/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/all-projects", "name": "\u5f00\u6e90\u9879\u76ee", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/category/general/", "name": "general", "position": 3}, {"@type": "ListItem", "item": "https://www.zouic.com/external/hackster/mixed-signal-madness-9af77a/", "name": "Mixed Signal Madness", "position": 4}]}]}
     </script>
     
     
@@ -252,7 +252,7 @@
                 
                 
 
-                <p class="text-lg mb-6">We can generate analogue waveforms using digital IO and a Low Pass Filter lets take a look at how we can do that</p>
+                <p class="text-lg mb-6">用数字 IO 加低通滤波器就能产生模拟波形——本文看看具体怎么做。</p>
 
                 
                 

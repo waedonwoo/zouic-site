@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="「Verifying VHDL」是 ZouIC 收录的 Hackster.io fpga 开源项目：When working with FPGA, before we put the design on hardware we need t…。查看技术栈、许可证与同类项目。">
+    <meta name="description" content="「Verifying VHDL」是 ZouIC 收录的 Hackster.io fpga 开源项目：FPGA 设计在上板之前必须先做验证——本文看看具体怎么做。查看技术栈、许可证与同类项目。">
     <meta name="keywords" content="Verifying VHDL,hackster,fpga,开源项目,开源硬件,开发板">
     
     <meta name="author" content="ZouIC">
@@ -32,7 +32,7 @@
     
     
     <meta property="og:title" content="Verifying VHDL · Hackster.io fpga 开源项目 | ZouIC">
-    <meta property="og:description" content="「Verifying VHDL」是 ZouIC 收录的 Hackster.io fpga 开源项目：When working with FPGA, before we put the design on hardware we need t…。查看技术栈、许可证与同类项目。">
+    <meta property="og:description" content="「Verifying VHDL」是 ZouIC 收录的 Hackster.io fpga 开源项目：FPGA 设计在上板之前必须先做验证——本文看看具体怎么做。查看技术栈、许可证与同类项目。">
     <meta property="og:url" content="https://www.zouic.com/external/hackster/verifying-vhdl-da9a93/">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="zh_CN">
@@ -46,12 +46,12 @@
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Verifying VHDL · Hackster.io fpga 开源项目 | ZouIC">
-    <meta name="twitter:description" content="「Verifying VHDL」是 ZouIC 收录的 Hackster.io fpga 开源项目：When working with FPGA, before we put the design on hardware we need t…。查看技术栈、许可证与同类项目。">
+    <meta name="twitter:description" content="「Verifying VHDL」是 ZouIC 收录的 Hackster.io fpga 开源项目：FPGA 设计在上板之前必须先做验证——本文看看具体怎么做。查看技术栈、许可证与同类项目。">
     <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     
     
     <script type="application/ld+json">
-        {"@context": "https://schema.org", "@graph": [{"@type": "CreativeWork", "author": {"@type": "Person", "name": "Adam Taylor", "url": "https://www.hackster.io/adam-taylor"}, "dateModified": "2025-01-25T08:55:29+00:00", "datePublished": "2025-01-27T08:33:59+00:00", "description": "When working with FPGA, before we put the design on hardware we need to be able to verify it lets take a look at how we can do this.", "image": "https://hackster.imgix.net/uploads/attachments/1814670/_Odg4556Z2y.blob?auto=compress%2Cformat", "inLanguage": "zh-CN", "isPartOf": {"@type": "CollectionPage", "name": "fpga", "url": "https://www.zouic.com/category/fpga/"}, "keywords": "AMD Xilinx, tutorial, intermediate", "mainEntityOfPage": {"@id": "https://www.zouic.com/external/hackster/verifying-vhdl-da9a93/", "@type": "WebPage"}, "name": "Verifying VHDL", "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/external/hackster/verifying-vhdl-da9a93/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/all-projects", "name": "\u5f00\u6e90\u9879\u76ee", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/category/fpga/", "name": "fpga", "position": 3}, {"@type": "ListItem", "item": "https://www.zouic.com/external/hackster/verifying-vhdl-da9a93/", "name": "Verifying VHDL", "position": 4}]}]}
+        {"@context": "https://schema.org", "@graph": [{"@type": "CreativeWork", "author": {"@type": "Person", "name": "Adam Taylor", "url": "https://www.hackster.io/adam-taylor"}, "dateModified": "2025-01-25T08:55:29+00:00", "datePublished": "2025-01-27T08:33:59+00:00", "description": "FPGA \u8bbe\u8ba1\u5728\u4e0a\u677f\u4e4b\u524d\u5fc5\u987b\u5148\u505a\u9a8c\u8bc1\u2014\u2014\u672c\u6587\u770b\u770b\u5177\u4f53\u600e\u4e48\u505a\u3002", "image": "https://hackster.imgix.net/uploads/attachments/1814670/_Odg4556Z2y.blob?auto=compress%2Cformat", "inLanguage": "zh-CN", "isPartOf": {"@type": "CollectionPage", "name": "fpga", "url": "https://www.zouic.com/category/fpga/"}, "keywords": "AMD Xilinx, tutorial, intermediate", "mainEntityOfPage": {"@id": "https://www.zouic.com/external/hackster/verifying-vhdl-da9a93/", "@type": "WebPage"}, "name": "Verifying VHDL", "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/external/hackster/verifying-vhdl-da9a93/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/all-projects", "name": "\u5f00\u6e90\u9879\u76ee", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/category/fpga/", "name": "fpga", "position": 3}, {"@type": "ListItem", "item": "https://www.zouic.com/external/hackster/verifying-vhdl-da9a93/", "name": "Verifying VHDL", "position": 4}]}]}
     </script>
     
     
@@ -252,7 +252,7 @@
                 
                 
 
-                <p class="text-lg mb-6">When working with FPGA, before we put the design on hardware we need to be able to verify it lets take a look at how we can do this.</p>
+                <p class="text-lg mb-6">FPGA 设计在上板之前必须先做验证——本文看看具体怎么做。</p>
 
                 
                 

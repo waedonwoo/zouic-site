@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="「Vitis-AI DPU-TRD for 2024.x with VIVADO and Kria/MPSoC」是 ZouIC 收录的 Hackster.io fpga 开源项目：This article is on general steps and methods for creating t…。">
+    <meta name="description" content="「Vitis-AI DPU-TRD for 2024.x with VIVADO and Kria/MPSoC」是 ZouIC 收录的 Hackster.io fpga 开源项目：本文讲 2024.x 工具下为 Kria 或 MPSoC 创建带 DPU 的 Vitis AI 使能工程的通用步骤与方法。">
     <meta name="keywords" content="Vitis-AI DPU-TRD for 2024.x with VIVADO and Kria/MPSoC,hackster,fpga,开源项目,开源硬件,开发板">
     
     <meta name="author" content="ZouIC">
@@ -32,7 +32,7 @@
     
     
     <meta property="og:title" content="Vitis-AI DPU-TRD for 2024.x with VIVADO and Kria/MPSoC · Hackster.io fpga 开源项目 | ZouIC">
-    <meta property="og:description" content="「Vitis-AI DPU-TRD for 2024.x with VIVADO and Kria/MPSoC」是 ZouIC 收录的 Hackster.io fpga 开源项目：This article is on general steps and methods for creating t…。">
+    <meta property="og:description" content="「Vitis-AI DPU-TRD for 2024.x with VIVADO and Kria/MPSoC」是 ZouIC 收录的 Hackster.io fpga 开源项目：本文讲 2024.x 工具下为 Kria 或 MPSoC 创建带 DPU 的 Vitis AI 使能工程的通用步骤与方法。">
     <meta property="og:url" content="https://www.zouic.com/external/hackster/vitis-ai-dpu-trd-for-2024-x-with-vivado-and-kria-mpsoc-703403/">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="zh_CN">
@@ -46,12 +46,12 @@
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Vitis-AI DPU-TRD for 2024.x with VIVADO and Kria/MPSoC · Hackster.io fpga 开源项目 | ZouIC">
-    <meta name="twitter:description" content="「Vitis-AI DPU-TRD for 2024.x with VIVADO and Kria/MPSoC」是 ZouIC 收录的 Hackster.io fpga 开源项目：This article is on general steps and methods for creating t…。">
+    <meta name="twitter:description" content="「Vitis-AI DPU-TRD for 2024.x with VIVADO and Kria/MPSoC」是 ZouIC 收录的 Hackster.io fpga 开源项目：本文讲 2024.x 工具下为 Kria 或 MPSoC 创建带 DPU 的 Vitis AI 使能工程的通用步骤与方法。">
     <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     
     
     <script type="application/ld+json">
-        {"@context": "https://schema.org", "@graph": [{"@type": "CreativeWork", "author": {"@type": "Person", "name": "LogicTronix [FPGA Design + Machine Learning Company]", "url": "https://www.hackster.io/LogicTronix"}, "dateModified": "2025-05-13T13:20:11+00:00", "datePublished": "2025-05-13T14:00:41+00:00", "description": "This article is on general steps and methods for creating the Vitis AI enablement project with DPU design in 2024.x tool for Kria or MPSoC.", "image": "https://hackster.imgix.net/uploads/attachments/1848133/_9B7N5ViJw7.blob?auto=compress%2Cformat", "inLanguage": "zh-CN", "isPartOf": {"@type": "CollectionPage", "name": "fpga", "url": "https://www.zouic.com/category/fpga/"}, "keywords": "AMD Xilinx, tutorial, intermediate", "mainEntityOfPage": {"@id": "https://www.zouic.com/external/hackster/vitis-ai-dpu-trd-for-2024-x-with-vivado-and-kria-mpsoc-703403/", "@type": "WebPage"}, "name": "Vitis-AI DPU-TRD for 2024.x with VIVADO and Kria/MPSoC", "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/external/hackster/vitis-ai-dpu-trd-for-2024-x-with-vivado-and-kria-mpsoc-703403/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/all-projects", "name": "\u5f00\u6e90\u9879\u76ee", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/category/fpga/", "name": "fpga", "position": 3}, {"@type": "ListItem", "item": "https://www.zouic.com/external/hackster/vitis-ai-dpu-trd-for-2024-x-with-vivado-and-kria-mpsoc-703403/", "name": "Vitis-AI DPU-TRD for 2024.x with VIVADO and Kria/MPSoC", "position": 4}]}]}
+        {"@context": "https://schema.org", "@graph": [{"@type": "CreativeWork", "author": {"@type": "Person", "name": "LogicTronix [FPGA Design + Machine Learning Company]", "url": "https://www.hackster.io/LogicTronix"}, "dateModified": "2025-05-13T13:20:11+00:00", "datePublished": "2025-05-13T14:00:41+00:00", "description": "\u672c\u6587\u8bb2 2024.x \u5de5\u5177\u4e0b\u4e3a Kria \u6216 MPSoC \u521b\u5efa\u5e26 DPU \u7684 Vitis AI \u4f7f\u80fd\u5de5\u7a0b\u7684\u901a\u7528\u6b65\u9aa4\u4e0e\u65b9\u6cd5\u3002", "image": "https://hackster.imgix.net/uploads/attachments/1848133/_9B7N5ViJw7.blob?auto=compress%2Cformat", "inLanguage": "zh-CN", "isPartOf": {"@type": "CollectionPage", "name": "fpga", "url": "https://www.zouic.com/category/fpga/"}, "keywords": "AMD Xilinx, tutorial, intermediate", "mainEntityOfPage": {"@id": "https://www.zouic.com/external/hackster/vitis-ai-dpu-trd-for-2024-x-with-vivado-and-kria-mpsoc-703403/", "@type": "WebPage"}, "name": "Vitis-AI DPU-TRD for 2024.x with VIVADO and Kria/MPSoC", "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/external/hackster/vitis-ai-dpu-trd-for-2024-x-with-vivado-and-kria-mpsoc-703403/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/all-projects", "name": "\u5f00\u6e90\u9879\u76ee", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/category/fpga/", "name": "fpga", "position": 3}, {"@type": "ListItem", "item": "https://www.zouic.com/external/hackster/vitis-ai-dpu-trd-for-2024-x-with-vivado-and-kria-mpsoc-703403/", "name": "Vitis-AI DPU-TRD for 2024.x with VIVADO and Kria/MPSoC", "position": 4}]}]}
     </script>
     
     
@@ -252,7 +252,7 @@
                 
                 
 
-                <p class="text-lg mb-6">This article is on general steps and methods for creating the Vitis AI enablement project with DPU design in 2024.x tool for Kria or MPSoC.</p>
+                <p class="text-lg mb-6">本文讲 2024.x 工具下为 Kria 或 MPSoC 创建带 DPU 的 Vitis AI 使能工程的通用步骤与方法。</p>
 
                 
                 

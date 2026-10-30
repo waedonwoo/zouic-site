@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="「Understanding FIR Filters with PYNQ」是 ZouIC 收录的 Hackster.io fpga 开源项目：Filters are a key element of FPGA based solutions lets look at how we…。查看技术栈、许可证与同类项目。">
+    <meta name="description" content="「Understanding FIR Filters with PYNQ」是 ZouIC 收录的 Hackster.io fpga 开源项目：滤波器是 FPGA 方案的关键组成——本文看看如何创建 FIR 滤波器并在 PYNQ 中与它交互。查看技术栈、许可证与同类项目。">
     <meta name="keywords" content="Understanding FIR Filters with PYNQ,hackster,fpga,开源项目,开源硬件,开发板">
     
     <meta name="author" content="ZouIC">
@@ -32,7 +32,7 @@
     
     
     <meta property="og:title" content="Understanding FIR Filters with PYNQ · Hackster.io fpga 开源项目 | ZouIC">
-    <meta property="og:description" content="「Understanding FIR Filters with PYNQ」是 ZouIC 收录的 Hackster.io fpga 开源项目：Filters are a key element of FPGA based solutions lets look at how we…。查看技术栈、许可证与同类项目。">
+    <meta property="og:description" content="「Understanding FIR Filters with PYNQ」是 ZouIC 收录的 Hackster.io fpga 开源项目：滤波器是 FPGA 方案的关键组成——本文看看如何创建 FIR 滤波器并在 PYNQ 中与它交互。查看技术栈、许可证与同类项目。">
     <meta property="og:url" content="https://www.zouic.com/external/hackster/understanding-fir-filters-with-pynq-33395e/">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="zh_CN">
@@ -46,12 +46,12 @@
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Understanding FIR Filters with PYNQ · Hackster.io fpga 开源项目 | ZouIC">
-    <meta name="twitter:description" content="「Understanding FIR Filters with PYNQ」是 ZouIC 收录的 Hackster.io fpga 开源项目：Filters are a key element of FPGA based solutions lets look at how we…。查看技术栈、许可证与同类项目。">
+    <meta name="twitter:description" content="「Understanding FIR Filters with PYNQ」是 ZouIC 收录的 Hackster.io fpga 开源项目：滤波器是 FPGA 方案的关键组成——本文看看如何创建 FIR 滤波器并在 PYNQ 中与它交互。查看技术栈、许可证与同类项目。">
     <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     
     
     <script type="application/ld+json">
-        {"@context": "https://schema.org", "@graph": [{"@type": "CreativeWork", "author": {"@type": "Person", "name": "Adam Taylor", "url": "https://www.hackster.io/adam-taylor"}, "dateModified": "2024-03-02T14:00:00+00:00", "datePublished": "2024-03-04T10:24:28+00:00", "description": "Filters are a key element of FPGA based solutions lets look at how we can create a FIR filter and interact with it in PYNQ!", "image": "https://hackster.imgix.net/uploads/attachments/1690061/_qbrq37jUBA.blob?auto=compress%2Cformat", "inLanguage": "zh-CN", "isPartOf": {"@type": "CollectionPage", "name": "fpga", "url": "https://www.zouic.com/category/fpga/"}, "keywords": "AMD Xilinx, tutorial, beginner", "mainEntityOfPage": {"@id": "https://www.zouic.com/external/hackster/understanding-fir-filters-with-pynq-33395e/", "@type": "WebPage"}, "name": "Understanding FIR Filters with PYNQ", "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/external/hackster/understanding-fir-filters-with-pynq-33395e/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/all-projects", "name": "\u5f00\u6e90\u9879\u76ee", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/category/fpga/", "name": "fpga", "position": 3}, {"@type": "ListItem", "item": "https://www.zouic.com/external/hackster/understanding-fir-filters-with-pynq-33395e/", "name": "Understanding FIR Filters with PYNQ", "position": 4}]}]}
+        {"@context": "https://schema.org", "@graph": [{"@type": "CreativeWork", "author": {"@type": "Person", "name": "Adam Taylor", "url": "https://www.hackster.io/adam-taylor"}, "dateModified": "2024-03-02T14:00:00+00:00", "datePublished": "2024-03-04T10:24:28+00:00", "description": "\u6ee4\u6ce2\u5668\u662f FPGA \u65b9\u6848\u7684\u5173\u952e\u7ec4\u6210\u2014\u2014\u672c\u6587\u770b\u770b\u5982\u4f55\u521b\u5efa FIR \u6ee4\u6ce2\u5668\u5e76\u5728 PYNQ \u4e2d\u4e0e\u5b83\u4ea4\u4e92\u3002", "image": "https://hackster.imgix.net/uploads/attachments/1690061/_qbrq37jUBA.blob?auto=compress%2Cformat", "inLanguage": "zh-CN", "isPartOf": {"@type": "CollectionPage", "name": "fpga", "url": "https://www.zouic.com/category/fpga/"}, "keywords": "AMD Xilinx, tutorial, beginner", "mainEntityOfPage": {"@id": "https://www.zouic.com/external/hackster/understanding-fir-filters-with-pynq-33395e/", "@type": "WebPage"}, "name": "Understanding FIR Filters with PYNQ", "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/external/hackster/understanding-fir-filters-with-pynq-33395e/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/all-projects", "name": "\u5f00\u6e90\u9879\u76ee", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/category/fpga/", "name": "fpga", "position": 3}, {"@type": "ListItem", "item": "https://www.zouic.com/external/hackster/understanding-fir-filters-with-pynq-33395e/", "name": "Understanding FIR Filters with PYNQ", "position": 4}]}]}
     </script>
     
     
@@ -252,7 +252,7 @@
                 
                 
 
-                <p class="text-lg mb-6">Filters are a key element of FPGA based solutions lets look at how we can create a FIR filter and interact with it in PYNQ!</p>
+                <p class="text-lg mb-6">滤波器是 FPGA 方案的关键组成——本文看看如何创建 FIR 滤波器并在 PYNQ 中与它交互。</p>
 
                 
                 
