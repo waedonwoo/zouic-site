@@ -272,7 +272,7 @@
 
             <!-- 站点健康 -->
             <section class="dash-panel dash-col-6">
-                <div class="dash-panel-head"><h2 class="dash-panel-title">SEO / GEO 站点健康</h2><span class="dash-panel-meta">每日 10:00 自动巡检</span></div>
+                <div class="dash-panel-head"><h2 class="dash-panel-title">SEO / GEO 站点健康</h2><span class="dash-panel-meta">大屏自动巡检 · 约 6 小时一次</span></div>
                 <div class="dash-health-grid" id="healthGrid"><span class="dash-empty">加载中…</span></div>
                 <p class="dash-hint">llms.txt 是 AI 搜索引擎（GEO）的内容入口；sitemap.xml 决定传统搜索引擎收录。</p>
             </section>
@@ -384,7 +384,7 @@
 
     function renderHealth(rows) {
         var el = document.getElementById('healthGrid');
-        if (!rows.length) { el.innerHTML = '<span class="dash-empty">巡检数据尚未生成（每日 10:00 自动执行）</span>'; return; }
+        if (!rows.length) { el.innerHTML = '<span class="dash-empty">首次巡检进行中，30 秒后自动刷新即可看到结果</span>'; return; }
         el.innerHTML = rows.map(function (h) {
             function badge(ok, label) { return '<span class="dash-badge ' + (ok ? 'ok' : 'bad') + '">' + label + '</span>'; }
             return '<div class="dash-health-card">' +
