@@ -107,7 +107,7 @@
         .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
         @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
     </style>
-    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261029f">
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a">
     
     <link rel="stylesheet" href="/static/css/dashuju.css?v=20261029a">
     <script src="/static/js/echarts.min.js?v=5.5.1" defer></script>
@@ -279,7 +279,7 @@
 
             <!-- 实时日志 -->
             <section class="dash-panel dash-col-12">
-                <div class="dash-panel-head"><h2 class="dash-panel-title">实时访问流</h2><span class="dash-panel-meta">最近 25 条</span></div>
+                <div class="dash-panel-head"><h2 class="dash-panel-title">实时访问流</h2><span class="dash-panel-meta" id="liveMeta">最近 25 条</span></div>
                 <div class="dash-log-wrap">
                     <table class="dash-log-table" id="logTable">
                         <thead><tr><th>时间</th><th>页面</th><th>来源</th><th>IP</th><th>地域</th><th>设备</th><th>类型</th></tr></thead>
@@ -290,7 +290,7 @@
         </div>
 
         <footer class="dash-foot">
-            <span>数据中台：Cloudflare Worker + D1 · IP 仅存当日哈希，不留原始地址</span>
+            <span>数据中台：独立轻后端（Flask + SQLite）· IP 只存打码段与当日哈希，不留原始地址</span>
             <span>ZouIC Site Monitor · 极客微栋 @GeekWaedon</span>
         </footer>
     </div>
@@ -386,7 +386,7 @@
         var el = document.getElementById('healthGrid');
         if (!rows.length) { el.innerHTML = '<span class="dash-empty">巡检数据尚未生成（每日 10:00 自动执行）</span>'; return; }
         el.innerHTML = rows.map(function (h) {
-            function badge(ok, label) { return '<span class="dash-badge ' + (ok ? 'ok' : 'bad') + '">' + label + (ok ? ' ✓' : ' ✗') + '</span>'; }
+            function badge(ok, label) { return '<span class="dash-badge ' + (ok ? 'ok' : 'bad') + '">' + label + '</span>'; }
             return '<div class="dash-health-card">' +
                 '<div class="dash-health-name">' + esc(h.site) + ' <em>' + (h.ttfb_ms || 0) + 'ms</em></div>' +
                 '<div class="dash-health-badges">' + badge(h.https_ok, 'HTTPS') + badge(h.sitemap_ok, 'sitemap') + badge(h.llms_ok, 'llms.txt') + badge(h.robots_ok, 'robots') + '</div>' +
@@ -432,7 +432,7 @@
 
     function loadSummary() {
         if (!API) {
-            banner('⚠ 数据中台未连接：MONITOR_API 尚未配置（部署 Worker 后在路由 config 中填入地址）。以下为演示数据，仅展示大屏形态，非真实流量。', true);
+            banner('[告警] 数据中台未连接：MONITOR_API 尚未配置（部署 Worker 后在路由 config 中填入地址）。以下为演示数据，仅展示大屏形态，非真实流量。', true);
             applySummary(demoData());
             return;
         }
@@ -444,9 +444,27 @@
                 applySummary(d);
             })
             .catch(function (e) {
-                banner('⚠ 数据中台连接失败（' + e.message + '）。以下为演示数据，非真实流量。', true);
+                banner('[告警] 数据中台连接失败（' + e.message + '）。以下为演示数据，非真实流量。', true);
                 applySummary(demoData());
             });
+    }
+
+    /* ---------- 实时访问流：10s 轮询，比 30s 的聚合更跟手 ---------- */
+    function loadLive() {
+        if (!API) return;
+        fetch(API + '/api/live?site=zouic&limit=25')
+            .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+            .then(function (d) {
+                if (!d.ok) throw new Error(d.error || 'unknown');
+                renderLog(d.recent || []);
+                var meta = document.getElementById('liveMeta');
+                if (meta) {
+                    meta.textContent = '当前在线 ' + (d.online_5m || 0) + ' · 近 1 小时 '
+                        + (d.pv_last_hour || 0) + ' PV · 最近 25 条访问痕迹';
+                }
+                document.getElementById('dashUpdated').textContent = new Date().toLocaleTimeString('zh-CN', { hour12: false });
+            })
+            .catch(function () { /* 静默降级：保留上一次 summary 渲染的结果 */ });
     }
 
     /* ---------- 演示数据（明确标注，杜绝 LTD 式以假乱真） ---------- */
@@ -526,11 +544,20 @@
     if (aiRefreshBtn) aiRefreshBtn.addEventListener('click', function () { refreshAiInsight(aiRefreshBtn); });
 
     /* ---------- 启动 ---------- */
-    var _pollId = null;
-    function boot() { loadSummary(); if (API) _pollId = setInterval(loadSummary, 30000); }
+    var _pollId = null, _liveId = null;
+    function boot() {
+        loadSummary(); loadLive();
+        if (API) {
+            _pollId = setInterval(loadSummary, 30000);
+            _liveId = setInterval(loadLive, 10000);
+        }
+    }
     if (document.readyState === 'complete' || document.readyState === 'interactive') setTimeout(boot, 300);
     else window.addEventListener('DOMContentLoaded', function () { setTimeout(boot, 300); });
-    window.addEventListener('beforeunload', function () { if (_pollId) clearInterval(_pollId); });
+    window.addEventListener('beforeunload', function () {
+        if (_pollId) clearInterval(_pollId);
+        if (_liveId) clearInterval(_liveId);
+    });
 })();
 </script>
 
