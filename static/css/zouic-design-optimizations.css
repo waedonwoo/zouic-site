@@ -2172,3 +2172,185 @@ a.ext-hero-stat:hover {
     --ext-palette-bg: linear-gradient(135deg, rgba(99, 102, 241, 0.30), rgba(148, 163, 184, 0.26));
 }
 
+
+/* ==========================================================
+   ZouIC 2026-10-31 优化层
+   目标：中文可读性、视觉降噪、移动端手感、转化入口强化
+   约束：只作用于视觉与排版，不改业务逻辑、不删功能
+   ========================================================== */
+
+/* 1. 正文字体：移除 Inter / system-ui 依赖，改中文优先的系统字体栈（零额外请求） */
+:root {
+    --font-family-base: 'PingFang SC', 'HarmonyOS Sans SC', 'MiSans', 'Noto Sans SC',
+                       'Hiragino Sans GB', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
+}
+
+/* 2. 中文阅读：行高、行宽、次要文字对比度 */
+body {
+    line-height: 1.75;
+}
+.hero-zouic-subtitle,
+.section-zouic-subtitle,
+.zlead-card p,
+.text-lg,
+.hero-source-line {
+    line-height: 1.85;
+    max-width: 68ch;
+}
+.text-secondary {
+    color: #a5b0c3;
+}
+
+/* 3. 首屏标题：去掉渐变文字（可读性与降级风险），改为实心色 */
+.hero-zouic-title {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: var(--color-text-primary);
+    line-height: 1.28;
+}
+
+/* 4. 背景降噪：重复的渐变背景统一为「主色 + 次级色」两级底色 */
+.section-bg-gradient-1,
+.section-bg-gradient-2,
+.section-bg-gradient-3,
+.topic-section-bg,
+.why-zouic-bg,
+.cta-section-bg {
+    background: var(--color-bg-primary);
+}
+.section-bg-gradient-1::before,
+.section-bg-gradient-2::before,
+.section-bg-gradient-3::before,
+.topic-section-bg::before,
+.why-zouic-bg::before,
+.cta-section-bg::before {
+    background-image: none;
+}
+.section-zouic-alt {
+    background-color: var(--color-bg-secondary);
+}
+/* 网格叠加纹理：保留结构感，压到极弱 */
+.section-grid-overlay::after {
+    opacity: .3;
+}
+
+/* 5. 动效收敛：尊重系统「减弱动态效果」偏好 */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* 6. 转化入口：导航栏「商务合作」 */
+.nav-link-business {
+    color: var(--color-text-primary);
+    font-weight: 600;
+    position: relative;
+}
+.nav-link-business::after {
+    content: '';
+    position: absolute;
+    left: .75rem;
+    right: .75rem;
+    bottom: .35rem;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--color-primary);
+}
+
+/* 7. 首屏：企业客户入口 */
+.hero-business-lead {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    flex-wrap: wrap;
+    margin: 0 0 1.25rem;
+    padding: .55rem .95rem;
+    border: 1px solid var(--color-border-default);
+    border-radius: 999px;
+    background: rgba(0, 212, 170, .06);
+    color: var(--color-text-primary);
+    font-size: .9rem;
+    text-decoration: none;
+    transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+.hero-business-lead:hover,
+.hero-business-lead:focus-visible {
+    border-color: var(--color-primary);
+    background: rgba(0, 212, 170, .12);
+    color: #fff;
+}
+.hero-business-lead-label {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+.hero-business-lead i {
+    color: var(--color-primary);
+    font-size: .78rem;
+}
+
+/* 8. 页脚商务联系 */
+.footer-business-contact {
+    margin: .75rem 0 0;
+    font-size: .9rem;
+    color: var(--color-text-secondary);
+}
+.footer-business-contact a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-border-default);
+}
+.footer-business-contact a:hover {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+
+/* 9. 移动端：字号、触控目标、按钮宽度、表单不触发 iOS 自动缩放 */
+@media (max-width: 991.98px) {
+    .navbar-nav .nav-link {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+    .nav-link-business::after {
+        left: 0;
+        right: auto;
+        width: 24px;
+    }
+}
+@media (max-width: 767.98px) {
+    .hero-zouic-title {
+        font-size: clamp(1.7rem, 6.5vw, 2.35rem);
+    }
+    .hero-zouic-subtitle,
+    .section-zouic-subtitle {
+        font-size: 1rem;
+    }
+    .hero-secondary-cta {
+        display: flex;
+        flex-direction: column;
+        gap: .75rem;
+    }
+    .hero-cta-btn,
+    .hero-business-lead,
+    .btn-zouic {
+        width: 100%;
+        justify-content: center;
+        min-height: 44px;
+    }
+    /* iOS Safari 输入框字号 <16px 会放大页面 */
+    .zlead-form input,
+    .zlead-form textarea,
+    .input-zouic,
+    .form-select,
+    .form-control {
+        font-size: 16px;
+    }
+    .hero-source-line {
+        gap: .35rem;
+        font-size: .8rem;
+    }
+}
