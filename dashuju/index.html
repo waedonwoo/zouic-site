@@ -111,7 +111,7 @@
     
     <link rel="stylesheet" href="/static/css/dashuju.css?v=20261029a">
     <script src="/static/js/echarts.min.js?v=5.5.1" defer></script>
-    <script>window.MONITOR_API = "";</script>
+    <script>window.MONITOR_API = "https://waedon.pythonanywhere.com";</script>
 
 </head>
 <body>
@@ -291,7 +291,7 @@
 
         <footer class="dash-foot">
             <span>数据中台：独立轻后端（Flask + SQLite）· IP 只存打码段与当日哈希，不留原始地址</span>
-            <span>ZouIC Site Monitor · 极客微栋 @GeekWaedon</span>
+            <span><a href="https://waedon.pythonanywhere.com/observatory">爬虫观测台</a> · ZouIC Site Monitor · 极客微栋 @GeekWaedon</span>
         </footer>
     </div>
 </div>
@@ -384,7 +384,7 @@
 
     function renderHealth(rows) {
         var el = document.getElementById('healthGrid');
-        if (!rows.length) { el.innerHTML = '<span class="dash-empty">首次巡检进行中，30 秒后自动刷新即可看到结果</span>'; return; }
+        if (!rows.length) { el.innerHTML = '<span class="dash-empty">巡检未生成：后端会自动重试（约 6 小时一次）；若主机出网被限制在域名白名单（免费档默认如此），这里长期留空——不填假数据</span>'; return; }
         el.innerHTML = rows.map(function (h) {
             function badge(ok, label) { return '<span class="dash-badge ' + (ok ? 'ok' : 'bad') + '">' + label + '</span>'; }
             return '<div class="dash-health-card">' +
@@ -432,7 +432,7 @@
 
     function loadSummary() {
         if (!API) {
-            banner('[告警] 数据中台未连接：MONITOR_API 尚未配置（部署 Worker 后在路由 config 中填入地址）。以下为演示数据，仅展示大屏形态，非真实流量。', true);
+            banner('[告警] 数据中台未连接：MONITOR_API 尚未配置（部署轻后端后在 .env 的 MONITOR_API_URL 填入地址并重新导出）。以下为演示数据，仅展示大屏形态，非真实流量。', true);
             applySummary(demoData());
             return;
         }
@@ -904,6 +904,52 @@
     </script>
     
     
+    
+    <script>
+    (function () {
+        var api = "https://waedon.pythonanywhere.com";
+        var sent = false;
+        function navPerf() {
+            try {
+                var n = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+                if (n && n.loadEventEnd > 0) return Math.round(n.loadEventEnd);
+            } catch (e) { /* ignore */ }
+            return 0;
+        }
+        function send() {
+            if (sent) return;
+            sent = true;
+            var payload = {
+                site: 'zouic',
+                path: (location.pathname + location.search + (location.hash || '')).slice(0, 300),
+                title: (document.title || '').slice(0, 200),
+                ref: document.referrer || '',
+                lang: navigator.language || '',
+                perf: navPerf()
+            };
+            var body = JSON.stringify(payload);
+            // text/plain 免 CORS 预检；页面已经加载完，sendBeacon 最稳
+            try {
+                if (navigator.sendBeacon &&
+                    navigator.sendBeacon(api + '/api/beacon', new Blob([body], { type: 'text/plain;charset=UTF-8' }))) return;
+            } catch (e) { /* fallthrough */ }
+            try {
+                fetch(api + '/api/beacon', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+                    body: body,
+                    keepalive: true,
+                    credentials: 'omit'
+                }).catch(function () {});
+            } catch (e) {}
+        }
+        if (document.readyState === 'complete') setTimeout(send, 0);
+        else window.addEventListener('load', function () { setTimeout(send, 120); });
+        window.addEventListener('pagehide', send);
+    })();
+    </script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/dashuju/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
     
     
     <script>

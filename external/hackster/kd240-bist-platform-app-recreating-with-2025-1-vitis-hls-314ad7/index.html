@@ -904,6 +904,52 @@
     
     
     
+    <script>
+    (function () {
+        var api = "https://waedon.pythonanywhere.com";
+        var sent = false;
+        function navPerf() {
+            try {
+                var n = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+                if (n && n.loadEventEnd > 0) return Math.round(n.loadEventEnd);
+            } catch (e) { /* ignore */ }
+            return 0;
+        }
+        function send() {
+            if (sent) return;
+            sent = true;
+            var payload = {
+                site: 'zouic',
+                path: (location.pathname + location.search + (location.hash || '')).slice(0, 300),
+                title: (document.title || '').slice(0, 200),
+                ref: document.referrer || '',
+                lang: navigator.language || '',
+                perf: navPerf()
+            };
+            var body = JSON.stringify(payload);
+            // text/plain 免 CORS 预检；页面已经加载完，sendBeacon 最稳
+            try {
+                if (navigator.sendBeacon &&
+                    navigator.sendBeacon(api + '/api/beacon', new Blob([body], { type: 'text/plain;charset=UTF-8' }))) return;
+            } catch (e) { /* fallthrough */ }
+            try {
+                fetch(api + '/api/beacon', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+                    body: body,
+                    keepalive: true,
+                    credentials: 'omit'
+                }).catch(function () {});
+            } catch (e) {}
+        }
+        if (document.readyState === 'complete') setTimeout(send, 0);
+        else window.addEventListener('load', function () { setTimeout(send, 120); });
+        window.addEventListener('pagehide', send);
+    })();
+    </script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/external/hackster/kd240-bist-platform-app-recreating-with-2025-1-vitis-hls-314ad7/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
     
     <script>
     (function () {
