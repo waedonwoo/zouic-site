@@ -170,9 +170,10 @@
                     bubble.insertBefore(badge(label, status === 'ok' ? 'success' : 'warning'),
                                          bubble.firstChild.nextSibling);
                 }
-                renderPicks(data && data.refs, status === 'ok'
+                var localMatch = data && (data.degraded || data.model === 'local-keyword');
+                renderPicks(data && data.refs, (!localMatch && status === 'ok')
                     ? (lang === 'en' ? 'AI picked' : 'AI 推荐')
-                    : (lang === 'en' ? 'on-site picks' : '站内条目'));
+                    : (lang === 'en' ? 'matched by keywords' : '关键词匹配'));
                 if (data && data.missing) {
                     var follow = say('assistant', data.missing, 'ai-bubble-bot ai-bubble-followup');
                     if (follow) { follow.appendChild(badge(lang === 'en' ? 'follow-up' : '需要你补充')); }
