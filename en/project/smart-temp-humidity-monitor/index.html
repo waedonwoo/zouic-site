@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="使用DHT22传感器监测温湿度，通过WiFi上传到云端">
+    <meta name="description" content="Smart Temperature &amp; Humidity Monitor is an open source project indexed by ZouIC — beginner-level, written in C++, built on Arduino, released under MIT. Monito">
     <meta name="keywords" content="Smart Temperature &amp; Humidity Monitor, Arduino, 智能温湿度监测系统,Arduino,开源项目,Beginner">
     
     <meta name="author" content="ZouIC">
@@ -53,7 +53,7 @@
     
     
     <script type="application/ld+json">
-        {"@context": "https://schema.org", "@graph": [{"@type": "CreativeWork", "author": {"@type": "Organization", "name": "ZouIC"}, "description": "\u4f7f\u7528DHT22\u4f20\u611f\u5668\u76d1\u6d4b\u6e29\u6e7f\u5ea6\uff0c\u901a\u8fc7WiFi\u4e0a\u4f20\u5230\u4e91\u7aef", "inLanguage": "en", "license": "MIT", "name": "\u667a\u80fd\u6e29\u6e7f\u5ea6\u76d1\u6d4b\u7cfb\u7edf", "programmingLanguage": "C++", "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/project/smart-temp-humidity-monitor/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/projects", "name": "Open Source Projects", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/project/smart-temp-humidity-monitor/", "name": "\u667a\u80fd\u6e29\u6e7f\u5ea6\u76d1\u6d4b\u7cfb\u7edf", "position": 3}]}]}
+        {"@context": "https://schema.org", "@graph": [{"@type": "CreativeWork", "author": {"@type": "Organization", "name": "ZouIC"}, "description": "\u4f7f\u7528DHT22\u4f20\u611f\u5668\u76d1\u6d4b\u6e29\u6e7f\u5ea6\uff0c\u901a\u8fc7WiFi\u4e0a\u4f20\u5230\u4e91\u7aef", "inLanguage": "en", "license": "MIT", "name": "\u667a\u80fd\u6e29\u6e7f\u5ea6\u76d1\u6d4b\u7cfb\u7edf", "programmingLanguage": "C++", "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/project/smart-temp-humidity-monitor/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/projects", "name": "Open Source Projects", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/project/smart-temp-humidity-monitor/", "name": "\u667a\u80fd\u6e29\u6e7f\u5ea6\u76d1\u6d4b\u7cfb\u7edf", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Monitors temperature and humidity with a DHT22 sensor and uploads readings to the cloud over Wi-Fi."}, "name": "What does Smart Temperature \u0026 Humidity Monitor do?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "language: C++; framework: Arduino; tags: IoT, Sensor, Smart Home."}, "name": "What stack does Smart Temperature \u0026 Humidity Monitor use?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "ZouIC records this project at beginner difficulty."}, "name": "How hard is Smart Temperature \u0026 Humidity Monitor?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "The record lists MIT; check the source repository for the authoritative terms."}, "name": "Which licence applies to Smart Temperature \u0026 Humidity Monitor?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "ZouIC links it to ESP32-S3-DevKitC, ESP32-C3-DevKitM, Arduino Nano ESP32."}, "name": "Which development boards does Smart Temperature \u0026 Humidity Monitor run on?"}]}]}
     </script>
     
     
@@ -205,6 +205,98 @@
 
     <section class="py-8">
         <div class="container">
+            
+
+
+<section class="card-dark p-6 mb-6" id="quick-answer" aria-label="Quick answer and common questions">
+    
+    <h2 class="h5 font-bold mb-2">
+        <i class="fas fa-bolt text-primary me-2" aria-hidden="true"></i>Quick answer
+    </h2>
+    <p class="mb-0">Smart Temperature &amp; Humidity Monitor is an open source project indexed by ZouIC — beginner-level, written in C++, built on Arduino, released under MIT. Monitors temperature and humidity with a DHT22 sensor and uploads readings to the cloud over Wi-Fi. It is linked to ESP32-S3-DevKitC, ESP32-C3-DevKitM, Arduino Nano ESP32.</p>
+    
+
+    
+    <dl class="row g-3 mt-4 mb-0">
+        
+        <div class="col-6 col-md-4">
+            <dt class="text-secondary text-sm mb-0">Difficulty</dt>
+            <dd class="font-bold text-sm mb-0">beginner</dd>
+        </div>
+        
+        <div class="col-6 col-md-4">
+            <dt class="text-secondary text-sm mb-0">Language</dt>
+            <dd class="font-bold text-sm mb-0">C++</dd>
+        </div>
+        
+        <div class="col-6 col-md-4">
+            <dt class="text-secondary text-sm mb-0">Framework</dt>
+            <dd class="font-bold text-sm mb-0">Arduino</dd>
+        </div>
+        
+        <div class="col-6 col-md-4">
+            <dt class="text-secondary text-sm mb-0">Licence</dt>
+            <dd class="font-bold text-sm mb-0">MIT</dd>
+        </div>
+        
+        <div class="col-6 col-md-4">
+            <dt class="text-secondary text-sm mb-0">Stars</dt>
+            <dd class="font-bold text-sm mb-0">128</dd>
+        </div>
+        
+        <div class="col-6 col-md-4">
+            <dt class="text-secondary text-sm mb-0">Forks</dt>
+            <dd class="font-bold text-sm mb-0">45</dd>
+        </div>
+        
+        <div class="col-6 col-md-4">
+            <dt class="text-secondary text-sm mb-0">Updated</dt>
+            <dd class="font-bold text-sm mb-0">2024-01-15</dd>
+        </div>
+        
+        <div class="col-6 col-md-4">
+            <dt class="text-secondary text-sm mb-0">Boards</dt>
+            <dd class="font-bold text-sm mb-0">ESP32-S3-DevKitC, ESP32-C3-DevKitM, Arduino Nano ESP32</dd>
+        </div>
+        
+    </dl>
+    
+
+    
+    <h2 class="h5 font-bold mt-5 mb-3">
+        <i class="fas fa-circle-question text-primary me-2" aria-hidden="true"></i>Common questions
+    </h2>
+    <div class="d-flex flex-column gap-3">
+        
+        <div>
+            <h3 class="text-sm font-bold mb-1">What does Smart Temperature &amp; Humidity Monitor do?</h3>
+            <p class="text-secondary text-sm mb-0">Monitors temperature and humidity with a DHT22 sensor and uploads readings to the cloud over Wi-Fi.</p>
+        </div>
+        
+        <div>
+            <h3 class="text-sm font-bold mb-1">What stack does Smart Temperature &amp; Humidity Monitor use?</h3>
+            <p class="text-secondary text-sm mb-0">language: C++; framework: Arduino; tags: IoT, Sensor, Smart Home.</p>
+        </div>
+        
+        <div>
+            <h3 class="text-sm font-bold mb-1">How hard is Smart Temperature &amp; Humidity Monitor?</h3>
+            <p class="text-secondary text-sm mb-0">ZouIC records this project at beginner difficulty.</p>
+        </div>
+        
+        <div>
+            <h3 class="text-sm font-bold mb-1">Which licence applies to Smart Temperature &amp; Humidity Monitor?</h3>
+            <p class="text-secondary text-sm mb-0">The record lists MIT; check the source repository for the authoritative terms.</p>
+        </div>
+        
+        <div>
+            <h3 class="text-sm font-bold mb-1">Which development boards does Smart Temperature &amp; Humidity Monitor run on?</h3>
+            <p class="text-secondary text-sm mb-0">ZouIC links it to ESP32-S3-DevKitC, ESP32-C3-DevKitM, Arduino Nano ESP32.</p>
+        </div>
+        
+    </div>
+    
+</section>
+
             <div class="card-dark p-6 mb-6">
                 <div class="d-flex justify-content-between align-items-start mb-4">
                     <div>
