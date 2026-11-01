@@ -431,6 +431,20 @@
         bannerEl.textContent = msg;
     }
 
+    /* 连不上时留空，而不是画演示曲线：0 或假曲线都可能被读成“真实结论”。 */
+    function renderEmpty() {
+        document.querySelectorAll('[data-kpi]').forEach(function (el) { el.textContent = '—'; });
+        Object.values(charts).forEach(function (c) { c.clear(); });
+        renderPages([]);
+        renderHealth([]);
+        renderLog([]);
+        var meta = document.getElementById('liveMeta');
+        if (meta) meta.textContent = '未取到数据，这里留空——不编造数字';
+        document.getElementById('dashUpdated').textContent = '—';
+    }
+
+    var gotReal = false;   // 只要成功取到过一次真实数据，失败时就保留旧结果不再清空
+
     function loadSummary() {
         if (!API) {
             banner('[告警] 数据中台未连接：MONITOR_API 尚未配置（部署轻后端后在 .env 的 MONITOR_API_URL 填入地址并重新导出）。以下为演示数据，仅展示大屏形态，非真实流量。', true);
@@ -442,11 +456,14 @@
             .then(function (d) {
                 if (!d.ok) throw new Error(d.error || 'unknown');
                 bannerEl.hidden = true;
+                gotReal = true;
                 applySummary(d);
             })
             .catch(function (e) {
-                banner('[告警] 数据中台连接失败（' + e.message + '）。以下为演示数据，非真实流量。', true);
-                applySummary(demoData());
+                // 托管免费档会在 Reload/冷启动的几十秒里拒绝请求，这是暂时故障不是“没流量”
+                banner('[提示] 数据中台暂时连接失败（' + e.message + '），30 秒后自动重试。' +
+                    (gotReal ? '下方保留上一次取到的真实数据。' : '未取到真实数据，图表留空——不填演示数据。'), false);
+                if (!gotReal) renderEmpty();
             });
     }
 
