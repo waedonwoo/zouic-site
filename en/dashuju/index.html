@@ -222,6 +222,7 @@
             <div class="dash-kpi"><div class="dash-kpi-label">近 30 日 PV</div><div class="dash-kpi-value" data-kpi="pv_30d">—</div><div class="dash-kpi-sub">真实访客</div></div>
             <div class="dash-kpi"><div class="dash-kpi-label">累计 PV</div><div class="dash-kpi-value" data-kpi="pv_total">—</div><div class="dash-kpi-sub">累计 UV <span data-kpi="uv_total">—</span></div></div>
             <div class="dash-kpi"><div class="dash-kpi-label">SEO+GEO 爬虫</div><div class="dash-kpi-value" data-kpi="bots_30d">—</div><div class="dash-kpi-sub">近 30 日抓取</div></div>
+            <div class="dash-kpi"><div class="dash-kpi-label">Invalid traffic</div><div class="dash-kpi-value" data-kpi="ivt_30d">—</div><div class="dash-kpi-sub">of PV <span data-kpi="ivt_rate">—</span></div></div>
         </section>
 
         
@@ -263,6 +264,13 @@
             <section class="dash-panel dash-col-3">
                 <div class="dash-panel-head"><h2 class="dash-panel-title">访客地域 Top 10</h2><span class="dash-panel-meta">IP 归属 · 30D</span></div>
                 <div id="countryChart" class="dash-chart dash-chart-sm"></div>
+            </section>
+
+            <!-- 无效流量识别 -->
+            <section class="dash-panel dash-col-3">
+                <div class="dash-panel-head"><h2 class="dash-panel-title">Invalid traffic detection</h2><span class="dash-panel-meta">Rules matched - 30D</span></div>
+                <ul class="dash-list dash-dist" id="ivtReasons"><li class="dash-empty">Loading...</li></ul>
+                <p class="dash-hint">Detected from server-side signals only (anomalous UA, headless browsers, short-term bursts). No client fingerprinting is collected.</p>
             </section>
 
             <!-- 热门页 -->
@@ -357,7 +365,16 @@
         });
     }
 
-    var REF_LABEL = { direct: '直接访问', search: '搜索引擎', social: '社交媒体', referral: '外部引荐', campaign: '广告活动' };
+    var IS_EN = true;
+    var REF_LABEL = IS_EN
+        ? { direct: 'Direct', search: 'Search', social: 'Social', referral: 'Referral',
+            campaign: 'Campaign', internal: 'Internal', ai: 'AI assistant' }
+        : { direct: '直接访问', search: '搜索引擎', social: '社交媒体', referral: '外部引荐',
+            campaign: '广告活动', internal: '站内跳转', ai: 'AI 助手' };
+    // IVT 规则标签；与后端 monitor_backend/app.py 的 IVT_REASONS 一一对应
+    var IVT_LABEL = IS_EN
+        ? { ua_short: 'Missing/short UA', automation: 'Headless automation', burst: 'Short-term burst' }
+        : { ua_short: 'UA 缺失或异常短', automation: '无头/自动化浏览器', burst: '短时高频突发' };
     var DEV_LABEL = { desktop: '桌面端', mobile: '移动端', tablet: '平板' };
     var COUNTRY = { CN: '中国大陆', US: '美国', HK: '中国香港', TW: '中国台湾', JP: '日本', SG: '新加坡', KR: '韩国', DE: '德国', T1: '匿名专线', XX: '其他' };
 
@@ -381,6 +398,34 @@
             var pct = (p.v * 100 / max).toFixed(1);
             return '<li><div class="dash-dist-row"><span style="max-width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">' + esc(p.k) + '</span><span>' + fmt(p.v) + '</span></div><div class="dash-bar"><span style="width:' + pct + '%"></span></div></li>';
         }).join('') : '<li class="dash-empty">暂无数据</li>';
+    }
+
+    function renderIvt(list) {
+        var el = document.getElementById('ivtReasons');
+        if (!el) return;
+        if (list === undefined || list === null) {
+            // 后端还没升级到含 IVT 的版本：这时显示「未识别到」等于凭空下结论，
+            // 与本站"不填演示数据"同一条红线 —— 没测就说没测。
+            el.innerHTML = '<li class="dash-empty">'
+                + (IS_EN ? 'Not reported by the data backend yet'
+                         : '数据中台尚未上报该口径')
+                + '</li>';
+            return;
+        }
+        if (!list.length) {
+            el.innerHTML = '<li class="dash-empty">'
+                + (IS_EN ? 'No invalid traffic detected in the last 30 days'
+                         : '近 30 日未识别到无效流量')
+                + '</li>';
+            return;
+        }
+        var max = Math.max.apply(null, list.map(function (r) { return r.v; }).concat([1]));
+        el.innerHTML = list.map(function (r) {
+            var pct = (r.v * 100 / max).toFixed(1);
+            return '<li><div class="dash-dist-row"><span>' + esc(IVT_LABEL[r.k] || r.k)
+                + '</span><span>' + fmt(r.v) + '</span></div>'
+                + '<div class="dash-bar"><span style="width:' + pct + '%"></span></div></li>';
+        }).join('');
     }
 
     function renderHealth(rows) {
@@ -413,6 +458,10 @@
     /* ---------- 数据加载 ---------- */
     function applySummary(d) {
         Object.keys(d.kpi).forEach(function (k) { setKpi(k, d.kpi[k]); });
+        var pvN = d.kpi.pv_30d || 0, ivtN = d.kpi.ivt_30d;
+        setKpi('ivt_rate', (ivtN === undefined || ivtN === null || !pvN)
+            ? '—' : (ivtN * 100 / pvN).toFixed(1) + '%');
+        renderIvt(d.ivt_reasons);
         renderTrend(d.trend);
         renderPie('sourceChart', d.sources.map(function (s) { return { name: REF_LABEL[s.k] || s.k, value: s.v }; }), [C.cyan, C.violet, C.teal, C.amber, C.blue]);
         renderPie('deviceChart', d.devices.map(function (s) { return { name: DEV_LABEL[s.k] || s.k, value: s.v }; }), [C.cyan, C.teal, C.violet]);
