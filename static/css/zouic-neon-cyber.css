@@ -2352,6 +2352,29 @@ main {
 /* Status chip sits on its own line inside a bubble, so it never runs into the answer text. */
 .ai-bubble .badge-zouic { display: table; margin: 0 0 6px; cursor: default; }
 #aiChips .badge-zouic { display: inline-block; }
+
+/* 可见校验表：把「站内这个字段有没有值、链接核对过没有」摊开给访客看 */
+.ai-checks {
+    border: 1px solid rgba(0, 229, 255, .22);
+    border-radius: var(--radius-lg, 14px);
+    background: rgba(0, 229, 255, .04);
+    padding: 12px 14px;
+}
+.ai-check-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.ai-check-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 13px; }
+.ai-check-mark {
+    width: 18px; height: 18px; flex: 0 0 18px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; line-height: 1;
+}
+.ai-check-ok { background: rgba(74, 222, 128, .16); color: #4ade80; }
+.ai-check-partial { background: rgba(250, 204, 21, .16); color: #facc15; }
+.ai-check-absent { background: rgba(148, 163, 184, .18); color: #94a3b8; }
+.ai-check-other { background: rgba(148, 163, 184, .18); color: #94a3b8; }
+.ai-check-label { color: var(--color-text-primary, #e2e8f0); }
+.ai-check-confirm { gap: 4px; }
+.ai-check-confirm li { color: var(--color-text-secondary, #94a3b8); font-size: 12px; padding-left: 18px; }
+#ai-assistant .ai-checks .badge-zouic { cursor: default; }
 @media (max-width: 575.98px) {
     #ai-assistant .card-dark.p-4 { padding: 12px !important; }
 }

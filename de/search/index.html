@@ -418,9 +418,11 @@
 
 
 
+
+
 <section class="card-dark p-5 mb-4" id="ai-assistant"
          data-endpoint="https://waedon.pythonanywhere.com/api/ai/chat"
-         data-lang="zh">
+         data-lang="en">
     <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
         <div>
             <h2 class="h5 font-bold mb-1">
@@ -452,11 +454,14 @@
 
         <div id="aiLog" class="d-flex flex-column gap-3" aria-live="polite"></div>
         <div id="aiPicks" class="row g-3 mt-2"></div>
+        
+        <div id="aiChecks" class="ai-checks mt-3" hidden></div>
         <p class="text-secondary text-xs mt-3 mb-0" id="aiFootnote">Die Antworten stammen aus einem offenen Gewichtsmodell, das an Vor-Ort-Listings arbeitet; Spezifikationen und Preise auf der Anbieterseite bestätigen.</p>
     </div>
 </section>
 
-<script type="application/json" id="aiAssistantLabels">{"error": "Der Assistent kann jetzt nicht antworten. Bitte versuchen Sie es sp\u00e4ter erneut.", "limited": "Sie haben die Fragegrenze f\u00fcr diese Stunde erreicht. Bitte versuchen Sie es sp\u00e4ter erneut.", "model": "Modell", "more": "Fragen Sie weiter", "offline": "Der Assistent ist derzeit offline (kein Modellschl\u00fcssel konfiguriert oder das t\u00e4gliche Budget ausgegeben). Die folgenden Links sind echte Vor-Ort-Listings; Lassen Sie Ihre Anforderungen auf der Kontaktseite und ein Mensch wird antworten.", "picks": "Passende Angebote vor Ort", "source": "Anzeige anzeigen", "thinking": "\u00dcberpr\u00fcfen Sie den Katalog..."}</script>
+
+<script type="application/json" id="aiAssistantLabels">{"basis_body": "{entries} Katalogeintr\u00e4ge der Site ({source}), {matched} f\u00fcr diese Anfrage gefunden.", "check_basis": "Grundlage", "check_confirm": "Von Ihnen noch zu best\u00e4tigen", "check_notfor": "Diese Antwort ist nicht gedacht f\u00fcr", "checks": "Womit diese Antwort abgeglichen wurde", "confirm_0": "Elektrische Parameter und Pinbelegung: bitte Eintragsseite und Hersteller-Datenblatt pr\u00fcfen", "confirm_1": "Lizenz, Lagerbestand und Lieferzeit sind keine Katalogfelder; ma\u00dfgeblich ist die Upstream-Seite", "error": "Der Assistent kann jetzt nicht antworten. Bitte versuchen Sie es sp\u00e4ter erneut.", "f_arch": "Chip-Architektur", "f_desc_en": "Englische Beschreibung im Katalog", "f_pages": "Links zu den Eintr\u00e4gen", "f_price": "Preisklasse", "f_scanned": "Gepr\u00fcfte Katalogeintr\u00e4ge", "f_stars": "Upstream-Sterne", "f_title": "Eintragstitel", "f_vendor": "Hersteller / Autor", "footnote_empty": "Kein Katalogeintrag passt zu dieser Anfrage, daher wurden keine Ergebnisse gelistet \u2014 die Zahl oben ist der tats\u00e4chliche Katalogumfang.", "footnote_keyword": "Antwort direkt aus der Keyword-Suche auf der Site (ohne KI-Durchlauf) \u2014 die genannten Eintr\u00e4ge sind reale Katalogeintr\u00e4ge; Spezifikationen und Preise bitte auf der Herstellerseite pr\u00fcfen.", "footnote_model": "Antwort auf Basis der Katalogeintr\u00e4ge erstellt; Spezifikationen und Preise bitte auf der Herstellerseite pr\u00fcfen.", "limited": "Sie haben die Fragegrenze f\u00fcr diese Stunde erreicht. Bitte versuchen Sie es sp\u00e4ter erneut.", "model": "Modell", "more": "Fragen Sie weiter", "notfor_body": "Beschaffungsentscheidungen; sie sagt nichts \u00fcber Chargenkonsistenz, Lieferzeit oder Produktionsausbeute aus", "offline": "Der Assistent ist derzeit offline (kein Modellschl\u00fcssel konfiguriert oder das t\u00e4gliche Budget ausgegeben). Die folgenden Links sind echte Vor-Ort-Listings; Lassen Sie Ihre Anforderungen auf der Kontaktseite und ein Mensch wird antworten.", "pages_absent": "diesmal nicht gepr\u00fcft", "pages_exported": "gepr\u00fcft am", "pages_note": "Jeder Link wurde gegen den gebauten Site-Export gepr\u00fcft", "pages_ok": "Eintrag f\u00fcr Eintrag gepr\u00fcft", "picks": "Passende Angebote vor Ort", "source": "Anzeige anzeigen", "src_catalogue": "der vollst\u00e4ndige Seitenexport", "src_default": "der Seitenkatalog", "src_fallback": "die eingebaute Notliste (nur wenige Eintr\u00e4ge)", "state_absent": "im Katalog nicht erfasst", "state_ok": "bei jedem Eintrag vorhanden", "state_other": "sonstiger Stand", "state_partial": "bei einigen Eintr\u00e4gen vorhanden", "thinking": "\u00dcberpr\u00fcfen Sie den Katalog..."}</script>
 <script src="/static/js/ai-assistant.js" defer></script>
 
 

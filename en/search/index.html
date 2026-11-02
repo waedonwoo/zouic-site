@@ -418,6 +418,8 @@
 
 
 
+
+
 <section class="card-dark p-5 mb-4" id="ai-assistant"
          data-endpoint="https://waedon.pythonanywhere.com/api/ai/chat"
          data-lang="en">
@@ -448,11 +450,14 @@
 
         <div id="aiLog" class="d-flex flex-column gap-3" aria-live="polite"></div>
         <div id="aiPicks" class="row g-3 mt-2"></div>
+        
+        <div id="aiChecks" class="ai-checks mt-3" hidden></div>
         <p class="text-secondary text-xs mt-3 mb-0" id="aiFootnote">Answers come from an open-weight model working on on-site listings; confirm specs and prices on the vendor page.</p>
     </div>
 </section>
 
-<script type="application/json" id="aiAssistantLabels">{"error": "The assistant cannot answer right now. Please try again later.", "limited": "You reached the question limit for this hour. Please try again later.", "model": "Model", "more": "Keep asking", "offline": "The assistant is offline right now (no model key configured, or the daily budget is spent). The links below are real on-site listings; leave your requirements on the contact page and a human will reply.", "picks": "Matching on-site listings", "source": "View listing", "thinking": "Checking the catalogue\u2026"}</script>
+
+<script type="application/json" id="aiAssistantLabels">{"basis_body": "{entries} on-site entries ({source}), {matched} matched for this query.", "check_basis": "Basis", "check_confirm": "Still yours to verify", "check_notfor": "This answer is not for", "checks": "What this answer was compared against", "confirm_0": "electrical parameters and pin definitions \u2014 see the listing page and the vendor datasheet", "confirm_1": "licence, stock and lead time are not on-site fields \u2014 trust the upstream page", "error": "The assistant cannot answer right now. Please try again later.", "f_arch": "Chip architecture", "f_desc_en": "English description on site", "f_pages": "Listing links", "f_price": "Price band", "f_scanned": "On-site entries scanned", "f_stars": "Upstream stars", "f_title": "Entry title", "f_vendor": "Vendor / author", "footnote_empty": "Nothing on site matched that request, so no listing was returned \u2014 the entry count above is the real on-site total.", "footnote_keyword": "Answered straight from the on-site keyword match (no AI pass this time) \u2014 the listings above are real entries; check vendor pages for specs and price.", "footnote_model": "Generated from on-site listings; check vendor pages for specs and price.", "limited": "You reached the question limit for this hour. Please try again later.", "model": "Model", "more": "Keep asking", "notfor_body": "purchase decisions; it says nothing about batch consistency, lead time or production yield", "offline": "The assistant is offline right now (no model key configured, or the daily budget is spent). The links below are real on-site listings; leave your requirements on the contact page and a human will reply.", "pages_absent": "not re-checked this time", "pages_exported": "checked at", "pages_note": "Every link was checked against the built site", "pages_ok": "checked one by one", "picks": "Matching on-site listings", "source": "View listing", "src_catalogue": "the full site export", "src_default": "the on-site catalogue", "src_fallback": "the built-in short list (a few entries only)", "state_absent": "not held on site", "state_ok": "present on every entry", "state_other": "other", "state_partial": "present on some entries", "thinking": "Checking the catalogue\u2026"}</script>
 <script src="/static/js/ai-assistant.js" defer></script>
 
 
