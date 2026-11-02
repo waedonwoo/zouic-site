@@ -2073,6 +2073,15 @@ a.ext-hero-stat:hover {
     gap: 6px;
 }
 
+/* page-agent 浮层（alibaba/page-agent 注入，id 前缀 page-agent-runtime_）：
+   窄屏/平板下默认是宽度约等于视口的底栏，会压住图表和正文右下角。
+   库会用内联样式持续锁住 transform / opacity / scale，改成在 lg 以下直接隐藏，桌面端不受影响。 */
+@media (max-width: 991.98px) {
+    div[id^="page-agent-runtime_"] {
+        display: none !important;
+    }
+}
+
 .ext-detail-tag {
     padding: 4px 12px;
     border-radius: 100px;

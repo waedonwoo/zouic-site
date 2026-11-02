@@ -74,7 +74,7 @@
     
     <!-- ZouIC Design System -->
     <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
-    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261031a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a">
     <noscript>
         <style>
             /* With JS disabled, scroll-reveal must not hide content */
@@ -145,6 +145,7 @@
                             <li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li>
                             <li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li>
                             <li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li>
+                            <li><a class="dropdown-item" href="/tools/"><i class="fas fa-calculator me-2"></i>硬件计算器</a></li>
                             <li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li>
@@ -518,6 +519,46 @@
                 </li>
                 
             </ol>
+        </div>
+    </div>
+</section>
+
+<section class="pb-6">
+    <div class="container">
+        <div class="card-dark p-6">
+            <h2 class="text-xl font-bold mb-1">
+                <i class="fas fa-calculator me-2" style="opacity: .75;"></i>站内自制：三个硬件计算器
+            </h2>
+            <p class="text-secondary mb-4" style="max-width: 58rem; font-size: .9375rem;">
+                上面那些是第三方工具的入口。下面这三个是本站自己写的，纯浏览器端计算：
+                输入只在你的机器上算，不上传、不落库、不埋点；公式、系数来源和适用边界都摊在页面上，
+                算例跟实时结果由同一套常量生成，可以互相核对。
+            </p>
+            <div class="row g-3">
+                <div class="col-12 col-md-4">
+                    <div class="card-dark ot-card">
+                        <h3><a href="/tools/trace-width/">PCB 走线线宽计算器</a></h3>
+                        <div class="ot-desc">给定电流、允许温升、铜厚与内外层，反推所需线宽，并给出电阻与压降。</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="card-dark ot-card">
+                        <h3><a href="/tools/via-current/">过孔载流计算器</a></h3>
+                        <div class="ot-desc">由钻孔直径与孔铜厚度算出过孔铜壁截面积，估算单孔与多孔的载流上限。</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="card-dark ot-card">
+                        <h3><a href="/tools/power-budget/">供电预算计算器</a></h3>
+                        <div class="ot-desc">把每个负载的电压电流加起来，含 LDO 损耗与余量，估算输入电流与电池续航。</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 mb-0">
+                <a class="ot-chip" href="/tools/">
+                    <i class="fas fa-arrow-right"></i>计算器目录页
+                </a>
+            </div>
         </div>
     </div>
 </section>
@@ -1786,6 +1827,7 @@
                         <li><a href="/tutorials/">开发板教程</a></li>
                         <li><a href="/documentation/">技术文档</a></li>
                         <li><a href="/online-tools/">在线工具</a></li>
+                        <li><a href="/tools/">硬件计算器</a></li>
                         <li><a href="/cases/">项目案例</a></li>
                         <li><a href="/help/">文档中心</a></li>
                         <li><a href="/games/resistor/">色环电阻识别挑战</a></li>

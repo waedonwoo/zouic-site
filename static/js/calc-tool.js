@@ -3,31 +3,16 @@
  * 这个文件和 app/services/calc_tools.py 是同一套公式的两个实现：
  * Python 负责服务端渲染的默认结果与算例，本文件负责你改动输入后的实时结果。
  * 常量与阈值都从页面内嵌的 #calcConfig 读，不在这儿抄第二份。
- * 改任何一边之前先跑 tools/check_calc_tools.py —— 它用 node 跑这个文件，
- * 把结果和 Python 的输出逐条比对，不一致就红。
+ *
+ * 纯计算部分（engine/fmt）不碰 DOM，并挂到 globalThis.ZouicCalc：
+ * tools/check_calc_tools.py 用 node 直接调用它，把结果和 Python 逐条比对，
+ * 两边不一致就红。改任何一边之前先跑那个闸门。
  */
-(function () {
+(function (global) {
     'use strict';
 
-    var host = document.getElementById('calcConfig');
-    var root = document.getElementById('calcTool');
-    if (!host || !root) { return; }
-
-    var cfg;
-    try { cfg = JSON.parse(host.textContent); } catch (e) { return; }
-    var C = cfg.constants;
-    var TH = cfg.thresholds || {};
     var DASH = '—';
-
-    var labels = {};
-    var labelHost = document.getElementById('calcLabels');
-    if (labelHost) {
-        try { labels = JSON.parse(labelHost.textContent) || {}; } catch (e2) { labels = {}; }
-    }
-    function L(key, fallback) {
-        var v = labels[key];
-        return (v === undefined || v === null || v === '') ? (fallback || '') : String(v);
-    }
+    var doc = (typeof document !== 'undefined') ? document : null;
 
     // ---------------------------------------------------------------- 数字格式
 
@@ -54,8 +39,7 @@
         var merged = digits.join('');
         if (dp === 0) { return merged; }
         var oi = merged.length - dp;
-        return (oi > 0 ? merged.slice(0, oi) : '0') + '.' +
-            (oi > 0 ? merged.slice(oi) : merged);
+        return (oi > 0 ? merged.slice(0, oi) : '0') + '.' + merged.slice(Math.max(oi, 0));
     }
 
     function fmt(v, dp) {
@@ -68,34 +52,26 @@
     }
 
     function num(v) {
+        if (typeof v === 'number') { return isFinite(v) ? v : 0; }
         var n = parseFloat(v);
         return isFinite(n) ? n : 0;
     }
 
     // ---------------------------------------------------------------- 公式
 
-    function copperMil(oz) { return oz * C.milPerOz; }
+    function copperMil(C, oz) { return oz * C.milPerOz; }
 
-    function currentForArea(areaMil2, rise, layer) {
+    function currentForArea(C, areaMil2, rise, layer) {
         return C.k[layer] * Math.pow(rise, C.b) * Math.pow(areaMil2, C.c);
     }
 
-    function widthForCurrent(cur, rise, oz, layer) {
-        var area = Math.pow(cur / (C.k[layer] * Math.pow(rise, C.b)), 1 / C.c);
-        return area / copperMil(oz);
-    }
-
-    function areaForCurrent(cur, rise, layer) {
+    function areaForCurrent(C, cur, rise, layer) {
         return Math.pow(cur / (C.k[layer] * Math.pow(rise, C.b)), 1 / C.c);
     }
 
-    function resistanceOhm(lengthMm, areaMil2) {
+    function resistanceOhm(C, lengthMm, areaMil2) {
         if (lengthMm <= 0 || areaMil2 <= 0) { return 0; }
         return C.cuRhoOhmMm2PerM * (lengthMm / 1000) / (areaMil2 * C.mmPerMil * C.mmPerMil);
-    }
-
-    function viaAreaMil2(drillMil, platingMil) {
-        return Math.PI * (drillMil + platingMil) * platingMil;
     }
 
     function effOf(load, vIn) {
@@ -110,7 +86,7 @@
         return 1;
     }
 
-    function calcTrace(inp) {
+    function calcTrace(C, TH, inp) {
         var cur = num(inp.current), rise = num(inp.temp_rise);
         var oz = num(inp.oz), layer = inp.layer || 'external', length = num(inp.length);
         var flags = [];
@@ -119,13 +95,13 @@
         if (layer === 'internal') { flags.push('internal_layer'); }
         if (length <= 0) { flags.push('no_length'); }
         if (rise <= 0 || cur <= 0 || oz <= 0) { return {out: {}, flags: flags}; }
-        var w = widthForCurrent(cur, rise, oz, layer);
-        var area = w * copperMil(oz);
-        var res = resistanceOhm(length, area);
+        var area = areaForCurrent(C, cur, rise, layer);
+        var w = area / copperMil(C, oz);
+        var res = resistanceOhm(C, length, area);
         if (w < TH.processMinWidthMil) { flags.push('below_process'); }
         return {
             out: {
-                thickness_mil: copperMil(oz),
+                thickness_mil: copperMil(C, oz),
                 width_mil: w,
                 width_mm: w * C.mmPerMil,
                 area_mil2: area,
@@ -138,7 +114,7 @@
         };
     }
 
-    function calcVia(inp) {
+    function calcVia(C, TH, inp) {
         var drillMm = num(inp.drill_mm), platingUm = num(inp.plating_um);
         var rise = num(inp.temp_rise), layer = inp.layer || 'external';
         var count = Math.max(0, num(inp.count)), board = num(inp.board_mm);
@@ -148,9 +124,10 @@
         if (platingUm > 0 && platingUm < TH.platingMinUm) { flags.push('thin_plating'); }
         if (count > 1) { flags.push('not_derated'); }
         if (rise <= 0 || drillMm <= 0 || platingUm <= 0) { return {out: {}, flags: flags}; }
-        var area = viaAreaMil2(drillMm / C.mmPerMil, platingUm / C.umPerMil);
-        var iSingle = currentForArea(area, rise, layer);
-        var res = resistanceOhm(board, area);
+        var drill = drillMm / C.mmPerMil, plating = platingUm / C.umPerMil;
+        var area = Math.PI * (drill + plating) * plating;
+        var iSingle = currentForArea(C, area, rise, layer);
+        var res = resistanceOhm(C, board, area);
         return {
             out: {
                 area_mil2: area,
@@ -160,33 +137,35 @@
                 res_mohm: res * 1000,
                 vdrop_mv: res * iSingle * 1000,
                 ploss_mw: res * iSingle * iSingle * 1000,
-                plating_mil: platingUm / C.umPerMil
+                plating_mil: plating
             },
             flags: flags
         };
     }
 
-    function calcPower(inp) {
+    function calcPower(C, TH, inp) {
         var vIn = num(inp.v_in);
         if (vIn <= 0) { return {out: {}, flags: ['bad_vin']}; }
         var loads = inp.loads || [];
-        var pOut = 0, pIn = 0, ldoWorst = 0, flags = [];
-        var i;
+        var pOut = 0, pIn = 0, ldoWorst = 0, flags = [], i, ld, po, eff, pi;
         for (i = 0; i < loads.length; i += 1) {
-            var ld = loads[i];
-            var po = ld.v * ld.a;
-            var eff = effOf(ld, vIn);
-            var pi = eff > 0 ? po / eff : po;
+            ld = loads[i];
+            po = num(ld.v) * num(ld.a);
+            // eff 缺省时按 90% 算，和 Python 的 load.get('eff', 90.0) 对齐
+            eff = effOf({v: num(ld.v), kind: ld.kind,
+                         eff: (ld.eff === undefined || ld.eff === null || ld.eff === '')
+                             ? 90 : num(ld.eff)}, vIn);
+            pi = eff > 0 ? po / eff : po;
             pOut += po;
             pIn += pi;
-            if (ld.kind === 'ldo' && vIn > ld.v) {
-                var loss = (vIn - ld.v) * ld.a;
+            if (ld.kind === 'ldo' && vIn > num(ld.v)) {
+                var loss = (vIn - num(ld.v)) * num(ld.a);
                 if (loss > ldoWorst) { ldoWorst = loss; }
             }
         }
         if (!loads.length) { flags.push('empty_loads'); }
         for (i = 0; i < loads.length; i += 1) {
-            if (loads[i].kind === 'ldo' && loads[i].v > vIn) { flags.push('ldo_above_rail'); break; }
+            if (loads[i].kind === 'ldo' && num(loads[i].v) > vIn) { flags.push('ldo_above_rail'); break; }
         }
         if (num(inp.batt_mah) <= 0 || num(inp.batt_v) <= 0) { flags.push('no_battery'); }
         if (ldoWorst > TH.ldoHotW) { flags.push('ldo_hot'); }
@@ -211,7 +190,40 @@
 
     var ENGINE = {'trace-width': calcTrace, 'via-current': calcVia, 'power-budget': calcPower};
 
-    // ---------------------------------------------------------------- DOM 绑定
+    function compute(slug, inputs, C, TH) {
+        var fn = ENGINE[slug];
+        if (!fn) { return {out: {}, flags: []}; }
+        return fn(C, TH || {}, inputs || {});
+    }
+
+    if (global) { global.ZouicCalc = {compute: compute, fmt: fmt}; }
+
+    // ---------------------------------------------------------------- 以下是 DOM 部分
+
+    if (!doc) { return; }
+    var host = doc.getElementById('calcConfig');
+    var root = doc.getElementById('calcTool');
+    if (!host || !root) { return; }
+
+    var cfg;
+    try { cfg = JSON.parse(host.textContent); } catch (e) { return; }
+    var CONST = cfg.constants;
+    var THRESH = cfg.thresholds || {};
+
+    var labels = {};
+    var labelHost = doc.getElementById('calcLabels');
+    if (labelHost) {
+        try { labels = JSON.parse(labelHost.textContent) || {}; } catch (e2) { labels = {}; }
+    }
+    function L(key, fallback) {
+        var v = labels[key];
+        return (v === undefined || v === null || v === '') ? (fallback || '') : String(v);
+    }
+    function fill(tpl, vars) {
+        return String(tpl).replace(/\{(\w+)\}/g, function (m, k) {
+            return (vars && vars[k] !== undefined && vars[k] !== null) ? String(vars[k]) : m;
+        });
+    }
 
     function readInputs() {
         var inp = {};
@@ -227,8 +239,8 @@
                     var cs = rs[r].querySelectorAll('[data-calc-col]');
                     for (var c = 0; c < cs.length; c += 1) {
                         var col = cs[c].getAttribute('data-calc-col');
-                        var raw = cs[c].value;
-                        row[col] = (col === 'name' || col === 'kind') ? raw : num(raw);
+                        row[col] = (col === 'name' || col === 'kind')
+                            ? cs[c].value : num(cs[c].value);
                     }
                     rows.push(row);
                 }
@@ -241,18 +253,9 @@
         return inp;
     }
 
-    function fill(tpl, vars) {
-        return String(tpl).replace(/\{(\w+)\}/g, function (m, k) {
-            return (vars && vars[k] !== undefined && vars[k] !== null) ? String(vars[k]) : m;
-        });
-    }
-
     function render(out, flags) {
-        var known = {};
-        var i;
-        for (i = 0; i < cfg.results.length; i += 1) {
-            known[cfg.results[i].id] = cfg.results[i];
-        }
+        var known = {}, i;
+        for (i = 0; i < cfg.results.length; i += 1) { known[cfg.results[i].id] = cfg.results[i]; }
         var outs = root.querySelectorAll('[data-calc-out]');
         for (i = 0; i < outs.length; i += 1) {
             var key = outs[i].getAttribute('data-calc-out');
@@ -268,7 +271,7 @@
             if (on) { notes[i].removeAttribute('hidden'); } else { notes[i].setAttribute('hidden', 'hidden'); }
             notes[i].setAttribute('aria-hidden', on ? 'false' : 'true');
         }
-        var badge = document.getElementById('calcState');
+        var badge = doc.getElementById('calcState');
         if (badge) {
             badge.textContent = flags.length === 0
                 ? L('calc_state_ok', '已按当前输入计算')
@@ -284,79 +287,35 @@
             if (!kindNode || !effNode) { continue; }
             var usable = kindNode.value === 'dcdc';
             effNode.disabled = !usable;
-            effNode.parentNode.classList.toggle('calc-col-off', !usable);
+            if (effNode.parentNode && effNode.parentNode.classList) {
+                effNode.parentNode.classList.toggle('calc-col-off', !usable);
+            }
         }
     }
 
     function update() {
-        var engine = ENGINE[cfg.slug];
-        if (!engine) { return; }
         syncRowColumns();
-        var res = engine(readInputs());
-        render(cfg, res.out, res.flags);
+        var res = compute(cfg.slug, readInputs(), CONST, THRESH);
+        render(res.out, res.flags);
     }
 
+    /* 新增一行 = 克隆服务端渲染的模板行。
+       模板行里的选项文案、单位、默认值都跟着页面语言走，
+       JS 不自己拼一套标签，否则德语页上会长出中文行。 */
     function addRow() {
         var box = root.querySelector('[data-calc-rows]');
-        if (!box) { return; }
-        var spec = null;
-        for (var i = 0; i < cfg.fields.length; i += 1) {
-            if (cfg.fields[i].kind === 'rows') { spec = cfg.fields[i]; }
-        }
-        if (!spec) { return; }
-        var row = document.createElement('div');
-        row.className = 'calc-row';
-        row.setAttribute('data-calc-row', '');
-        for (var c = 0; c < spec.columns.length; c += 1) {
-            var col = spec.columns[c];
-            if (col.kind === 'select') {
-                var sel = document.createElement('select');
-                sel.setAttribute('data-calc-col', col.id);
-                sel.setAttribute('aria-label', L('calc_' + col.id, col.label || col.id));
-                var opts = (window.CALC_OPTIONS || {})[col.id] || [];
-                for (var o = 0; o < opts.length; o += 1) {
-                    var op = document.createElement('option');
-                    op.value = opts[o].value;
-                    op.textContent = opts[o].label;
-                    sel.appendChild(op);
-                }
-                sel.value = col.def;
-                row.appendChild(wrap(sel, ''));
-            } else {
-                var input = document.createElement('input');
-                input.setAttribute('data-calc-col', col.id);
-                input.type = col.kind === 'number' ? 'number' : 'text';
-                if (col.kind === 'number') {
-                    if (col.min !== undefined) { input.min = col.min; }
-                    if (col.max !== undefined) { input.max = col.max; }
-                    if (col.step !== undefined) { input.step = col.step; }
-                }
-                input.value = col.kind === 'number' ? col.def : L('calc_row_new_name', '新负载');
-                input.setAttribute('aria-label', L('calc_' + col.id, col.label || col.id));
-                row.appendChild(wrap(input, col.unit || ''));
-            }
-        }
-        var del = document.createElement('button');
-        del.type = 'button';
-        del.className = 'btn-zouic btn-zouic-secondary btn-zouic-sm';
-        del.setAttribute('data-calc-del', '');
-        del.textContent = L('calc_row_del', '删除');
-        row.appendChild(wrap(del, ''));
-        box.appendChild(row);
+        var tpl = doc.getElementById('calcRowTemplate');
+        if (!box || !tpl || !tpl.content) { return; }
+        box.appendChild(tpl.content.cloneNode(true));
         update();
     }
 
-    function wrap(node, unit) {
-        var cell = document.createElement('span');
-        cell.className = 'calc-cell';
-        cell.appendChild(node);
-        if (unit) {
-            var u = document.createElement('span');
-            u.className = 'calc-unit';
-            u.textContent = unit;
-            cell.appendChild(u);
+    function removeRow(node) {
+        var row = node;
+        while (row && row !== root && !(row.getAttribute && row.getAttribute('data-calc-row') !== null)) {
+            row = row.parentNode;
         }
-        return cell;
+        if (row && row !== root && row.parentNode) { row.parentNode.removeChild(row); }
     }
 
     root.addEventListener('input', update);
@@ -367,14 +326,10 @@
         if (t.hasAttribute('data-calc-add')) { ev.preventDefault(); addRow(); }
         else if (t.hasAttribute('data-calc-del')) {
             ev.preventDefault();
-            var row = t.closest ? t.closest('[data-calc-row]') : null;
-            if (row && row.parentNode) { row.parentNode.removeChild(row); }
+            removeRow(t);
             update();
-        } else if (t.hasAttribute('data-calc-reset')) {
-            ev.preventDefault();
-            location.reload();
         }
     });
 
     update();
-})();
+})(typeof globalThis !== 'undefined' ? globalThis : this);
