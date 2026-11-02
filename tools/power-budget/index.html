@@ -1,60 +1,5 @@
 
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="逐路填负载电压、电流与供电路径（同轨直供 / LDO / DC-DC），算出折算到输入的总功率与总电流、含余量的建议电源电流、LDO 耗散，以及按电池能量（Wh）折算的续航小时数。说明为什么 LDO 要按 V_out/V_in 计效率、为什么 mAh 不能直接除以电流。">
-    <meta name="keywords" content="供电预算,电池续航计算,ESP32功耗,LDO效率计算,DC-DC效率,电源电流余量,mAh换算续航">
-    
-    <meta name="author" content="ZouIC">
-    <meta name="theme-color" content="#00E5FF">
-    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <link rel="canonical" href="https://www.zouic.com/tools/power-budget/">
-    
-    <link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/tools/power-budget/" />
-    
-    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/tools/power-budget/" />
-    
-    <link rel="alternate" hreflang="de" href="https://www.zouic.com/de/tools/power-budget/" />
-    
-    
-    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/tools/power-budget/" />
-    
-    
-    
-    
-    <meta property="og:title" content="开发板供电预算与电池续航计算器 | ZouIC">
-    <meta property="og:description" content="逐路填负载电压、电流与供电路径（同轨直供 / LDO / DC-DC），算出折算到输入的总功率与总电流、含余量的建议电源电流、LDO 耗散，以及按电池能量（Wh）折算的续航小时数。说明为什么 LDO 要按 V_out/V_in 计效率、为什么 mAh 不能直接除以电流。">
-    <meta property="og:url" content="https://www.zouic.com/tools/power-budget/">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="zh_CN">
-    
-    
-    <meta property="og:site_name" content="ZouIC">
-    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="开发板供电预算与电池续航计算器 | ZouIC">
-    <meta name="twitter:description" content="逐路填负载电压、电流与供电路径（同轨直供 / LDO / DC-DC），算出折算到输入的总功率与总电流、含余量的建议电源电流、LDO 耗散，以及按电池能量（Wh）折算的续航小时数。说明为什么 LDO 要按 V_out/V_in 计效率、为什么 mAh 不能直接除以电流。">
-    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="逐路填负载电压、电流与供电路径（同轨直供 / LDO / DC-DC），算出折算到输入的总功率与总电流、含余量的建议电源电流、LDO 耗散，以及按电池能量（Wh）折算的续航小时数。说明为什么 LDO 要按 V_out/V_in 计效率、为什么 mAh 不能直接除以电流。"><meta name="keywords" content="供电预算,电池续航计算,ESP32功耗,LDO效率计算,DC-DC效率,电源电流余量,mAh换算续航"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/tools/power-budget/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/tools/power-budget/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/tools/power-budget/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/tools/power-budget/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/tools/power-budget/" /><meta property="og:title" content="开发板供电预算与电池续航计算器 | ZouIC"><meta property="og:description" content="逐路填负载电压、电流与供电路径（同轨直供 / LDO / DC-DC），算出折算到输入的总功率与总电流、含余量的建议电源电流、LDO 耗散，以及按电池能量（Wh）折算的续航小时数。说明为什么 LDO 要按 V_out/V_in 计效率、为什么 mAh 不能直接除以电流。"><meta property="og:url" content="https://www.zouic.com/tools/power-budget/"><meta property="og:type" content="website"><meta property="og:locale" content="zh_CN"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="开发板供电预算与电池续航计算器 | ZouIC"><meta name="twitter:description" content="逐路填负载电压、电流与供电路径（同轨直供 / LDO / DC-DC），算出折算到输入的总功率与总电流、含余量的建议电源电流、LDO 耗散，以及按电池能量（Wh）折算的续航小时数。说明为什么 LDO 要按 V_out/V_in 计效率、为什么 mAh 不能直接除以电流。"><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
     
     
     <script type="application/ld+json">
@@ -62,26 +7,7 @@
     </script>
     
     
-    <title>开发板供电预算与电池续航计算器 | ZouIC</title>
-    
-    <!-- Resource Hints -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    
-    
-    <!-- External Stylesheets -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
-    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
-    
-    <!-- ZouIC Design System -->
-    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
-    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a">
-    <noscript>
+    <title>开发板供电预算与电池续航计算器 | ZouIC</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
         <style>
             /* With JS disabled, scroll-reveal must not hide content */
             .reveal { opacity: 1 !important; transform: none !important; }
@@ -112,96 +38,16 @@
         .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
         @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
     </style>
-    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a">
-    
-</head>
-<body>
-    <a href="#main-content" class="skip-link">跳转到主要内容</a>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <i class="fas fa-microchip"></i> ZouIC
-            </a>
-            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
-                <span class="nav-hud-dot"></span>SYS.ONLINE
-            </span>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/all-projects/"><i class="fas fa-project-diagram me-1"></i>开源项目</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li>
-                    <li class="nav-item"><a class="nav-link nav-link-business" href="/services/component-matching/">商务合作</a></li>
-                    <li class="nav-item dropdown">
-                        <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"></head><body><a href="#main-content" class="skip-link">跳转到主要内容</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航"><div class="container"><a class="navbar-brand" href="/"><i class="fas fa-microchip"></i> ZouIC
+            </a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/all-projects/"><i class="fas fa-project-diagram me-1"></i>开源项目</a></li><li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li><li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/services/component-matching/">商务合作</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             更多
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li>
-                            <li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li>
-                            <li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li>
-                            <li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li>
-                            <li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li>
-                            <li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li>
-                            <li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li>
-                            <li><a class="dropdown-item" href="/tools/"><i class="fas fa-calculator me-2"></i>硬件计算器</a></li>
-                            <li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li>
-                            <li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li>
-                            <li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li>
-                </ul>
-                <form id="searchForm" class="d-flex me-3 d-none d-lg-flex">
-                    <div class="input-group input-group-zouic">
-                        <input type="text" id="searchQuery" class="form-control input-zouic" 
-                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" style="width: 200px;">
-                        <select id="searchType" class="form-select input-zouic" aria-label="搜索类型:" style="width: auto; flex: 0 0 auto;">
-                            <option value="">全部分类</option>
-                            <option value="board">开源开发板</option>
-                            <option value="project">开源项目</option>
-                        </select>
-                        <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索">
-                            <i class="fas fa-search" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                </form>
-                <div class="d-flex gap-2 align-items-center">
-                    <div class="dropdown">
-                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-globe me-1"></i> 中文
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="/tools/power-budget/">
-                                <i class="fas fa-language me-2"></i> 中文
-                            </a></li>
-                            <li><a class="dropdown-item" href="/en/tools/power-budget/">
-                                <i class="fas fa-language me-2"></i> English
-                            </a></li>
-                            
-                            <li><a class="dropdown-item" href="/de/tools/power-budget/">
-                                <i class="fas fa-language me-2"></i> 德语
-                            </a></li>
-                            
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <main id="main-content">
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li><li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li><li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li><li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li><li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li><li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li><li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li><li><a class="dropdown-item" href="/tools/"><i class="fas fa-calculator me-2"></i>硬件计算器</a></li><li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li><li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li><li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" style="width: 200px;"><select id="searchType" class="form-select input-zouic" aria-label="搜索类型:" style="width: auto; flex: 0 0 auto;"><option value="">全部分类</option><option value="board">开源开发板</option><option value="project">开源项目</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/tools/power-budget/"><i class="fas fa-language me-2"></i> 中文
+                            </a></li><li><a class="dropdown-item" href="/en/tools/power-budget/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/tools/power-budget/"><i class="fas fa-language me-2"></i> 德语
+                            </a></li></ul></div></div></div></div></nav><main id="main-content">
         
 <style>
     .calc-hero { padding: 1.5rem; margin-bottom: 1rem; }
@@ -294,925 +140,138 @@
     }
 </style>
 
-<div class="container py-4">
-    <nav aria-label="面包屑" class="mb-3">
-        <ol class="breadcrumb text-sm">
-            <li class="breadcrumb-item"><a href="/">首页</a></li>
-            <li class="breadcrumb-item"><a href="/tools/">硬件计算器</a></li>
-            <li class="breadcrumb-item active" aria-current="page">开发板供电与电池续航预算计算器</li>
-        </ol>
-    </nav>
-
-    <section class="card-dark calc-hero mb-4">
-        <h1>开发板供电与电池续航预算计算器</h1>
-        <p>逐路填负载电压、电流与供电路径（直供 / LDO / DC-DC），算出输入侧总功率与总电流、含余量的建议电源规格，以及电池供电时按能量折算的续航。纯前端计算，输入不上传。</p>
-    </section>
-
-    <div class="calc-badge-row">
-        <span class="calc-badge"><i class="fas fa-shield-halved me-1" aria-hidden="true"></i>输入只留在本机浏览器</span>
-        <span class="calc-badge"><i class="fas fa-sliders me-1" aria-hidden="true"></i>免登录 · 免费 · 无额度</span>
-        <span class="calc-badge calc-badge-live" id="calcState">默认输入的结果已按服务端算好</span>
-    </div>
-
-    <section class="card-dark p-4 mb-4" id="calcTool" data-slug="power-budget">
-        <div class="calc-grid mb-3">
-            
-                
-                <div class="calc-field" data-calc-field="v_in">
-                    <label for="calc-in-v_in">输入 / 电源轨电压</label>
-                    <div class="calc-input-row">
-                        
-                        <input id="calc-in-v_in" type="number" data-calc-input
+<div class="container py-4"><nav aria-label="面包屑" class="mb-3"><ol class="breadcrumb text-sm"><li class="breadcrumb-item"><a href="/">首页</a></li><li class="breadcrumb-item"><a href="/tools/">硬件计算器</a></li><li class="breadcrumb-item active" aria-current="page">开发板供电与电池续航预算计算器</li></ol></nav><section class="card-dark calc-hero mb-4"><h1>开发板供电与电池续航预算计算器</h1><p>逐路填负载电压、电流与供电路径（直供 / LDO / DC-DC），算出输入侧总功率与总电流、含余量的建议电源规格，以及电池供电时按能量折算的续航。纯前端计算，输入不上传。</p></section><div class="calc-badge-row"><span class="calc-badge"><i class="fas fa-shield-halved me-1" aria-hidden="true"></i>输入只留在本机浏览器</span><span class="calc-badge"><i class="fas fa-sliders me-1" aria-hidden="true"></i>免登录 · 免费 · 无额度</span><span class="calc-badge calc-badge-live" id="calcState">默认输入的结果已按服务端算好</span></div><section class="card-dark p-4 mb-4" id="calcTool" data-slug="power-budget"><div class="calc-grid mb-3"><div class="calc-field" data-calc-field="v_in"><label for="calc-in-v_in">输入 / 电源轨电压</label><div class="calc-input-row"><input id="calc-in-v_in" type="number" data-calc-input
                                value="5.0" min="0.5" max="60" step="0.1"
-                               inputmode="decimal" autocomplete="off">
-                        
-                        <span class="calc-unit">V</span>
-                    </div>
-                </div>
-                
-            
-                
-            
-                
-                <div class="calc-field" data-calc-field="margin_pct">
-                    <label for="calc-in-margin_pct">电源余量（启动浪涌与峰值都塞在这里）</label>
-                    <div class="calc-input-row">
-                        
-                        <input id="calc-in-margin_pct" type="number" data-calc-input
+                               inputmode="decimal" autocomplete="off"><span class="calc-unit">V</span></div></div><div class="calc-field" data-calc-field="margin_pct"><label for="calc-in-margin_pct">电源余量（启动浪涌与峰值都塞在这里）</label><div class="calc-input-row"><input id="calc-in-margin_pct" type="number" data-calc-input
                                value="25" min="0" max="200" step="5"
-                               inputmode="decimal" autocomplete="off">
-                        
-                        <span class="calc-unit">%</span>
-                    </div>
-                </div>
-                
-            
-                
-                <div class="calc-field" data-calc-field="batt_mah">
-                    <label for="calc-in-batt_mah">电池容量（填 0 表示市电供电）</label>
-                    <div class="calc-input-row">
-                        
-                        <input id="calc-in-batt_mah" type="number" data-calc-input
+                               inputmode="decimal" autocomplete="off"><span class="calc-unit">%</span></div></div><div class="calc-field" data-calc-field="batt_mah"><label for="calc-in-batt_mah">电池容量（填 0 表示市电供电）</label><div class="calc-input-row"><input id="calc-in-batt_mah" type="number" data-calc-input
                                value="2000" min="0" max="200000" step="100"
-                               inputmode="decimal" autocomplete="off">
-                        
-                        <span class="calc-unit">mAh</span>
-                    </div>
-                </div>
-                
-            
-                
-                <div class="calc-field" data-calc-field="batt_v">
-                    <label for="calc-in-batt_v">电池标称电压</label>
-                    <div class="calc-input-row">
-                        
-                        <input id="calc-in-batt_v" type="number" data-calc-input
+                               inputmode="decimal" autocomplete="off"><span class="calc-unit">mAh</span></div></div><div class="calc-field" data-calc-field="batt_v"><label for="calc-in-batt_v">电池标称电压</label><div class="calc-input-row"><input id="calc-in-batt_v" type="number" data-calc-input
                                value="3.7" min="0.5" max="60" step="0.1"
-                               inputmode="decimal" autocomplete="off">
-                        
-                        <span class="calc-unit">V</span>
-                    </div>
-                </div>
-                
-            
-                
-                <div class="calc-field" data-calc-field="dod_pct">
-                    <label for="calc-in-dod_pct">可用放电深度</label>
-                    <div class="calc-input-row">
-                        
-                        <input id="calc-in-dod_pct" type="number" data-calc-input
+                               inputmode="decimal" autocomplete="off"><span class="calc-unit">V</span></div></div><div class="calc-field" data-calc-field="dod_pct"><label for="calc-in-dod_pct">可用放电深度</label><div class="calc-input-row"><input id="calc-in-dod_pct" type="number" data-calc-input
                                value="80" min="10" max="100" step="5"
-                               inputmode="decimal" autocomplete="off">
-                        
-                        <span class="calc-unit">%</span>
-                    </div>
-                </div>
-                
-            
-        </div>
-
-        
-            
-        
-            
-            <div class="calc-field mb-3" data-calc-field="loads" data-calc-rows>
-                <label>逐路负载</label>
-                <div class="calc-rows">
-                    
-                    <div class="calc-row" data-calc-row>
-                        
-                        <span class="calc-cell">
-                            
-                            <input type="text"
+                               inputmode="decimal" autocomplete="off"><span class="calc-unit">%</span></div></div></div><div class="calc-field mb-3" data-calc-field="loads" data-calc-rows><label>逐路负载</label><div class="calc-rows"><div class="calc-row" data-calc-row><span class="calc-cell"><input type="text"
                                    data-calc-col="name"
                                    aria-label="这路是什么"
                                    value="ESP32 主控（3.3 V 轨）"
                                    
-                                   autocomplete="off">
-                            
-                            
-                        </span>
-                        
-                        <span class="calc-cell">
-                            
-                            <input type="number"
+                                   autocomplete="off"></span><span class="calc-cell"><input type="number"
                                    data-calc-col="v"
                                    aria-label="负载电压"
                                    value="3.3"
                                    min="0" max="60" step="0.1"
-                                   autocomplete="off">
-                            
-                            <span class="calc-unit">V</span>
-                        </span>
-                        
-                        <span class="calc-cell">
-                            
-                            <input type="number"
+                                   autocomplete="off"><span class="calc-unit">V</span></span><span class="calc-cell"><input type="number"
                                    data-calc-col="a"
                                    aria-label="持续电流"
                                    value="0.12"
                                    min="0" max="30" step="0.01"
-                                   autocomplete="off">
-                            
-                            <span class="calc-unit">A</span>
-                        </span>
-                        
-                        <span class="calc-cell">
-                            
-                            <select data-calc-col="kind" aria-label="供电路径">
-                                
-                                <option value="direct">同轨直供</option>
-                                
-                                <option value="ldo" selected>LDO 线性稳压</option>
-                                
-                                <option value="dcdc">DC-DC 变换</option>
-                                
-                            </select>
-                            
-                            
-                        </span>
-                        
-                        <span class="calc-cell">
-                            
-                            <input type="number"
+                                   autocomplete="off"><span class="calc-unit">A</span></span><span class="calc-cell"><select data-calc-col="kind" aria-label="供电路径"><option value="direct">同轨直供</option><option value="ldo" selected>LDO 线性稳压</option><option value="dcdc">DC-DC 变换</option></select></span><span class="calc-cell"><input type="number"
                                    data-calc-col="eff"
                                    aria-label="DC-DC 效率"
                                    value="90"
                                    min="1" max="100" step="1"
-                                   autocomplete="off">
-                            
-                            <span class="calc-unit">%</span>
-                        </span>
-                        
-                        <span class="calc-cell">
-                            <button type="button" class="btn-zouic btn-zouic-secondary btn-zouic-sm" data-calc-del>
+                                   autocomplete="off"><span class="calc-unit">%</span></span><span class="calc-cell"><button type="button" class="btn-zouic btn-zouic-secondary btn-zouic-sm" data-calc-del>
                                 删除
-                            </button>
-                        </span>
-                    </div>
-                    
-                    <div class="calc-row" data-calc-row>
-                        
-                        <span class="calc-cell">
-                            
-                            <input type="text"
+                            </button></span></div><div class="calc-row" data-calc-row><span class="calc-cell"><input type="text"
                                    data-calc-col="name"
                                    aria-label="这路是什么"
                                    value="传感器与上拉"
                                    
-                                   autocomplete="off">
-                            
-                            
-                        </span>
-                        
-                        <span class="calc-cell">
-                            
-                            <input type="number"
+                                   autocomplete="off"></span><span class="calc-cell"><input type="number"
                                    data-calc-col="v"
                                    aria-label="负载电压"
                                    value="3.3"
                                    min="0" max="60" step="0.1"
-                                   autocomplete="off">
-                            
-                            <span class="calc-unit">V</span>
-                        </span>
-                        
-                        <span class="calc-cell">
-                            
-                            <input type="number"
+                                   autocomplete="off"><span class="calc-unit">V</span></span><span class="calc-cell"><input type="number"
                                    data-calc-col="a"
                                    aria-label="持续电流"
                                    value="0.04"
                                    min="0" max="30" step="0.01"
-                                   autocomplete="off">
-                            
-                            <span class="calc-unit">A</span>
-                        </span>
-                        
-                        <span class="calc-cell">
-                            
-                            <select data-calc-col="kind" aria-label="供电路径">
-                                
-                                <option value="direct">同轨直供</option>
-                                
-                                <option value="ldo" selected>LDO 线性稳压</option>
-                                
-                                <option value="dcdc">DC-DC 变换</option>
-                                
-                            </select>
-                            
-                            
-                        </span>
-                        
-                        <span class="calc-cell">
-                            
-                            <input type="number"
+                                   autocomplete="off"><span class="calc-unit">A</span></span><span class="calc-cell"><select data-calc-col="kind" aria-label="供电路径"><option value="direct">同轨直供</option><option value="ldo" selected>LDO 线性稳压</option><option value="dcdc">DC-DC 变换</option></select></span><span class="calc-cell"><input type="number"
                                    data-calc-col="eff"
                                    aria-label="DC-DC 效率"
                                    value="90"
                                    min="1" max="100" step="1"
-                                   autocomplete="off">
-                            
-                            <span class="calc-unit">%</span>
-                        </span>
-                        
-                        <span class="calc-cell">
-                            <button type="button" class="btn-zouic btn-zouic-secondary btn-zouic-sm" data-calc-del>
+                                   autocomplete="off"><span class="calc-unit">%</span></span><span class="calc-cell"><button type="button" class="btn-zouic btn-zouic-secondary btn-zouic-sm" data-calc-del>
                                 删除
-                            </button>
-                        </span>
-                    </div>
-                    
-                    <div class="calc-row" data-calc-row>
-                        
-                        <span class="calc-cell">
-                            
-                            <input type="text"
+                            </button></span></div><div class="calc-row" data-calc-row><span class="calc-cell"><input type="text"
                                    data-calc-col="name"
                                    aria-label="这路是什么"
                                    value="板载指示灯"
                                    
-                                   autocomplete="off">
-                            
-                            
-                        </span>
-                        
-                        <span class="calc-cell">
-                            
-                            <input type="number"
+                                   autocomplete="off"></span><span class="calc-cell"><input type="number"
                                    data-calc-col="v"
                                    aria-label="负载电压"
                                    value="3.3"
                                    min="0" max="60" step="0.1"
-                                   autocomplete="off">
-                            
-                            <span class="calc-unit">V</span>
-                        </span>
-                        
-                        <span class="calc-cell">
-                            
-                            <input type="number"
+                                   autocomplete="off"><span class="calc-unit">V</span></span><span class="calc-cell"><input type="number"
                                    data-calc-col="a"
                                    aria-label="持续电流"
                                    value="0.02"
                                    min="0" max="30" step="0.01"
-                                   autocomplete="off">
-                            
-                            <span class="calc-unit">A</span>
-                        </span>
-                        
-                        <span class="calc-cell">
-                            
-                            <select data-calc-col="kind" aria-label="供电路径">
-                                
-                                <option value="direct">同轨直供</option>
-                                
-                                <option value="ldo" selected>LDO 线性稳压</option>
-                                
-                                <option value="dcdc">DC-DC 变换</option>
-                                
-                            </select>
-                            
-                            
-                        </span>
-                        
-                        <span class="calc-cell">
-                            
-                            <input type="number"
+                                   autocomplete="off"><span class="calc-unit">A</span></span><span class="calc-cell"><select data-calc-col="kind" aria-label="供电路径"><option value="direct">同轨直供</option><option value="ldo" selected>LDO 线性稳压</option><option value="dcdc">DC-DC 变换</option></select></span><span class="calc-cell"><input type="number"
                                    data-calc-col="eff"
                                    aria-label="DC-DC 效率"
                                    value="90"
                                    min="1" max="100" step="1"
-                                   autocomplete="off">
-                            
-                            <span class="calc-unit">%</span>
-                        </span>
-                        
-                        <span class="calc-cell">
-                            <button type="button" class="btn-zouic btn-zouic-secondary btn-zouic-sm" data-calc-del>
+                                   autocomplete="off"><span class="calc-unit">%</span></span><span class="calc-cell"><button type="button" class="btn-zouic btn-zouic-secondary btn-zouic-sm" data-calc-del>
                                 删除
-                            </button>
-                        </span>
-                    </div>
-                    
-                    <div class="calc-row" data-calc-row>
-                        
-                        <span class="calc-cell">
-                            
-                            <input type="text"
+                            </button></span></div><div class="calc-row" data-calc-row><span class="calc-cell"><input type="text"
                                    data-calc-col="name"
                                    aria-label="这路是什么"
                                    value="5 V 外设（直供）"
                                    
-                                   autocomplete="off">
-                            
-                            
-                        </span>
-                        
-                        <span class="calc-cell">
-                            
-                            <input type="number"
+                                   autocomplete="off"></span><span class="calc-cell"><input type="number"
                                    data-calc-col="v"
                                    aria-label="负载电压"
                                    value="5.0"
                                    min="0" max="60" step="0.1"
-                                   autocomplete="off">
-                            
-                            <span class="calc-unit">V</span>
-                        </span>
-                        
-                        <span class="calc-cell">
-                            
-                            <input type="number"
+                                   autocomplete="off"><span class="calc-unit">V</span></span><span class="calc-cell"><input type="number"
                                    data-calc-col="a"
                                    aria-label="持续电流"
                                    value="0.15"
                                    min="0" max="30" step="0.01"
-                                   autocomplete="off">
-                            
-                            <span class="calc-unit">A</span>
-                        </span>
-                        
-                        <span class="calc-cell">
-                            
-                            <select data-calc-col="kind" aria-label="供电路径">
-                                
-                                <option value="direct" selected>同轨直供</option>
-                                
-                                <option value="ldo">LDO 线性稳压</option>
-                                
-                                <option value="dcdc">DC-DC 变换</option>
-                                
-                            </select>
-                            
-                            
-                        </span>
-                        
-                        <span class="calc-cell">
-                            
-                            <input type="number"
+                                   autocomplete="off"><span class="calc-unit">A</span></span><span class="calc-cell"><select data-calc-col="kind" aria-label="供电路径"><option value="direct" selected>同轨直供</option><option value="ldo">LDO 线性稳压</option><option value="dcdc">DC-DC 变换</option></select></span><span class="calc-cell"><input type="number"
                                    data-calc-col="eff"
                                    aria-label="DC-DC 效率"
                                    value="90"
                                    min="1" max="100" step="1"
-                                   autocomplete="off">
-                            
-                            <span class="calc-unit">%</span>
-                        </span>
-                        
-                        <span class="calc-cell">
-                            <button type="button" class="btn-zouic btn-zouic-secondary btn-zouic-sm" data-calc-del>
+                                   autocomplete="off"><span class="calc-unit">%</span></span><span class="calc-cell"><button type="button" class="btn-zouic btn-zouic-secondary btn-zouic-sm" data-calc-del>
                                 删除
-                            </button>
-                        </span>
-                    </div>
-                    
-                </div>
-                <div class="d-flex gap-2 mt-2">
-                    <button type="button" class="btn-zouic btn-zouic-secondary btn-zouic-sm" data-calc-add>
-                        <i class="fas fa-plus me-1" aria-hidden="true"></i>加一路负载
-                    </button>
-                </div>
-                <template id="calcRowTemplate">
-                    <div class="calc-row" data-calc-row>
-                        
-                        <span class="calc-cell">
-                            
-                            <input type="text"
+                            </button></span></div></div><div class="d-flex gap-2 mt-2"><button type="button" class="btn-zouic btn-zouic-secondary btn-zouic-sm" data-calc-add><i class="fas fa-plus me-1" aria-hidden="true"></i>加一路负载
+                    </button></div><template id="calcRowTemplate"><div class="calc-row" data-calc-row><span class="calc-cell"><input type="text"
                                    data-calc-col="name"
                                    aria-label="这路是什么"
                                    value="新负载"
                                    
-                                   autocomplete="off">
-                            
-                            
-                        </span>
-                        
-                        <span class="calc-cell">
-                            
-                            <input type="number"
+                                   autocomplete="off"></span><span class="calc-cell"><input type="number"
                                    data-calc-col="v"
                                    aria-label="负载电压"
                                    value="3.3"
                                    min="0" max="60" step="0.1"
-                                   autocomplete="off">
-                            
-                            <span class="calc-unit">V</span>
-                        </span>
-                        
-                        <span class="calc-cell">
-                            
-                            <input type="number"
+                                   autocomplete="off"><span class="calc-unit">V</span></span><span class="calc-cell"><input type="number"
                                    data-calc-col="a"
                                    aria-label="持续电流"
                                    value="0.1"
                                    min="0" max="30" step="0.01"
-                                   autocomplete="off">
-                            
-                            <span class="calc-unit">A</span>
-                        </span>
-                        
-                        <span class="calc-cell">
-                            
-                            <select data-calc-col="kind" aria-label="供电路径">
-                                
-                                <option value="direct">同轨直供</option>
-                                
-                                <option value="ldo" selected>LDO 线性稳压</option>
-                                
-                                <option value="dcdc">DC-DC 变换</option>
-                                
-                            </select>
-                            
-                            
-                        </span>
-                        
-                        <span class="calc-cell">
-                            
-                            <input type="number"
+                                   autocomplete="off"><span class="calc-unit">A</span></span><span class="calc-cell"><select data-calc-col="kind" aria-label="供电路径"><option value="direct">同轨直供</option><option value="ldo" selected>LDO 线性稳压</option><option value="dcdc">DC-DC 变换</option></select></span><span class="calc-cell"><input type="number"
                                    data-calc-col="eff"
                                    aria-label="DC-DC 效率"
                                    value="90"
                                    min="1" max="100" step="1"
-                                   autocomplete="off">
-                            
-                            <span class="calc-unit">%</span>
-                        </span>
-                        
-                        <span class="calc-cell">
-                            <button type="button" class="btn-zouic btn-zouic-secondary btn-zouic-sm" data-calc-del>
+                                   autocomplete="off"><span class="calc-unit">%</span></span><span class="calc-cell"><button type="button" class="btn-zouic btn-zouic-secondary btn-zouic-sm" data-calc-del>
                                 删除
-                            </button>
-                        </span>
-                    </div>
-                </template>
-            </div>
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-
-        <h2 class="h6 mb-2">结果</h2>
-        <div class="d-flex flex-column gap-2 mb-3">
-            
-            <div class="calc-out calc-out-key">
-                <span class="k">输出侧总功率</span>
-                <span class="v"><span data-calc-out="p_out_w">1.344</span> <span class="calc-unit">W</span></span>
-            </div>
-            
-            <div class="calc-out calc-out-key">
-                <span class="k">折算到输入的总功率</span>
-                <span class="v"><span data-calc-out="p_in_w">1.650</span> <span class="calc-unit">W</span></span>
-            </div>
-            
-            <div class="calc-out">
-                <span class="k">输入侧总电流</span>
-                <span class="v"><span data-calc-out="i_in_a">0.330</span> <span class="calc-unit">A</span></span>
-            </div>
-            
-            <div class="calc-out">
-                <span class="k">含余量的建议电源电流</span>
-                <span class="v"><span data-calc-out="i_design_a">0.413</span> <span class="calc-unit">A</span></span>
-            </div>
-            
-            <div class="calc-out">
-                <span class="k">最大单路 LDO 耗散</span>
-                <span class="v"><span data-calc-out="ldo_loss_w">0.204</span> <span class="calc-unit">W</span></span>
-            </div>
-            
-            <div class="calc-out">
-                <span class="k">电池可用能量</span>
-                <span class="v"><span data-calc-out="energy_wh">5.92</span> <span class="calc-unit">Wh</span></span>
-            </div>
-            
-            <div class="calc-out">
-                <span class="k">按平均功率的续航</span>
-                <span class="v"><span data-calc-out="runtime_h">3.59</span> <span class="calc-unit">h</span></span>
-            </div>
-            
-        </div>
-
-        <noscript>
-            <div class="calc-note">
-                <i class="fas fa-circle-info mt-1" aria-hidden="true"></i>
-                <span>浏览器脚本没有运行：上面的数字是本站服务端按默认输入算出来的，仍然有效；改输入需要开启 JavaScript。</span>
-            </div>
-        </noscript>
-
-        <div class="d-flex flex-column gap-2">
-            
-            <div class="calc-note" data-calc-note="empty_loads" hidden aria-hidden="true">
-                <i class="fas fa-triangle-exclamation mt-1" aria-hidden="true"></i>
-                <span>还没有填任何负载：所有结果为 0。至少加一行，把这块板真正会同时导通的负载写进去。</span>
-            </div>
-            
-            <div class="calc-note" data-calc-note="ldo_above_rail" hidden aria-hidden="true">
-                <i class="fas fa-triangle-exclamation mt-1" aria-hidden="true"></i>
-                <span>有 LDO 那一路的负载电压高于输入电压：线性稳压器不能升压，这路要么换输入轨，要么改成 DC-DC 升压并按变换器效率算。这里按 100% 效率给出，结论不可用。</span>
-            </div>
-            
-            <div class="calc-note" data-calc-note="ldo_hot" hidden aria-hidden="true">
-                <i class="fas fa-triangle-exclamation mt-1" aria-hidden="true"></i>
-                <span>至少一路 LDO 耗散超过 0.5 W：SOT-223 / TO-252 在这个量级上结温已经明显抬升，需要按封装热阻核对，或者改用 DC-DC。这是提示，不是热仿真结论。</span>
-            </div>
-            
-            <div class="calc-note" data-calc-note="no_battery" hidden aria-hidden="true">
-                <i class="fas fa-triangle-exclamation mt-1" aria-hidden="true"></i>
-                <span>电池容量为 0：按市电供电处理，续航与可用能量留空。</span>
-            </div>
-            
-            <div class="calc-note" data-calc-note="bad_vin" hidden aria-hidden="true">
-                <i class="fas fa-triangle-exclamation mt-1" aria-hidden="true"></i>
-                <span>输入电压填了 0 或负数：折算不出输入电流，结果留空。这一项也是 LDO 效率的分母，填成实际电源轨电压（USB 就是 5 V）。</span>
-            </div>
-            
-        </div>
-    </section>
-
-    <section class="card-dark p-4 mb-4">
-        <h2 class="h5 mb-1">算例</h2>
-        <p class="text-secondary text-sm mb-3">每一行都由本站的 Python 参考实现算出，与页面按下去的结果来自同一套常量与阈值；小数位只到能被手算复核的量级。</p>
-        <div class="table-responsive">
-            <table class="calc-table">
-                <thead>
-                    <tr>
-                        <th>场景</th>
-                        <th>输入</th>
-                        
-                        <th>输出侧总功率 <span class="calc-unit">W</span></th>
-                        
-                        <th>折算到输入的总功率 <span class="calc-unit">W</span></th>
-                        
-                        <th>输入侧总电流 <span class="calc-unit">A</span></th>
-                        
-                        <th>含余量的建议电源电流 <span class="calc-unit">A</span></th>
-                        
-                        <th>最大单路 LDO 耗散 <span class="calc-unit">W</span></th>
-                        
-                        <th>电池可用能量 <span class="calc-unit">Wh</span></th>
-                        
-                        <th>按平均功率的续航 <span class="calc-unit">h</span></th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                    <tr>
-                        <td>默认四路（ESP32 网关：0.12 + 0.04 + 0.02 A @3.3 V 走 LDO，0.15 A @5 V 直供）</td>
-                        <td>5 V · 4 路负载 · 25 % · 2000 mAh · 3.7 V · 80 %</td>
-                        
-                        <td class="v">1.344</td>
-                        
-                        <td class="v">1.650</td>
-                        
-                        <td class="v">0.330</td>
-                        
-                        <td class="v">0.413</td>
-                        
-                        <td class="v">0.204</td>
-                        
-                        <td class="v">5.92</td>
-                        
-                        <td class="v">3.59</td>
-                        
-                    </tr>
-                    
-                    <tr>
-                        <td>同样的负载改由 12 V 输入（LDO 压差变大，效率掉得很厉害）</td>
-                        <td>12 V · 4 路负载 · 25 % · 2000 mAh · 3.7 V · 80 %</td>
-                        
-                        <td class="v">1.344</td>
-                        
-                        <td class="v">2.910</td>
-                        
-                        <td class="v">0.243</td>
-                        
-                        <td class="v">0.303</td>
-                        
-                        <td class="v">1.044</td>
-                        
-                        <td class="v">5.92</td>
-                        
-                        <td class="v">2.03</td>
-                        
-                    </tr>
-                    
-                    <tr>
-                        <td>把 3.3 V 那三路换成 DC-DC（效率按 90%）</td>
-                        <td>5 V · 4 路负载 · 25 % · 2000 mAh · 3.7 V · 80 %</td>
-                        
-                        <td class="v">1.344</td>
-                        
-                        <td class="v">1.410</td>
-                        
-                        <td class="v">0.282</td>
-                        
-                        <td class="v">0.353</td>
-                        
-                        <td class="v">0.000</td>
-                        
-                        <td class="v">5.92</td>
-                        
-                        <td class="v">4.20</td>
-                        
-                    </tr>
-                    
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <section class="card-dark p-4 mb-4">
-        <h2 class="h5 mb-2">这个数是怎么来的</h2>
-        <div class="calc-formula mb-3">P_in = Σ (V_i · I_i / η_i)    I_in = P_in / V_in    I_design = I_in × (1 + margin)    t = (C · V_batt · DoD) / P_in</div>
-        <ul class="text-secondary text-sm d-flex flex-column gap-1 mb-3" style="list-style: none; padding-left: 0;">
-            
-            <li><i class="fas fa-angle-right text-primary me-2" aria-hidden="true"></i>η：直供 100%；LDO 取 V_out/V_in（线性调整，其余变成热）；DC-DC 手填</li>
-            
-            <li><i class="fas fa-angle-right text-primary me-2" aria-hidden="true"></i>V_in：输入轨电压，也是 USB / 电源适配器的电压</li>
-            
-            <li><i class="fas fa-angle-right text-primary me-2" aria-hidden="true"></i>margin：电源额定值余量，用来盖浪涌与峰值，不参与续航计算</li>
-            
-            <li><i class="fas fa-angle-right text-primary me-2" aria-hidden="true"></i>C · V_batt · DoD：电池容量 × 标称电压 × 可用比例，单位 Wh</li>
-            
-        </ul>
-        <p class="calc-src mb-2">拟合式来自 IPC-2221 载流能力图的公开复现，不是标准正文；常量与阈值全部列在下方，欢迎核对。</p>
-        <p class="calc-src mb-0">常量：k=0.048（外层）/ 0.024（内层）· b=0.44 · c=0.725 · 1 oz=1.378 mil=35 µm · 1 mil=0.0254 mm=25.4 µm · ρ(Cu, 20 °C)=0.0172 Ω·mm²/m</p>
-    </section>
-
-    <section class="card-dark p-4 mb-4">
-        <h2 class="h5 mb-2"><i class="fas fa-ban text-warning me-2" aria-hidden="true"></i>这个结果不能用来判断什么</h2>
-        <p class="text-secondary text-sm mb-0">这是稳态平均功率的预算表，不是电源选型证书：不含启动浪涌与电容充电冲击、不含电池内阻与低温降额、不含 DC-DC 轻载效率曲线与开关损耗、也不含休眠电流与唤醒频次。电池产品要按实测放电曲线和目标温度范围复核。</p>
-    </section>
-
-    <section class="card-dark p-4 mb-4">
-        <h2 class="h5 mb-3">常见问题</h2>
-        
-        <div class="calc-faq">
-            <h3>为什么 LDO 也要算效率？</h3>
-            <p>LDO 是线性调整：输入功率就是 V_in × I，多出来的 (V_in − V_out) × I 全部变成热。所以 5 V 进、3.3 V 出的效率只有 66%，页面把这一项写成 η = V_out/V_in，并同时给出耗散，方便你判断这颗稳压器能不能贴在小板上。</p>
-        </div>
-        
-        <div class="calc-faq">
-            <h3>电池续航为什么不能直接拿 mAh 除以电流？</h3>
-            <p>因为电池电压和系统电压不是一个数。3.7 V × 2000 mAh = 7.4 Wh 才是电池里的能量；系统按输入侧功率吃能量，续航 = 可用 Wh ÷ P_in。直接用 mAh ÷ 5 V 侧电流会把续航算长约 V_in/V_batt 倍（这里约 1.35 倍）。</p>
-        </div>
-        
-        <div class="calc-faq">
-            <h3>默认 25% 余量是哪来的？</h3>
-            <p>是本站给的一个起点，不是标准。它用来盖 WiFi 发射峰值、电机与舵机启动、电容充电冲击、老化与高温降额。你可以改；改了之后只有「建议电源电流」变，续航不受影响——因为余量买的是瞬时能力，不是能量。</p>
-        </div>
-        
-        <div class="calc-faq">
-            <h3>放电深度（DoD）填多少？</h3>
-            <p>锂电常用的保守值是 80%，留出末端电压跌落的余量；磷酸铁锂和带保护板的成品电池组按厂商的可用容量填。这个数直接线性影响续航，别拿厂商标称容量当可用容量。</p>
-        </div>
-        
-        <div class="calc-faq">
-            <h3>这块板该配多大的电源？</h3>
-            <p>读「含余量的建议电源电流」那一行，向上取到常见规格（1 A / 1.5 A / 2 A / 3 A）。如果这一路是 USB 口，还要注意 USB 2.0 端口的 500 mA 上限——算出来超过它，就说明不能只靠一根 USB 线供电。</p>
-        </div>
-        
-        <div class="calc-faq">
-            <h3>我填的数据会上传吗？</h3>
-            <p>不会。这一页只在浏览器里算，没有后端接口、不写库、不做埋点；关页面就没了。这也是为什么我们把公式常量摊在页面上，方便你核对它到底算了什么。</p>
-        </div>
-        
-    </section>
-
-    <section class="card-dark p-4 mb-4">
-        <h2 class="h5 mb-3">站内相关</h2>
-        <div class="calc-links">
-            
-            <a class="calc-link" href="/tools/trace-width/">
-                <span class="t">PCB 走线线宽与载流计算器</span>
-                <span class="d">由电流与允许温升反推最小线宽，顺带给出这段走线的电阻、压降与发热。</span>
-            </a>
-            
-            <a class="calc-link" href="/tools/via-current/">
-                <span class="t">过孔载流与孔壁电阻计算器</span>
-                <span class="d">由钻孔直径与孔壁镀厚算孔壁截面积，估单孔载流、孔壁电阻与单孔发热。</span>
-            </a>
-            
-            <a class="calc-link" href="/online-tools/">
-                <span class="t">在线工具</span>
-                <span class="d">浏览器里能直接用的烧录、调试与引脚查询入口清单</span>
-            </a>
-            <a class="calc-link" href="/services/component-matching/">
-                <span class="t">元器件选型与国产替代</span>
-                <span class="d">算完参数要落料：BOM 寻料与替代型号交叉参考可以交给本站</span>
-            </a>
-        </div>
-    </section>
-
-    <p class="calc-src mb-4">数据与公式核对时间：2026-11-02</p>
-</div>
+                            </button></span></div></template></div><h2 class="h6 mb-2">结果</h2><div class="d-flex flex-column gap-2 mb-3"><div class="calc-out calc-out-key"><span class="k">输出侧总功率</span><span class="v"><span data-calc-out="p_out_w">1.344</span> <span class="calc-unit">W</span></span></div><div class="calc-out calc-out-key"><span class="k">折算到输入的总功率</span><span class="v"><span data-calc-out="p_in_w">1.650</span> <span class="calc-unit">W</span></span></div><div class="calc-out"><span class="k">输入侧总电流</span><span class="v"><span data-calc-out="i_in_a">0.330</span> <span class="calc-unit">A</span></span></div><div class="calc-out"><span class="k">含余量的建议电源电流</span><span class="v"><span data-calc-out="i_design_a">0.413</span> <span class="calc-unit">A</span></span></div><div class="calc-out"><span class="k">最大单路 LDO 耗散</span><span class="v"><span data-calc-out="ldo_loss_w">0.204</span> <span class="calc-unit">W</span></span></div><div class="calc-out"><span class="k">电池可用能量</span><span class="v"><span data-calc-out="energy_wh">5.92</span> <span class="calc-unit">Wh</span></span></div><div class="calc-out"><span class="k">按平均功率的续航</span><span class="v"><span data-calc-out="runtime_h">3.59</span> <span class="calc-unit">h</span></span></div></div><noscript><div class="calc-note"><i class="fas fa-circle-info mt-1" aria-hidden="true"></i><span>浏览器脚本没有运行：上面的数字是本站服务端按默认输入算出来的，仍然有效；改输入需要开启 JavaScript。</span></div></noscript><div class="d-flex flex-column gap-2"><div class="calc-note" data-calc-note="empty_loads" hidden aria-hidden="true"><i class="fas fa-triangle-exclamation mt-1" aria-hidden="true"></i><span>还没有填任何负载：所有结果为 0。至少加一行，把这块板真正会同时导通的负载写进去。</span></div><div class="calc-note" data-calc-note="ldo_above_rail" hidden aria-hidden="true"><i class="fas fa-triangle-exclamation mt-1" aria-hidden="true"></i><span>有 LDO 那一路的负载电压高于输入电压：线性稳压器不能升压，这路要么换输入轨，要么改成 DC-DC 升压并按变换器效率算。这里按 100% 效率给出，结论不可用。</span></div><div class="calc-note" data-calc-note="ldo_hot" hidden aria-hidden="true"><i class="fas fa-triangle-exclamation mt-1" aria-hidden="true"></i><span>至少一路 LDO 耗散超过 0.5 W：SOT-223 / TO-252 在这个量级上结温已经明显抬升，需要按封装热阻核对，或者改用 DC-DC。这是提示，不是热仿真结论。</span></div><div class="calc-note" data-calc-note="no_battery" hidden aria-hidden="true"><i class="fas fa-triangle-exclamation mt-1" aria-hidden="true"></i><span>电池容量为 0：按市电供电处理，续航与可用能量留空。</span></div><div class="calc-note" data-calc-note="bad_vin" hidden aria-hidden="true"><i class="fas fa-triangle-exclamation mt-1" aria-hidden="true"></i><span>输入电压填了 0 或负数：折算不出输入电流，结果留空。这一项也是 LDO 效率的分母，填成实际电源轨电压（USB 就是 5 V）。</span></div></div></section><section class="card-dark p-4 mb-4"><h2 class="h5 mb-1">算例</h2><p class="text-secondary text-sm mb-3">每一行都由本站的 Python 参考实现算出，与页面按下去的结果来自同一套常量与阈值；小数位只到能被手算复核的量级。</p><div class="table-responsive"><table class="calc-table"><thead><tr><th>场景</th><th>输入</th><th>输出侧总功率 <span class="calc-unit">W</span></th><th>折算到输入的总功率 <span class="calc-unit">W</span></th><th>输入侧总电流 <span class="calc-unit">A</span></th><th>含余量的建议电源电流 <span class="calc-unit">A</span></th><th>最大单路 LDO 耗散 <span class="calc-unit">W</span></th><th>电池可用能量 <span class="calc-unit">Wh</span></th><th>按平均功率的续航 <span class="calc-unit">h</span></th></tr></thead><tbody><tr><td>默认四路（ESP32 网关：0.12 + 0.04 + 0.02 A @3.3 V 走 LDO，0.15 A @5 V 直供）</td><td>5 V · 4 路负载 · 25 % · 2000 mAh · 3.7 V · 80 %</td><td class="v">1.344</td><td class="v">1.650</td><td class="v">0.330</td><td class="v">0.413</td><td class="v">0.204</td><td class="v">5.92</td><td class="v">3.59</td></tr><tr><td>同样的负载改由 12 V 输入（LDO 压差变大，效率掉得很厉害）</td><td>12 V · 4 路负载 · 25 % · 2000 mAh · 3.7 V · 80 %</td><td class="v">1.344</td><td class="v">2.910</td><td class="v">0.243</td><td class="v">0.303</td><td class="v">1.044</td><td class="v">5.92</td><td class="v">2.03</td></tr><tr><td>把 3.3 V 那三路换成 DC-DC（效率按 90%）</td><td>5 V · 4 路负载 · 25 % · 2000 mAh · 3.7 V · 80 %</td><td class="v">1.344</td><td class="v">1.410</td><td class="v">0.282</td><td class="v">0.353</td><td class="v">0.000</td><td class="v">5.92</td><td class="v">4.20</td></tr></tbody></table></div></section><section class="card-dark p-4 mb-4"><h2 class="h5 mb-2">这个数是怎么来的</h2><div class="calc-formula mb-3">P_in = Σ (V_i · I_i / η_i)    I_in = P_in / V_in    I_design = I_in × (1 + margin)    t = (C · V_batt · DoD) / P_in</div><ul class="text-secondary text-sm d-flex flex-column gap-1 mb-3" style="list-style: none; padding-left: 0;"><li><i class="fas fa-angle-right text-primary me-2" aria-hidden="true"></i>η：直供 100%；LDO 取 V_out/V_in（线性调整，其余变成热）；DC-DC 手填</li><li><i class="fas fa-angle-right text-primary me-2" aria-hidden="true"></i>V_in：输入轨电压，也是 USB / 电源适配器的电压</li><li><i class="fas fa-angle-right text-primary me-2" aria-hidden="true"></i>margin：电源额定值余量，用来盖浪涌与峰值，不参与续航计算</li><li><i class="fas fa-angle-right text-primary me-2" aria-hidden="true"></i>C · V_batt · DoD：电池容量 × 标称电压 × 可用比例，单位 Wh</li></ul><p class="calc-src mb-2">拟合式来自 IPC-2221 载流能力图的公开复现，不是标准正文；常量与阈值全部列在下方，欢迎核对。</p><p class="calc-src mb-0">常量：k=0.048（外层）/ 0.024（内层）· b=0.44 · c=0.725 · 1 oz=1.378 mil=35 µm · 1 mil=0.0254 mm=25.4 µm · ρ(Cu, 20 °C)=0.0172 Ω·mm²/m</p></section><section class="card-dark p-4 mb-4"><h2 class="h5 mb-2"><i class="fas fa-ban text-warning me-2" aria-hidden="true"></i>这个结果不能用来判断什么</h2><p class="text-secondary text-sm mb-0">这是稳态平均功率的预算表，不是电源选型证书：不含启动浪涌与电容充电冲击、不含电池内阻与低温降额、不含 DC-DC 轻载效率曲线与开关损耗、也不含休眠电流与唤醒频次。电池产品要按实测放电曲线和目标温度范围复核。</p></section><section class="card-dark p-4 mb-4"><h2 class="h5 mb-3">常见问题</h2><div class="calc-faq"><h3>为什么 LDO 也要算效率？</h3><p>LDO 是线性调整：输入功率就是 V_in × I，多出来的 (V_in − V_out) × I 全部变成热。所以 5 V 进、3.3 V 出的效率只有 66%，页面把这一项写成 η = V_out/V_in，并同时给出耗散，方便你判断这颗稳压器能不能贴在小板上。</p></div><div class="calc-faq"><h3>电池续航为什么不能直接拿 mAh 除以电流？</h3><p>因为电池电压和系统电压不是一个数。3.7 V × 2000 mAh = 7.4 Wh 才是电池里的能量；系统按输入侧功率吃能量，续航 = 可用 Wh ÷ P_in。直接用 mAh ÷ 5 V 侧电流会把续航算长约 V_in/V_batt 倍（这里约 1.35 倍）。</p></div><div class="calc-faq"><h3>默认 25% 余量是哪来的？</h3><p>是本站给的一个起点，不是标准。它用来盖 WiFi 发射峰值、电机与舵机启动、电容充电冲击、老化与高温降额。你可以改；改了之后只有「建议电源电流」变，续航不受影响——因为余量买的是瞬时能力，不是能量。</p></div><div class="calc-faq"><h3>放电深度（DoD）填多少？</h3><p>锂电常用的保守值是 80%，留出末端电压跌落的余量；磷酸铁锂和带保护板的成品电池组按厂商的可用容量填。这个数直接线性影响续航，别拿厂商标称容量当可用容量。</p></div><div class="calc-faq"><h3>这块板该配多大的电源？</h3><p>读「含余量的建议电源电流」那一行，向上取到常见规格（1 A / 1.5 A / 2 A / 3 A）。如果这一路是 USB 口，还要注意 USB 2.0 端口的 500 mA 上限——算出来超过它，就说明不能只靠一根 USB 线供电。</p></div><div class="calc-faq"><h3>我填的数据会上传吗？</h3><p>不会。这一页只在浏览器里算，没有后端接口、不写库、不做埋点；关页面就没了。这也是为什么我们把公式常量摊在页面上，方便你核对它到底算了什么。</p></div></section><section class="card-dark p-4 mb-4"><h2 class="h5 mb-3">站内相关</h2><div class="calc-links"><a class="calc-link" href="/tools/trace-width/"><span class="t">PCB 走线线宽与载流计算器</span><span class="d">由电流与允许温升反推最小线宽，顺带给出这段走线的电阻、压降与发热。</span></a><a class="calc-link" href="/tools/via-current/"><span class="t">过孔载流与孔壁电阻计算器</span><span class="d">由钻孔直径与孔壁镀厚算孔壁截面积，估单孔载流、孔壁电阻与单孔发热。</span></a><a class="calc-link" href="/online-tools/"><span class="t">在线工具</span><span class="d">浏览器里能直接用的烧录、调试与引脚查询入口清单</span></a><a class="calc-link" href="/services/component-matching/"><span class="t">元器件选型与国产替代</span><span class="d">算完参数要落料：BOM 寻料与替代型号交叉参考可以交给本站</span></a></div></section><p class="calc-src mb-4">数据与公式核对时间：2026-11-02</p></div>
 
 <script type="application/json" id="calcConfig">{"constants": {"b": 0.44, "c": 0.725, "cuRhoOhmMm2PerM": 0.0172, "k": {"external": 0.048, "internal": 0.024}, "milPerOz": 1.378, "mmPerMil": 0.0254, "umPerMil": 25.4}, "defaults": {"batt_mah": 2000, "batt_v": 3.7, "dod_pct": 80, "loads": [{"a": 0.12, "eff": 90, "kind": "ldo", "name": "ESP32 \u4e3b\u63a7\uff083.3 V \u8f68\uff09", "name_key": "calc_load_1", "v": 3.3}, {"a": 0.04, "eff": 90, "kind": "ldo", "name": "\u4f20\u611f\u5668\u4e0e\u4e0a\u62c9", "name_key": "calc_load_2", "v": 3.3}, {"a": 0.02, "eff": 90, "kind": "ldo", "name": "\u677f\u8f7d\u6307\u793a\u706f", "name_key": "calc_load_3", "v": 3.3}, {"a": 0.15, "eff": 90, "kind": "direct", "name": "5 V \u5916\u8bbe\uff08\u76f4\u4f9b\uff09", "name_key": "calc_load_4", "v": 5.0}], "margin_pct": 25, "v_in": 5.0}, "fields": [{"def": 5.0, "id": "v_in", "kind": "number", "max": 60, "min": 0.5, "step": 0.1}, {"columns": [{"def": "\u8d1f\u8f7d", "id": "name", "key": "calc_f_load_name", "kind": "text", "label": "\u8fd9\u8def\u662f\u4ec0\u4e48"}, {"def": 3.3, "id": "v", "key": "calc_f_load_v", "kind": "number", "label": "\u8d1f\u8f7d\u7535\u538b", "max": 60, "min": 0, "step": 0.1, "unit": "V"}, {"def": 0.1, "id": "a", "key": "calc_f_load_a", "kind": "number", "label": "\u6301\u7eed\u7535\u6d41", "max": 30, "min": 0, "step": 0.01, "unit": "A"}, {"def": "ldo", "id": "kind", "key": "calc_f_load_kind", "kind": "select", "label": "\u4f9b\u7535\u8def\u5f84", "options": [{"key": "calc_opt_kind_direct", "label": "\u540c\u8f68\u76f4\u4f9b", "short": "\u76f4\u4f9b", "short_key": "calc_short_kind_direct", "value": "direct"}, {"key": "calc_opt_kind_ldo", "label": "LDO \u7ebf\u6027\u7a33\u538b", "short": "LDO", "short_key": "calc_short_kind_ldo", "value": "ldo"}, {"key": "calc_opt_kind_dcdc", "label": "DC-DC \u53d8\u6362", "short": "DC-DC", "short_key": "calc_short_kind_dcdc", "value": "dcdc"}], "unit": ""}, {"def": 90, "id": "eff", "key": "calc_f_load_eff", "kind": "number", "label": "DC-DC \u6548\u7387", "max": 100, "min": 1, "only_kind": "dcdc", "step": 1, "unit": "%"}], "def": [{"a": 0.12, "eff": 90, "kind": "ldo", "name": "ESP32 \u4e3b\u63a7\uff083.3 V \u8f68\uff09", "name_key": "calc_load_1", "v": 3.3}, {"a": 0.04, "eff": 90, "kind": "ldo", "name": "\u4f20\u611f\u5668\u4e0e\u4e0a\u62c9", "name_key": "calc_load_2", "v": 3.3}, {"a": 0.02, "eff": 90, "kind": "ldo", "name": "\u677f\u8f7d\u6307\u793a\u706f", "name_key": "calc_load_3", "v": 3.3}, {"a": 0.15, "eff": 90, "kind": "direct", "name": "5 V \u5916\u8bbe\uff08\u76f4\u4f9b\uff09", "name_key": "calc_load_4", "v": 5.0}], "id": "loads", "kind": "rows"}, {"def": 25, "id": "margin_pct", "kind": "number", "max": 200, "min": 0, "step": 5}, {"def": 2000, "id": "batt_mah", "kind": "number", "max": 200000, "min": 0, "step": 100}, {"def": 3.7, "id": "batt_v", "kind": "number", "max": 60, "min": 0.5, "step": 0.1}, {"def": 80, "id": "dod_pct", "kind": "number", "max": 100, "min": 10, "step": 5}], "notes": ["empty_loads", "ldo_above_rail", "ldo_hot", "no_battery", "bad_vin"], "results": [{"dp": 3, "id": "p_out_w"}, {"dp": 3, "id": "p_in_w"}, {"dp": 3, "id": "i_in_a"}, {"dp": 3, "id": "i_design_a"}, {"dp": 3, "id": "ldo_loss_w"}, {"dp": 2, "id": "energy_wh"}, {"dp": 2, "id": "runtime_h"}], "slug": "power-budget", "thresholds": {"ldoHotW": 0.5, "platingMinUm": 15.0, "processMinWidthMil": 8.0}}</script>
 <script type="application/json" id="calcLabels">{"calc_row_del": "\u5220\u9664", "calc_row_new_name": "\u65b0\u8d1f\u8f7d", "calc_state_notes": "\u5df2\u8ba1\u7b97 \u00b7 {n} \u6761\u63d0\u793a", "calc_state_ok": "\u5df2\u6309\u5f53\u524d\u8f93\u5165\u8ba1\u7b97"}</script>
 <script src="/static/js/calc-tool.js" defer></script>
 
-    </main>
-
-    <!-- Footer -->
-    <!-- Newsletter section (the home page already has a full follow block, so it is skipped there) -->
-    
-    <section id="follow" class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
-        <div class="container">
-            <div class="newsletter-card">
-                <div class="row align-items-center">
-                    <div class="col-lg-7">
-                        <h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3>
-                        <p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p>
-                    </div>
-                    <div class="col-lg-5">
-                        <a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a>
-                        <div class="newsletter-benefits">
-                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span>
-                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span>
-                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-
-    <section class="py-4" aria-label="出品人">
-        <div class="author-card">
-            <div class="author-card-info">
-                <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
-                <div>
-                    <div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div>
-                    <div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div>
-                </div>
-            </div>
-            <div class="author-card-actions">
-                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a>
-                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer-zouic" role="contentinfo">
-        <div class="container">
-            <div class="row footer-main">
-                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
-                    <a href="/" class="footer-brand" aria-label="ZouIC 首页">
-                        <i class="fas fa-microchip"></i>
-                        <span>ZouIC</span>
-                    </a>
-                    <p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p>
-                    <p class="footer-business-contact">
+    </main><section id="follow" class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3><p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p></div><div class="col-lg-5"><a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span></div></div></div></div></div></section><section class="py-4" aria-label="出品人"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div><div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/" class="footer-brand" aria-label="ZouIC 首页"><i class="fas fa-microchip"></i><span>ZouIC</span></a><p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p><p class="footer-business-contact">
                         商务合作 / 器件选型：
-                        <a href="mailto:waedon@outlook.com?subject=%E5%95%86%E5%8A%A1%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a>
-                    </p>
-
-                    <div class="footer-meta">
-                        <p class="footer-author">
-                            出品人 · <strong>极客微栋</strong>
-                            <span class="footer-author-handle">@GeekWaedon</span>
-                        </p>
-                        <div class="footer-slash-tags">
-                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span>
-                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span>
-                            <a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商">
-                                <i class="fab fa-weixin"></i> 企业微信服务商
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="footer-social">
-                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a>
-                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a>
-                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a>
-                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a>
-                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a>
-                        <a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a>
-                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a>
-                        <a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a>
-                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a>
-                        <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="col-6 col-md-2 mb-4 mb-md-0">
-                    <h5>产品</h5>
-                    <ul>
-                        <li><a href="/products/">产品介绍</a></li>
-                        <li><a href="/services/">服务说明</a></li>
-                        <li><a href="/services/website-building/">建站服务</a></li>
-                        <li><a href="/services/component-matching/">元器件撮合</a></li>
-                        <li><a href="/news/">站内动态</a></li>
-                        <li><a href="/boards/">开源开发板</a></li>
-                    </ul>
-                </div>
-                <div class="col-6 col-md-2 mb-4 mb-md-0">
-                    <h5>资源</h5>
-                    <ul>
-                        <li><a href="/board-guide/">选型指南</a></li>
-                        <li><a href="/compare/">开发板对比</a></li>
-                        <li><a href="/tutorials/">开发板教程</a></li>
-                        <li><a href="/documentation/">技术文档</a></li>
-                        <li><a href="/online-tools/">在线工具</a></li>
-                        <li><a href="/tools/">硬件计算器</a></li>
-                        <li><a href="/cases/">项目案例</a></li>
-                        <li><a href="/help/">文档中心</a></li>
-                        <li><a href="/games/resistor/">色环电阻识别挑战</a></li>
-                        <li><a href="/dashuju/">数据大屏</a></li>
-                    </ul>
-                </div>
-                <div class="col-6 col-md-2 mb-4 mb-md-0">
-                    <h5>开源生态</h5>
-                    <ul>
-                        <li><a href="/open-source/">开源项目</a></li>
-                        <li><a href="/all-projects/">全部项目</a></li>
-                        <li><a href="/articles/">技术文章</a></li>
-                        <li><a href="/wechat/">公众号专栏</a></li>
-                        <li><a href="/contribute/">贡献指南</a></li>
-                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                    </ul>
-                </div>
-                <div class="col-6 col-md-2">
-                    <h5>关于</h5>
-                    <ul>
-                        <li><a href="/about/">关于我们</a></li>
-                        <li><a href="/about/#contact">联系我们</a></li>
-                        <li><a href="/licenses/">开源协议</a></li>
-                        <li><a href="/about/#privacy">隐私政策</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-category-strip">
-                <span class="footer-category-label">热门分类</span>
-                <div class="footer-category-links">
-                    <a href="/category/">全部</a>
-                    
-                    <a href="/category/fpga/">FPGA</a>
-                    
-                    <a href="/category/general/">综合</a>
-                    
-                    <a href="/category/ai_hardware/">AI 硬件</a>
-                    
-                    <a href="/category/vision/">机器视觉</a>
-                    
-                    <a href="/category/esp32/">ESP32</a>
-                    
-                    <a href="/category/robotics/">机器人</a>
-                    
-                    <a href="/source/github/">GitHub</a>
-                    <a href="/source/hackster/">Hackster.io</a>
-                    <a href="/resources/">资源导航</a>
-                </div>
-            </div>
-            
-            <div class="footer-producer-bar">
-                <img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
-                <div style="line-height:1.6;">
-                    <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div>
-                    <div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2026 ZouIC. All rights reserved.</p>
-                <p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p>
-                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+                        <a href="mailto:waedon@outlook.com?subject=%E5%95%86%E5%8A%A1%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            出品人 · <strong>极客微栋</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span><a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商"><i class="fab fa-weixin"></i> 企业微信服务商
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a><a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>产品</h5><ul><li><a href="/products/">产品介绍</a></li><li><a href="/services/">服务说明</a></li><li><a href="/services/website-building/">建站服务</a></li><li><a href="/services/component-matching/">元器件撮合</a></li><li><a href="/news/">站内动态</a></li><li><a href="/boards/">开源开发板</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>资源</h5><ul><li><a href="/board-guide/">选型指南</a></li><li><a href="/compare/">开发板对比</a></li><li><a href="/tutorials/">开发板教程</a></li><li><a href="/documentation/">技术文档</a></li><li><a href="/online-tools/">在线工具</a></li><li><a href="/tools/">硬件计算器</a></li><li><a href="/cases/">项目案例</a></li><li><a href="/help/">文档中心</a></li><li><a href="/games/resistor/">色环电阻识别挑战</a></li><li><a href="/dashuju/">数据大屏</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>开源生态</h5><ul><li><a href="/open-source/">开源项目</a></li><li><a href="/all-projects/">全部项目</a></li><li><a href="/articles/">技术文章</a></li><li><a href="/wechat/">公众号专栏</a></li><li><a href="/contribute/">贡献指南</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>关于</h5><ul><li><a href="/about/">关于我们</a></li><li><a href="/about/#contact">联系我们</a></li><li><a href="/licenses/">开源协议</a></li><li><a href="/about/#privacy">隐私政策</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">热门分类</span><div class="footer-category-links"><a href="/category/">全部</a><a href="/category/fpga/">FPGA</a><a href="/category/general/">综合</a><a href="/category/ai_hardware/">AI 硬件</a><a href="/category/vision/">机器视觉</a><a href="/category/esp32/">ESP32</a><a href="/category/robotics/">机器人</a><a href="/source/github/">GitHub</a><a href="/source/hackster/">Hackster.io</a><a href="/resources/">资源导航</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div><div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="返回顶部"><i class="fas fa-chevron-up"></i></button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
     <script>
@@ -1476,5 +535,4 @@
     })();
     </script>
     
-</body>
-</html>
+</body></html>
