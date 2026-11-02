@@ -125,6 +125,36 @@
     background: rgba(0, 229, 255, 0.06);
     padding: 7px 14px;
 }
+.dash-live.is-on {
+    color: rgba(0, 229, 255, 0.9);
+    border-color: rgba(0, 229, 255, 0.28);
+}
+.dash-live.is-on .dash-dot { background: #00e5ff; }
+.dash-live.is-pending {
+    color: rgba(245, 165, 36, 0.95);
+    border-color: rgba(245, 165, 36, 0.45);
+    background: rgba(245, 165, 36, 0.08);
+}
+.dash-live.is-pending .dash-dot {
+    background: #f5a524;
+    box-shadow: 0 0 0 0 rgba(245, 165, 36, 0.65);
+    animation: dash-pulse-warn 1.8s infinite;
+}
+.dash-live.is-off {
+    color: rgba(255, 92, 122, 0.95);
+    border-color: rgba(255, 92, 122, 0.5);
+    background: rgba(255, 92, 122, 0.08);
+}
+.dash-live.is-off .dash-dot {
+    background: #ff5c7a;
+    box-shadow: 0 0 0 0 rgba(255, 92, 122, 0.6);
+    animation: dash-pulse-warn 1.8s infinite;
+}
+@keyframes dash-pulse-warn {
+    0% { box-shadow: 0 0 0 0 rgba(255, 92, 122, 0.5); }
+    70% { box-shadow: 0 0 0 9px rgba(255, 92, 122, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 92, 122, 0); }
+}
 .dash-dot {
     width: 7px;
     height: 7px;

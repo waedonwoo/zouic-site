@@ -113,7 +113,7 @@
     </style>
     <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a">
     
-    <link rel="stylesheet" href="/static/css/dashuju.css?v=20261029a">
+    <link rel="stylesheet" href="/static/css/dashuju.css?v=20261102a">
     <script src="/static/js/echarts.min.js?v=5.5.1" defer></script>
     <script>window.MONITOR_API = "https://waedon.pythonanywhere.com";</script>
 
@@ -219,7 +219,11 @@
                 <div><span>日期</span><strong id="dashDate">—</strong></div>
                 <div><span>时间</span><strong id="dashClock">—</strong></div>
             </div>
-            <div class="dash-live"><span class="dash-dot"></span>更新于 <span id="dashUpdated">—</span></div>
+            <div class="dash-live is-pending" id="dashStatus" role="status" aria-live="polite">
+                <span class="dash-dot"></span>
+                <span id="dashStatusText">连接中…</span>
+                <span>· 更新于 <span id="dashUpdated">—</span></span>
+            </div>
         </header>
 
         <div id="dashBanner" class="dash-banner" hidden></div>
@@ -229,7 +233,7 @@
             <div class="dash-kpi"><div class="dash-kpi-label">今日 PV</div><div class="dash-kpi-value" data-kpi="pv_today">—</div><div class="dash-kpi-sub">UV <span data-kpi="uv_today">—</span></div></div>
             <div class="dash-kpi"><div class="dash-kpi-label">昨日 PV</div><div class="dash-kpi-value" data-kpi="pv_yesterday">—</div><div class="dash-kpi-sub">同比基线</div></div>
             <div class="dash-kpi"><div class="dash-kpi-label">近 7 日 PV</div><div class="dash-kpi-value" data-kpi="pv_7d">—</div><div class="dash-kpi-sub">UV <span data-kpi="uv_7d">—</span></div></div>
-            <div class="dash-kpi"><div class="dash-kpi-label">近 30 日 PV</div><div class="dash-kpi-value" data-kpi="pv_30d">—</div><div class="dash-kpi-sub">真实访客</div></div>
+            <div class="dash-kpi"><div class="dash-kpi-label">近 30 日 PV</div><div class="dash-kpi-value" data-kpi="pv_30d">—</div><div class="dash-kpi-sub">独立访客按 IP 哈希去重</div></div>
             <div class="dash-kpi"><div class="dash-kpi-label">累计 PV</div><div class="dash-kpi-value" data-kpi="pv_total">—</div><div class="dash-kpi-sub">累计 UV <span data-kpi="uv_total">—</span></div></div>
             <div class="dash-kpi"><div class="dash-kpi-label">SEO+GEO 爬虫</div><div class="dash-kpi-value" data-kpi="bots_30d">—</div><div class="dash-kpi-sub">近 30 日抓取</div></div>
             <div class="dash-kpi"><div class="dash-kpi-label">Invalid traffic</div><div class="dash-kpi-value" data-kpi="ivt_30d">—</div><div class="dash-kpi-sub">of PV <span data-kpi="ivt_rate">—</span></div></div>
@@ -301,7 +305,7 @@
                 <div class="dash-panel-head"><h2 class="dash-panel-title">实时访问流</h2><span class="dash-panel-meta" id="liveMeta">最近 25 条</span></div>
                 <div class="dash-log-wrap">
                     <table class="dash-log-table" id="logTable">
-                        <thead><tr><th>时间</th><th>页面</th><th>来源</th><th>IP</th><th>地域</th><th>设备</th><th>类型</th></tr></thead>
+                        <thead><tr><th>时间</th><th>页面</th><th>来源</th><th>IP（脱敏）</th><th>地域</th><th>设备</th><th>类型</th></tr></thead>
                         <tbody><tr><td colspan="7" class="dash-empty">加载中…</td></tr></tbody>
                     </table>
                 </div>
@@ -343,6 +347,15 @@
         charts[id] = c;
         return c;
     }
+    function showChartEmpty(id, msg) {
+        var c = chart(id);
+        if (!c) return;
+        c.clear();
+        c.setOption({
+            graphic: [{ type: 'text', left: 'center', top: 'middle',
+                style: { text: msg, fill: '#6f8aa6', fontSize: 12, fontFamily: '"Share Tech Mono", monospace' } }]
+        }, true);
+    }
     var AXIS = { axisLine: { lineStyle: { color: 'rgba(0,229,255,.25)' } }, axisLabel: { color: '#8fa8c8', fontSize: 11 }, splitLine: { lineStyle: { color: 'rgba(0,229,255,.08)' } } };
     var C = { cyan: '#00e5ff', teal: '#00d4aa', violet: '#8b5cf6', amber: '#f5a524', red: '#ff5c7a', blue: '#4f8cff' };
 
@@ -350,6 +363,7 @@
 
     /* ---------- 渲染 ---------- */
     function renderTrend(trend) {
+        if (!trend || !trend.length) { showChartEmpty('trendChart', '暂无趋势数据'); return; }
         var c = chart('trendChart'); if (!c) return;
         var days = trend.map(function (r) { return r.day.slice(5); });
         c.setOption({
@@ -366,6 +380,7 @@
     }
 
     function renderPie(id, data, colors) {
+        if (!data || !data.length) { showChartEmpty(id, '暂无数据'); return; }
         var c = chart(id); if (!c) return;
         c.setOption({
             tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
@@ -388,7 +403,8 @@
     var DEV_LABEL = { desktop: '桌面端', mobile: '移动端', tablet: '平板' };
     var COUNTRY = { CN: '中国大陆', US: '美国', HK: '中国香港', TW: '中国台湾', JP: '日本', SG: '新加坡', KR: '韩国', DE: '德国', T1: '匿名专线', XX: '其他' };
 
-    function renderBars(id, data, color) {
+    function renderBars(id, data, color, emptyMsg) {
+        if (!data || !data.length) { showChartEmpty(id, emptyMsg || '暂无数据'); return; }
         var c = chart(id); if (!c) return;
         var names = data.map(function (r) { return r.k; }).reverse();
         var vals = data.map(function (r) { return r.v; }).reverse();
@@ -415,7 +431,7 @@
         if (!el) return;
         if (list === undefined || list === null) {
             // 后端还没升级到含 IVT 的版本：这时显示「未识别到」等于凭空下结论，
-            // 与本站"不填演示数据"同一条红线 —— 没测就说没测。
+            // 与本站"不填假数据"同一条红线 —— 没测就说没测。
             el.innerHTML = '<li class="dash-empty">'
                 + (IS_EN ? 'Not reported by the data backend yet'
                          : '数据中台尚未上报该口径')
@@ -465,32 +481,79 @@
 
     function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
-    /* ---------- 数据加载 ---------- */
+    /* ---------- 数据加载：超时 + 退避重试，失败只留空，不伪造、不估算 ---------- */
+    var lastSummary = null, lastGoodAt = '', summaryOk = false, liveOk = false;
+    var summaryFails = 0, liveFails = 0, summaryTimer = null, liveTimer = null;
+    var statusEl = document.getElementById('dashStatus');
+    var statusTextEl = document.getElementById('dashStatusText');
+
+    function nowText() { return new Date().toLocaleTimeString('zh-CN', { hour12: false }); }
+    function setConn(state, text) {
+        if (statusEl) statusEl.className = 'dash-live ' + state;
+        if (statusTextEl) statusTextEl.textContent = text;
+    }
+    function refreshStatus() {
+        if (!API) { setConn('is-off', '未配置数据中台'); return; }
+        if (summaryOk || liveOk) setConn('is-on', '已连接');
+        else setConn('is-off', '未连接 · 自动重试中');
+    }
+    function errText(e) {
+        if (!e) return '未知错误';
+        if (e.name === 'AbortError') return '请求超时';
+        if (e instanceof TypeError) return '网络不可达或跨域被拦截（Failed to fetch）';
+        return e.message || '请求失败';
+    }
+    function fetchJSON(url, timeoutMs) {
+        return new Promise(function (resolve, reject) {
+            var ctrl = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+            var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, timeoutMs) : null;
+            var opts = { cache: 'no-store', credentials: 'omit' };
+            if (ctrl) opts.signal = ctrl.signal;
+            fetch(url, opts).then(function (r) {
+                if (timer) clearTimeout(timer);
+                if (!r.ok) throw new Error('HTTP ' + r.status);
+                return r.json();
+            }).then(resolve, function (e) {
+                if (timer) clearTimeout(timer);
+                reject(e);
+            });
+        });
+    }
+    function arr(x) { return Array.isArray(x) ? x : []; }
+
     function applySummary(d) {
-        Object.keys(d.kpi).forEach(function (k) { setKpi(k, d.kpi[k]); });
-        var pvN = d.kpi.pv_30d || 0, ivtN = d.kpi.ivt_30d;
+        d = d || {};
+        var kpi = d.kpi || {};
+        Object.keys(kpi).forEach(function (k) { setKpi(k, kpi[k]); });
+        var pvN = kpi.pv_30d || 0, ivtN = kpi.ivt_30d;
         setKpi('ivt_rate', (ivtN === undefined || ivtN === null || !pvN)
             ? '—' : (ivtN * 100 / pvN).toFixed(1) + '%');
         renderIvt(d.ivt_reasons);
-        renderTrend(d.trend);
-        renderPie('sourceChart', d.sources.map(function (s) { return { name: REF_LABEL[s.k] || s.k, value: s.v }; }), [C.cyan, C.violet, C.teal, C.amber, C.blue]);
-        renderPie('deviceChart', d.devices.map(function (s) { return { name: DEV_LABEL[s.k] || s.k, value: s.v }; }), [C.cyan, C.teal, C.violet]);
-        renderBars('seoChart', d.seo_bots, { type: 'linear', x: 0, y: 0, x2: 1, y2: 0, colorStops: [{ offset: 0, color: C.teal }, { offset: 1, color: 'rgba(0,212,170,.3)' }] });
-        renderBars('geoChart', d.geo_bots, { type: 'linear', x: 0, y: 0, x2: 1, y2: 0, colorStops: [{ offset: 0, color: C.violet }, { offset: 1, color: 'rgba(139,92,246,.3)' }] });
-        renderBars('countryChart', d.countries.map(function (r) { return { k: COUNTRY[r.k] || r.k, v: r.v }; }), { type: 'linear', x: 0, y: 0, x2: 1, y2: 0, colorStops: [{ offset: 0, color: C.cyan }, { offset: 1, color: 'rgba(0,229,255,.3)' }] });
-        renderPages(d.pages);
-        renderHealth(d.health);
-        renderLog(d.recent);
-        document.getElementById('dashUpdated').textContent = new Date().toLocaleTimeString('zh-CN', { hour12: false });
+        renderTrend(arr(d.trend));
+        renderPie('sourceChart', arr(d.sources).map(function (s) { return { name: REF_LABEL[s.k] || s.k, value: s.v }; }), [C.cyan, C.violet, C.teal, C.amber, C.blue]);
+        renderPie('deviceChart', arr(d.devices).map(function (s) { return { name: DEV_LABEL[s.k] || s.k, value: s.v }; }), [C.cyan, C.teal, C.violet]);
+        var barColor = function (a, b) { return { type: 'linear', x: 0, y: 0, x2: 1, y2: 0, colorStops: [{ offset: 0, color: a }, { offset: 1, color: b }] }; };
+        renderBars('seoChart', arr(d.seo_bots), barColor(C.teal, 'rgba(0,212,170,.3)'), '近 30 日无 SEO 爬虫记录');
+        renderBars('geoChart', arr(d.geo_bots), barColor(C.violet, 'rgba(139,92,246,.3)'), '近 30 日无 AI 爬虫记录');
+        var countries = arr(d.countries).map(function (r) { return { k: COUNTRY[r.k] || r.k, v: r.v }; });
+        renderBars('countryChart', countries, barColor(C.cyan, 'rgba(0,229,255,.3)'),
+            countries.length ? '' : 'IP 归属查询未启用');
+        renderPages(arr(d.pages));
+        renderHealth(arr(d.health));
+        renderLog(arr(d.recent));
+        summaryOk = true; summaryFails = 0;
+        lastSummary = d; lastGoodAt = nowText();
+        document.getElementById('dashUpdated').textContent = lastGoodAt;
+        refreshStatus();
     }
 
-    function banner(msg, isDemo) {
+    function banner(msg) {
         bannerEl.hidden = false;
-        bannerEl.className = 'dash-banner' + (isDemo ? ' demo' : '');
+        bannerEl.className = 'dash-banner';
         bannerEl.textContent = msg;
     }
 
-    /* 连不上时留空，而不是画演示曲线：0 或假曲线都可能被读成“真实结论”。 */
+    /* 连不上时留空：0 或假曲线都可能被读成“真实结论”。 */
     function renderEmpty() {
         document.querySelectorAll('[data-kpi]').forEach(function (el) { el.textContent = '—'; });
         Object.values(charts).forEach(function (c) { c.clear(); });
@@ -502,68 +565,56 @@
         document.getElementById('dashUpdated').textContent = '—';
     }
 
-    var gotReal = false;   // 只要成功取到过一次真实数据，失败时就保留旧结果不再清空
-
     function loadSummary() {
+        if (summaryTimer) { clearTimeout(summaryTimer); summaryTimer = null; }
         if (!API) {
-            banner('[告警] 数据中台未连接：MONITOR_API 尚未配置（部署轻后端后在 .env 的 MONITOR_API_URL 填入地址并重新导出）。以下为演示数据，仅展示大屏形态，非真实流量。', true);
-            applySummary(demoData());
+            setConn('is-off', '未配置数据中台');
+            banner('数据中台未配置：MONITOR_API 为空，图表留空。请在 .env 填入 MONITOR_API_URL 后重新导出页面。');
+            renderEmpty();
             return;
         }
-        fetch(API + '/api/summary?site=zouic&days=30')
-            .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-            .then(function (d) {
-                if (!d.ok) throw new Error(d.error || 'unknown');
-                bannerEl.hidden = true;
-                gotReal = true;
-                applySummary(d);
-            })
-            .catch(function (e) {
-                // 托管免费档会在 Reload/冷启动的几十秒里拒绝请求，这是暂时故障不是“没流量”
-                banner('[提示] 数据中台暂时连接失败（' + e.message + '），30 秒后自动重试。' +
-                    (gotReal ? '下方保留上一次取到的真实数据。' : '未取到真实数据，图表留空——不填演示数据。'), false);
-                if (!gotReal) renderEmpty();
-            });
+        setConn('is-pending', lastSummary ? '刷新中…' : '连接中…');
+        fetchJSON(API + '/api/summary?site=zouic&days=30', 12000).then(function (d) {
+            if (!d || !d.ok) throw new Error((d && d.error) || '返回格式异常');
+            bannerEl.hidden = true;
+            applySummary(d);
+            summaryTimer = setTimeout(loadSummary, 30000);
+        }).catch(function (e) {
+            summaryOk = false; summaryFails += 1;
+            var delay = Math.min(30000, 3000 * Math.pow(2, summaryFails - 1));
+            setConn('is-off', '未连接 · ' + Math.round(delay / 1000) + 's 后重试');
+            banner('[连接告警] 数据中台未连接：' + errText(e) + '。' +
+                (lastSummary ? '下方保留最后一次成功数据（' + lastGoodAt + '）。' : '图表留空，不伪造、不估算。') +
+                ' 前端已自动重试 ' + summaryFails + ' 次。');
+            if (!lastSummary) renderEmpty();
+            summaryTimer = setTimeout(loadSummary, delay);
+        });
     }
 
     /* ---------- 实时访问流：10s 轮询，比 30s 的聚合更跟手 ---------- */
     function loadLive() {
+        if (liveTimer) { clearTimeout(liveTimer); liveTimer = null; }
         if (!API) return;
-        fetch(API + '/api/live?site=zouic&limit=25')
-            .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-            .then(function (d) {
-                if (!d.ok) throw new Error(d.error || 'unknown');
-                renderLog(d.recent || []);
-                var meta = document.getElementById('liveMeta');
-                if (meta) {
-                    meta.textContent = '当前在线 ' + (d.online_5m || 0) + ' · 近 1 小时 '
-                        + (d.pv_last_hour || 0) + ' PV · 最近 25 条访问痕迹';
-                }
-                document.getElementById('dashUpdated').textContent = new Date().toLocaleTimeString('zh-CN', { hour12: false });
-            })
-            .catch(function () { /* 静默降级：保留上一次 summary 渲染的结果 */ });
-    }
-
-    /* ---------- 演示数据（明确标注，杜绝 LTD 式以假乱真） ---------- */
-    function demoData() {
-        var trend = [], base = 60 + Math.floor(Math.random() * 40);
-        for (var i = 29; i >= 0; i--) {
-            var d = new Date(Date.now() - i * 86400e3);
-            var pv = Math.round(base + Math.sin(i / 4) * 25 + Math.random() * 30);
-            trend.push({ day: d.toISOString().slice(0, 10), pv: pv, uv: Math.round(pv * 0.62) });
-        }
-        return {
-            kpi: { pv_today: trend[29].pv, pv_yesterday: trend[28].pv, pv_7d: 1024, pv_30d: 3960, pv_total: 5821, uv_today: 38, uv_7d: 615, uv_total: 2240, bots_30d: 486 },
-            trend: trend,
-            sources: [{ k: 'search', v: 1520 }, { k: 'direct', v: 1180 }, { k: 'referral', v: 640 }, { k: 'social', v: 420 }, { k: 'campaign', v: 200 }],
-            devices: [{ k: 'desktop', v: 2280 }, { k: 'mobile', v: 1510 }, { k: 'tablet', v: 170 }],
-            countries: [{ k: 'CN', v: 2610 }, { k: 'US', v: 480 }, { k: 'HK', v: 260 }, { k: 'JP', v: 190 }, { k: 'SG', v: 150 }, { k: 'DE', v: 120 }],
-            pages: [{ k: '/', v: 1240 }, { k: '/services/component-matching/', v: 620 }, { k: '/wechat/', v: 480 }, { k: '/boards/', v: 390 }, { k: '/about/', v: 330 }],
-            seo_bots: [{ k: '百度 Baiduspider', v: 388 }, { k: 'Googlebot', v: 240 }, { k: 'bingbot', v: 96 }],
-            geo_bots: [{ k: 'ChatGPT GPTBot', v: 84 }, { k: 'Claude', v: 52 }, { k: 'Perplexity', v: 31 }, { k: '豆包 Bytespider', v: 27 }],
-            health: [],
-            recent: []
-        };
+        fetchJSON(API + '/api/live?site=zouic&limit=25', 8000).then(function (d) {
+            if (!d || !d.ok) throw new Error((d && d.error) || '返回格式异常');
+            liveOk = true; liveFails = 0;
+            renderLog(arr(d.recent));
+            var meta = document.getElementById('liveMeta');
+            if (meta) {
+                meta.textContent = '当前在线 ' + (d.online_5m || 0) + ' · 近 1 小时 '
+                    + (d.pv_last_hour || 0) + ' PV · 最近 25 条访问痕迹';
+            }
+            lastGoodAt = nowText();
+            document.getElementById('dashUpdated').textContent = lastGoodAt;
+            refreshStatus();
+            liveTimer = setTimeout(loadLive, 10000);
+        }).catch(function (e) {
+            liveOk = false; liveFails += 1;
+            var meta = document.getElementById('liveMeta');
+            if (meta) meta.textContent = '实时流未连接（' + errText(e) + '）· 保留上次记录，自动重试中';
+            refreshStatus();
+            liveTimer = setTimeout(loadLive, Math.min(30000, 4000 * Math.pow(2, Math.min(liveFails, 3))));
+        });
     }
 
     /* ---------- AI 读数字（只接受服务端校验过的文案，降级就保留导出快照） ---------- */
@@ -621,19 +672,19 @@
     if (aiRefreshBtn) aiRefreshBtn.addEventListener('click', function () { refreshAiInsight(aiRefreshBtn); });
 
     /* ---------- 启动 ---------- */
-    var _pollId = null, _liveId = null;
     function boot() {
-        loadSummary(); loadLive();
-        if (API) {
-            _pollId = setInterval(loadSummary, 30000);
-            _liveId = setInterval(loadLive, 10000);
-        }
+        refreshStatus();
+        loadSummary();
+        loadLive();
     }
     if (document.readyState === 'complete' || document.readyState === 'interactive') setTimeout(boot, 300);
     else window.addEventListener('DOMContentLoaded', function () { setTimeout(boot, 300); });
+    window.addEventListener('online', function () {
+        if (API) { loadSummary(); loadLive(); }
+    });
     window.addEventListener('beforeunload', function () {
-        if (_pollId) clearInterval(_pollId);
-        if (_liveId) clearInterval(_liveId);
+        if (summaryTimer) clearTimeout(summaryTimer);
+        if (liveTimer) clearTimeout(liveTimer);
     });
 })();
 </script>
