@@ -22,11 +22,15 @@
     
     
     
+    
     <link rel="canonical" href="https://www.zouic.com/en/compare/">
     
-    <link rel="alternate" hreflang="zh" href="https://www.zouic.com/compare/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/compare/" />
     
     <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/compare/" />
+    
+    <link rel="alternate" hreflang="de" href="https://www.zouic.com/de/compare/" />
+    
     
     <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/compare/" />
     
@@ -142,12 +146,13 @@
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="/en/products/"><i class="fas fa-box me-2"></i>Products</a></li>
                             <li><a class="dropdown-item" href="/en/services/"><i class="fas fa-cogs me-2"></i>Services</a></li>
-                            <li><a class="dropdown-item" href="/en/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li>
+                            <li><a class="dropdown-item" href="/en/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>Component matching</a></li>
                             <li><a class="dropdown-item" href="/en/news/"><i class="fas fa-newspaper me-2"></i>Site Updates</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="/en/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li>
                             <li><a class="dropdown-item" href="/en/documentation/"><i class="fas fa-book me-2"></i>Documentation</a></li>
-                            <li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li>
+                            <li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>Resource Navigation</a></li>
+                            <li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>Online Tools</a></li>
                             <li><a class="dropdown-item" href="/en/cases/"><i class="fas fa-briefcase me-2"></i>Project Cases</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="/en/open-source/"><i class="fas fa-code-branch me-2"></i>Open Source Projects</a></li>
@@ -185,6 +190,11 @@
                             <li><a class="dropdown-item" href="/en/compare/">
                                 <i class="fas fa-language me-2"></i> English
                             </a></li>
+                            
+                            <li><a class="dropdown-item" href="/de/compare/">
+                                <i class="fas fa-language me-2"></i> 德语
+                            </a></li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -201,13 +211,13 @@
 
             
             <div class="compare-intro">
-                <p>参数表能并列，是因为开发板的规格基本可以量化：主控型号、主频、Flash 与 RAM、GPIO 数量、无线能力、供电方式、板载调试器。把几块板子放进同一张表，差异会立刻显形。</p>
-                <p>但真正决定选型的往往不是表里最大的那个数字。同样标 240 MHz，带不带硬件浮点、有没有 PSRAM 扩展、能不能跑 MicroPython 或 RTOS，实际体验差别很大；同样标 30 个 GPIO，能不能同时用摄像头和 SD 卡又是另一回事。</p>
-                <p>所以这张表适合用来排除，不适合用来拍板。先用它把不满足硬性条件的板子筛掉，再回到单板详情页看引脚复用表、原理图和已知问题。</p>
+                <p>The parameter table can be listed in parallel because the specifications of the development board can be quantified: main control model, main frequency, Flash and RAM, GPIO quantity, wireless capability, power supply mode, and onboard debugger. Put several boards into the same table, and the differences will immediately become apparent.</p>
+                <p>But what really determines the selection is often not the largest number in the table. The same standard is 240 MHz, with or without hardware floating-point, with or without PSRAM extension, and whether it can run MicroPython or RTOS, the actual experience varies greatly; Whether it is possible to use both a camera and an SD card with the same 30 GPIO is another matter.</p>
+                <p>So this table is suitable for exclusion, not for making decisions. First, use it to screen out boards that do not meet the hard conditions, and then return to the single board details page to view the pin reuse table, schematic, and known issues.</p>
                 <ul class="compare-intro-list">
-                    <li><strong>先定外设</strong>：需要摄像头、以太网、CAN 的项目，直接按外设筛，比按主频筛有效。</li>
-                    <li><strong>再看供电</strong>：电池供电要盯休眠电流与 LDO/DCDC 效率，这栏参数很少写在首页。</li>
-                    <li><strong>最后看生态</strong>：同价位下，文档完整度和社区问答量比多 20% 的主频更影响开发时间。</li>
+                    <li><strong>Pre order peripherals</strong>：For projects that require cameras, Ethernet, and CAN, filtering by external devices is more effective than filtering by main frequency.</li>
+                    <li><strong>Looking at the power supply again</strong>：Battery power supply should focus on sleep current and LDO/DCDC efficiency, which are rarely listed on the homepage.</li>
+                    <li><strong>Finally, let&#39;s take a look at ecology</strong>：At the same price point, a 20% increase in document completeness and community Q&amp;A volume has a greater impact on development time.</li>
                 </ul>
             </div>
         </div>
@@ -483,7 +493,7 @@
                         <li><a href="/en/products/">Products</a></li>
                         <li><a href="/en/services/">Services</a></li>
                         <li><a href="/en/services/website-building/">Website building</a></li>
-                        <li><a href="/en/services/component-matching/">元器件撮合</a></li>
+                        <li><a href="/en/services/component-matching/">Component matching</a></li>
                         <li><a href="/en/news/">Site Updates</a></li>
                         <li><a href="/en/boards/">Development Boards</a></li>
                     </ul>
@@ -495,6 +505,7 @@
                         <li><a href="/en/compare/">Board comparison</a></li>
                         <li><a href="/en/tutorials/">Tutorials</a></li>
                         <li><a href="/en/documentation/">Documentation</a></li>
+                        <li><a href="/online-tools/">Online Tools</a></li>
                         <li><a href="/en/cases/">Project Cases</a></li>
                         <li><a href="/en/help/">Documentation</a></li>
                         <li><a href="/en/games/resistor/">Resistor Color Code Challenge</a></li>
@@ -524,9 +535,9 @@
             </div>
             
             <div class="footer-category-strip">
-                <span class="footer-category-label">热门分类</span>
+                <span class="footer-category-label">Popular Categories</span>
                 <div class="footer-category-links">
-                    <a href="/en/category/">全部</a>
+                    <a href="/en/category/">all</a>
                     
                     <a href="/en/category/fpga/">FPGA</a>
                     
@@ -542,12 +553,12 @@
                     
                     <a href="/en/source/github/">GitHub</a>
                     <a href="/en/source/hackster/">Hackster.io</a>
-                    <a href="/resources/">资源导航</a>
+                    <a href="/resources/">Resource Navigation</a>
                 </div>
             </div>
             
             <div class="footer-producer-bar">
-                <img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
+                <img src="/static/images/author/avatar-mascot.png" alt="Geek Micro Building" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
                 <div style="line-height:1.6;">
                     <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">Built single-handedly by GeekWaedon (@GeekWaedon) · <span style="color:#a78bfa;">people and AI, working side by side</span></div>
                     <div class="text-xs text-secondary">A one-person project run by a real human: the site build, the data pulls, the articles and the artwork all came from me (with a few AI agents). <a href="/en/about/" class="text-primary" style="text-decoration:none;">Meet the person behind it →</a></div>

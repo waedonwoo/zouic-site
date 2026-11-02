@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Live ZouIC Dashboard für Inbound Traffic und Content Assets: Seitenansichten, einzigartige Besucher, Quellen, Top-Seiten, SEO- und KI-Crawler-Hits und den…">
+    <meta name="keywords" content="Datendashboard,Verkehrsanalyse,Website-Statistiken,Besucheranalyse,SEO-Daten">
+    
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <link rel="canonical" href="https://www.zouic.com/de/dashuju/">
+    
+    <link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/dashuju/" />
+    
+    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/dashuju/" />
+    
+    <link rel="alternate" hreflang="de" href="https://www.zouic.com/de/dashuju/" />
+    
+    
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/dashuju/" />
+    
+    
+    
+    
+    <meta property="og:title" content="Datendashboard - Traffic &amp; Content Analytics | ZouIC">
+    <meta property="og:description" content="Live ZouIC Dashboard für Inbound Traffic und Content Assets: Seitenansichten, einzigartige Besucher, Quellen, Top-Seiten, SEO- und KI-Crawler-Hits und den Conversion-Trichter. Erstellt aus vor Ort protokollierten Besuchen mit maskierten IPs; Eine Metrik, die nicht gelesen werden kann, bleibt leer, anstatt geschätzt zu werden.">
+    <meta property="og:url" content="https://www.zouic.com/de/dashuju/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+    
+    
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ZouIC – Plattform für Open-Source-Entwicklungsboards · GeekWeidong">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Datendashboard - Traffic &amp; Content Analytics | ZouIC">
+    <meta name="twitter:description" content="Live ZouIC Dashboard für Inbound Traffic und Content Assets: Seitenansichten, einzigartige Besucher, Quellen, Top-Seiten, SEO- und KI-Crawler-Hits und den Conversion-Trichter. Erstellt aus vor Ort protokollierten Besuchen mit maskierten IPs; Eine Metrik, die nicht gelesen werden kann, bleibt leer, anstatt geschätzt zu werden.">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "description": "Live ZouIC Dashboard f\u00fcr Inbound Traffic und Content Assets: Seitenansichten, einzigartige Besucher, Quellen, Top-Seiten, SEO- und KI-Crawler-Hits und den Conversion-Trichter. Erstellt aus vor Ort protokollierten Besuchen mit maskierten IPs; Eine Metrik, die nicht gelesen werden kann, bleibt leer, anstatt gesch\u00e4tzt zu werden.", "inLanguage": "de", "isPartOf": {"@id": "https://www.zouic.com/#website"}, "name": "Datendashboard - Traffic \u0026 Content Analytics | ZouIC", "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/dashuju"}]}
+    </script>
+    
+    
+    <title>Datendashboard - Traffic &amp; Content Analytics | ZouIC</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    
+    <!-- External Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    
+    <!-- ZouIC Design System -->
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261031a">
+    <noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a">
+    
+    <link rel="stylesheet" href="/static/css/dashuju.css?v=20261029a">
+    <script src="/static/js/echarts.min.js?v=5.5.1" defer></script>
+    <script>window.MONITOR_API = "https://waedon.pythonanywhere.com";</script>
+
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Hauptnavigation">
+        <div class="container">
+            <a class="navbar-brand" href="/de/">
+                <i class="fas fa-microchip"></i> ZouIC
+            </a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
+                <span class="nav-hud-dot"></span>SYS.ONLINE
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Navigation umschalten">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/de/">Startseite</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/de/all-projects/"><i class="fas fa-project-diagram me-1"></i>Open-Source-Projekte</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/de/boards/">Open-Source-Boards</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/de/board-guide/">Dokumentation</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-business" href="/de/services/component-matching/">Geschäftskontakt</a></li>
+                    <li class="nav-item dropdown">
+                        <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Mehr
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/de/products/"><i class="fas fa-box me-2"></i>Produkte</a></li>
+                            <li><a class="dropdown-item" href="/de/services/"><i class="fas fa-cogs me-2"></i>Leistungen</a></li>
+                            <li><a class="dropdown-item" href="/de/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>elektronische BauteileVermittlung</a></li>
+                            <li><a class="dropdown-item" href="/de/news/"><i class="fas fa-newspaper me-2"></i>Neuigkeiten</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/de/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Anleitungen</a></li>
+                            <li><a class="dropdown-item" href="/de/documentation/"><i class="fas fa-book me-2"></i>Dokumentation</a></li>
+                            <li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>Ressourcennavigation</a></li>
+                            <li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>Online-Werkzeuge</a></li>
+                            <li><a class="dropdown-item" href="/de/cases/"><i class="fas fa-briefcase me-2"></i>Projektbeispiele</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/de/open-source/"><i class="fas fa-code-branch me-2"></i>Open-Source-Projekte</a></li>
+                            <li><a class="dropdown-item" href="/de/articles/"><i class="fas fa-pen-fancy me-2"></i>Fachbeiträge</a></li>
+                            <li><a class="dropdown-item" href="/de/contribute/"><i class="fas fa-handshake me-2"></i>Mitwirken</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/de/dashuju/"><i class="fas fa-chart-line me-2"></i>Datenübersicht</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-lg-none"><a class="nav-link" href="/de/search/"><i class="fas fa-search me-1"></i>Suche</a></li>
+                </ul>
+                <form id="searchForm" class="d-flex me-3 d-none d-lg-flex">
+                    <div class="input-group input-group-zouic">
+                        <input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="Boards, Projekte oder Schlagworte suchen …" aria-label="Suchen" style="width: 200px;">
+                        <select id="searchType" class="form-select input-zouic" aria-label="Suchtyp:" style="width: auto; flex: 0 0 auto;">
+                            <option value="">Alle Kategorien</option>
+                            <option value="board">Open-Source-Boards</option>
+                            <option value="project">Open-Source-Projekte</option>
+                        </select>
+                        <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Suchen">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i> Deutsch
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/dashuju/">
+                                <i class="fas fa-language me-2"></i> Chinesisch
+                            </a></li>
+                            <li><a class="dropdown-item" href="/en/dashuju/">
+                                <i class="fas fa-language me-2"></i> Englisch
+                            </a></li>
+                            
+                            <li><a class="dropdown-item" href="/de/dashuju/">
+                                <i class="fas fa-language me-2"></i> Deutsch
+                            </a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        
+<div class="dash-screen" id="dashScreen">
+    <div class="container dash-container">
+        <header class="dash-head">
+            <div class="dash-brand">
+                <div class="dash-brand-mark" aria-hidden="true">Z</div>
+                <div>
+                    <h1>ZouIC · 全站流量监控</h1>
+                    <p>PV · IP · SEO · GEO · 实时数据大屏</p>
+                </div>
+            </div>
+            <div class="dash-clock" aria-label="时间">
+                <div><span>日期</span><strong id="dashDate">—</strong></div>
+                <div><span>时间</span><strong id="dashClock">—</strong></div>
+            </div>
+            <div class="dash-live"><span class="dash-dot"></span>更新于 <span id="dashUpdated">—</span></div>
+        </header>
+
+        <div id="dashBanner" class="dash-banner" hidden></div>
+
+        <!-- KPI -->
+        <section class="dash-kpis" aria-label="核心指标">
+            <div class="dash-kpi"><div class="dash-kpi-label">今日 PV</div><div class="dash-kpi-value" data-kpi="pv_today">—</div><div class="dash-kpi-sub">UV <span data-kpi="uv_today">—</span></div></div>
+            <div class="dash-kpi"><div class="dash-kpi-label">昨日 PV</div><div class="dash-kpi-value" data-kpi="pv_yesterday">—</div><div class="dash-kpi-sub">同比基线</div></div>
+            <div class="dash-kpi"><div class="dash-kpi-label">近 7 日 PV</div><div class="dash-kpi-value" data-kpi="pv_7d">—</div><div class="dash-kpi-sub">UV <span data-kpi="uv_7d">—</span></div></div>
+            <div class="dash-kpi"><div class="dash-kpi-label">近 30 日 PV</div><div class="dash-kpi-value" data-kpi="pv_30d">—</div><div class="dash-kpi-sub">真实访客</div></div>
+            <div class="dash-kpi"><div class="dash-kpi-label">累计 PV</div><div class="dash-kpi-value" data-kpi="pv_total">—</div><div class="dash-kpi-sub">累计 UV <span data-kpi="uv_total">—</span></div></div>
+            <div class="dash-kpi"><div class="dash-kpi-label">SEO+GEO 爬虫</div><div class="dash-kpi-value" data-kpi="bots_30d">—</div><div class="dash-kpi-sub">近 30 日抓取</div></div>
+            <div class="dash-kpi"><div class="dash-kpi-label">Ungültiger Verkehr</div><div class="dash-kpi-value" data-kpi="ivt_30d">—</div><div class="dash-kpi-sub">von PV <span data-kpi="ivt_rate">—</span></div></div>
+        </section>
+
+        
+
+        <div class="dash-grid">
+            <!-- 趋势 -->
+            <section class="dash-panel dash-col-6">
+                <div class="dash-panel-head"><h2 class="dash-panel-title">流量趋势</h2><span class="dash-panel-meta">PV / UV · 30D</span></div>
+                <div id="trendChart" class="dash-chart"></div>
+            </section>
+
+            <!-- 来源 -->
+            <section class="dash-panel dash-col-3">
+                <div class="dash-panel-head"><h2 class="dash-panel-title">来源分布</h2><span class="dash-panel-meta">30D</span></div>
+                <div id="sourceChart" class="dash-chart dash-chart-sm"></div>
+            </section>
+
+            <!-- 设备 -->
+            <section class="dash-panel dash-col-3">
+                <div class="dash-panel-head"><h2 class="dash-panel-title">设备分布</h2><span class="dash-panel-meta">30D</span></div>
+                <div id="deviceChart" class="dash-chart dash-chart-sm"></div>
+            </section>
+
+            <!-- SEO -->
+            <section class="dash-panel dash-col-3">
+                <div class="dash-panel-head"><h2 class="dash-panel-title">SEO 搜索引擎爬虫</h2><span class="dash-panel-meta">抓取次数 · 30D</span></div>
+                <div id="seoChart" class="dash-chart dash-chart-sm"></div>
+                <p class="dash-hint">搜索引擎蜘蛛抓取频次反映收录意愿。</p>
+            </section>
+
+            <!-- GEO -->
+            <section class="dash-panel dash-col-3">
+                <div class="dash-panel-head"><h2 class="dash-panel-title">GEO AI 爬虫</h2><span class="dash-panel-meta">抓取次数 · 30D</span></div>
+                <div id="geoChart" class="dash-chart dash-chart-sm"></div>
+                <p class="dash-hint">AI 助手（ChatGPT/Claude/Perplexity 等）抓取是生成式引擎引用的前提。</p>
+            </section>
+
+            <!-- 国家地域 -->
+            <section class="dash-panel dash-col-3">
+                <div class="dash-panel-head"><h2 class="dash-panel-title">访客地域 Top 10</h2><span class="dash-panel-meta">IP 归属 · 30D</span></div>
+                <div id="countryChart" class="dash-chart dash-chart-sm"></div>
+            </section>
+
+            <!-- 无效流量识别 -->
+            <section class="dash-panel dash-col-3">
+                <div class="dash-panel-head"><h2 class="dash-panel-title">Ungültige Verkehrserkennung</h2><span class="dash-panel-meta">Gepasste Regeln - 30D</span></div>
+                <ul class="dash-list dash-dist" id="ivtReasons"><li class="dash-empty">Laden...</li></ul>
+                <p class="dash-hint">Nur aus serverseitigen Signalen erkannt (anomale UA, kopflose Browser, kurzfristige Ausbrüche). Es werden keine Kundenfingerabdrücke gesammelt.</p>
+            </section>
+
+            <!-- 热门页 -->
+            <section class="dash-panel dash-col-6">
+                <div class="dash-panel-head"><h2 class="dash-panel-title">热门页面 Top 10</h2><span class="dash-panel-meta">PV · 30D</span></div>
+                <ul class="dash-list dash-dist" id="topPages"><li class="dash-empty">加载中…</li></ul>
+            </section>
+
+            <!-- 站点健康 -->
+            <section class="dash-panel dash-col-6">
+                <div class="dash-panel-head"><h2 class="dash-panel-title">SEO / GEO 站点健康</h2><span class="dash-panel-meta">大屏自动巡检 · 约 6 小时一次</span></div>
+                <div class="dash-health-grid" id="healthGrid"><span class="dash-empty">加载中…</span></div>
+                <p class="dash-hint">llms.txt 是 AI 搜索引擎（GEO）的内容入口；sitemap.xml 决定传统搜索引擎收录。</p>
+            </section>
+
+            <!-- 实时日志 -->
+            <section class="dash-panel dash-col-12">
+                <div class="dash-panel-head"><h2 class="dash-panel-title">实时访问流</h2><span class="dash-panel-meta" id="liveMeta">最近 25 条</span></div>
+                <div class="dash-log-wrap">
+                    <table class="dash-log-table" id="logTable">
+                        <thead><tr><th>时间</th><th>页面</th><th>来源</th><th>IP</th><th>地域</th><th>设备</th><th>类型</th></tr></thead>
+                        <tbody><tr><td colspan="7" class="dash-empty">加载中…</td></tr></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+        <footer class="dash-foot">
+            <span>数据中台：独立轻后端（Flask + SQLite）· IP 只存打码段与当日哈希，不留原始地址</span>
+            <span><a href="https://waedon.pythonanywhere.com/observatory">爬虫观测台</a> · ZouIC Site Monitor · 极客微栋 @GeekWaedon</span>
+        </footer>
+    </div>
+</div>
+
+<script>
+(function () {
+    'use strict';
+    var API = (window.MONITOR_API || '').replace(/\/$/, '');
+    var bannerEl = document.getElementById('dashBanner');
+    var charts = {};
+
+    /* ---------- 时钟 ---------- */
+    function tick() {
+        var n = new Date();
+        var p = function (x) { return (x < 10 ? '0' : '') + x; };
+        document.getElementById('dashDate').textContent = n.getFullYear() + '-' + p(n.getMonth() + 1) + '-' + p(n.getDate());
+        document.getElementById('dashClock').textContent = p(n.getHours()) + ':' + p(n.getMinutes()) + ':' + p(n.getSeconds());
+    }
+    tick(); setInterval(tick, 1000);
+
+    function fmt(n) { return (n || 0).toLocaleString('en-US'); }
+    function setKpi(k, v) { var el = document.querySelector('[data-kpi="' + k + '"]'); if (el) el.textContent = fmt(v); }
+
+    /* ---------- ECharts 基础 ---------- */
+    function chart(id) {
+        if (charts[id]) return charts[id];
+        var el = document.getElementById(id);
+        if (!el || !window.echarts) return null;
+        var c = echarts.init(el, null, { renderer: 'canvas' });
+        charts[id] = c;
+        return c;
+    }
+    var AXIS = { axisLine: { lineStyle: { color: 'rgba(0,229,255,.25)' } }, axisLabel: { color: '#8fa8c8', fontSize: 11 }, splitLine: { lineStyle: { color: 'rgba(0,229,255,.08)' } } };
+    var C = { cyan: '#00e5ff', teal: '#00d4aa', violet: '#8b5cf6', amber: '#f5a524', red: '#ff5c7a', blue: '#4f8cff' };
+
+    window.addEventListener('resize', function () { Object.values(charts).forEach(function (c) { c.resize(); }); });
+
+    /* ---------- 渲染 ---------- */
+    function renderTrend(trend) {
+        var c = chart('trendChart'); if (!c) return;
+        var days = trend.map(function (r) { return r.day.slice(5); });
+        c.setOption({
+            grid: { left: 46, right: 16, top: 34, bottom: 26 },
+            legend: { data: ['PV', 'UV'], textStyle: { color: '#8fa8c8' }, top: 0 },
+            tooltip: { trigger: 'axis' },
+            xAxis: { type: 'category', data: days, ...AXIS, boundaryGap: false },
+            yAxis: { type: 'value', ...AXIS },
+            series: [
+                { name: 'PV', type: 'line', smooth: true, data: trend.map(function (r) { return r.pv; }), lineStyle: { color: C.cyan, width: 2 }, itemStyle: { color: C.cyan }, areaStyle: { color: { type: 'linear', x: 0, y: 0, x2: 0, y2: 1, colorStops: [{ offset: 0, color: 'rgba(0,229,255,.35)' }, { offset: 1, color: 'rgba(0,229,255,0)' }] } } },
+                { name: 'UV', type: 'line', smooth: true, data: trend.map(function (r) { return r.uv; }), lineStyle: { color: C.violet, width: 2 }, itemStyle: { color: C.violet } }
+            ]
+        });
+    }
+
+    function renderPie(id, data, colors) {
+        var c = chart(id); if (!c) return;
+        c.setOption({
+            tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
+            legend: { orient: 'vertical', right: 6, top: 'middle', textStyle: { color: '#8fa8c8', fontSize: 11 } },
+            color: colors,
+            series: [{ type: 'pie', radius: ['42%', '68%'], center: ['36%', '52%'], data: data, label: { show: false }, emphasis: { label: { show: false } } }]
+        });
+    }
+
+    var IS_EN = true;
+    var REF_LABEL = IS_EN
+        ? { direct: 'Direct', search: 'Search', social: 'Social', referral: 'Referral',
+            campaign: 'Campaign', internal: 'Internal', ai: 'AI assistant' }
+        : { direct: '直接访问', search: '搜索引擎', social: '社交媒体', referral: '外部引荐',
+            campaign: '广告活动', internal: '站内跳转', ai: 'AI 助手' };
+    // IVT 规则标签；与后端 monitor_backend/app.py 的 IVT_REASONS 一一对应
+    var IVT_LABEL = IS_EN
+        ? { ua_short: 'Missing/short UA', automation: 'Headless automation', burst: 'Short-term burst' }
+        : { ua_short: 'UA 缺失或异常短', automation: '无头/自动化浏览器', burst: '短时高频突发' };
+    var DEV_LABEL = { desktop: '桌面端', mobile: '移动端', tablet: '平板' };
+    var COUNTRY = { CN: '中国大陆', US: '美国', HK: '中国香港', TW: '中国台湾', JP: '日本', SG: '新加坡', KR: '韩国', DE: '德国', T1: '匿名专线', XX: '其他' };
+
+    function renderBars(id, data, color) {
+        var c = chart(id); if (!c) return;
+        var names = data.map(function (r) { return r.k; }).reverse();
+        var vals = data.map(function (r) { return r.v; }).reverse();
+        c.setOption({
+            grid: { left: 90, right: 40, top: 8, bottom: 8 },
+            tooltip: { trigger: 'item' },
+            xAxis: { type: 'value', ...AXIS, splitLine: { show: false }, axisLabel: { show: false } },
+            yAxis: { type: 'category', data: names, ...AXIS, splitLine: { show: false }, axisLabel: { color: '#a9c1de', fontSize: 11 } },
+            series: [{ type: 'bar', data: vals, barWidth: 10, itemStyle: { color: color, borderRadius: [0, 5, 5, 0] }, label: { show: true, position: 'right', color: '#8fa8c8', fontSize: 11 } }]
+        });
+    }
+
+    function renderPages(pages) {
+        var el = document.getElementById('topPages');
+        var max = Math.max.apply(null, pages.map(function (p) { return p.v; }).concat([1]));
+        el.innerHTML = pages.length ? pages.map(function (p) {
+            var pct = (p.v * 100 / max).toFixed(1);
+            return '<li><div class="dash-dist-row"><span style="max-width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">' + esc(p.k) + '</span><span>' + fmt(p.v) + '</span></div><div class="dash-bar"><span style="width:' + pct + '%"></span></div></li>';
+        }).join('') : '<li class="dash-empty">暂无数据</li>';
+    }
+
+    function renderIvt(list) {
+        var el = document.getElementById('ivtReasons');
+        if (!el) return;
+        if (list === undefined || list === null) {
+            // 后端还没升级到含 IVT 的版本：这时显示「未识别到」等于凭空下结论，
+            // 与本站"不填演示数据"同一条红线 —— 没测就说没测。
+            el.innerHTML = '<li class="dash-empty">'
+                + (IS_EN ? 'Not reported by the data backend yet'
+                         : '数据中台尚未上报该口径')
+                + '</li>';
+            return;
+        }
+        if (!list.length) {
+            el.innerHTML = '<li class="dash-empty">'
+                + (IS_EN ? 'No invalid traffic detected in the last 30 days'
+                         : '近 30 日未识别到无效流量')
+                + '</li>';
+            return;
+        }
+        var max = Math.max.apply(null, list.map(function (r) { return r.v; }).concat([1]));
+        el.innerHTML = list.map(function (r) {
+            var pct = (r.v * 100 / max).toFixed(1);
+            return '<li><div class="dash-dist-row"><span>' + esc(IVT_LABEL[r.k] || r.k)
+                + '</span><span>' + fmt(r.v) + '</span></div>'
+                + '<div class="dash-bar"><span style="width:' + pct + '%"></span></div></li>';
+        }).join('');
+    }
+
+    function renderHealth(rows) {
+        var el = document.getElementById('healthGrid');
+        if (!rows.length) { el.innerHTML = '<span class="dash-empty">巡检未生成：后端会自动重试（约 6 小时一次）；若主机出网被限制在域名白名单（免费档默认如此），这里长期留空——不填假数据</span>'; return; }
+        el.innerHTML = rows.map(function (h) {
+            function badge(ok, label) { return '<span class="dash-badge ' + (ok ? 'ok' : 'bad') + '">' + label + '</span>'; }
+            return '<div class="dash-health-card">' +
+                '<div class="dash-health-name">' + esc(h.site) + ' <em>' + (h.ttfb_ms || 0) + 'ms</em></div>' +
+                '<div class="dash-health-badges">' + badge(h.https_ok, 'HTTPS') + badge(h.sitemap_ok, 'sitemap') + badge(h.llms_ok, 'llms.txt') + badge(h.robots_ok, 'robots') + '</div>' +
+                '</div>';
+        }).join('');
+    }
+
+    function renderLog(rows) {
+        var tb = document.querySelector('#logTable tbody');
+        if (!rows.length) { tb.innerHTML = '<tr><td colspan="7" class="dash-empty">暂无访问记录</td></tr>'; return; }
+        tb.innerHTML = rows.map(function (r) {
+            var t = new Date(r.ts * 1000);
+            var p = function (x) { return (x < 10 ? '0' : '') + x; };
+            var time = p(t.getHours()) + ':' + p(t.getMinutes()) + ':' + p(t.getSeconds());
+            var cls = r.ua_class === 'human' ? '<span class="dash-badge ok">访客</span>' : r.ua_class === 'seo' ? '<span class="dash-badge seo">SEO</span>' : r.ua_class === 'geo' ? '<span class="dash-badge geo">GEO</span>' : '<span class="dash-badge bot">' + esc(r.ua_name || '爬虫') + '</span>';
+            var ref = r.ref_type === 'direct' ? '直接' : (REF_LABEL[r.ref_type] || r.ref_type) + (r.ref_host ? ' · ' + esc(r.ref_host) : '');
+            return '<tr><td>' + time + '</td><td class="dash-log-path">' + esc(r.path) + '</td><td>' + ref + '</td><td>' + esc(r.ip || '—') + '</td><td>' + esc(COUNTRY[r.country] || r.country || '—') + '</td><td>' + esc(DEV_LABEL[r.device] || r.device || '—') + '</td><td>' + cls + '</td></tr>';
+        }).join('');
+    }
+
+    function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+    /* ---------- 数据加载 ---------- */
+    function applySummary(d) {
+        Object.keys(d.kpi).forEach(function (k) { setKpi(k, d.kpi[k]); });
+        var pvN = d.kpi.pv_30d || 0, ivtN = d.kpi.ivt_30d;
+        setKpi('ivt_rate', (ivtN === undefined || ivtN === null || !pvN)
+            ? '—' : (ivtN * 100 / pvN).toFixed(1) + '%');
+        renderIvt(d.ivt_reasons);
+        renderTrend(d.trend);
+        renderPie('sourceChart', d.sources.map(function (s) { return { name: REF_LABEL[s.k] || s.k, value: s.v }; }), [C.cyan, C.violet, C.teal, C.amber, C.blue]);
+        renderPie('deviceChart', d.devices.map(function (s) { return { name: DEV_LABEL[s.k] || s.k, value: s.v }; }), [C.cyan, C.teal, C.violet]);
+        renderBars('seoChart', d.seo_bots, { type: 'linear', x: 0, y: 0, x2: 1, y2: 0, colorStops: [{ offset: 0, color: C.teal }, { offset: 1, color: 'rgba(0,212,170,.3)' }] });
+        renderBars('geoChart', d.geo_bots, { type: 'linear', x: 0, y: 0, x2: 1, y2: 0, colorStops: [{ offset: 0, color: C.violet }, { offset: 1, color: 'rgba(139,92,246,.3)' }] });
+        renderBars('countryChart', d.countries.map(function (r) { return { k: COUNTRY[r.k] || r.k, v: r.v }; }), { type: 'linear', x: 0, y: 0, x2: 1, y2: 0, colorStops: [{ offset: 0, color: C.cyan }, { offset: 1, color: 'rgba(0,229,255,.3)' }] });
+        renderPages(d.pages);
+        renderHealth(d.health);
+        renderLog(d.recent);
+        document.getElementById('dashUpdated').textContent = new Date().toLocaleTimeString('zh-CN', { hour12: false });
+    }
+
+    function banner(msg, isDemo) {
+        bannerEl.hidden = false;
+        bannerEl.className = 'dash-banner' + (isDemo ? ' demo' : '');
+        bannerEl.textContent = msg;
+    }
+
+    /* 连不上时留空，而不是画演示曲线：0 或假曲线都可能被读成“真实结论”。 */
+    function renderEmpty() {
+        document.querySelectorAll('[data-kpi]').forEach(function (el) { el.textContent = '—'; });
+        Object.values(charts).forEach(function (c) { c.clear(); });
+        renderPages([]);
+        renderHealth([]);
+        renderLog([]);
+        var meta = document.getElementById('liveMeta');
+        if (meta) meta.textContent = '未取到数据，这里留空——不编造数字';
+        document.getElementById('dashUpdated').textContent = '—';
+    }
+
+    var gotReal = false;   // 只要成功取到过一次真实数据，失败时就保留旧结果不再清空
+
+    function loadSummary() {
+        if (!API) {
+            banner('[告警] 数据中台未连接：MONITOR_API 尚未配置（部署轻后端后在 .env 的 MONITOR_API_URL 填入地址并重新导出）。以下为演示数据，仅展示大屏形态，非真实流量。', true);
+            applySummary(demoData());
+            return;
+        }
+        fetch(API + '/api/summary?site=zouic&days=30')
+            .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+            .then(function (d) {
+                if (!d.ok) throw new Error(d.error || 'unknown');
+                bannerEl.hidden = true;
+                gotReal = true;
+                applySummary(d);
+            })
+            .catch(function (e) {
+                // 托管免费档会在 Reload/冷启动的几十秒里拒绝请求，这是暂时故障不是“没流量”
+                banner('[提示] 数据中台暂时连接失败（' + e.message + '），30 秒后自动重试。' +
+                    (gotReal ? '下方保留上一次取到的真实数据。' : '未取到真实数据，图表留空——不填演示数据。'), false);
+                if (!gotReal) renderEmpty();
+            });
+    }
+
+    /* ---------- 实时访问流：10s 轮询，比 30s 的聚合更跟手 ---------- */
+    function loadLive() {
+        if (!API) return;
+        fetch(API + '/api/live?site=zouic&limit=25')
+            .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+            .then(function (d) {
+                if (!d.ok) throw new Error(d.error || 'unknown');
+                renderLog(d.recent || []);
+                var meta = document.getElementById('liveMeta');
+                if (meta) {
+                    meta.textContent = '当前在线 ' + (d.online_5m || 0) + ' · 近 1 小时 '
+                        + (d.pv_last_hour || 0) + ' PV · 最近 25 条访问痕迹';
+                }
+                document.getElementById('dashUpdated').textContent = new Date().toLocaleTimeString('zh-CN', { hour12: false });
+            })
+            .catch(function () { /* 静默降级：保留上一次 summary 渲染的结果 */ });
+    }
+
+    /* ---------- 演示数据（明确标注，杜绝 LTD 式以假乱真） ---------- */
+    function demoData() {
+        var trend = [], base = 60 + Math.floor(Math.random() * 40);
+        for (var i = 29; i >= 0; i--) {
+            var d = new Date(Date.now() - i * 86400e3);
+            var pv = Math.round(base + Math.sin(i / 4) * 25 + Math.random() * 30);
+            trend.push({ day: d.toISOString().slice(0, 10), pv: pv, uv: Math.round(pv * 0.62) });
+        }
+        return {
+            kpi: { pv_today: trend[29].pv, pv_yesterday: trend[28].pv, pv_7d: 1024, pv_30d: 3960, pv_total: 5821, uv_today: 38, uv_7d: 615, uv_total: 2240, bots_30d: 486 },
+            trend: trend,
+            sources: [{ k: 'search', v: 1520 }, { k: 'direct', v: 1180 }, { k: 'referral', v: 640 }, { k: 'social', v: 420 }, { k: 'campaign', v: 200 }],
+            devices: [{ k: 'desktop', v: 2280 }, { k: 'mobile', v: 1510 }, { k: 'tablet', v: 170 }],
+            countries: [{ k: 'CN', v: 2610 }, { k: 'US', v: 480 }, { k: 'HK', v: 260 }, { k: 'JP', v: 190 }, { k: 'SG', v: 150 }, { k: 'DE', v: 120 }],
+            pages: [{ k: '/', v: 1240 }, { k: '/services/component-matching/', v: 620 }, { k: '/wechat/', v: 480 }, { k: '/boards/', v: 390 }, { k: '/about/', v: 330 }],
+            seo_bots: [{ k: '百度 Baiduspider', v: 388 }, { k: 'Googlebot', v: 240 }, { k: 'bingbot', v: 96 }],
+            geo_bots: [{ k: 'ChatGPT GPTBot', v: 84 }, { k: 'Claude', v: 52 }, { k: 'Perplexity', v: 31 }, { k: '豆包 Bytespider', v: 27 }],
+            health: [],
+            recent: []
+        };
+    }
+
+    /* ---------- AI 读数字（只接受服务端校验过的文案，降级就保留导出快照） ---------- */
+    var aiSection = document.getElementById('ai-insight');
+    var AI_EP = aiSection ? (aiSection.getAttribute('data-endpoint') || '').replace(/\/$/, '') : '';
+
+    function renderAiInsight(data) {
+        var body = document.getElementById('aiInsightBody');
+        var meta = document.getElementById('aiInsightMeta');
+        if (!body) return;
+        var text = data.text || {};
+        var p = document.createElement('p');
+        p.style.margin = '0 0 10px 0';
+        p.textContent = text.summary || '';
+        var grid = document.createElement('div');
+        grid.style.cssText = 'display:grid;grid-template-columns:1fr 1fr;gap:14px;';
+        [[('观测到的变化'), text.signals], [('下一步'), text.actions]].forEach(function (pair) {
+            var box = document.createElement('div');
+            var h = document.createElement('h3');
+            h.style.cssText = 'font-size:13px;margin:0 0 6px 0;';
+            h.textContent = pair[0];
+            var ul = document.createElement('ul');
+            ul.style.cssText = 'margin:0;padding-left:18px;';
+            (pair[1] || []).forEach(function (item) {
+                var li = document.createElement('li');
+                li.textContent = item;
+                ul.appendChild(li);
+            });
+            box.appendChild(h); box.appendChild(ul); grid.appendChild(box);
+        });
+        body.textContent = '';
+        body.appendChild(p);
+        body.appendChild(grid);
+        if (meta) meta.textContent = '模型 · ' + (data.model || '—') + ' · 更新于 ' + new Date().toLocaleTimeString('zh-CN', { hour12: false });
+    }
+
+    function refreshAiInsight(btn) {
+        if (!AI_EP) return;
+        var meta = document.getElementById('aiInsightMeta');
+        var label = btn ? btn.textContent : '';
+        if (btn) { btn.disabled = true; btn.textContent = '解读中…'; }
+        fetch(AI_EP, { method: 'GET', headers: { 'Accept': 'application/json' } })
+            .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+            .then(function (d) {
+                if (d && d.status === 'ok') renderAiInsight(d);
+                else if (meta) meta.textContent = '实时解读不可用：' + ((d && d.reason) || d.status || '未知') + ' · 上方为导出时快照';
+            })
+            .catch(function (e) {
+                if (meta) meta.textContent = '实时解读请求失败（' + e.message + '）· 上方为导出时快照';
+            })
+            .then(function () { if (btn) { btn.disabled = false; btn.textContent = label; } });
+    }
+
+    var aiRefreshBtn = document.getElementById('aiInsightRefresh');
+    if (aiRefreshBtn) aiRefreshBtn.addEventListener('click', function () { refreshAiInsight(aiRefreshBtn); });
+
+    /* ---------- 启动 ---------- */
+    var _pollId = null, _liveId = null;
+    function boot() {
+        loadSummary(); loadLive();
+        if (API) {
+            _pollId = setInterval(loadSummary, 30000);
+            _liveId = setInterval(loadLive, 10000);
+        }
+    }
+    if (document.readyState === 'complete' || document.readyState === 'interactive') setTimeout(boot, 300);
+    else window.addEventListener('DOMContentLoaded', function () { setTimeout(boot, 300); });
+    window.addEventListener('beforeunload', function () {
+        if (_pollId) clearInterval(_pollId);
+        if (_liveId) clearInterval(_liveId);
+    });
+})();
+</script>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Newsletter section (the home page already has a full follow block, so it is skipped there) -->
+    
+    <section id="follow" class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h3 class="text-xl font-bold mb-2">Wöchentliche Updates von @GeekWaedon</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">Board-Empfehlungen, Projektanalysen und Tipps aus der Hardware-Entwicklung – zuerst auf WeChat und im Knowledge Planet.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <a href="/de/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">So folgen Sie mir</a>
+                        <div class="newsletter-benefits">
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Wöchentlich kuratierte Board-Empfehlungen</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Exklusive Projektanalysen</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Aktualisiert auf WeChat und im Knowledge Planet</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="py-4" aria-label="Hergestellt von">
+        <div class="author-card">
+            <div class="author-card-info">
+                <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
+                <div>
+                    <div class="author-card-name">Erstellt von GeekWaedon <span>@GeekWaedon</span></div>
+                    <div class="author-card-bio">Hardware-Bastler und KI-Praktiker. Diese gesamte Website wurde mit KI-Werkzeugen selbst gebaut.</div>
+                </div>
+            </div>
+            <div class="author-card-actions">
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Meinem Knowledge Planet beitreten</a>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: nach „GeekWaedon“ suchen</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-zouic" role="contentinfo">
+        <div class="container">
+            <div class="row footer-main">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
+                    <a href="/de/" class="footer-brand" aria-label="ZouIC-Startseite">
+                        <i class="fas fa-microchip"></i>
+                        <span>ZouIC</span>
+                    </a>
+                    <p class="footer-tagline">Ausgewählte Open-Source-Hardwareprojekte von Plattformen weltweit · Ausschließlich als Referenz für Entwickler</p>
+                    <p class="footer-business-contact">
+                        Geschäftskontakt &amp; Bauteilbeschaffung:
+                        <a href="mailto:waedon@outlook.com?subject=Gesch%C3%A4ftliche%20Anfrage"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a>
+                    </p>
+
+                    <div class="footer-meta">
+                        <p class="footer-author">
+                            Hergestellt von · <strong>GeekWaedon</strong>
+                            <span class="footer-author-handle">@GeekWaedon</span>
+                        </p>
+                        <div class="footer-slash-tags">
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware-Enthusiast</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> KI-Praktiker</span>
+                            <a href="/de/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom-Lösungsanbieter">
+                                <i class="fab fa-weixin"></i> WeCom-Lösungsanbieter
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a>
+                        <a href="/de/#follow" class="footer-social-link" aria-label="WeChat-Offizieller Account · GeekWaedon" title="WeChat-Offizieller Account · GeekWaedon"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a>
+                        <a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a>
+                        <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Produkte</h5>
+                    <ul>
+                        <li><a href="/de/products/">Produkte</a></li>
+                        <li><a href="/de/services/">Leistungen</a></li>
+                        <li><a href="/de/services/website-building/">Website-Erstellung</a></li>
+                        <li><a href="/de/services/component-matching/">elektronische BauteileVermittlung</a></li>
+                        <li><a href="/de/news/">Neuigkeiten</a></li>
+                        <li><a href="/de/boards/">Entwicklungsboards</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Ressourcen</h5>
+                    <ul>
+                        <li><a href="/de/board-guide/">Leitfaden zur Board-Auswahl</a></li>
+                        <li><a href="/de/compare/">Board-Vergleich</a></li>
+                        <li><a href="/de/tutorials/">Anleitungen</a></li>
+                        <li><a href="/de/documentation/">Dokumentation</a></li>
+                        <li><a href="/online-tools/">Online-Werkzeuge</a></li>
+                        <li><a href="/de/cases/">Projektbeispiele</a></li>
+                        <li><a href="/de/help/">Dokumentation</a></li>
+                        <li><a href="/de/games/resistor/">Widerstands-Farbcode-Quiz</a></li>
+                        <li><a href="/de/dashuju/">Datenübersicht</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Open Source</h5>
+                    <ul>
+                        <li><a href="/de/open-source/">Open-Source-Projekte</a></li>
+                        <li><a href="/de/all-projects/">Alle Projekte</a></li>
+                        <li><a href="/de/articles/">Fachbeiträge</a></li>
+                        
+                        <li><a href="/de/contribute/">Mitwirken</a></li>
+                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h5>Über</h5>
+                    <ul>
+                        <li><a href="/de/about/">Über uns</a></li>
+                        <li><a href="/de/about/#contact">Kontakt</a></li>
+                        <li><a href="/de/licenses/">Open-Source-Lizenzen</a></li>
+                        <li><a href="/de/about/#privacy">Datenschutz</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-category-strip">
+                <span class="footer-category-label">Beliebte Kategorien</span>
+                <div class="footer-category-links">
+                    <a href="/de/category/">alle</a>
+                    
+                    <a href="/de/category/fpga/">FPGA</a>
+                    
+                    <a href="/de/category/general/">Allgemein</a>
+                    
+                    <a href="/de/category/ai_hardware/">KI-Hardware</a>
+                    
+                    <a href="/de/category/vision/">Computer Vision</a>
+                    
+                    <a href="/de/category/esp32/">ESP32</a>
+                    
+                    <a href="/de/category/robotics/">Robotik</a>
+                    
+                    <a href="/de/source/github/">GitHub</a>
+                    <a href="/de/source/hackster/">Hackster.io</a>
+                    <a href="/resources/">Ressourcennavigation</a>
+                </div>
+            </div>
+            
+            <div class="footer-producer-bar">
+                <img src="/static/images/author/avatar-mascot.png" alt="GeekWaedon" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
+                <div style="line-height:1.6;">
+                    <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">Allein entwickelt von GeekWaedon (@GeekWaedon) · <span style="color:#a78bfa;">Mensch und KI, Seite an Seite</span></div>
+                    <div class="text-xs text-secondary">Ein Ein-Personen-Projekt, betrieben von einem echten Menschen: Website-Aufbau, Datenabgleich, Artikel und Grafiken stammen von mir (mit Unterstützung einiger KI-Agenten). <a href="/de/about/" class="text-primary" style="text-decoration:none;">Die Person dahinter kennenlernen →</a></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ZouIC. Alle Rechte vorbehalten.</p>
+                <p>Die hier gebündelten Projekte dienen ausschließlich als Referenz für Entwickler: ZouIC verweist auf sie und hostet weder Code noch Dateien; Urheberrecht und Lizenz verbleiben bei den Autoren. Einzelheiten finden Sie auf der <a href="/de/licenses/">Open-Source-Lizenzen</a> Seite.</p>
+                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Nach oben">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Kopiert';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Aus Favoriten entfernt');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Zu Favoriten hinzugefügt');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    <script>
+    (function () {
+        var api = "https://waedon.pythonanywhere.com";
+        var sent = false;
+        function navPerf() {
+            try {
+                var n = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+                if (n && n.loadEventEnd > 0) return Math.round(n.loadEventEnd);
+            } catch (e) { /* ignore */ }
+            return 0;
+        }
+        function send() {
+            if (sent) return;
+            sent = true;
+            var payload = {
+                site: 'zouic',
+                path: (location.pathname + location.search + (location.hash || '')).slice(0, 300),
+                title: (document.title || '').slice(0, 200),
+                ref: document.referrer || '',
+                lang: navigator.language || '',
+                perf: navPerf()
+            };
+            var body = JSON.stringify(payload);
+            // text/plain 免 CORS 预检；页面已经加载完，sendBeacon 最稳
+            try {
+                if (navigator.sendBeacon &&
+                    navigator.sendBeacon(api + '/api/beacon', new Blob([body], { type: 'text/plain;charset=UTF-8' }))) return;
+            } catch (e) { /* fallthrough */ }
+            try {
+                fetch(api + '/api/beacon', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+                    body: body,
+                    keepalive: true,
+                    credentials: 'omit'
+                }).catch(function () {});
+            } catch (e) {}
+        }
+        if (document.readyState === 'complete') setTimeout(send, 0);
+        else window.addEventListener('load', function () { setTimeout(send, 120); });
+        window.addEventListener('pagehide', send);
+    })();
+    </script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/dashuju/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=de-DE'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body>
+</html>

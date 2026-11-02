@@ -1,0 +1,1296 @@
+# ZouIC — llms-full
+
+> ZouIC aggregiert Open-Source-Hardwareprojekte von GitHub, Hackster.io, CrowdSupply, Hackaday, Seeed Studio und mehr. Nur zur Entwicklerreferenz, unter jeder Projektlizenz.
+
+Site: https://www.zouic.com/  ·  Index: https://www.zouic.com/llms.txt
+
+---
+
+<!-- source: https://www.zouic.com/articles/board-selection-cheatsheet/ | published: 2026-10-23 | modified: 2026-10-27 -->
+
+# 一页纸速查表：我要做 XX，该买哪块开发板
+
+# 一页纸速查表：我要做 XX，该买哪块开发板
+
+> 《开源硬件实战选型手册》附录 · 极客微栋 @GeekWaedon
+> Original: https://www.zouic.com/articles/board-selection-cheatsheet/
+> 价格带约定：¥ = 约 30 元内，¥¥ = 30-100 元，¥¥¥ = 百元以上
+
+## 决策树（30 秒定位）
+```text
+你的第一个问题：项目要不要联网？
+├─ 要 WiFi/蓝牙联网 ──→ 场景 1
+└─ 纯本地控制/学习 ──→ 第二个问题：要不要电池供电长期跑？
+    ├─ 要，且对续航敏感 ──→ 场景 3
+    └─ 不敏感/插电 ──→ 场景 2 / 4 / 5
+```
+
+## 场景速查（12 个高频场景）
+| 你要做的事 | 首选 | 备选 | 为什么是它 | 避坑提示 |
+| --- | --- | --- | --- | --- |
+| 第一个物联网项目（温湿度上报、远程开关） | ESP32-S3-DevKitC ¥¥ | ESP32-C3 ¥ | 乐鑫生态最全，教程遍地，WiFi+蓝牙都有 | 买官方 DevKit，杂牌最小系统板引脚标注混乱 |
+| 学嵌入式基本功（GPIO、中断、定时器） | STM32F103C8T6 ¥ | Arduino UNO R4 ¥¥ | 寄存器级操作逼你理解原理，教程体系最成熟 | 需另购 ST-Link 下载器；国产兼容片注意识别 |
+| 电池供电低功耗（传感器节点、便携设备） | Raspberry Pi Pico ¥ | ESP32-C3 ¥ | RP2040 功耗控制简单直接，双核够用 | Pico 无 WiFi，要联网选 Pico W（¥¥） |
+| Arduino 生态快速验证（接现成模块库） | Arduino UNO R4 Minima ¥¥ | Nano ESP32 ¥¥ | 库生态无敌，什么都接得上 | UNO R4 换了瑞萨芯片，个别老库不兼容，下单前查库支持 |
+| AI 边缘推理（人脸、物体识别） | Sipeed Maixduino ¥¥ | — | K210 自带 NPU，推理不依赖云端 | 算力有上限，复杂模型别指望；适合学习和轻量部署 |
+| 电机控制 / PID（平衡车、云台） | STM32F103C8T6 ¥ | STM32F407 ¥¥ | 定时器资源丰富，实时性好，FOC 教程多 | 算法新手先跑通开环再上闭环 |
+| 工业场景 / CAN 总线（车载、工控采集） | STM32F407ZGT6 ¥¥ | — | 原生 CAN 控制器 | CAN 收发器芯片（如 TJA1050）仍需另配 |
+| 学 RISC-V（指令集、体系结构） | CH32V307 ¥ | GD32VF103 ¥ | 国产便宜，够把 RISC-V 架构学明白 | 想要 Linux 级 RISC-V 体验看下一行 |
+| RISC-V + Linux（跑真实操作系统） | VisionFive 2 ¥¥¥ | HiFive Unmatched ¥¥¥ | 能跑完整 Linux 发行版，体验接近 PC 开发 | 价格不低，仅建议明确需要 RISC-V Linux 环境的人 |
+| 语音交互（离线语音控制） | ESP32-S3-DevKitC ¥¥ | — | 乐鑫官方语音方案（ESP-SR）直接可用 | 离线词表有限，复杂语义识别还是要联网方案 |
+| 新协议尝鲜（星闪 NearLink） | NearLink DevKit Pro ¥¥ | Sensor Node ¥¥ | 星闪生态早期，现在入场是内容红利期 | 资料少、生态新，适合有基础的玩家，新手先别碰 |
+| LoRa 远距离通信（几百米到几公里） | ESP32-S3 + LoRa 模块 ¥¥ | — | 场景 1 的板子加个 SX1276 模块即可，不用换板 | 注意所在地区 ISM 频段规定（国内用 470MHz） |
+
+## 新手三问（下单前自检）
+1. 这块板的中文教程多不多？（搜一下，像样教程少于 10 篇的板子，新手别碰）
+2. 烧录要不要额外买下载器？（STM32 需要，ESP32/Pico 不需要）
+3. 我要做的项目，芯片算力够不够？（涉及摄像头/人脸识别的，先想清楚算力）
+
+## 反选表（买了这些板才知道的事）
+- 买了 STM32 才发现：调试下载器、杜邦线、面包板都要另算，入门总成本翻倍
+- 买了 RISC-V Linux 板才发现：你想做的项目其实 ESP32 就够，为架构情怀多花了十倍的钱
+- 买了 Pico 才发现：要联网的时候还得外挂模块，一开始就该买 Pico W
+- 买了杂牌 ESP32 才发现：串口芯片偷工减料，Windows 驱动都装不上——官方 DevKit 多花十几块买的是省心
+
+## 本表与手册的关系
+这张表是《开源硬件实战选型手册》的浓缩版。手册完整版包含：每块板的避坑点详解、8 个实战项目的完整拆解、工具链配置清单、采购正品识别方法。
+第一章已开放免费试读：《选型的正确顺序》。想第一时间获取手册更新和实战笔记，欢迎加入知识星球「极客微栋」。
+
+---
+
+<!-- source: https://www.zouic.com/articles/handbook-ch1/ | published: 2026-10-23 | modified: 2026-10-27 -->
+
+# 选型的正确顺序：先看场景，再看约束，最后看板卡
+
+# 选型的正确顺序：先看场景，再看约束，最后看板卡
+
+> 《开源硬件实战选型手册》 · 极客微栋 @GeekWaedon
+> 原文：https://www.zouic.com/articles/handbook-ch1/
+
+## 1.1 一个熟悉的剧本
+
+你想做一个东西——比如能远程查看的温湿度计。你打开购物网站，搜索"开发板"，按销量排序，看到一块参数唬人的板子：主频几百兆、几十个 GPIO、还"赠送教程"。价格不贵，下单。三天后板子到了。然后你发现：教程是五年前的，配套的 IDE 装不上，搜报错信息只有英文论坛的三条陈年帖子。又过了一周，板子进了抽屉。问题不在你，也不全在卖家。问题在于选型的顺序反了。
+
+## 1.2 错误顺序 vs 正确顺序
+
+错误顺序（90% 新手的本能）：看参数 → 看价格 → 下单 → 再想要做什么。正确顺序：场景 → 约束 → 板卡。开发板不是快消品，它是一个生态系统的入口。你买的不只是一块 PCB，而是它背后的教程、库、社区和踩坑记录。参数表上的主频数字决定不了项目成败，生态才决定。
+
+## 1.3 第一步：把场景说清楚
+
+"我想做个智能设备"不是一个场景，是一个愿望。合格的场景描述要回答四个问题：做什么？给谁用？放在哪？跑多久？以远程温湿度计为例：采集温湿度并上报到手机可看的页面；自己用，放在家里；客厅有插座，但也想试试阳台；长期开着，最好几个月不用管。把这个模板填完，候选板卡其实已经砍掉了一大半。
+
+## 1.4 第二步：三类典型约束
+
+约束是把候选集从"几十块"收敛到"两三块"的筛子。
+
+**约束一：联网需求。** 不联网 → 所有 MCU 板都在候选里；WiFi/蓝牙 → 乐鑫 ESP32 系列、Pico W、Nano ESP32；远距离低功耗 → LoRa（主力板 + 模块）；新协议尝鲜 → NearLink，但要接受生态早期。
+
+**约束二：实时性要求。** 问自己：系统响应慢 0.1 秒，会出事故吗？会（电机控制、PID、平衡车）→ 需要硬实时，选 STM32 这类传统 MCU；不会（温湿度上报、人机交互）→ Linux 板也能用。一句话：人眼能容忍的延迟，MCU 一定够；电机不能容忍的延迟，Linux 一定不行。
+
+**约束三：生态成熟度。** 中文教程多不多、外设有没有现成库、报错搜不搜得到。这就是推荐新手从 ESP32 或 STM32 起步的原因——不是它们最强，而是你卡住的每一步，都有人卡住过并且写下了答案。
+
+次级约束（预算、功耗）放在这三条之后：30 块和 60 块的差价，远不如"能不能做出来"重要。
+
+## 1.5 一次完整的推演
+
+场景：家庭自用，客厅/阳台，长期运行 → 约束一（联网）：要 WiFi，砍掉所有不带无线的板子 → 约束二（实时性）：人眼看数据，慢半秒无所谓，不筛 → 约束三（生态）：新手第一个项目，要教程多，乐鑫系胜出 → 次级约束：预算敏感选 ESP32-C3（¥级），想顺便玩屏幕选 ESP32-S3（¥¥） → 结论：ESP32-S3-DevKitC 或 ESP32-C3-DevKitM。整个推演不到两分钟，但每一步都有依据。它不保证你选到参数最强的板子，它保证你选到能把项目做完的板子。
+
+## 1.6 三个思维陷阱
+
+**陷阱一：参数崇拜。** 参数过剩不会让你成功，生态贫瘠一定会让你失败。
+
+**陷阱二：架构情怀。** 第一个项目就上 RISC-V Linux 板，你面对的是新架构、新系统、新项目三层陌生。一次只挑战一层。
+
+**陷阱三：一步到位心态。** 没有全能板：带 WiFi 的不擅长硬实时，跑 Linux 的不省电。开发板是消耗品，不是传家宝。
+
+## 1.7 本章检查清单
+
+- 我写下四要素场景描述了吗？（做什么/给谁用/放哪里/跑多久）
+- 联网需求明确了吗？（不联网/WiFi/远距离/新协议）
+- 实时性要求判断了吗？（0.1 秒延迟会不会出事故）
+- 搜过候选板的中文教程数量吗？（少于 10 篇就换）
+- 要用的每个外设都确认有现成库吗？
+- 预算约束放在最后考虑了吗？
+- 我是在为"这个项目"选板，而不是为"以后所有项目"选板吗？
+
+**下一章预告：** 2.1 WiFi / IoT 主力组——ESP32-S3、ESP32-C3、ESP32-C6、BL602 四块板正面交锋：同样带 WiFi，差价一倍，多花的钱买到了什么？
+
+配套速查表：《一页纸速查表：我要做 XX，该买哪块开发板》。手册持续更新，想第一时间拿到新章节，欢迎加入知识星球「极客微栋」。
+
+---
+
+<!-- source: https://www.zouic.com/articles/knowledge-business-models/ | published: 2026-10-24 | modified: 2026-10-27 -->
+
+# 别做“割韭菜”的生意：四种知识付费模式拆解，与一条滴水石穿的路
+
+# 别做“割韭菜”的生意：四种知识付费模式拆解，与一条滴水石穿的路
+
+> 拆解生财有术、群响、参哥、行动教育的收入结构，找出个人内容站真正能复利的活法
+> 极客微栋 @GeekWaedon · 2026-10-24
+> Original: https://www.zouic.com/articles/knowledge-business-models
+
+## 一、先说我为什么写这篇
+
+这个网站平时只写开发板和开源硬件。写这篇，是因为一个更现实的问题：一个没有融资、没有团队的内容站，靠什么活过第三年？
+
+过去两年，我观察了大量“知识付费”生意：有的做成上市公司，有的做成年度数千万流水的私域，也有的在退款和投诉里消失。它们的共同点不是“卖知识”，而是“把某种稀缺感包装成可售卖的资格”。
+
+这篇不做道德审判，只做结构拆解：哪些收入可以长期复利，哪些必须不断拉新才能维持。结论先放在这里——对 ZouIC 这种个人运营的内容站，最合适的不是高价社群，而是“公共资产 + 低价标准品 + 透明订阅 + 按结果交付的服务”。
+
+## 二、研究范围与边界
+
+本文资料来自公开报道、企业公开披露与产品公开页面，检索时间为 2026 年 10 月。价格与会员数会随时间和促销变化，文中数字仅用于说明结构，不构成对任何机构当前定价的确认。
+
+对具体个人与机构的描述，仅转述媒体公开报道或公开产品信息，不构成法律定性，也不代表对其全部业务的评价。批评一种商业模式，和指控一个人，是两件事。
+
+另有一条取材原则：<strong>公开可核实资料不足以确认产品结构、价格与交付方式的样本，本文一律不列入</strong>。宁可少一个案例，也不用猜测填补空缺。
+
+## 三、四个可核实样本，两种收入结构
+
+先看一张表。价格相差近百倍，但收入结构其实只有两种：一种卖“资格”（会员、圈子、私董会），一种卖“交付”（课程、代运营、咨询）。
+
+| 样本 | 产品结构 | 公开价格带 | 主要收入 | 交付重心 | 公开争议 |
+| --- | --- | --- | --- | --- | --- |
+| 生财有术 | 年费会员制 UGC 社群 | 阶梯定价；知识星球公开页 2026 年显示 3365 元/年（促销期更低） | 会员费与续费 | 成员产出内容、活动、资源对接 | 价值高度依赖成员主动性；焦虑营销；信息同质化 |
+| 群响 | 创始人 IP + 私域 + 高客单社群 | 基础会员约 1999 元；私董会公开报价约 4.98 万元 | 会员、私董会、活动与撮合 | 圈子、信息、线下场域 | “聚人但不落地”；场域成交；交付偏轻 |
+| 参哥 | IP 矩阵 + 阶梯课 + 私董会 + 全案 | 课程 2980-9980 元；私董会 8 万元；全案 200 万元/年 | 课程、私董会、代运营与全案 | 方法、陪跑、账号代做 | 案例可复制性存疑；有学员公开投诉投入与结果不匹配；账号曾因违规被处理 |
+| 行动教育 | 上市公司管理培训 | 浓缩 EMBA 公开价 3.98 万元/人；校长 EMBA 公开价 49.8 万元/人（均见公开报道与公司公开资料） | 课程订单、大客户、咨询 | 标准化课程、工具、咨询 | 销售驱动、销售费用高；“人脉成功学”质疑；预收款模式 |
+
+卖资格的生意毛利高、扩张快，但对信任的消耗也快；卖交付的生意更重、更慢，却更容易积累作品与复购。
+
+行动教育是少见的“两者都做”：用标准化课程把交付做成可复制产品，再用销售团队把“资格感”卖出去。它作为上市公司必须公开财报，也因此暴露了这类生意的真实成本结构——高毛利背后，是更高的销售费用。
+
+## 四、割韭菜的六个可观测特征
+
+“割韭菜”是情绪词，不适合当分析工具。更有用的是把它拆成六个可以观察、可以自查的结构特征。满足三条以上值得警惕，满足五条以上，基本可以判断收入不来自交付，而来自不断扩大的新用户。
+
+- [ ] 收入前置、交付后置：钱在交付之前收完，且交付没有可验收的标准。
+- [ ] 用结果承诺替代过程承诺：“跟着做就能月入 X”“保证起号”，却不写清失败怎么办。
+- [ ] 只公布分子，不公布分母：展示成功学员，不披露总人数、退款率、平均结果。
+- [ ] 决策压力设计：限时、涨价、名额、倒计时，让你在信息不足时付款。
+- [ ] 把用户变成渠道：分销、返佣、拉人解锁，增长依赖学员再去拉学员。
+- [ ] 内容不留存：核心价值只在直播和群聊里，关群即消失，无法复盘，也难以维权。
+
+再加一条隐藏特征：退款门槛。真正做交付的生意敢写“7 天无理由”，靠资格收费的生意，通常把退款流程设计得很长。
+
+## 五、付费不是原罪：三条分界线
+
+把知识付费一棍子打死，会错过真正有价值的产品。判断一个付费产品是否健康，可以看三条线：
+
+- 交付可验证：付钱之前就知道会得到什么，数量、形式、时间、验收方式都写清楚。
+- 退款可执行：退款规则简单、期限明确，不需要“说服客服”。
+- 增长不靠拉新：老用户续费或复购能撑住基本盘，而不是每个月都从零获客。
+
+三条都满足，即使贵，也是一笔交易；三条都不满足，即使便宜，也是在收“焦虑税”。
+
+## 六、什么叫“滴水石穿”的商业模式
+
+“滴水石穿”不是“慢慢来”，而是每一滴都落在同一个点上，并且留下痕迹。翻成商业语言，是四个特征：
+
+1. 资产沉淀：每次投入都留下可复用、可检索、可迁移的资产，而不是一次性消耗。
+2. 边际成本递减：第 1000 个用户和第 1 个用户的交付成本接近。
+3. 信任复利：作品公开、可验证，时间越久，获客越便宜。
+4. 现金流去拉新化：收入主要来自续费、复购与转介绍，而不是持续投放。
+
+对照一下：高价私董会只满足第一条的一半（留下的是关系，不是资产），不满足第二、第四条；标准化课程满足第二条，但如果靠销售团队推动，第四条很难成立。真正同时满足四条的，通常是“公开内容 + 工具或数据库 + 标准化产品 + 按结果收费的服务”。
+
+## 七、ZouIC 手里已经有什么
+
+把已有的东西列清楚，比讨论“该做什么新项目”更重要：
+
+- 一个 140 多页的双语站点，全部静态化，年运行成本接近零。
+- 一个持续维护的开源开发板与项目索引，天然适合搜索与 AI 引用。
+- 选型方法、速查表、手册章节等可复用的结构化内容。
+- 建站与 GEO 代运营服务，已有真实交付案例（本站自己）。
+- 企业微信服务商资质，能承接私域与客户管理需求。
+- 公众号、知乎、B 站等全网同名账号，作为内容分发与信任背书。
+
+这些资产的共同点是：不依赖某一个人实时在线，能被搜索到、被引用、被复用。它们才是“滴水”的那个点。
+
+## 八、四层收入结构
+
+| 层级 | 产品 | 价格带 | 交付方式 | 复购来源 |
+| --- | --- | --- | --- | --- |
+| L0 公共资产 | 开源开发板、项目索引、选型指南、文章 | 免费 | 网站自动呈现 | 搜索流量与信任 |
+| L1 标准品 | 速查表、手册电子版、模板、清单 | 9.9-99 元 | 自动交付，无需人工 | 口碑与内容引流 |
+| L2 订阅 | 知识星球、专栏、更新通讯 | 不超过 365 元/年 | 每月固定篇数 + 归档 + 问答 SLA | 续费 |
+| L3 服务 | 建站、GEO 代运营、企微方案 | 3000 元起 / 1500 元/月起 | 项目制，按里程碑验收 | 案例与转介绍 |
+
+四层之间是漏斗，不是并列：L0 负责被找到，L1 负责验证需求，L2 负责稳定现金流，L3 负责利润。任何一层都不应该靠“逼单”完成转化。
+
+对个人运营者来说，最容易被低估的是 L1：一个 29 元的速查表，卖 1000 份就是 2.9 万元，且几乎不增加交付成本；它还能反向验证 L2 与 L3 的需求。最容易被高估的是 L2：社群需要持续在线，规模一大，交付质量必然下降。
+
+## 九、一年怎么走
+
+1. 第 1 季度：把 L0 做厚。补齐 20 个高频选型场景，每篇文章附带可下载的结构化数据；建立固定的内容更新日历。
+2. 第 2 季度：做 L1。把速查表、手册章节、建站清单做成可独立售卖的数字产品，统一定价与退款规则。
+3. 第 3 季度：开 L2。只承诺能兑现的交付：每月 4 篇实战笔记、季度直播、可检索归档、48 小时内答复。价格压到 365 元以内，先跑续费率，不追规模。
+4. 第 4 季度：放大 L3。用公开案例与作品集获客，不做会销、不做限时逼单；把交付流程写成 SOP，宁可少接，也不接超出能力的单。
+
+每个季度只加一层。同时开四层，通常四层都做不好。
+
+## 十、不做什么
+
+这份负面清单，比“要做什么”更重要：
+
+- 不承诺收入、涨粉、起号等结果，只承诺交付内容与时间。
+- 不做拉人头、分销返佣、按人头计息的增长。
+- 不做限时逼单、假名额、假涨价。
+- 不把“人脉”和“圈子”作为主要交付物。
+- 不接超出交付能力的陪跑与全案。
+- 不做只在群里存在、关群即消失的内容。
+- 不用“别人都赚到了”作为主要说服理由。
+
+## 十一、发布前自检十问
+
+- [ ] 用户付钱之前，能否准确知道会得到什么？
+- [ ] 交付物能否被计数、被检索、被验收？
+- [ ] 退款规则是否一句话能说清？
+- [ ] 如果 80% 的用户不行动，这个产品还值这个价吗？
+- [ ] 收入里有多少来自续费与转介绍？
+- [ ] 交付一个用户需要多少小时？规模翻十倍还能维持吗？
+- [ ] 有没有用焦虑、攀比或稀缺感替代真实价值？
+- [ ] 案例是否同时公布了样本量与失败情况？
+- [ ] 内容在关群、停更之后还能留下什么？
+- [ ] 三年后，这件事会让获客更容易，还是更难？
+
+## 十二、结论
+
+**结论**
+
+> 对 ZouIC 来说，最合适的不是“做一个高价社群”，而是“把开源硬件的信息差做成公共资产，用低价标准品验证需求，用透明订阅维持现金流，用按结果交付的服务获取利润”。这条路慢，但每一滴都落在同一个点上。
+
+割韭菜的模式赚的是信息差与人性的钱。信息差会消失，人性不会；所以它永远有市场，也永远需要新的流量。滴水石穿的模式赚的是时间与作品的钱，前期慢，后期越来越轻。选择哪一种，本质上是在选择三年后的自己。
+
+## 参考资料
+
+- [生财有术知识星球公开页（成员数、当前价格）](https://wx.zsxq.com/group/1824528822)
+- [生财有术用户运营体系拆解（定价、续费率、龙珠机制）](https://www.iyunying.org/yunying/yhyy/339520.html)
+- [生财有术发售活动复盘：高客单价产品如何做到高转化](https://www.woshipm.com/operate/3824812.html)
+- [群响私董会公开页](https://www.qunxiang.club/page/ka)
+- [群响百度百科（营收与团队规模）](https://baike.baidu.com/item/%E7%BE%A4%E5%93%8D)
+- [腾讯新闻：网红参哥：4 年赚 10 亿，只割有钱人](https://news.qq.com/rain/a/20240521A0699000)
+- [界面新闻：“相信”参哥的亏本了，“复制”参哥的赚翻了？](https://www.jiemian.com/article/11443169.html)
+- [运营派：从付费课到私董会，谁在为“海参哥们”买单？](https://www.yunyingpai.com/dyyy/1017147.html)
+- [新浪财经：行动教育 2023 年度浓缩 EMBA 营收 2.48 亿元](https://finance.sina.cn/2024-05-31/detail-inaxcfva0634731.d.html)
+- [百家号：企业家培训有多赚钱？毛利率超 75%](https://baijiahao.baidu.com/s?id=1806893945042536451)
+- [澎湃新闻：年收入千万才能进的私董会，坑了谁？](https://www.thepaper.cn/newsDetail_forward_26101935)
+- [中国新闻周刊：风口浪尖上的私董会，最高收费 200 万？](https://new.qq.com/rain/a/20240614A040MW00)
+
+以上链接均为公开资料，检索于 2026 年 10 月。价格、会员数与营收数据可能随时间变化，引用仅用于说明商业模式结构。
+
+## 免责声明
+
+本文为商业观察与方法讨论，不构成投资、法律或购买建议。文中价格、会员数、营收等数据来自公开报道或公开产品页，可能存在口径差异或已经过时；引用不代表证实，也不构成对任何个人或机构的指控。
+
+---
+
+## 开发板问答索引
+
+以下每块开发板的结论与问答均由库内规格字段生成，措辞与该开发板详情页可见的「常见问题」一致；字段为空时对应问题不出现。
+
+### Arduino Nano ESP32
+
+https://www.zouic.com/board/arduino-nano-esp32/
+
+Arduino Nano ESP32 is a development board from Arduino, listed under Allzweck-Boards. It uses the ESP32-S3 on a Xtensa core. It carries 8MB flash, 512KB RAM, 22 GPIO. Official framework support: Arduino, ESP-IDF. Listed price range CNY 100-200, a budget reference - the vendor page sets the real price. ZouIC indexes 1 open source project(s) built on it.
+
+What is the Arduino Nano ESP32 development board?
+Arduino Nano ESP32 is a development board from Arduino, listed under Allzweck-Boards. It uses the ESP32-S3 on a Xtensa core. It carries 8MB flash, 512KB RAM, 22 GPIO. Official framework support: Arduino, ESP-IDF. Listed price range CNY 100-200, a budget reference - the vendor page sets the real price. ZouIC indexes 1 open source project(s) built on it.
+
+What MCU and instruction architecture does Arduino Nano ESP32 use?
+ESP32-S3 on a Xtensa core.
+
+How much flash and RAM does Arduino Nano ESP32 have?
+It carries 8MB flash, 512KB RAM, 22 GPIO.
+
+### Arduino UNO R4 Minima
+
+https://www.zouic.com/board/arduino-uno-r4-minima/
+
+Arduino UNO R4 Minima is a development board from Arduino, listed under Allzweck-Boards. It uses the RA4M1 on a RA4M1 core. It carries 256KB flash, 32KB RAM, 20 GPIO. Official framework support: Arduino. Listed price range CNY 100-200, a budget reference - the vendor page sets the real price.
+
+What is the Arduino UNO R4 Minima development board?
+Arduino UNO R4 Minima is a development board from Arduino, listed under Allzweck-Boards. It uses the RA4M1 on a RA4M1 core. It carries 256KB flash, 32KB RAM, 20 GPIO. Official framework support: Arduino. Listed price range CNY 100-200, a budget reference - the vendor page sets the real price.
+
+What MCU and instruction architecture does Arduino UNO R4 Minima use?
+RA4M1 on a RA4M1 core.
+
+How much flash and RAM does Arduino UNO R4 Minima have?
+It carries 256KB flash, 32KB RAM, 20 GPIO.
+
+### BeagleBone Green
+
+https://www.zouic.com/board/beaglebone-green/
+
+BeagleBone Green is a development board from Seeed Studio, listed under Allzweck-Boards. It uses the TI AM335x on a AM335x core. It carries 4GB eMMC flash, 512MB DDR3 RAM, 65 GPIO. Official framework support: Debian, Ubuntu, Yocto.
+
+What is the BeagleBone Green development board?
+BeagleBone Green is a development board from Seeed Studio, listed under Allzweck-Boards. It uses the TI AM335x on a AM335x core. It carries 4GB eMMC flash, 512MB DDR3 RAM, 65 GPIO. Official framework support: Debian, Ubuntu, Yocto.
+
+What MCU and instruction architecture does BeagleBone Green use?
+TI AM335x on a AM335x core.
+
+How much flash and RAM does BeagleBone Green have?
+It carries 4GB eMMC flash, 512MB DDR3 RAM, 65 GPIO.
+
+### Bouffalo Lab BL602
+
+https://www.zouic.com/board/bouffalo-lab-bl602/
+
+Bouffalo Lab BL602 is a development board from Bouffalo Lab, listed under Allzweck-Boards. It uses the BL602 on a RISC-V core. It carries 4MB flash, 256KB RAM, 22 GPIO. Official framework support: BL602 SDK, Arduino, Zephyr. Listed price range CNY 20-50, a budget reference - the vendor page sets the real price.
+
+What is the Bouffalo Lab BL602 development board?
+Bouffalo Lab BL602 is a development board from Bouffalo Lab, listed under Allzweck-Boards. It uses the BL602 on a RISC-V core. It carries 4MB flash, 256KB RAM, 22 GPIO. Official framework support: BL602 SDK, Arduino, Zephyr. Listed price range CNY 20-50, a budget reference - the vendor page sets the real price.
+
+What MCU and instruction architecture does Bouffalo Lab BL602 use?
+BL602 on a RISC-V core.
+
+How much flash and RAM does Bouffalo Lab BL602 have?
+It carries 4MB flash, 256KB RAM, 22 GPIO.
+
+### CH32V307
+
+https://www.zouic.com/board/ch32v307/
+
+CH32V307 is a development board from WCH, listed under Allzweck-Boards. It uses the CH32V307 on a RISC-V core. It carries 256KB flash, 64KB RAM, 80 GPIO. Official framework support: MounRiver Studio, PlatformIO, RT-Thread. Listed price range CNY 20-50, a budget reference - the vendor page sets the real price.
+
+What is the CH32V307 development board?
+CH32V307 is a development board from WCH, listed under Allzweck-Boards. It uses the CH32V307 on a RISC-V core. It carries 256KB flash, 64KB RAM, 80 GPIO. Official framework support: MounRiver Studio, PlatformIO, RT-Thread. Listed price range CNY 20-50, a budget reference - the vendor page sets the real price.
+
+What MCU and instruction architecture does CH32V307 use?
+CH32V307 on a RISC-V core.
+
+How much flash and RAM does CH32V307 have?
+It carries 256KB flash, 64KB RAM, 80 GPIO.
+
+### ESP32-C3-DevKitM
+
+https://www.zouic.com/board/esp32-c3-devkitm/
+
+ESP32-C3-DevKitM is a development board from Espressif, listed under Allzweck-Boards. It uses the ESP32-C3 on a RISC-V core. It carries 4MB flash, 384KB RAM, 19 GPIO. Official framework support: Arduino, ESP-IDF, PlatformIO, MicroPython. Listed price range CNY 50-100, a budget reference - the vendor page sets the real price. ZouIC indexes 2 open source project(s) built on it.
+
+What is the ESP32-C3-DevKitM development board?
+ESP32-C3-DevKitM is a development board from Espressif, listed under Allzweck-Boards. It uses the ESP32-C3 on a RISC-V core. It carries 4MB flash, 384KB RAM, 19 GPIO. Official framework support: Arduino, ESP-IDF, PlatformIO, MicroPython. Listed price range CNY 50-100, a budget reference - the vendor page sets the real price. ZouIC indexes 2 open source project(s) built on it.
+
+What MCU and instruction architecture does ESP32-C3-DevKitM use?
+ESP32-C3 on a RISC-V core.
+
+How much flash and RAM does ESP32-C3-DevKitM have?
+It carries 4MB flash, 384KB RAM, 19 GPIO.
+
+### ESP32-C6
+
+https://www.zouic.com/board/esp32-c6/
+
+ESP32-C6 is a development board from Espressif, listed under Allzweck-Boards. It uses the ESP32-C6 on a RISC-V core. It carries 4MB flash, 384KB RAM, 30 GPIO. Official framework support: ESP-IDF, Arduino, MicroPython, PlatformIO. Listed price range CNY 30-60, a budget reference - the vendor page sets the real price.
+
+What is the ESP32-C6 development board?
+ESP32-C6 is a development board from Espressif, listed under Allzweck-Boards. It uses the ESP32-C6 on a RISC-V core. It carries 4MB flash, 384KB RAM, 30 GPIO. Official framework support: ESP-IDF, Arduino, MicroPython, PlatformIO. Listed price range CNY 30-60, a budget reference - the vendor page sets the real price.
+
+What MCU and instruction architecture does ESP32-C6 use?
+ESP32-C6 on a RISC-V core.
+
+How much flash and RAM does ESP32-C6 have?
+It carries 4MB flash, 384KB RAM, 30 GPIO.
+
+### ESP32-S3-DevKitC
+
+https://www.zouic.com/board/esp32-s3-devkitc/
+
+ESP32-S3-DevKitC is a development board from Espressif, listed under Allzweck-Boards. It uses the ESP32-S3 on a Xtensa core. It carries 8MB flash, 512KB RAM, 30 GPIO. Official framework support: Arduino, ESP-IDF, PlatformIO, MicroPython. Listed price range CNY 100-200, a budget reference - the vendor page sets the real price. ZouIC indexes 5 open source project(s) built on it.
+
+What is the ESP32-S3-DevKitC development board?
+ESP32-S3-DevKitC is a development board from Espressif, listed under Allzweck-Boards. It uses the ESP32-S3 on a Xtensa core. It carries 8MB flash, 512KB RAM, 30 GPIO. Official framework support: Arduino, ESP-IDF, PlatformIO, MicroPython. Listed price range CNY 100-200, a budget reference - the vendor page sets the real price. ZouIC indexes 5 open source project(s) built on it.
+
+What MCU and instruction architecture does ESP32-S3-DevKitC use?
+ESP32-S3 on a Xtensa core.
+
+How much flash and RAM does ESP32-S3-DevKitC have?
+It carries 8MB flash, 512KB RAM, 30 GPIO.
+
+### GD32VF103VBT6
+
+https://www.zouic.com/board/gd32vf103vbt6/
+
+GD32VF103VBT6 is a development board from GigaDevice, listed under Allzweck-Boards. It uses the GD32VF103 on a RISC-V core. It carries 128KB flash, 32KB RAM, 80 GPIO. Official framework support: PlatformIO, RT-Thread. Listed price range CNY 20-50, a budget reference - the vendor page sets the real price.
+
+What is the GD32VF103VBT6 development board?
+GD32VF103VBT6 is a development board from GigaDevice, listed under Allzweck-Boards. It uses the GD32VF103 on a RISC-V core. It carries 128KB flash, 32KB RAM, 80 GPIO. Official framework support: PlatformIO, RT-Thread. Listed price range CNY 20-50, a budget reference - the vendor page sets the real price.
+
+What MCU and instruction architecture does GD32VF103VBT6 use?
+GD32VF103 on a RISC-V core.
+
+How much flash and RAM does GD32VF103VBT6 have?
+It carries 128KB flash, 32KB RAM, 80 GPIO.
+
+### Grove Beginner Kit for Arduino
+
+https://www.zouic.com/board/grove-beginner-kit-for-arduino/
+
+Grove Beginner Kit for Arduino is a development board from Seeed Studio, listed under Allzweck-Boards. It uses the ATmega328P on a AVR core. It carries 32KB flash, 2KB RAM, 14 GPIO. Official framework support: Arduino.
+
+What is the Grove Beginner Kit for Arduino development board?
+Grove Beginner Kit for Arduino is a development board from Seeed Studio, listed under Allzweck-Boards. It uses the ATmega328P on a AVR core. It carries 32KB flash, 2KB RAM, 14 GPIO. Official framework support: Arduino.
+
+What MCU and instruction architecture does Grove Beginner Kit for Arduino use?
+ATmega328P on a AVR core.
+
+How much flash and RAM does Grove Beginner Kit for Arduino have?
+It carries 32KB flash, 2KB RAM, 14 GPIO.
+
+### Grove Vision AI V2
+
+https://www.zouic.com/board/grove-vision-ai-v2/
+
+Grove Vision AI V2 is a development board from Seeed Studio, listed under Edge-KI. It uses the Himax HX6538 on a Himax core. It carries 16MB flash and 2.4MB RAM. Official framework support: Arduino, TensorFlow, PyTorch.
+
+What is the Grove Vision AI V2 development board?
+Grove Vision AI V2 is a development board from Seeed Studio, listed under Edge-KI. It uses the Himax HX6538 on a Himax core. It carries 16MB flash and 2.4MB RAM. Official framework support: Arduino, TensorFlow, PyTorch.
+
+What MCU and instruction architecture does Grove Vision AI V2 use?
+Himax HX6538 on a Himax core.
+
+How much flash and RAM does Grove Vision AI V2 have?
+It carries 16MB flash and 2.4MB RAM.
+
+### HiFive Unmatched
+
+https://www.zouic.com/board/hifive-unmatched/
+
+HiFive Unmatched is a development board from SiFive, listed under Allzweck-Boards. It uses the Freedom U740 on a RISC-V core. It carries 32MB flash, 8GB RAM, 40 GPIO. Official framework support: Linux, Zephyr. Listed price range CNY 500-800, a budget reference - the vendor page sets the real price.
+
+What is the HiFive Unmatched development board?
+HiFive Unmatched is a development board from SiFive, listed under Allzweck-Boards. It uses the Freedom U740 on a RISC-V core. It carries 32MB flash, 8GB RAM, 40 GPIO. Official framework support: Linux, Zephyr. Listed price range CNY 500-800, a budget reference - the vendor page sets the real price.
+
+What MCU and instruction architecture does HiFive Unmatched use?
+Freedom U740 on a RISC-V core.
+
+How much flash and RAM does HiFive Unmatched have?
+It carries 32MB flash, 8GB RAM, 40 GPIO.
+
+### ODYSSEY STM32MP157C
+
+https://www.zouic.com/board/odyssey-stm32mp157c/
+
+ODYSSEY STM32MP157C is a development board from Seeed Studio, listed under Industriesteuerung. It uses the STM32MP157C on a STM32MP1 core. It carries 4GB eMMC flash, 512MB DDR3 RAM, 40 GPIO. Official framework support: Linux, Yocto, Debian.
+
+What is the ODYSSEY STM32MP157C development board?
+ODYSSEY STM32MP157C is a development board from Seeed Studio, listed under Industriesteuerung. It uses the STM32MP157C on a STM32MP1 core. It carries 4GB eMMC flash, 512MB DDR3 RAM, 40 GPIO. Official framework support: Linux, Yocto, Debian.
+
+What MCU and instruction architecture does ODYSSEY STM32MP157C use?
+STM32MP157C on a STM32MP1 core.
+
+How much flash and RAM does ODYSSEY STM32MP157C have?
+It carries 4GB eMMC flash, 512MB DDR3 RAM, 40 GPIO.
+
+### Orange Pi 3 LTS
+
+https://www.zouic.com/board/orange-pi-3-lts/
+
+Orange Pi 3 LTS is a development board from Orange Pi, listed under Allzweck-Boards. It uses the Allwinner H6 on a ARM64 core. It carries eMMC 8GB flash, 2GB RAM, 26 GPIO. Official framework support: Ubuntu, Debian, Android.
+
+What is the Orange Pi 3 LTS development board?
+Orange Pi 3 LTS is a development board from Orange Pi, listed under Allzweck-Boards. It uses the Allwinner H6 on a ARM64 core. It carries eMMC 8GB flash, 2GB RAM, 26 GPIO. Official framework support: Ubuntu, Debian, Android.
+
+What MCU and instruction architecture does Orange Pi 3 LTS use?
+Allwinner H6 on a ARM64 core.
+
+How much flash and RAM does Orange Pi 3 LTS have?
+It carries eMMC 8GB flash, 2GB RAM, 26 GPIO.
+
+### Orange Pi 3B
+
+https://www.zouic.com/board/orange-pi-3b/
+
+Orange Pi 3B is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3566 on a ARM64 core. It carries eMMC + NVMe flash, 2/4/8GB RAM, 40 GPIO. Official framework support: Ubuntu, Debian, Android, OpenHarmony.
+
+What is the Orange Pi 3B development board?
+Orange Pi 3B is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3566 on a ARM64 core. It carries eMMC + NVMe flash, 2/4/8GB RAM, 40 GPIO. Official framework support: Ubuntu, Debian, Android, OpenHarmony.
+
+What MCU and instruction architecture does Orange Pi 3B use?
+RK3566 on a ARM64 core.
+
+How much flash and RAM does Orange Pi 3B have?
+It carries eMMC + NVMe flash, 2/4/8GB RAM, 40 GPIO.
+
+### Orange Pi 4 LTS
+
+https://www.zouic.com/board/orange-pi-4-lts/
+
+Orange Pi 4 LTS is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3399 on a ARM64 core. It carries eMMC 16GB flash, 3/4GB RAM, 17 GPIO. Official framework support: Ubuntu, Debian, Android.
+
+What is the Orange Pi 4 LTS development board?
+Orange Pi 4 LTS is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3399 on a ARM64 core. It carries eMMC 16GB flash, 3/4GB RAM, 17 GPIO. Official framework support: Ubuntu, Debian, Android.
+
+What MCU and instruction architecture does Orange Pi 4 LTS use?
+RK3399 on a ARM64 core.
+
+How much flash and RAM does Orange Pi 4 LTS have?
+It carries eMMC 16GB flash, 3/4GB RAM, 17 GPIO.
+
+### Orange Pi 4 Pro
+
+https://www.zouic.com/board/orange-pi-4-pro/
+
+Orange Pi 4 Pro is a development board from Orange Pi, listed under Allzweck-Boards. It uses the Allwinner A733 on a ARM64 core. It carries eMMC/UFS + NVMe flash and 40 GPIO. Official framework support: Ubuntu, Debian, Android.
+
+What is the Orange Pi 4 Pro development board?
+Orange Pi 4 Pro is a development board from Orange Pi, listed under Allzweck-Boards. It uses the Allwinner A733 on a ARM64 core. It carries eMMC/UFS + NVMe flash and 40 GPIO. Official framework support: Ubuntu, Debian, Android.
+
+What MCU and instruction architecture does Orange Pi 4 Pro use?
+Allwinner A733 on a ARM64 core.
+
+How much flash and RAM does Orange Pi 4 Pro have?
+It carries eMMC/UFS + NVMe flash and 40 GPIO.
+
+### Orange Pi 4A
+
+https://www.zouic.com/board/orange-pi-4a/
+
+Orange Pi 4A is a development board from Orange Pi, listed under Industriesteuerung. It uses the Allwinner T527 on a ARM64 core. It carries eMMC + NVMe flash, 2/4GB RAM, 40 GPIO. Official framework support: Ubuntu, Debian, Android.
+
+What is the Orange Pi 4A development board?
+Orange Pi 4A is a development board from Orange Pi, listed under Industriesteuerung. It uses the Allwinner T527 on a ARM64 core. It carries eMMC + NVMe flash, 2/4GB RAM, 40 GPIO. Official framework support: Ubuntu, Debian, Android.
+
+What MCU and instruction architecture does Orange Pi 4A use?
+Allwinner T527 on a ARM64 core.
+
+How much flash and RAM does Orange Pi 4A have?
+It carries eMMC + NVMe flash, 2/4GB RAM, 40 GPIO.
+
+### Orange Pi 5
+
+https://www.zouic.com/board/orange-pi-5/
+
+Orange Pi 5 is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3588S on a ARM64 core. It carries M.2 NVMe + TF flash, 4/8/16GB RAM, 40 GPIO. Official framework support: Ubuntu, Debian, Android, Orange Pi OS.
+
+What is the Orange Pi 5 development board?
+Orange Pi 5 is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3588S on a ARM64 core. It carries M.2 NVMe + TF flash, 4/8/16GB RAM, 40 GPIO. Official framework support: Ubuntu, Debian, Android, Orange Pi OS.
+
+What MCU and instruction architecture does Orange Pi 5 use?
+RK3588S on a ARM64 core.
+
+How much flash and RAM does Orange Pi 5 have?
+It carries M.2 NVMe + TF flash, 4/8/16GB RAM, 40 GPIO.
+
+### Orange Pi 5 Max
+
+https://www.zouic.com/board/orange-pi-5-max/
+
+Orange Pi 5 Max is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3588 on a ARM64 core. It carries eMMC + NVMe flash, 4/8/16GB RAM, 40 GPIO. Official framework support: Ubuntu, Debian, Android, Orange Pi OS.
+
+What is the Orange Pi 5 Max development board?
+Orange Pi 5 Max is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3588 on a ARM64 core. It carries eMMC + NVMe flash, 4/8/16GB RAM, 40 GPIO. Official framework support: Ubuntu, Debian, Android, Orange Pi OS.
+
+What MCU and instruction architecture does Orange Pi 5 Max use?
+RK3588 on a ARM64 core.
+
+How much flash and RAM does Orange Pi 5 Max have?
+It carries eMMC + NVMe flash, 4/8/16GB RAM, 40 GPIO.
+
+### Orange Pi 5 Plus
+
+https://www.zouic.com/board/orange-pi-5-plus/
+
+Orange Pi 5 Plus is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3588 on a ARM64 core. It carries eMMC + NVMe flash, 4/8/16GB RAM, 40 GPIO. Official framework support: Ubuntu, Debian, Android, Orange Pi OS.
+
+What is the Orange Pi 5 Plus development board?
+Orange Pi 5 Plus is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3588 on a ARM64 core. It carries eMMC + NVMe flash, 4/8/16GB RAM, 40 GPIO. Official framework support: Ubuntu, Debian, Android, Orange Pi OS.
+
+What MCU and instruction architecture does Orange Pi 5 Plus use?
+RK3588 on a ARM64 core.
+
+How much flash and RAM does Orange Pi 5 Plus have?
+It carries eMMC + NVMe flash, 4/8/16GB RAM, 40 GPIO.
+
+### Orange Pi 5 Pro
+
+https://www.zouic.com/board/orange-pi-5-pro/
+
+Orange Pi 5 Pro is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3588S on a ARM64 core. It carries eMMC + NVMe flash, 4/8/16GB RAM, 40 GPIO. Official framework support: Ubuntu, Debian, Android, Orange Pi OS.
+
+What is the Orange Pi 5 Pro development board?
+Orange Pi 5 Pro is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3588S on a ARM64 core. It carries eMMC + NVMe flash, 4/8/16GB RAM, 40 GPIO. Official framework support: Ubuntu, Debian, Android, Orange Pi OS.
+
+What MCU and instruction architecture does Orange Pi 5 Pro use?
+RK3588S on a ARM64 core.
+
+How much flash and RAM does Orange Pi 5 Pro have?
+It carries eMMC + NVMe flash, 4/8/16GB RAM, 40 GPIO.
+
+### Orange Pi 5 Ultra
+
+https://www.zouic.com/board/orange-pi-5-ultra/
+
+Orange Pi 5 Ultra is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3588 on a ARM64 core. It carries eMMC + NVMe flash, 4/8/16GB RAM, 40 GPIO. Official framework support: Ubuntu, Debian, Android, Orange Pi OS.
+
+What is the Orange Pi 5 Ultra development board?
+Orange Pi 5 Ultra is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3588 on a ARM64 core. It carries eMMC + NVMe flash, 4/8/16GB RAM, 40 GPIO. Official framework support: Ubuntu, Debian, Android, Orange Pi OS.
+
+What MCU and instruction architecture does Orange Pi 5 Ultra use?
+RK3588 on a ARM64 core.
+
+How much flash and RAM does Orange Pi 5 Ultra have?
+It carries eMMC + NVMe flash, 4/8/16GB RAM, 40 GPIO.
+
+### Orange Pi 5B
+
+https://www.zouic.com/board/orange-pi-5b/
+
+Orange Pi 5B is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3588S on a ARM64 core. It carries eMMC 32-256GB flash, 4/8/16GB RAM, 26 GPIO. Official framework support: Ubuntu, Debian, Android, Orange Pi OS.
+
+What is the Orange Pi 5B development board?
+Orange Pi 5B is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3588S on a ARM64 core. It carries eMMC 32-256GB flash, 4/8/16GB RAM, 26 GPIO. Official framework support: Ubuntu, Debian, Android, Orange Pi OS.
+
+What MCU and instruction architecture does Orange Pi 5B use?
+RK3588S on a ARM64 core.
+
+How much flash and RAM does Orange Pi 5B have?
+It carries eMMC 32-256GB flash, 4/8/16GB RAM, 26 GPIO.
+
+### Orange Pi 6
+
+https://www.zouic.com/board/orange-pi-6/
+
+Orange Pi 6 is a development board from Orange Pi, listed under Edge-KI. It uses the CD8180 on a ARM64 core. It carries NVMe + TF flash, 8/16/24GB RAM, 40 GPIO. Official framework support: Ubuntu, Debian, OpenHarmony, Android, ROS2.
+
+What is the Orange Pi 6 development board?
+Orange Pi 6 is a development board from Orange Pi, listed under Edge-KI. It uses the CD8180 on a ARM64 core. It carries NVMe + TF flash, 8/16/24GB RAM, 40 GPIO. Official framework support: Ubuntu, Debian, OpenHarmony, Android, ROS2.
+
+What MCU and instruction architecture does Orange Pi 6 use?
+CD8180 on a ARM64 core.
+
+How much flash and RAM does Orange Pi 6 have?
+It carries NVMe + TF flash, 8/16/24GB RAM, 40 GPIO.
+
+### Orange Pi 6 Plus
+
+https://www.zouic.com/board/orange-pi-6-plus/
+
+Orange Pi 6 Plus is a development board from Orange Pi, listed under Edge-KI. It uses the CD8180 / CD8160 on a ARM64 core. It carries NVMe + TF flash, 16/32/64GB RAM, 40 GPIO. Official framework support: Ubuntu, Debian, OpenHarmony, Android, ROS2.
+
+What is the Orange Pi 6 Plus development board?
+Orange Pi 6 Plus is a development board from Orange Pi, listed under Edge-KI. It uses the CD8180 / CD8160 on a ARM64 core. It carries NVMe + TF flash, 16/32/64GB RAM, 40 GPIO. Official framework support: Ubuntu, Debian, OpenHarmony, Android, ROS2.
+
+What MCU and instruction architecture does Orange Pi 6 Plus use?
+CD8180 / CD8160 on a ARM64 core.
+
+How much flash and RAM does Orange Pi 6 Plus have?
+It carries NVMe + TF flash, 16/32/64GB RAM, 40 GPIO.
+
+### Orange Pi AIpro 20T
+
+https://www.zouic.com/board/orange-pi-aipro-20t/
+
+Orange Pi AIpro 20T is a development board from Orange Pi, listed under Edge-KI. It uses the DaVinci V300 + Taishan on a ARM64 core. It carries eMMC + NVMe flash, 12/24GB RAM, 40 GPIO. Official framework support: Ubuntu, openEuler.
+
+What is the Orange Pi AIpro 20T development board?
+Orange Pi AIpro 20T is a development board from Orange Pi, listed under Edge-KI. It uses the DaVinci V300 + Taishan on a ARM64 core. It carries eMMC + NVMe flash, 12/24GB RAM, 40 GPIO. Official framework support: Ubuntu, openEuler.
+
+What MCU and instruction architecture does Orange Pi AIpro 20T use?
+DaVinci V300 + Taishan on a ARM64 core.
+
+How much flash and RAM does Orange Pi AIpro 20T have?
+It carries eMMC + NVMe flash, 12/24GB RAM, 40 GPIO.
+
+### Orange Pi CM4
+
+https://www.zouic.com/board/orange-pi-cm4/
+
+Orange Pi CM4 is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3566 on a ARM64 core. It carries eMMC 8-128GB flash and 1/2/4/8GB RAM. Official framework support: Ubuntu, Debian, Android, OpenHarmony.
+
+What is the Orange Pi CM4 development board?
+Orange Pi CM4 is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3566 on a ARM64 core. It carries eMMC 8-128GB flash and 1/2/4/8GB RAM. Official framework support: Ubuntu, Debian, Android, OpenHarmony.
+
+What MCU and instruction architecture does Orange Pi CM4 use?
+RK3566 on a ARM64 core.
+
+How much flash and RAM does Orange Pi CM4 have?
+It carries eMMC 8-128GB flash and 1/2/4/8GB RAM.
+
+### Orange Pi CM5
+
+https://www.zouic.com/board/orange-pi-cm5/
+
+Orange Pi CM5 is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3588S on a ARM64 core. It carries eMMC 32-256GB flash and 2-32GB RAM. Official framework support: Ubuntu, Debian, Android, OpenHarmony.
+
+What is the Orange Pi CM5 development board?
+Orange Pi CM5 is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3588S on a ARM64 core. It carries eMMC 32-256GB flash and 2-32GB RAM. Official framework support: Ubuntu, Debian, Android, OpenHarmony.
+
+What MCU and instruction architecture does Orange Pi CM5 use?
+RK3588S on a ARM64 core.
+
+How much flash and RAM does Orange Pi CM5 have?
+It carries eMMC 32-256GB flash and 2-32GB RAM.
+
+### Orange Pi Kunpeng Pro
+
+https://www.zouic.com/board/orange-pi-kunpeng-pro/
+
+Orange Pi Kunpeng Pro is a development board from Orange Pi, listed under Edge-KI. It uses the Kunpeng + AI on a ARM64 core. It carries eMMC + NVMe flash, 8/16GB RAM, 40 GPIO. Official framework support: openEuler.
+
+What is the Orange Pi Kunpeng Pro development board?
+Orange Pi Kunpeng Pro is a development board from Orange Pi, listed under Edge-KI. It uses the Kunpeng + AI on a ARM64 core. It carries eMMC + NVMe flash, 8/16GB RAM, 40 GPIO. Official framework support: openEuler.
+
+What MCU and instruction architecture does Orange Pi Kunpeng Pro use?
+Kunpeng + AI on a ARM64 core.
+
+How much flash and RAM does Orange Pi Kunpeng Pro have?
+It carries eMMC + NVMe flash, 8/16GB RAM, 40 GPIO.
+
+### Orange Pi O1
+
+https://www.zouic.com/board/orange-pi-o1/
+
+Orange Pi O1 is a development board from Orange Pi, listed under Industriesteuerung. It uses the A53 + RISC-V C906 on a ARM64 core. It carries eMMC + NVMe flash, 8/16GB RAM, 26 GPIO. Official framework support: Ubuntu, Debian, OpenHarmony.
+
+What is the Orange Pi O1 development board?
+Orange Pi O1 is a development board from Orange Pi, listed under Industriesteuerung. It uses the A53 + RISC-V C906 on a ARM64 core. It carries eMMC + NVMe flash, 8/16GB RAM, 26 GPIO. Official framework support: Ubuntu, Debian, OpenHarmony.
+
+What MCU and instruction architecture does Orange Pi O1 use?
+A53 + RISC-V C906 on a ARM64 core.
+
+How much flash and RAM does Orange Pi O1 have?
+It carries eMMC + NVMe flash, 8/16GB RAM, 26 GPIO.
+
+### Orange Pi R1 Plus LTS
+
+https://www.zouic.com/board/orange-pi-r1-plus-lts/
+
+Orange Pi R1 Plus LTS is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3328 on a ARM64 core. It carries SPI 16MB + TF flash and 1GB RAM. Official framework support: OpenWrt, Ubuntu, Debian.
+
+What is the Orange Pi R1 Plus LTS development board?
+Orange Pi R1 Plus LTS is a development board from Orange Pi, listed under Allzweck-Boards. It uses the RK3328 on a ARM64 core. It carries SPI 16MB + TF flash and 1GB RAM. Official framework support: OpenWrt, Ubuntu, Debian.
+
+What MCU and instruction architecture does Orange Pi R1 Plus LTS use?
+RK3328 on a ARM64 core.
+
+How much flash and RAM does Orange Pi R1 Plus LTS have?
+It carries SPI 16MB + TF flash and 1GB RAM.
+
+### Orange Pi R2S
+
+https://www.zouic.com/board/orange-pi-r2s/
+
+Orange Pi R2S is a development board from Orange Pi, listed under RISC-V. It uses the Ky X1 on a RISC-V core. It carries eMMC 8GB flash and 2/4/8GB RAM. Official framework support: OpenWrt, Ubuntu.
+
+What is the Orange Pi R2S development board?
+Orange Pi R2S is a development board from Orange Pi, listed under RISC-V. It uses the Ky X1 on a RISC-V core. It carries eMMC 8GB flash and 2/4/8GB RAM. Official framework support: OpenWrt, Ubuntu.
+
+What MCU and instruction architecture does Orange Pi R2S use?
+Ky X1 on a RISC-V core.
+
+How much flash and RAM does Orange Pi R2S have?
+It carries eMMC 8GB flash and 2/4/8GB RAM.
+
+### Orange Pi RV
+
+https://www.zouic.com/board/orange-pi-rv/
+
+Orange Pi RV is a development board from Orange Pi, listed under RISC-V. It uses the StarFive JH7110 on a RISC-V core. It carries M.2 NVMe + TF flash, 2/4/8GB RAM, 40 GPIO. Official framework support: Linux.
+
+What is the Orange Pi RV development board?
+Orange Pi RV is a development board from Orange Pi, listed under RISC-V. It uses the StarFive JH7110 on a RISC-V core. It carries M.2 NVMe + TF flash, 2/4/8GB RAM, 40 GPIO. Official framework support: Linux.
+
+What MCU and instruction architecture does Orange Pi RV use?
+StarFive JH7110 on a RISC-V core.
+
+How much flash and RAM does Orange Pi RV have?
+It carries M.2 NVMe + TF flash, 2/4/8GB RAM, 40 GPIO.
+
+### Orange Pi RV2
+
+https://www.zouic.com/board/orange-pi-rv2/
+
+Orange Pi RV2 is a development board from Orange Pi, listed under RISC-V. It uses the Ky X1 on a RISC-V core. It carries eMMC + NVMe flash, 2/4/8GB RAM, 26 GPIO. Official framework support: Ubuntu, OpenHarmony.
+
+What is the Orange Pi RV2 development board?
+Orange Pi RV2 is a development board from Orange Pi, listed under RISC-V. It uses the Ky X1 on a RISC-V core. It carries eMMC + NVMe flash, 2/4/8GB RAM, 26 GPIO. Official framework support: Ubuntu, OpenHarmony.
+
+What MCU and instruction architecture does Orange Pi RV2 use?
+Ky X1 on a RISC-V core.
+
+How much flash and RAM does Orange Pi RV2 have?
+It carries eMMC + NVMe flash, 2/4/8GB RAM, 26 GPIO.
+
+### Orange Pi Zero 2W
+
+https://www.zouic.com/board/orange-pi-zero-2w/
+
+Orange Pi Zero 2W is a development board from Orange Pi, listed under IoT. It uses the Allwinner H618 on a ARM64 core. It carries SPI 16MB + TF flash, 1/1.5/2/4GB RAM, 40 GPIO. Official framework support: Ubuntu, Debian, Android, Orange Pi OS.
+
+What is the Orange Pi Zero 2W development board?
+Orange Pi Zero 2W is a development board from Orange Pi, listed under IoT. It uses the Allwinner H618 on a ARM64 core. It carries SPI 16MB + TF flash, 1/1.5/2/4GB RAM, 40 GPIO. Official framework support: Ubuntu, Debian, Android, Orange Pi OS.
+
+What MCU and instruction architecture does Orange Pi Zero 2W use?
+Allwinner H618 on a ARM64 core.
+
+How much flash and RAM does Orange Pi Zero 2W have?
+It carries SPI 16MB + TF flash, 1/1.5/2/4GB RAM, 40 GPIO.
+
+### Orange Pi Zero 3
+
+https://www.zouic.com/board/orange-pi-zero-3/
+
+Orange Pi Zero 3 is a development board from Orange Pi, listed under IoT. It uses the Allwinner H618 on a ARM64 core. It carries SPI 16MB + TF flash, 1/1.5/2/4GB RAM, 26 GPIO. Official framework support: Ubuntu, Debian, Android.
+
+What is the Orange Pi Zero 3 development board?
+Orange Pi Zero 3 is a development board from Orange Pi, listed under IoT. It uses the Allwinner H618 on a ARM64 core. It carries SPI 16MB + TF flash, 1/1.5/2/4GB RAM, 26 GPIO. Official framework support: Ubuntu, Debian, Android.
+
+What MCU and instruction architecture does Orange Pi Zero 3 use?
+Allwinner H618 on a ARM64 core.
+
+How much flash and RAM does Orange Pi Zero 3 have?
+It carries SPI 16MB + TF flash, 1/1.5/2/4GB RAM, 26 GPIO.
+
+### Orange Pi Zero 3W
+
+https://www.zouic.com/board/orange-pi-zero-3w/
+
+Orange Pi Zero 3W is a development board from Orange Pi, listed under IoT. It uses the Allwinner A733 on a ARM64 core. It carries eMMC/UFS + TF flash and 40 GPIO. Official framework support: Ubuntu, Debian, Android.
+
+What is the Orange Pi Zero 3W development board?
+Orange Pi Zero 3W is a development board from Orange Pi, listed under IoT. It uses the Allwinner A733 on a ARM64 core. It carries eMMC/UFS + TF flash and 40 GPIO. Official framework support: Ubuntu, Debian, Android.
+
+What MCU and instruction architecture does Orange Pi Zero 3W use?
+Allwinner A733 on a ARM64 core.
+
+How much flash and RAM does Orange Pi Zero 3W have?
+It carries eMMC/UFS + TF flash and 40 GPIO.
+
+### Orange Pi Zero 4
+
+https://www.zouic.com/board/orange-pi-zero-4/
+
+Orange Pi Zero 4 is a development board from Orange Pi, listed under IoT. It uses the Allwinner A733 on a ARM64 core. It carries eMMC/UFS + TF flash and 26 GPIO. Official framework support: Ubuntu, Debian, Android.
+
+What is the Orange Pi Zero 4 development board?
+Orange Pi Zero 4 is a development board from Orange Pi, listed under IoT. It uses the Allwinner A733 on a ARM64 core. It carries eMMC/UFS + TF flash and 26 GPIO. Official framework support: Ubuntu, Debian, Android.
+
+What MCU and instruction architecture does Orange Pi Zero 4 use?
+Allwinner A733 on a ARM64 core.
+
+How much flash and RAM does Orange Pi Zero 4 have?
+It carries eMMC/UFS + TF flash and 26 GPIO.
+
+### Raspberry Pi Pico
+
+https://www.zouic.com/board/raspberry-pi-pico/
+
+Raspberry Pi Pico is a development board from Raspberry Pi, listed under Allzweck-Boards. It uses the RP2040 on a RP2040 core. It carries 2MB flash, 264KB RAM, 26 GPIO. Official framework support: MicroPython, CircuitPython, Arduino, PlatformIO. Listed price range CNY 20-50, a budget reference - the vendor page sets the real price. ZouIC indexes 2 open source project(s) built on it.
+
+What is the Raspberry Pi Pico development board?
+Raspberry Pi Pico is a development board from Raspberry Pi, listed under Allzweck-Boards. It uses the RP2040 on a RP2040 core. It carries 2MB flash, 264KB RAM, 26 GPIO. Official framework support: MicroPython, CircuitPython, Arduino, PlatformIO. Listed price range CNY 20-50, a budget reference - the vendor page sets the real price. ZouIC indexes 2 open source project(s) built on it.
+
+What MCU and instruction architecture does Raspberry Pi Pico use?
+RP2040 on a RP2040 core.
+
+How much flash and RAM does Raspberry Pi Pico have?
+It carries 2MB flash, 264KB RAM, 26 GPIO.
+
+### Raspberry Pi Pico W
+
+https://www.zouic.com/board/raspberry-pi-pico-w/
+
+Raspberry Pi Pico W is a development board from Raspberry Pi, listed under Allzweck-Boards. It uses the RP2040 on a RP2040 core. It carries 2MB flash, 264KB RAM, 26 GPIO. Official framework support: MicroPython, CircuitPython, Arduino, PlatformIO. Listed price range CNY 50-100, a budget reference - the vendor page sets the real price. ZouIC indexes 2 open source project(s) built on it.
+
+What is the Raspberry Pi Pico W development board?
+Raspberry Pi Pico W is a development board from Raspberry Pi, listed under Allzweck-Boards. It uses the RP2040 on a RP2040 core. It carries 2MB flash, 264KB RAM, 26 GPIO. Official framework support: MicroPython, CircuitPython, Arduino, PlatformIO. Listed price range CNY 50-100, a budget reference - the vendor page sets the real price. ZouIC indexes 2 open source project(s) built on it.
+
+What MCU and instruction architecture does Raspberry Pi Pico W use?
+RP2040 on a RP2040 core.
+
+How much flash and RAM does Raspberry Pi Pico W have?
+It carries 2MB flash, 264KB RAM, 26 GPIO.
+
+### STM32F103C8T6 Blue Pill
+
+https://www.zouic.com/board/stm32f103c8t6-blue-pill/
+
+STM32F103C8T6 Blue Pill is a development board from STMicroelectronics, listed under Allzweck-Boards. It uses the STM32F103C8T6 on a STM32 core. It carries 64KB flash, 20KB RAM, 37 GPIO. Official framework support: STM32CubeMX, PlatformIO, Arduino. Listed price range CNY 20-50, a budget reference - the vendor page sets the real price. ZouIC indexes 2 open source project(s) built on it.
+
+What is the STM32F103C8T6 Blue Pill development board?
+STM32F103C8T6 Blue Pill is a development board from STMicroelectronics, listed under Allzweck-Boards. It uses the STM32F103C8T6 on a STM32 core. It carries 64KB flash, 20KB RAM, 37 GPIO. Official framework support: STM32CubeMX, PlatformIO, Arduino. Listed price range CNY 20-50, a budget reference - the vendor page sets the real price. ZouIC indexes 2 open source project(s) built on it.
+
+What MCU and instruction architecture does STM32F103C8T6 Blue Pill use?
+STM32F103C8T6 on a STM32 core.
+
+How much flash and RAM does STM32F103C8T6 Blue Pill have?
+It carries 64KB flash, 20KB RAM, 37 GPIO.
+
+### STM32F407VGT6 Discovery
+
+https://www.zouic.com/board/stm32f407vgt6-discovery/
+
+STM32F407VGT6 Discovery is a development board from STMicroelectronics, listed under Allzweck-Boards. It uses the STM32F407VGT6 on a STM32 core. It carries 1MB flash, 192KB RAM, 82 GPIO. Official framework support: STM32CubeMX, PlatformIO. Listed price range CNY 300-500, a budget reference - the vendor page sets the real price. ZouIC indexes 3 open source project(s) built on it.
+
+What is the STM32F407VGT6 Discovery development board?
+STM32F407VGT6 Discovery is a development board from STMicroelectronics, listed under Allzweck-Boards. It uses the STM32F407VGT6 on a STM32 core. It carries 1MB flash, 192KB RAM, 82 GPIO. Official framework support: STM32CubeMX, PlatformIO. Listed price range CNY 300-500, a budget reference - the vendor page sets the real price. ZouIC indexes 3 open source project(s) built on it.
+
+What MCU and instruction architecture does STM32F407VGT6 Discovery use?
+STM32F407VGT6 on a STM32 core.
+
+How much flash and RAM does STM32F407VGT6 Discovery have?
+It carries 1MB flash, 192KB RAM, 82 GPIO.
+
+### SenseCAP Indicator
+
+https://www.zouic.com/board/sensecap-indicator/
+
+SenseCAP Indicator is a development board from Seeed Studio, listed under Edge-KI. It uses the ESP32-S3 + RP2040 on a Xtensa core. It carries 512KB + 264KB RAM. Official framework support: Arduino, ESP-IDF, MicroPython.
+
+What is the SenseCAP Indicator development board?
+SenseCAP Indicator is a development board from Seeed Studio, listed under Edge-KI. It uses the ESP32-S3 + RP2040 on a Xtensa core. It carries 512KB + 264KB RAM. Official framework support: Arduino, ESP-IDF, MicroPython.
+
+What MCU and instruction architecture does SenseCAP Indicator use?
+ESP32-S3 + RP2040 on a Xtensa core.
+
+How much flash and RAM does SenseCAP Indicator have?
+It carries 512KB + 264KB RAM.
+
+### SiFive HiFive 1 Rev B
+
+https://www.zouic.com/board/sifive-hifive-1-rev-b/
+
+SiFive HiFive 1 Rev B is a development board from SiFive, listed under Allzweck-Boards. It uses the FE310-G002 on a RISC-V core. It carries 16MB flash, 16KB RAM, 32 GPIO. Official framework support: Freedom E SDK, Zephyr, Rust. Listed price range CNY 50-100, a budget reference - the vendor page sets the real price.
+
+What is the SiFive HiFive 1 Rev B development board?
+SiFive HiFive 1 Rev B is a development board from SiFive, listed under Allzweck-Boards. It uses the FE310-G002 on a RISC-V core. It carries 16MB flash, 16KB RAM, 32 GPIO. Official framework support: Freedom E SDK, Zephyr, Rust. Listed price range CNY 50-100, a budget reference - the vendor page sets the real price.
+
+What MCU and instruction architecture does SiFive HiFive 1 Rev B use?
+FE310-G002 on a RISC-V core.
+
+How much flash and RAM does SiFive HiFive 1 Rev B have?
+It carries 16MB flash, 16KB RAM, 32 GPIO.
+
+### SiFive HiFive 2
+
+https://www.zouic.com/board/sifive-hifive-2/
+
+SiFive HiFive 2 is a development board from SiFive, listed under Allzweck-Boards. It uses the FE310-G003 on a RISC-V core. It carries 32MB flash, 16KB RAM, 48 GPIO. Official framework support: Freedom E SDK, Zephyr, Rust, Arduino. Listed price range CNY 80-150, a budget reference - the vendor page sets the real price.
+
+What is the SiFive HiFive 2 development board?
+SiFive HiFive 2 is a development board from SiFive, listed under Allzweck-Boards. It uses the FE310-G003 on a RISC-V core. It carries 32MB flash, 16KB RAM, 48 GPIO. Official framework support: Freedom E SDK, Zephyr, Rust, Arduino. Listed price range CNY 80-150, a budget reference - the vendor page sets the real price.
+
+What MCU and instruction architecture does SiFive HiFive 2 use?
+FE310-G003 on a RISC-V core.
+
+How much flash and RAM does SiFive HiFive 2 have?
+It carries 32MB flash, 16KB RAM, 48 GPIO.
+
+### Sipeed Maixduino
+
+https://www.zouic.com/board/sipeed-maixduino/
+
+Sipeed Maixduino is a development board from Sipeed, listed under Allzweck-Boards. It uses the K210 on a RISC-V core. It carries 8MB flash, 6MB RAM, 48 GPIO. Official framework support: MaixPy, Kendryte SDK, MicroPython. Listed price range CNY 50-100, a budget reference - the vendor page sets the real price.
+
+What is the Sipeed Maixduino development board?
+Sipeed Maixduino is a development board from Sipeed, listed under Allzweck-Boards. It uses the K210 on a RISC-V core. It carries 8MB flash, 6MB RAM, 48 GPIO. Official framework support: MaixPy, Kendryte SDK, MicroPython. Listed price range CNY 50-100, a budget reference - the vendor page sets the real price.
+
+What MCU and instruction architecture does Sipeed Maixduino use?
+K210 on a RISC-V core.
+
+How much flash and RAM does Sipeed Maixduino have?
+It carries 8MB flash, 6MB RAM, 48 GPIO.
+
+### StarFive VisionFive 2
+
+https://www.zouic.com/board/starfive-visionfive-2/
+
+StarFive VisionFive 2 is a development board from StarFive, listed under Allzweck-Boards. It uses the JH7110 on a RISC-V core. It carries 32MB flash, 8GB RAM, 40 GPIO. Official framework support: Linux, Debian, OpenWrt, ROS. Listed price range CNY 200-400, a budget reference - the vendor page sets the real price.
+
+What is the StarFive VisionFive 2 development board?
+StarFive VisionFive 2 is a development board from StarFive, listed under Allzweck-Boards. It uses the JH7110 on a RISC-V core. It carries 32MB flash, 8GB RAM, 40 GPIO. Official framework support: Linux, Debian, OpenWrt, ROS. Listed price range CNY 200-400, a budget reference - the vendor page sets the real price.
+
+What MCU and instruction architecture does StarFive VisionFive 2 use?
+JH7110 on a RISC-V core.
+
+How much flash and RAM does StarFive VisionFive 2 have?
+It carries 32MB flash, 8GB RAM, 40 GPIO.
+
+### Wio Terminal
+
+https://www.zouic.com/board/wio-terminal/
+
+Wio Terminal is a development board from Seeed Studio, listed under IoT. It uses the ATSAMD51P19 on a SAMD core. It carries 4MB flash, 192KB RAM, 40 GPIO. Official framework support: Arduino, CircuitPython.
+
+What is the Wio Terminal development board?
+Wio Terminal is a development board from Seeed Studio, listed under IoT. It uses the ATSAMD51P19 on a SAMD core. It carries 4MB flash, 192KB RAM, 40 GPIO. Official framework support: Arduino, CircuitPython.
+
+What MCU and instruction architecture does Wio Terminal use?
+ATSAMD51P19 on a SAMD core.
+
+How much flash and RAM does Wio Terminal have?
+It carries 4MB flash, 192KB RAM, 40 GPIO.
+
+### XIAO ESP32-C3
+
+https://www.zouic.com/board/xiao-esp32-c3/
+
+XIAO ESP32-C3 is a development board from Seeed Studio, listed under IoT. It uses the ESP32-C3 on a RISC-V core. It carries 4MB flash, 400KB RAM, 11 GPIO. Official framework support: Arduino, ESP-IDF, MicroPython, CircuitPython.
+
+What is the XIAO ESP32-C3 development board?
+XIAO ESP32-C3 is a development board from Seeed Studio, listed under IoT. It uses the ESP32-C3 on a RISC-V core. It carries 4MB flash, 400KB RAM, 11 GPIO. Official framework support: Arduino, ESP-IDF, MicroPython, CircuitPython.
+
+What MCU and instruction architecture does XIAO ESP32-C3 use?
+ESP32-C3 on a RISC-V core.
+
+How much flash and RAM does XIAO ESP32-C3 have?
+It carries 4MB flash, 400KB RAM, 11 GPIO.
+
+### XIAO ESP32-C6
+
+https://www.zouic.com/board/xiao-esp32-c6/
+
+XIAO ESP32-C6 is a development board from Seeed Studio, listed under IoT. It uses the ESP32-C6 on a RISC-V core. It carries 4MB flash, 512KB RAM, 11 GPIO. Official framework support: Arduino, ESP-IDF, MicroPython.
+
+What is the XIAO ESP32-C6 development board?
+XIAO ESP32-C6 is a development board from Seeed Studio, listed under IoT. It uses the ESP32-C6 on a RISC-V core. It carries 4MB flash, 512KB RAM, 11 GPIO. Official framework support: Arduino, ESP-IDF, MicroPython.
+
+What MCU and instruction architecture does XIAO ESP32-C6 use?
+ESP32-C6 on a RISC-V core.
+
+How much flash and RAM does XIAO ESP32-C6 have?
+It carries 4MB flash, 512KB RAM, 11 GPIO.
+
+### XIAO ESP32-S3
+
+https://www.zouic.com/board/xiao-esp32-s3/
+
+XIAO ESP32-S3 is a development board from Seeed Studio, listed under IoT. It uses the ESP32-S3R8 on a Xtensa core. It carries 8MB flash, 8MB PSRAM RAM, 11 GPIO. Official framework support: Arduino, ESP-IDF, MicroPython.
+
+What is the XIAO ESP32-S3 development board?
+XIAO ESP32-S3 is a development board from Seeed Studio, listed under IoT. It uses the ESP32-S3R8 on a Xtensa core. It carries 8MB flash, 8MB PSRAM RAM, 11 GPIO. Official framework support: Arduino, ESP-IDF, MicroPython.
+
+What MCU and instruction architecture does XIAO ESP32-S3 use?
+ESP32-S3R8 on a Xtensa core.
+
+How much flash and RAM does XIAO ESP32-S3 have?
+It carries 8MB flash, 8MB PSRAM RAM, 11 GPIO.
+
+### XIAO ESP32-S3 Sense
+
+https://www.zouic.com/board/xiao-esp32-s3-sense/
+
+XIAO ESP32-S3 Sense is a development board from Seeed Studio, listed under Edge-KI. It uses the ESP32-S3R8 on a Xtensa core. It carries 8MB + TF flash, 8MB PSRAM RAM, 11 GPIO. Official framework support: Arduino, ESP-IDF, MicroPython.
+
+What is the XIAO ESP32-S3 Sense development board?
+XIAO ESP32-S3 Sense is a development board from Seeed Studio, listed under Edge-KI. It uses the ESP32-S3R8 on a Xtensa core. It carries 8MB + TF flash, 8MB PSRAM RAM, 11 GPIO. Official framework support: Arduino, ESP-IDF, MicroPython.
+
+What MCU and instruction architecture does XIAO ESP32-S3 Sense use?
+ESP32-S3R8 on a Xtensa core.
+
+How much flash and RAM does XIAO ESP32-S3 Sense have?
+It carries 8MB + TF flash, 8MB PSRAM RAM, 11 GPIO.
+
+### XIAO MG24
+
+https://www.zouic.com/board/xiao-mg24/
+
+XIAO MG24 is a development board from Seeed Studio, listed under IoT. It uses the EFR32MG24 on a MG24 core. It carries 1536KB + 4MB flash, 256KB RAM, 19 GPIO. Official framework support: Arduino, Matter.
+
+What is the XIAO MG24 development board?
+XIAO MG24 is a development board from Seeed Studio, listed under IoT. It uses the EFR32MG24 on a MG24 core. It carries 1536KB + 4MB flash, 256KB RAM, 19 GPIO. Official framework support: Arduino, Matter.
+
+What MCU and instruction architecture does XIAO MG24 use?
+EFR32MG24 on a MG24 core.
+
+How much flash and RAM does XIAO MG24 have?
+It carries 1536KB + 4MB flash, 256KB RAM, 19 GPIO.
+
+### XIAO MG24 Sense
+
+https://www.zouic.com/board/xiao-mg24-sense/
+
+XIAO MG24 Sense is a development board from Seeed Studio, listed under IoT. It uses the EFR32MG24 on a MG24 core. It carries 1536KB + 4MB flash, 256KB RAM, 19 GPIO. Official framework support: Arduino, Matter.
+
+What is the XIAO MG24 Sense development board?
+XIAO MG24 Sense is a development board from Seeed Studio, listed under IoT. It uses the EFR32MG24 on a MG24 core. It carries 1536KB + 4MB flash, 256KB RAM, 19 GPIO. Official framework support: Arduino, Matter.
+
+What MCU and instruction architecture does XIAO MG24 Sense use?
+EFR32MG24 on a MG24 core.
+
+How much flash and RAM does XIAO MG24 Sense have?
+It carries 1536KB + 4MB flash, 256KB RAM, 19 GPIO.
+
+### XIAO RA4M1
+
+https://www.zouic.com/board/xiao-ra4m1/
+
+XIAO RA4M1 is a development board from Seeed Studio, listed under IoT. It uses the R7FA4M1AB3CFM on a RA4M1 core. It carries 256KB flash, 32KB RAM, 19 GPIO. Official framework support: Arduino.
+
+What is the XIAO RA4M1 development board?
+XIAO RA4M1 is a development board from Seeed Studio, listed under IoT. It uses the R7FA4M1AB3CFM on a RA4M1 core. It carries 256KB flash, 32KB RAM, 19 GPIO. Official framework support: Arduino.
+
+What MCU and instruction architecture does XIAO RA4M1 use?
+R7FA4M1AB3CFM on a RA4M1 core.
+
+How much flash and RAM does XIAO RA4M1 have?
+It carries 256KB flash, 32KB RAM, 19 GPIO.
+
+### XIAO RP2040
+
+https://www.zouic.com/board/xiao-rp2040/
+
+XIAO RP2040 is a development board from Seeed Studio, listed under IoT. It uses the RP2040 on a RP2040 core. It carries 2MB flash, 264KB RAM, 14 GPIO. Official framework support: Arduino, MicroPython, CircuitPython, PlatformIO.
+
+What is the XIAO RP2040 development board?
+XIAO RP2040 is a development board from Seeed Studio, listed under IoT. It uses the RP2040 on a RP2040 core. It carries 2MB flash, 264KB RAM, 14 GPIO. Official framework support: Arduino, MicroPython, CircuitPython, PlatformIO.
+
+What MCU and instruction architecture does XIAO RP2040 use?
+RP2040 on a RP2040 core.
+
+How much flash and RAM does XIAO RP2040 have?
+It carries 2MB flash, 264KB RAM, 14 GPIO.
+
+### XIAO RP2350
+
+https://www.zouic.com/board/xiao-rp2350/
+
+XIAO RP2350 is a development board from Seeed Studio, listed under IoT. It uses the RP2350 on a RP2350 core. It carries 2MB flash, 520KB RAM, 19 GPIO. Official framework support: Arduino, MicroPython, C/C++ SDK.
+
+What is the XIAO RP2350 development board?
+XIAO RP2350 is a development board from Seeed Studio, listed under IoT. It uses the RP2350 on a RP2350 core. It carries 2MB flash, 520KB RAM, 19 GPIO. Official framework support: Arduino, MicroPython, C/C++ SDK.
+
+What MCU and instruction architecture does XIAO RP2350 use?
+RP2350 on a RP2350 core.
+
+How much flash and RAM does XIAO RP2350 have?
+It carries 2MB flash, 520KB RAM, 19 GPIO.
+
+### XIAO SAMD21
+
+https://www.zouic.com/board/xiao-samd21/
+
+XIAO SAMD21 is a development board from Seeed Studio, listed under IoT. It uses the SAMD21G18 on a SAMD core. It carries 256KB flash, 32KB RAM, 14 GPIO. Official framework support: Arduino, PlatformIO, MicroPython, CircuitPython.
+
+What is the XIAO SAMD21 development board?
+XIAO SAMD21 is a development board from Seeed Studio, listed under IoT. It uses the SAMD21G18 on a SAMD core. It carries 256KB flash, 32KB RAM, 14 GPIO. Official framework support: Arduino, PlatformIO, MicroPython, CircuitPython.
+
+What MCU and instruction architecture does XIAO SAMD21 use?
+SAMD21G18 on a SAMD core.
+
+How much flash and RAM does XIAO SAMD21 have?
+It carries 256KB flash, 32KB RAM, 14 GPIO.
+
+### XIAO nRF52840
+
+https://www.zouic.com/board/xiao-nrf52840/
+
+XIAO nRF52840 is a development board from Seeed Studio, listed under IoT. It uses the nRF52840 on a nRF52 core. It carries 1MB flash, 256KB RAM, 11 GPIO. Official framework support: Arduino, MicroPython, CircuitPython.
+
+What is the XIAO nRF52840 development board?
+XIAO nRF52840 is a development board from Seeed Studio, listed under IoT. It uses the nRF52840 on a nRF52 core. It carries 1MB flash, 256KB RAM, 11 GPIO. Official framework support: Arduino, MicroPython, CircuitPython.
+
+What MCU and instruction architecture does XIAO nRF52840 use?
+nRF52840 on a nRF52 core.
+
+How much flash and RAM does XIAO nRF52840 have?
+It carries 1MB flash, 256KB RAM, 11 GPIO.
+
+### XIAO nRF52840 Sense
+
+https://www.zouic.com/board/xiao-nrf52840-sense/
+
+XIAO nRF52840 Sense is a development board from Seeed Studio, listed under IoT. It uses the nRF52840 on a nRF52 core. It carries 1MB flash, 256KB RAM, 11 GPIO. Official framework support: Arduino, MicroPython, CircuitPython.
+
+What is the XIAO nRF52840 Sense development board?
+XIAO nRF52840 Sense is a development board from Seeed Studio, listed under IoT. It uses the nRF52840 on a nRF52 core. It carries 1MB flash, 256KB RAM, 11 GPIO. Official framework support: Arduino, MicroPython, CircuitPython.
+
+What MCU and instruction architecture does XIAO nRF52840 Sense use?
+nRF52840 on a nRF52 core.
+
+How much flash and RAM does XIAO nRF52840 Sense have?
+It carries 1MB flash, 256KB RAM, 11 GPIO.
+
+### reComputer J3010B
+
+https://www.zouic.com/board/recomputer-j3010b/
+
+reComputer J3010B is a development board from Seeed Studio, listed under Edge-KI. It uses the Jetson Orin Nano 4GB on a ARM64 core. It carries 128GB NVMe flash, 4GB LPDDR5 RAM, 40 GPIO. Official framework support: JetPack, Ubuntu, CUDA.
+
+What is the reComputer J3010B development board?
+reComputer J3010B is a development board from Seeed Studio, listed under Edge-KI. It uses the Jetson Orin Nano 4GB on a ARM64 core. It carries 128GB NVMe flash, 4GB LPDDR5 RAM, 40 GPIO. Official framework support: JetPack, Ubuntu, CUDA.
+
+What MCU and instruction architecture does reComputer J3010B use?
+Jetson Orin Nano 4GB on a ARM64 core.
+
+How much flash and RAM does reComputer J3010B have?
+It carries 128GB NVMe flash, 4GB LPDDR5 RAM, 40 GPIO.
+
+### reComputer J3011B
+
+https://www.zouic.com/board/recomputer-j3011b/
+
+reComputer J3011B is a development board from Seeed Studio, listed under Edge-KI. It uses the Jetson Orin Nano 8GB on a ARM64 core. It carries 128GB NVMe flash, 8GB LPDDR5 RAM, 40 GPIO. Official framework support: JetPack, Ubuntu, CUDA.
+
+What is the reComputer J3011B development board?
+reComputer J3011B is a development board from Seeed Studio, listed under Edge-KI. It uses the Jetson Orin Nano 8GB on a ARM64 core. It carries 128GB NVMe flash, 8GB LPDDR5 RAM, 40 GPIO. Official framework support: JetPack, Ubuntu, CUDA.
+
+What MCU and instruction architecture does reComputer J3011B use?
+Jetson Orin Nano 8GB on a ARM64 core.
+
+How much flash and RAM does reComputer J3011B have?
+It carries 128GB NVMe flash, 8GB LPDDR5 RAM, 40 GPIO.
+
+### reComputer J4011
+
+https://www.zouic.com/board/recomputer-j4011/
+
+reComputer J4011 is a development board from Seeed Studio, listed under Edge-KI. It uses the Jetson Orin NX 8GB on a ARM64 core. It carries 128GB NVMe flash, 8GB LPDDR5 RAM, 40 GPIO. Official framework support: JetPack, Ubuntu, CUDA.
+
+What is the reComputer J4011 development board?
+reComputer J4011 is a development board from Seeed Studio, listed under Edge-KI. It uses the Jetson Orin NX 8GB on a ARM64 core. It carries 128GB NVMe flash, 8GB LPDDR5 RAM, 40 GPIO. Official framework support: JetPack, Ubuntu, CUDA.
+
+What MCU and instruction architecture does reComputer J4011 use?
+Jetson Orin NX 8GB on a ARM64 core.
+
+How much flash and RAM does reComputer J4011 have?
+It carries 128GB NVMe flash, 8GB LPDDR5 RAM, 40 GPIO.
+
+### reComputer J4012
+
+https://www.zouic.com/board/recomputer-j4012/
+
+reComputer J4012 is a development board from Seeed Studio, listed under Edge-KI. It uses the Jetson Orin NX 16GB on a ARM64 core. It carries 128GB NVMe flash, 16GB LPDDR5 RAM, 40 GPIO. Official framework support: JetPack, Ubuntu, CUDA.
+
+What is the reComputer J4012 development board?
+reComputer J4012 is a development board from Seeed Studio, listed under Edge-KI. It uses the Jetson Orin NX 16GB on a ARM64 core. It carries 128GB NVMe flash, 16GB LPDDR5 RAM, 40 GPIO. Official framework support: JetPack, Ubuntu, CUDA.
+
+What MCU and instruction architecture does reComputer J4012 use?
+Jetson Orin NX 16GB on a ARM64 core.
+
+How much flash and RAM does reComputer J4012 have?
+It carries 128GB NVMe flash, 16GB LPDDR5 RAM, 40 GPIO.
+
+### reTerminal (CM4108032)
+
+https://www.zouic.com/board/reterminal-cm4108032/
+
+reTerminal (CM4108032) is a development board from Seeed Studio, listed under Industriesteuerung. It uses the BCM2711 (CM4) on a ARM64 core. It carries 32GB eMMC flash, 8GB RAM, 40 GPIO. Official framework support: Raspberry Pi OS, Ubuntu, Debian.
+
+What is the reTerminal (CM4108032) development board?
+reTerminal (CM4108032) is a development board from Seeed Studio, listed under Industriesteuerung. It uses the BCM2711 (CM4) on a ARM64 core. It carries 32GB eMMC flash, 8GB RAM, 40 GPIO. Official framework support: Raspberry Pi OS, Ubuntu, Debian.
+
+What MCU and instruction architecture does reTerminal (CM4108032) use?
+BCM2711 (CM4) on a ARM64 core.
+
+How much flash and RAM does reTerminal (CM4108032) have?
+It carries 32GB eMMC flash, 8GB RAM, 40 GPIO.
+
+### reTerminal DM
+
+https://www.zouic.com/board/reterminal-dm/
+
+reTerminal DM is a development board from Seeed Studio, listed under Industriesteuerung. It uses the BCM2711 (CM4) on a ARM64 core. It carries 32GB eMMC flash, 8GB RAM, 40 GPIO. Official framework support: Raspberry Pi OS, Ubuntu, Debian.
+
+What is the reTerminal DM development board?
+reTerminal DM is a development board from Seeed Studio, listed under Industriesteuerung. It uses the BCM2711 (CM4) on a ARM64 core. It carries 32GB eMMC flash, 8GB RAM, 40 GPIO. Official framework support: Raspberry Pi OS, Ubuntu, Debian.
+
+What MCU and instruction architecture does reTerminal DM use?
+BCM2711 (CM4) on a ARM64 core.
+
+How much flash and RAM does reTerminal DM have?
+It carries 32GB eMMC flash, 8GB RAM, 40 GPIO.
+

@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="ZouIC has indexed 15 open hardware projects from Hackaday.io public pages, sorted by last update.">
+    <meta name="keywords" content="Hackaday.io,open source hardware">
+    
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <link rel="canonical" href="https://www.zouic.com/de/source/hackaday_io/">
+    
+    <link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/source/hackaday_io/" />
+    
+    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/source/hackaday_io/" />
+    
+    <link rel="alternate" hreflang="de" href="https://www.zouic.com/de/source/hackaday_io/" />
+    
+    
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/source/hackaday_io/" />
+    
+    
+    
+    
+    <meta property="og:title" content="Hackaday.io open source projects, indexed by ZouIC">
+    <meta property="og:description" content="ZouIC has indexed 15 open hardware projects from Hackaday.io public pages, sorted by last update.">
+    <meta property="og:url" content="https://www.zouic.com/de/source/hackaday_io/">
+    <meta property="og:type" content="collection">
+    <meta property="og:locale" content="de_DE">
+    
+    
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ZouIC – Plattform für Open-Source-Entwicklungsboards · GeekWeidong">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hackaday.io open source projects, indexed by ZouIC">
+    <meta name="twitter:description" content="ZouIC has indexed 15 open hardware projects from Hackaday.io public pages, sorted by last update.">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "15, each with its own detail page and a link to the original source."}, "name": "How many projects does ZouIC list under Hackaday.io?"}]}]}
+    </script>
+    
+    
+    <title>Hackaday.io open source projects, indexed by ZouIC</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    
+    <!-- External Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    
+    <!-- ZouIC Design System -->
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261031a">
+    <noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a">
+    
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Hauptnavigation">
+        <div class="container">
+            <a class="navbar-brand" href="/de/">
+                <i class="fas fa-microchip"></i> ZouIC
+            </a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
+                <span class="nav-hud-dot"></span>SYS.ONLINE
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Navigation umschalten">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/de/">Startseite</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/de/all-projects/"><i class="fas fa-project-diagram me-1"></i>Open-Source-Projekte</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/de/boards/">Open-Source-Boards</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/de/board-guide/">Dokumentation</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-business" href="/de/services/component-matching/">Geschäftskontakt</a></li>
+                    <li class="nav-item dropdown">
+                        <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Mehr
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/de/products/"><i class="fas fa-box me-2"></i>Produkte</a></li>
+                            <li><a class="dropdown-item" href="/de/services/"><i class="fas fa-cogs me-2"></i>Leistungen</a></li>
+                            <li><a class="dropdown-item" href="/de/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>elektronische BauteileVermittlung</a></li>
+                            <li><a class="dropdown-item" href="/de/news/"><i class="fas fa-newspaper me-2"></i>Neuigkeiten</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/de/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Anleitungen</a></li>
+                            <li><a class="dropdown-item" href="/de/documentation/"><i class="fas fa-book me-2"></i>Dokumentation</a></li>
+                            <li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>Ressourcennavigation</a></li>
+                            <li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>Online-Werkzeuge</a></li>
+                            <li><a class="dropdown-item" href="/de/cases/"><i class="fas fa-briefcase me-2"></i>Projektbeispiele</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/de/open-source/"><i class="fas fa-code-branch me-2"></i>Open-Source-Projekte</a></li>
+                            <li><a class="dropdown-item" href="/de/articles/"><i class="fas fa-pen-fancy me-2"></i>Fachbeiträge</a></li>
+                            <li><a class="dropdown-item" href="/de/contribute/"><i class="fas fa-handshake me-2"></i>Mitwirken</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/de/dashuju/"><i class="fas fa-chart-line me-2"></i>Datenübersicht</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-lg-none"><a class="nav-link" href="/de/search/"><i class="fas fa-search me-1"></i>Suche</a></li>
+                </ul>
+                <form id="searchForm" class="d-flex me-3 d-none d-lg-flex">
+                    <div class="input-group input-group-zouic">
+                        <input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="Boards, Projekte oder Schlagworte suchen …" aria-label="Suchen" style="width: 200px;">
+                        <select id="searchType" class="form-select input-zouic" aria-label="Suchtyp:" style="width: auto; flex: 0 0 auto;">
+                            <option value="">Alle Kategorien</option>
+                            <option value="board">Open-Source-Boards</option>
+                            <option value="project">Open-Source-Projekte</option>
+                        </select>
+                        <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Suchen">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i> Deutsch
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/source/hackaday_io/">
+                                <i class="fas fa-language me-2"></i> Chinesisch
+                            </a></li>
+                            <li><a class="dropdown-item" href="/en/source/hackaday_io/">
+                                <i class="fas fa-language me-2"></i> Englisch
+                            </a></li>
+                            
+                            <li><a class="dropdown-item" href="/de/source/hackaday_io/">
+                                <i class="fas fa-language me-2"></i> Deutsch
+                            </a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        
+<div class="ext-page">
+
+    <section class="ext-hero">
+        <div class="ext-hero-grid" aria-hidden="true"></div>
+        <div class="container">
+            <div class="ext-hero-inner">
+                <div class="ext-hero-copy">
+                    <span class="ext-eyebrow"><i class="fas fa-wrench"></i> CURATED OPEN HARDWARE</span>
+                    <h1 class="ext-hero-title">Hackaday.io</h1>
+                    <p class="ext-hero-desc">
+                        Von ZouIC indexierte Open-Source-Hardwareprojekte aus öffentlichen Seiten dieser Plattform. Ausschließlich als Referenz für Entwickler; Urheberrecht und Lizenz verbleiben bei den Autoren.
+                    </p>
+                    
+                    
+                    <div class="ext-hero-actions">
+                        <a href="/de/all-projects/" class="btn-zouic btn-zouic-secondary">
+                            <i class="fas fa-layer-group me-2"></i>Zurück zum Hub
+                        </a>
+                        
+                        <a href="https://hackaday.io" target="_blank" rel="noopener noreferrer" class="btn-zouic btn-zouic-ghost">
+                            <i class="fas fa-wrench me-2"></i>Quelle besuchen
+                        </a>
+                        
+                    </div>
+                </div>
+                <div class="ext-hero-stats">
+                    <div class="ext-hero-stat ext-hero-stat--total">
+                        <span class="ext-hero-stat-value">15</span>
+                        <span class="ext-hero-stat-label">Projekte insgesamt</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container ext-body">
+        
+
+
+
+
+<section class="card-dark p-6 mb-6" id="quick-answer" aria-label="Schnellantwort und häufige Fragen">
+    
+    <h2 class="h5 font-bold mb-2">
+        <i class="fas fa-bolt text-primary me-2" aria-hidden="true"></i>Schnellantwort
+    </h2>
+    <p class="mb-0">Hackaday.io collects 15 projects on ZouIC.</p>
+    
+
+    
+    <dl class="row g-3 mt-4 mb-0">
+        
+        <div class="col-6 col-md-4">
+            <dt class="text-secondary text-sm mb-0">Entries</dt>
+            <dd class="font-bold text-sm mb-0">15</dd>
+        </div>
+        
+    </dl>
+    
+
+    
+    <h2 class="h5 font-bold mt-5 mb-3">
+        <i class="fas fa-circle-question text-primary me-2" aria-hidden="true"></i>Häufige Fragen
+    </h2>
+    <div class="d-flex flex-column gap-3">
+        
+        <div>
+            <h3 class="text-sm font-bold mb-1">How many projects does ZouIC list under Hackaday.io?</h3>
+            <p class="text-secondary text-sm mb-0">15, each with its own detail page and a link to the original source.</p>
+        </div>
+        
+    </div>
+    
+</section>
+
+        
+        <div class="ext-grid">
+            
+            <div class="ext-card-wrap" data-platform="hackaday_io">
+                <div class="ext-card ext-card--hackaday_io">
+                    
+                    <a href="/de/external/hackaday_io/206154-8-bit-workbench-ed-hands-on-with-number-systems/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://cdn.hackaday.io/images/resize/600x600/6417551784573048785.jpg');">
+                        <img src="https://cdn.hackaday.io/images/resize/600x600/6417551784573048785.jpg" alt="8-bit Workbench ED: hands-on with number systems" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday.io
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/de/external/hackaday_io/206154-8-bit-workbench-ed-hands-on-with-number-systems/">8-bit Workbench ED: hands-on with number systems</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Machen Sie sich praktisch mit Zahlensystemen und erkunden Sie das Computerbyte. Wechseln Sie acht Bits und sehen Sie ihren Dezimal-, Hexadezimal- und Oktalwert. Annotationen auf Bitebene unterbrechen den angezeigten Wert und erleichtern das Verständnis. Angetrieben durch USB-C oder eine 9-Volt-Batterie. Enthält ein eingebautes Spiel: Siege die hohe Punktzahl, indem du die richtigen Bits für jedes Zahlensystem wechselst. Ein großartiges STEM-Lernkit, das auf der Teardown 2026 in Portland ausgestellt wird.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Unknown</span>
+                            
+                            <span class="ext-card-license">Lizenz gemäß Originalseite</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday_io">
+                <div class="ext-card ext-card--hackaday_io">
+                    
+                    <a href="/de/external/hackaday_io/207203-ascii-keyboard-tester-tiny-test-vintage-keyboards/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://cdn.hackaday.io/images/resize/600x600/9432301793202734378.jpg');">
+                        <img src="https://cdn.hackaday.io/images/resize/600x600/9432301793202734378.jpg" alt="ASCII Keyboard Tester Tiny: test vintage keyboards" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday.io
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/de/external/hackaday_io/207203-ascii-keyboard-tester-tiny-test-vintage-keyboards/">ASCII Keyboard Tester Tiny: test vintage keyboards</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Evolutionäres Design des legendären ASCII-Tastaturtesters. Es kann nun die von einer Tastatur erzeugten und an den alten Computer übermittelten Signale anhören, ohne den normalen Betrieb zu stören. Es unterstützt immer noch die bekannte Standalone-Nutzung, so dass eine (selbstgefertigte) Tastatur isoliert getestet werden kann. Alle Bits werden annotiert, um die Konvertierung und das Verständnis von Hexadezimal- und Dezimalzahlensystemen zu erleichtern. Verwenden Sie den DIP-Schalter, um das 8. Bit auszuschalten oder den Adapter-Modus zu aktivieren, letzterer, um eine Apple ][ Tastatur mit einem Apple-1-Computer zu verwenden.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Unknown</span>
+                            
+                            <span class="ext-card-license">Lizenz gemäß Originalseite</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday_io">
+                <div class="ext-card ext-card--hackaday_io">
+                    
+                    <a href="/de/external/hackaday_io/146459-deep-foundation-laser-scanner/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://cdn.hackaday.io/images/resize/600x600/1748101524198062520.JPG');">
+                        <img src="https://cdn.hackaday.io/images/resize/600x600/1748101524198062520.JPG" alt="Deep Foundation Laser Scanner" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday.io
+                            </span>
+                            
+                            <span class="ext-card-category">robotics</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/de/external/hackaday_io/146459-deep-foundation-laser-scanner/">Deep Foundation Laser Scanner</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Können Sie sich vorstellen, wie es ist, in ein tiefes Erdloch hinab zu gehen und zu überprüfen, ob die Ausgrabung korrekt ist? Die Hauptidee besteht darin, einen Roboter zu verwenden, um die harte Arbeit zu erledigen: Zielen Sie einen Infrarotlaser auf alle Seiten und nehmen Sie die Messungen mit einem Sharp-Sensor und Schrittmotoren.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Unknown</span>
+                            
+                            <span class="ext-card-license">Lizenz gemäß Originalseite</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday_io">
+                <div class="ext-card ext-card--hackaday_io">
+                    
+                    <a href="/de/external/hackaday_io/181004-digital-vu-meter-with-analog-physics/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://cdn.hackaday.io/images/resize/600x600/8389621628102742513.jpg');">
+                        <img src="https://cdn.hackaday.io/images/resize/600x600/8389621628102742513.jpg" alt="Digital VU Meter with Analog Physics" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday.io
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/de/external/hackaday_io/181004-digital-vu-meter-with-analog-physics/">Digital VU Meter with Analog Physics</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Ich habe Tonnen digitaler VU-Meter gesehen, die wie analoge Bewegungen der Vergangenheit aussehen wollen, aber die meisten von ihnen setzen einfach die Nadelposition direkt auf den gemessenen Wert ein, so dass sie sich sehr digital und zu steif anfühlen. In diesem Projekt experimentiere ich, um etwas körperliche Reaktion hinzuzufügen, um mehr wie das echte Ding auszusehen.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Unknown</span>
+                            
+                            <span class="ext-card-license">Lizenz gemäß Originalseite</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday_io">
+                <div class="ext-card ext-card--hackaday_io">
+                    
+                    <a href="/de/external/hackaday_io/168722-dumbdumb/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://cdn.hackaday.io/images/resize/600x600/6751381577366923440.jpg');">
+                        <img src="https://cdn.hackaday.io/images/resize/600x600/6751381577366923440.jpg" alt="DumbDumb" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday.io
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/de/external/hackaday_io/168722-dumbdumb/">DumbDumb</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Ein boot-to-python batteriebetriebenes Handheld. Es versteht genau genügend VT100 Terminalbefehle, um mit der MicroPython REPL zu arbeiten.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Unknown</span>
+                            
+                            <span class="ext-card-license">Lizenz gemäß Originalseite</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday_io">
+                <div class="ext-card ext-card--hackaday_io">
+                    
+                    <a href="/de/external/hackaday_io/133904-iot-exploitation-practice/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://cdn.hackaday.io/images/resize/600x600/5265331525166964281.jpg');">
+                        <img src="https://cdn.hackaday.io/images/resize/600x600/5265331525166964281.jpg" alt="IoT Exploitation Practice" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday.io
+                            </span>
+                            
+                            <span class="ext-card-category">iot</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/de/external/hackaday_io/133904-iot-exploitation-practice/">IoT Exploitation Practice</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Da ich mich seit einiger Zeit wirklich für Hardware-Hacking interessiert habe, entschied ich mich endlich, einen Archer C7 v2 auseinanderzuziehen (ich habe ihn gebraten), das neue Ziel ist ein D-Link DIR-601 und ich habe mich ein wenig herumgezogen. Ich habe UART leicht bekommen und vermute, dass es einen JTAG-Pinout gibt, aber ich werde es nicht sicher wissen, bis ich sie brute force mache. Versuchen, dies als Lernerfahrung zu nutzen; wird später mit mehr Bildern aktualisiert, nachdem ich einen Arduino angeschlossen habe und JTAGenum ausgeführt habe.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Unknown</span>
+                            
+                            <span class="ext-card-license">Lizenz gemäß Originalseite</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday_io">
+                <div class="ext-card ext-card--hackaday_io">
+                    
+                    <a href="/de/external/hackaday_io/168987-iot-modbusbox/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://cdn.hackaday.io/images/resize/600x600/4881771591532180170.jpg');">
+                        <img src="https://cdn.hackaday.io/images/resize/600x600/4881771591532180170.jpg" alt="IOT ModbusBox" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday.io
+                            </span>
+                            
+                            <span class="ext-card-category">iot</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/de/external/hackaday_io/168987-iot-modbusbox/">IOT ModbusBox</a></h3>
+                        <p class="ext-card-desc line-clamp-2">ModbusBox ermöglicht die Integration von industriellen Controllern und Geräten, die Modbus RTU verwenden, in die IoT-Welt. Die Konfiguration erfolgt über ein eingebettetes Webportal (AP-Modus zur Einrichtung, Clientmodus auf Ihrem lokalen WLAN). Es kann Datenregister von bis zu 4 Modbus-Slaves lesen und regelmäßig über MQTT in Cloud- oder lokale IoT-Dienste veröffentlichen, die als JSON serialisiert sind, um es einfach zu analysieren.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Unknown</span>
+                            
+                            <span class="ext-card-license">Lizenz gemäß Originalseite</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday_io">
+                <div class="ext-card ext-card--hackaday_io">
+                    
+                    <a href="/de/external/hackaday_io/204751-mcs-85-self-modifying-program/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://cdn.hackaday.io/images/resize/600x600/2486831766748509016.JPG');">
+                        <img src="https://cdn.hackaday.io/images/resize/600x600/2486831766748509016.JPG" alt="MCS-85 - Self modifying program" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday.io
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/de/external/hackaday_io/204751-mcs-85-self-modifying-program/">MCS-85 - Self modifying program</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Dieses kleine und einfache Projekt erklärt, wie man selbstmodifizierenden Code mit einem 80C85-Mikroprozessor der MCS-85-Familie schreibt. Das Programm wird nur vom RAM ausgeführt: Wir können es nicht von ROM oder EPROM ausführen, da das Programm seinen eigenen CODE während der Ausführung dynamisch modifiziert. Die Demonstration zeigt ein Array von 8 LEDs mit einer LED, die sich links und rechts bewegt.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Unknown</span>
+                            
+                            <span class="ext-card-license">Lizenz gemäß Originalseite</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday_io">
+                <div class="ext-card ext-card--hackaday_io">
+                    
+                    <a href="/de/external/hackaday_io/207125-mechanical-tv-display/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://cdn.hackaday.io/images/resize/600x600/6395461793035071752.jpg');">
+                        <img src="https://cdn.hackaday.io/images/resize/600x600/6395461793035071752.jpg" alt="Mechanical TV / Display" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday.io
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/de/external/hackaday_io/207125-mechanical-tv-display/">Mechanical TV / Display</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Meine Sicht auf mechanisches Fernsehen: mit einer 3D gedruckten Nipkow-Disc, die mit einem DVD-Motor gesponnen wurde.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Unknown</span>
+                            
+                            <span class="ext-card-license">Lizenz gemäß Originalseite</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday_io">
+                <div class="ext-card ext-card--hackaday_io">
+                    
+                    <a href="/de/external/hackaday_io/206817-micro-8/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://cdn.hackaday.io/images/resize/600x600/1341931790519288606.jpg');">
+                        <img src="https://cdn.hackaday.io/images/resize/600x600/1341931790519288606.jpg" alt="Micro-8" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday.io
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/de/external/hackaday_io/206817-micro-8/">Micro-8</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Micro-8 ist ein 8-Bit-Computer mit einem benutzerdefinierten Betriebssystem und einer benutzerdefinierten C-ähnlichen Programmiersprache namens Lofi, zusammen mit einer Reihe von Beispielen, Tools und Dienstprogrammen, die Ihnen helfen, kleine 2D-Spiele und Anwendungen zu erstellen, die auf realer Hardware laufen. Basierend auf einem ATmega128 8-Bit RISC MCU, verfügt es über benutzerdefinierte FPGA-Grafik und Audio (zusätzlich zu einem echten YM2612-Chip), eine voll benutzerdefinierte mechanische Tastatur und eine 220-seitige vollfarbige gedruckte Bedienungsanleitung.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Unknown</span>
+                            
+                            <span class="ext-card-license">Lizenz gemäß Originalseite</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday_io">
+                <div class="ext-card ext-card--hackaday_io">
+                    
+                    <a href="/de/external/hackaday_io/7990-microusb-powered-esp8266-oled-board/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://cdn.hackaday.io/images/resize/600x600/2119751444305306989.JPG');">
+                        <img src="https://cdn.hackaday.io/images/resize/600x600/2119751444305306989.JPG" alt="MicroUSB powered ESP8266 Oled Board" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday.io
+                            </span>
+                            
+                            <span class="ext-card-category">iot</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/de/external/hackaday_io/7990-microusb-powered-esp8266-oled-board/">MicroUSB powered ESP8266 Oled Board</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Ich bin ein Hardwaredesigner und wollte die Herausforderung, das kleinste ESP8266-basierte Design zu erstellen, das ich konnte. Es ist unter 1 &#34;x 1&#34; und ich benutze es, um Wetterinformationen anzuzeigen. Die drei beispielhaften Arduino-Skizzen wurden nicht von mir erstellt, sondern leicht modifiziert, um an der Hardware zu arbeiten; Ich habe gerade die Hardware erstellt.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Unknown</span>
+                            
+                            <span class="ext-card-license">Lizenz gemäß Originalseite</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday_io">
+                <div class="ext-card ext-card--hackaday_io">
+                    
+                    <a href="/de/external/hackaday_io/167738-motion-remote/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://cdn.hackaday.io/images/resize/600x600/1741511569191012405.png');">
+                        <img src="https://cdn.hackaday.io/images/resize/600x600/1741511569191012405.png" alt="Motion remote" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday.io
+                            </span>
+                            
+                            <span class="ext-card-category">esp32</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/de/external/hackaday_io/167738-motion-remote/">Motion remote</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Ein vereinfachter funktionaler Prototyp eines Handbewegungssensorers in einem 3D-gedruckten Gehäuse. Die Hardware basiert auf einem einfachen Breadboard, einem ESP32 und einer USB Powerbank. Mit der mitgelieferten Android-App kann eine dreidimensionale virtuelle Ebene bewegt und gedreht werden.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Unknown</span>
+                            
+                            <span class="ext-card-license">Lizenz gemäß Originalseite</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday_io">
+                <div class="ext-card ext-card--hackaday_io">
+                    
+                    <a href="/de/external/hackaday_io/167218-silver/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://cdn.hackaday.io/images/resize/600x600/9638761566213022348.PNG');">
+                        <img src="https://cdn.hackaday.io/images/resize/600x600/9638761566213022348.PNG" alt="Silver" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday.io
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/de/external/hackaday_io/167218-silver/">Silver</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Wireless Shutter Release Remotes für Reflexkameras sind bei den üblichen Online-Händlern günstig zu finden, aber was ist, wenn Sie (viel) mehr Reichweite benötigen? Dieses Projekt entwickelt ein umfassendes Fernbedienungssystem auf Basis von LoRa-Sendern für die Landschaft-, Astrofoto-, Porträt- und technische Fotografie.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Unknown</span>
+                            
+                            <span class="ext-card-license">Lizenz gemäß Originalseite</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday_io">
+                <div class="ext-card ext-card--hackaday_io">
+                    
+                    <a href="/de/external/hackaday_io/207202-solar-lead-battery-charger-for-capacity-12ah/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://cdn.hackaday.io/images/resize/600x600/6906991793195281796.jpeg');">
+                        <img src="https://cdn.hackaday.io/images/resize/600x600/6906991793195281796.jpeg" alt="Solar lead battery charger for capacity 1.2Ah" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday.io
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/de/external/hackaday_io/207202-solar-lead-battery-charger-for-capacity-12ah/">Solar lead battery charger for capacity 1.2Ah</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Diese Platte kann als Batterieladegerät für eine 1,2Ah Bleibatterie verwendet werden. Der Strom ist auf 100mA begrenzt und es gibt Schutz für CC und OC. Eingang von einem 10W Solarpanel. Nützlich für Low-Current-Projekte.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Unknown</span>
+                            
+                            <span class="ext-card-license">Lizenz gemäß Originalseite</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ext-card-wrap" data-platform="hackaday_io">
+                <div class="ext-card ext-card--hackaday_io">
+                    
+                    <a href="/de/external/hackaday_io/17433-wien-bridge-medium-wave-radio-receiver/" class="ext-card-cover ext-card-cover--img"
+                       style="background-image: url('https://cdn.hackaday.io/images/resize/600x600/7803121478088196900.png');">
+                        <img src="https://cdn.hackaday.io/images/resize/600x600/7803121478088196900.png" alt="Wien Bridge Medium Wave Radio Receiver" class="visually-hidden" loading="lazy">
+                    </a>
+                    
+
+                    <div class="ext-card-body">
+                        <div class="ext-card-eyebrow">
+                            <span class="ext-card-platform">
+                                <i class="fas fa-wrench"></i>
+                                Hackaday.io
+                            </span>
+                            
+                            <span class="ext-card-category">general</span>
+                            
+                        </div>
+
+                        <h3 class="ext-card-title"><a href="/de/external/hackaday_io/17433-wien-bridge-medium-wave-radio-receiver/">Wien Bridge Medium Wave Radio Receiver</a></h3>
+                        <p class="ext-card-desc line-clamp-2">Ich bin auf eine Webseite gestoßen, die einen MW-Empfänger ohne Spule hatte und ich musste nur einen machen. Hier ist es in Aktion auf YouTube. Wenn Sie nach den MW/AM-Reflex-Empfängerprotokollen suchen, zogen sie zum Projekt &#34;Super Simple MW/AM Radio Circuit&#34;.</p>
+
+                        <div class="ext-card-footer">
+                            <div class="ext-card-avatar ext-card-avatar--empty"></div>
+                            <span class="ext-card-author">Unknown</span>
+                            
+                            <span class="ext-card-license">Lizenz gemäß Originalseite</span>
+                            
+                            <span class="ext-card-footer-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+
+        
+
+        <p class="source-disclaimer">
+            <i class="fas fa-scale-balanced me-1"></i>
+            Alle Projekte stammen von öffentlichen Seiten dieser Plattform. ZouIC verweist auf sie und hostet weder Code noch Dateien; sie dienen ausschließlich als Referenz für Entwickler, gemäß der jeweiligen Projektlizenz.
+        </p>
+    </div>
+</div>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Newsletter section (the home page already has a full follow block, so it is skipped there) -->
+    
+    <section id="follow" class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h3 class="text-xl font-bold mb-2">Wöchentliche Updates von @GeekWaedon</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">Board-Empfehlungen, Projektanalysen und Tipps aus der Hardware-Entwicklung – zuerst auf WeChat und im Knowledge Planet.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <a href="/de/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">So folgen Sie mir</a>
+                        <div class="newsletter-benefits">
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Wöchentlich kuratierte Board-Empfehlungen</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Exklusive Projektanalysen</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Aktualisiert auf WeChat und im Knowledge Planet</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="py-4" aria-label="Hergestellt von">
+        <div class="author-card">
+            <div class="author-card-info">
+                <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
+                <div>
+                    <div class="author-card-name">Erstellt von GeekWaedon <span>@GeekWaedon</span></div>
+                    <div class="author-card-bio">Hardware-Bastler und KI-Praktiker. Diese gesamte Website wurde mit KI-Werkzeugen selbst gebaut.</div>
+                </div>
+            </div>
+            <div class="author-card-actions">
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Meinem Knowledge Planet beitreten</a>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: nach „GeekWaedon“ suchen</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-zouic" role="contentinfo">
+        <div class="container">
+            <div class="row footer-main">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
+                    <a href="/de/" class="footer-brand" aria-label="ZouIC-Startseite">
+                        <i class="fas fa-microchip"></i>
+                        <span>ZouIC</span>
+                    </a>
+                    <p class="footer-tagline">Ausgewählte Open-Source-Hardwareprojekte von Plattformen weltweit · Ausschließlich als Referenz für Entwickler</p>
+                    <p class="footer-business-contact">
+                        Geschäftskontakt &amp; Bauteilbeschaffung:
+                        <a href="mailto:waedon@outlook.com?subject=Gesch%C3%A4ftliche%20Anfrage"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a>
+                    </p>
+
+                    <div class="footer-meta">
+                        <p class="footer-author">
+                            Hergestellt von · <strong>GeekWaedon</strong>
+                            <span class="footer-author-handle">@GeekWaedon</span>
+                        </p>
+                        <div class="footer-slash-tags">
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware-Enthusiast</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> KI-Praktiker</span>
+                            <a href="/de/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom-Lösungsanbieter">
+                                <i class="fab fa-weixin"></i> WeCom-Lösungsanbieter
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a>
+                        <a href="/de/#follow" class="footer-social-link" aria-label="WeChat-Offizieller Account · GeekWaedon" title="WeChat-Offizieller Account · GeekWaedon"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a>
+                        <a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a>
+                        <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Produkte</h5>
+                    <ul>
+                        <li><a href="/de/products/">Produkte</a></li>
+                        <li><a href="/de/services/">Leistungen</a></li>
+                        <li><a href="/de/services/website-building/">Website-Erstellung</a></li>
+                        <li><a href="/de/services/component-matching/">elektronische BauteileVermittlung</a></li>
+                        <li><a href="/de/news/">Neuigkeiten</a></li>
+                        <li><a href="/de/boards/">Entwicklungsboards</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Ressourcen</h5>
+                    <ul>
+                        <li><a href="/de/board-guide/">Leitfaden zur Board-Auswahl</a></li>
+                        <li><a href="/de/compare/">Board-Vergleich</a></li>
+                        <li><a href="/de/tutorials/">Anleitungen</a></li>
+                        <li><a href="/de/documentation/">Dokumentation</a></li>
+                        <li><a href="/online-tools/">Online-Werkzeuge</a></li>
+                        <li><a href="/de/cases/">Projektbeispiele</a></li>
+                        <li><a href="/de/help/">Dokumentation</a></li>
+                        <li><a href="/de/games/resistor/">Widerstands-Farbcode-Quiz</a></li>
+                        <li><a href="/de/dashuju/">Datenübersicht</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Open Source</h5>
+                    <ul>
+                        <li><a href="/de/open-source/">Open-Source-Projekte</a></li>
+                        <li><a href="/de/all-projects/">Alle Projekte</a></li>
+                        <li><a href="/de/articles/">Fachbeiträge</a></li>
+                        
+                        <li><a href="/de/contribute/">Mitwirken</a></li>
+                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h5>Über</h5>
+                    <ul>
+                        <li><a href="/de/about/">Über uns</a></li>
+                        <li><a href="/de/about/#contact">Kontakt</a></li>
+                        <li><a href="/de/licenses/">Open-Source-Lizenzen</a></li>
+                        <li><a href="/de/about/#privacy">Datenschutz</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-category-strip">
+                <span class="footer-category-label">Beliebte Kategorien</span>
+                <div class="footer-category-links">
+                    <a href="/de/category/">alle</a>
+                    
+                    <a href="/de/category/fpga/">FPGA</a>
+                    
+                    <a href="/de/category/general/">Allgemein</a>
+                    
+                    <a href="/de/category/ai_hardware/">KI-Hardware</a>
+                    
+                    <a href="/de/category/vision/">Computer Vision</a>
+                    
+                    <a href="/de/category/esp32/">ESP32</a>
+                    
+                    <a href="/de/category/robotics/">Robotik</a>
+                    
+                    <a href="/de/source/github/">GitHub</a>
+                    <a href="/de/source/hackster/">Hackster.io</a>
+                    <a href="/resources/">Ressourcennavigation</a>
+                </div>
+            </div>
+            
+            <div class="footer-producer-bar">
+                <img src="/static/images/author/avatar-mascot.png" alt="GeekWaedon" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
+                <div style="line-height:1.6;">
+                    <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">Allein entwickelt von GeekWaedon (@GeekWaedon) · <span style="color:#a78bfa;">Mensch und KI, Seite an Seite</span></div>
+                    <div class="text-xs text-secondary">Ein Ein-Personen-Projekt, betrieben von einem echten Menschen: Website-Aufbau, Datenabgleich, Artikel und Grafiken stammen von mir (mit Unterstützung einiger KI-Agenten). <a href="/de/about/" class="text-primary" style="text-decoration:none;">Die Person dahinter kennenlernen →</a></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ZouIC. Alle Rechte vorbehalten.</p>
+                <p>Die hier gebündelten Projekte dienen ausschließlich als Referenz für Entwickler: ZouIC verweist auf sie und hostet weder Code noch Dateien; Urheberrecht und Lizenz verbleiben bei den Autoren. Einzelheiten finden Sie auf der <a href="/de/licenses/">Open-Source-Lizenzen</a> Seite.</p>
+                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Nach oben">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Kopiert';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Aus Favoriten entfernt');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Zu Favoriten hinzugefügt');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    <script>
+    (function () {
+        var api = "https://waedon.pythonanywhere.com";
+        var sent = false;
+        function navPerf() {
+            try {
+                var n = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+                if (n && n.loadEventEnd > 0) return Math.round(n.loadEventEnd);
+            } catch (e) { /* ignore */ }
+            return 0;
+        }
+        function send() {
+            if (sent) return;
+            sent = true;
+            var payload = {
+                site: 'zouic',
+                path: (location.pathname + location.search + (location.hash || '')).slice(0, 300),
+                title: (document.title || '').slice(0, 200),
+                ref: document.referrer || '',
+                lang: navigator.language || '',
+                perf: navPerf()
+            };
+            var body = JSON.stringify(payload);
+            // text/plain 免 CORS 预检；页面已经加载完，sendBeacon 最稳
+            try {
+                if (navigator.sendBeacon &&
+                    navigator.sendBeacon(api + '/api/beacon', new Blob([body], { type: 'text/plain;charset=UTF-8' }))) return;
+            } catch (e) { /* fallthrough */ }
+            try {
+                fetch(api + '/api/beacon', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+                    body: body,
+                    keepalive: true,
+                    credentials: 'omit'
+                }).catch(function () {});
+            } catch (e) {}
+        }
+        if (document.readyState === 'complete') setTimeout(send, 0);
+        else window.addEventListener('load', function () { setTimeout(send, 120); });
+        window.addEventListener('pagehide', send);
+    })();
+    </script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/source/hackaday_io/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=de-DE'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body>
+</html>

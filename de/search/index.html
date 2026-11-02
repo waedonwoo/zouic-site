@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Ein Eingangspunkt, der nach Board-Spezifikationen, Build-Cases vor Ort und aggregierten Open-Source-Projekten gleichzeitig sucht, nach Fokus, MCU und…">
+    <meta name="keywords" content="Boardsuche, Projektsuche, Hardwaresuche, Open Source-Hardware">
+    
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <link rel="canonical" href="https://www.zouic.com/de/search/">
+    
+    <link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/search/" />
+    
+    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/search/" />
+    
+    <link rel="alternate" hreflang="de" href="https://www.zouic.com/de/search/" />
+    
+    
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/search/" />
+    
+    
+    
+    
+    <meta property="og:title" content="Suche - Open Source Development Boards und Projekte | ZouIC">
+    <meta property="og:description" content="Ein Eingangspunkt, der nach Board-Spezifikationen, Build-Cases vor Ort und aggregierten Open-Source-Projekten gleichzeitig sucht, nach Fokus, MCU und Framework filterbar, wobei die Ergebnisse direkt auf die Detailseite verlinken.">
+    <meta property="og:url" content="https://www.zouic.com/de/search/">
+    <meta property="og:type" content="webpage">
+    <meta property="og:locale" content="de_DE">
+    
+    
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ZouIC – Plattform für Open-Source-Entwicklungsboards · GeekWeidong">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Suche - Open Source Development Boards und Projekte | ZouIC">
+    <meta name="twitter:description" content="Ein Eingangspunkt, der nach Board-Spezifikationen, Build-Cases vor Ort und aggregierten Open-Source-Projekten gleichzeitig sucht, nach Fokus, MCU und Framework filterbar, wobei die Ergebnisse direkt auf die Detailseite verlinken.">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@type": "WebSite", "inLanguage": "de", "name": "ZouIC", "potentialAction": {"@type": "SearchAction", "query-input": "required name=search_term_string", "target": "https://www.zouic.com/search?q={search_term_string}"}, "url": "https://www.zouic.com"}
+    </script>
+    
+    
+    <title>Suche - Open Source Development Boards und Projekte | ZouIC</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    
+    <!-- External Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    
+    <!-- ZouIC Design System -->
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261031a">
+    <noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a">
+    
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Hauptnavigation">
+        <div class="container">
+            <a class="navbar-brand" href="/de/">
+                <i class="fas fa-microchip"></i> ZouIC
+            </a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
+                <span class="nav-hud-dot"></span>SYS.ONLINE
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Navigation umschalten">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/de/">Startseite</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/de/all-projects/"><i class="fas fa-project-diagram me-1"></i>Open-Source-Projekte</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/de/boards/">Open-Source-Boards</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/de/board-guide/">Dokumentation</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-business" href="/de/services/component-matching/">Geschäftskontakt</a></li>
+                    <li class="nav-item dropdown">
+                        <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Mehr
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/de/products/"><i class="fas fa-box me-2"></i>Produkte</a></li>
+                            <li><a class="dropdown-item" href="/de/services/"><i class="fas fa-cogs me-2"></i>Leistungen</a></li>
+                            <li><a class="dropdown-item" href="/de/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>elektronische BauteileVermittlung</a></li>
+                            <li><a class="dropdown-item" href="/de/news/"><i class="fas fa-newspaper me-2"></i>Neuigkeiten</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/de/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Anleitungen</a></li>
+                            <li><a class="dropdown-item" href="/de/documentation/"><i class="fas fa-book me-2"></i>Dokumentation</a></li>
+                            <li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>Ressourcennavigation</a></li>
+                            <li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>Online-Werkzeuge</a></li>
+                            <li><a class="dropdown-item" href="/de/cases/"><i class="fas fa-briefcase me-2"></i>Projektbeispiele</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/de/open-source/"><i class="fas fa-code-branch me-2"></i>Open-Source-Projekte</a></li>
+                            <li><a class="dropdown-item" href="/de/articles/"><i class="fas fa-pen-fancy me-2"></i>Fachbeiträge</a></li>
+                            <li><a class="dropdown-item" href="/de/contribute/"><i class="fas fa-handshake me-2"></i>Mitwirken</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/de/dashuju/"><i class="fas fa-chart-line me-2"></i>Datenübersicht</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-lg-none"><a class="nav-link" href="/de/search/"><i class="fas fa-search me-1"></i>Suche</a></li>
+                </ul>
+                <form id="searchForm" class="d-flex me-3 d-none d-lg-flex">
+                    <div class="input-group input-group-zouic">
+                        <input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="Boards, Projekte oder Schlagworte suchen …" aria-label="Suchen" style="width: 200px;">
+                        <select id="searchType" class="form-select input-zouic" aria-label="Suchtyp:" style="width: auto; flex: 0 0 auto;">
+                            <option value="">Alle Kategorien</option>
+                            <option value="board">Open-Source-Boards</option>
+                            <option value="project">Open-Source-Projekte</option>
+                        </select>
+                        <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Suchen">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i> Deutsch
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/search/">
+                                <i class="fas fa-language me-2"></i> Chinesisch
+                            </a></li>
+                            <li><a class="dropdown-item" href="/en/search/">
+                                <i class="fas fa-language me-2"></i> Englisch
+                            </a></li>
+                            
+                            <li><a class="dropdown-item" href="/de/search/">
+                                <i class="fas fa-language me-2"></i> Deutsch
+                            </a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        
+    <section class="py-8">
+        <div class="container">
+            <form id="pageSearchForm" class="mb-6">
+                <div class="input-group">
+                    <input type="text" id="pageSearchQuery" class="form-control search-input"
+                           placeholder="Boards, Projekte oder Schlagworte suchen …"
+                           aria-label="Suchen" value="">
+                    <select id="pageSearchType" class="form-select search-input" style="width: auto;" aria-label="Suchtyp:">
+                        <option value="" selected>Alle</option>
+                        <option value="board" >Open-Source-Boards</option>
+                        <option value="project" >Open-Source-Projekte</option>
+                    </select>
+                    <button class="btn-zouic btn-zouic-primary" type="button" id="pageSearchSubmit">
+                        <i class="fas fa-search"></i> Suchen
+                    </button>
+                </div>
+            </form>
+
+            <div class="d-flex gap-2 flex-wrap mb-4">
+                <span class="text-secondary text-sm">Suchtyp:</span>
+                <button type="button" class="badge-zouic badge-zouic-primary search-type-chip is-active" data-type="">Alle</button>
+                <button type="button" class="badge-zouic badge-zouic-secondary search-type-chip" data-type="board">Open-Source-Boards</button>
+                <button type="button" class="badge-zouic badge-zouic-secondary search-type-chip" data-type="project">Open-Source-Projekte</button>
+            </div>
+
+            <div class="d-flex gap-2 flex-wrap">
+                <span class="text-secondary text-sm">Beliebte Suchen:</span>
+                <a href="/de/search/?q=ESP32" class="badge-zouic badge-zouic-primary">ESP32</a>
+                <a href="/de/search/?q=STM32" class="badge-zouic badge-zouic-primary">STM32</a>
+                <a href="/de/search/?q=RISC-V" class="badge-zouic badge-zouic-primary">RISC-V</a>
+                <a href="/de/search/?q=Wi-Fi" class="badge-zouic badge-zouic-primary">Wi-Fi</a>
+                <a href="/de/search/?q=AI" class="badge-zouic badge-zouic-primary">AI</a>
+                <a href="/de/search/?q=CAN" class="badge-zouic badge-zouic-primary">CAN</a>
+                <a href="/de/search/?q=industrial" class="badge-zouic badge-zouic-primary">Industrielle Steuerung</a>
+                <a href="/de/search/?q=beginner" class="badge-zouic badge-zouic-primary">Anfänger</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="pb-8">
+        <div class="container">
+            <div class="row g-4">
+                <aside class="col-lg-3 col-12">
+                    <div class="card-dark rounded-lg p-4 mb-4">
+                        <h3 class="h5 font-bold mb-3">Filter</h3>
+
+                        
+                        <div class="mb-4">
+                            <h4 class="text-sm font-semibold text-secondary mb-2">Chip Architektur</h4>
+                            <div class="d-flex flex-wrap gap-2">
+                                
+                                <a href="/de/search/?q=&architecture=AM335x"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="arch" data-value="AM335x">AM335x</a>
+                                
+                                <a href="/de/search/?q=&architecture=ARM64"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="arch" data-value="ARM64">ARM64</a>
+                                
+                                <a href="/de/search/?q=&architecture=AVR"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="arch" data-value="AVR">AVR</a>
+                                
+                                <a href="/de/search/?q=&architecture=Himax"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="arch" data-value="Himax">Himax</a>
+                                
+                                <a href="/de/search/?q=&architecture=MG24"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="arch" data-value="MG24">MG24</a>
+                                
+                                <a href="/de/search/?q=&architecture=RA4M1"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="arch" data-value="RA4M1">RA4M1</a>
+                                
+                                <a href="/de/search/?q=&architecture=RISC-V"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="arch" data-value="RISC-V">RISC-V</a>
+                                
+                                <a href="/de/search/?q=&architecture=RP2040"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="arch" data-value="RP2040">RP2040</a>
+                                
+                                <a href="/de/search/?q=&architecture=RP2350"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="arch" data-value="RP2350">RP2350</a>
+                                
+                                <a href="/de/search/?q=&architecture=SAMD"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="arch" data-value="SAMD">SAMD</a>
+                                
+                                <a href="/de/search/?q=&architecture=STM32"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="arch" data-value="STM32">STM32</a>
+                                
+                                <a href="/de/search/?q=&architecture=STM32MP1"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="arch" data-value="STM32MP1">STM32MP1</a>
+                                
+                                <a href="/de/search/?q=&architecture=Xtensa"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="arch" data-value="Xtensa">Xtensa</a>
+                                
+                                <a href="/de/search/?q=&architecture=nRF52"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="arch" data-value="nRF52">nRF52</a>
+                                
+                            </div>
+                        </div>
+                        
+
+                        
+                        <div class="mb-4">
+                            <h4 class="text-sm font-semibold text-secondary mb-2">Anbieter</h4>
+                            <div class="d-flex flex-wrap gap-2">
+                                
+                                <a href="/de/search/?q=&vendor=Arduino"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="vendor" data-value="Arduino">Arduino</a>
+                                
+                                <a href="/de/search/?q=&vendor=Bouffalo Lab"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="vendor" data-value="Bouffalo Lab">Bouffalo Lab</a>
+                                
+                                <a href="/de/search/?q=&vendor=Espressif"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="vendor" data-value="Espressif">Espressif</a>
+                                
+                                <a href="/de/search/?q=&vendor=GigaDevice"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="vendor" data-value="GigaDevice">GigaDevice</a>
+                                
+                                <a href="/de/search/?q=&vendor=Orange Pi"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="vendor" data-value="Orange Pi">Orange Pi</a>
+                                
+                                <a href="/de/search/?q=&vendor=Raspberry Pi"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="vendor" data-value="Raspberry Pi">Raspberry Pi</a>
+                                
+                                <a href="/de/search/?q=&vendor=STMicroelectronics"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="vendor" data-value="STMicroelectronics">STMicroelectronics</a>
+                                
+                                <a href="/de/search/?q=&vendor=Seeed Studio"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="vendor" data-value="Seeed Studio">Seeed Studio</a>
+                                
+                                <a href="/de/search/?q=&vendor=SiFive"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="vendor" data-value="SiFive">SiFive</a>
+                                
+                                <a href="/de/search/?q=&vendor=Sipeed"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="vendor" data-value="Sipeed">Sipeed</a>
+                                
+                                <a href="/de/search/?q=&vendor=StarFive"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="vendor" data-value="StarFive">StarFive</a>
+                                
+                                <a href="/de/search/?q=&vendor=WCH"
+                                   class="badge-zouic badge-zouic-secondary search-facet-link"
+                                   data-filter="vendor" data-value="WCH">WCH</a>
+                                
+                            </div>
+                        </div>
+                        
+
+                        <div class="pt-3 border-top border-secondary">
+                            <button type="button" id="searchClearFilters" class="text-primary text-sm bg-transparent border-0 p-0">Alle Filter löschen</button>
+                        </div>
+                    </div>
+
+                    <div class="card-dark rounded-lg p-4">
+                        <h3 class="h5 font-bold mb-3">Anwendungsszenarien</h3>
+                        <div class="d-flex flex-column gap-2">
+                            <a href="/de/search/?q=Wi-Fi" class="text-secondary hover-underline"><i class="fas fa-wifi me-2 text-primary"></i>Drahtlos und IoT</a>
+                            <a href="/de/search/?q=AI" class="text-secondary hover-underline"><i class="fas fa-brain me-2 text-accent"></i>Edge AI und Vision</a>
+                            <a href="/de/search/?q=CAN" class="text-secondary hover-underline"><i class="fas fa-industry me-2 text-yellow-500"></i>Industrielle und Bewegungssteuerung</a>
+                            <a href="/de/search/?q=USB" class="text-secondary hover-underline"><i class="fas fa-plug me-2 text-secondary"></i>Hochgeschwindigkeits-Kabel-I/O</a>
+                            <a href="/de/search/?q=Arduino" class="text-secondary hover-underline"><i class="fas fa-graduation-cap me-2 text-red-500"></i>Lernen &amp; Bildung</a>
+                            <a href="/de/boards/?arch=RISC-V" class="text-secondary hover-underline"><i class="fas fa-microchip me-2 text-primary"></i>RISC-V</a>
+                        </div>
+                    </div>
+                </aside>
+
+                <main class="col-lg-9 col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+                        <h1 class="section-title text-xl font-bold mb-0" id="searchHeading">
+                            
+                                Alle Inhalte
+                            
+                        </h1>
+                        <span class="text-secondary text-sm">
+                            Insgesamt <strong id="searchResultCount">0</strong> Ergebnisse
+                        </span>
+                    </div>
+
+                    <div class="row g-4" id="searchResults"></div>
+
+                    <div id="searchEmpty" class="card-dark p-8 text-center d-none">
+                        <i class="fas fa-search text-secondary fa-4x mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Keine Ergebnisse gefunden</h3>
+                        <p class="text-secondary">Versuchen Sie andere Suchbegriffe oder stöbern Sie in Boards und Projekten</p>
+                        <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+                            <a href="/de/boards/" class="btn-zouic btn-zouic-primary">Boards durchsuchen</a>
+                            <a href="/de/projects/" class="btn-zouic btn-zouic-secondary">Projekte durchsuchen</a>
+                        </div>
+                    </div>
+
+                    
+
+                    
+
+
+
+
+<section class="card-dark p-5 mb-4" id="ai-assistant"
+         data-endpoint="https://waedon.pythonanywhere.com/api/ai/chat"
+         data-lang="zh">
+    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
+        <div>
+            <h2 class="h5 font-bold mb-1">
+                <i class="fas fa-robot text-primary me-2" aria-hidden="true"></i>AI Board Selector
+            </h2>
+            <p class="text-secondary text-sm mb-0">Erzählen Sie uns den Anwendungsfall, das Budget und die Schnittstellen. Der Assistent wählt nur aus Boards und Projekten, die bereits auf ZouIC aufgeführt sind.</p>
+        </div>
+        <button type="button" class="btn-zouic btn-zouic-secondary btn-zouic-sm" id="aiToggle"
+                aria-expanded="false" aria-controls="aiPanel">Assistent öffnen</button>
+    </div>
+
+    <div id="aiPanel" class="d-none">
+        <div class="d-flex flex-column gap-2 mb-3" id="aiChips">
+            
+            <button type="button" class="badge-zouic badge-zouic-primary text-start" data-prompt="做个 WiFi 传感器网关">做个 WiFi 传感器网关</button>
+            
+            <button type="button" class="badge-zouic badge-zouic-primary text-start" data-prompt="想跑小语言模型">想跑小语言模型</button>
+            
+            <button type="button" class="badge-zouic badge-zouic-primary text-start" data-prompt="入门学单片机">入门学单片机</button>
+            
+        </div>
+
+        <form id="aiForm" class="d-flex gap-2 mb-3">
+            <label class="visually-hidden" for="aiInput">Beschreiben Sie, was Sie brauchen</label>
+            <input id="aiInput" class="input-zouic flex-grow-1" type="text" maxlength="400" autocomplete="off"
+                   placeholder="z.B. ein Board mit einer Kamera, die MicroPython läuft, unter $30">
+            <button type="submit" class="btn-zouic btn-zouic-primary" id="aiSend">Fragen</button>
+        </form>
+
+        <div id="aiLog" class="d-flex flex-column gap-3" aria-live="polite"></div>
+        <div id="aiPicks" class="row g-3 mt-2"></div>
+        <p class="text-secondary text-xs mt-3 mb-0" id="aiFootnote">Die Antworten stammen aus einem offenen Gewichtsmodell, das an Vor-Ort-Listings arbeitet; Spezifikationen und Preise auf der Anbieterseite bestätigen.</p>
+    </div>
+</section>
+
+<script type="application/json" id="aiAssistantLabels">{"error": "Der Assistent kann jetzt nicht antworten. Bitte versuchen Sie es sp\u00e4ter erneut.", "limited": "Sie haben die Fragegrenze f\u00fcr diese Stunde erreicht. Bitte versuchen Sie es sp\u00e4ter erneut.", "model": "Modell", "more": "Fragen Sie weiter", "offline": "Der Assistent ist derzeit offline (kein Modellschl\u00fcssel konfiguriert oder das t\u00e4gliche Budget ausgegeben). Die folgenden Links sind echte Vor-Ort-Listings; Lassen Sie Ihre Anforderungen auf der Kontaktseite und ein Mensch wird antworten.", "picks": "Passende Angebote vor Ort", "source": "Anzeige anzeigen", "thinking": "\u00dcberpr\u00fcfen Sie den Katalog..."}</script>
+<script src="/static/js/ai-assistant.js" defer></script>
+
+
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <script type="application/json" id="searchIndex">{"boards": [{"arch": "Xtensa", "desc": "Hochleistungsstarker Dual-Core-Prozessor mit Wi-Fi 6 und BLE 5.0, einem eingebauten KI-Koprozessor und Unterst\u00fctzung f\u00fcr IoT- und Edge-KI-Anwendungen", "frameworks": "Arduino ESP-IDF PlatformIO MicroPython", "name": "ESP32-S3-DevKitC", "periph": "Wi-Fi 6 BLE 5.0 USB OTG I2C SPI UART ADC DAC", "price": "\u00a5100-200", "url": "/board/esp32-s3-devkitc/", "vendor": "Espressif"}, {"arch": "RISC-V", "desc": "RISC-V-Architektur mit niedrigen Kosten und niedrigem Stromverbrauch, ideal f\u00fcr Einstiegsprojekte im IoT-Bereich", "frameworks": "Arduino ESP-IDF PlatformIO MicroPython", "name": "ESP32-C3-DevKitM", "periph": "Wi-Fi BLE 5.0 I2C SPI UART", "price": "\u00a550-100", "url": "/board/esp32-c3-devkitm/", "vendor": "Espressif"}, {"arch": "STM32", "desc": "Classic Arm Cortex-M3, ideal f\u00fcr industrielle Steuerungs- und Motorantriebsprojekte", "frameworks": "STM32CubeMX PlatformIO Arduino", "name": "STM32F103C8T6 Blue Pill", "periph": "USB I2C SPI UART CAN ADC", "price": "\u00a520-50", "url": "/board/stm32f103c8t6-blue-pill/", "vendor": "STMicroelectronics"}, {"arch": "STM32", "desc": "Hochleistungsstarker Arm Cortex-M4 mit DSP, ideal f\u00fcr komplexe Signalverarbeitung und industrielle Anwendungen", "frameworks": "STM32CubeMX PlatformIO", "name": "STM32F407VGT6 Discovery", "periph": "USB OTG I2C SPI UART CAN Ethernet SDIO ADC DAC", "price": "\u00a5300-500", "url": "/board/stm32f407vgt6-discovery/", "vendor": "STMicroelectronics"}, {"arch": "RP2040", "desc": "Dual-Core Arm Cortex-M0+ mit programmierbarem PIO und einer 10-j\u00e4hrigen Versorgungsverpflichtung, ideal f\u00fcr Bildungs- und DIY-Projekte", "frameworks": "MicroPython CircuitPython Arduino PlatformIO", "name": "Raspberry Pi Pico", "periph": "USB I2C SPI UART PIO", "price": "\u00a520-50", "url": "/board/raspberry-pi-pico/", "vendor": "Raspberry Pi"}, {"arch": "RP2040", "desc": "Upgraded Pico mit integriertem Wi-Fi und BLE, ideal f\u00fcr drahtlose IoT-Projekte", "frameworks": "MicroPython CircuitPython Arduino PlatformIO", "name": "Raspberry Pi Pico W", "periph": "Wi-Fi BLE USB I2C SPI UART PIO", "price": "\u00a550-100", "url": "/board/raspberry-pi-pico-w/", "vendor": "Raspberry Pi"}, {"arch": "RA4M1", "desc": "Erweiterte Version des klassischen UNO mit einem RA4M1-Prozessor, ideal f\u00fcr Bildungs- und Starterprojekte", "frameworks": "Arduino", "name": "Arduino UNO R4 Minima", "periph": "USB-C I2C SPI UART CAN", "price": "\u00a5100-200", "url": "/board/arduino-uno-r4-minima/", "vendor": "Arduino"}, {"arch": "Xtensa", "desc": "Nano-Board mit ESP32-S3-Kern, ideal f\u00fcr kompakte IoT-Projekte", "frameworks": "Arduino ESP-IDF", "name": "Arduino Nano ESP32", "periph": "Wi-Fi BLE USB-C I2C SPI UART", "price": "\u00a5100-200", "url": "/board/arduino-nano-esp32/", "vendor": "Arduino"}, {"arch": "RISC-V", "desc": "Hochleistungsstarker RISC-V SBC, ideal f\u00fcr Linux-Entwicklung und High-Performance-Computing", "frameworks": "Linux Zephyr", "name": "HiFive Unmatched", "periph": "Ethernet USB 3.0 PCIe I2C SPI UART GPIO", "price": "\u00a5500-800", "url": "/board/hifive-unmatched/", "vendor": "SiFive"}, {"arch": "RISC-V", "desc": "SiFives erstes serienproduziertes RISC-V-Entwicklungsboard, ideal f\u00fcr Lernen und Prototyping", "frameworks": "Freedom E SDK Zephyr Rust", "name": "SiFive HiFive 1 Rev B", "periph": "USB I2C SPI UART ADC PWM", "price": "\u00a550-100", "url": "/board/sifive-hifive-1-rev-b/", "vendor": "SiFive"}, {"arch": "RISC-V", "desc": "Upgraded HiFive 1 mit mehr GPIO und Peripherieger\u00e4ten, ideal f\u00fcr IoT-Anwendungen", "frameworks": "Freedom E SDK Zephyr Rust Arduino", "name": "SiFive HiFive 2", "periph": "USB I2C SPI UART ADC PWM QSPI", "price": "\u00a580-150", "url": "/board/sifive-hifive-2/", "vendor": "SiFive"}, {"arch": "RISC-V", "desc": "Hochleistungsstarker RISC-V SBC mit GPU und KI-Beschleunigung, ideal f\u00fcr Edge Computing und KI-Anwendungen", "frameworks": "Linux Debian OpenWrt ROS", "name": "StarFive VisionFive 2", "periph": "Ethernet USB 3.0 HDMI MIPI-DSI PCIe I2C SPI UART", "price": "\u00a5200-400", "url": "/board/starfive-visionfive-2/", "vendor": "StarFive"}, {"arch": "RISC-V", "desc": "KI Vision Development Board mit integriertem K210 Chip und Neural-Network Inference Support, ideal f\u00fcr AIoT-Anwendungen", "frameworks": "MaixPy Kendryte SDK MicroPython", "name": "Sipeed Maixduino", "periph": "USB I2C SPI UART LCD Camera AI Accelerator", "price": "\u00a550-100", "url": "/board/sipeed-maixduino/", "vendor": "Sipeed"}, {"arch": "RISC-V", "desc": "Low-Power Wi-Fi + BLE RISC-V MCU, ideal f\u00fcr IoT- und Smart-Home-Anwendungen", "frameworks": "BL602 SDK Arduino Zephyr", "name": "Bouffalo Lab BL602", "periph": "Wi-Fi BLE 5.0 USB I2C SPI UART ADC DAC", "price": "\u00a520-50", "url": "/board/bouffalo-lab-bl602/", "vendor": "Bouffalo Lab"}, {"arch": "RISC-V", "desc": "Espressifs erster RISC-V ESP32-Chip, unterst\u00fctzt Wi-Fi 6 und BLE 5.0 mit starker Kompatibilit\u00e4t", "frameworks": "ESP-IDF Arduino MicroPython PlatformIO", "name": "ESP32-C6", "periph": "Wi-Fi 6 BLE 5.0 USB I2C SPI UART ADC DAC RMT", "price": "\u00a530-60", "url": "/board/esp32-c6/", "vendor": "Espressif"}, {"arch": "RISC-V", "desc": "WCH RISC-V MCU mit umfangreicher Peripherie und hohem Wert, ideal f\u00fcr industrielle Steuerung", "frameworks": "MounRiver Studio PlatformIO RT-Thread", "name": "CH32V307", "periph": "USB I2C SPI UART CAN ADC DAC ETH", "price": "\u00a520-50", "url": "/board/ch32v307/", "vendor": "WCH"}, {"arch": "RISC-V", "desc": "Domestic RISC-V MCU mit STM32-kompatiblem Pinout, ideal f\u00fcr kosteng\u00fcnstige Embedded-Projekte", "frameworks": "PlatformIO RT-Thread", "name": "GD32VF103VBT6", "periph": "USB I2C SPI UART CAN ADC", "price": "\u00a520-50", "url": "/board/gd32vf103vbt6/", "vendor": "GigaDevice"}, {"arch": "ARM64", "desc": "Diese 12-Kern-Plattform CD8180/CD8160 mit 45TOPS integrierter KI-Rechenleistung unterst\u00fctzt 16-64 GB LPDDR5 und Dual-Path von NVMe f\u00fcr End-Side-Generated AI und High-Performance-Desktops.", "frameworks": "Ubuntu Debian OpenHarmony Android ROS2", "name": "Orange Pi 6 Plus", "periph": "28.8T NPU 5GbE x2 M.2 NVMe x2 Wi-Fi 6E slot USB 3.0 40Pin", "price": "", "url": "/board/orange-pi-6-plus/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "Diese Kernplattform CD8180 mit zw\u00f6lf Kernen, 28.8TOPS NPU, 8-24GB LPDDR5 und doppelten 2.5G-Netzwerkanschl\u00fcssen eignet sich f\u00fcr Der AI PC, Edge Reasoning und Multitasking-Desktops.", "frameworks": "Ubuntu Debian OpenHarmony Android ROS2", "name": "Orange Pi 6", "periph": "28.8T NPU 2.5GbE x2 M.2 NVMe x2 Wi-Fi 6E slot USB 3.0 40Pin", "price": "", "url": "/board/orange-pi-6/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "RK3588 Octa-Core-Plattform, 6TOPS NPU, 4-16GB LPDDR5, onboard WLAN 6E und 2.5G-Ports f\u00fcr High Performance Edge Computing und Multimedia-Projekte.", "frameworks": "Ubuntu Debian Android Orange Pi OS", "name": "Orange Pi 5 Max", "periph": "Wi-Fi 6E BT 5.3 2.5GbE 6T NPU M.2 NVMe 40Pin", "price": "", "url": "/board/orange-pi-5-max/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "RK3588 Octa-Core-Plattform, 6TOPS NPU, 4-16GB LPDDR5, unterst\u00fctzt 2.5G-Ports, WLAN 6E und von NVMe, f\u00fcr KI-Denken und 8K-Medienanwendungen.", "frameworks": "Ubuntu Debian Android Orange Pi OS", "name": "Orange Pi 5 Ultra", "periph": "Wi-Fi 6E BT 5.3 2.5GbE 6T NPU M.2 NVMe 40Pin", "price": "", "url": "/board/orange-pi-5-ultra/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "RK3588S Octa-Core (4 \u00d7 A76 + 4 \u00d7 A55) Plattform mit integrierter 6 TOPS NPU, Unterst\u00fctzung f\u00fcr Der M.2 NVMe und PoE+, geeignet f\u00fcr Edge AI, Desktop Linux und Smart Terminals.", "frameworks": "Ubuntu Debian Android Orange Pi OS", "name": "Orange Pi 5 Pro", "periph": "Wi-Fi 5 BT 5.0 GbE PoE+ 6T NPU M.2 NVMe 40Pin", "price": "", "url": "/board/orange-pi-5-pro/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "Die RK3588 Octa-Core-Plattform mit doppelten 2.5G-Ports und Die M.2 NVMe unterst\u00fctzt 4-16 GB Speicher und 8K-Ausg\u00e4nge f\u00fcr Soft-Routing, NAS und Edge-Server.", "frameworks": "Ubuntu Debian Android Orange Pi OS", "name": "Orange Pi 5 Plus", "periph": "2.5GbE x2 M.2 NVMe HDMI 2.1 USB 3.0 6T NPU 40Pin", "price": "", "url": "/board/orange-pi-5-plus/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "RK3588S Octa-Core-Plattform, 6TOPS NPU, 4-16GB Speicher, Gigabit-Port und Der M.2 NVMe-Erweiterung f\u00fcr Desktop Linux, Media Center und leichte KI.", "frameworks": "Ubuntu Debian Android Orange Pi OS", "name": "Orange Pi 5", "periph": "GbE M.2 NVMe HDMI 2.1 USB 3.0 6T NPU 40Pin", "price": "", "url": "/board/orange-pi-5/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "Die RK3588S Octa-Core-Plattform mit 32-256 GB eMMC und 26Pin-Erweiterungen eignet sich f\u00fcr Embedded-Projekte, die lokalen Speicher mit gro\u00dfer Kapazit\u00e4t und weniger Peripherie erfordern.", "frameworks": "Ubuntu Debian Android Orange Pi OS", "name": "Orange Pi 5B", "periph": "GbE eMMC HDMI 2.1 USB 3.0 6T NPU 26Pin", "price": "", "url": "/board/orange-pi-5b/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "Globe A733 Achtkernplattform (2 x A76 + 6 x A55), 3TOPS NPU, bis zu 16 GB LPDDR5, unterst\u00fctzt UFS und eMMC und WLAN 6, f\u00fcr AIoT und Multimedia-Terminals.", "frameworks": "Ubuntu Debian Android", "name": "Orange Pi 4 Pro", "periph": "Wi-Fi 6 BT 5.4 GbE PoE 3T NPU UFS/eMMC 40Pin", "price": "", "url": "/board/orange-pi-4-pro/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "GlobalTM T527 Octa-Core A55-Plattform mit 2 TOPS NPUs und RISC-V-Koprozessoren, Unterst\u00fctzung f\u00fcr 4K-Dekodierung, Der M.2 NVMe und umfangreiche industrielle Schnittstellen.", "frameworks": "Ubuntu Debian Android", "name": "Orange Pi 4A", "periph": "Wi-Fi 5 BT 5.0 GbE 2T NPU M.2 NVMe 40Pin", "price": "", "url": "/board/orange-pi-4a/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "RK3399 Sechskernplattform (2 x A72 + 4 x A53), 3-4GB Speicher, Dual-Band WLAN-Internetzugang und Bluetooth 5.0, f\u00fcr langfristige Linux- und Android-Projekte geeignet.", "frameworks": "Ubuntu Debian Android", "name": "Orange Pi 4 LTS", "periph": "Wi-Fi 5 BT 5.0 GbE eMMC HDMI 2.0 26Pin", "price": "", "url": "/board/orange-pi-4-lts/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "Globe H6 Quad-Core A53 Plattform mit 2 GB Speicher und 8 GB eMMC, integriertem WLAN-/Bluetooth- und Gigabit-Netzwerkanschluss f\u00fcr Einstieg in Linux, Media Center und leichte Server.", "frameworks": "Ubuntu Debian Android", "name": "Orange Pi 3 LTS", "periph": "Wi-Fi 5 BT 5.0 GbE eMMC 8GB HDMI 2.0 26Pin", "price": "", "url": "/board/orange-pi-3-lts/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "RK3566 Quad-Core A55 Plattform, 0,8 TOPS NPU, 2-8 GB Speicher, Unterst\u00fctzung f\u00fcr M.2 SATA/NVMe und 40Pin Erweiterung f\u00fcr leichte AI und NAS und industrielle Steuerung.", "frameworks": "Ubuntu Debian Android OpenHarmony", "name": "Orange Pi 3B", "periph": "Wi-Fi 5 BT 5.0 GbE 0.8T NPU M.2 SATA/NVMe 40Pin", "price": "", "url": "/board/orange-pi-3b/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "Globe A733 8-Kern-Plattform, 3TOPS NPU, bis zu 16 GB Speicher, onboard Gigabit-Port und WLAN 6, geeignet f\u00fcr Edge AI und Display-Terminals mit begrenztem Platz.", "frameworks": "Ubuntu Debian Android", "name": "Orange Pi Zero 4", "periph": "Wi-Fi 6 BT 5.4 GbE 3T NPU MIPI CSI 26Pin", "price": "", "url": "/board/orange-pi-zero-4/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "Die A733 Octa-Core-Platte, 3TOPS NPU, unterst\u00fctzt onboard eMMC/UFS und 40Pin-Erweiterungen f\u00fcr kompakte AIoT-Ger\u00e4te, maschinelle Vision und Dual-Screen-Terminals.", "frameworks": "Ubuntu Debian Android", "name": "Orange Pi Zero 3W", "periph": "Wi-Fi 6 BT 5.4 3T NPU MIPI CSI PCIe FPC 40Pin", "price": "", "url": "/board/orange-pi-zero-3w/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "Globe H618 Quad-Core A53 Plattform, 1-4GB Speicher, Unterst\u00fctzung f\u00fcr 4K HDMI mit 26 Pin / 13Pin Erweiterung, geeignet f\u00fcr Linux-Einstieg, Media-Wiedergabe und IoT-Gateways.", "frameworks": "Ubuntu Debian Android", "name": "Orange Pi Zero 3", "periph": "Wi-Fi 5 BT 5.0 GbE HDMI 4K USB 2.0 26Pin", "price": "", "url": "/board/orange-pi-zero-3/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "Globe H618 Quad-Core-Plattform, 1-4 GB Speicher, integriertes WLAN 5/Bluetooth 5.0, Gr\u00f6\u00dfe 30 \u00d7 65 mm, geeignet f\u00fcr IoT-Knoten mit geringem Stromverbrauch und tragbare Displays.", "frameworks": "Ubuntu Debian Android Orange Pi OS", "name": "Orange Pi Zero 2W", "periph": "Wi-Fi 5 BT 5.0 HDMI 4K USB 2.0 24Pin 40Pin", "price": "", "url": "/board/orange-pi-zero-2w/", "vendor": "Orange Pi"}, {"arch": "RISC-V", "desc": "RISC-V Octa-Core AI Platform (Ky X1), 2TOPS Rechenleistung, Dual Gigabit plus Dual 2.5G Ports f\u00fcr Soft Routing, Edge Gateways und Netzwerkexperimente.", "frameworks": "OpenWrt Ubuntu", "name": "Orange Pi R2S", "periph": "2T NPU 2.5GbE x2 GbE x2 USB 3.0 OpenWrt", "price": "", "url": "/board/orange-pi-r2s/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "RK3328 Quad-Core-A53-Plattform mit 1 GB Speicher und 2 Gigabit-Netzwerkanschl\u00fcssen (inklusive USB-Netzwerkkarte) f\u00fcr OpenWrt-Soft-Routing, Byrouting und Netzwerkexperimente.", "frameworks": "OpenWrt Ubuntu Debian", "name": "Orange Pi R1 Plus LTS", "periph": "GbE x2 USB 2.0 OpenWrt 13Pin", "price": "", "url": "/board/orange-pi-r1-plus-lts/", "vendor": "Orange Pi"}, {"arch": "RISC-V", "desc": "RISC-V Octa-Core AI Platform (Ky X1), 2TOPS Rechenleistung, Dual-Gigabit-Ports und Dual Die M.2 NVMe eignen sich f\u00fcr RISC-V Edge Computing, NAS und Netzwerkanwendungen.", "frameworks": "Ubuntu OpenHarmony", "name": "Orange Pi RV2", "periph": "2T NPU GbE x2 Wi-Fi 5 BT 5.0 M.2 NVMe x2 26Pin", "price": "", "url": "/board/orange-pi-rv2/", "vendor": "Orange Pi"}, {"arch": "RISC-V", "desc": "Die Quad-Core RISC-V Plattform, 2-8GB LPDDR4, Gigabit-Ports und Die M.2 NVMe eignen sich f\u00fcr RISC-V f\u00fcr Linux-Entwicklungs-, Lehr- und Leichtgewichtsserver.", "frameworks": "Linux", "name": "Orange Pi RV", "periph": "Wi-Fi 5 BT 5.0 GbE M.2 NVMe HDMI 4K 40Pin", "price": "", "url": "/board/orange-pi-rv/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "Acht-Kern-A53 + RISC-V C906-Koprozessorplattform, 8-16GB Speicher, Dual-Gigabit-Netzwerkanschl\u00fcsse, WLAN 6E und mit SATA/NVMe, geeignet f\u00fcr industrielle Gateways und Edge Computing.", "frameworks": "Ubuntu Debian OpenHarmony", "name": "Orange Pi O1", "periph": "Wi-Fi 6E BT 5.3 GbE x2 M.2 NVMe SATA 26Pin", "price": "", "url": "/board/orange-pi-o1/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "Shenzhen AI Entwicklungsboard, 20TOPS Rechenleistung, 12-24GB Speicher, doppelte 2.5G-Ports, geeignet f\u00fcr Gro\u00dfmodell-Argumentation, maschinelle Vision und KI-Lehre.", "frameworks": "Ubuntu openEuler", "name": "Orange Pi AIpro 20T", "periph": "20T NPU 2.5GbE x2 Wi-Fi 5 BT 4.2 M.2 NVMe 40Pin", "price": "", "url": "/board/orange-pi-aipro-20t/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "Weipeng Quad-Core + AI-Prozessorplattform, 8TOPS Rechenleistung, 8-16GB Speicher, native Unterst\u00fctzung von \u00d6ffnen Euler, geeignet f\u00fcr inl\u00e4ndische Server, KI-Lehre und Verifizierung.", "frameworks": "openEuler", "name": "Orange Pi Kunpeng Pro", "periph": "8T NPU GbE Wi-Fi 5 BT 4.2 M.2 NVMe 40Pin", "price": "", "url": "/board/orange-pi-kunpeng-pro/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "RK3588S Core Board, 2-32GB Speicher und 32-256 GB eMMC, 3 x 100Pin Stecker, die Signale wie PCIe, HDMI und MIPI leiten, eignet sich f\u00fcr kundenspezifische Tr\u00e4gerplatten und Batchprodukte.", "frameworks": "Ubuntu Debian Android OpenHarmony", "name": "Orange Pi CM5", "periph": "6T NPU 3x100Pin MIPI CSI HDMI 2.1 eDP PCIe", "price": "", "url": "/board/orange-pi-cm5/", "vendor": "Orange Pi"}, {"arch": "ARM64", "desc": "RK3566 Core Board, 0.8TOPS NPU, 1-8GB Speicher mit 8-128 GB eMMC, 100Pin x 2 + 24Pin Schnittstelle, geeignet f\u00fcr kundenspezifische Embedded-Produkte und industrielle Steuerplatten.", "frameworks": "Ubuntu Debian Android OpenHarmony", "name": "Orange Pi CM4", "periph": "0.8T NPU Wi-Fi 5 BT 5.0 GbE 100Pin x2 MIPI CSI", "price": "", "url": "/board/orange-pi-cm4/", "vendor": "Orange Pi"}, {"arch": "SAMD", "desc": "21 \u00d7 17,8 mm SAMD21-Kernplatte mit 14 GPIOs und 1 Das DAC, geeignet f\u00fcr Arduino-Start, Sensorerfassung und kleine Wearables.", "frameworks": "Arduino PlatformIO MicroPython CircuitPython", "name": "XIAO SAMD21", "periph": "USB-C 14Pin DAC Grove expansion", "price": "", "url": "/board/xiao-samd21/", "vendor": "Seeed Studio"}, {"arch": "RP2040", "desc": "Die XIAO-Version des Dual-Core Cortex-M0+, 2MB Flash und 264 von KB SRAM, unterst\u00fctzt Arduino und MicroPython und mit CircuitPython.", "frameworks": "Arduino MicroPython CircuitPython PlatformIO", "name": "XIAO RP2040", "periph": "USB-C 14Pin RGB LED Grove expansion", "price": "", "url": "/board/xiao-rp2040/", "vendor": "Seeed Studio"}, {"arch": "RP2350", "desc": "RP2350 Dual-Core Cortex-M33, 150 MHz, 19 mit GPIO, onboard RGB-LED und Batterie-Management f\u00fcr kompakte Low-Power-Steuerprojekte.", "frameworks": "Arduino MicroPython C/C++ SDK", "name": "XIAO RP2350", "periph": "USB-C 19Pin RGB LED PMIC", "price": "", "url": "/board/xiao-rp2350/", "vendor": "Seeed Studio"}, {"arch": "RISC-V", "desc": "RISC-V Single-Core 160 MHz, onboard WLAN-Internetzugang mit BLE 5.0, 11 mit GPIO, ist die kosteng\u00fcnstigste Netzwerkl\u00f6sung der XIAO-Serie.", "frameworks": "Arduino ESP-IDF MicroPython CircuitPython", "name": "XIAO ESP32-C3", "periph": "Wi-Fi 4 BLE 5.0 USB-C 11Pin", "price": "", "url": "/board/xiao-esp32-c3/", "vendor": "Seeed Studio"}, {"arch": "RISC-V", "desc": "Der ESP32-C6 unterst\u00fctzt WLAN 6, BLE 5.0 und Zigbee mit Thread, Laufbare Materie, geeignet f\u00fcr Smart Home und Low-Power-Netzknoten.", "frameworks": "Arduino ESP-IDF MicroPython", "name": "XIAO ESP32-C6", "periph": "Wi-Fi 6 BLE 5.0 Zigbee Thread Matter", "price": "", "url": "/board/xiao-esp32-c6/", "vendor": "Seeed Studio"}, {"arch": "Xtensa", "desc": "Dual-Core Xtensa LX7 240MHz, 8MB Flash und 8MB PSRAM, 11 mit GPIO, f\u00fcr leistungsstarke Vernetzung und leichte visuelle Projekte.", "frameworks": "Arduino ESP-IDF MicroPython", "name": "XIAO ESP32-S3", "periph": "Wi-Fi BLE 5.0 8MB PSRAM USB-C", "price": "", "url": "/board/xiao-esp32-s3/", "vendor": "Seeed Studio"}, {"arch": "Xtensa", "desc": "Erg\u00e4nzung der OV5640-Kamera, des digitalen Mikrofons und des MicroSD-Kartensteckplatzes auf der Basis des Die XIAO ESP32-S3 f\u00fcr die visuelle und sprachliche Erfassung von TinyML.", "frameworks": "Arduino ESP-IDF MicroPython", "name": "XIAO ESP32-S3 Sense", "periph": "OV5640 camera PDM microphone microSD Wi-Fi BLE 5.0", "price": "", "url": "/board/xiao-esp32-s3-sense/", "vendor": "Seeed Studio"}, {"arch": "nRF52", "desc": "Cortex-M4F 64MHz, 1MB Flash, Unterst\u00fctzt BLE 5.4 und NFC und USB-C, geeignet f\u00fcr Bluetooth und batteriebetriebene Ger\u00e4te mit geringem Stromverbrauch.", "frameworks": "Arduino MicroPython CircuitPython", "name": "XIAO nRF52840", "periph": "BLE 5.4 NFC USB-C 11Pin", "price": "", "url": "/board/xiao-nrf52840/", "vendor": "Seeed Studio"}, {"arch": "nRF52", "desc": "Die Sensorversion des nRF52840 mit einer 6-Achs-IMU und einem PDM-Mikrofon erm\u00f6glicht die direkte Bewegungserkennung und Audioerfassung.", "frameworks": "Arduino MicroPython CircuitPython", "name": "XIAO nRF52840 Sense", "periph": "BLE 5.4 6-axis IMU PDM microphone NFC", "price": "", "url": "/board/xiao-nrf52840-sense/", "vendor": "Seeed Studio"}, {"arch": "RA4M1", "desc": "Renesas RA4M1 Cortex-M4 48MHz, 19 mit GPIO, mit Kann, 14-Bit ADC und 12-Bit Das DAC, kompatibel mit Arduino Uno R4 Eco.", "frameworks": "Arduino", "name": "XIAO RA4M1", "periph": "USB-C CAN 14-bit ADC 12-bit DAC 19Pin", "price": "", "url": "/board/xiao-ra4m1/", "vendor": "Seeed Studio"}, {"arch": "MG24", "desc": "Silicon Labs EFR32MG24, Cortex-M33 78MHz unterst\u00fctzt Materie, Thread und Zigbee und Ble, geeignet f\u00fcr leistungsstarke Multiprotokollknoten.", "frameworks": "Arduino Matter", "name": "XIAO MG24", "periph": "Matter Thread Zigbee BLE 5.3 19Pin", "price": "", "url": "/board/xiao-mg24/", "vendor": "Seeed Studio"}, {"arch": "MG24", "desc": "Die Sensorversion des MG24, die eine sechsachsige IMU und ein analoges Mikrofon hinzuf\u00fcgt, eignet sich f\u00fcr den Einstieg in Materie-Sensorik und TinyML.", "frameworks": "Arduino Matter", "name": "XIAO MG24 Sense", "periph": "Matter Thread 6-axis IMU analog microphone", "price": "", "url": "/board/xiao-mg24-sense/", "vendor": "Seeed Studio"}, {"arch": "SAMD", "desc": "Der ATSAMD51-Kern mit 2,4-Zoll-LCD, 5-Richtungs-Rocker, Mikrofon, Beener und doppelter Grove-Schnittstelle eignet sich f\u00fcr Handheld-Terminals und Lehrprojekte.", "frameworks": "Arduino CircuitPython", "name": "Wio Terminal", "periph": "2.4\" LCD Wi-Fi BLE 5.0 Grove x2 microSD", "price": "", "url": "/board/wio-terminal/", "vendor": "Seeed Studio"}, {"arch": "ARM64", "desc": "5-Zoll-All-in-One-Maschine auf Basis von CM4, 8 GB RAM, 32 GB eMMC, Touchscreen mit umfangreicher Schnittstelle f\u00fcr HMI und Edge-Displays und Prototypen.", "frameworks": "Raspberry Pi OS Ubuntu Debian", "name": "reTerminal (CM4108032)", "periph": "5\" touchscreen Wi-Fi BT 5.0 GbE USB 3.0 40Pin", "price": "", "url": "/board/reterminal-cm4108032/", "vendor": "Seeed Studio"}, {"arch": "ARM64", "desc": "10,1-Zoll-Industrie-HMI und CM4-Kern, 8 GB RAM/32 GB eMMC, mit RS485, RS232 und CAN und von DI/DO, geeignet f\u00fcr Produktionslinie- und Gateway-Szenarien.", "frameworks": "Raspberry Pi OS Ubuntu Debian", "name": "reTerminal DM", "periph": "10.1\" touchscreen GbE RS485 RS232 CAN 40Pin", "price": "", "url": "/board/reterminal-dm/", "vendor": "Seeed Studio"}, {"arch": "ARM64", "desc": "Jetson Orin NX 16 GB Edge AI, 100 TOPS, 16 GB LPDDR5 und 128 von GB NVMe, geeignet f\u00fcr visuelles Denken und Multiplex-Video-Analyse.", "frameworks": "JetPack Ubuntu CUDA", "name": "reComputer J4012", "periph": "100 TOPS 16GB LPDDR5 128GB NVMe GbE HDMI 40Pin", "price": "", "url": "/board/recomputer-j4012/", "vendor": "Seeed Studio"}, {"arch": "ARM64", "desc": "Jetson Orin NX 8 GB-Version, 70 TOPS, 8 GB LPDDR5 und 128 von GB NVMe, eine ausgewogenere Leistung und Rechenleistung.", "frameworks": "JetPack Ubuntu CUDA", "name": "reComputer J4011", "periph": "70 TOPS 8GB LPDDR5 128GB NVMe GbE HDMI 40Pin", "price": "", "url": "/board/recomputer-j4011/", "vendor": "Seeed Studio"}, {"arch": "ARM64", "desc": "Jetson Orin Nano 8 GB Version, 40 TOPS, 8 GB LPDDR5 und 128 von GB NVMe, geeignet f\u00fcr Einstiegsstufe Edge AI und Roboter.", "frameworks": "JetPack Ubuntu CUDA", "name": "reComputer J3011B", "periph": "40 TOPS 8GB LPDDR5 128GB NVMe GbE HDMI 40Pin", "price": "", "url": "/board/recomputer-j3011b/", "vendor": "Seeed Studio"}, {"arch": "ARM64", "desc": "Jetson Orin Nano 4GB Version, 20 TOPS, 4GB LPDDR5, geeignet f\u00fcr leichte visuelle, sensorische Fusion und Lehre Experimente.", "frameworks": "JetPack Ubuntu CUDA", "name": "reComputer J3010B", "periph": "20 TOPS 4GB LPDDR5 128GB NVMe GbE HDMI 40Pin", "price": "", "url": "/board/recomputer-j3010b/", "vendor": "Seeed Studio"}, {"arch": "Xtensa", "desc": "ESP32-S3 und RP2040 4-Zoll-Touchscreen-Terminal mit Dual-MCU, 480 \u00d7 480 Aufl\u00f6sung, WLAN/BLE-Unterst\u00fctzung und optionales LoRa, offizieller Open Source.", "frameworks": "Arduino ESP-IDF MicroPython", "name": "SenseCAP Indicator", "periph": "4\" touchscreen 480\u00d7480 Wi-Fi BLE LoRa optional Grove x2", "price": "", "url": "/board/sensecap-indicator/", "vendor": "Seeed Studio"}, {"arch": "AM335x", "desc": "AM335x Open-Source SBC mit BeagleBoard, 1GHz Cortex-A8, 512MB DDR3, 4GB eMMC, Doppel-46Pin-Pin f\u00fcr einfache Skalierung.", "frameworks": "Debian Ubuntu Yocto", "name": "BeagleBone Green", "periph": "2\u00d746 Pin GbE 4GB eMMC Grove x2 USB Host", "price": "", "url": "/board/beaglebone-green/", "vendor": "Seeed Studio"}, {"arch": "STM32MP1", "desc": "STM32MP157C Dual-Core A7 650MHz + M4 heterogene Plattform, 512MB DDR3 und 4GB eMMC Raspberry Pi-Gr\u00f6\u00dfe f\u00fcr industrielle Gateways und Linux-Lernen.", "frameworks": "Linux Yocto Debian", "name": "ODYSSEY STM32MP157C", "periph": "GbE Wi-Fi BT 4.1 MIPI DSI Grove x2 40Pin", "price": "", "url": "/board/odyssey-stm32mp157c/", "vendor": "Seeed Studio"}, {"arch": "AVR", "desc": "Der Seeeduino Lotus (ATmega328P) plus ein integriertes Starter-Kit mit 10 Grove-Modulen, 12 Beispielprojekten, geeignet f\u00fcr den Unterricht und die erste Hardware-Praxis.", "frameworks": "Arduino", "name": "Grove Beginner Kit for Arduino", "periph": "10 Grove modules 12 examples 12 Grove ports Micro USB", "price": "", "url": "/board/grove-beginner-kit-for-arduino/", "vendor": "Seeed Studio"}, {"arch": "Himax", "desc": "Der Himax HX6538 Dual-Core Cortex-M55 + Ethos-U55, 400MHz, 16MB Flash, unterst\u00fctzt die Bereitstellung von TensorFlow und PyTorch-Modellen, offizieller Open Source.", "frameworks": "Arduino TensorFlow PyTorch", "name": "Grove Vision AI V2", "periph": "CSI camera PDM microphone microSD Grove Ethos-U55", "price": "", "url": "/board/grove-vision-ai-v2/", "vendor": "Seeed Studio"}], "projects": [{"desc": "\u00dcberwacht Temperatur und Luftfeuchtigkeit mit einem DHT22-Sensor und l\u00e4dt Messwerte \u00fcber WLAN in die Cloud hoch", "difficulty": "beginner", "framework": "Arduino", "name": "Intelligenter Temperatur- und Feuchtigkeits\u00fcberwacher", "stars": 128, "tags": "IoT Sensor Smart Home", "url": "/project/smart-temp-humidity-monitor/"}, {"desc": "Verwendet einen ESP32-CAM zur Gesichtserkennung und steuert einen Relaisschalter", "difficulty": "advanced", "framework": "Arduino", "name": "Gesichtserkennung Zugriffskontrolle", "stars": 256, "tags": "AI Computer Vision Zutrittskontrolle", "url": "/project/face-recognition-access/"}, {"desc": "Verwendet ein LoRa-Modul zur Ferndaten\u00fcbertragung", "difficulty": "intermediate", "framework": "Arduino", "name": "Langstreckenkommunikation LoRa", "stars": 98, "tags": "IoT LoRa Kommunikation", "url": "/project/lora-long-range-communication/"}, {"desc": "MPPT Solarladungsregler mit Lithiumbatterie-Management", "difficulty": "advanced", "framework": "ESP-IDF", "name": "Solarladungsregler", "stars": 76, "tags": "Industrie Stromversorgung Energie", "url": "/project/solar-charge-controller/"}, {"desc": "Verwendet ein Spracherkennungsmodul zur Steuerung von Smart Home-Ger\u00e4ten", "difficulty": "intermediate", "framework": "MicroPython", "name": "Sprachgesteuertes Smart Home", "stars": 145, "tags": "AI Smart Home Sprache", "url": "/project/voice-controlled-home/"}, {"desc": "PID-Drehzahlregelung f\u00fcr einen Gleichstrommotor basierend auf STM32", "difficulty": "intermediate", "framework": "STM32CubeMX", "name": "Motor PID Controller", "stars": 89, "tags": "PID Industrie Motorsteuerung", "url": "/project/motor-pid-controller/"}, {"desc": "Anzeige einer Echtzeit-Uhr auf einem SSD1306 OLED", "difficulty": "beginner", "framework": "MicroPython", "name": "OLED Uhr Anzeige", "stars": 56, "tags": "Einsteiger Uhr Display", "url": "/project/oled-clock/"}, {"desc": "CAN-Bus-Datenerfassungssystem basierend auf STM32", "difficulty": "advanced", "framework": "STM32CubeMX", "name": "CAN Bus Datenerfassung", "stars": 67, "tags": "CAN Industrie Datenerfassung", "url": "/project/can-bus-data-logger/"}]}</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const indexEl = document.getElementById('searchIndex');
+            const resultsEl = document.getElementById('searchResults');
+            if (!indexEl || !resultsEl) return;
+
+            const INDEX = JSON.parse(indexEl.textContent);
+            const LABELS = {
+                boards: "Open-Source-Boards",
+                projects: "Open-Source-Projekte",
+                searchResults: "Suchergebnisse",
+                allContent: "Alle Inhalte",
+                noResults: "Keine Ergebnisse gefunden"
+            };
+
+            const params = new URLSearchParams(window.location.search);
+            const state = {
+                q: params.get('q') || '',
+                type: params.get('type') || '',
+                arch: params.get('architecture') || params.get('arch') || '',
+                vendor: params.get('vendor') || ''
+            };
+
+            const qInput = document.getElementById('pageSearchQuery');
+            const typeSelect = document.getElementById('pageSearchType');
+            const heading = document.getElementById('searchHeading');
+            const countEl = document.getElementById('searchResultCount');
+            const emptyEl = document.getElementById('searchEmpty');
+
+            const esc = function(value) {
+                return String(value == null ? '' : value).replace(/[&<>"']/g, function(ch) {
+                    return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[ch];
+                });
+            };
+
+            const matches = function(item, haystack, q) {
+                if (state.arch && item.arch !== state.arch) return false;
+                if (state.vendor && item.vendor !== state.vendor) return false;
+                if (!q) return true;
+                const tokens = q.split(/\s+/).filter(Boolean);
+                return tokens.every(function(token) { return haystack.indexOf(token) !== -1; });
+            };
+
+            const boardCard = function(board) {
+                const periph = (board.periph || '').split(' ').filter(Boolean).slice(0, 3).join(' · ');
+                return '<div class="col-md-6"><a href="' + esc(board.url) + '" class="card-dark p-4 h-100 d-block text-decoration-none">' +
+                    '<div class="d-flex justify-content-between align-items-start gap-2">' +
+                    '<div><span class="badge-zouic badge-zouic-primary">' + esc(board.arch) + '</span>' +
+                    '<h4 class="font-bold mt-2 mb-0">' + esc(board.name) + '</h4></div>' +
+                    '<span class="text-secondary text-sm text-nowrap">' + esc(board.price) + '</span></div>' +
+                    '<p class="text-secondary text-sm mt-2 mb-2">' + esc(board.desc) + '</p>' +
+                    '<div class="d-flex justify-content-between text-sm gap-2">' +
+                    '<span class="text-secondary">' + esc(board.vendor) + '</span>' +
+                    '<span class="text-secondary text-nowrap">' + esc(periph) + '</span></div></a></div>';
+            };
+
+            const projectCard = function(project) {
+                return '<div class="col-md-6"><a href="' + esc(project.url) + '" class="card-dark p-4 h-100 d-block text-decoration-none">' +
+                    '<div class="d-flex justify-content-between align-items-start gap-2">' +
+                    '<div><h4 class="font-bold mb-1">' + esc(project.name) + '</h4>' +
+                    '<span class="badge-zouic badge-zouic-secondary">' + esc(project.framework) + '</span></div></div>' +
+                    '<p class="text-secondary text-sm mt-2 mb-2">' + esc(project.desc) + '</p>' +
+                    '<div class="text-secondary text-sm">' + esc((project.tags || '').split(' ').filter(Boolean).slice(0, 3).join(' · ')) + '</div></a></div>';
+            };
+
+            const render = function() {
+                const q = state.q.trim().toLowerCase();
+                let html = '';
+                let count = 0;
+
+                if (state.type !== 'project') {
+                    const boards = INDEX.boards.filter(function(board) {
+                        const haystack = [board.name, board.vendor, board.arch, board.desc, board.periph, board.frameworks].join(' ').toLowerCase();
+                        return matches(board, haystack, q);
+                    });
+                    count += boards.length;
+                    if (boards.length) {
+                        html += '<div class="col-12"><h3 class="h5 font-bold mb-0">' + esc(LABELS.boards) + ' (' + boards.length + ')</h3></div>';
+                        boards.forEach(function(board) { html += boardCard(board); });
+                    }
+                }
+
+                if (state.type !== 'board') {
+                    const projects = INDEX.projects.filter(function(project) {
+                        const haystack = [project.name, project.framework, project.desc, project.tags].join(' ').toLowerCase();
+                        return matches({arch: '', vendor: ''}, haystack, q);
+                    });
+                    count += projects.length;
+                    if (projects.length) {
+                        html += '<div class="col-12 mt-4"><h3 class="h5 font-bold mb-0">' + esc(LABELS.projects) + ' (' + projects.length + ')</h3></div>';
+                        projects.forEach(function(project) { html += projectCard(project); });
+                    }
+                }
+
+                resultsEl.innerHTML = html;
+                if (countEl) countEl.textContent = count;
+                if (emptyEl) emptyEl.classList.toggle('d-none', count !== 0);
+
+                if (heading) {
+                    heading.textContent = state.q ? LABELS.searchResults + ': "' + state.q + '"' : LABELS.allContent;
+                }
+
+                document.querySelectorAll('.search-type-chip').forEach(function(chip) {
+                    chip.classList.toggle('is-active', (chip.dataset.type || '') === state.type);
+                    chip.classList.toggle('badge-zouic-primary', (chip.dataset.type || '') === state.type);
+                    chip.classList.toggle('badge-zouic-secondary', (chip.dataset.type || '') !== state.type);
+                });
+
+                document.querySelectorAll('.search-facet-link').forEach(function(link) {
+                    const active = state[link.dataset.filter] === link.dataset.value;
+                    link.classList.toggle('badge-zouic-primary', active);
+                    link.classList.toggle('badge-zouic-secondary', !active);
+                });
+
+                if (qInput && qInput.value !== state.q) qInput.value = state.q;
+                if (typeSelect) typeSelect.value = state.type;
+            };
+
+            const syncUrl = function() {
+                const next = new URLSearchParams();
+                if (state.q) next.set('q', state.q);
+                if (state.type) next.set('type', state.type);
+                if (state.arch) next.set('architecture', state.arch);
+                if (state.vendor) next.set('vendor', state.vendor);
+                const query = next.toString();
+                history.replaceState(null, '', window.location.pathname + (query ? '?' + query : ''));
+            };
+
+            // Static hosting has no search API: everything runs in the browser,
+            // so the native form submission is prevented.
+            const runSearch = function() {
+                state.q = qInput ? qInput.value : '';
+                state.type = typeSelect ? typeSelect.value : '';
+                render();
+                syncUrl();
+            };
+
+            const form = document.getElementById('pageSearchForm');
+            if (form) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    runSearch();
+                });
+            }
+
+            const submitBtn = document.getElementById('pageSearchSubmit');
+            if (submitBtn) {
+                submitBtn.addEventListener('click', runSearch);
+            }
+
+            if (qInput) {
+                qInput.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter') {
+                        event.preventDefault();
+                        runSearch();
+                    }
+                });
+            }
+
+            document.querySelectorAll('.search-type-chip').forEach(function(chip) {
+                chip.addEventListener('click', function() {
+                    state.type = chip.dataset.type || '';
+                    render();
+                    syncUrl();
+                });
+            });
+
+            document.querySelectorAll('.search-facet-link').forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    state[link.dataset.filter] = link.dataset.value;
+                    render();
+                    syncUrl();
+                });
+            });
+
+            const clearBtn = document.getElementById('searchClearFilters');
+            if (clearBtn) {
+                clearBtn.addEventListener('click', function() {
+                    state.arch = '';
+                    state.vendor = '';
+                    render();
+                    syncUrl();
+                });
+            }
+
+            render();
+        });
+    </script>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Newsletter section (the home page already has a full follow block, so it is skipped there) -->
+    
+    <section id="follow" class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h3 class="text-xl font-bold mb-2">Wöchentliche Updates von @GeekWaedon</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">Board-Empfehlungen, Projektanalysen und Tipps aus der Hardware-Entwicklung – zuerst auf WeChat und im Knowledge Planet.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <a href="/de/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">So folgen Sie mir</a>
+                        <div class="newsletter-benefits">
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Wöchentlich kuratierte Board-Empfehlungen</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Exklusive Projektanalysen</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Aktualisiert auf WeChat und im Knowledge Planet</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="py-4" aria-label="Hergestellt von">
+        <div class="author-card">
+            <div class="author-card-info">
+                <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
+                <div>
+                    <div class="author-card-name">Erstellt von GeekWaedon <span>@GeekWaedon</span></div>
+                    <div class="author-card-bio">Hardware-Bastler und KI-Praktiker. Diese gesamte Website wurde mit KI-Werkzeugen selbst gebaut.</div>
+                </div>
+            </div>
+            <div class="author-card-actions">
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Meinem Knowledge Planet beitreten</a>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: nach „GeekWaedon“ suchen</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-zouic" role="contentinfo">
+        <div class="container">
+            <div class="row footer-main">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
+                    <a href="/de/" class="footer-brand" aria-label="ZouIC-Startseite">
+                        <i class="fas fa-microchip"></i>
+                        <span>ZouIC</span>
+                    </a>
+                    <p class="footer-tagline">Ausgewählte Open-Source-Hardwareprojekte von Plattformen weltweit · Ausschließlich als Referenz für Entwickler</p>
+                    <p class="footer-business-contact">
+                        Geschäftskontakt &amp; Bauteilbeschaffung:
+                        <a href="mailto:waedon@outlook.com?subject=Gesch%C3%A4ftliche%20Anfrage"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a>
+                    </p>
+
+                    <div class="footer-meta">
+                        <p class="footer-author">
+                            Hergestellt von · <strong>GeekWaedon</strong>
+                            <span class="footer-author-handle">@GeekWaedon</span>
+                        </p>
+                        <div class="footer-slash-tags">
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware-Enthusiast</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> KI-Praktiker</span>
+                            <a href="/de/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom-Lösungsanbieter">
+                                <i class="fab fa-weixin"></i> WeCom-Lösungsanbieter
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a>
+                        <a href="/de/#follow" class="footer-social-link" aria-label="WeChat-Offizieller Account · GeekWaedon" title="WeChat-Offizieller Account · GeekWaedon"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a>
+                        <a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a>
+                        <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Produkte</h5>
+                    <ul>
+                        <li><a href="/de/products/">Produkte</a></li>
+                        <li><a href="/de/services/">Leistungen</a></li>
+                        <li><a href="/de/services/website-building/">Website-Erstellung</a></li>
+                        <li><a href="/de/services/component-matching/">elektronische BauteileVermittlung</a></li>
+                        <li><a href="/de/news/">Neuigkeiten</a></li>
+                        <li><a href="/de/boards/">Entwicklungsboards</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Ressourcen</h5>
+                    <ul>
+                        <li><a href="/de/board-guide/">Leitfaden zur Board-Auswahl</a></li>
+                        <li><a href="/de/compare/">Board-Vergleich</a></li>
+                        <li><a href="/de/tutorials/">Anleitungen</a></li>
+                        <li><a href="/de/documentation/">Dokumentation</a></li>
+                        <li><a href="/online-tools/">Online-Werkzeuge</a></li>
+                        <li><a href="/de/cases/">Projektbeispiele</a></li>
+                        <li><a href="/de/help/">Dokumentation</a></li>
+                        <li><a href="/de/games/resistor/">Widerstands-Farbcode-Quiz</a></li>
+                        <li><a href="/de/dashuju/">Datenübersicht</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Open Source</h5>
+                    <ul>
+                        <li><a href="/de/open-source/">Open-Source-Projekte</a></li>
+                        <li><a href="/de/all-projects/">Alle Projekte</a></li>
+                        <li><a href="/de/articles/">Fachbeiträge</a></li>
+                        
+                        <li><a href="/de/contribute/">Mitwirken</a></li>
+                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h5>Über</h5>
+                    <ul>
+                        <li><a href="/de/about/">Über uns</a></li>
+                        <li><a href="/de/about/#contact">Kontakt</a></li>
+                        <li><a href="/de/licenses/">Open-Source-Lizenzen</a></li>
+                        <li><a href="/de/about/#privacy">Datenschutz</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-category-strip">
+                <span class="footer-category-label">Beliebte Kategorien</span>
+                <div class="footer-category-links">
+                    <a href="/de/category/">alle</a>
+                    
+                    <a href="/de/category/fpga/">FPGA</a>
+                    
+                    <a href="/de/category/general/">Allgemein</a>
+                    
+                    <a href="/de/category/ai_hardware/">KI-Hardware</a>
+                    
+                    <a href="/de/category/vision/">Computer Vision</a>
+                    
+                    <a href="/de/category/esp32/">ESP32</a>
+                    
+                    <a href="/de/category/robotics/">Robotik</a>
+                    
+                    <a href="/de/source/github/">GitHub</a>
+                    <a href="/de/source/hackster/">Hackster.io</a>
+                    <a href="/resources/">Ressourcennavigation</a>
+                </div>
+            </div>
+            
+            <div class="footer-producer-bar">
+                <img src="/static/images/author/avatar-mascot.png" alt="GeekWaedon" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
+                <div style="line-height:1.6;">
+                    <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">Allein entwickelt von GeekWaedon (@GeekWaedon) · <span style="color:#a78bfa;">Mensch und KI, Seite an Seite</span></div>
+                    <div class="text-xs text-secondary">Ein Ein-Personen-Projekt, betrieben von einem echten Menschen: Website-Aufbau, Datenabgleich, Artikel und Grafiken stammen von mir (mit Unterstützung einiger KI-Agenten). <a href="/de/about/" class="text-primary" style="text-decoration:none;">Die Person dahinter kennenlernen →</a></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ZouIC. Alle Rechte vorbehalten.</p>
+                <p>Die hier gebündelten Projekte dienen ausschließlich als Referenz für Entwickler: ZouIC verweist auf sie und hostet weder Code noch Dateien; Urheberrecht und Lizenz verbleiben bei den Autoren. Einzelheiten finden Sie auf der <a href="/de/licenses/">Open-Source-Lizenzen</a> Seite.</p>
+                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Nach oben">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Kopiert';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Aus Favoriten entfernt');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Zu Favoriten hinzugefügt');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    <script>
+    (function () {
+        var api = "https://waedon.pythonanywhere.com";
+        var sent = false;
+        function navPerf() {
+            try {
+                var n = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+                if (n && n.loadEventEnd > 0) return Math.round(n.loadEventEnd);
+            } catch (e) { /* ignore */ }
+            return 0;
+        }
+        function send() {
+            if (sent) return;
+            sent = true;
+            var payload = {
+                site: 'zouic',
+                path: (location.pathname + location.search + (location.hash || '')).slice(0, 300),
+                title: (document.title || '').slice(0, 200),
+                ref: document.referrer || '',
+                lang: navigator.language || '',
+                perf: navPerf()
+            };
+            var body = JSON.stringify(payload);
+            // text/plain 免 CORS 预检；页面已经加载完，sendBeacon 最稳
+            try {
+                if (navigator.sendBeacon &&
+                    navigator.sendBeacon(api + '/api/beacon', new Blob([body], { type: 'text/plain;charset=UTF-8' }))) return;
+            } catch (e) { /* fallthrough */ }
+            try {
+                fetch(api + '/api/beacon', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+                    body: body,
+                    keepalive: true,
+                    credentials: 'omit'
+                }).catch(function () {});
+            } catch (e) {}
+        }
+        if (document.readyState === 'complete') setTimeout(send, 0);
+        else window.addEventListener('load', function () { setTimeout(send, 120); });
+        window.addEventListener('pagehide', send);
+    })();
+    </script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/search/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=de-DE'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body>
+</html>

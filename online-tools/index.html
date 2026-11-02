@@ -1,0 +1,2123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="27 个免装工具链的浏览器端入口：Web Serial 在线烧 ESP32 固件、导出 Flash 备份、读芯片与分区表、串口终端看日志、查引脚定义，另有 8 个经过实测许可的上游开源仓库。每条附本站自撰的用途摘要、费用与登录口径，第三方商业站已标明主体与备案。">
+    <meta name="keywords" content="在线烧录,浏览器烧录ESP32,Web Serial,串口终端,Flash备份,小智AI固件,esptool-js,MicroPython">
+    
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <link rel="canonical" href="https://www.zouic.com/online-tools/">
+    
+    <link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/online-tools/" />
+    
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/online-tools/" />
+    
+    
+    
+    
+    <meta property="og:title" content="浏览器里的嵌入式开发工具精选 - 在线烧录与调试 | ZouIC">
+    <meta property="og:description" content="27 个免装工具链的浏览器端入口：Web Serial 在线烧 ESP32 固件、导出 Flash 备份、读芯片与分区表、串口终端看日志、查引脚定义，另有 8 个经过实测许可的上游开源仓库。每条附本站自撰的用途摘要、费用与登录口径，第三方商业站已标明主体与备案。">
+    <meta property="og:url" content="https://www.zouic.com/online-tools/">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN">
+    
+    
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="浏览器里的嵌入式开发工具精选 - 在线烧录与调试 | ZouIC">
+    <meta name="twitter:description" content="27 个免装工具链的浏览器端入口：Web Serial 在线烧 ESP32 固件、导出 Flash 备份、读芯片与分区表、串口终端看日志、查引脚定义，另有 8 个经过实测许可的上游开源仓库。每条附本站自撰的用途摘要、费用与登录口径，第三方商业站已标明主体与备案。">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u80fd\u3002Chrome / Edge \u901a\u8fc7 Web Serial \u76f4\u8fde\u82af\u7247\uff0c\u9009\u597d\u677f\u578b\u6216\u672c\u5730 bin \u5c31\u80fd\u5199\u5165\uff0c\u7701\u6389\u9a71\u52a8\u3001\u4e0b\u8f7d\u6a21\u5f0f\u4e0e\u70e7\u5f55\u5730\u5740\u8fd9\u51e0\u5173\u3002\u672c\u7ad9\u6536\u5f55\u7684\u5728\u7ebf\u70e7\u5f55\u5165\u53e3\u4e0e\u6d4f\u89c8\u5668\u4e32\u53e3\u7ec8\u7aef\u90fd\u8d70\u8fd9\u6761\u8def\u5f84\uff0c\u80fd\u529b\u8fb9\u754c\u57fa\u672c\u7531\u4e50\u946b\u5b98\u65b9\u7684 esptool-js\uff08Apache-2.0\uff09\u51b3\u5b9a\u3002"}, "name": "\u4e0d\u88c5\u7535\u8111\u73af\u5883\uff0c\u6d4f\u89c8\u5668\u80fd\u70e7 ESP32 \u56fa\u4ef6\u5417\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u56fa\u4ef6\u672c\u4f53\u662f\u5f00\u6e90\u7684\uff1a\u4ed3\u5e93 78/xiaozhi-esp32 \u4e3a MIT \u8bb8\u53ef\uff0c\u914d\u5957\u540e\u7aef xiaozhi-esp32-server \u540c\u4e3a MIT\uff08\u5747\u4e3a 2026-11-01 \u7ecf GitHub API \u5b9e\u6d4b\uff09\u3002\u7b2c\u4e09\u65b9\u7ad9\u63d0\u4f9b\u7684\u662f\u70e7\u5f55\u670d\u52a1\u4e0e\u56fa\u4ef6\u6253\u5305\uff0c\u8fd9\u4e0d\u6539\u53d8\u4e0a\u6e38\u8bb8\u53ef\uff0c\u4e5f\u4e0d\u4ee3\u8868\u5b83\u4eec\u5206\u53d1\u7684\u6bcf\u4e2a\u56fa\u4ef6\u5305\u90fd\u5f00\u6e90\u2014\u2014\u793e\u533a\u4e0a\u4f20\u7684\u56fa\u4ef6\u8981\u9010\u4e2a\u770b\u5b83\u7684\u4ed3\u5e93\u4e0e\u8bb8\u53ef\u8bf4\u660e\u3002"}, "name": "\u7b2c\u4e09\u65b9\u7ad9\u70e7\u5f55\u7684\u5c0f\u667a AI \u56fa\u4ef6\u662f\u5f00\u6e90\u7684\u5417\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u6309 2026-11-01 \u5404\u9875\u9762\u4e0a\u770b\u5f97\u89c1\u7684\u6587\u5b57\u8bb0\u5f55\uff1a\u70e7\u5f55\u4e0e\u4fe1\u606f\u8bfb\u53d6\u7c7b\u9875\u9762\u6ca1\u6709\u51fa\u73b0\u767b\u5f55\u95e8\u69db\u6216\u6536\u8d39\u63d0\u793a\uff1b\u4e32\u53e3\u7ec8\u7aef\u767b\u5f55\u540e\u53ef\u4ee5\u4fdd\u5b58\u5e38\u7528\u547d\u4ee4\uff1b\u82af\u7247\u5bf9\u62f7\u8981\u5148\u89e3\u9501\u590d\u523b\u6743\u9650\uff1bNVS \u5206\u533a\u8bfb\u53d6\u9700\u767b\u5f55\uff0c\u800c\u4fee\u6539\u3001\u5199\u56de\u662f\u4ed8\u8d39\u529f\u80fd\uff1b\u56fa\u4ef6\u5e02\u573a\u540c\u65f6\u5b58\u5728\u514d\u8d39\u4e0e\u4ed8\u8d39\u56fa\u4ef6\uff0c\u4ed8\u8d39\u56fa\u4ef6\u6309\u9879\u76ee\u6263\u9664\u7ad9\u5185\u79ef\u5206\u3001\u53ef\u7528\u4f1a\u5458\u8ba2\u9605\u7545\u7528\uff1b\u5bf9\u8bdd\u5f0f\u751f\u6210\u7684 MicroAgent \u6709\u514d\u8d39\u989d\u5ea6\u3001\u7528\u6ee1\u4e5f\u4e0d\u4f1a\u4e2d\u65ad\u5bf9\u8bdd\uff0c\u9700\u8981\u66f4\u591a\u7b97\u529b\u53ef\u4ee5\u8ba2\u9605 AI \u5957\u9910\uff0c\u4e5f\u652f\u6301\u586b\u81ea\u5df1\u7684\u6a21\u578b API Key\uff1b\u6258\u7ba1 MQTT \u6309\u5e74\u8ba2\u9605\u3001\u5230\u671f\u81ea\u52a8\u505c\u6743\uff0c\u63a7\u5236\u9762\u677f\u4f9d\u8d56\u8fd9\u9879\u8ba2\u9605\u3002\u51e1\u662f\u672c\u9875\u6807\u300c\u672a\u6807\u6ce8\u300d\u7684\u6761\u76ee\uff0c\u90fd\u8868\u793a\u6211\u4eec\u5728\u9875\u9762\u4e0a\u6ca1\u6709\u627e\u5230\u6536\u8d39\u4fe1\u606f\uff0c\u4ef7\u683c\u4ee5\u7ad9\u5185\u4e3a\u51c6\u3002"}, "name": "\u8fd9\u4e9b\u5728\u7ebf\u5de5\u5177\u6536\u8d39\u5417\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u4e24\u4ef6\u4e8b\u3002\u4e00\u662f\u8bbe\u5907\u5b58\u50a8\u4f1a\u88ab\u5b8c\u6574\u8bfb\u53d6\uff0c\u5bfc\u51fa\u7684 bin \u7248\u6743\u5f52\u539f\u56fa\u4ef6\u4f5c\u8005\uff0c\u522b\u968f\u624b\u5206\u53d1\uff1b\u4e8c\u662f\u5bf9\u62f7\u4e0e\u514b\u9686\u53ea\u5e94\u9488\u5bf9\u4f60\u81ea\u5df1\u62e5\u6709\u6743\u5229\u7684\u8bbe\u5907\u4e0e\u56fa\u4ef6\u3002\u9700\u8981\u957f\u671f\u4f9d\u8d56\u65f6\uff0c\u5efa\u8bae\u672c\u5730\u540c\u65f6\u7559 esptool / esptool-js \u4f5c\u4e3a\u515c\u5e95\uff0c\u4e0d\u628a\u4ea7\u7ebf\u548c\u4ea4\u4ed8\u7ed1\u5728\u7b2c\u4e09\u65b9\u7ad9\u4e0a\u3002"}, "name": "\u7528\u522b\u4eba\u670d\u52a1\u5668\u70e7\u56fa\u4ef6\u3001\u5907\u4efd Flash \u6709\u4ec0\u4e48\u8981\u6ce8\u610f\u7684\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u6ca1\u6709\u3002\u672c\u9875\u53ea\u63d0\u4f9b\u5165\u53e3\u94fe\u63a5\u4e0e\u672c\u7ad9\u64b0\u5199\u7684\u7528\u9014\u6458\u8981\uff0c\u672a\u590d\u5236\u539f\u7ad9\u6587\u6848\u3001\u622a\u56fe\u3001\u6559\u7a0b\u4e0e\u5546\u6807\u7d20\u6750\uff0c\u4e5f\u6ca1\u6709\u6293\u53d6\u5176 robots.txt \u7981\u6b62\u8bbf\u95ee\u7684\u533a\u57df\u3002\u6d89\u53ca\u5f00\u6e90\u7684\u90e8\u5206\u4e00\u5f8b\u6307\u56de\u4e0a\u6e38\u4ed3\u5e93\u5e76\u6807\u6ce8\u5b9e\u6d4b\u8bb8\u53ef\u3002"}, "name": "\u8fd9\u4e00\u9875\u6709\u6ca1\u6709\u642c\u8fd0\u539f\u7ad9\u7684\u5185\u5bb9\uff1f"}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/documentation/", "name": "\u6280\u672f\u6587\u6863", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/online-tools/", "name": "\u5728\u7ebf\u5de5\u5177\u7cbe\u9009", "position": 3}]}]}
+    </script>
+    
+    
+    <title>浏览器里的嵌入式开发工具精选 - 在线烧录与调试 | ZouIC</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    
+    <!-- External Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    
+    <!-- ZouIC Design System -->
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261031a">
+    <noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a">
+    
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-microchip"></i> ZouIC
+            </a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
+                <span class="nav-hud-dot"></span>SYS.ONLINE
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/all-projects/"><i class="fas fa-project-diagram me-1"></i>开源项目</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-business" href="/services/component-matching/">商务合作</a></li>
+                    <li class="nav-item dropdown">
+                        <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li>
+                            <li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li>
+                            <li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li>
+                            <li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li>
+                            <li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li>
+                            <li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li>
+                            <li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li>
+                            <li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li>
+                            <li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li>
+                            <li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li>
+                </ul>
+                <form id="searchForm" class="d-flex me-3 d-none d-lg-flex">
+                    <div class="input-group input-group-zouic">
+                        <input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" style="width: 200px;">
+                        <select id="searchType" class="form-select input-zouic" aria-label="搜索类型:" style="width: auto; flex: 0 0 auto;">
+                            <option value="">全部分类</option>
+                            <option value="board">开源开发板</option>
+                            <option value="project">开源项目</option>
+                        </select>
+                        <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i> 中文
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/online-tools/">
+                                <i class="fas fa-language me-2"></i> 中文
+                            </a></li>
+                            <li><a class="dropdown-item" href="/en/articles/">
+                                <i class="fas fa-language me-2"></i> English
+                            </a></li>
+                            
+                            <li><a class="dropdown-item" href="/de/articles/">
+                                <i class="fas fa-language me-2"></i> 德语
+                            </a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        
+<style>
+    .ot-hero-stat {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-top: 1.25rem;
+    }
+    .ot-hero-stat .v {
+        font-size: 1.75rem;
+        font-weight: 700;
+        line-height: 1.1;
+        color: var(--accent-primary, #00e5ff);
+    }
+    .ot-hero-stat .k {
+        font-size: .8125rem;
+        color: var(--text-secondary, #9aa4b2);
+    }
+    .ot-chip-row {
+        display: flex;
+        gap: .5rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+    }
+    .ot-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: .375rem;
+        padding: .375rem .75rem;
+        font-size: .8125rem;
+        border-radius: 999px;
+        border: 1px solid var(--glass-stroke, rgba(255,255,255,.12));
+        color: var(--text-secondary, #9aa4b2);
+        text-decoration: none;
+        transition: all .18s ease;
+    }
+    .ot-chip:hover {
+        color: var(--accent-primary, #00e5ff);
+        border-color: var(--accent-primary, #00e5ff);
+    }
+    .ot-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 1.125rem 1.25rem;
+        border-radius: 12px;
+    }
+    .ot-card h3 {
+        font-size: 1.0625rem;
+        font-weight: 600;
+        margin: 0 0 .25rem;
+        line-height: 1.35;
+    }
+    .ot-card h3 a {
+        color: inherit;
+        text-decoration: none;
+    }
+    .ot-card h3 a:hover {
+        color: var(--accent-primary, #00e5ff);
+    }
+    .ot-host {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: .75rem;
+        color: var(--text-tertiary, #6b7684);
+        margin-bottom: .625rem;
+        word-break: break-all;
+    }
+    .ot-desc {
+        font-size: .875rem;
+        line-height: 1.65;
+        color: var(--text-secondary, #9aa4b2);
+        margin-bottom: .875rem;
+        flex: 1;
+    }
+    .ot-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .375rem;
+        align-items: center;
+    }
+    .ot-facts {
+        margin: .625rem 0 0;
+        padding: 0;
+        list-style: none;
+        font-size: .75rem;
+        line-height: 1.6;
+        color: var(--text-tertiary, #6b7684);
+    }
+    .ot-facts li + li {
+        margin-top: .25rem;
+    }
+    .ot-facts strong {
+        color: var(--text-secondary, #9aa4b2);
+        font-weight: 600;
+    }
+    .ot-facts a {
+        color: var(--accent-primary, #00e5ff);
+        text-decoration: none;
+        word-break: break-all;
+    }
+    .ot-facts a:hover { text-decoration: underline; }
+    .ot-note {
+        font-size: .75rem;
+        color: var(--color-warning, #ffc857);
+        margin-top: .5rem;
+        line-height: 1.5;
+    }
+    .ot-group { scroll-margin-top: 96px; }
+    .ot-group[hidden] { display: none !important; }
+    .ot-item[hidden] { display: none !important; }
+    #otSearch { max-width: 420px; }
+    .ot-empty {
+        display: none;
+        padding: 2rem;
+        text-align: center;
+        color: var(--text-secondary, #9aa4b2);
+    }
+    .ot-top-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        counter-reset: ot-top;
+    }
+    .ot-top-list li {
+        counter-increment: ot-top;
+        display: flex;
+        gap: .875rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--glass-stroke, rgba(255,255,255,.08));
+    }
+    .ot-top-list li:last-child { border-bottom: 0; }
+    .ot-top-list li::before {
+        content: counter(ot-top, decimal-leading-zero);
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: .875rem;
+        color: var(--accent-primary, #00e5ff);
+        opacity: .8;
+        flex-shrink: 0;
+        padding-top: .15rem;
+    }
+    .ot-top-name {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: .25rem;
+    }
+    .ot-top-name a { color: inherit; text-decoration: none; }
+    .ot-top-name a:hover { color: var(--accent-primary, #00e5ff); }
+    .ot-top-why {
+        font-size: .875rem;
+        line-height: 1.65;
+        color: var(--text-secondary, #9aa4b2);
+    }
+    .ot-top-host {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: .75rem;
+        color: var(--text-tertiary, #6b7684);
+        margin-top: .375rem;
+        word-break: break-all;
+    }
+    .ot-faq { margin-bottom: 1.5rem; }
+    .ot-faq:last-child { margin-bottom: 0; }
+    .ot-faq h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0 0 .5rem;
+    }
+    .ot-faq p {
+        font-size: .9375rem;
+        line-height: 1.75;
+        color: var(--text-secondary, #9aa4b2);
+        margin: 0;
+    }
+    .ot-disclose {
+        border-left: 3px solid var(--color-warning, #ffc857);
+        padding-left: 1rem;
+        font-size: .875rem;
+        line-height: 1.8;
+        color: var(--text-secondary, #9aa4b2);
+    }
+    .ot-disclose a { color: var(--accent-primary, #00e5ff); text-decoration: none; }
+    .ot-disclose a:hover { text-decoration: underline; }
+</style>
+
+<section class="py-8">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent">
+                <li class="breadcrumb-item"><a href="/">首页</a></li>
+                <li class="breadcrumb-item"><a href="/documentation/">技术文档</a></li>
+                <li class="breadcrumb-item active" aria-current="page">在线工具精选</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<section class="pb-6">
+    <div class="container">
+        <div class="card-dark p-8">
+            <span class="badge-zouic badge-zouic-accent mb-3">ONLINE TOOL DIRECTORY</span>
+            <h1 class="text-3xl font-bold mb-3">浏览器里的嵌入式开发工具精选</h1>
+            <p class="text-secondary text-lg mb-0" style="max-width: 62rem;">
+                不装工具链、不找串口助手，插上 USB 就能烧录、读芯片、看日志、查引脚。
+                这一页把这类浏览器端工具按用途归拢，每条附一句本站撰写的「什么时候该用它」，
+                以及它背后的上游开源仓库和实测许可证——因为真正能长期依赖的是后者。
+            </p>
+            <div class="ot-hero-stat">
+                <div>
+                    <div class="v">27</div>
+                    <div class="k">收录入口</div>
+                </div>
+                <div>
+                    <div class="v">5</div>
+                    <div class="k">分类</div>
+                </div>
+                <div>
+                    <div class="v">8</div>
+                    <div class="k">上游开源项</div>
+                </div>
+                <div>
+                    <div class="v">2026-11-01</div>
+                    <div class="k">最近核对</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pb-6">
+    <div class="container">
+        <div class="card-dark p-6">
+            <h2 class="text-xl font-bold mb-3">
+                <i class="fas fa-scale-balanced me-2" style="opacity: .75;"></i>这一页是怎么来的、边界在哪里
+            </h2>
+            <div class="ot-disclose">
+                <p class="mb-2">
+                    下面的工具入口来自第三方站点
+                    <a href="https://www.16302.com/" target="_blank" rel="noopener noreferrer nofollow">16302.com（鹿戴马物联）</a>，
+                    运营主体为 铜陵科艺创想科技有限公司（皖ICP备18006907号-2）。与本站无隶属、无合作、无推广关系；链接仅为读者提供入口。
+                </p>
+                <p class="mb-0">
+                    该站的 robots.txt 禁止自动化访问它的工具与用户区域，服务协议也不允许未授权转载，
+                    所以本页<strong>只给顶层入口链接</strong>，所有摘要与注意事项由本站撰写，
+                    没有复制它的文案、截图、商标素材与教程正文，也没有抓取任何受限区域。
+                    涉及开源固件与工具的部分，出处一律指回<strong>上游仓库</strong>并附实测许可，
+                    不拿第三方页面的转述当授权依据。
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pb-6">
+    <div class="container">
+        <div class="card-dark p-6">
+            <h2 class="text-xl font-bold mb-1">
+                <i class="fas fa-star me-2" style="opacity: .75;"></i>精华推荐：先试这五个
+            </h2>
+            <p class="text-secondary mb-3" style="max-width: 58rem; font-size: .9375rem;">
+                按「省下的时间最多、失败代价最小」排的顺序，不是功能强弱排名。
+            </p>
+            <ol class="ot-top-list">
+                
+                <li>
+                    <div>
+                        <div class="ot-top-name">
+                            <a href="https://www.16302.com/xiaozhiinit" target="_blank" rel="noopener noreferrer nofollow">浏览器在线烧小智 AI 固件
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </div>
+                        <div class="ot-top-why">新手最容易卡在驱动、下载模式、烧录地址这三关；这个入口把整条链路放进浏览器，选板型、插 USB、点烧录就完事，不用本地装 esptool。</div>
+                        <div class="ot-top-host">www.16302.com</div>
+                    </div>
+                </li>
+                
+                <li>
+                    <div>
+                        <div class="ot-top-name">
+                            <a href="https://www.16302.com/localinit" target="_blank" rel="noopener noreferrer nofollow">浏览器烧自己手上的 bin
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </div>
+                        <div class="ot-top-why">厂商给的合并固件、自己编译出来的 bin，都能直接烧；换电脑、公司禁装软件时特别有用。</div>
+                        <div class="ot-top-host">www.16302.com</div>
+                    </div>
+                </li>
+                
+                <li>
+                    <div>
+                        <div class="ot-top-name">
+                            <a href="https://www.16302.com/flashdump" target="_blank" rel="noopener noreferrer nofollow">改固件前先做整片 Flash 备份
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </div>
+                        <div class="ot-top-why">量产或二手设备到手第一步就该做的事：把原机 Flash 导成 bin，烧坏了能回滚。</div>
+                        <div class="ot-top-host">www.16302.com</div>
+                    </div>
+                </li>
+                
+                <li>
+                    <div>
+                        <div class="ot-top-name">
+                            <a href="https://www.16302.com/terminal" target="_blank" rel="noopener noreferrer nofollow">浏览器串口终端看日志
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </div>
+                        <div class="ot-top-why">设备跑起来到底打印了什么，是排查的第一手信息；不用找串口助手，也不占 COM 口。</div>
+                        <div class="ot-top-host">www.16302.com</div>
+                    </div>
+                </li>
+                
+                <li>
+                    <div>
+                        <div class="ot-top-name">
+                            <a href="https://github.com/espressif/esptool-js" target="_blank" rel="noopener noreferrer nofollow">不装环境也要有兜底：esptool-js（官方 Apache-2.0）
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </div>
+                        <div class="ot-top-why">上面那些浏览器工具的能力边界基本就是它决定的。真要离线、真要自己搭页面，拿这个官方库比依赖任何第三方站都稳。</div>
+                        <div class="ot-top-host">github.com</div>
+                    </div>
+                </li>
+                
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section class="pb-10">
+    <div class="container">
+        <div class="d-flex flex-wrap gap-3 align-items-center justify-content-between mb-4">
+            <div class="ot-chip-row mb-0">
+                
+                <a class="ot-chip" href="#flash">
+                    <i class="fas fa-bolt"></i>烧录与 Flash 操作
+                    <span style="opacity: .6;">9</span>
+                </a>
+                
+                <a class="ot-chip" href="#dev">
+                    <i class="fas fa-code"></i>在线开发与调试
+                    <span style="opacity: .6;">5</span>
+                </a>
+                
+                <a class="ot-chip" href="#pinout">
+                    <i class="fas fa-diagram-project"></i>引脚、接线与选型资料
+                    <span style="opacity: .6;">2</span>
+                </a>
+                
+                <a class="ot-chip" href="#cloud">
+                    <i class="fas fa-tower-broadcast"></i>联网、控制面板与固件分发
+                    <span style="opacity: .6;">3</span>
+                </a>
+                
+                <a class="ot-chip" href="#upstream">
+                    <i class="fas fa-box-archive"></i>上游开源项目（真正可自由使用）
+                    <span style="opacity: .6;">8</span>
+                </a>
+                
+            </div>
+            <div class="input-group input-group-zouic" style="max-width: 420px;">
+                <input type="text" id="otSearch" class="form-control input-zouic"
+                       placeholder="搜索工具、用途或许可…" aria-label="搜索在线工具">
+                <button class="btn-zouic btn-zouic-ghost btn-zouic-sm" type="button" id="otClear" aria-label="清空">
+                    <i class="fas fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="ot-empty" id="otEmpty">
+            没有匹配的工具。换个关键词试试，比如「烧录」「串口」「MIT」「MQTT」。
+        </div>
+
+        
+        <div class="ot-group mb-8" id="flash" data-group="flash">
+            <div class="d-flex align-items-center gap-3 mb-2">
+                <h2 class="section-title text-2xl font-bold mb-0">
+                    <i class="fas fa-bolt me-2" style="opacity: .7;"></i>烧录与 Flash 操作
+                </h2>
+                <span class="badge-zouic badge-zouic-secondary">Web Serial Flashing</span>
+            </div>
+            <p class="text-secondary mb-4" style="max-width: 58rem;">共同点是「不装工具链」：Chrome / Edge 通过 Web Serial 直连芯片，USB 一插就能烧、能读、能备份。手边只有笔记本、或者公司机器禁装软件时最省事。注意这类工具会直接接触设备存储，操作前想清楚你有没有该设备的合法权利。</p>
+
+            <div class="row g-3">
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="小智 AI 固件在线烧录 面向小智 AI 语音终端板的一键烧录入口：按板型选固件、浏览器直连芯片写入，省掉本地装 esptool 与配串口驱动。覆盖 ESP32-S3 / C3 / C6 / S2 / H2 / P4 与 ESP8266。官方基础固件免费，社区打包的第三方固件按其站内权益扣费。 小智AI ESP32-S3 免安装 https://www.16302.com/xiaozhiinit ">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://www.16302.com/xiaozhiinit" target="_blank" rel="noopener noreferrer nofollow">小智 AI 固件在线烧录
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">www.16302.com</div>
+                        <div class="ot-desc">面向小智 AI 语音终端板的一键烧录入口：按板型选固件、浏览器直连芯片写入，省掉本地装 esptool 与配串口驱动。覆盖 ESP32-S3 / C3 / C6 / S2 / H2 / P4 与 ESP8266。官方基础固件免费，社区打包的第三方固件按其站内权益扣费。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">小智AI</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">ESP32-S3</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">免安装</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：官方基础固件免费烧录；第三方付费固件按项目扣除站内积分（其会员订阅可畅用）</li>
+                            
+                            <li><strong>登录</strong>：免登录</li>
+                            
+                            
+                            
+                            <li>
+                                <strong>上游</strong>：
+                                <a href="https://github.com/78/xiaozhi-esp32" target="_blank" rel="noopener noreferrer nofollow">78/xiaozhi-esp32（固件本体）</a>
+                                · MIT（2026-11-01 经 GitHub API 实测）
+                            </li>
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="本地 bin 固件在线烧录 把手里的 .bin 或合并固件写进芯片，地址、擦除策略在页面上填。适合已经拿到厂商/自己编译产物、只差一次写入的场合，也适合验证别人给的固件包。 bin 烧录 免安装 https://www.16302.com/localinit ">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://www.16302.com/localinit" target="_blank" rel="noopener noreferrer nofollow">本地 bin 固件在线烧录
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">www.16302.com</div>
+                        <div class="ot-desc">把手里的 .bin 或合并固件写进芯片，地址、擦除策略在页面上填。适合已经拿到厂商/自己编译产物、只差一次写入的场合，也适合验证别人给的固件包。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">bin</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">烧录</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">免安装</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：免登录可用（页面未见收费）</li>
+                            
+                            <li><strong>登录</strong>：免登录</li>
+                            
+                            
+                            
+                            <li>
+                                <strong>上游</strong>：
+                                <a href="https://github.com/espressif/esptool-js" target="_blank" rel="noopener noreferrer nofollow">espressif/esptool-js（浏览器端烧录库）</a>
+                                · Apache-2.0（实测）
+                            </li>
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="MicroPython 固件在线烧录 给板子刷 MicroPython 固件的入口，配 REPL 使用；教学与快速验证场景下，比先搭 C 工具链起步快。刷之前确认固件对应的芯片型号，型号不符会变砖到需要救。 MicroPython REPL 教学 https://www.16302.com/deviceinit ">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://www.16302.com/deviceinit" target="_blank" rel="noopener noreferrer nofollow">MicroPython 固件在线烧录
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">www.16302.com</div>
+                        <div class="ot-desc">给板子刷 MicroPython 固件的入口，配 REPL 使用；教学与快速验证场景下，比先搭 C 工具链起步快。刷之前确认固件对应的芯片型号，型号不符会变砖到需要救。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">MicroPython</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">REPL</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">教学</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：未标注</li>
+                            
+                            
+                            
+                            <li>
+                                <strong>上游</strong>：
+                                <a href="https://github.com/micropython/micropython" target="_blank" rel="noopener noreferrer nofollow">micropython/micropython</a>
+                                · MIT 变体（GitHub 标记为 NOASSERTION，以仓库 LICENSE 为准）
+                            </li>
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="整片 Flash 导出备份 把设备当前 Flash 完整读成一个 bin 文件。改固件前、接手二手设备时的第一件事：有备份才有回滚。导出来的文件版权归原固件作者，别随手分发。 备份 回滚 Flash https://www.16302.com/flashdump ">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://www.16302.com/flashdump" target="_blank" rel="noopener noreferrer nofollow">整片 Flash 导出备份
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">www.16302.com</div>
+                        <div class="ot-desc">把设备当前 Flash 完整读成一个 bin 文件。改固件前、接手二手设备时的第一件事：有备份才有回滚。导出来的文件版权归原固件作者，别随手分发。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">备份</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">回滚</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">Flash</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：免登录可用（页面未见收费）</li>
+                            
+                            <li><strong>登录</strong>：免登录</li>
+                            
+                            
+                            
+                        </ul>
+                        
+                        <div class="ot-note"><i class="fas fa-triangle-exclamation me-1"></i>备份与恢复仅限你自己有权操作的设备；分发他人固件需另行确认授权。</div>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="批量擦除设备 产线或实验室收尾用：连续擦除，避免残留旧固件导致下一块板子的现象无法解释。 产线 擦除 https://www.16302.com/multierase ">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://www.16302.com/multierase" target="_blank" rel="noopener noreferrer nofollow">批量擦除设备
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">www.16302.com</div>
+                        <div class="ot-desc">产线或实验室收尾用：连续擦除，避免残留旧固件导致下一块板子的现象无法解释。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">产线</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">擦除</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：未标注</li>
+                            
+                            
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="双芯片固件对拷 从一块板子读出固件写入另一块同型号板子。自用复制设备状态很快，但请把它当作「备份恢复工具」而不是「量产破解工具」。 克隆 同型号 https://www.16302.com/flashclone ">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://www.16302.com/flashclone" target="_blank" rel="noopener noreferrer nofollow">双芯片固件对拷
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">www.16302.com</div>
+                        <div class="ot-desc">从一块板子读出固件写入另一块同型号板子。自用复制设备状态很快，但请把它当作「备份恢复工具」而不是「量产破解工具」。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">克隆</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">同型号</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：未标注（页面上写「使用前需先解锁复刻权限」，解锁条件未见说明）</li>
+                            
+                            <li><strong>登录</strong>：需登录解锁对拷功能</li>
+                            
+                            
+                            
+                        </ul>
+                        
+                        <div class="ot-note"><i class="fas fa-triangle-exclamation me-1"></i>对拷他人商业固件可能构成侵权，仅限自己拥有权利的固件与设备。</div>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="读取芯片与 Flash 信息 拿到一块不认识的板子先看这里：芯片型号、Flash 容量与模式一目了然。选固件、算分区、判断能不能塞下 OTA 都依赖这几个数。 芯片型号 Flash 容量 https://www.16302.com/espinfo ">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://www.16302.com/espinfo" target="_blank" rel="noopener noreferrer nofollow">读取芯片与 Flash 信息
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">www.16302.com</div>
+                        <div class="ot-desc">拿到一块不认识的板子先看这里：芯片型号、Flash 容量与模式一目了然。选固件、算分区、判断能不能塞下 OTA 都依赖这几个数。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">芯片型号</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">Flash 容量</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：免登录可用（页面未见收费）</li>
+                            
+                            <li><strong>登录</strong>：免登录</li>
+                            
+                            
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="分区表查看 读出设备当前分区布局，判断 OTA 区、NVS 区位置和剩余空间。做固件升级方案或排查「刷不进去」时，这一步经常直接给答案。 分区表 OTA https://www.16302.com/partitions ">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://www.16302.com/partitions" target="_blank" rel="noopener noreferrer nofollow">分区表查看
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">www.16302.com</div>
+                        <div class="ot-desc">读出设备当前分区布局，判断 OTA 区、NVS 区位置和剩余空间。做固件升级方案或排查「刷不进去」时，这一步经常直接给答案。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">分区表</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">OTA</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：未标注</li>
+                            
+                            
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="NVS 分区读写 直接读设备里的 NVS 键值，把配网信息、设备配置这类东西取出来看。改之前先导出，写坏 NVS 会让设备回到出厂状态甚至起不来。 NVS 配置 https://www.16302.com/nvsreadwrite ">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://www.16302.com/nvsreadwrite" target="_blank" rel="noopener noreferrer nofollow">NVS 分区读写
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">www.16302.com</div>
+                        <div class="ot-desc">直接读设备里的 NVS 键值，把配网信息、设备配置这类东西取出来看。改之前先导出，写坏 NVS 会让设备回到出厂状态甚至起不来。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">NVS</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">配置</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：读取需登录；修改、新增、删除并写回设备为付费功能</li>
+                            
+                            <li><strong>登录</strong>：读取需登录</li>
+                            
+                            
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="ot-group mb-8" id="dev" data-group="dev">
+            <div class="d-flex align-items-center gap-3 mb-2">
+                <h2 class="section-title text-2xl font-bold mb-0">
+                    <i class="fas fa-code me-2" style="opacity: .7;"></i>在线开发与调试
+                </h2>
+                <span class="badge-zouic badge-zouic-secondary">Editor / Terminal / AI Assist</span>
+            </div>
+            <p class="text-secondary mb-4" style="max-width: 58rem;">代码、日志、控件这三件事也能全在浏览器里完成。定位是「快速验证与教学演示」：真要进量产工程，还是回到本地版本可控的工具链，产物和依赖都能自己复现。</p>
+
+            <div class="row g-3">
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="浏览器串口终端 基于 Web Serial 的串口终端，看打印日志、进 REPL、发 AT 指令。省掉装串口助手，也不会因为串口助手占着 COM 口导致烧录工具连不上。 串口 REPL 日志 https://www.16302.com/terminal ">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://www.16302.com/terminal" target="_blank" rel="noopener noreferrer nofollow">浏览器串口终端
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">www.16302.com</div>
+                        <div class="ot-desc">基于 Web Serial 的串口终端，看打印日志、进 REPL、发 AT 指令。省掉装串口助手，也不会因为串口助手占着 COM 口导致烧录工具连不上。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">串口</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">REPL</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">日志</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：未标注收费（页面上只提示登录后可保存常用命令）</li>
+                            
+                            <li><strong>登录</strong>：免登录可用（登录后能保存常用命令）</li>
+                            
+                            
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="在线代码编辑器（MicroPython） 浏览器里写 MicroPython 直接下发到板子跑，不用先建工程。适合课堂演示和「先验证一下传感器能不能读到」这种一次性需求。 MicroPython 免工程 https://www.16302.com/editor ">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://www.16302.com/editor" target="_blank" rel="noopener noreferrer nofollow">在线代码编辑器（MicroPython）
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">www.16302.com</div>
+                        <div class="ot-desc">浏览器里写 MicroPython 直接下发到板子跑，不用先建工程。适合课堂演示和「先验证一下传感器能不能读到」这种一次性需求。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">MicroPython</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">免工程</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：未标注</li>
+                            
+                            
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="在线开发工作台 比单文件编辑器更接近一套完整开发流程的入口，适合连续做几天的小项目；工程长期保存与版本管理建议还是导出到本地仓库。 工作台 小项目 https://www.16302.com/develop ">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://www.16302.com/develop" target="_blank" rel="noopener noreferrer nofollow">在线开发工作台
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">www.16302.com</div>
+                        <div class="ot-desc">比单文件编辑器更接近一套完整开发流程的入口，适合连续做几天的小项目；工程长期保存与版本管理建议还是导出到本地仓库。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">工作台</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">小项目</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：未标注</li>
+                            
+                            
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="对话式生成并烧录（MicroAgent） 用自然语言描述想要什么，由它生成 MicroPython 代码并直接烧进板子，支持 ESP32 / ESP8266 / RP2040。有免费额度，也支持填自己的模型 API Key——这条路能不能给你省时间，取决于你对生成代码的把关能力。 AI 辅助 MicroPython 自带 Key https://www.16302.com/microagent ">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://www.16302.com/microagent" target="_blank" rel="noopener noreferrer nofollow">对话式生成并烧录（MicroAgent）
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">www.16302.com</div>
+                        <div class="ot-desc">用自然语言描述想要什么，由它生成 MicroPython 代码并直接烧进板子，支持 ESP32 / ESP8266 / RP2040。有免费额度，也支持填自己的模型 API Key——这条路能不能给你省时间，取决于你对生成代码的把关能力。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">AI 辅助</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">MicroPython</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">自带 Key</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：有免费额度，超出后订阅；可自带模型 API Key</li>
+                            
+                            <li><strong>登录</strong>：免登录可用</li>
+                            
+                            
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="屏显字库转换 把字体转成 OLED / LCD 能吃的取模数据。做中文界面时这步躲不过去，转完记得核对字库许可（字体本身也是有版权的）。 字库 OLED 取模 https://www.16302.com/fontconverter ">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://www.16302.com/fontconverter" target="_blank" rel="noopener noreferrer nofollow">屏显字库转换
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">www.16302.com</div>
+                        <div class="ot-desc">把字体转成 OLED / LCD 能吃的取模数据。做中文界面时这步躲不过去，转完记得核对字库许可（字体本身也是有版权的）。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">字库</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">OLED</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">取模</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：未标注</li>
+                            
+                            
+                            
+                        </ul>
+                        
+                        <div class="ot-note"><i class="fas fa-triangle-exclamation me-1"></i>输出可用性取决于所选字体的授权条款，商用前先确认字体许可。</div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="ot-group mb-8" id="pinout" data-group="pinout">
+            <div class="d-flex align-items-center gap-3 mb-2">
+                <h2 class="section-title text-2xl font-bold mb-0">
+                    <i class="fas fa-diagram-project me-2" style="opacity: .7;"></i>引脚、接线与选型资料
+                </h2>
+                <span class="badge-zouic badge-zouic-secondary">Pinout &amp; Wiring</span>
+            </div>
+            <p class="text-secondary mb-4" style="max-width: 58rem;">把「这块板子的脚到底能接什么」这件事从 PDF 里搬出来。这类工具的价值在于减少接错线，但引脚复用的坑（strapping 脚、仅输入脚、被 Flash 占用的脚）最终以芯片数据手册为准，本站开发板库里的参数同样逐条标注了来源。</p>
+
+            <div class="row g-3">
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="开发板引脚在线查询 按板型查引脚定义与外设能力，ADC、触摸、SPI、I2C 分色标注，启动脚 / 仅输入脚 / 被占用脚单独提示。接线前先看一眼，比翻手册快。 引脚定义 外设能力 https://www.16302.com/devboard ">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://www.16302.com/devboard" target="_blank" rel="noopener noreferrer nofollow">开发板引脚在线查询
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">www.16302.com</div>
+                        <div class="ot-desc">按板型查引脚定义与外设能力，ADC、触摸、SPI、I2C 分色标注，启动脚 / 仅输入脚 / 被占用脚单独提示。接线前先看一眼，比翻手册快。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">引脚定义</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">外设能力</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：未标注</li>
+                            
+                            
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="可视化接线工具 拖拽式画接线图，能直接拿去课件、写文档。教学与交付沟通场景里，一张清楚的接线图比十行文字有用。 接线图 教学 文档 https://www.16302.com/wiring ">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://www.16302.com/wiring" target="_blank" rel="noopener noreferrer nofollow">可视化接线工具
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">www.16302.com</div>
+                        <div class="ot-desc">拖拽式画接线图，能直接拿去课件、写文档。教学与交付沟通场景里，一张清楚的接线图比十行文字有用。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">接线图</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">教学</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">文档</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：未标注（页面上未见收费与登录提示）</li>
+                            
+                            
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="ot-group mb-8" id="cloud" data-group="cloud">
+            <div class="d-flex align-items-center gap-3 mb-2">
+                <h2 class="section-title text-2xl font-bold mb-0">
+                    <i class="fas fa-tower-broadcast me-2" style="opacity: .7;"></i>联网、控制面板与固件分发
+                </h2>
+                <span class="badge-zouic badge-zouic-secondary">MQTT / Panel / Distribution</span>
+            </div>
+            <p class="text-secondary mb-4" style="max-width: 58rem;">设备上了网就需要一个消息中枢和一个能点的界面。这一类是托管服务：省事，但数据经过别人服务器，产品选型时要算清依赖与迁移成本——这也是本站更推荐先看上游开源项的原因。</p>
+
+            <div class="row g-3">
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="全托管 MQTT 服务 提供 TCP 与 WebSocket 接入的托管 MQTT，适合 demo 与小批量设备快速打通链路。按年订阅、到期停权：做产品前先想清楚自建 Mosquitto / EMQX 的迁移成本。 MQTT 托管 WebSocket https://www.16302.com/mqtt ">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://www.16302.com/mqtt" target="_blank" rel="noopener noreferrer nofollow">全托管 MQTT 服务
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">www.16302.com</div>
+                        <div class="ot-desc">提供 TCP 与 WebSocket 接入的托管 MQTT，适合 demo 与小批量设备快速打通链路。按年订阅、到期停权：做产品前先想清楚自建 Mosquitto / EMQX 的迁移成本。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">MQTT</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">托管</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">WebSocket</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：按年订阅（页面未标注具体价格）</li>
+                            
+                            <li><strong>登录</strong>：需登录</li>
+                            
+                            
+                            
+                            <li>
+                                <strong>上游</strong>：
+                                <a href="https://github.com/eclipse-mosquitto/mosquitto" target="_blank" rel="noopener noreferrer nofollow">Eclipse Mosquitto（可自建替代）</a>
+                                · EPL / EDL 双许可（GitHub 标记 NOASSERTION，以仓库 LICENSE 为准）
+                            </li>
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="智能控制面板 把设备控件拖成一个可访问的面板，并自动生成小程序入口，适合给非技术的人演示。要交付给客户的产品，界面与数据链路能否自主可控要提前确认。 控制面板 小程序 演示 https://www.16302.com/panel ">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://www.16302.com/panel" target="_blank" rel="noopener noreferrer nofollow">智能控制面板
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">www.16302.com</div>
+                        <div class="ot-desc">把设备控件拖成一个可访问的面板，并自动生成小程序入口，适合给非技术的人演示。要交付给客户的产品，界面与数据链路能否自主可控要提前确认。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">控制面板</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">小程序</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">演示</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：未标注；页面写明「开通 MQTT 服务订阅后自动分配面板账号」，即依赖上面那项按年订阅</li>
+                            
+                            <li><strong>登录</strong>：需登录</li>
+                            
+                            
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="AI 终端固件市场 按板型分享与查找固件的入口，配套上面那些烧录工具使用。固件包来源是社区上传，版权与安全性都要自己判断——先看它有没有写明上游仓库与许可。 固件市场 社区上传 https://www.16302.com/firmwarehub ">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://www.16302.com/firmwarehub" target="_blank" rel="noopener noreferrer nofollow">AI 终端固件市场
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">www.16302.com</div>
+                        <div class="ot-desc">按板型分享与查找固件的入口，配套上面那些烧录工具使用。固件包来源是社区上传，版权与安全性都要自己判断——先看它有没有写明上游仓库与许可。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">固件市场</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">社区上传</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：发布需登录，固件有免费与付费两类</li>
+                            
+                            <li><strong>登录</strong>：浏览免登录，发布需登录</li>
+                            
+                            
+                            
+                        </ul>
+                        
+                        <div class="ot-note"><i class="fas fa-triangle-exclamation me-1"></i>下载来路不明的固件等于给它执行你设备上的代码，先读它的仓库与许可说明。</div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="ot-group mb-8" id="upstream" data-group="upstream">
+            <div class="d-flex align-items-center gap-3 mb-2">
+                <h2 class="section-title text-2xl font-bold mb-0">
+                    <i class="fas fa-box-archive me-2" style="opacity: .7;"></i>上游开源项目（真正可自由使用）
+                </h2>
+                <span class="badge-zouic badge-zouic-secondary">Open Source Upstream</span>
+            </div>
+            <p class="text-secondary mb-4" style="max-width: 58rem;">上面那些商业站的浏览器工具，能力大多来自这些仓库。这一组是本页唯一「可以放心抄作业」的部分：许可经过 GitHub API 实测，代码可以审计、可以自建、可以离线跑，不依赖任何第三方服务器的可用性。</p>
+
+            <div class="row g-3">
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="小智 AI 终端固件（xiaozhi-esp32） ESP32 系列 AI 聊天终端固件，支持 MCP 工具调用，是当前一批「AI 桌面硬件」方案的底座。想知道在线烧录站给你刷的到底是什么，看这里。 MIT ESP32-S3 AI 终端 https://github.com/78/xiaozhi-esp32 MIT（2026-11-01 GitHub API 实测，Star 约 3.2 万）">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://github.com/78/xiaozhi-esp32" target="_blank" rel="noopener noreferrer nofollow">小智 AI 终端固件（xiaozhi-esp32）
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">github.com</div>
+                        <div class="ot-desc">ESP32 系列 AI 聊天终端固件，支持 MCP 工具调用，是当前一批「AI 桌面硬件」方案的底座。想知道在线烧录站给你刷的到底是什么，看这里。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-accent">MIT</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">MIT</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">ESP32-S3</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">AI 终端</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：开源，自取</li>
+                            
+                            
+                            <li><strong>许可</strong>：MIT（2026-11-01 GitHub API 实测，Star 约 3.2 万）</li>
+                            
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="小智 AI 服务端（xiaozhi-esp32-server） 配套后端：设备接入、语音链路、角色与对话管理，自己部署就能把整条链路留在手里。不想把设备数据交给第三方服务器时，这是必选项。 MIT 自建后端 语音 https://github.com/xinnan-tech/xiaozhi-esp32-server MIT（实测，Star 约 1.1 万）">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://github.com/xinnan-tech/xiaozhi-esp32-server" target="_blank" rel="noopener noreferrer nofollow">小智 AI 服务端（xiaozhi-esp32-server）
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">github.com</div>
+                        <div class="ot-desc">配套后端：设备接入、语音链路、角色与对话管理，自己部署就能把整条链路留在手里。不想把设备数据交给第三方服务器时，这是必选项。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-accent">MIT</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">MIT</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">自建后端</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">语音</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：开源，自部署</li>
+                            
+                            
+                            <li><strong>许可</strong>：MIT（实测，Star 约 1.1 万）</li>
+                            
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="esptool-js（浏览器端烧录库） 乐鑫官方的 JavaScript 版烧录工具，基于 Web Serial。想在自己的产品页里放「在线刷固件」按钮，拿它而不是去模仿第三方站的界面。 Apache-2.0 Web Serial 官方 https://github.com/espressif/esptool-js Apache-2.0（实测）">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://github.com/espressif/esptool-js" target="_blank" rel="noopener noreferrer nofollow">esptool-js（浏览器端烧录库）
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">github.com</div>
+                        <div class="ot-desc">乐鑫官方的 JavaScript 版烧录工具，基于 Web Serial。想在自己的产品页里放「在线刷固件」按钮，拿它而不是去模仿第三方站的界面。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-accent">Apache-2.0</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">Apache-2.0</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">Web Serial</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">官方</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：开源，自取</li>
+                            
+                            
+                            <li><strong>许可</strong>：Apache-2.0（实测）</li>
+                            
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="esptool（命令行烧录工具） 本地脚本化烧录、批量生产、CI 里做固件写入的标准件。浏览器工具失败时（驱动、串口占用、芯片不识别），回到它基本都能定位问题。 GPL-2.0 命令行 产线 https://github.com/espressif/esptool GPL-2.0（实测）">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://github.com/espressif/esptool" target="_blank" rel="noopener noreferrer nofollow">esptool（命令行烧录工具）
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">github.com</div>
+                        <div class="ot-desc">本地脚本化烧录、批量生产、CI 里做固件写入的标准件。浏览器工具失败时（驱动、串口占用、芯片不识别），回到它基本都能定位问题。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-accent">GPL-2.0</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">GPL-2.0</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">命令行</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">产线</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：开源，自取</li>
+                            
+                            
+                            <li><strong>许可</strong>：GPL-2.0（实测）</li>
+                            
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="ESP-IDF（乐鑫官方开发框架） ESP32 系列的正经开发框架，组件、分区表、OTA、低功耗的权威定义都在这。在线 IDE 生成的代码最终要落回它，工程化阶段绕不开。 Apache-2.0 框架 官方 https://github.com/espressif/esp-idf Apache-2.0（实测）">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://github.com/espressif/esp-idf" target="_blank" rel="noopener noreferrer nofollow">ESP-IDF（乐鑫官方开发框架）
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">github.com</div>
+                        <div class="ot-desc">ESP32 系列的正经开发框架，组件、分区表、OTA、低功耗的权威定义都在这。在线 IDE 生成的代码最终要落回它，工程化阶段绕不开。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-accent">Apache-2.0</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">Apache-2.0</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">框架</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">官方</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：开源，自取</li>
+                            
+                            
+                            <li><strong>许可</strong>：Apache-2.0（实测）</li>
+                            
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="PlatformIO Core 跨平台的嵌入式构建与库管理工具，VS Code 里一条命令换板子换框架。和在线工具的区别是产物、依赖、版本全在你机器上，可复现。 Apache-2.0 构建 VS Code https://github.com/platformio/platformio-core Apache-2.0（实测）">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://github.com/platformio/platformio-core" target="_blank" rel="noopener noreferrer nofollow">PlatformIO Core
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">github.com</div>
+                        <div class="ot-desc">跨平台的嵌入式构建与库管理工具，VS Code 里一条命令换板子换框架。和在线工具的区别是产物、依赖、版本全在你机器上，可复现。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-accent">Apache-2.0</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">Apache-2.0</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">构建</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">VS Code</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：开源，自取</li>
+                            
+                            
+                            <li><strong>许可</strong>：Apache-2.0（实测）</li>
+                            
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="MicroPython 跑在单片机上的 Python 实现，ESP32 / RP2040 全系支持。在线编辑器里那些代码的运行时就是它，许可细节以仓库 LICENSE 为准。 Python 教学 快速原型 https://github.com/micropython/micropython MIT 变体（GitHub 标记 NOASSERTION，以仓库 LICENSE 为准）">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://github.com/micropython/micropython" target="_blank" rel="noopener noreferrer nofollow">MicroPython
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">github.com</div>
+                        <div class="ot-desc">跑在单片机上的 Python 实现，ESP32 / RP2040 全系支持。在线编辑器里那些代码的运行时就是它，许可细节以仓库 LICENSE 为准。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-accent">MIT 变体</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">Python</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">教学</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">快速原型</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：开源，自取</li>
+                            
+                            
+                            <li><strong>许可</strong>：MIT 变体（GitHub 标记 NOASSERTION，以仓库 LICENSE 为准）</li>
+                            
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-xl-4 ot-item"
+                     data-search="ESPHome 用 YAML 描述设备、自动生成固件的方案，配 Home Assistant 生态很顺。想「不写代码」做联网设备时，它是比商业托管面板更可控的一条路。 YAML Home Assistant 固件生成 https://github.com/esphome/esphome 混合许可（GitHub 标记 NOASSERTION，以仓库 LICENSE 为准）">
+                    <div class="card-dark ot-card">
+                        <h3>
+                            <a href="https://github.com/esphome/esphome" target="_blank" rel="noopener noreferrer nofollow">ESPHome
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i>
+                            </a>
+                        </h3>
+                        <div class="ot-host">github.com</div>
+                        <div class="ot-desc">用 YAML 描述设备、自动生成固件的方案，配 Home Assistant 生态很顺。想「不写代码」做联网设备时，它是比商业托管面板更可控的一条路。</div>
+                        <div class="ot-meta">
+                            
+                            <span class="badge-zouic badge-zouic-success">实测可直达</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-accent">混合许可</span>
+                            
+                            
+                            <span class="badge-zouic badge-zouic-secondary">YAML</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">Home Assistant</span>
+                            
+                            <span class="badge-zouic badge-zouic-secondary">固件生成</span>
+                            
+                        </div>
+                        <ul class="ot-facts">
+                            <li><strong>费用</strong>：开源，自取</li>
+                            
+                            
+                            <li><strong>许可</strong>：混合许可（GitHub 标记 NOASSERTION，以仓库 LICENSE 为准）</li>
+                            
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <div class="card-dark p-6 mt-6">
+            <h2 class="text-xl font-bold mb-4">常见问题</h2>
+            
+            <div class="ot-faq">
+                <h3>不装电脑环境，浏览器能烧 ESP32 固件吗？</h3>
+                <p>能。Chrome / Edge 通过 Web Serial 直连芯片，选好板型或本地 bin 就能写入，省掉驱动、下载模式与烧录地址这几关。本站收录的在线烧录入口与浏览器串口终端都走这条路径，能力边界基本由乐鑫官方的 esptool-js（Apache-2.0）决定。</p>
+            </div>
+            
+            <div class="ot-faq">
+                <h3>第三方站烧录的小智 AI 固件是开源的吗？</h3>
+                <p>固件本体是开源的：仓库 78/xiaozhi-esp32 为 MIT 许可，配套后端 xiaozhi-esp32-server 同为 MIT（均为 2026-11-01 经 GitHub API 实测）。第三方站提供的是烧录服务与固件打包，这不改变上游许可，也不代表它们分发的每个固件包都开源——社区上传的固件要逐个看它的仓库与许可说明。</p>
+            </div>
+            
+            <div class="ot-faq">
+                <h3>这些在线工具收费吗？</h3>
+                <p>按 2026-11-01 各页面上看得见的文字记录：烧录与信息读取类页面没有出现登录门槛或收费提示；串口终端登录后可以保存常用命令；芯片对拷要先解锁复刻权限；NVS 分区读取需登录，而修改、写回是付费功能；固件市场同时存在免费与付费固件，付费固件按项目扣除站内积分、可用会员订阅畅用；对话式生成的 MicroAgent 有免费额度、用满也不会中断对话，需要更多算力可以订阅 AI 套餐，也支持填自己的模型 API Key；托管 MQTT 按年订阅、到期自动停权，控制面板依赖这项订阅。凡是本页标「未标注」的条目，都表示我们在页面上没有找到收费信息，价格以站内为准。</p>
+            </div>
+            
+            <div class="ot-faq">
+                <h3>用别人服务器烧固件、备份 Flash 有什么要注意的？</h3>
+                <p>两件事。一是设备存储会被完整读取，导出的 bin 版权归原固件作者，别随手分发；二是对拷与克隆只应针对你自己拥有权利的设备与固件。需要长期依赖时，建议本地同时留 esptool / esptool-js 作为兜底，不把产线和交付绑在第三方站上。</p>
+            </div>
+            
+            <div class="ot-faq">
+                <h3>这一页有没有搬运原站的内容？</h3>
+                <p>没有。本页只提供入口链接与本站撰写的用途摘要，未复制原站文案、截图、教程与商标素材，也没有抓取其 robots.txt 禁止访问的区域。涉及开源的部分一律指回上游仓库并标注实测许可。</p>
+            </div>
+            
+        </div>
+
+        <div class="card-dark p-6 mt-6">
+            <h2 class="text-xl font-bold mb-3">本站相关的几页</h2>
+            <ul class="text-secondary mb-0" style="font-size: .9375rem; line-height: 1.9; padding-left: 1.25rem;">
+                <li><a href="/boards/">开源开发板</a>：芯片型号、Flash 与 RAM 容量这些参数逐条带来源，
+                    用在线工具读出来的数字可以拿来对照。</li>
+                <li><a href="/resources/">资源导航</a>：需要装环境时的手册、镜像、例程与社区入口，和这一页互补。</li>
+                <li><a href="/open-source/">开源项目</a> 与 <a href="/licenses/">开源协议说明</a>：
+                    本页「上游开源项」这一组的许可口径与这里一致——以仓库 LICENSE 为准，标注只是核对结果。</li>
+                <li><a href="/contribute/">贡献指南</a>：某个入口打不开了、或者价格口径变了，按这里反馈，核对后更新本页。</li>
+            </ul>
+            <p class="text-secondary mt-4 mb-0" style="font-size: .8125rem;">
+                <i class="fas fa-circle-info me-1"></i>
+                费用与登录口径只写我们在页面上看得见的信息，看不到的一律标「未标注」，以站内为准；
+                外部链接均带 <code>nofollow</code>，本站不从中获得任何推广收益。
+            </p>
+        </div>
+    </div>
+</section>
+
+<script>
+(function () {
+    var input = document.getElementById('otSearch');
+    var clearBtn = document.getElementById('otClear');
+    var empty = document.getElementById('otEmpty');
+    if (!input) return;
+    var items = Array.prototype.slice.call(document.querySelectorAll('.ot-item'));
+    var groups = Array.prototype.slice.call(document.querySelectorAll('.ot-group'));
+
+    function apply() {
+        var q = (input.value || '').trim().toLowerCase();
+        var shown = 0;
+        items.forEach(function (el) {
+            var hay = (el.getAttribute('data-search') || '').toLowerCase();
+            var hit = !q || hay.indexOf(q) !== -1;
+            el.hidden = !hit;
+            if (hit) shown++;
+        });
+        groups.forEach(function (g) {
+            var any = g.querySelectorAll('.ot-item:not([hidden])').length > 0;
+            g.hidden = !any;
+        });
+        empty.style.display = shown === 0 ? 'block' : 'none';
+    }
+
+    input.addEventListener('input', apply);
+    if (clearBtn) {
+        clearBtn.addEventListener('click', function () {
+            input.value = '';
+            apply();
+            input.focus();
+        });
+    }
+})();
+</script>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Newsletter section (the home page already has a full follow block, so it is skipped there) -->
+    
+    <section id="follow" class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a>
+                        <div class="newsletter-benefits">
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="py-4" aria-label="出品人">
+        <div class="author-card">
+            <div class="author-card-info">
+                <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
+                <div>
+                    <div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div>
+                    <div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div>
+                </div>
+            </div>
+            <div class="author-card-actions">
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-zouic" role="contentinfo">
+        <div class="container">
+            <div class="row footer-main">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
+                    <a href="/" class="footer-brand" aria-label="ZouIC 首页">
+                        <i class="fas fa-microchip"></i>
+                        <span>ZouIC</span>
+                    </a>
+                    <p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p>
+                    <p class="footer-business-contact">
+                        商务合作 / 器件选型：
+                        <a href="mailto:waedon@outlook.com?subject=%E5%95%86%E5%8A%A1%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a>
+                    </p>
+
+                    <div class="footer-meta">
+                        <p class="footer-author">
+                            出品人 · <strong>极客微栋</strong>
+                            <span class="footer-author-handle">@GeekWaedon</span>
+                        </p>
+                        <div class="footer-slash-tags">
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span>
+                            <a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商">
+                                <i class="fab fa-weixin"></i> 企业微信服务商
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a>
+                        <a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a>
+                        <a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a>
+                        <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>产品</h5>
+                    <ul>
+                        <li><a href="/products/">产品介绍</a></li>
+                        <li><a href="/services/">服务说明</a></li>
+                        <li><a href="/services/website-building/">建站服务</a></li>
+                        <li><a href="/services/component-matching/">元器件撮合</a></li>
+                        <li><a href="/news/">站内动态</a></li>
+                        <li><a href="/boards/">开源开发板</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>资源</h5>
+                    <ul>
+                        <li><a href="/board-guide/">选型指南</a></li>
+                        <li><a href="/compare/">开发板对比</a></li>
+                        <li><a href="/tutorials/">开发板教程</a></li>
+                        <li><a href="/documentation/">技术文档</a></li>
+                        <li><a href="/online-tools/">在线工具</a></li>
+                        <li><a href="/cases/">项目案例</a></li>
+                        <li><a href="/help/">文档中心</a></li>
+                        <li><a href="/games/resistor/">色环电阻识别挑战</a></li>
+                        <li><a href="/dashuju/">数据大屏</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>开源生态</h5>
+                    <ul>
+                        <li><a href="/open-source/">开源项目</a></li>
+                        <li><a href="/all-projects/">全部项目</a></li>
+                        <li><a href="/articles/">技术文章</a></li>
+                        <li><a href="/wechat/">公众号专栏</a></li>
+                        <li><a href="/contribute/">贡献指南</a></li>
+                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h5>关于</h5>
+                    <ul>
+                        <li><a href="/about/">关于我们</a></li>
+                        <li><a href="/about/#contact">联系我们</a></li>
+                        <li><a href="/licenses/">开源协议</a></li>
+                        <li><a href="/about/#privacy">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-category-strip">
+                <span class="footer-category-label">热门分类</span>
+                <div class="footer-category-links">
+                    <a href="/category/">全部</a>
+                    
+                    <a href="/category/fpga/">FPGA</a>
+                    
+                    <a href="/category/general/">综合</a>
+                    
+                    <a href="/category/ai_hardware/">AI 硬件</a>
+                    
+                    <a href="/category/vision/">机器视觉</a>
+                    
+                    <a href="/category/esp32/">ESP32</a>
+                    
+                    <a href="/category/robotics/">机器人</a>
+                    
+                    <a href="/source/github/">GitHub</a>
+                    <a href="/source/hackster/">Hackster.io</a>
+                    <a href="/resources/">资源导航</a>
+                </div>
+            </div>
+            
+            <div class="footer-producer-bar">
+                <img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
+                <div style="line-height:1.6;">
+                    <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div>
+                    <div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ZouIC. All rights reserved.</p>
+                <p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p>
+                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    <script>
+    (function () {
+        var api = "https://waedon.pythonanywhere.com";
+        var sent = false;
+        function navPerf() {
+            try {
+                var n = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+                if (n && n.loadEventEnd > 0) return Math.round(n.loadEventEnd);
+            } catch (e) { /* ignore */ }
+            return 0;
+        }
+        function send() {
+            if (sent) return;
+            sent = true;
+            var payload = {
+                site: 'zouic',
+                path: (location.pathname + location.search + (location.hash || '')).slice(0, 300),
+                title: (document.title || '').slice(0, 200),
+                ref: document.referrer || '',
+                lang: navigator.language || '',
+                perf: navPerf()
+            };
+            var body = JSON.stringify(payload);
+            // text/plain 免 CORS 预检；页面已经加载完，sendBeacon 最稳
+            try {
+                if (navigator.sendBeacon &&
+                    navigator.sendBeacon(api + '/api/beacon', new Blob([body], { type: 'text/plain;charset=UTF-8' }))) return;
+            } catch (e) { /* fallthrough */ }
+            try {
+                fetch(api + '/api/beacon', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+                    body: body,
+                    keepalive: true,
+                    credentials: 'omit'
+                }).catch(function () {});
+            } catch (e) {}
+        }
+        if (document.readyState === 'complete') setTimeout(send, 0);
+        else window.addEventListener('load', function () { setTimeout(send, 120); });
+        window.addEventListener('pagehide', send);
+    })();
+    </script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/online-tools/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=zh-CN'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Kostenloses erstes Kapitel des Open Hardware Selection Handbooks: Warum dein Entwicklungsboard Staub sammelt - weil Ihre Auswahlreihenfolge rückwärts ist.">
+    <meta name="keywords" content="Kartenauswahl, offene Hardware, STM32, ESP32, Auswahlmethode">
+    
+    <meta name="author" content="ZouIC">
+    <meta name="theme-color" content="#00E5FF">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <link rel="canonical" href="https://www.zouic.com/de/articles/handbook-ch1/">
+    
+    <link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/handbook-ch1/" />
+    
+    <link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/handbook-ch1/" />
+    
+    <link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/handbook-ch1/" />
+    
+    
+    <link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/handbook-ch1/" />
+    
+    
+    
+    
+    <meta property="og:title" content="Die richtige Reihenfolge für die Auswahl des Boards: Szenario, Einschränkungen, dann das Board">
+    <meta property="og:description" content="Kostenloses erstes Kapitel des Open Hardware Selection Handbooks: Warum dein Entwicklungsboard Staub sammelt - weil Ihre Auswahlreihenfolge rückwärts ist.">
+    <meta property="og:url" content="https://www.zouic.com/de/articles/handbook-ch1/">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="article:published_time" content="2026-10-23">
+    <meta property="article:modified_time" content="2026-10-27">
+    <meta property="og:site_name" content="ZouIC">
+    <meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ZouIC – Plattform für Open-Source-Entwicklungsboards · GeekWeidong">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Die richtige Reihenfolge für die Auswahl des Boards: Szenario, Einschränkungen, dann das Board">
+    <meta name="twitter:description" content="Kostenloses erstes Kapitel des Open Hardware Selection Handbooks: Warum dein Entwicklungsboard Staub sammelt - weil Ihre Auswahlreihenfolge rückwärts ist.">
+    <meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "about": "\u5f00\u53d1\u677f\u9009\u578b,\u5f00\u6e90\u786c\u4ef6,STM32,ESP32,\u9009\u578b\u65b9\u6cd5", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "dateModified": "2026-10-27", "datePublished": "2026-10-23", "description": "\u300a\u5f00\u6e90\u786c\u4ef6\u5b9e\u6218\u9009\u578b\u624b\u518c\u300b\u7b2c\u4e00\u7ae0\u514d\u8d39\u8bd5\u8bfb\uff1a\u4e3a\u4ec0\u4e48\u4f60\u7684\u5f00\u53d1\u677f\u5728\u5403\u7070\uff1f\u56e0\u4e3a\u9009\u578b\u987a\u5e8f\u53cd\u4e86\u3002", "headline": "\u9009\u578b\u7684\u6b63\u786e\u987a\u5e8f\uff1a\u5148\u770b\u573a\u666f\uff0c\u518d\u770b\u7ea6\u675f\uff0c\u6700\u540e\u770b\u677f\u5361", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "de", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/handbook-ch1/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/handbook-ch1/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/handbook-ch1/", "name": "\u9009\u578b\u7684\u6b63\u786e\u987a\u5e8f\uff1a\u5148\u770b\u573a\u666f\uff0c\u518d\u770b\u7ea6\u675f\uff0c\u6700\u540e\u770b\u677f\u5361", "position": 3}]}]}
+    </script>
+    
+    
+    <title>Board Auswahl Reihenfolge: Szenario, Einschränkungen, Board - ZouIC</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    
+    <!-- External Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet">
+    
+    <!-- ZouIC Design System -->
+    <link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a">
+    <link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261031a">
+    <noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a">
+    
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Hauptnavigation">
+        <div class="container">
+            <a class="navbar-brand" href="/de/">
+                <i class="fas fa-microchip"></i> ZouIC
+            </a>
+            <span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true">
+                <span class="nav-hud-dot"></span>SYS.ONLINE
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Navigation umschalten">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/de/">Startseite</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/de/all-projects/"><i class="fas fa-project-diagram me-1"></i>Open-Source-Projekte</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/de/boards/">Open-Source-Boards</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/de/board-guide/">Dokumentation</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-business" href="/de/services/component-matching/">Geschäftskontakt</a></li>
+                    <li class="nav-item dropdown">
+                        <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Mehr
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/de/products/"><i class="fas fa-box me-2"></i>Produkte</a></li>
+                            <li><a class="dropdown-item" href="/de/services/"><i class="fas fa-cogs me-2"></i>Leistungen</a></li>
+                            <li><a class="dropdown-item" href="/de/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>elektronische BauteileVermittlung</a></li>
+                            <li><a class="dropdown-item" href="/de/news/"><i class="fas fa-newspaper me-2"></i>Neuigkeiten</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/de/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Anleitungen</a></li>
+                            <li><a class="dropdown-item" href="/de/documentation/"><i class="fas fa-book me-2"></i>Dokumentation</a></li>
+                            <li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>Ressourcennavigation</a></li>
+                            <li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>Online-Werkzeuge</a></li>
+                            <li><a class="dropdown-item" href="/de/cases/"><i class="fas fa-briefcase me-2"></i>Projektbeispiele</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/de/open-source/"><i class="fas fa-code-branch me-2"></i>Open-Source-Projekte</a></li>
+                            <li><a class="dropdown-item" href="/de/articles/"><i class="fas fa-pen-fancy me-2"></i>Fachbeiträge</a></li>
+                            <li><a class="dropdown-item" href="/de/contribute/"><i class="fas fa-handshake me-2"></i>Mitwirken</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/de/dashuju/"><i class="fas fa-chart-line me-2"></i>Datenübersicht</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-lg-none"><a class="nav-link" href="/de/search/"><i class="fas fa-search me-1"></i>Suche</a></li>
+                </ul>
+                <form id="searchForm" class="d-flex me-3 d-none d-lg-flex">
+                    <div class="input-group input-group-zouic">
+                        <input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="Boards, Projekte oder Schlagworte suchen …" aria-label="Suchen" style="width: 200px;">
+                        <select id="searchType" class="form-select input-zouic" aria-label="Suchtyp:" style="width: auto; flex: 0 0 auto;">
+                            <option value="">Alle Kategorien</option>
+                            <option value="board">Open-Source-Boards</option>
+                            <option value="project">Open-Source-Projekte</option>
+                        </select>
+                        <button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Suchen">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="dropdown">
+                        <button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i> Deutsch
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/articles/handbook-ch1/">
+                                <i class="fas fa-language me-2"></i> Chinesisch
+                            </a></li>
+                            <li><a class="dropdown-item" href="/en/articles/handbook-ch1/">
+                                <i class="fas fa-language me-2"></i> Englisch
+                            </a></li>
+                            
+                            <li><a class="dropdown-item" href="/de/articles/handbook-ch1/">
+                                <i class="fas fa-language me-2"></i> Deutsch
+                            </a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        
+<section class="page-hero page-hero-articles article-hero py-16">
+    <div class="container text-center">
+        <span class="badge badge-accent mb-3">Kostenlose Handbuchvorschau · Kapitel 1</span>
+        <h1 class="display-4 font-bold mb-4">Die richtige Reihenfolge für die Auswahl des Boards: Szenario, Einschränkungen, dann das Board</h1>
+        <p class="text-secondary lead">&#34;Open Hardware Selection Handbook&#34; · Geek Weidong @GeekWaedon</p>
+    </div>
+</section>
+
+<section class="pt-6">
+    <div class="container" style="max-width: 860px;">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent mb-0">
+                <li class="breadcrumb-item"><a href="/de/">Startseite</a></li>
+                <li class="breadcrumb-item"><a href="/de/articles/">Fachbeiträge</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Die richtige Reihenfolge für die Auswahl des Boards: Szenario, Einschränkungen, dann das Board</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<section class="py-8">
+    <div class="container" style="max-width: 860px;">
+
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">1.1 Bekanntes Drehbuch</h2>
+            <p class="text-secondary" style="line-height:1.9;">Sie möchten etwas bauen - sagen Sie, ein Temperatur- und Luftfeuchtigkeitsmesser, das Sie aus der Ferne überprüfen können. Sie öffnen eine Einkaufsseite, suchen nach &#34;Development Board&#34;, sortieren nach Verkauf und finden ein Board mit beeindruckenden Spezifikationen: ein paar hundert MHz, Dutzende von GPIOs und &#34;kostenlose Tutorials enthalten&#34;. Der Preis ist vernünftig. Du bestellst.</p>
+            <p class="text-secondary" style="line-height:1.9;">Drei Tage später kommt der Board. Dann entdecken Sie, dass die Tutorials fünf Jahre alt sind, die gebündelte IDE nicht installiert wird, und die Suche nach der Fehlermeldung gibt drei alte Beiträge auf einem englischen Forum zurück. Eine Woche später geht das Brett in eine Schublade.</p>
+            <p class="text-secondary" style="line-height:1.9;">Das Problem sind nicht Sie, und nicht ganz der Verkäufer.<strong class="text-white">Das Problem ist, dass die Reihenfolge der Auswahl umgekehrt ist.</strong></p>
+        </div>
+
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">1.2 Falsche Reihenfolge vs. richtige Reihenfolge</h2>
+            <p class="text-secondary" style="line-height:1.9;">Falsche Reihenfolge (der Instinkt von 90% der Anfänger):<strong class="text-white">Spezifikationen → Preis → Bestellung → dann herausfinden, was zu bauen</strong>.</p>
+            <p class="text-secondary" style="line-height:1.9;">Die richtige Reihenfolge:<strong class="text-white">Szenario → Einschränkungen → board</strong>.</p>
+            <p class="text-secondary" style="line-height:1.9;">Warum ist die Bestellung so wichtig? Weil ein Entwicklungsboard kein schnell bewegendes Verbrauchsgut ist - es ist<strong class="text-white">Eingangspunkt in ein Ökosystem</strong>Sie kaufen nicht nur eine PCB; Sie kaufen die Tutorials, Bibliotheken, Community und dokumentierte Fallstricken dahinter. Die Taktgeschwindigkeit auf einem Spezifikationsblatt bestimmt den Projekterfolg nicht - das Ökosystem bestimmt es.</p>
+        </div>
+
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">1.3 Schritt 1: Beschreiben Sie das Szenario eindeutig</h2>
+            <p class="text-secondary" style="line-height:1.9;">&#34;Ich will ein intelligentes Gerät bauen&#34; ist kein Szenario, es ist ein Wunsch. Eine richtige Szenariobeschreibung beantwortet vier Fragen:</p>
+            <div class="table-responsive">
+                <table class="table table-dark table-sm align-middle">
+                    <thead><tr><th>Frage</th><th>Beispiel (Ferntemperatur-/Feuchtigkeitsmesser)</th></tr></thead>
+                    <tbody class="text-secondary">
+                        
+                        
+                        
+                        
+                        <tr><td>做什么？</td><td>采集温湿度，上报到手机可看的页面</td></tr>
+                        
+                        <tr><td>给谁用？</td><td>自己用，放在家里</td></tr>
+                        
+                        <tr><td>放在哪？</td><td>客厅，有插座，但也想试试阳台</td></tr>
+                        
+                        <tr><td>跑多久？</td><td>长期开着，最好几个月不用管</td></tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-secondary mt-3" style="line-height:1.9;">Füllen Sie diese Vorlage aus und Sie haben bereits mehr als die Hälfte der Kandidatenboards entfernt.</p>
+        </div>
+
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">1.4 Schritt zwei: drei typische Einschränkungen</h2>
+            <p class="text-secondary" style="line-height:1.9;">Einschränkungen filtern die Kandidatengruppe von &#34;Dutzenden Boards&#34; auf &#34;zwei oder drei&#34;. In Reihenfolge der Bedeutung:</p>
+            <h3 class="font-bold mt-4 mb-2 text-white">Einschränkung 1: Konnektivität</h3>
+            <ul class="text-secondary" style="line-height:2;">
+                <li>Keine Konnektivität (lokale Steuerung, Offline-Betrieb) → Jedes MCU Board bleibt Kandidat</li>
+                <li>WLAN/Bluetooth → beschränkt sich auf Boards mit eingebautem Wireless wie die Espressif ESP32 Familie, Pico W und Arduino Nano ESP32</li>
+                <li>Langstreckenleistung (Hunderte Meter oder mehr) → LoRa-Lösungen, in der Regel &#34;Hauptplatte + LoRa-Modul&#34;</li>
+                <li>Neues Protokoll (NearLink) → die NearLink-Serie, akzeptieren aber, dass das Ökosystem noch jung ist</li>
+            </ul>
+            <p class="text-secondary" style="line-height:1.9;">Viele Auswahlfehler kommen aus der Anwendung dieses Filters letztlich: Sie kaufen ein Board ohne drahtlos, entdecken auf halbem Weg, dass Sie Konnektivität brauchen, und müssen mit einem Add-on-Modul neu anfangen.</p>
+            <h3 class="font-bold mt-4 mb-2 text-white">Einschränkung zwei: Echtzeit-Anforderungen</h3>
+            <p class="text-secondary" style="line-height:1.9;">Fragen Sie sich: Wenn das System 0,1 Sekunden zu spät reagiert, könnte das zu einem Unfall führen?</p>
+            <ul class="text-secondary" style="line-height:2;">
+                <li>Ja (Motorsteuerung, PID, Balancebots) → Sie brauchen harte Echtzeit; Wählen Sie eine traditionelle MCU wie STM32 und bleiben Sie weg von jedem Board mit Linux</li>
+                <li>Nein (Meldung von Temperatur/Luftfeuchtigkeit, Mensch-Maschine-Interaktion, Datenerfassung) → viel mehr Optionen, einschließlich Linux Boards</li>
+            </ul>
+            <p class="text-secondary" style="line-height:1.9;">Ein One-Line-Test:<strong class="text-white">jede Verzögerung, die das menschliche Auge toleriert, ist für eine MCU in Ordnung; Jede Verzögerung, die ein Motor nicht tolerieren kann, ist für Linux inakzeptabel.</strong></p>
+            <h3 class="font-bold mt-4 mb-2 text-white">Einschränkung 3: Ökosystemreife</h3>
+            <p class="text-secondary" style="line-height:1.9;">Dies ist der größte Gewichtsfaktor für Anfänger und kann für erfahrene Hersteller entspannt werden. Überprüfen Sie drei Dinge:</p>
+            <ol class="text-secondary" style="line-height:2;">
+                <li>Gibt es viele Tutorials in Ihrer Sprache? (Suchen Sie nach dem Brettmodell - wenn Sie weniger als 10 anständige Tutorials finden, sollten Anfänger weg bleiben.)</li>
+                <li>Gibt es eine vorhandene Bibliothek für jedes Peripheriegerät, das Sie verwenden möchten? (OLED, Servo, Sensoren – überprüfen Sie jeden.)</li>
+                <li>Können Sie Antworten auf Fehlermeldungen finden? (Suchen Sie nach dem Brettmodell plus einem gängigen Fehlerschlüsselwort und sehen Sie, was zurückkommt.)</li>
+            </ol>
+            <p class="text-secondary" style="line-height:1.9;">Aus diesem Grund wird Anfängern empfohlen, mit ESP32 oder STM32 zu beginnen - nicht weil sie die leistungsstärksten sind, sondern weil<strong class="text-white">Jeder Schritt, an dem man feststeckt, hat jemand zuvor feststeckt und die Antwort aufgeschrieben.</strong>.</p>
+            <p class="text-secondary mt-3" style="line-height:1.9;">Sekundäre Einschränkungen (Budget, Stromverbrauch) folgen diesen drei. Der Grund ist einfach: Der Unterschied zwischen ¥30 und ¥60 ist viel weniger wichtig als, ob Sie das Projekt überhaupt fertigstellen können.</p>
+        </div>
+
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">1.5 Ein kompletter Durchlauf</h2>
+            <p class="text-secondary" style="line-height:1.9;">Zurück zum Temperatur-/Feuchtigkeitsmesser aus der Öffnung. Hier ist die vollständige Argumentation:</p>
+            <pre class="p-4 rounded" style="background:#1a1f2b;color:#c9d4e3;font-size:14px;line-height:1.8;overflow-x:auto;">Szenario: Zuhause, Wohnzimmer/Balkon, Langlauf
+↓
+Einschränkung 1 (Konnektivität): Wi-Fi benötigt → Beseitigen Sie alle Boards ohne drahtlos
+↓
+Einschränkung 2 (Echtzeit): Menschen lesen die Daten, eine halbe Sekunde zu spät ist in Ordnung → kein Filter
+↓
+Einschränkung 3 (Ökosystem): Erstes Anfängerprojekt, braucht viele Tutorials → Espressif gewinnt
+↓
+Sekundäre Einschränkungen: budgetsensibel → ESP32-C3 (¥ Ebene);
+Sie wollen auch mit einem Bildschirm spielen → ESP32-S3 (¥¥ Ebene)
+↓
+Schlussfolgerung: ESP32-S3-DevKitC oder ESP32-C3-DevKitM</pre>
+            <p class="text-secondary mt-3" style="line-height:1.9;">Der gesamte Durchgang dauert weniger als zwei Minuten, aber jeder Schritt hat einen Grund.<strong class="text-white">Es garantiert nicht das leistungsstärkste Board - es garantiert ein Board, mit dem Sie das Projekt beenden können.</strong></p>
+        </div>
+
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">1.6 Drei Denkfallen</h2>
+            <p class="text-secondary" style="line-height:1.9;"><strong class="text-white">Falle 1: Spezifikationsverehrung.</strong>&#34;Dieser läuft bei 240 MHz und der andere nur bei 133 MHz, also kaufen Sie den schnelleren.&#34; - Die Berechnung, die Ihr Temperaturmesser benötigt, war vor zwanzig Jahren auf Chips verfügbar. Überschüssige Spezifikationen werden Sie nicht erfolgreich machen; ein unfruchtbares Ökosystem wird dich definitiv scheitern lassen.</p>
+            <p class="text-secondary" style="line-height:1.9;"><strong class="text-white">Falle zwei: Architektonisches Gefühl.</strong>&#34;RISC-V ist die Zukunft, ich möchte es auf einmal lernen.&#34; — Es gibt nichts falsches daran, an die Architektur zu glauben, aber das Starten Ihres ersten Projekts auf einem RISC-V Linux-Board bedeutet, sich drei Unbekannten auf einmal zu stellen: einer neuen Architektur, einem neuen Betriebssystem und einem neuen Projekt. Herausfordern Sie eine Schicht auf einmal.</p>
+            <p class="text-secondary" style="line-height:1.9;"><strong class="text-white">Falle drei: die &#34;alles tun&#34; Denkweise.</strong>&#34;Kaufen Sie ein Board, das alles kann, dann bin ich für jedes zukünftige Projekt bereit.&#34; - Es gibt kein Do-Everything Board. Boards mit Wi-Fi sind nicht gut in harter Echtzeit; Boards mit Linux sind nicht energieeffizient. Entwicklungsboard sind Verbrauchsmaterialien, keine Erbschaften.</p>
+        </div>
+
+        <div class="card-dark p-6 mb-5">
+            <h2 class="section-title text-2xl font-bold mb-4">1.7 Kapitel-Checkliste</h2>
+            <ul class="text-secondary" style="line-height:2;">
+                <li>□ Habe ich eine vierteilige Szenariobeschreibung geschrieben? (was / für wen / wo / wie lange)</li>
+                <li>□ Ist die Konnektivitätsanforderung klar? (keine / Wi-Fi / Langstrecke / neues Protokoll)</li>
+                <li>□ Habe ich die Echtzeit-Anforderung beurteilt? (würde eine Verzögerung von 0,1 Sekunden zu einem Unfall führen?)</li>
+                <li>□ Habe ich gesucht, wie viele Tutorials es für die Kandidatenboards gibt? (weniger als 10 → Schalter)</li>
+                <li>□ Habe ich eine vorhandene Bibliothek für jedes Peripheriegerät bestätigt, das ich brauche?</li>
+                <li>□ Habe ich die Budgetbeschränkung zuletzt in Betracht gezogen?</li>
+                <li>□ Wähle ich einen Board für &#34;dieses Projekt&#34; anstatt für &#34;alle zukünftigen Projekte&#34;?</li>
+            </ul>
+        </div>
+
+        <div class="card-dark p-6">
+            <p class="text-secondary" style="line-height:1.9;"><strong class="text-white">Nächstes Kapitel Vorschau</strong>2.1 Die Wi-Fi/IoT-Hauptgruppe ESP32-S3, ESP32-C3, ESP32-C6 und BL602 geht kopf zu kopf: alle verfügen über Wi-Fi, aber die Preise unterscheiden sich um das 2-fache. Was kauft das Extrageld?</p>
+            <p class="text-secondary" style="line-height:1.9;">Begleiter Cheat Blatt:<a href="/de/articles/board-selection-cheatsheet/" class="text-primary">Ein-Seiten-Cheat-Blatt: Ich möchte X bauen – welches Board soll ich kaufen?</a>Das Handbuch wird kontinuierlich aktualisiert – um zuerst neue Kapitel zu bekommen<a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener" class="text-primary">Wissensplanetengemeinschaft &#34;Geek Weidong&#34;</a>.</p>
+        </div>
+
+        
+        <div class="card-dark p-6 mt-5">
+    <h2 class="section-title text-2xl font-bold mb-4">Verwandtes Lesen</h2>
+    <div class="row g-3">
+        
+        <div class="col-md-6">
+            <a href="/de/articles/board-selection-cheatsheet" class="card-dark p-4 h-100 d-block text-decoration-none hover-underline">
+                <h4 class="font-bold mb-1">Ein-Seiten-Cheat-Blatt: Ich möchte X bauen – welches Board soll ich kaufen?</h4>
+                <p class="text-secondary text-sm mb-0">Ein Board-Cheat-Blatt für 12 häufige Szenarien: Szenario erstes, Einschränkungen zweites, Board letztes, plus drei Anfängerfragen und eine Anti-Selektion-Checkliste.</p>
+            </a>
+        </div>
+        
+        <div class="col-md-6">
+            <a href="/de/boards" class="card-dark p-4 h-100 d-block text-decoration-none hover-underline">
+                <h4 class="font-bold mb-1">Entwicklungsboards</h4>
+                <p class="text-secondary text-sm mb-0">Durchsuchen und Suchen verschiedener Open Source-Entwicklungsboards</p>
+            </a>
+        </div>
+        
+        <div class="col-md-6">
+            <a href="/de/board-guide" class="card-dark p-4 h-100 d-block text-decoration-none hover-underline">
+                <h4 class="font-bold mb-1">Leitfaden zur Board Selection</h4>
+                <p class="text-secondary text-sm mb-0">Detaillierte Vergleiche von Mainstream-Open-Source-Boards, basierend auf den neuesten CSDN-Community-Ressourcen</p>
+            </a>
+        </div>
+        
+        <div class="col-md-6">
+            <a href="/de/articles/knowledge-business-models" class="card-dark p-4 h-100 d-block text-decoration-none hover-underline">
+                <h4 class="font-bold mb-1">知识付费模式拆解</h4>
+                <p class="text-secondary text-sm mb-0">四种模式与一条复利路线</p>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+    </div>
+</section>
+
+
+
+<section class="section-zouic reveal py-12" id="contact">
+    <div class="container">
+        <div class="zlead-card">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-5">
+                    <span class="section-zouic-badge" style="background:rgba(0,229,255,.12);color:var(--color-primary);">
+                        <i class="fas fa-bolt"></i> Kostenlose Erstberatung
+                    </span>
+                    <h2 class="section-zouic-title mt-3 mb-3">Schildern Sie Ihr Projekt – Sie erhalten einen konkreten Vorschlag</h2>
+                    <p class="text-secondary mb-4" style="line-height:1.8;">Teilen Sie mir mit, was Sie entwickeln oder beschaffen möchten. Ich antworte innerhalb eines Werktags – per E-Mail und WeChat.</p>
+                    <div class="d-flex flex-column gap-2" style="font-size:14px;">
+                        <a href="mailto:waedon@outlook.com" class="text-secondary"><i class="fas fa-envelope me-2"></i>waedon@outlook.com</a>
+                        <a href="/de/#follow" class="text-secondary"><i class="fab fa-weixin me-2"></i>WeChat-Account „Geek Weidong“</a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="text-secondary"><i class="fab fa-zhihu me-2"></i>Zhihu · GeekWaedon</a>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <form id="zleadForm-article-handbook-ch1" class="zlead-form" novalidate>
+                        <input type="hidden" name="source" value="article-handbook-ch1">
+                        <input type="hidden" name="page_path" data-attrib>
+                        <input type="hidden" name="referrer" data-attrib>
+                        <input type="hidden" name="utm_source" data-attrib>
+                        <input type="hidden" name="utm_medium" data-attrib>
+                        <input type="hidden" name="utm_campaign" data-attrib>
+                        <div class="zlead-row">
+                            <div class="zlead-field">
+                                <label for="zleadName-article-handbook-ch1">Name <span class="zlead-req">*</span></label>
+                                <input type="text" id="zleadName-article-handbook-ch1" name="name" required autocomplete="name" placeholder="Wie darf ich Sie ansprechen?">
+                            </div>
+                            <div class="zlead-field">
+                                <label for="zleadContact-article-handbook-ch1">E-Mail oder WeChat <span class="zlead-req">*</span></label>
+                                <input type="text" id="zleadContact-article-handbook-ch1" name="contact" required autocomplete="email" placeholder="name@firma.de oder WeChat-ID">
+                            </div>
+                        </div>
+                        <div class="zlead-row">
+                            <div class="zlead-field">
+                                <label for="zleadCompany-article-handbook-ch1">Unternehmen (optional)</label>
+                                <input type="text" id="zleadCompany-article-handbook-ch1" name="company" autocomplete="organization" placeholder="Unternehmen oder Team">
+                            </div>
+                            <div class="zlead-field">
+                                <label for="zleadCity-article-handbook-ch1">Stadt (optional)</label>
+                                <input type="text" id="zleadCity-article-handbook-ch1" name="city" autocomplete="address-level2" placeholder="Stadt oder Region">
+                            </div>
+                        </div>
+                        <div class="zlead-field">
+                            <label for="zleadMessage-article-handbook-ch1">Was benötigen Sie? <span class="zlead-req">*</span></label>
+                            <textarea id="zleadMessage-article-handbook-ch1" name="message" required placeholder="Projektziel, Board das Sie in Betracht ziehen, Budget oder Zeitplan …"></textarea>
+                        </div>
+                        <button type="submit" class="btn-zouic btn-zouic-primary w-100 zlead-submit">
+                            <i class="fas fa-paper-plane me-2"></i>Anfrage senden
+                        </button>
+                        <div class="zlead-msg" role="status" aria-live="polite"></div>
+                        <p class="zlead-privacy">Ihre Angaben dienen ausschließlich der Bearbeitung dieser Anfrage. Keine Werbung, keine Weitergabe.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .zlead-card { background: linear-gradient(135deg, rgba(0,229,255,.08), rgba(167,139,250,.08)); border: 1px solid rgba(0,229,255,.25); border-radius: 20px; padding: clamp(20px, 4vw, 40px); }
+    .zlead-form { max-width: 620px; margin: 0 auto; text-align: left; }
+    .zlead-form label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--color-text-primary); }
+    .zlead-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .zlead-field { margin-bottom: 14px; }
+    .zlead-field input, .zlead-field textarea { width: 100%; padding: 11px 14px; border-radius: 10px; border: 1px solid var(--color-border-default); background: rgba(255,255,255,.05); color: var(--color-text-primary); font-size: 14px; }
+    .zlead-field input:focus, .zlead-field textarea:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0,229,255,.15); }
+    .zlead-field textarea { resize: vertical; min-height: 96px; font-family: inherit; }
+    .zlead-req { color: #f87171; }
+    .zlead-submit { padding: 13px; }
+    .zlead-msg { display: none; margin-top: 12px; padding: 10px 14px; border-radius: 10px; font-size: 13.5px; }
+    .zlead-msg.success { display: block; background: rgba(74,222,128,.1); color: #4ade80; border: 1px solid rgba(74,222,128,.3); }
+    .zlead-msg.error { display: block; background: rgba(248,113,113,.1); color: #f87171; border: 1px solid rgba(248,113,113,.3); }
+    .zlead-privacy { margin: 12px 0 0; font-size: 12px; color: var(--color-text-secondary, #94a3b8); }
+    @media (max-width: 575px) { .zlead-row { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+(function () {
+    var form = document.getElementById('zleadForm-article-handbook-ch1');
+    if (!form) return;
+
+    var TARGET_EMAIL = 'waedon@outlook.com';
+    var btn = form.querySelector('.zlead-submit');
+    var msg = form.querySelector('.zlead-msg');
+    var btnHtml = btn.innerHTML;
+
+    (function initAttribution() {
+        var params = new URLSearchParams(window.location.search);
+        var values = {
+            page_path: window.location.pathname + window.location.search,
+            referrer: document.referrer || '',
+            utm_source: params.get('utm_source') || '',
+            utm_medium: params.get('utm_medium') || '',
+            utm_campaign: params.get('utm_campaign') || ''
+        };
+        form.querySelectorAll('[data-attrib]').forEach(function (el) {
+            el.value = values[el.name] || '';
+        });
+    })();
+
+    var COPY = {
+        submitting: "Wird gesendet \u2026",
+        success: "Angekommen. Ich antworte innerhalb eines Werktags per E-Mail und WeChat.",
+        required: "Bitte f\u00fcllen Sie Name, Kontakt und Nachricht aus.",
+        contact: "Bitte geben Sie eine g\u00fcltige E-Mail-Adresse oder WeChat-ID ein.",
+        generic: "Senden fehlgeschlagen. Bitte versuchen Sie es erneut oder schreiben Sie direkt an waedon@outlook.com.",
+        prefix: "[ZouIC Lead] "
+    };
+
+    form.addEventListener('submit', async function (event) {
+        event.preventDefault();
+        msg.className = 'zlead-msg';
+        msg.textContent = '';
+
+        var name = form.name.value.trim();
+        var contact = form.contact.value.trim();
+        var message = form.message.value.trim();
+        var extra = {
+            company: form.company.value.trim(),
+            city: form.city.value.trim(),
+            source: 'article-handbook-ch1',
+            page_path: form.page_path.value,
+            referrer: form.referrer.value,
+            utm_source: form.utm_source.value,
+            utm_medium: form.utm_medium.value,
+            utm_campaign: form.utm_campaign.value
+        };
+
+        if (!name || !contact || !message) {
+            msg.className = 'zlead-msg error';
+            msg.textContent = COPY.required;
+            return;
+        }
+        if (contact.indexOf('@') !== -1 && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact)) {
+            msg.className = 'zlead-msg error';
+            msg.textContent = COPY.contact;
+            return;
+        }
+
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>' + COPY.submitting;
+
+        var submitted = false;
+
+        try {
+            var apiRes = await fetch('/api/lead', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(Object.assign({
+                    name: name,
+                    email: contact,
+                    message: message
+                }, extra))
+            });
+            if (apiRes.ok) {
+                var apiData = await apiRes.json();
+                submitted = apiData.success === true;
+            }
+        } catch (err) {
+            /* static hosting has no backend; fall through to the email relay */
+        }
+
+        if (!submitted) {
+            try {
+                var payload = {
+                    name: name,
+                    contact: contact,
+                    message: contact.indexOf('@') === -1 ? message + '\n\nWeChat: ' + contact : message,
+                    _subject: COPY.prefix + name + (extra.company ? ' - ' + extra.company : ''),
+                    _template: 'table'
+                };
+                Object.keys(extra).forEach(function (key) {
+                    if (extra[key]) payload[key] = extra[key];
+                });
+                if (contact.indexOf('@') !== -1) {
+                    payload.email = contact;
+                }
+                var res = await fetch('https://formsubmit.co/ajax/' + TARGET_EMAIL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                var data = await res.json();
+                if (!res.ok || data.success !== 'true') {
+                    throw new Error(data.message || 'submit failed');
+                }
+                submitted = true;
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        if (submitted) {
+            msg.className = 'zlead-msg success';
+            msg.textContent = COPY.success;
+            form.reset();
+        } else {
+            msg.className = 'zlead-msg error';
+            msg.textContent = COPY.generic;
+        }
+        btn.disabled = false;
+        btn.innerHTML = btnHtml;
+    });
+})();
+</script>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Newsletter section (the home page already has a full follow block, so it is skipped there) -->
+    
+    <section id="follow" class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h3 class="text-xl font-bold mb-2">Wöchentliche Updates von @GeekWaedon</h3>
+                        <p class="text-secondary text-sm mb-4 mb-lg-0">Board-Empfehlungen, Projektanalysen und Tipps aus der Hardware-Entwicklung – zuerst auf WeChat und im Knowledge Planet.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <a href="/de/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">So folgen Sie mir</a>
+                        <div class="newsletter-benefits">
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Wöchentlich kuratierte Board-Empfehlungen</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Exklusive Projektanalysen</span>
+                            <span class="newsletter-benefit"><i class="fas fa-check"></i> Aktualisiert auf WeChat und im Knowledge Planet</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="py-4" aria-label="Hergestellt von">
+        <div class="author-card">
+            <div class="author-card-info">
+                <div class="author-card-avatar"><i class="fas fa-microchip"></i></div>
+                <div>
+                    <div class="author-card-name">Erstellt von GeekWaedon <span>@GeekWaedon</span></div>
+                    <div class="author-card-bio">Hardware-Bastler und KI-Praktiker. Diese gesamte Website wurde mit KI-Werkzeugen selbst gebaut.</div>
+                </div>
+            </div>
+            <div class="author-card-actions">
+                <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Meinem Knowledge Planet beitreten</a>
+                <span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: nach „GeekWaedon“ suchen</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-zouic" role="contentinfo">
+        <div class="container">
+            <div class="row footer-main">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col">
+                    <a href="/de/" class="footer-brand" aria-label="ZouIC-Startseite">
+                        <i class="fas fa-microchip"></i>
+                        <span>ZouIC</span>
+                    </a>
+                    <p class="footer-tagline">Ausgewählte Open-Source-Hardwareprojekte von Plattformen weltweit · Ausschließlich als Referenz für Entwickler</p>
+                    <p class="footer-business-contact">
+                        Geschäftskontakt &amp; Bauteilbeschaffung:
+                        <a href="mailto:waedon@outlook.com?subject=Gesch%C3%A4ftliche%20Anfrage"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a>
+                    </p>
+
+                    <div class="footer-meta">
+                        <p class="footer-author">
+                            Hergestellt von · <strong>GeekWaedon</strong>
+                            <span class="footer-author-handle">@GeekWaedon</span>
+                        </p>
+                        <div class="footer-slash-tags">
+                            <span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware-Enthusiast</span>
+                            <span class="footer-slash-tag"><i class="fas fa-robot"></i> KI-Praktiker</span>
+                            <a href="/de/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom-Lösungsanbieter">
+                                <i class="fab fa-weixin"></i> WeCom-Lösungsanbieter
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-social">
+                        <a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a>
+                        <a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a>
+                        <a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a>
+                        <a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a>
+                        <a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a>
+                        <a href="/de/#follow" class="footer-social-link" aria-label="WeChat-Offizieller Account · GeekWaedon" title="WeChat-Offizieller Account · GeekWaedon"><i class="fab fa-weixin"></i></a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a>
+                        <a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a>
+                        <a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a>
+                        <a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Produkte</h5>
+                    <ul>
+                        <li><a href="/de/products/">Produkte</a></li>
+                        <li><a href="/de/services/">Leistungen</a></li>
+                        <li><a href="/de/services/website-building/">Website-Erstellung</a></li>
+                        <li><a href="/de/services/component-matching/">elektronische BauteileVermittlung</a></li>
+                        <li><a href="/de/news/">Neuigkeiten</a></li>
+                        <li><a href="/de/boards/">Entwicklungsboards</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Ressourcen</h5>
+                    <ul>
+                        <li><a href="/de/board-guide/">Leitfaden zur Board-Auswahl</a></li>
+                        <li><a href="/de/compare/">Board-Vergleich</a></li>
+                        <li><a href="/de/tutorials/">Anleitungen</a></li>
+                        <li><a href="/de/documentation/">Dokumentation</a></li>
+                        <li><a href="/online-tools/">Online-Werkzeuge</a></li>
+                        <li><a href="/de/cases/">Projektbeispiele</a></li>
+                        <li><a href="/de/help/">Dokumentation</a></li>
+                        <li><a href="/de/games/resistor/">Widerstands-Farbcode-Quiz</a></li>
+                        <li><a href="/de/dashuju/">Datenübersicht</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5>Open Source</h5>
+                    <ul>
+                        <li><a href="/de/open-source/">Open-Source-Projekte</a></li>
+                        <li><a href="/de/all-projects/">Alle Projekte</a></li>
+                        <li><a href="/de/articles/">Fachbeiträge</a></li>
+                        
+                        <li><a href="/de/contribute/">Mitwirken</a></li>
+                        <li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h5>Über</h5>
+                    <ul>
+                        <li><a href="/de/about/">Über uns</a></li>
+                        <li><a href="/de/about/#contact">Kontakt</a></li>
+                        <li><a href="/de/licenses/">Open-Source-Lizenzen</a></li>
+                        <li><a href="/de/about/#privacy">Datenschutz</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-category-strip">
+                <span class="footer-category-label">Beliebte Kategorien</span>
+                <div class="footer-category-links">
+                    <a href="/de/category/">alle</a>
+                    
+                    <a href="/de/category/fpga/">FPGA</a>
+                    
+                    <a href="/de/category/general/">Allgemein</a>
+                    
+                    <a href="/de/category/ai_hardware/">KI-Hardware</a>
+                    
+                    <a href="/de/category/vision/">Computer Vision</a>
+                    
+                    <a href="/de/category/esp32/">ESP32</a>
+                    
+                    <a href="/de/category/robotics/">Robotik</a>
+                    
+                    <a href="/de/source/github/">GitHub</a>
+                    <a href="/de/source/hackster/">Hackster.io</a>
+                    <a href="/resources/">Ressourcennavigation</a>
+                </div>
+            </div>
+            
+            <div class="footer-producer-bar">
+                <img src="/static/images/author/avatar-mascot.png" alt="GeekWaedon" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;">
+                <div style="line-height:1.6;">
+                    <div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">Allein entwickelt von GeekWaedon (@GeekWaedon) · <span style="color:#a78bfa;">Mensch und KI, Seite an Seite</span></div>
+                    <div class="text-xs text-secondary">Ein Ein-Personen-Projekt, betrieben von einem echten Menschen: Website-Aufbau, Datenabgleich, Artikel und Grafiken stammen von mir (mit Unterstützung einiger KI-Agenten). <a href="/de/about/" class="text-primary" style="text-decoration:none;">Die Person dahinter kennenlernen →</a></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ZouIC. Alle Rechte vorbehalten.</p>
+                <p>Die hier gebündelten Projekte dienen ausschließlich als Referenz für Entwickler: ZouIC verweist auf sie und hostet weder Code noch Dateien; Urheberrecht und Lizenz verbleiben bei den Autoren. Einzelheiten finden Sie auf der <a href="/de/licenses/">Open-Source-Lizenzen</a> Seite.</p>
+                <p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Nach oben">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Kopiert';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Aus Favoriten entfernt');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Zu Favoriten hinzugefügt');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    <script>
+    (function () {
+        var api = "https://waedon.pythonanywhere.com";
+        var sent = false;
+        function navPerf() {
+            try {
+                var n = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+                if (n && n.loadEventEnd > 0) return Math.round(n.loadEventEnd);
+            } catch (e) { /* ignore */ }
+            return 0;
+        }
+        function send() {
+            if (sent) return;
+            sent = true;
+            var payload = {
+                site: 'zouic',
+                path: (location.pathname + location.search + (location.hash || '')).slice(0, 300),
+                title: (document.title || '').slice(0, 200),
+                ref: document.referrer || '',
+                lang: navigator.language || '',
+                perf: navPerf()
+            };
+            var body = JSON.stringify(payload);
+            // text/plain 免 CORS 预检；页面已经加载完，sendBeacon 最稳
+            try {
+                if (navigator.sendBeacon &&
+                    navigator.sendBeacon(api + '/api/beacon', new Blob([body], { type: 'text/plain;charset=UTF-8' }))) return;
+            } catch (e) { /* fallthrough */ }
+            try {
+                fetch(api + '/api/beacon', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+                    body: body,
+                    keepalive: true,
+                    credentials: 'omit'
+                }).catch(function () {});
+            } catch (e) {}
+        }
+        if (document.readyState === 'complete') setTimeout(send, 0);
+        else window.addEventListener('load', function () { setTimeout(send, 120); });
+        window.addEventListener('pagehide', send);
+    })();
+    </script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/handbook-ch1/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=de-DE'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body>
+</html>
