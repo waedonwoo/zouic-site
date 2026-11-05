@@ -1,0 +1,271 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="AMD 2026 年 7 月发布 Helios 机架级方案（MI455X），Q3 首批出货、2027 年爬坡，OpenAI/Oracle/Anthropic 协议总额以 GW 计。机架级交付是 AMD 对英伟达打法的正面复制，成败在生态兑现率。"><meta name="keywords" content="AMD Helios, MI455X, 机架级 AI, OpenAI 协议, ROCm, 英伟达竞争"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/articles/amd-helios-rack-scale-strategy/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/amd-helios-rack-scale-strategy/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/amd-helios-rack-scale-strategy/" /><meta property="og:title" content="AMD Helios：从卖芯片到卖机柜，AMD 终于开始按英伟达的方式打仗"><meta property="og:description" content="AMD 2026 年 7 月发布 Helios 机架级方案（MI455X），Q3 首批出货、2027 年爬坡，OpenAI/Oracle/Anthropic 协议总额以 GW 计。机架级交付是 AMD 对英伟达打法的正面复制，成败在生态兑现率。"><meta property="og:url" content="https://www.zouic.com/articles/amd-helios-rack-scale-strategy/"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="AMD Helios：从卖芯片到卖机柜，AMD 终于开始按英伟达的方式打仗"><meta name="twitter:description" content="AMD 2026 年 7 月发布 Helios 机架级方案（MI455X），Q3 首批出货、2027 年爬坡，OpenAI/Oracle/Anthropic 协议总额以 GW 计。机架级交付是 AMD 对英伟达打法的正面复制，成败在生态兑现率。"><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "AMD 2026 \u5e74 7 \u6708\u53d1\u5e03 Helios \u673a\u67b6\u7ea7\u65b9\u6848\uff08MI455X\uff09\uff0cQ3 \u9996\u6279\u51fa\u8d27\u30012027 \u5e74\u722c\u5761\uff0cOpenAI/Oracle/Anthropic \u534f\u8bae\u603b\u989d\u4ee5 GW \u8ba1\u3002\u673a\u67b6\u7ea7\u4ea4\u4ed8\u662f AMD \u5bf9\u82f1\u4f1f\u8fbe\u6253\u6cd5\u7684\u6b63\u9762\u590d\u5236\uff0c\u6210\u8d25\u5728\u751f\u6001\u5151\u73b0\u7387\u3002", "headline": "AMD Helios\uff1a\u4ece\u5356\u82af\u7247\u5230\u5356\u673a\u67dc\uff0cAMD \u7ec8\u4e8e\u5f00\u59cb\u6309\u82f1\u4f1f\u8fbe\u7684\u65b9\u5f0f\u6253\u4ed7", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/amd-helios-rack-scale-strategy/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/amd-helios-rack-scale-strategy/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/amd-helios-rack-scale-strategy/", "name": "AMD Helios\uff1a\u4ece\u5356\u82af\u7247\u5230\u5356\u673a\u67dc\uff0cAMD \u7ec8\u4e8e\u5f00\u59cb\u6309\u82f1\u4f1f\u8fbe\u7684\u65b9\u5f0f\u6253\u4ed7", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Helios \u662f AMD \u673a\u67b6\u7ea7 AI \u65b9\u6848\uff0c\u4ee5 MI455X \u4e3a\u6838\u5fc3\uff08MI400 \u7cfb\u5217\uff09\uff0c2026 \u5e74 7 \u6708 23 \u65e5\u53d1\u5e03\uff0c2026 \u5e74 Q3 \u9996\u6279\u51fa\u8d27\uff0c2027 \u5e74\u89c4\u6a21\u722c\u5761\u3002"}, "name": "Helios \u673a\u67dc\u91cc\u662f\u4ec0\u4e48\u914d\u7f6e\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u4e0d\u7b49\u4e8e\u3002\u8fd9\u662f\u591a\u5e74\u671f\u6846\u67b6\u4f9b\u8d27\u534f\u8bae\uff0c\u5b9e\u9645\u51fa\u8d27\u6309\u9636\u6bb5\u89e6\u53d1\uff0c\u516c\u5f00\u4fe1\u606f\u672a\u62ab\u9732\u5168\u90e8\u6267\u884c\u6761\u6b3e\uff0c\u4e0d\u80fd\u628a\u534f\u8bae\u74e6\u6570\u76f4\u63a5\u5f53\u4ea7\u80fd\u6216\u6536\u5165\u3002"}, "name": "OpenAI \u7684 6GW \u534f\u8bae\u7b49\u4e8e\u5df2\u7ecf\u4e70\u4e86 6GW \u7684 GPU \u5417\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "ROCm 10.0 \u5df2\u652f\u6301 PyTorch \u539f\u751f\uff08Windows/Linux\uff09\u3001\u7edf\u4e00 CLI \u4e0e\u63a8\u7406\u4f18\u5316\u5de5\u5177\uff0c\u5934\u90e8\u5ba2\u6237\uff08Oracle\u3001Azure\u3001OpenAI\u3001Anthropic\uff09\u6709\u5b9e\u9645\u90e8\u7f72\uff1b\u4f46\u4e0e CUDA \u7684\u4eba\u624d\u50a8\u5907\u548c\u751f\u6001\u6210\u719f\u5ea6\u76f8\u6bd4\u4ecd\u6709\u5dee\u8ddd\uff0c\u8fc1\u79fb\u524d\u5efa\u8bae\u7528\u81ea\u8eab\u6a21\u578b\u5b9e\u6d4b\u3002"}, "name": "AMD \u82af\u7247\u7684\u8f6f\u4ef6\u751f\u6001\u80fd\u7528\u4e86\u5417\uff1f"}]}]}
+    </script>
+    
+    
+    <title>AMD Helios：从卖芯片到卖机柜，AMD 终于开始按英伟达的方式打仗 - ZouIC</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"></head><body><a href="#main-content" class="skip-link">跳转到主要内容</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航"><div class="container"><a class="navbar-brand" href="/"><i class="fas fa-microchip"></i> ZouIC
+            </a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/all-projects/"><i class="fas fa-project-diagram me-1"></i>开源项目</a></li><li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li><li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/services/component-matching/">商务合作</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li><li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li><li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li><li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li><li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li><li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li><li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li><li><a class="dropdown-item" href="/tools/"><i class="fas fa-calculator me-2"></i>硬件计算器</a></li><li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li><li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li><li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" style="width: 200px;"><select id="searchType" class="form-select input-zouic" aria-label="搜索类型:" style="width: auto; flex: 0 0 auto;"><option value="">全部分类</option><option value="board">开源开发板</option><option value="project">开源项目</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/set-language/zh?next=/articles/amd-helios-rack-scale-strategy/"><i class="fas fa-language me-2"></i> 中文
+                            </a></li><li><a class="dropdown-item" href="/set-language/en?next=/en/articles/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/set-language/de?next=/de/articles/"><i class="fas fa-language me-2"></i> 德语
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/">首页</a></li><li class="breadcrumb-item"><a href="/articles/">技术文章</a></li><li class="breadcrumb-item active" aria-current="page">AMD Helios：从卖芯片到卖机柜，AMD 终于开始按英伟达的方式打仗</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">免费公开 · 欢迎转发</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">AMD Helios：从卖芯片到卖机柜，AMD 终于开始按英伟达的方式打仗</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">算力行业观察 · 极客微栋 @GeekWaedon</p><p class="text-secondary text-sm mt-4">极客微栋 @GeekWaedon · 2026-10-27</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p><strong>核心观点：Helios 的意义远超一款机柜产品——它标志着 AMD 正式放弃"用单卡性价比讲故事"，全盘接受英伟达发明的"机架级系统 + 长期供货协议"打法。接下来的胜负手不是性能，是兑现率。</strong></p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Helios 的牌面</h2><p>时间线：2026 年 7 月 23 日发布，Q3 首批出货，2027 年规模爬坡；MI500 系列规划 2027 年。客户名单按瓦数排列：OpenAI <strong>6GW</strong> 多年协议（2025 年 10 月）、Anthropic <strong>最高 2GW MI455X</strong>（首个 GW 预计 2027 年上半年启动）、Oracle <strong>50000 颗 MI450 系列</strong>（2026 年 Q3 起部署）、Microsoft Azure 上线 Helios、Meta 多 GW 级承诺。现有装机也有底气：Oracle 云的 MI355X 集群规模超过 <strong>13 万颗</strong>，TensorWave 在北美运营 <strong>8192 颗</strong> AMD GPU 集群。</p><p>硬件思路上 AMD 继续押注内存：MI355X 的 288GB HBM3E 对 B200 的 192GB，内存容量路线在 MLPerf v6.0 的长上下文场景已兑现为 11-15% 的领先。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">三个必须盯的兑现风险</h2><ol><li><strong>协议瓦数 ≠ 出货颗数</strong>：6GW 是多年框架协议，分阶段触发条件、付款节点、退出条款都不公开——把协议当产能预测，是 2026 年最容易犯的分析错误；</li><li><strong>机柜级工程能力</strong>：NVL72 从"芯片良率问题"到"每周 1000 机柜"走了两年，Helios 的机柜级点亮、液冷集成、量产爬坡要重走这条路，2027 年爬坡节奏是第一道考题；</li><li><strong>ROCm 生态的人才密度</strong>：ROCm 10.0（2026 年 8 月）在工具链上补课明显，但企业侧 CUDA 工程师储备与社区答案库的差距，会体现在每个客户项目的隐性工时里。</li></ol><p>值得加分的两个动作：2026 年 8 月收购 <strong>Taalas</strong>（把模型权重直接固化进硅片，推理专用路线），9 月以约 <strong>82 亿美元</strong>收购李飞飞的 <strong>World Labs</strong>（世界模型，对标英伟达 Cosmos 开放模型体系）——AMD 在从"卖芯片"转向"卖芯片 + 卖模型能力"的二维竞争，这是比 Helios 更长期的布局。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">总结</h2><p>份额数据（集邦：2026 年英伟达约 64%、AMD 约 8.6%）说明第二名的天花板还很高，Helios + GW 级协议是 AMD 第一次在"系统级交付"维度正面进攻。<strong>对采购方，AMD 供给的确定性溢价是真实的议价筹码；对观察者，2027 年 Helios 的实际部署颗数，是检验这份宏大叙事的第一块试金石。</strong></p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>Helios 机柜里是什么配置？</h3><p class="faq-a">Helios 是 AMD 机架级 AI 方案，以 MI455X 为核心（MI400 系列），2026 年 7 月 23 日发布，2026 年 Q3 首批出货，2027 年规模爬坡。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>OpenAI 的 6GW 协议等于已经买了 6GW 的 GPU 吗？</h3><p class="faq-a">不等于。这是多年期框架供货协议，实际出货按阶段触发，公开信息未披露全部执行条款，不能把协议瓦数直接当产能或收入。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>AMD 芯片的软件生态能用了吗？</h3><p class="faq-a">ROCm 10.0 已支持 PyTorch 原生（Windows/Linux）、统一 CLI 与推理优化工具，头部客户（Oracle、Azure、OpenAI、Anthropic）有实际部署；但与 CUDA 的人才储备和生态成熟度相比仍有差距，迁移前建议用自身模型实测。</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/articles/" class="btn-zouic">技术文章</a><a href="/boards/" class="btn-zouic">开源开发板</a><a href="/compare/" class="btn-zouic btn-zouic-primary">开发板对比</a></div></div></section></main><section id="follow" class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3><p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p></div><div class="col-lg-5"><a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span></div></div></div></div></div></section><section class="py-4" aria-label="出品人"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div><div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/" class="footer-brand" aria-label="ZouIC 首页"><i class="fas fa-microchip"></i><span>ZouIC</span></a><p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p><p class="footer-business-contact">
+                        商务合作 / 器件选型：
+                        <a href="mailto:waedon@outlook.com?subject=%E5%95%86%E5%8A%A1%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            出品人 · <strong>极客微栋</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span><a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商"><i class="fab fa-weixin"></i> 企业微信服务商
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a><a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>产品</h5><ul><li><a href="/products/">产品介绍</a></li><li><a href="/services/">服务说明</a></li><li><a href="/services/website-building/">建站服务</a></li><li><a href="/services/component-matching/">元器件撮合</a></li><li><a href="/news/">站内动态</a></li><li><a href="/boards/">开源开发板</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>资源</h5><ul><li><a href="/board-guide/">选型指南</a></li><li><a href="/compare/">开发板对比</a></li><li><a href="/tutorials/">开发板教程</a></li><li><a href="/documentation/">技术文档</a></li><li><a href="/online-tools/">在线工具</a></li><li><a href="/tools/">硬件计算器</a></li><li><a href="/cases/">项目案例</a></li><li><a href="/help/">文档中心</a></li><li><a href="/games/resistor/">色环电阻识别挑战</a></li><li><a href="/dashuju/">数据大屏</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>开源生态</h5><ul><li><a href="/open-source/">开源项目</a></li><li><a href="/all-projects/">全部项目</a></li><li><a href="/articles/">技术文章</a></li><li><a href="/wechat/">公众号专栏</a></li><li><a href="/contribute/">贡献指南</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>关于</h5><ul><li><a href="/about/">关于我们</a></li><li><a href="/about/#contact">联系我们</a></li><li><a href="/licenses/">开源协议</a></li><li><a href="/about/#privacy">隐私政策</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">热门分类</span><div class="footer-category-links"><a href="/category/">全部</a><a href="/category/fpga/">FPGA</a><a href="/category/general/">综合</a><a href="/category/ai_hardware/">AI 硬件</a><a href="/category/vision/">机器视觉</a><a href="/category/esp32/">ESP32</a><a href="/category/robotics/">机器人</a><a href="/source/github/">GitHub</a><a href="/source/hackster/">Hackster.io</a><a href="/resources/">资源导航</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div><div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="返回顶部"><i class="fas fa-chevron-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=zh-CN'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>

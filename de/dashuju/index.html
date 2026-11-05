@@ -54,7 +54,7 @@
                         </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-language me-2"></i> Chinesisch
                             </a></li><li><a class="dropdown-item" href="/en/dashuju/"><i class="fas fa-language me-2"></i> Englisch
                             </a></li><li><a class="dropdown-item" href="/de/dashuju/"><i class="fas fa-language me-2"></i> Deutsch
-                            </a></li></ul></div></div></div></div></nav><main id="main-content"><div class="dash-screen" id="dashScreen"><div class="container dash-container"><header class="dash-head"><div class="dash-brand"><div class="dash-brand-mark" aria-hidden="true">Z</div><div><h1>ZouIC · 全站流量监控</h1><p>PV · IP · SEO · GEO · 实时数据大屏</p></div></div><div class="dash-clock" aria-label="时间"><div><span>日期</span><strong id="dashDate">—</strong></div><div><span>时间</span><strong id="dashClock">—</strong></div></div><div class="dash-live is-pending" id="dashStatus" role="status" aria-live="polite"><span class="dash-dot"></span><span id="dashStatusText">连接中…</span><span>· 更新于 <span id="dashUpdated">—</span></span></div></header><div id="dashBanner" class="dash-banner" hidden></div><section class="dash-kpis" aria-label="核心指标"><div class="dash-kpi"><div class="dash-kpi-label">今日 PV</div><div class="dash-kpi-value" data-kpi="pv_today">—</div><div class="dash-kpi-sub">UV <span data-kpi="uv_today">—</span></div></div><div class="dash-kpi"><div class="dash-kpi-label">昨日 PV</div><div class="dash-kpi-value" data-kpi="pv_yesterday">—</div><div class="dash-kpi-sub">同比基线</div></div><div class="dash-kpi"><div class="dash-kpi-label">近 7 日 PV</div><div class="dash-kpi-value" data-kpi="pv_7d">—</div><div class="dash-kpi-sub">UV <span data-kpi="uv_7d">—</span></div></div><div class="dash-kpi"><div class="dash-kpi-label">近 30 日 PV</div><div class="dash-kpi-value" data-kpi="pv_30d">—</div><div class="dash-kpi-sub">独立访客按 IP 哈希去重</div></div><div class="dash-kpi"><div class="dash-kpi-label">累计 PV</div><div class="dash-kpi-value" data-kpi="pv_total">—</div><div class="dash-kpi-sub">累计 UV <span data-kpi="uv_total">—</span></div></div><div class="dash-kpi"><div class="dash-kpi-label">SEO+GEO 爬虫</div><div class="dash-kpi-value" data-kpi="bots_30d">—</div><div class="dash-kpi-sub">近 30 日抓取</div></div><div class="dash-kpi"><div class="dash-kpi-label">Ungültiger Verkehr</div><div class="dash-kpi-value" data-kpi="ivt_30d">—</div><div class="dash-kpi-sub">von PV <span data-kpi="ivt_rate">—</span></div></div></section><div class="dash-grid"><section class="dash-panel dash-col-6"><div class="dash-panel-head"><h2 class="dash-panel-title">流量趋势</h2><span class="dash-panel-meta">PV / UV · 30D</span></div><div id="trendChart" class="dash-chart"></div></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">来源分布</h2><span class="dash-panel-meta">30D</span></div><div id="sourceChart" class="dash-chart dash-chart-sm"></div></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">设备分布</h2><span class="dash-panel-meta">30D</span></div><div id="deviceChart" class="dash-chart dash-chart-sm"></div></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">SEO 搜索引擎爬虫</h2><span class="dash-panel-meta">抓取次数 · 30D</span></div><div id="seoChart" class="dash-chart dash-chart-sm"></div><p class="dash-hint">搜索引擎蜘蛛抓取频次反映收录意愿。</p></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">GEO AI 爬虫</h2><span class="dash-panel-meta">抓取次数 · 30D</span></div><div id="geoChart" class="dash-chart dash-chart-sm"></div><p class="dash-hint">AI 助手（ChatGPT/Claude/Perplexity 等）抓取是生成式引擎引用的前提。</p></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">访客地域 Top 10</h2><span class="dash-panel-meta">IP 归属 · 30D</span></div><div id="countryChart" class="dash-chart dash-chart-sm"></div></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">Ungültige Verkehrserkennung</h2><span class="dash-panel-meta">Gepasste Regeln - 30D</span></div><ul class="dash-list dash-dist" id="ivtReasons"><li class="dash-empty">Laden...</li></ul><p class="dash-hint">Nur aus serverseitigen Signalen erkannt (anomale UA, kopflose Browser, kurzfristige Ausbrüche). Es werden keine Kundenfingerabdrücke gesammelt.</p></section><section class="dash-panel dash-col-6"><div class="dash-panel-head"><h2 class="dash-panel-title">热门页面 Top 10</h2><span class="dash-panel-meta">PV · 30D</span></div><ul class="dash-list dash-dist" id="topPages"><li class="dash-empty">加载中…</li></ul></section><section class="dash-panel dash-col-6"><div class="dash-panel-head"><h2 class="dash-panel-title">SEO / GEO 站点健康</h2><span class="dash-panel-meta">大屏自动巡检 · 约 6 小时一次</span></div><div class="dash-health-grid" id="healthGrid"><span class="dash-empty">加载中…</span></div><p class="dash-hint">llms.txt 是 AI 搜索引擎（GEO）的内容入口；sitemap.xml 决定传统搜索引擎收录。</p></section><section class="dash-panel dash-col-12"><div class="dash-panel-head"><h2 class="dash-panel-title">实时访问流</h2><span class="dash-panel-meta" id="liveMeta">最近 25 条</span></div><div class="dash-log-wrap"><table class="dash-log-table" id="logTable"><thead><tr><th>时间</th><th>页面</th><th>来源</th><th>IP（脱敏）</th><th>地域</th><th>设备</th><th>类型</th></tr></thead><tbody><tr><td colspan="7" class="dash-empty">加载中…</td></tr></tbody></table></div></section></div><footer class="dash-foot"><span>数据中台：独立轻后端（Flask + SQLite）· IP 只存打码段与当日哈希，不留原始地址</span><span><a href="https://waedon.pythonanywhere.com/observatory">爬虫观测台</a> · ZouIC Site Monitor · 极客微栋 @GeekWaedon</span></footer></div></div>
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><div class="dash-screen" id="dashScreen"><div class="container dash-container"><header class="dash-head"><div class="dash-brand"><div class="dash-brand-mark" aria-hidden="true">Z</div><div><h1>ZouIC · 全站流量监控</h1><p>PV · IP · SEO · GEO · 实时数据大屏</p></div></div><div class="dash-clock" aria-label="北京时间"><div><span>日期(北京)</span><strong id="dashDate">—</strong></div><div><span>时间(北京)</span><strong id="dashClock">—</strong></div></div><div class="dash-live is-pending" id="dashStatus" role="status" aria-live="polite"><span class="dash-dot"></span><span id="dashStatusText">连接中…</span><span>· 更新于 <span id="dashUpdated">—</span></span></div></header><div id="dashBanner" class="dash-banner" hidden></div><section class="dash-kpis" aria-label="核心指标"><div class="dash-kpi"><div class="dash-kpi-label">今日 PV</div><div class="dash-kpi-value" data-kpi="pv_today">—</div><div class="dash-kpi-sub">UV <span data-kpi="uv_today">—</span></div></div><div class="dash-kpi"><div class="dash-kpi-label">昨日 PV</div><div class="dash-kpi-value" data-kpi="pv_yesterday">—</div><div class="dash-kpi-sub">同比基线</div></div><div class="dash-kpi"><div class="dash-kpi-label">近 7 日 PV</div><div class="dash-kpi-value" data-kpi="pv_7d">—</div><div class="dash-kpi-sub">UV <span data-kpi="uv_7d">—</span></div></div><div class="dash-kpi"><div class="dash-kpi-label">近 30 日 PV</div><div class="dash-kpi-value" data-kpi="pv_30d">—</div><div class="dash-kpi-sub">独立访客按 IP 哈希去重</div></div><div class="dash-kpi"><div class="dash-kpi-label">累计 PV</div><div class="dash-kpi-value" data-kpi="pv_total">—</div><div class="dash-kpi-sub">累计 UV <span data-kpi="uv_total">—</span></div></div><div class="dash-kpi"><div class="dash-kpi-label">SEO+GEO 爬虫</div><div class="dash-kpi-value" data-kpi="bots_30d">—</div><div class="dash-kpi-sub">近 30 日抓取</div></div><div class="dash-kpi"><div class="dash-kpi-label">Ungültiger Verkehr</div><div class="dash-kpi-value" data-kpi="ivt_30d">—</div><div class="dash-kpi-sub">von PV <span data-kpi="ivt_rate">—</span></div></div></section><div class="dash-grid"><section class="dash-panel dash-col-6"><div class="dash-panel-head"><h2 class="dash-panel-title">流量趋势</h2><span class="dash-panel-meta">PV / UV · 30D</span></div><div id="trendChart" class="dash-chart"></div></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">来源分布</h2><span class="dash-panel-meta">30D</span></div><div id="sourceChart" class="dash-chart dash-chart-sm"></div></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">设备分布</h2><span class="dash-panel-meta">30D</span></div><div id="deviceChart" class="dash-chart dash-chart-sm"></div></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">SEO 搜索引擎爬虫</h2><span class="dash-panel-meta">抓取次数 · 30D</span></div><div id="seoChart" class="dash-chart dash-chart-sm"></div><p class="dash-hint">搜索引擎蜘蛛抓取频次反映收录意愿。</p></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">GEO AI 爬虫</h2><span class="dash-panel-meta">抓取次数 · 30D</span></div><div id="geoChart" class="dash-chart dash-chart-sm"></div><p class="dash-hint">AI 助手（ChatGPT/Claude/Perplexity 等）抓取是生成式引擎引用的前提。</p></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">访客地域 Top 10</h2><span class="dash-panel-meta">IP 归属 · 30D</span></div><div id="countryChart" class="dash-chart dash-chart-sm"></div></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">Ungültige Verkehrserkennung</h2><span class="dash-panel-meta">Gepasste Regeln - 30D</span></div><ul class="dash-list dash-dist" id="ivtReasons"><li class="dash-empty">Laden...</li></ul><p class="dash-hint">Nur aus serverseitigen Signalen erkannt (anomale UA, kopflose Browser, kurzfristige Ausbrüche). Es werden keine Kundenfingerabdrücke gesammelt.</p></section><section class="dash-panel dash-col-6"><div class="dash-panel-head"><h2 class="dash-panel-title">热门页面 Top 10</h2><span class="dash-panel-meta">PV · 30D</span></div><ul class="dash-list dash-dist" id="topPages"><li class="dash-empty">加载中…</li></ul></section><section class="dash-panel dash-col-6"><div class="dash-panel-head"><h2 class="dash-panel-title">SEO / GEO 站点健康</h2><span class="dash-panel-meta">大屏自动巡检 · 约 6 小时一次</span></div><div class="dash-health-grid" id="healthGrid"><span class="dash-empty">加载中…</span></div><p class="dash-hint">llms.txt 是 AI 搜索引擎（GEO）的内容入口；sitemap.xml 决定传统搜索引擎收录。</p></section><section class="dash-panel dash-col-12"><div class="dash-panel-head"><h2 class="dash-panel-title">实时访问流</h2><span class="dash-panel-meta" id="liveMeta">最近 25 条</span></div><div class="dash-log-wrap"><table class="dash-log-table" id="logTable"><thead><tr><th>时间(北京)</th><th>页面</th><th>来源</th><th>IP（脱敏）</th><th>地域</th><th>设备</th><th>类型</th></tr></thead><tbody><tr><td colspan="7" class="dash-empty">加载中…</td></tr></tbody></table></div></section></div><footer class="dash-foot"><span>数据中台：独立轻后端（Flask + SQLite）· IP 只存打码段与当日哈希，不留原始地址</span><span><a href="https://waedon.pythonanywhere.com/observatory">爬虫观测台</a> · ZouIC Site Monitor · 极客微栋 @GeekWaedon</span></footer></div></div>
 
 <script>
 (function () {
@@ -64,11 +64,16 @@
     var charts = {};
 
     /* ---------- 时钟 ---------- */
+    /* 大屏所有时间统一按北京时间（UTC+8，无夏令时）显示：后端「今日/近1小时」
+       的日切与窗口都固定 +8，若这里用访客本地时区，海外访问时会与口径错位。 */
+    function bjShift(sec) { return new Date((sec === undefined ? Date.now() : sec) + 8 * 3600 * 1000); }
+    function p2(x) { return (x < 10 ? '0' : '') + x; }
+    function bjDate(sec) { var t = bjShift(sec); return t.getUTCFullYear() + '-' + p2(t.getUTCMonth() + 1) + '-' + p2(t.getUTCDate()); }
+    function bjTime(sec) { var t = bjShift(sec); return p2(t.getUTCHours()) + ':' + p2(t.getUTCMinutes()) + ':' + p2(t.getUTCSeconds()); }
+    function bjTimeShort(sec) { var t = bjShift(sec); return p2(t.getUTCMonth() + 1) + '-' + p2(t.getUTCDate()) + ' ' + bjTime(sec); }
     function tick() {
-        var n = new Date();
-        var p = function (x) { return (x < 10 ? '0' : '') + x; };
-        document.getElementById('dashDate').textContent = n.getFullYear() + '-' + p(n.getMonth() + 1) + '-' + p(n.getDate());
-        document.getElementById('dashClock').textContent = p(n.getHours()) + ':' + p(n.getMinutes()) + ':' + p(n.getSeconds());
+        document.getElementById('dashDate').textContent = bjDate();
+        document.getElementById('dashClock').textContent = bjTime();
     }
     tick(); setInterval(tick, 1000);
 
@@ -138,7 +143,23 @@
         ? { ua_short: 'Missing/short UA', automation: 'Headless automation', burst: 'Short-term burst' }
         : { ua_short: 'UA 缺失或异常短', automation: '无头/自动化浏览器', burst: '短时高频突发' };
     var DEV_LABEL = { desktop: '桌面端', mobile: '移动端', tablet: '平板' };
-    var COUNTRY = { CN: '中国大陆', US: '美国', HK: '中国香港', TW: '中国台湾', JP: '日本', SG: '新加坡', KR: '韩国', DE: '德国', T1: '匿名专线', XX: '其他' };
+    // 常见国家/地区；未收录的两位码直接显示原码，不编造中文名
+    var COUNTRY = {
+        CN: '中国大陆', HK: '中国香港', TW: '中国台湾', MO: '中国澳门',
+        US: '美国', JP: '日本', KR: '韩国', SG: '新加坡', MY: '马来西亚', TH: '泰国',
+        VN: '越南', ID: '印度尼西亚', PH: '菲律宾', IN: '印度', PK: '巴基斯坦', BD: '孟加拉',
+        LK: '斯里兰卡', MM: '缅甸', KH: '柬埔寨', MN: '蒙古', NP: '尼泊尔', KZ: '哈萨克斯坦',
+        AU: '澳大利亚', NZ: '新西兰', CA: '加拿大', MX: '墨西哥', BR: '巴西', AR: '阿根廷',
+        CL: '智利', CO: '哥伦比亚', PE: '秘鲁',
+        GB: '英国', IE: '爱尔兰', FR: '法国', DE: '德国', NL: '荷兰', BE: '比利时',
+        LU: '卢森堡', CH: '瑞士', AT: '奥地利', IT: '意大利', ES: '西班牙', PT: '葡萄牙',
+        SE: '瑞典', NO: '挪威', DK: '丹麦', FI: '芬兰', IS: '冰岛', PL: '波兰',
+        CZ: '捷克', SK: '斯洛伐克', HU: '匈牙利', RO: '罗马尼亚', BG: '保加利亚',
+        GR: '希腊', HR: '克罗地亚', SI: '斯洛文尼亚', RS: '塞尔维亚', UA: '乌克兰',
+        RU: '俄罗斯', TR: '土耳其', IL: '以色列', AE: '阿联酋', SA: '沙特阿拉伯',
+        QA: '卡塔尔', KW: '科威特', EG: '埃及', ZA: '南非', NG: '尼日利亚', KE: '肯尼亚',
+        T1: '匿名专线', XX: '其他'
+    };
 
     function renderBars(id, data, color, emptyMsg) {
         if (!data || !data.length) { showChartEmpty(id, emptyMsg || '暂无数据'); return; }
@@ -191,25 +212,59 @@
         }).join('');
     }
 
+    var healthProbing = false, healthBrowser = null;
+
     function renderHealth(rows) {
         var el = document.getElementById('healthGrid');
-        if (!rows.length) { el.innerHTML = '<span class="dash-empty">巡检未生成：后端会自动重试（约 6 小时一次）；若主机出网被限制在域名白名单（免费档默认如此），这里长期留空——不填假数据</span>'; return; }
-        el.innerHTML = rows.map(function (h) {
-            function badge(ok, label) { return '<span class="dash-badge ' + (ok ? 'ok' : 'bad') + '">' + label + '</span>'; }
-            return '<div class="dash-health-card">' +
-                '<div class="dash-health-name">' + esc(h.site) + ' <em>' + (h.ttfb_ms || 0) + 'ms</em></div>' +
-                '<div class="dash-health-badges">' + badge(h.https_ok, 'HTTPS') + badge(h.sitemap_ok, 'sitemap') + badge(h.llms_ok, 'llms.txt') + badge(h.robots_ok, 'robots') + '</div>' +
-                '</div>';
-        }).join('');
+        if (!el) return;
+        if (rows && rows.length) {
+            el.innerHTML = rows.map(function (h) {
+                function badge(ok, label) { return '<span class="dash-badge ' + (ok ? 'ok' : 'bad') + '">' + label + '</span>'; }
+                return '<div class="dash-health-card">' +
+                    '<div class="dash-health-name">' + esc(h.site) + ' <em>' + (h.ttfb_ms || 0) + 'ms</em></div>' +
+                    '<div class="dash-health-badges">' + badge(h.https_ok, 'HTTPS') + badge(h.sitemap_ok, 'sitemap') + badge(h.llms_ok, 'llms.txt') + badge(h.robots_ok, 'robots') + '</div>' +
+                    '</div>';
+            }).join('');
+            return;
+        }
+        if (!healthBrowser) {
+            el.innerHTML = '<span class="dash-empty">中台主机出站受限（no-egress），正在改用当前浏览器对本站做同源实测…</span>';
+            if (!healthProbing) probeHealthBrowser();
+            return;
+        }
+        function badge2(ok, label) { return '<span class="dash-badge ' + (ok ? 'ok' : 'bad') + '">' + label + '</span>'; }
+        el.innerHTML = '<div class="dash-health-card">' +
+            '<div class="dash-health-name">www.zouic.com <em>' + healthBrowser.ttfb_ms + 'ms</em></div>' +
+            '<div class="dash-health-badges">' + badge2(healthBrowser.https_ok, 'HTTPS') + badge2(healthBrowser.sitemap_ok, 'sitemap')
+            + badge2(healthBrowser.llms_ok, 'llms.txt') + badge2(healthBrowser.robots_ok, 'robots') + '</div>' +
+            '</div><p class="dash-hint">浏览器实测 ' + healthBrowser.at + '（北京时间）。中台在 PythonAnywhere 免费档无法出站探测，'
+            + '改由打开大屏的浏览器对同源资源做 HEAD 探测；中台恢复出网后会自动切回服务端巡检。</p>';
+    }
+
+    /* 4 个 HEAD 请求很轻：本站同源，不跨域、不消耗中台限流额度 */
+    function probeHealthBrowser() {
+        healthProbing = true;
+        var t0 = (window.performance && performance.now) ? performance.now() : Date.now();
+        function head(url) {
+            var ctrl = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+            var opts = { method: 'HEAD', cache: 'no-store' };
+            if (ctrl) { opts.signal = ctrl.signal; setTimeout(function () { ctrl.abort(); }, 8000); }
+            return fetch(url, opts).then(function (r) { return !!r.ok; }).catch(function () { return false; });
+        }
+        Promise.all([head('/'), head('/sitemap.xml'), head('/llms.txt'), head('/robots.txt')]).then(function (res) {
+            var now = (window.performance && performance.now) ? performance.now() : Date.now();
+            healthBrowser = { https_ok: res[0], sitemap_ok: res[1], llms_ok: res[2], robots_ok: res[3],
+                ttfb_ms: Math.round(now - t0), at: bjTimeShort() };
+            healthProbing = false;
+            renderHealth(lastSummary && lastSummary.health ? lastSummary.health : []);
+        });
     }
 
     function renderLog(rows) {
         var tb = document.querySelector('#logTable tbody');
         if (!rows.length) { tb.innerHTML = '<tr><td colspan="7" class="dash-empty">暂无访问记录</td></tr>'; return; }
         tb.innerHTML = rows.map(function (r) {
-            var t = new Date(r.ts * 1000);
-            var p = function (x) { return (x < 10 ? '0' : '') + x; };
-            var time = p(t.getHours()) + ':' + p(t.getMinutes()) + ':' + p(t.getSeconds());
+            var time = bjTimeShort(r.ts * 1000);
             var cls = r.ua_class === 'human' ? '<span class="dash-badge ok">访客</span>' : r.ua_class === 'seo' ? '<span class="dash-badge seo">SEO</span>' : r.ua_class === 'geo' ? '<span class="dash-badge geo">GEO</span>' : '<span class="dash-badge bot">' + esc(r.ua_name || '爬虫') + '</span>';
             var ref = r.ref_type === 'direct' ? '直接' : (REF_LABEL[r.ref_type] || r.ref_type) + (r.ref_host ? ' · ' + esc(r.ref_host) : '');
             return '<tr><td>' + time + '</td><td class="dash-log-path">' + esc(r.path) + '</td><td>' + ref + '</td><td>' + esc(r.ip || '—') + '</td><td>' + esc(COUNTRY[r.country] || r.country || '—') + '</td><td>' + esc(DEV_LABEL[r.device] || r.device || '—') + '</td><td>' + cls + '</td></tr>';
@@ -219,12 +274,12 @@
     function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
     /* ---------- 数据加载：超时 + 退避重试，失败只留空，不伪造、不估算 ---------- */
-    var lastSummary = null, lastGoodAt = '', summaryOk = false, liveOk = false;
+    var lastSummary = null, lastSummaryAt = 0, lastGoodAt = '', summaryOk = false, liveOk = false;
     var summaryFails = 0, liveFails = 0, summaryTimer = null, liveTimer = null;
     var statusEl = document.getElementById('dashStatus');
     var statusTextEl = document.getElementById('dashStatusText');
 
-    function nowText() { return new Date().toLocaleTimeString('zh-CN', { hour12: false }); }
+    function nowText() { return bjTime(); }
     function setConn(state, text) {
         if (statusEl) statusEl.className = 'dash-live ' + state;
         if (statusTextEl) statusTextEl.textContent = text;
@@ -248,7 +303,13 @@
             if (ctrl) opts.signal = ctrl.signal;
             fetch(url, opts).then(function (r) {
                 if (timer) clearTimeout(timer);
-                if (!r.ok) throw new Error('HTTP ' + r.status);
+                if (!r.ok) {
+                    var err = new Error('HTTP ' + r.status);
+                    err.status = r.status;
+                    var ra = r.headers.get('Retry-After');
+                    if (ra && /^\d+$/.test(ra.trim())) err.retryAfter = parseInt(ra, 10);
+                    throw err;
+                }
                 return r.json();
             }).then(resolve, function (e) {
                 if (timer) clearTimeout(timer);
@@ -279,7 +340,7 @@
         renderHealth(arr(d.health));
         renderLog(arr(d.recent));
         summaryOk = true; summaryFails = 0;
-        lastSummary = d; lastGoodAt = nowText();
+        lastSummary = d; lastSummaryAt = Date.now(); lastGoodAt = nowText();
         document.getElementById('dashUpdated').textContent = lastGoodAt;
         refreshStatus();
     }
@@ -318,9 +379,12 @@
             summaryTimer = setTimeout(loadSummary, 30000);
         }).catch(function (e) {
             summaryOk = false; summaryFails += 1;
-            var delay = Math.min(30000, 3000 * Math.pow(2, summaryFails - 1));
+            /* 429 是限流，不是故障：按后端给的 Retry-After 退避，别拿指数退避硬顶 */
+            var delay = e && e.status === 429
+                ? Math.min(180000, ((e.retryAfter || 60) * 1000) + 3000)
+                : Math.min(30000, 3000 * Math.pow(2, summaryFails - 1));
             setConn('is-off', '未连接 · ' + Math.round(delay / 1000) + 's 后重试');
-            banner('[连接告警] 数据中台未连接：' + errText(e) + '。' +
+            banner('[连接告警] 数据中台未连接：' + errText(e) + (e && e.status === 429 ? '（接口限流，按 Retry-After ' + (e.retryAfter || 60) + 's 退避）' : '') + '。' +
                 (lastSummary ? '下方保留最后一次成功数据（' + lastGoodAt + '）。' : '图表留空，不伪造、不估算。') +
                 ' 前端已自动重试 ' + summaryFails + ' 次。');
             if (!lastSummary) renderEmpty();
@@ -353,6 +417,13 @@
             liveTimer = setTimeout(loadLive, Math.min(30000, 4000 * Math.pow(2, Math.min(liveFails, 3))));
         });
     }
+
+    /* ---------- 切回前台立刻补一次（后台标签页定时器会被降频，回来时不能看旧数） ---------- */
+    document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState !== 'visible' || !API) return;
+        if (!lastSummary || Date.now() - lastSummaryAt > 30000) loadSummary();
+        loadLive();
+    });
 
     /* ---------- AI 读数字（只接受服务端校验过的文案，降级就保留导出快照） ---------- */
     var aiSection = document.getElementById('ai-insight');

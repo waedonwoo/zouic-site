@@ -50,9 +50,9 @@
                             更多
                         </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li><li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li><li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li><li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li><li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li><li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li><li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li><li><a class="dropdown-item" href="/tools/"><i class="fas fa-calculator me-2"></i>硬件计算器</a></li><li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li><li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li><li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic" 
                                placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" style="width: 200px;"><select id="searchType" class="form-select input-zouic" aria-label="搜索类型:" style="width: auto; flex: 0 0 auto;"><option value="">全部分类</option><option value="board">开源开发板</option><option value="project">开源项目</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文
-                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/set-language/zh?next=/services/"><i class="fas fa-language me-2"></i> 中文
-                            </a></li><li><a class="dropdown-item" href="/set-language/en?next=/services/"><i class="fas fa-language me-2"></i> English
-                            </a></li><li><a class="dropdown-item" href="/set-language/de?next=/services/"><i class="fas fa-language me-2"></i> 德语
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/services/"><i class="fas fa-language me-2"></i> 中文
+                            </a></li><li><a class="dropdown-item" href="/en/services/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/services/"><i class="fas fa-language me-2"></i> 德语
                             </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="page-hero page-hero-services py-16"><div class="container"><div class="text-center mb-12"><h1 class="display-4 font-bold mb-4">专业服务</h1><p class="text-secondary lead">从入门到精通，全流程开源硬件开发支持</p></div></div></section><section class="py-3"><div class="container"><div class="card-dark p-4" style="border:1px solid var(--color-border-default);border-radius:8px;"><div class="row g-3 align-items-center"><div class="col-lg-8"><div style="font-family:var(--font-family-mono);font-size:11px;letter-spacing:.12em;color:var(--color-text-tertiary);margin-bottom:6px;">
                         TRIAL · 9.9 CNY
                     </div><h2 class="text-xl font-bold mb-1" style="font-size:18px;">四项服务各开放一个 9.9 元试用包</h2><p class="text-secondary mb-0" style="font-size:13.5px;line-height:1.75;">
@@ -264,6 +264,52 @@
     </script>
     
     
+    
+    <script>
+    (function () {
+        var api = "https://waedon.pythonanywhere.com";
+        var sent = false;
+        function navPerf() {
+            try {
+                var n = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+                if (n && n.loadEventEnd > 0) return Math.round(n.loadEventEnd);
+            } catch (e) { /* ignore */ }
+            return 0;
+        }
+        function send() {
+            if (sent) return;
+            sent = true;
+            var payload = {
+                site: 'zouic',
+                path: (location.pathname + location.search + (location.hash || '')).slice(0, 300),
+                title: (document.title || '').slice(0, 200),
+                ref: document.referrer || '',
+                lang: navigator.language || '',
+                perf: navPerf()
+            };
+            var body = JSON.stringify(payload);
+            // text/plain 免 CORS 预检；页面已经加载完，sendBeacon 最稳
+            try {
+                if (navigator.sendBeacon &&
+                    navigator.sendBeacon(api + '/api/beacon', new Blob([body], { type: 'text/plain;charset=UTF-8' }))) return;
+            } catch (e) { /* fallthrough */ }
+            try {
+                fetch(api + '/api/beacon', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+                    body: body,
+                    keepalive: true,
+                    credentials: 'omit'
+                }).catch(function () {});
+            } catch (e) {}
+        }
+        if (document.readyState === 'complete') setTimeout(send, 0);
+        else window.addEventListener('load', function () { setTimeout(send, 120); });
+        window.addEventListener('pagehide', send);
+    })();
+    </script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/services/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
     
     
     <script>
