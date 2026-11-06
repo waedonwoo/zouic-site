@@ -41,7 +41,7 @@
         .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
         @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
     </style>
-    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/dashuju.css?v=20261102a">
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/dashuju.css?v=20261106a">
     <script src="/static/js/echarts.min.js?v=5.5.1" defer></script>
     <script>window.MONITOR_API = "https://waedon.pythonanywhere.com";</script>
 
@@ -54,7 +54,12 @@
                         </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-language me-2"></i> Chinesisch
                             </a></li><li><a class="dropdown-item" href="/en/dashuju/"><i class="fas fa-language me-2"></i> Englisch
                             </a></li><li><a class="dropdown-item" href="/de/dashuju/"><i class="fas fa-language me-2"></i> Deutsch
-                            </a></li></ul></div></div></div></div></nav><main id="main-content"><div class="dash-screen" id="dashScreen"><div class="container dash-container"><header class="dash-head"><div class="dash-brand"><div class="dash-brand-mark" aria-hidden="true">Z</div><div><h1>ZouIC · 全站流量监控</h1><p>PV · IP · SEO · GEO · 实时数据大屏</p></div></div><div class="dash-clock" aria-label="北京时间"><div><span>日期(北京)</span><strong id="dashDate">—</strong></div><div><span>时间(北京)</span><strong id="dashClock">—</strong></div></div><div class="dash-live is-pending" id="dashStatus" role="status" aria-live="polite"><span class="dash-dot"></span><span id="dashStatusText">连接中…</span><span>· 更新于 <span id="dashUpdated">—</span></span></div></header><div id="dashBanner" class="dash-banner" hidden></div><section class="dash-kpis" aria-label="核心指标"><div class="dash-kpi"><div class="dash-kpi-label">今日 PV</div><div class="dash-kpi-value" data-kpi="pv_today">—</div><div class="dash-kpi-sub">UV <span data-kpi="uv_today">—</span></div></div><div class="dash-kpi"><div class="dash-kpi-label">昨日 PV</div><div class="dash-kpi-value" data-kpi="pv_yesterday">—</div><div class="dash-kpi-sub">同比基线</div></div><div class="dash-kpi"><div class="dash-kpi-label">近 7 日 PV</div><div class="dash-kpi-value" data-kpi="pv_7d">—</div><div class="dash-kpi-sub">UV <span data-kpi="uv_7d">—</span></div></div><div class="dash-kpi"><div class="dash-kpi-label">近 30 日 PV</div><div class="dash-kpi-value" data-kpi="pv_30d">—</div><div class="dash-kpi-sub">独立访客按 IP 哈希去重</div></div><div class="dash-kpi"><div class="dash-kpi-label">累计 PV</div><div class="dash-kpi-value" data-kpi="pv_total">—</div><div class="dash-kpi-sub">累计 UV <span data-kpi="uv_total">—</span></div></div><div class="dash-kpi"><div class="dash-kpi-label">SEO+GEO 爬虫</div><div class="dash-kpi-value" data-kpi="bots_30d">—</div><div class="dash-kpi-sub">近 30 日抓取</div></div><div class="dash-kpi"><div class="dash-kpi-label">Ungültiger Verkehr</div><div class="dash-kpi-value" data-kpi="ivt_30d">—</div><div class="dash-kpi-sub">von PV <span data-kpi="ivt_rate">—</span></div></div></section><div class="dash-grid"><section class="dash-panel dash-col-6"><div class="dash-panel-head"><h2 class="dash-panel-title">流量趋势</h2><span class="dash-panel-meta">PV / UV · 30D</span></div><div id="trendChart" class="dash-chart"></div></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">来源分布</h2><span class="dash-panel-meta">30D</span></div><div id="sourceChart" class="dash-chart dash-chart-sm"></div></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">设备分布</h2><span class="dash-panel-meta">30D</span></div><div id="deviceChart" class="dash-chart dash-chart-sm"></div></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">SEO 搜索引擎爬虫</h2><span class="dash-panel-meta">抓取次数 · 30D</span></div><div id="seoChart" class="dash-chart dash-chart-sm"></div><p class="dash-hint">搜索引擎蜘蛛抓取频次反映收录意愿。</p></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">GEO AI 爬虫</h2><span class="dash-panel-meta">抓取次数 · 30D</span></div><div id="geoChart" class="dash-chart dash-chart-sm"></div><p class="dash-hint">AI 助手（ChatGPT/Claude/Perplexity 等）抓取是生成式引擎引用的前提。</p></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">访客地域 Top 10</h2><span class="dash-panel-meta">IP 归属 · 30D</span></div><div id="countryChart" class="dash-chart dash-chart-sm"></div></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">Ungültige Verkehrserkennung</h2><span class="dash-panel-meta">Gepasste Regeln - 30D</span></div><ul class="dash-list dash-dist" id="ivtReasons"><li class="dash-empty">Laden...</li></ul><p class="dash-hint">Nur aus serverseitigen Signalen erkannt (anomale UA, kopflose Browser, kurzfristige Ausbrüche). Es werden keine Kundenfingerabdrücke gesammelt.</p></section><section class="dash-panel dash-col-6"><div class="dash-panel-head"><h2 class="dash-panel-title">热门页面 Top 10</h2><span class="dash-panel-meta">PV · 30D</span></div><ul class="dash-list dash-dist" id="topPages"><li class="dash-empty">加载中…</li></ul></section><section class="dash-panel dash-col-6"><div class="dash-panel-head"><h2 class="dash-panel-title">SEO / GEO 站点健康</h2><span class="dash-panel-meta">大屏自动巡检 · 约 6 小时一次</span></div><div class="dash-health-grid" id="healthGrid"><span class="dash-empty">加载中…</span></div><p class="dash-hint">llms.txt 是 AI 搜索引擎（GEO）的内容入口；sitemap.xml 决定传统搜索引擎收录。</p></section><section class="dash-panel dash-col-12"><div class="dash-panel-head"><h2 class="dash-panel-title">实时访问流</h2><span class="dash-panel-meta" id="liveMeta">最近 25 条</span></div><div class="dash-log-wrap"><table class="dash-log-table" id="logTable"><thead><tr><th>时间(北京)</th><th>页面</th><th>来源</th><th>IP（脱敏）</th><th>地域</th><th>设备</th><th>类型</th></tr></thead><tbody><tr><td colspan="7" class="dash-empty">加载中…</td></tr></tbody></table></div></section></div><footer class="dash-foot"><span>数据中台：独立轻后端（Flask + SQLite）· IP 只存打码段与当日哈希，不留原始地址</span><span><a href="https://waedon.pythonanywhere.com/observatory">爬虫观测台</a> · ZouIC Site Monitor · 极客微栋 @GeekWaedon</span></footer></div></div>
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><div class="dash-screen" id="dashScreen"><div class="container dash-container"><header class="dash-head"><div class="dash-brand"><div class="dash-brand-mark" aria-hidden="true">Z</div><div><h1>ZouIC · 全站流量监控</h1><p>PV · IP · SEO · GEO · 实时数据大屏</p></div></div><div class="dash-clock" aria-label="北京时间"><div><span>日期(北京)</span><strong id="dashDate">—</strong></div><div><span>时间(北京)</span><strong id="dashClock">—</strong></div></div><div class="dash-live is-pending" id="dashStatus" role="status" aria-live="polite"><span class="dash-dot"></span><span id="dashStatusText">连接中…</span><span>· 更新于 <span id="dashUpdated">—</span></span></div></header><div id="dashBanner" class="dash-banner" hidden></div><div class="dash-toolbar"><button type="button" class="dash-btn" id="dashRefresh">刷新数据</button><button type="button" class="dash-btn is-on" id="dashAuto" aria-pressed="true">自动刷新 · 开</button><span class="dash-toolbar-note" id="dashAutoNote">聚合每 30 秒 · 实时流每 10 秒</span></div><section class="dash-kpis" aria-label="核心指标"><div class="dash-kpi"><div class="dash-kpi-label">今日 PV</div><div class="dash-kpi-value" data-kpi="pv_today">—</div><div class="dash-kpi-sub">UV <span data-kpi="uv_today">—</span></div></div><div class="dash-kpi"><div class="dash-kpi-label">昨日 PV</div><div class="dash-kpi-value" data-kpi="pv_yesterday">—</div><div class="dash-kpi-sub">同比基线</div></div><div class="dash-kpi"><div class="dash-kpi-label">近 7 日 PV</div><div class="dash-kpi-value" data-kpi="pv_7d">—</div><div class="dash-kpi-sub">UV <span data-kpi="uv_7d">—</span></div></div><div class="dash-kpi"><div class="dash-kpi-label">近 30 日 PV</div><div class="dash-kpi-value" data-kpi="pv_30d">—</div><div class="dash-kpi-sub">独立访客按 IP 哈希去重</div></div><div class="dash-kpi"><div class="dash-kpi-label">累计 PV</div><div class="dash-kpi-value" data-kpi="pv_total">—</div><div class="dash-kpi-sub">累计 UV <span data-kpi="uv_total">—</span></div></div><div class="dash-kpi"><div class="dash-kpi-label">SEO+GEO 爬虫</div><div class="dash-kpi-value" data-kpi="bots_30d">—</div><div class="dash-kpi-sub">近 30 日抓取</div></div><div class="dash-kpi"><div class="dash-kpi-label">Ungültiger Verkehr</div><div class="dash-kpi-value" data-kpi="ivt_30d">—</div><div class="dash-kpi-sub">von PV <span data-kpi="ivt_rate">—</span></div></div></section><p class="dash-basis">
+            Basis: PV / UV exclude the monitor's own traffic
+            (<code>/dashuju</code>, <code>/api/*</code>, <code>/collect*</code>, <code>/tracker.js</code>, <code>/pixel</code>)
+            and invalid traffic (<code>ivt=1</code>). Bots are reported separately and are not excluded.
+            
+        </p><div class="dash-grid"><section class="dash-panel dash-col-6"><div class="dash-panel-head"><h2 class="dash-panel-title">流量趋势</h2><span class="dash-panel-meta">PV / UV · 30D</span></div><div id="trendChart" class="dash-chart"></div></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">来源分布</h2><span class="dash-panel-meta">30D</span></div><div id="sourceChart" class="dash-chart dash-chart-sm"></div></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">设备分布</h2><span class="dash-panel-meta">30D</span></div><div id="deviceChart" class="dash-chart dash-chart-sm"></div></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">SEO 搜索引擎爬虫</h2><span class="dash-panel-meta">抓取次数 · 30D</span></div><div id="seoChart" class="dash-chart dash-chart-sm"></div><p class="dash-hint">搜索引擎蜘蛛抓取频次反映收录意愿。</p></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">GEO AI 爬虫</h2><span class="dash-panel-meta">抓取次数 · 30D</span></div><div id="geoChart" class="dash-chart dash-chart-sm"></div><p class="dash-hint">AI 助手（ChatGPT/Claude/Perplexity 等）抓取是生成式引擎引用的前提。</p></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">访客地域 Top 10</h2><span class="dash-panel-meta">IP 归属 · 30D</span></div><div id="countryChart" class="dash-chart dash-chart-sm"></div></section><section class="dash-panel dash-col-3"><div class="dash-panel-head"><h2 class="dash-panel-title">Ungültige Verkehrserkennung</h2><span class="dash-panel-meta">Gepasste Regeln - 30D</span></div><ul class="dash-list dash-dist" id="ivtReasons"><li class="dash-empty">Laden...</li></ul><p class="dash-hint">Nur aus serverseitigen Signalen erkannt (anomale UA, kopflose Browser, kurzfristige Ausbrüche). Es werden keine Kundenfingerabdrücke gesammelt.</p></section><section class="dash-panel dash-col-6"><div class="dash-panel-head"><h2 class="dash-panel-title">热门页面 Top 10</h2><span class="dash-panel-meta">PV · 30D</span></div><ul class="dash-list dash-dist" id="topPages"><li class="dash-empty">加载中…</li></ul></section><section class="dash-panel dash-col-6"><div class="dash-panel-head"><h2 class="dash-panel-title">SEO / GEO 站点健康</h2><span class="dash-panel-meta">大屏自动巡检 · 约 6 小时一次</span></div><div class="dash-health-grid" id="healthGrid"><span class="dash-empty">加载中…</span></div><p class="dash-hint">llms.txt 是 AI 搜索引擎（GEO）的内容入口；sitemap.xml 决定传统搜索引擎收录。</p></section><div class="dash-group-head dash-col-12"><h2>Audience profile</h2><span>Last 30 days · human visitors · monitor traffic excluded</span></div><section class="dash-panel dash-col-12"><div class="dash-panel-head"><h2 class="dash-panel-title">New / returning / unidentified</h2><span class="dash-panel-meta" id="audMeta">Loading…</span></div><div class="dash-aud-bar" id="audBar"></div><div class="dash-aud-legend" id="audLegend"></div><p class="dash-hint"></p></section><section class="dash-panel dash-col-4"><div class="dash-panel-head"><h2 class="dash-panel-title">Browser</h2><span class="dash-panel-meta" id="bdBrowserMeta">30D</span></div><ul class="dash-list dash-dist" id="bdBrowser"><li class="dash-empty">Loading…</li></ul></section><section class="dash-panel dash-col-4"><div class="dash-panel-head"><h2 class="dash-panel-title">Operating system</h2><span class="dash-panel-meta" id="bdOsMeta">30D</span></div><ul class="dash-list dash-dist" id="bdOs"><li class="dash-empty">Loading…</li></ul></section><section class="dash-panel dash-col-4"><div class="dash-panel-head"><h2 class="dash-panel-title">Screen resolution</h2><span class="dash-panel-meta" id="bdScreenMeta">30D</span></div><ul class="dash-list dash-dist" id="bdScreen"><li class="dash-empty">Loading…</li></ul></section><section class="dash-panel dash-col-4"><div class="dash-panel-head"><h2 class="dash-panel-title">System language</h2><span class="dash-panel-meta" id="bdLangMeta">30D</span></div><ul class="dash-list dash-dist" id="bdLang"><li class="dash-empty">Loading…</li></ul></section><section class="dash-panel dash-col-4"><div class="dash-panel-head"><h2 class="dash-panel-title">ISP</h2><span class="dash-panel-meta" id="bdIspMeta">30D</span></div><ul class="dash-list dash-dist" id="bdIsp"><li class="dash-empty">Loading…</li></ul></section><section class="dash-panel dash-col-4"><div class="dash-panel-head"><h2 class="dash-panel-title">Region</h2><span class="dash-panel-meta" id="bdRegionMeta">30D</span></div><ul class="dash-list dash-dist" id="bdRegion"><li class="dash-empty">Loading…</li></ul></section><div class="dash-group-head dash-col-12"><h2>Referrals &amp; crawlers</h2><span>Search engines attributed by Referer · crawlers counted separately</span></div><section class="dash-panel dash-col-6"><div class="dash-panel-head"><h2 class="dash-panel-title">Search engines</h2><span class="dash-panel-meta" id="searchMeta">Loading…</span></div><ul class="dash-list dash-dist" id="searchEngines"><li class="dash-empty">Loading…</li></ul><p class="dash-hint">UV counts unique visitors per engine; share is over the listed engines only.</p></section><section class="dash-panel dash-col-6"><div class="dash-panel-head"><h2 class="dash-panel-title">Search landing pages</h2><span class="dash-panel-meta">Top 15</span></div><div class="dash-table-wrap"><table class="dash-table dash-table-compact"><thead><tr><th>Engine</th><th>Landing page</th><th>PV</th></tr></thead><tbody id="searchLanding"><tr><td colspan="3" class="dash-empty">Loading…</td></tr></tbody></table></div></section><section class="dash-panel dash-col-7"><div class="dash-panel-head"><h2 class="dash-panel-title">Crawler leaderboard</h2><span class="dash-panel-meta" id="botMeta">Loading…</span></div><div class="dash-chips" id="botFilter" role="group" aria-label="Crawler class filter"><button type="button" class="dash-chip is-active" data-cls="all">All</button><button type="button" class="dash-chip" data-cls="seo">SEO</button><button type="button" class="dash-chip" data-cls="geo">GEO</button><button type="button" class="dash-chip" data-cls="other">Other</button></div><div class="dash-table-wrap"><table class="dash-table"><thead><tr><th>Crawler</th><th>Class</th><th>Requests</th><th>Last seen</th><th>Err-page (approx.)</th></tr></thead><tbody id="botRows"><tr><td colspan="5" class="dash-empty">Loading…</td></tr></tbody></table></div><p class="dash-hint">“Err-page (approx.)” comes from the err=1 template flag, not a real HTTP status code (the CDN serves status codes for the static site).</p></section><section class="dash-panel dash-col-5"><div class="dash-panel-head"><h2 class="dash-panel-title">Top crawled paths</h2><span class="dash-panel-meta">Top 20</span></div><ul class="dash-list dash-dist" id="botPaths"><li class="dash-empty">Loading…</li></ul></section><div class="dash-group-head dash-col-12"><h2>Page behaviour</h2><span>Normalised click coordinates · scroll depth</span></div><section class="dash-panel dash-col-12" id="heatPanel"><div class="dash-panel-head dash-heat-head"><h2 class="dash-panel-title">Click heatmap</h2><label class="dash-heat-picker"><span>Page</span><select id="heatPage" class="dash-select" aria-label="Select page" disabled><option value="">Loading…</option></select></label><span class="dash-panel-meta" id="heatMeta">30D</span></div><div class="dash-heat-grid"><div class="dash-heat-canvas-wrap"><canvas id="heatCanvas" width="100" height="100" aria-label="100x100 click density grid"></canvas><div class="dash-heat-empty" id="heatEmpty">Loading…</div></div><div class="dash-heat-side"><h3 class="dash-subhead">Scroll depth reached</h3><ul class="dash-list dash-dist" id="heatScroll"><li class="dash-empty">Loading…</li></ul><p class="dash-hint">Coordinates are % of full page width/height (0-100), not pixels; the grid is not drawn below 30 clicks.</p></div></div></section><section class="dash-panel dash-col-12"><div class="dash-panel-head"><h2 class="dash-panel-title">实时访问流</h2><span class="dash-panel-meta" id="liveMeta">最近 25 条</span></div><div class="dash-log-wrap"><table class="dash-log-table" id="logTable"><thead><tr><th>时间(北京)</th><th>页面</th><th>来源</th><th>IP（脱敏）</th><th>地域</th><th>设备</th><th>类型</th></tr></thead><tbody><tr><td colspan="7" class="dash-empty">加载中…</td></tr></tbody></table></div></section></div><footer class="dash-foot"><span>数据中台：独立轻后端（Flask + SQLite）· IP 只存打码段与当日哈希，不留原始地址</span><span><a href="https://waedon.pythonanywhere.com/observatory">爬虫观测台</a> · ZouIC Site Monitor · 极客微栋 @GeekWaedon</span></footer></div></div>
 
 <script>
 (function () {
@@ -275,6 +280,7 @@
 
     /* ---------- 数据加载：超时 + 退避重试，失败只留空，不伪造、不估算 ---------- */
     var lastSummary = null, lastSummaryAt = 0, lastGoodAt = '', summaryOk = false, liveOk = false;
+    var autoOn = true;
     var summaryFails = 0, liveFails = 0, summaryTimer = null, liveTimer = null;
     var statusEl = document.getElementById('dashStatus');
     var statusTextEl = document.getElementById('dashStatusText');
@@ -339,6 +345,17 @@
         renderPages(arr(d.pages));
         renderHealth(arr(d.health));
         renderLog(arr(d.recent));
+        /* M3：访客画像 / 搜索来源 / 热力页入口，全部取自同一次 summary 返回 */
+        renderAudience(d.audience);
+        var bd = d.breakdowns || {};
+        renderDist('bdBrowser', bd.browser, 'bdBrowserMeta', 8);
+        renderDist('bdOs', bd.os, 'bdOsMeta', 8);
+        renderDist('bdScreen', bd.screen, 'bdScreenMeta', 6);
+        renderDist('bdLang', bd.lang, 'bdLangMeta', 6);
+        renderDist('bdIsp', bd.isp, 'bdIspMeta', 8);
+        renderDist('bdRegion', bd.region, 'bdRegionMeta', 8);
+        renderSearch(d.search);
+        populateHeatPages((d.heatmap || {}).pages);
         summaryOk = true; summaryFails = 0;
         lastSummary = d; lastSummaryAt = Date.now(); lastGoodAt = nowText();
         document.getElementById('dashUpdated').textContent = lastGoodAt;
@@ -361,6 +378,22 @@
         var meta = document.getElementById('liveMeta');
         if (meta) meta.textContent = '未取到数据，这里留空——不编造数字';
         document.getElementById('dashUpdated').textContent = '—';
+        /* M3 新增区块同样留空，不留「0」或假比例 */
+        var emptyMsg = IS_EN ? 'No data — left blank rather than fabricated' : '未取到数据，这里留空——不编造数字';
+        ['bdBrowser', 'bdOs', 'bdScreen', 'bdLang', 'bdIsp', 'bdRegion',
+         'searchEngines', 'botPaths', 'heatScroll'].forEach(function (id) {
+            listEmpty(document.getElementById(id), emptyMsg, true);
+        });
+        tableEmpty(document.getElementById('searchLanding'), 3, emptyMsg, true);
+        tableEmpty(document.getElementById('botRows'), 5, emptyMsg, true);
+        var audBar = document.getElementById('audBar');
+        if (audBar) audBar.innerHTML = '<span class="dash-aud-empty">' + esc(emptyMsg) + '</span>';
+        var audLegend = document.getElementById('audLegend');
+        if (audLegend) audLegend.innerHTML = '';
+        setMetaText('audMeta', '—');
+        var cv = document.getElementById('heatCanvas');
+        if (cv) clearHeat(cv);
+        heatEmptyText(emptyMsg);
     }
 
     function loadSummary() {
@@ -376,7 +409,7 @@
             if (!d || !d.ok) throw new Error((d && d.error) || '返回格式异常');
             bannerEl.hidden = true;
             applySummary(d);
-            summaryTimer = setTimeout(loadSummary, 30000);
+            if (autoOn) summaryTimer = setTimeout(loadSummary, 30000);
         }).catch(function (e) {
             summaryOk = false; summaryFails += 1;
             /* 429 是限流，不是故障：按后端给的 Retry-After 退避，别拿指数退避硬顶 */
@@ -384,11 +417,14 @@
                 ? Math.min(180000, ((e.retryAfter || 60) * 1000) + 3000)
                 : Math.min(30000, 3000 * Math.pow(2, summaryFails - 1));
             setConn('is-off', '未连接 · ' + Math.round(delay / 1000) + 's 后重试');
-            banner('[连接告警] 数据中台未连接：' + errText(e) + (e && e.status === 429 ? '（接口限流，按 Retry-After ' + (e.retryAfter || 60) + 's 退避）' : '') + '。' +
+            banner('[连接告警] 数据中台未连接：' + errText(e) + (e && e.status === 429
+                ? '（接口限流，' + (e.retryAfter ? '后端 Retry-After ' + e.retryAfter + 's' : '后端未回传 Retry-After，按默认 60s')
+                  + ' 退避，前端将在 ' + Math.round(delay / 1000) + 's 后重试）'
+                : '') + '。' +
                 (lastSummary ? '下方保留最后一次成功数据（' + lastGoodAt + '）。' : '图表留空，不伪造、不估算。') +
                 ' 前端已自动重试 ' + summaryFails + ' 次。');
             if (!lastSummary) renderEmpty();
-            summaryTimer = setTimeout(loadSummary, delay);
+            if (autoOn) summaryTimer = setTimeout(loadSummary, delay);
         });
     }
 
@@ -408,13 +444,13 @@
             lastGoodAt = nowText();
             document.getElementById('dashUpdated').textContent = lastGoodAt;
             refreshStatus();
-            liveTimer = setTimeout(loadLive, 10000);
+            if (autoOn) liveTimer = setTimeout(loadLive, 10000);
         }).catch(function (e) {
             liveOk = false; liveFails += 1;
             var meta = document.getElementById('liveMeta');
             if (meta) meta.textContent = '实时流未连接（' + errText(e) + '）· 保留上次记录，自动重试中';
             refreshStatus();
-            liveTimer = setTimeout(loadLive, Math.min(30000, 4000 * Math.pow(2, Math.min(liveFails, 3))));
+            if (autoOn) liveTimer = setTimeout(loadLive, Math.min(30000, 4000 * Math.pow(2, Math.min(liveFails, 3))));
         });
     }
 
@@ -479,20 +515,382 @@
     var aiRefreshBtn = document.getElementById('aiInsightRefresh');
     if (aiRefreshBtn) aiRefreshBtn.addEventListener('click', function () { refreshAiInsight(aiRefreshBtn); });
 
+    /* ============================================================
+       M3 新增区块：新老访客 / 维度分布 / 搜索来源 / 爬虫榜 / 点击热力
+       数据来源：/api/summary（audience.breakdowns.search.heatmap.pages）、
+       /api/bots、/api/heatmap。全部真实返回，缺数据只留空。
+       ============================================================ */
+    var bi = function (zh, en) { return IS_EN ? en : zh; };
+    var heatSel = document.getElementById('heatPage');
+    var heatEmptyEl = document.getElementById('heatEmpty');
+    var heatCurrent = '';
+    var botClass = 'all', botHasData = false, botsTimer = null, botsFails = 0;
+
+    function setMetaText(id, text) { var el = document.getElementById(id); if (el) el.textContent = text; }
+    function pctText(v, total) { return total ? (v * 100 / total).toFixed(1) : '0.0'; }
+
+    function listEmpty(el, msg, isErr) {
+        if (!el) return;
+        el.innerHTML = '<li class="dash-empty' + (isErr ? ' is-error' : '') + '">' + esc(msg) + '</li>';
+    }
+    function tableEmpty(tbody, cols, msg, isErr) {
+        if (!tbody) return;
+        tbody.innerHTML = '<tr><td colspan="' + cols + '" class="dash-empty' + (isErr ? ' is-error' : '') + '">' + esc(msg) + '</td></tr>';
+    }
+
+    /* 一行 = 名称 + 次数 / UV / 占比 + 比例条 */
+    function distRow(label, v, uv, total) {
+        var p = pctText(v, total);
+        return '<li><div class="dash-dist-row">'
+            + '<span class="dash-dist-name" title="' + esc(label) + '">' + esc(label) + '</span>'
+            + '<span class="dash-dist-val">' + fmt(v)
+            + (uv === undefined || uv === null ? '' : '<em>UV ' + fmt(uv) + '</em>')
+            + '<em>' + p + '%</em></span></div>'
+            + '<div class="dash-bar"><span style="width:' + p + '%"></span></div></li>';
+    }
+
+    function renderDist(id, rows, metaId, limit) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        rows = arr(rows).slice(0, limit || 10);
+        if (!rows.length) {
+            listEmpty(el, bi('近 30 日暂无数据', 'No data in the last 30 days'));
+            setMetaText(metaId, bi('无数据', 'no data'));
+            return;
+        }
+        var total = 0;
+        rows.forEach(function (r) { total += (r.v || 0); });
+        el.innerHTML = rows.map(function (r) {
+            return distRow(r.k || bi('未知', 'Unknown'), r.v || 0, r.uv, total);
+        }).join('');
+    }
+
+    /* ---------- 新访客 / 回访 / 无标识 ---------- */
+    function renderAudience(a) {
+        var bar = document.getElementById('audBar'), legend = document.getElementById('audLegend');
+        if (!bar || !legend) return;
+        a = a || {};
+        var n = a['new'] || 0, r = a.returning || 0, u = a.unidentified || 0;
+        var tot = n + r + u;
+        if (!tot) {
+            bar.innerHTML = '<span class="dash-aud-empty">' + esc(bi('近 30 日暂无访客记录', 'No visitors in the last 30 days')) + '</span>';
+            legend.innerHTML = '';
+            setMetaText('audMeta', bi('无数据', 'no data'));
+            return;
+        }
+        var segs = [
+            { n: n, cls: 'seg-new', label: bi('新访客', 'New'), sub: n + ' / ' + (n + r) },
+            { n: r, cls: 'seg-ret', label: bi('回访', 'Returning'), sub: r + ' / ' + (n + r) },
+            { n: u, cls: 'seg-uni', label: bi('无标识', 'Unidentified'), sub: bi('不计入比例', 'not in ratio') }
+        ];
+        bar.innerHTML = segs.map(function (s) {
+            if (!s.n) return '';
+            return '<span class="dash-aud-seg ' + s.cls + '" style="width:' + (s.n * 100 / tot).toFixed(2) + '%"'
+                + ' title="' + esc(s.label + ' ' + s.n) + '"></span>';
+        }).join('');
+        legend.innerHTML = segs.map(function (s) {
+            return '<div class="dash-aud-chip' + (s.n ? '' : ' is-zero') + '">'
+                + '<i class="' + s.cls + '"></i><strong>' + fmt(s.n) + '</strong>'
+                + '<span>' + esc(s.label) + '</span><em>' + esc(s.sub) + '</em></div>';
+        }).join('');
+        setMetaText('audMeta', (a.ratio_new === undefined || a.ratio_new === null)
+            ? '30D'
+            : bi('新访客占比 ', 'New share ') + a.ratio_new + '%');
+    }
+
+    /* ---------- 搜索引擎来源 + 落地页 ---------- */
+    function renderSearch(s) {
+        s = s || {};
+        var eng = arr(s.engines), land = arr(s.landing);
+        var el = document.getElementById('searchEngines');
+        if (el) {
+            if (!eng.length) {
+                listEmpty(el, bi('近 30 日没有搜索引擎来源', 'No search-engine referrals in the last 30 days'));
+                setMetaText('searchMeta', bi('无数据', 'no data'));
+            } else {
+                var total = 0;
+                eng.forEach(function (r) { total += (r.pv || 0); });
+                el.innerHTML = eng.map(function (r) { return distRow(r.k, r.pv || 0, r.uv, total); }).join('');
+                setMetaText('searchMeta', bi('引擎 ', 'engines ') + eng.length);
+            }
+        }
+        var tb = document.getElementById('searchLanding');
+        if (tb) {
+            if (!land.length) {
+                tableEmpty(tb, 3, bi('近 30 日没有搜索落地页记录', 'No search landing pages in the last 30 days'));
+            } else {
+                tb.innerHTML = land.map(function (r) {
+                    return '<tr><td><span class="dash-tag violet">' + esc(r.engine) + '</span></td>'
+                        + '<td class="dash-mono dash-path" title="' + esc(r.path) + '">' + esc(r.path) + '</td>'
+                        + '<td class="dash-mono">' + fmt(r.pv) + '</td></tr>';
+                }).join('');
+            }
+        }
+    }
+
+    /* ---------- 爬虫榜（/api/bots） ---------- */
+    function renderBots(d) {
+        var tb = document.getElementById('botRows');
+        var list = arr(d.list), paths = arr(d.paths);
+        botHasData = list.length > 0;
+        if (tb) {
+            if (!list.length) {
+                tableEmpty(tb, 5, bi('近 30 日无该类爬虫记录', 'No crawlers of this class in the last 30 days'));
+            } else {
+                tb.innerHTML = list.map(function (r) {
+                    var cls = r['class'] === 'seo' ? 'seo' : (r['class'] === 'geo' ? 'geo' : 'bot');
+                    var clsName = r['class'] === 'seo' ? 'SEO' : (r['class'] === 'geo' ? 'GEO' : bi('其他', 'Other'));
+                    return '<tr><td class="dash-mono dash-ellipsis" title="' + esc(r.name) + '">' + esc(r.name) + '</td>'
+                        + '<td><span class="dash-badge ' + cls + '">' + clsName + '</span></td>'
+                        + '<td class="dash-mono">' + fmt(r.pv) + '</td>'
+                        + '<td class="dash-mono">' + bjTimeShort((r.last_ts || 0) * 1000) + '</td>'
+                        + '<td class="dash-mono">' + (r.err ? fmt(r.err) : '—') + '</td></tr>';
+                }).join('');
+            }
+        }
+        var pel = document.getElementById('botPaths');
+        if (pel) {
+            if (!paths.length) {
+                listEmpty(pel, bi('近 30 日无抓取路径记录', 'No crawled paths in the last 30 days'));
+            } else {
+                var max = 1;
+                paths.forEach(function (r) { if (r.pv > max) max = r.pv; });
+                pel.innerHTML = paths.map(function (r) {
+                    return '<li><div class="dash-dist-row">'
+                        + '<span class="dash-dist-name" title="' + esc(r.name + ' · ' + r.path) + '">'
+                        + '<b>' + esc(r.name) + '</b> ' + esc(r.path) + '</span>'
+                        + '<span class="dash-dist-val">' + fmt(r.pv) + '</span></div>'
+                        + '<div class="dash-bar"><span style="width:' + (r.pv * 100 / max).toFixed(1) + '%"></span></div></li>';
+                }).join('');
+            }
+        }
+        setMetaText('botMeta', bi('近 30 日 · ', 'Last 30 days · ')
+            + (botClass === 'all' ? bi('全部类别', 'all classes') : botClass.toUpperCase()));
+    }
+
+    function failText(e) {
+        if (!e) return bi('未知错误', 'unknown error');
+        if (e.name === 'AbortError') return bi('请求超时', 'request timeout');
+        if (e.status === 429) return bi('接口限流 429 · ' + (e.retryAfter || 60) + 's 后重试', 'rate limited 429 · retry in ' + (e.retryAfter || 60) + 's');
+        if (e.status) return 'HTTP ' + e.status;
+        return errText(e);
+    }
+
+    function loadBots(cls) {
+        botClass = cls || botClass;
+        if (botsTimer) { clearTimeout(botsTimer); botsTimer = null; }
+        if (!API) {
+            setMetaText('botMeta', bi('未配置数据中台', 'monitor API not configured'));
+            tableEmpty(document.getElementById('botRows'), 5, bi('未配置数据中台，无法取数', 'Monitor API not configured'), true);
+            listEmpty(document.getElementById('botPaths'), bi('未配置数据中台，无法取数', 'Monitor API not configured'), true);
+            return;
+        }
+        setMetaText('botMeta', bi('加载中…', 'Loading…'));
+        fetchJSON(API + '/api/bots?site=zouic&days=30&class=' + encodeURIComponent(botClass), 12000).then(function (d) {
+            if (!d || !d.ok) throw new Error((d && d.error) || '返回格式异常');
+            botsFails = 0;
+            renderBots(d);
+            if (autoOn) botsTimer = setTimeout(function () { loadBots(botClass); }, 30000);
+        }).catch(function (e) {
+            botsFails += 1;
+            var msg = failText(e);
+            setMetaText('botMeta', msg);
+            if (!botHasData) {
+                tableEmpty(document.getElementById('botRows'), 5, msg, true);
+                listEmpty(document.getElementById('botPaths'), msg, true);
+            }
+            var delay = e && e.status === 429
+                ? Math.min(180000, ((e.retryAfter || 60) * 1000) + 3000)
+                : Math.min(30000, 3000 * Math.pow(2, botsFails - 1));
+            if (autoOn) botsTimer = setTimeout(function () { loadBots(botClass); }, delay);
+        });
+    }
+
+    /* ---------- 点击热力（/api/heatmap） ---------- */
+    function heatEmptyText(t) {
+        if (heatEmptyEl) { heatEmptyEl.hidden = false; heatEmptyEl.textContent = t; }
+    }
+    function clearHeat(cv) {
+        if (!cv || !cv.getContext) return;
+        var ctx = cv.getContext('2d');
+        ctx.clearRect(0, 0, cv.width, cv.height);
+    }
+    /* 颜色 = 相对强度（sqrt 拉伸，避免单个热点把其余格子压成透明） */
+    function heatColor(t) {
+        t = Math.max(0, Math.min(1, t));
+        var R = [[0, 229, 255], [139, 92, 246], [255, 92, 122]];
+        var i = t < 0.5 ? 0 : 1, k = t < 0.5 ? t * 2 : (t - 0.5) * 2;
+        var a = R[i], b = R[i + 1];
+        return 'rgba(' + Math.round(a[0] + (b[0] - a[0]) * k) + ',' + Math.round(a[1] + (b[1] - a[1]) * k) + ','
+            + Math.round(a[2] + (b[2] - a[2]) * k) + ',' + (0.18 + 0.82 * t).toFixed(2) + ')';
+    }
+    function drawHeat(cv, cells) {
+        if (!cv || !cv.getContext) return;
+        var ctx = cv.getContext('2d');
+        ctx.clearRect(0, 0, cv.width, cv.height);
+        ctx.fillStyle = 'rgba(0,229,255,.05)';
+        ctx.fillRect(0, 0, 100, 100);
+        var max = 1;
+        cells.forEach(function (c) { if (c[2] > max) max = c[2]; });
+        cells.forEach(function (c) {
+            var x = Math.max(0, Math.min(99, c[0] | 0)), y = Math.max(0, Math.min(99, c[1] | 0));
+            ctx.fillStyle = heatColor(Math.pow(c[2] / max, 0.5));
+            ctx.fillRect(x, y, 1, 1);
+        });
+    }
+
+    function renderScroll(rows) {
+        var el = document.getElementById('heatScroll');
+        if (!el) return;
+        rows = arr(rows);
+        if (!rows.length) {
+            listEmpty(el, bi('暂无滚动深度上报', 'No scroll-depth reports'));
+            return;
+        }
+        el.innerHTML = rows.map(function (r) {
+            var w = Math.max(0, Math.min(100, r.ratio || 0));
+            return '<li><div class="dash-dist-row"><span class="dash-dist-name">' + (r.depth | 0) + '%</span>'
+                + '<span class="dash-dist-val">' + fmt(r.count) + '<em>' + (r.ratio || 0) + '% PV</em></span></div>'
+                + '<div class="dash-bar"><span style="width:' + w + '%"></span></div></li>';
+        }).join('');
+    }
+
+    function renderHeatmap(d) {
+        var cv = document.getElementById('heatCanvas');
+        if (!cv) return;
+        var clicks = d.clicks || 0, pv = d.pv || 0;
+        setMetaText('heatMeta', (d.page || '') + ' · ' + bi('点击 ', 'clicks ') + fmt(clicks) + ' · PV ' + fmt(pv));
+        if (!d.sample_ok) {
+            clearHeat(cv);
+            heatEmptyText(bi('样本不足（需 ≥30 次点击）：当前 ' + fmt(clicks) + ' 次',
+                             'Not enough samples (needs >= 30 clicks): ' + fmt(clicks) + ' so far'));
+        } else {
+            drawHeat(cv, arr(d.cells));
+            if (heatEmptyEl) heatEmptyEl.hidden = true;
+        }
+        renderScroll(d.scroll);
+    }
+
+    function loadHeatmap(page) {
+        heatCurrent = page || heatCurrent;
+        if (!heatCurrent) { heatEmptyText(bi('没有可选的页面', 'No page selected')); return; }
+        if (!API) {
+            heatEmptyText(bi('未配置数据中台，无法取数', 'Monitor API not configured'));
+            listEmpty(document.getElementById('heatScroll'), bi('未配置数据中台，无法取数', 'Monitor API not configured'), true);
+            return;
+        }
+        heatEmptyText(bi('加载中…', 'Loading…'));
+        fetchJSON(API + '/api/heatmap?site=zouic&days=30&page=' + encodeURIComponent(heatCurrent), 12000)
+            .then(function (d) {
+                if (!d || !d.ok) throw new Error((d && d.error) || '返回格式异常');
+                renderHeatmap(d);
+            })
+            .catch(function (e) {
+                clearHeat(document.getElementById('heatCanvas'));
+                heatEmptyText(e && e.status === 429
+                    ? bi('接口限流 429 · ' + (e.retryAfter || 60) + 's 后再试', 'Rate limited 429 · retry in ' + (e.retryAfter || 60) + 's')
+                    : bi('热力接口失败：', 'Heatmap request failed: ') + errText(e));
+                listEmpty(document.getElementById('heatScroll'), bi('滚动数据未取到', 'Scroll data unavailable'), true);
+            });
+    }
+
+    function populateHeatPages(pages) {
+        if (!heatSel) return;
+        pages = arr(pages);
+        if (!pages.length) {
+            heatSel.innerHTML = '<option value="">' + esc(bi('暂无点击数据', 'No click data')) + '</option>';
+            heatSel.disabled = true;
+            heatCurrent = '';
+            clearHeat(document.getElementById('heatCanvas'));
+            heatEmptyText(bi('近 30 日没有页面点击数据；新版埋点上线并积累点击后这里才会出现网格。',
+                             'No click data in the last 30 days; the grid appears once the new tracker collects clicks.'));
+            listEmpty(document.getElementById('heatScroll'), bi('暂无滚动深度数据', 'No scroll-depth data'));
+            return;
+        }
+        var keep = false;
+        pages.forEach(function (p) { if (p.path === heatCurrent) keep = true; });
+        heatSel.innerHTML = pages.map(function (p) {
+            return '<option value="' + esc(p.path) + '">' + esc(p.path) + ' · ' + fmt(p.clicks) + '</option>';
+        }).join('');
+        heatSel.disabled = false;
+        heatCurrent = keep ? heatCurrent : pages[0].path;
+        heatSel.value = heatCurrent;
+        if (!keep) loadHeatmap(heatCurrent);
+    }
+
+    /* ---------- 手动刷新 / 自动刷新开关 ---------- */
+    var refreshBtn = document.getElementById('dashRefresh');
+    var autoBtn = document.getElementById('dashAuto');
+    var autoNote = document.getElementById('dashAutoNote');
+
+    function refreshAll(manual) {
+        if (manual && refreshBtn) {
+            refreshBtn.disabled = true;
+            refreshBtn.textContent = bi('刷新中…', 'Refreshing…');
+            setTimeout(function () {
+                refreshBtn.disabled = false;
+                refreshBtn.textContent = bi('刷新数据', 'Refresh');
+            }, 800);
+        }
+        if (!API) {
+            banner(bi('数据中台未配置：MONITOR_API 为空，所有区块留空。', 'Monitor API not configured: MONITOR_API is empty.'));
+            return;
+        }
+        loadSummary();
+        loadLive();
+        loadBots(botClass);
+        if (heatCurrent) loadHeatmap(heatCurrent);
+    }
+
+    function setAuto(on) {
+        autoOn = !!on;
+        if (autoBtn) {
+            autoBtn.classList.toggle('is-on', autoOn);
+            autoBtn.setAttribute('aria-pressed', autoOn ? 'true' : 'false');
+            autoBtn.textContent = autoOn ? bi('自动刷新 · 开', 'Auto refresh · on') : bi('自动刷新 · 关', 'Auto refresh · off');
+        }
+        if (autoNote) {
+            autoNote.textContent = autoOn
+                ? bi('聚合每 30 秒 · 实时流每 10 秒', 'Aggregates every 30s · live feed every 10s')
+                : bi('自动刷新已暂停，点「刷新数据」手动更新', 'Auto refresh paused — use “Refresh”');
+        }
+        if (!autoOn) {
+            [summaryTimer, liveTimer, botsTimer].forEach(function (t) { if (t) clearTimeout(t); });
+            summaryTimer = liveTimer = botsTimer = null;
+        } else {
+            refreshAll(false);
+        }
+    }
+
+    if (refreshBtn) refreshBtn.addEventListener('click', function () { refreshAll(true); });
+    if (autoBtn) autoBtn.addEventListener('click', function () { setAuto(!autoOn); });
+    if (heatSel) heatSel.addEventListener('change', function () { loadHeatmap(heatSel.value); });
+    var botFilter = document.getElementById('botFilter');
+    if (botFilter) {
+        Array.prototype.forEach.call(botFilter.querySelectorAll('button'), function (b) {
+            b.addEventListener('click', function () {
+                Array.prototype.forEach.call(botFilter.querySelectorAll('button'), function (x) {
+                    x.classList.toggle('is-active', x === b);
+                });
+                loadBots(b.getAttribute('data-cls'));
+            });
+        });
+    }
+
     /* ---------- 启动 ---------- */
     function boot() {
         refreshStatus();
         loadSummary();
         loadLive();
+        loadBots('all');
     }
     if (document.readyState === 'complete' || document.readyState === 'interactive') setTimeout(boot, 300);
     else window.addEventListener('DOMContentLoaded', function () { setTimeout(boot, 300); });
     window.addEventListener('online', function () {
-        if (API) { loadSummary(); loadLive(); }
+        if (API) { loadSummary(); loadLive(); loadBots(botClass); }
     });
     window.addEventListener('beforeunload', function () {
-        if (summaryTimer) clearTimeout(summaryTimer);
-        if (liveTimer) clearTimeout(liveTimer);
+        [summaryTimer, liveTimer, botsTimer].forEach(function (t) { if (t) clearTimeout(t); });
     });
 })();
 </script>
@@ -501,7 +899,7 @@
                         Geschäftskontakt &amp; Bauteilbeschaffung:
                         <a href="mailto:waedon@outlook.com?subject=Gesch%C3%A4ftliche%20Anfrage"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
                             Hergestellt von · <strong>GeekWaedon</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware-Enthusiast</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> KI-Praktiker</span><a href="/de/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom-Lösungsanbieter"><i class="fab fa-weixin"></i> WeCom-Lösungsanbieter
-                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a><a href="/de/#follow" class="footer-social-link" aria-label="WeChat-Offizieller Account · GeekWaedon" title="WeChat-Offizieller Account · GeekWaedon"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Produkte</h5><ul><li><a href="/de/products/">Produkte</a></li><li><a href="/de/services/">Leistungen</a></li><li><a href="/de/services/website-building/">Website-Erstellung</a></li><li><a href="/de/services/component-matching/">elektronische BauteileVermittlung</a></li><li><a href="/de/news/">Neuigkeiten</a></li><li><a href="/de/boards/">Entwicklungsboards</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Ressourcen</h5><ul><li><a href="/de/board-guide/">Leitfaden zur Board-Auswahl</a></li><li><a href="/de/compare/">Board-Vergleich</a></li><li><a href="/de/tutorials/">Anleitungen</a></li><li><a href="/de/documentation/">Dokumentation</a></li><li><a href="/online-tools/">Online-Werkzeuge</a></li><li><a href="/de/tools/">Hardware calculators</a></li><li><a href="/de/cases/">Projektbeispiele</a></li><li><a href="/de/help/">Dokumentation</a></li><li><a href="/de/games/resistor/">Widerstands-Farbcode-Quiz</a></li><li><a href="/de/dashuju/">Datenübersicht</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Open Source</h5><ul><li><a href="/de/open-source/">Open-Source-Projekte</a></li><li><a href="/de/all-projects/">Alle Projekte</a></li><li><a href="/de/articles/">Fachbeiträge</a></li><li><a href="/de/contribute/">Mitwirken</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>Über</h5><ul><li><a href="/de/about/">Über uns</a></li><li><a href="/de/about/#contact">Kontakt</a></li><li><a href="/de/licenses/">Open-Source-Lizenzen</a></li><li><a href="/de/about/#privacy">Datenschutz</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">Beliebte Kategorien</span><div class="footer-category-links"><a href="/de/category/">alle</a><a href="/de/category/fpga/">FPGA</a><a href="/de/category/general/">Allgemein</a><a href="/de/category/ai_hardware/">KI-Hardware</a><a href="/de/category/vision/">Computer Vision</a><a href="/de/category/esp32/">ESP32</a><a href="/de/category/robotics/">Robotik</a><a href="/de/source/github/">GitHub</a><a href="/de/source/hackster/">Hackster.io</a><a href="/resources/">Ressourcennavigation</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="GeekWaedon" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">Allein entwickelt von GeekWaedon (@GeekWaedon) · <span style="color:#a78bfa;">Mensch und KI, Seite an Seite</span></div><div class="text-xs text-secondary">Ein Ein-Personen-Projekt, betrieben von einem echten Menschen: Website-Aufbau, Datenabgleich, Artikel und Grafiken stammen von mir (mit Unterstützung einiger KI-Agenten). <a href="/de/about/" class="text-primary" style="text-decoration:none;">Die Person dahinter kennenlernen →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. Alle Rechte vorbehalten.</p><p>Die hier gebündelten Projekte dienen ausschließlich als Referenz für Entwickler: ZouIC verweist auf sie und hostet weder Code noch Dateien; Urheberrecht und Lizenz verbleiben bei den Autoren. Einzelheiten finden Sie auf der <a href="/de/licenses/">Open-Source-Lizenzen</a> Seite.</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="Nach oben"><i class="fas fa-chevron-up"></i></button>
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a><a href="/de/#follow" class="footer-social-link" aria-label="WeChat-Offizieller Account · GeekWaedon" title="WeChat-Offizieller Account · GeekWaedon"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Produkte</h5><ul><li><a href="/de/products/">Produkte</a></li><li><a href="/de/services/">Leistungen</a></li><li><a href="/de/services/website-building/">Website-Erstellung</a></li><li><a href="/de/services/component-matching/">elektronische BauteileVermittlung</a></li><li><a href="/de/news/">Neuigkeiten</a></li><li><a href="/de/boards/">Entwicklungsboards</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Ressourcen</h5><ul><li><a href="/de/board-guide/">Leitfaden zur Board-Auswahl</a></li><li><a href="/de/compare/">Board-Vergleich</a></li><li><a href="/de/tutorials/">Anleitungen</a></li><li><a href="/de/documentation/">Dokumentation</a></li><li><a href="/online-tools/">Online-Werkzeuge</a></li><li><a href="/de/tools/">Hardware calculators</a></li><li><a href="/de/cases/">Projektbeispiele</a></li><li><a href="/de/help/">Dokumentation</a></li><li><a href="/de/games/resistor/">Widerstands-Farbcode-Quiz</a></li><li><a href="/de/dashuju/">Datenübersicht</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Open Source</h5><ul><li><a href="/de/open-source/">Open-Source-Projekte</a></li><li><a href="/de/all-projects/">Alle Projekte</a></li><li><a href="/de/articles/">Fachbeiträge</a></li><li><a href="/de/contribute/">Mitwirken</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>Über</h5><ul><li><a href="/de/about/">Über uns</a></li><li><a href="/de/about/#contact">Kontakt</a></li><li><a href="/de/licenses/">Open-Source-Lizenzen</a></li><li><a href="/de/pricing/">Preise</a></li><li><a href="/de/privacy/">Datenschutz</a></li><li><a href="/de/terms/">Nutzungsbedingungen</a></li><li><a href="/de/refund/">Rückerstattung</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">Beliebte Kategorien</span><div class="footer-category-links"><a href="/de/category/">alle</a><a href="/de/category/fpga/">FPGA</a><a href="/de/category/general/">Allgemein</a><a href="/de/category/ai_hardware/">KI-Hardware</a><a href="/de/category/vision/">Computer Vision</a><a href="/de/category/esp32/">ESP32</a><a href="/de/category/robotics/">Robotik</a><a href="/de/source/github/">GitHub</a><a href="/de/source/hackster/">Hackster.io</a><a href="/resources/">Ressourcennavigation</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="GeekWaedon" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">Allein entwickelt von GeekWaedon (@GeekWaedon) · <span style="color:#a78bfa;">Mensch und KI, Seite an Seite</span></div><div class="text-xs text-secondary">Ein Ein-Personen-Projekt, betrieben von einem echten Menschen: Website-Aufbau, Datenabgleich, Artikel und Grafiken stammen von mir (mit Unterstützung einiger KI-Agenten). <a href="/de/about/" class="text-primary" style="text-decoration:none;">Die Person dahinter kennenlernen →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. Alle Rechte vorbehalten.</p><p>Die hier gebündelten Projekte dienen ausschließlich als Referenz für Entwickler: ZouIC verweist auf sie und hostet weder Code noch Dateien; Urheberrecht und Lizenz verbleiben bei den Autoren. Einzelheiten finden Sie auf der <a href="/de/licenses/">Open-Source-Lizenzen</a> Seite.</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="Nach oben"><i class="fas fa-chevron-up"></i></button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
     <script>
@@ -677,49 +1075,9 @@
     
     
     
-    <script>
-    (function () {
-        var api = "https://waedon.pythonanywhere.com";
-        var sent = false;
-        function navPerf() {
-            try {
-                var n = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
-                if (n && n.loadEventEnd > 0) return Math.round(n.loadEventEnd);
-            } catch (e) { /* ignore */ }
-            return 0;
-        }
-        function send() {
-            if (sent) return;
-            sent = true;
-            var payload = {
-                site: 'zouic',
-                path: (location.pathname + location.search + (location.hash || '')).slice(0, 300),
-                title: (document.title || '').slice(0, 200),
-                ref: document.referrer || '',
-                lang: navigator.language || '',
-                perf: navPerf()
-            };
-            var body = JSON.stringify(payload);
-            // text/plain 免 CORS 预检；页面已经加载完，sendBeacon 最稳
-            try {
-                if (navigator.sendBeacon &&
-                    navigator.sendBeacon(api + '/api/beacon', new Blob([body], { type: 'text/plain;charset=UTF-8' }))) return;
-            } catch (e) { /* fallthrough */ }
-            try {
-                fetch(api + '/api/beacon', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
-                    body: body,
-                    keepalive: true,
-                    credentials: 'omit'
-                }).catch(function () {});
-            } catch (e) {}
-        }
-        if (document.readyState === 'complete') setTimeout(send, 0);
-        else window.addEventListener('load', function () { setTimeout(send, 120); });
-        window.addEventListener('pagehide', send);
-    })();
-    </script>
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
     
     <img src="https://waedon.pythonanywhere.com/pixel?path=/dashuju/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
     

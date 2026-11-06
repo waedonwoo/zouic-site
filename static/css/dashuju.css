@@ -714,3 +714,249 @@
     .dash-tabs { gap: 8px; }
     .dash-tab { padding: 6px 12px; font-size: 12px; }
 }
+
+/* ============ M3：访客画像 / 来源爬虫 / 页面热力 ============ */
+.dash-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 14px;
+}
+.dash-btn {
+    appearance: none;
+    font-family: inherit;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: #bcd6ef;
+    padding: 7px 14px;
+    border: 1px solid rgba(0, 229, 255, 0.28);
+    border-radius: 6px;
+    background: rgba(0, 229, 255, 0.06);
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+.dash-btn:hover { color: var(--dash-cyan); border-color: rgba(0, 229, 255, 0.6); }
+.dash-btn:focus-visible { outline: 2px solid rgba(0, 229, 255, 0.55); outline-offset: 2px; }
+.dash-btn[disabled] { opacity: 0.55; cursor: progress; }
+.dash-btn.is-on {
+    color: #04121c;
+    background: linear-gradient(120deg, var(--dash-cyan), var(--dash-teal));
+    border-color: transparent;
+    font-weight: 600;
+    box-shadow: 0 0 16px rgba(0, 229, 255, 0.32);
+}
+.dash-toolbar-note {
+    font-family: "Share Tech Mono", monospace;
+    font-size: 11.5px;
+    color: #6c86a8;
+}
+
+.dash-basis {
+    margin: 14px 0 20px;
+    padding: 10px 12px;
+    font-size: 12px;
+    line-height: 1.75;
+    color: #7d97b8;
+    background: rgba(0, 229, 255, 0.035);
+    border-left: 2px solid rgba(0, 229, 255, 0.38);
+}
+.dash-basis code {
+    font-family: "Share Tech Mono", monospace;
+    color: #9fd8ea;
+}
+
+.dash-group-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px 16px;
+    flex-wrap: wrap;
+    margin: 24px 2px 2px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0, 229, 255, 0.14);
+}
+.dash-group-head h2 {
+    margin: 0;
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-family: "Share Tech Mono", monospace;
+    color: var(--dash-cyan);
+}
+.dash-group-head span { font-size: 11.5px; color: #6c86a8; }
+
+.dash-subhead {
+    margin: 0 0 6px;
+    font-size: 11.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #6c86a8;
+    font-family: "Share Tech Mono", monospace;
+}
+
+/* 新老访客比例条 */
+.dash-aud-bar {
+    display: flex;
+    height: 14px;
+    margin: 6px 0 12px;
+    background: rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+}
+.dash-aud-bar .dash-aud-empty {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 12px;
+    color: #6c86a8;
+}
+.dash-aud-seg { display: block; height: 100%; }
+.dash-aud-seg.seg-new { background: linear-gradient(90deg, #00e5ff, #00d4aa); }
+.dash-aud-seg.seg-ret { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+.dash-aud-seg.seg-uni { background: #40556e; }
+.dash-aud-legend {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+.dash-aud-chip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 8px;
+    min-width: 0;
+    padding: 10px 12px;
+    border: 1px solid rgba(0, 229, 255, 0.14);
+    background: rgba(9, 17, 31, 0.55);
+}
+.dash-aud-chip i { width: 9px; height: 9px; display: block; flex: 0 0 9px; }
+.dash-aud-chip i.seg-new { background: #00e5ff; box-shadow: 0 0 8px rgba(0, 229, 255, 0.6); }
+.dash-aud-chip i.seg-ret { background: #8b5cf6; box-shadow: 0 0 8px rgba(139, 92, 246, 0.6); }
+.dash-aud-chip i.seg-uni { background: #40556e; }
+.dash-aud-chip strong { font-family: "Share Tech Mono", monospace; font-size: 1.05rem; color: #eafcff; }
+.dash-aud-chip span { font-size: 12px; color: #9fb8d4; }
+.dash-aud-chip em { font-style: normal; font-size: 11px; color: #6c86a8; font-family: "Share Tech Mono", monospace; }
+.dash-aud-chip.is-zero { opacity: 0.55; }
+
+/* 分布行：名称可省略，数值不换行 */
+.dash-dist-row { min-width: 0; }
+.dash-dist-row .dash-dist-name {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.dash-dist-row .dash-dist-name b { font-weight: 400; color: #eafcff; }
+.dash-dist-row .dash-dist-val { flex: 0 0 auto; white-space: nowrap; }
+.dash-dist-val em { font-style: normal; margin-left: 6px; font-size: 11px; color: #6c86a8; }
+.dash-empty.is-error { color: #ffb4c1; }
+
+/* 窄屏下 3 列表格直接铺满，避免必须横向拖动才看得到 PV */
+.dash-table-compact { min-width: 100%; }
+.dash-table-compact td.dash-path {
+    display: block;
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.dash-table td.dash-ellipsis {
+    max-width: 240px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* 爬虫类别筛选 */
+.dash-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 2px 0 10px; }
+.dash-chip {
+    appearance: none;
+    font-family: inherit;
+    font-size: 11.5px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--dash-line);
+    background: rgba(9, 17, 31, 0.72);
+    color: #8fa8c8;
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+.dash-chip:hover { color: var(--dash-cyan); border-color: rgba(0, 229, 255, 0.45); }
+.dash-chip.is-active {
+    color: #04121c;
+    background: linear-gradient(120deg, var(--dash-cyan), var(--dash-teal));
+    border-color: transparent;
+    font-weight: 600;
+}
+
+/* 热力网格 */
+.dash-heat-head { flex-wrap: wrap; row-gap: 8px; }
+.dash-heat-picker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11.5px;
+    color: #6c86a8;
+    margin-left: auto;
+    min-width: 0;
+}
+.dash-select {
+    appearance: none;
+    max-width: min(320px, 58vw);
+    font-family: "Share Tech Mono", monospace;
+    font-size: 12px;
+    padding: 5px 10px;
+    color: #cfeeff;
+    background: rgba(4, 12, 24, 0.9);
+    border: 1px solid rgba(0, 229, 255, 0.28);
+    border-radius: 4px;
+}
+.dash-select[disabled] { opacity: 0.6; }
+.dash-heat-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+}
+.dash-heat-canvas-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1 / 1;
+    border: 1px dashed rgba(0, 229, 255, 0.18);
+    background: rgba(3, 8, 16, 0.6);
+}
+.dash-heat-canvas-wrap canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+}
+.dash-heat-empty {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 18px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #7d97b8;
+    background: rgba(5, 10, 20, 0.88);
+}
+.dash-heat-side { min-width: 0; }
+
+@media (max-width: 991.98px) {
+    .dash-heat-grid { grid-template-columns: minmax(0, 1fr); }
+    .dash-heat-canvas-wrap { max-width: 100%; }
+}
+@media (max-width: 767.98px) {
+    .dash-aud-legend { grid-template-columns: minmax(0, 1fr); }
+    .dash-heat-picker { margin-left: 0; }
+    .dash-select { max-width: 100%; flex: 1 1 auto; }
+    .dash-heat-picker { width: 100%; }
+    .dash-group-head { margin-top: 18px; }
+    .dash-toolbar-note { flex-basis: 100%; }
+}
