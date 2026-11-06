@@ -1,0 +1,321 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="Artificial Analysis 2026 年 10 月快照：Cerebras WSE-3 在 gpt-oss-120b 上 1730 t/s、Groq 472、Azure GPU 372；但厂商自测口径能到 3000 t/s 以上。这些芯片几乎不参加 MLPerf，聚合吞吐与单用户速度也常被混为一谈。"><meta name="keywords" content="Groq LPU, Cerebras WSE-3, 推理 ASIC, tokens per second, Artificial Analysis, MLPerf, TTFT"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/articles/inference-asic-lpu-vs-gpu/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/inference-asic-lpu-vs-gpu/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/inference-asic-lpu-vs-gpu/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="2000 token/秒为什么不能横向比较：专用推理芯片缺一场统一的考试"><meta property="og:description" content="Artificial Analysis 2026 年 10 月快照：Cerebras WSE-3 在 gpt-oss-120b 上 1730 t/s、Groq 472、Azure GPU 372；但厂商自测口径能到 3000 t/s 以上。这些芯片几乎不参加 MLPerf，聚合吞吐与单用户速度也常被混为一谈。"><meta property="og:url" content="https://www.zouic.com/articles/inference-asic-lpu-vs-gpu/"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="2000 token/秒为什么不能横向比较：专用推理芯片缺一场统一的考试"><meta name="twitter:description" content="Artificial Analysis 2026 年 10 月快照：Cerebras WSE-3 在 gpt-oss-120b 上 1730 t/s、Groq 472、Azure GPU 372；但厂商自测口径能到 3000 t/s 以上。这些芯片几乎不参加 MLPerf，聚合吞吐与单用户速度也常被混为一谈。"><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "Artificial Analysis 2026 \u5e74 10 \u6708\u5feb\u7167\uff1aCerebras WSE-3 \u5728 gpt-oss-120b \u4e0a 1730 t/s\u3001Groq 472\u3001Azure GPU 372\uff1b\u4f46\u5382\u5546\u81ea\u6d4b\u53e3\u5f84\u80fd\u5230 3000 t/s \u4ee5\u4e0a\u3002\u8fd9\u4e9b\u82af\u7247\u51e0\u4e4e\u4e0d\u53c2\u52a0 MLPerf\uff0c\u805a\u5408\u541e\u5410\u4e0e\u5355\u7528\u6237\u901f\u5ea6\u4e5f\u5e38\u88ab\u6df7\u4e3a\u4e00\u8c08\u3002", "headline": "2000 token/\u79d2\u4e3a\u4ec0\u4e48\u4e0d\u80fd\u6a2a\u5411\u6bd4\u8f83\uff1a\u4e13\u7528\u63a8\u7406\u82af\u7247\u7f3a\u4e00\u573a\u7edf\u4e00\u7684\u8003\u8bd5", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/inference-asic-lpu-vs-gpu/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/inference-asic-lpu-vs-gpu/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/inference-asic-lpu-vs-gpu/", "name": "2000 token/\u79d2\u4e3a\u4ec0\u4e48\u4e0d\u80fd\u6a2a\u5411\u6bd4\u8f83\uff1a\u4e13\u7528\u63a8\u7406\u82af\u7247\u7f3a\u4e00\u573a\u7edf\u4e00\u7684\u8003\u8bd5", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u5e38\u89c1\u539f\u56e0\u662f\u805a\u5408\u541e\u5410\u4e0e\u5355\u7528\u6237\u901f\u7387\u6df7\u7528\u3001\u6279\u91cf\u5927\u5c0f\u4e0e\u91cf\u5316\u7cbe\u5ea6\u4e0d\u540c\u3001\u662f\u5426\u8ba1\u5165 prefill \u4e0e TTFT\u3001\u4ee5\u53ca\u662f\u5426\u542f\u7528\u6295\u673a\u89e3\u7801\u3002\u5f15\u7528\u65f6\u52a1\u5fc5\u6ce8\u660e\u6d4b\u91cf\u6761\u4ef6\u3002"}, "name": "\u4e3a\u4ec0\u4e48\u540c\u4e00\u6b3e\u82af\u7247\u7684 token \u901f\u5ea6\u80fd\u5dee\u597d\u51e0\u500d\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Groq\u3001Cerebras\u3001SambaNova \u7b49\u57fa\u672c\u4e0d\u53c2\u52a0 MLCommons \u7684 MLPerf Inference \u63d0\u4ea4\uff0c\u56e0\u6b64\u7f3a\u5c11\u7edf\u4e00\u4ef2\u88c1\u7684\u6a2a\u8bc4\uff1b\u76ee\u524d\u8f83\u53ef\u7528\u7684\u8de8\u5382\u5546\u6570\u636e\u662f Artificial Analysis \u7b49\u7b2c\u4e09\u65b9\u4e91\u699c\u5355\u3002"}, "name": "\u4e13\u7528\u63a8\u7406\u82af\u7247\u53c2\u52a0 MLPerf \u5417\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u8bed\u97f3\u4ee3\u7406\u3001\u4ea4\u4e92\u7f16\u7801\u3001\u591a\u6b65\u667a\u80fd\u4f53\u7b49\u5ef6\u8fdf\u654f\u611f\u573a\u666f\uff1b\u6279\u5904\u7406\u3001\u79bb\u7ebf\u6458\u8981\u7b49\u4ee5\u6bcf\u7f8e\u5143\u541e\u5410\u4e3a\u6838\u5fc3\u7684\u4efb\u52a1\uff0c\u901a\u7528 GPU \u4e0e\u6210\u719f\u8f6f\u4ef6\u6808\u901a\u5e38\u66f4\u5212\u7b97\u3002"}, "name": "\u4ec0\u4e48\u65f6\u5019\u503c\u5f97\u7528 LPU \u6216\u6676\u5706\u7ea7\u5f15\u64ce\uff1f"}]}]}
+    </script>
+    
+    
+    <title>2000 token/秒为什么不能横向比较：专用推理芯片缺一场统一的考试 - ZouIC</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"></head><body><a href="#main-content" class="skip-link">跳转到主要内容</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航"><div class="container"><a class="navbar-brand" href="/"><i class="fas fa-microchip"></i> ZouIC
+            </a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/all-projects/"><i class="fas fa-project-diagram me-1"></i>开源项目</a></li><li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li><li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/services/component-matching/">商务合作</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li><li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li><li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li><li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li><li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li><li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li><li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li><li><a class="dropdown-item" href="/tools/"><i class="fas fa-calculator me-2"></i>硬件计算器</a></li><li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li><li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li><li><a class="dropdown-item" href="/ideas/"><i class="fas fa-lightbulb me-2"></i>创意树洞</a></li><li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" style="width: 200px;"><select id="searchType" class="form-select input-zouic" aria-label="搜索类型:" style="width: auto; flex: 0 0 auto;"><option value="">全部分类</option><option value="board">开源开发板</option><option value="project">开源项目</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/inference-asic-lpu-vs-gpu/"><i class="fas fa-language me-2"></i> 中文
+                            </a></li><li><a class="dropdown-item" href="/en/articles/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/articles/"><i class="fas fa-language me-2"></i> 德语
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/">首页</a></li><li class="breadcrumb-item"><a href="/articles/">技术文章</a></li><li class="breadcrumb-item active" aria-current="page">2000 token/秒为什么不能横向比较：专用推理芯片缺一场统一的考试</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">免费公开 · 欢迎转发</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">2000 token/秒为什么不能横向比较：专用推理芯片缺一场统一的考试</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">算力行业观察 · 极客微栋 @GeekWaedon</p><p class="text-secondary text-sm mt-4">极客微栋 @GeekWaedon · 2026-10-27</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p><strong>专用推理芯片的速度数字，绝大多数不是假的，但也几乎不能互相比较。原因不是厂商不诚实，而是这个行业至今没有一场它们愿意共同参加的标准化考试。</strong></p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">先摆一份口径一致的第三方数据</h2><p>Artificial Analysis 的 2026 年 10 月 P50 快照，是目前少有的跨厂商、同模型、同方法榜单：</p><table><thead><tr><th>服务商 / 硬件</th><th>gpt-oss-120b</th><th>Llama 3.3 70B</th><th>备注</th></tr></thead><tbody><tr><td>Cerebras / WSE-3</td><td><strong>1730 t/s</strong>，TTFT 1.51s</td><td>—</td><td>晶圆级引擎</td></tr><tr><td>SambaNova / RDU</td><td>707-708 t/s</td><td>291 t/s</td><td>大内存可重构数据流</td></tr><tr><td>Groq / LPU</td><td>472 t/s</td><td><strong>307 t/s</strong>，TTFT 0.99s</td><td>确定性低延迟</td></tr><tr><td>Microsoft Azure / NVIDIA GPU</td><td>372 t/s</td><td>130 t/s</td><td>GPU 阵营最快</td></tr><tr><td>Nebius / NVIDIA GPU</td><td>355 t/s</td><td>—</td><td>—</td></tr><tr><td>DeepInfra（Turbo FP8）</td><td>—</td><td>17 t/s</td><td>低价批处理取向</td></tr></tbody></table><p>同一个 Llama 3.3 70B，最快与最慢差 <strong>18 倍</strong>。但请注意，榜单比的是「单用户输出 token 速率」，不是集群聚合吞吐。行业里另一类数字动辄「1000 t/s」，往往是 50 个并发的聚合值，摊到每用户只有 20 t/s——对聊天界面来说这反而很慢。<strong>看到 t/s，第一件事永远是问：聚合还是单用户？什么模型？什么量化？什么上下文长度？</strong></p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">厂商口径为什么高得多</h2><p>把厂商自测放在另一栏，差异立刻出来：Cerebras 自己的对比给 gpt-oss-120b 超过 <strong>3000 t/s</strong>，对照 8 卡 GB200 约 <strong>650 t/s</strong>；Groq 曾宣称 70B 模型 <strong>2500 t/s</strong>（需 8 张 LPU，单卡仅 230MB SRAM、约 300W）；WSE-3 单片 90 万核、44GB 片上 SRAM，CS-3 整机约 15kW。Etched 更给出 Sohu 芯片 50 万 t/s 的说法，但没有任何独立复现。</p><p>这些数字的差距主要不在造假，而在<strong>测试条件</strong>：模型是否常驻、批量多大、是否含 prefill、是否启用了投机解码、TTFT 有没有计入。更关键的是，<strong>Groq、Cerebras、SambaNova、Etched 基本都不参加 MLCommons 的 MLPerf Inference</strong>——缺了第三方仲裁，厂商自然各报各的最优场景。</p><p>反过来看 GPU 阵营：第一批文章里写过 MLPerf v6.0 的 B300 与 MI355X 对比，正是因为有统一基准，288GB 对 192GB 的内存差异才被量化成可讨论的胜负手。<strong>基准的价值不是排名，是让争论有共同语言。</strong></p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">那么，什么时候该买专用硅</h2><p>答案比想象中窄：<strong>当延迟本身就是产品</strong>。语音代理、交互式编码助手、实时翻译、以及动辄几十步的智能体链条——每一步省 200ms，几十步累积出来的体验差异是产品级的。这些场景 SRAM 常驻权重、消除 HBM 读取瓶颈的架构确实值钱。</p><p>但大部分推理支出是批处理或近批处理：夜间分类一百万份文档、离线摘要、数据清洗。这类任务看的是每美元吞吐，GPU 的规模经济、软件生态与多租户调度几乎必胜。另一个硬约束是模型容量：专用硅依赖权重常驻快速片上存储，超大稀疏 MoE 要求总参数全部驻留，恰好是它最不擅长的形态；而 TSP 编译器、CSoft 这类专有软件栈也不吃 PyTorch 自定义 CUDA 算子那套积累。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">总结</h2><p>专用推理芯片这轮真正的贡献，是把「延迟可以当成一项独立硬件指标」这件事证明给了整个行业；GPU 阵营随后用投机解码、PD 分离与 KV 缓存把这些收益追回了一部分。但在它们愿意进 MLPerf、或出现长期稳定的第三方跨厂商榜单之前，<strong>任何 t/s 对比都只能当筛选线索，不能当采购依据</strong>。用自己的模型、自己的并发、自己的 SLO 压测一轮，比读十份白皮书有用。</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>为什么同一款芯片的 token 速度能差好几倍？</h3><p class="faq-a">常见原因是聚合吞吐与单用户速率混用、批量大小与量化精度不同、是否计入 prefill 与 TTFT、以及是否启用投机解码。引用时务必注明测量条件。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>专用推理芯片参加 MLPerf 吗？</h3><p class="faq-a">Groq、Cerebras、SambaNova 等基本不参加 MLCommons 的 MLPerf Inference 提交，因此缺少统一仲裁的横评；目前较可用的跨厂商数据是 Artificial Analysis 等第三方云榜单。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>什么时候值得用 LPU 或晶圆级引擎？</h3><p class="faq-a">语音代理、交互编码、多步智能体等延迟敏感场景；批处理、离线摘要等以每美元吞吐为核心的任务，通用 GPU 与成熟软件栈通常更划算。</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/articles/" class="btn-zouic">技术文章</a><a href="/boards/" class="btn-zouic">开源开发板</a><a href="/compare/" class="btn-zouic btn-zouic-primary">开发板对比</a></div></div></section></main><section id="follow" class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3><p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p></div><div class="col-lg-5"><a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span></div></div></div></div></div></section><section class="py-4" aria-label="出品人"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div><div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/" class="footer-brand" aria-label="ZouIC 首页"><i class="fas fa-microchip"></i><span>ZouIC</span></a><p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p><p class="footer-business-contact">
+                        商务合作 / 器件选型：
+                        <a href="mailto:waedon@outlook.com?subject=%E5%95%86%E5%8A%A1%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            出品人 · <strong>极客微栋</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span><a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商"><i class="fab fa-weixin"></i> 企业微信服务商
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a><a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>产品</h5><ul><li><a href="/products/">产品介绍</a></li><li><a href="/services/">服务说明</a></li><li><a href="/services/website-building/">建站服务</a></li><li><a href="/services/component-matching/">元器件撮合</a></li><li><a href="/news/">站内动态</a></li><li><a href="/boards/">开源开发板</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>资源</h5><ul><li><a href="/board-guide/">选型指南</a></li><li><a href="/compare/">开发板对比</a></li><li><a href="/tutorials/">开发板教程</a></li><li><a href="/documentation/">技术文档</a></li><li><a href="/online-tools/">在线工具</a></li><li><a href="/tools/">硬件计算器</a></li><li><a href="/cases/">项目案例</a></li><li><a href="/help/">文档中心</a></li><li><a href="/games/resistor/">色环电阻识别挑战</a></li><li><a href="/dashuju/">数据大屏</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>开源生态</h5><ul><li><a href="/open-source/">开源项目</a></li><li><a href="/all-projects/">全部项目</a></li><li><a href="/articles/">技术文章</a></li><li><a href="/ideas/">创意树洞</a></li><li><a href="/wechat/">公众号专栏</a></li><li><a href="/contribute/">贡献指南</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>关于</h5><ul><li><a href="/about/">关于我们</a></li><li><a href="/about/#contact">联系我们</a></li><li><a href="/licenses/">开源协议</a></li><li><a href="/pricing/">服务报价</a></li><li><a href="/privacy/">隐私政策</a></li><li><a href="/terms/">服务条款</a></li><li><a href="/refund/">退款政策</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">热门分类</span><div class="footer-category-links"><a href="/category/">全部</a><a href="/category/fpga/">FPGA</a><a href="/category/general/">综合</a><a href="/category/ai_hardware/">AI 硬件</a><a href="/category/vision/">机器视觉</a><a href="/category/esp32/">ESP32</a><a href="/category/robotics/">机器人</a><a href="/source/github/">GitHub</a><a href="/source/hackster/">Hackster.io</a><a href="/resources/">资源导航</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div><div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="返回顶部"><i class="fas fa-chevron-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    <script>
+    (function () {
+        var api = "https://waedon.pythonanywhere.com";
+        var sent = false;
+        function navPerf() {
+            try {
+                var n = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+                if (n && n.loadEventEnd > 0) return Math.round(n.loadEventEnd);
+            } catch (e) { /* ignore */ }
+            return 0;
+        }
+        function send() {
+            if (sent) return;
+            sent = true;
+            var payload = {
+                site: 'zouic',
+                path: (location.pathname + location.search + (location.hash || '')).slice(0, 300),
+                title: (document.title || '').slice(0, 200),
+                ref: document.referrer || '',
+                lang: navigator.language || '',
+                perf: navPerf()
+            };
+            var body = JSON.stringify(payload);
+            // text/plain 免 CORS 预检；页面已经加载完，sendBeacon 最稳
+            try {
+                if (navigator.sendBeacon &&
+                    navigator.sendBeacon(api + '/api/beacon', new Blob([body], { type: 'text/plain;charset=UTF-8' }))) return;
+            } catch (e) { /* fallthrough */ }
+            try {
+                fetch(api + '/api/beacon', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+                    body: body,
+                    keepalive: true,
+                    credentials: 'omit'
+                }).catch(function () {});
+            } catch (e) {}
+        }
+        if (document.readyState === 'complete') setTimeout(send, 0);
+        else window.addEventListener('load', function () { setTimeout(send, 120); });
+        window.addEventListener('pagehide', send);
+    })();
+    </script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/inference-asic-lpu-vs-gpu/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=zh-CN'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="IEA 2026 报告：全球超 2500GW 项目卡在并网队列，2026 年超大规模资本开支超 7000 亿美元、上半年 PPA 45TWh；非牢固接入可释放 750-900GW 承载能力。核电 PPA 是买期权，真正能交付的是并网改革。"><meta name="keywords" content="AIDC, 并网队列, IEA, PPA, SMR, 非牢固接入, 电网投资, 数据中心选址"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/articles/aidc-grid-ppa/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/aidc-grid-ppa/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/aidc-grid-ppa/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="比 GPU 交期更长的，是并网排队：AIDC 选址逻辑已经改写"><meta property="og:description" content="IEA 2026 报告：全球超 2500GW 项目卡在并网队列，2026 年超大规模资本开支超 7000 亿美元、上半年 PPA 45TWh；非牢固接入可释放 750-900GW 承载能力。核电 PPA 是买期权，真正能交付的是并网改革。"><meta property="og:url" content="https://www.zouic.com/articles/aidc-grid-ppa/"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="比 GPU 交期更长的，是并网排队：AIDC 选址逻辑已经改写"><meta name="twitter:description" content="IEA 2026 报告：全球超 2500GW 项目卡在并网队列，2026 年超大规模资本开支超 7000 亿美元、上半年 PPA 45TWh；非牢固接入可释放 750-900GW 承载能力。核电 PPA 是买期权，真正能交付的是并网改革。"><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "IEA 2026 \u62a5\u544a\uff1a\u5168\u7403\u8d85 2500GW \u9879\u76ee\u5361\u5728\u5e76\u7f51\u961f\u5217\uff0c2026 \u5e74\u8d85\u5927\u89c4\u6a21\u8d44\u672c\u5f00\u652f\u8d85 7000 \u4ebf\u7f8e\u5143\u3001\u4e0a\u534a\u5e74 PPA 45TWh\uff1b\u975e\u7262\u56fa\u63a5\u5165\u53ef\u91ca\u653e 750-900GW \u627f\u8f7d\u80fd\u529b\u3002\u6838\u7535 PPA \u662f\u4e70\u671f\u6743\uff0c\u771f\u6b63\u80fd\u4ea4\u4ed8\u7684\u662f\u5e76\u7f51\u6539\u9769\u3002", "headline": "\u6bd4 GPU \u4ea4\u671f\u66f4\u957f\u7684\uff0c\u662f\u5e76\u7f51\u6392\u961f\uff1aAIDC \u9009\u5740\u903b\u8f91\u5df2\u7ecf\u6539\u5199", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/aidc-grid-ppa/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/aidc-grid-ppa/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/aidc-grid-ppa/", "name": "\u6bd4 GPU \u4ea4\u671f\u66f4\u957f\u7684\uff0c\u662f\u5e76\u7f51\u6392\u961f\uff1aAIDC \u9009\u5740\u903b\u8f91\u5df2\u7ecf\u6539\u5199", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "IEA \u7edf\u8ba1\u5168\u7403\u8d85\u8fc7 2500GW \u9879\u76ee\u5361\u5728\u5e76\u7f51\u961f\u5217\uff0c\u90e8\u5206 G7 \u8f96\u533a\u9ad8\u538b\u63a5\u5165\u6392\u961f\u5df2\u8d85\u8fc7 7 \u5e74\uff1bGPU \u4f9b\u8d27\u6392\u671f\u4ee5\u5b63\u5ea6\u8ba1\uff0c\u7535\u529b\u63a5\u5165\u4ee5\u5e74\u8ba1\uff0c\u56e0\u6b64\u5e76\u7f51\u65f6\u70b9\u5f80\u5f80\u51b3\u5b9a\u9879\u76ee\u5b9e\u9645\u6295\u4ea7\u65f6\u95f4\u3002"}, "name": "\u4e3a\u4ec0\u4e48\u8bf4\u5e76\u7f51\u6bd4 GPU \u4ea4\u671f\u66f4\u957f\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u7535\u7f51\u8fd0\u8425\u5546\u5728\u9884\u5148\u7ea6\u5b9a\u7684\u89e6\u53d1\u6761\u4ef6\u4e0b\uff0c\u53ef\u9650\u5236\u6570\u636e\u4e2d\u5fc3\u7528\u7535\u8d1f\u8377\u4ee5\u5e94\u5bf9\u62e5\u5835\u6216\u7cfb\u7edf\u6270\u52a8\u3002IEA \u4f30\u7b97\u8be5\u673a\u5236\u5168\u7403\u53ef\u989d\u5916\u91ca\u653e 750-900GW \u7535\u7f51\u627f\u8f7d\u80fd\u529b\uff0c\u4ee3\u4ef7\u662f\u7b97\u529b\u4efb\u52a1\u9700\u8981\u5177\u5907\u53ef\u4e2d\u65ad\u3001\u53ef\u8fc1\u79fb\u80fd\u529b\u3002"}, "name": "\u975e\u7262\u56fa\u63a5\u5165\uff08non-firm connection\uff09\u662f\u4ec0\u4e48\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u4e0d\u7b49\u4e8e\u300245GW \u662f\u300c\u6709\u6761\u4ef6\u627f\u8d2d\u534f\u8bae\u7ba1\u9053\u300d\uff0c\u5c5e\u4e8e\u957f\u671f\u671f\u6743\uff0c\u4ecd\u9700\u7ecf\u8fc7\u9009\u5740\u3001\u8bb8\u53ef\u3001\u5efa\u9020\u4e0e\u5e76\u7f51\uff1bIEA \u540c\u65f6\u6307\u51fa 2026 \u5e74\u4e0a\u534a\u5e74\u5b9e\u9645\u7b7e\u7f72\u7684 PPA \u4e3a 45TWh\uff0c\u4e3b\u8981\u662f\u5e38\u89c4\u53ef\u518d\u751f\u7535\u529b\u3002"}, "name": "SMR \u627f\u8d2d\u534f\u8bae\u7b49\u4e8e\u5df2\u7ecf\u4e70\u5230\u6838\u7535\u4e86\u5417\uff1f"}]}]}
+    </script>
+    
+    
+    <title>比 GPU 交期更长的，是并网排队：AIDC 选址逻辑已经改写 - ZouIC</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"></head><body><a href="#main-content" class="skip-link">跳转到主要内容</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航"><div class="container"><a class="navbar-brand" href="/"><i class="fas fa-microchip"></i> ZouIC
+            </a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/all-projects/"><i class="fas fa-project-diagram me-1"></i>开源项目</a></li><li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li><li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/services/component-matching/">商务合作</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li><li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li><li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li><li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li><li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li><li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li><li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li><li><a class="dropdown-item" href="/tools/"><i class="fas fa-calculator me-2"></i>硬件计算器</a></li><li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li><li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li><li><a class="dropdown-item" href="/ideas/"><i class="fas fa-lightbulb me-2"></i>创意树洞</a></li><li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" style="width: 200px;"><select id="searchType" class="form-select input-zouic" aria-label="搜索类型:" style="width: auto; flex: 0 0 auto;"><option value="">全部分类</option><option value="board">开源开发板</option><option value="project">开源项目</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/aidc-grid-ppa/"><i class="fas fa-language me-2"></i> 中文
+                            </a></li><li><a class="dropdown-item" href="/en/articles/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/articles/"><i class="fas fa-language me-2"></i> 德语
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/">首页</a></li><li class="breadcrumb-item"><a href="/articles/">技术文章</a></li><li class="breadcrumb-item active" aria-current="page">比 GPU 交期更长的，是并网排队：AIDC 选址逻辑已经改写</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">免费公开 · 欢迎转发</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">比 GPU 交期更长的，是并网排队：AIDC 选址逻辑已经改写</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">算力行业观察 · 极客微栋 @GeekWaedon</p><p class="text-secondary text-sm mt-4">极客微栋 @GeekWaedon · 2026-10-27</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p><strong>前几年选数据中心，问的是光纤、地价、离用户多远。2026 年第一个问题只有一个：这块地能不能在 2028 年前拿到电。GPU 排期以季度计，电网接入以年计——更长的那根管子决定了算力上限。</strong></p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">IEA 三份 2026 报告里的硬数字</h2><table><thead><tr><th>指标</th><th>数值</th><th>出处</th></tr></thead><tbody><tr><td>全球卡在并网队列的项目</td><td>超过 <strong>2500GW</strong>（含可再生、储能与数据中心等大负荷）</td><td>IEA《Electricity 2026》</td></tr><tr><td>电网增强技术与灵活接入可近期释放</td><td>最多 <strong>1600GW</strong> 队列项目</td><td>同上</td></tr><tr><td>到 2030 年全球电网年投资需增长</td><td><strong>50%</strong></td><td>同上</td></tr><tr><td>2025 年数据中心用电增速</td><td><strong>+17%</strong>，同期全球总用电 +3%</td><td>IEA《Key Questions on Energy and AI》</td></tr><tr><td>到 2030 年用电变化</td><td>数据中心翻倍、AI 数据中心<strong>三倍</strong></td><td>同上</td></tr><tr><td>SMR 有条件承购协议管道</td><td>从 2024 年底 25GW 增至 <strong>45GW</strong></td><td>同上</td></tr><tr><td>2026 年超大规模运营商资本开支</td><td>超过 <strong>7000 亿美元</strong></td><td>IEA《Powering Artificial Intelligence》</td></tr><tr><td>2026 上半年数据中心运营商 PPA</td><td><strong>45TWh</strong>，同比增近 20%，近 70% 在美国</td><td>同上</td></tr><tr><td>非牢固接入可额外释放电网承载能力</td><td><strong>750-900GW</strong></td><td>同上 / 中国能源新闻网转述</td></tr></tbody></table><p>《Powering Artificial Intelligence》是法国 G7 轮值主席国委托、2026 年 10 月发布，覆盖 34 个司法辖区、约 90% 全球数据中心容量；它统计到 <strong>134 项</strong>相关政策，其中近 40% 是过去 12 个月才出台的。政策密度突然抬升，本身就是瓶颈已经硬到监管层的信号。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">「队列膨胀」才是那个被误读的变量</h2><p>IEA 发现多个地区的接入申请累计容量<strong>已超过当地现有峰值负荷</strong>。原因不是需求真的有这么大，而是开发商为抢资源会在多地重复排队，很多项目既没绑定客户也没锁定算力需求。于是电网规划被夹在双向风险里：高估会造出搁浅资产，低估会卡住项目。2025 年约 <strong>60%</strong> 数据中心容量集中在既有产业集群，若全部规划项目落地将升至 <strong>70%</strong>——负荷拓扑正被少数几个点重写。</p><p>另一个反常识点：AI 数据中心的负荷是<strong>快速大幅波动</strong>的。IEA 指出这种波动会拉扯现场燃气机组的技术能力，所以储能正从「备电」变成「并网条件」。这也是为什么越来越多项目谈需求响应：让非紧急训练任务在居民用电高峰自动降载，换取更快、更便宜的接入许可。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">核电 PPA 是期权，不是现货</h2><p>新闻里最热闹的是核电与 SMR 承购协议，IEA 也确认科技行业占 2025 年企业可再生 PPA 约 <strong>40%</strong>，并成为先进核能与增强型地热的主要推动力。但把 45GW 的「有条件承购协议」当成 45GW 已建成电源，就和把 6GW 的 GPU 供货协议当成 6GW 已交付机柜一样，属于口径误读。SMR 从协议到并网，中间还隔着选址、许可、建造与调试。</p><p>真正能在 2026-2028 年兑现的，是三件不那么性感的事：<strong>队列改革</strong>（提高准入门槛、里程碑释放容量）、<strong>非牢固接入</strong>（电网在紧张时段有权按约定限负荷）、<strong>电网增强技术</strong>（动态线路额定、潮流控制）。IEA 给的数字摆在那：一边是 2500GW 卡着，一边是 1600GW 可近期释放、750-900GW 可凭非牢固接入释放。<strong>瓶颈的一半是制度，不是发电量。</strong></p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">总结</h2><p>算力的上限正在被电力系统重新定义，而且定义方式从「有多少电」变成「多快能接上电」。对 AIDC 投资与选址，建议把三项前置到尽调第一步：<strong>接入队列位次与预计并网年份、是否接受非牢固接入条款、当地是否允许需求响应换容量</strong>。至于核电 PPA，把它记作 2030 年后的期权——那不是 2027 年能点亮机柜的电。</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>为什么说并网比 GPU 交期更长？</h3><p class="faq-a">IEA 统计全球超过 2500GW 项目卡在并网队列，部分 G7 辖区高压接入排队已超过 7 年；GPU 供货排期以季度计，电力接入以年计，因此并网时点往往决定项目实际投产时间。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>非牢固接入（non-firm connection）是什么？</h3><p class="faq-a">电网运营商在预先约定的触发条件下，可限制数据中心用电负荷以应对拥堵或系统扰动。IEA 估算该机制全球可额外释放 750-900GW 电网承载能力，代价是算力任务需要具备可中断、可迁移能力。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>SMR 承购协议等于已经买到核电了吗？</h3><p class="faq-a">不等于。45GW 是「有条件承购协议管道」，属于长期期权，仍需经过选址、许可、建造与并网；IEA 同时指出 2026 年上半年实际签署的 PPA 为 45TWh，主要是常规可再生电力。</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/articles/" class="btn-zouic">技术文章</a><a href="/boards/" class="btn-zouic">开源开发板</a><a href="/compare/" class="btn-zouic btn-zouic-primary">开发板对比</a></div></div></section></main><section id="follow" class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3><p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p></div><div class="col-lg-5"><a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span></div></div></div></div></div></section><section class="py-4" aria-label="出品人"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div><div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/" class="footer-brand" aria-label="ZouIC 首页"><i class="fas fa-microchip"></i><span>ZouIC</span></a><p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p><p class="footer-business-contact">
+                        商务合作 / 器件选型：
+                        <a href="mailto:waedon@outlook.com?subject=%E5%95%86%E5%8A%A1%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            出品人 · <strong>极客微栋</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span><a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商"><i class="fab fa-weixin"></i> 企业微信服务商
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a><a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>产品</h5><ul><li><a href="/products/">产品介绍</a></li><li><a href="/services/">服务说明</a></li><li><a href="/services/website-building/">建站服务</a></li><li><a href="/services/component-matching/">元器件撮合</a></li><li><a href="/news/">站内动态</a></li><li><a href="/boards/">开源开发板</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>资源</h5><ul><li><a href="/board-guide/">选型指南</a></li><li><a href="/compare/">开发板对比</a></li><li><a href="/tutorials/">开发板教程</a></li><li><a href="/documentation/">技术文档</a></li><li><a href="/online-tools/">在线工具</a></li><li><a href="/tools/">硬件计算器</a></li><li><a href="/cases/">项目案例</a></li><li><a href="/help/">文档中心</a></li><li><a href="/games/resistor/">色环电阻识别挑战</a></li><li><a href="/dashuju/">数据大屏</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>开源生态</h5><ul><li><a href="/open-source/">开源项目</a></li><li><a href="/all-projects/">全部项目</a></li><li><a href="/articles/">技术文章</a></li><li><a href="/ideas/">创意树洞</a></li><li><a href="/wechat/">公众号专栏</a></li><li><a href="/contribute/">贡献指南</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>关于</h5><ul><li><a href="/about/">关于我们</a></li><li><a href="/about/#contact">联系我们</a></li><li><a href="/licenses/">开源协议</a></li><li><a href="/pricing/">服务报价</a></li><li><a href="/privacy/">隐私政策</a></li><li><a href="/terms/">服务条款</a></li><li><a href="/refund/">退款政策</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">热门分类</span><div class="footer-category-links"><a href="/category/">全部</a><a href="/category/fpga/">FPGA</a><a href="/category/general/">综合</a><a href="/category/ai_hardware/">AI 硬件</a><a href="/category/vision/">机器视觉</a><a href="/category/esp32/">ESP32</a><a href="/category/robotics/">机器人</a><a href="/source/github/">GitHub</a><a href="/source/hackster/">Hackster.io</a><a href="/resources/">资源导航</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div><div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="返回顶部"><i class="fas fa-chevron-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    <script>
+    (function () {
+        var api = "https://waedon.pythonanywhere.com";
+        var sent = false;
+        function navPerf() {
+            try {
+                var n = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+                if (n && n.loadEventEnd > 0) return Math.round(n.loadEventEnd);
+            } catch (e) { /* ignore */ }
+            return 0;
+        }
+        function send() {
+            if (sent) return;
+            sent = true;
+            var payload = {
+                site: 'zouic',
+                path: (location.pathname + location.search + (location.hash || '')).slice(0, 300),
+                title: (document.title || '').slice(0, 200),
+                ref: document.referrer || '',
+                lang: navigator.language || '',
+                perf: navPerf()
+            };
+            var body = JSON.stringify(payload);
+            // text/plain 免 CORS 预检；页面已经加载完，sendBeacon 最稳
+            try {
+                if (navigator.sendBeacon &&
+                    navigator.sendBeacon(api + '/api/beacon', new Blob([body], { type: 'text/plain;charset=UTF-8' }))) return;
+            } catch (e) { /* fallthrough */ }
+            try {
+                fetch(api + '/api/beacon', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+                    body: body,
+                    keepalive: true,
+                    credentials: 'omit'
+                }).catch(function () {});
+            } catch (e) {}
+        }
+        if (document.readyState === 'complete') setTimeout(send, 0);
+        else window.addEventListener('load', function () { setTimeout(send, 120); });
+        window.addEventListener('pagehide', send);
+    })();
+    </script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/aidc-grid-ppa/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=zh-CN'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>
