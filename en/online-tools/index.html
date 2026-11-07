@@ -1,0 +1,600 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="27 no-install browser entry points: flash ESP32 firmware over Web Serial, dump a Flash backup, read chip and partition tables, open a serial terminal, look…"><meta name="keywords" content="online flashing,flash ESP32 in browser,Web Serial,serial terminal,flash backup,xiaozhi-esp32,esptool-js,MicroPython"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/en/online-tools/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/online-tools/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/online-tools/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/online-tools/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/online-tools/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="Browser-Based Embedded Dev Tools - Online Flashing &amp; Debugging | ZouIC"><meta property="og:description" content="27 no-install browser entry points: flash ESP32 firmware over Web Serial, dump a Flash backup, read chip and partition tables, open a serial terminal, look up pinouts, plus 8 upstream open source repositories with verified licences. Each entry carries our own summary, pricing and sign-in notes; third-party commercial tools list their operating company and ICP filing."><meta property="og:url" content="https://www.zouic.com/en/online-tools/"><meta property="og:type" content="article"><meta property="og:locale" content="en_US"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC open source development board platform · GeekWeidong"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Browser-Based Embedded Dev Tools - Online Flashing &amp; Debugging | ZouIC"><meta name="twitter:description" content="27 no-install browser entry points: flash ESP32 firmware over Web Serial, dump a Flash backup, read chip and partition tables, open a serial terminal, look up pinouts, plus 8 upstream open source repositories with verified licences. Each entry carries our own summary, pricing and sign-in notes; third-party commercial tools list their operating company and ICP filing."><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Chrome / Edge connect to the chip directly over Web Serial; pick a board model or a local bin file and write it, skipping drivers, download mode and flash addresses. Both the online flashing entries and the browser serial terminal listed here use this path, and their capabilities are largely bounded by Espressif\u0027s official esptool-js (Apache-2.0)."}, "name": "Can I flash ESP32 firmware in a browser without installing anything?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "The firmware itself is: 78/xiaozhi-esp32 is MIT licensed, as is its companion backend xiaozhi-esp32-server (both verified via GitHub API on 2026-11-01). A third party provides a flashing service and firmware packaging; that does not change the upstream licence, nor does it mean every package they distribute is open source \u2014 check the repository and licence of each community upload individually."}, "name": "Is the XiaoZhi AI firmware flashed by third-party sites open source?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Based on the wording visible on the respective pages as of 2026-11-01: flashing and information-reading pages show no sign-in barrier or pricing notice; the serial terminal can save frequently used commands after sign-in; chip-to-chip copy requires unlocking cloning rights first; NVS reading requires sign-in while modifying and writing back is paid; the firmware marketplace has both free and paid firmware, with paid firmware consuming site credits per project and a subscription covering unlimited use; MicroAgent, the conversational generator, has a free quota that does not interrupt a conversation when exhausted, with an AI subscription for more compute and support for your own model API key; hosted MQTT is an annual subscription that ends automatically at expiry, and the dashboard depends on it. Any entry we mark \u0027not stated\u0027 means we found no pricing information on the page; the site itself remains authoritative."}, "name": "Do these online tools cost anything?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Two things. First, device storage is read in full and copyright in the dumped bin stays with the original firmware author, so do not redistribute it casually. Second, chip-to-chip copy and cloning should only involve devices and firmware you own the rights to. If you need a long-term dependency, keep esptool / esptool-js locally as a fallback rather than tying a production line or a delivery to a third-party site."}, "name": "What should I watch out for when flashing or dumping Flash through someone else\u0027s server?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "No. It offers only entry links and purpose summaries written by us. No copy, screenshots, tutorials or trademark assets were reproduced, and no area disallowed by their robots.txt was crawled. Anything involving open source points back to the upstream repository with a verified licence."}, "name": "Does this page reproduce content from the original sites?"}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/documentation/", "name": "Documentation", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/online-tools/", "name": "Browser tools directory", "position": 3}]}]}
+    </script>
+    
+    
+    <title>Browser-Based Embedded Dev Tools - Online Flashing &amp; Debugging | ZouIC</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"></head><body><a href="#main-content" class="skip-link">Skip to main content</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Main navigation"><div class="container"><a class="navbar-brand" href="/en/"><i class="fas fa-microchip"></i> ZouIC
+            </a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/en/">Home</a></li><li class="nav-item"><a class="nav-link" href="/en/all-projects/"><i class="fas fa-project-diagram me-1"></i>Open Source Projects</a></li><li class="nav-item"><a class="nav-link" href="/en/boards/">Open Source Boards</a></li><li class="nav-item"><a class="nav-link" href="/en/board-guide/">Documentation</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/en/services/component-matching/">Business</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/en/products/"><i class="fas fa-box me-2"></i>Products</a></li><li><a class="dropdown-item" href="/en/services/"><i class="fas fa-cogs me-2"></i>Services</a></li><li><a class="dropdown-item" href="/en/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>Component matching</a></li><li><a class="dropdown-item" href="/en/news/"><i class="fas fa-newspaper me-2"></i>Site Updates</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/en/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li><li><a class="dropdown-item" href="/en/documentation/"><i class="fas fa-book me-2"></i>Documentation</a></li><li><a class="dropdown-item" href="/en/resources/"><i class="fas fa-compass me-2"></i>Resource Navigation</a></li><li><a class="dropdown-item" href="/en/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>Online Tools</a></li><li><a class="dropdown-item" href="/en/tools/"><i class="fas fa-calculator me-2"></i>Hardware calculators</a></li><li><a class="dropdown-item" href="/en/cases/"><i class="fas fa-briefcase me-2"></i>Project Cases</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/en/open-source/"><i class="fas fa-code-branch me-2"></i>Open Source Projects</a></li><li><a class="dropdown-item" href="/en/articles/"><i class="fas fa-pen-fancy me-2"></i>Technical articles</a></li><li><a class="dropdown-item" href="/en/contribute/"><i class="fas fa-handshake me-2"></i>Contribute</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/en/dashuju/"><i class="fas fa-chart-line me-2"></i>Data Dashboard</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/en/search/"><i class="fas fa-search me-1"></i>Search</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="Search boards, projects or keywords..." aria-label="Search" style="width: 200px;"><select id="searchType" class="form-select input-zouic" aria-label="Search Type:" style="width: auto; flex: 0 0 auto;"><option value="">All Categories</option><option value="board">Open Source Boards</option><option value="project">Open Source Projects</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> English
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-language me-2"></i> Chinese
+                            </a></li><li><a class="dropdown-item" href="/en/online-tools/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/online-tools/"><i class="fas fa-language me-2"></i> German
+                            </a></li></ul></div></div></div></div></nav><main id="main-content">
+        
+<style>
+    .ot-hero-stat {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-top: 1.25rem;
+    }
+    .ot-hero-stat .v {
+        font-size: 1.75rem;
+        font-weight: 700;
+        line-height: 1.1;
+        color: var(--accent-primary, #00e5ff);
+    }
+    .ot-hero-stat .k {
+        font-size: .8125rem;
+        color: var(--text-secondary, #9aa4b2);
+    }
+    .ot-chip-row {
+        display: flex;
+        gap: .5rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+    }
+    .ot-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: .375rem;
+        padding: .375rem .75rem;
+        font-size: .8125rem;
+        border-radius: 999px;
+        border: 1px solid var(--glass-stroke, rgba(255,255,255,.12));
+        color: var(--text-secondary, #9aa4b2);
+        text-decoration: none;
+        transition: all .18s ease;
+    }
+    .ot-chip:hover {
+        color: var(--accent-primary, #00e5ff);
+        border-color: var(--accent-primary, #00e5ff);
+    }
+    .ot-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 1.125rem 1.25rem;
+        border-radius: 12px;
+    }
+    .ot-card h3 {
+        font-size: 1.0625rem;
+        font-weight: 600;
+        margin: 0 0 .25rem;
+        line-height: 1.35;
+    }
+    .ot-card h3 a {
+        color: inherit;
+        text-decoration: none;
+    }
+    .ot-card h3 a:hover {
+        color: var(--accent-primary, #00e5ff);
+    }
+    .ot-host {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: .75rem;
+        color: var(--text-tertiary, #6b7684);
+        margin-bottom: .625rem;
+        word-break: break-all;
+    }
+    .ot-desc {
+        font-size: .875rem;
+        line-height: 1.65;
+        color: var(--text-secondary, #9aa4b2);
+        margin-bottom: .875rem;
+        flex: 1;
+    }
+    .ot-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .375rem;
+        align-items: center;
+    }
+    .ot-facts {
+        margin: .625rem 0 0;
+        padding: 0;
+        list-style: none;
+        font-size: .75rem;
+        line-height: 1.6;
+        color: var(--text-tertiary, #6b7684);
+    }
+    .ot-facts li + li {
+        margin-top: .25rem;
+    }
+    .ot-facts strong {
+        color: var(--text-secondary, #9aa4b2);
+        font-weight: 600;
+    }
+    .ot-facts a {
+        color: var(--accent-primary, #00e5ff);
+        text-decoration: none;
+        word-break: break-all;
+    }
+    .ot-facts a:hover { text-decoration: underline; }
+    .ot-note {
+        font-size: .75rem;
+        color: var(--color-warning, #ffc857);
+        margin-top: .5rem;
+        line-height: 1.5;
+    }
+    .ot-group { scroll-margin-top: 96px; }
+    .ot-group[hidden] { display: none !important; }
+    .ot-item[hidden] { display: none !important; }
+    #otSearch { max-width: 420px; }
+    .ot-empty {
+        display: none;
+        padding: 2rem;
+        text-align: center;
+        color: var(--text-secondary, #9aa4b2);
+    }
+    .ot-top-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        counter-reset: ot-top;
+    }
+    .ot-top-list li {
+        counter-increment: ot-top;
+        display: flex;
+        gap: .875rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--glass-stroke, rgba(255,255,255,.08));
+    }
+    .ot-top-list li:last-child { border-bottom: 0; }
+    .ot-top-list li::before {
+        content: counter(ot-top, decimal-leading-zero);
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: .875rem;
+        color: var(--accent-primary, #00e5ff);
+        opacity: .8;
+        flex-shrink: 0;
+        padding-top: .15rem;
+    }
+    .ot-top-name {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: .25rem;
+    }
+    .ot-top-name a { color: inherit; text-decoration: none; }
+    .ot-top-name a:hover { color: var(--accent-primary, #00e5ff); }
+    .ot-top-why {
+        font-size: .875rem;
+        line-height: 1.65;
+        color: var(--text-secondary, #9aa4b2);
+    }
+    .ot-top-host {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: .75rem;
+        color: var(--text-tertiary, #6b7684);
+        margin-top: .375rem;
+        word-break: break-all;
+    }
+    .ot-faq { margin-bottom: 1.5rem; }
+    .ot-faq:last-child { margin-bottom: 0; }
+    .ot-faq h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0 0 .5rem;
+    }
+    .ot-faq p {
+        font-size: .9375rem;
+        line-height: 1.75;
+        color: var(--text-secondary, #9aa4b2);
+        margin: 0;
+    }
+    .ot-disclose {
+        border-left: 3px solid var(--color-warning, #ffc857);
+        padding-left: 1rem;
+        font-size: .875rem;
+        line-height: 1.8;
+        color: var(--text-secondary, #9aa4b2);
+    }
+    .ot-disclose a { color: var(--accent-primary, #00e5ff); text-decoration: none; }
+    .ot-disclose a:hover { text-decoration: underline; }
+</style>
+
+<section class="py-8"><div class="container"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent"><li class="breadcrumb-item"><a href="/en/">Home</a></li><li class="breadcrumb-item"><a href="/en/documentation/">Documentation</a></li><li class="breadcrumb-item active" aria-current="page">Browser tools directory</li></ol></nav></div></section><section class="pb-6"><div class="container"><div class="card-dark p-8"><span class="badge-zouic badge-zouic-accent mb-3">ONLINE TOOL DIRECTORY</span><h1 class="text-3xl font-bold mb-3">Browser-based embedded development tools</h1><p class="text-secondary text-lg mb-0" style="max-width: 62rem;">No toolchain, no serial-port utility: plug in USB and you can flash firmware, read chip information, watch logs and check pinouts. This page groups those browser tools by purpose. Each entry carries our own note on when to use it, plus the upstream open source repository and verified licence behind it — because the latter is what you can actually depend on in the long run.</p><div class="ot-hero-stat"><div><div class="v">27</div><div class="k">Entries</div></div><div><div class="v">5</div><div class="k">Groups</div></div><div><div class="v">8</div><div class="k">Upstream OSS projects</div></div><div><div class="v">2026-11-01</div><div class="k">Last checked</div></div></div></div></div></section><section class="pb-6"><div class="container"><div class="card-dark p-6"><h2 class="text-xl font-bold mb-3"><i class="fas fa-scale-balanced me-2" style="opacity: .75;"></i>How this page was put together, and where it stops
+            </h2><div class="ot-disclose"><p class="mb-2">
+                    The tool links below come from a third-party site, <a href="https://www.16302.com/" target="_blank" rel="noopener noreferrer nofollow">16302.com (Ludaima IoT)</a>, operated by Tongling Keyichuangxiang Technology Co., Ltd. (Anhui ICP filing 18006907-2). No affiliation, partnership or promotion arrangement with this site; the link is provided solely as a reader entry point.
+                </p><p class="mb-0">
+                    That site's robots.txt disallows automated access to its tools and user areas, and its terms do not permit unauthorised reproduction. This page therefore <strong>links only to top-level entry points</strong>: every summary and caution is written by us, no copy, screenshots, trademarks or tutorial text were reproduced, and no restricted area was crawled. For open source firmware and tools we always point back to the <strong>upstream repository</strong> with a verified licence; a third party's description is never treated as proof of licensing.
+                </p></div></div></div></section><section class="pb-6"><div class="container"><div class="card-dark p-6"><h2 class="text-xl font-bold mb-1"><i class="fas fa-star me-2" style="opacity: .75;"></i>Start here: five picks
+            </h2><p class="text-secondary mb-3" style="max-width: 58rem; font-size: .9375rem;">
+                Ordered by time saved and cost of failure, not by feature count.
+            </p><ol class="ot-top-list"><li><div><div class="ot-top-name"><a href="https://www.16302.com/xiaozhiinit" target="_blank" rel="noopener noreferrer nofollow">Flash XiaoZhi AI firmware in the browser
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></div><div class="ot-top-why">Beginners usually get stuck on drivers, download mode and flash addresses. This entry puts the whole chain in the browser: pick a board, plug in USB, click flash — no local esptool install.</div><div class="ot-top-host">www.16302.com</div></div></li><li><div><div class="ot-top-name"><a href="https://www.16302.com/localinit" target="_blank" rel="noopener noreferrer nofollow">Flash your own bin file in the browser
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></div><div class="ot-top-why">Merged firmware from a vendor or a binary you compiled yourself can be written directly; especially useful on a second computer or a locked-down corporate machine.</div><div class="ot-top-host">www.16302.com</div></div></li><li><div><div class="ot-top-name"><a href="https://www.16302.com/flashdump" target="_blank" rel="noopener noreferrer nofollow">Back up the entire Flash before changing firmware
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></div><div class="ot-top-why">The first step with a production unit or a second-hand device: dump the original Flash to a bin file so you can roll back if a flash goes wrong.</div><div class="ot-top-host">www.16302.com</div></div></li><li><div><div class="ot-top-name"><a href="https://www.16302.com/terminal" target="_blank" rel="noopener noreferrer nofollow">Read boot logs in a browser serial terminal
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></div><div class="ot-top-why">What the device actually prints is the first piece of evidence when debugging. No serial utility to install and no COM port held open.</div><div class="ot-top-host">www.16302.com</div></div></li><li><div><div class="ot-top-name"><a href="https://github.com/espressif/esptool-js" target="_blank" rel="noopener noreferrer nofollow">A fallback with no setup: esptool-js (official, Apache-2.0)
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></div><div class="ot-top-why">This library defines what those browser tools can do. For genuinely offline work or a page of your own, the official library is a safer base than any third-party site.</div><div class="ot-top-host">github.com</div></div></li></ol></div></div></section><section class="pb-6"><div class="container"><div class="card-dark p-6"><h2 class="text-xl font-bold mb-1"><i class="fas fa-calculator me-2" style="opacity: .75;"></i>Built here: three hardware calculators
+            </h2><p class="text-secondary mb-4" style="max-width: 58rem; font-size: .9375rem;">
+                The links above lead to third-party tools. These three are built by us and run entirely in your browser: inputs stay on your machine, nothing is uploaded, stored or tracked. Formulas, coefficient sources and limits are printed on the page, and the worked examples and live results are generated from the same constants so you can cross-check them.
+            </p><div class="row g-3"><div class="col-12 col-md-4"><div class="card-dark ot-card"><h3><a href="/en/tools/trace-width/">PCB trace width calculator</a></h3><div class="ot-desc">Given current, allowed temperature rise, copper weight and layer, solve for the required trace width and report resistance and voltage drop.</div></div></div><div class="col-12 col-md-4"><div class="card-dark ot-card"><h3><a href="/en/tools/via-current/">Via current calculator</a></h3><div class="ot-desc">From drill diameter and plating thickness, compute the via barrel cross-section and estimate the current limit for one or several vias.</div></div></div><div class="col-12 col-md-4"><div class="card-dark ot-card"><h3><a href="/en/tools/power-budget/">Power budget calculator</a></h3><div class="ot-desc">Add up the voltage and current of every load, include LDO losses and headroom, then estimate input current and battery runtime.</div></div></div></div><div class="mt-4 mb-0"><a class="ot-chip" href="/en/tools/"><i class="fas fa-arrow-right"></i>All calculators
+                </a></div></div></div></section><section class="pb-10"><div class="container"><div class="d-flex flex-wrap gap-3 align-items-center justify-content-between mb-4"><div class="ot-chip-row mb-0"><a class="ot-chip" href="#flash"><i class="fas fa-bolt"></i>Flashing and Flash operations
+                    <span style="opacity: .6;">9</span></a><a class="ot-chip" href="#dev"><i class="fas fa-code"></i>Online development and debugging
+                    <span style="opacity: .6;">5</span></a><a class="ot-chip" href="#pinout"><i class="fas fa-diagram-project"></i>Pinouts, wiring and selection references
+                    <span style="opacity: .6;">2</span></a><a class="ot-chip" href="#cloud"><i class="fas fa-tower-broadcast"></i>Connectivity, dashboards and firmware distribution
+                    <span style="opacity: .6;">3</span></a><a class="ot-chip" href="#upstream"><i class="fas fa-box-archive"></i>Upstream open source projects (the genuinely free-to-use part)
+                    <span style="opacity: .6;">8</span></a></div><div class="input-group input-group-zouic" style="max-width: 420px;"><input type="text" id="otSearch" class="form-control input-zouic"
+                       placeholder="Search tools, uses or licences…" aria-label="Search browser tools"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm" type="button" id="otClear" aria-label="Clear"><i class="fas fa-xmark"></i></button></div></div><div class="ot-empty" id="otEmpty">
+            No matching tools. Try another keyword, for example &#34;flash&#34;, &#34;serial&#34;, &#34;MIT&#34; or &#34;MQTT&#34;.
+        </div><div class="ot-group mb-8" id="flash" data-group="flash"><div class="d-flex align-items-center gap-3 mb-2"><h2 class="section-title text-2xl font-bold mb-0"><i class="fas fa-bolt me-2" style="opacity: .7;"></i>Flashing and Flash operations
+                </h2><span class="badge-zouic badge-zouic-secondary">Web Serial Flashing</span></div><p class="text-secondary mb-4" style="max-width: 58rem;">The common thread is no local toolchain: Chrome / Edge talk to the chip directly over Web Serial, so plugging in USB is enough to write, read and back up. Ideal with only a laptop, or on a machine where installing software is not allowed. These tools touch device storage directly, so be sure you have the legal right to operate that device before you start.</p><div class="row g-3"><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="XiaoZhi AI firmware online flasher One-click flashing for XiaoZhi AI voice terminal boards: choose firmware by board model and write it over a direct browser connection, without installing esptool or a serial driver locally. Covers ESP32-S3 / C3 / C6 / S2 / H2 / P4 and ESP8266. The official base firmware is free; community-bundled third-party firmware consumes on-site credits. XiaoZhi AI ESP32-S3 No install https://www.16302.com/xiaozhiinit "><div class="card-dark ot-card"><h3><a href="https://www.16302.com/xiaozhiinit" target="_blank" rel="noopener noreferrer nofollow">XiaoZhi AI firmware online flasher
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">www.16302.com</div><div class="ot-desc">One-click flashing for XiaoZhi AI voice terminal boards: choose firmware by board model and write it over a direct browser connection, without installing esptool or a serial driver locally. Covers ESP32-S3 / C3 / C6 / S2 / H2 / P4 and ESP8266. The official base firmware is free; community-bundled third-party firmware consumes on-site credits.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-secondary">XiaoZhi AI</span><span class="badge-zouic badge-zouic-secondary">ESP32-S3</span><span class="badge-zouic badge-zouic-secondary">No install</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Official base firmware is free; third-party paid firmware consumes site credits (a subscription covers unlimited use)</li><li><strong>Sign-in</strong>：No sign-in</li><li><strong>Upstream</strong>：
+                                <a href="https://github.com/78/xiaozhi-esp32" target="_blank" rel="noopener noreferrer nofollow">78/xiaozhi-esp32 (firmware itself)</a>
+                                · MIT (verified via GitHub API on 2026-11-01)
+                            </li></ul></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="Flash a local bin file online Write a .bin or merged firmware image to the chip, with address and erase policy set on the page. For cases where you already have a vendor or self-built artefact and only need the write step, or for verifying a firmware package someone handed you. bin Flashing No install https://www.16302.com/localinit "><div class="card-dark ot-card"><h3><a href="https://www.16302.com/localinit" target="_blank" rel="noopener noreferrer nofollow">Flash a local bin file online
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">www.16302.com</div><div class="ot-desc">Write a .bin or merged firmware image to the chip, with address and erase policy set on the page. For cases where you already have a vendor or self-built artefact and only need the write step, or for verifying a firmware package someone handed you.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-secondary">bin</span><span class="badge-zouic badge-zouic-secondary">Flashing</span><span class="badge-zouic badge-zouic-secondary">No install</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Usable without sign-in (no pricing shown on the page)</li><li><strong>Sign-in</strong>：No sign-in</li><li><strong>Upstream</strong>：
+                                <a href="https://github.com/espressif/esptool-js" target="_blank" rel="noopener noreferrer nofollow">espressif/esptool-js (browser flashing library)</a>
+                                · Apache-2.0 (verified)
+                            </li></ul></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="MicroPython firmware online flasher An entry point for flashing MicroPython firmware to a board, used together with the REPL. Faster for teaching and quick proofs of concept than setting up a C toolchain first. Check that the firmware matches your chip: the wrong variant can leave the board needing recovery. MicroPython REPL Teaching https://www.16302.com/deviceinit "><div class="card-dark ot-card"><h3><a href="https://www.16302.com/deviceinit" target="_blank" rel="noopener noreferrer nofollow">MicroPython firmware online flasher
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">www.16302.com</div><div class="ot-desc">An entry point for flashing MicroPython firmware to a board, used together with the REPL. Faster for teaching and quick proofs of concept than setting up a C toolchain first. Check that the firmware matches your chip: the wrong variant can leave the board needing recovery.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-secondary">MicroPython</span><span class="badge-zouic badge-zouic-secondary">REPL</span><span class="badge-zouic badge-zouic-secondary">Teaching</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Not stated</li><li><strong>Upstream</strong>：
+                                <a href="https://github.com/micropython/micropython" target="_blank" rel="noopener noreferrer nofollow">micropython/micropython</a>
+                                · MIT variant (GitHub reports NOASSERTION; the repository LICENSE governs)
+                            </li></ul></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="Full Flash dump and backup Read the entire current Flash into a single bin file. Do this first before changing firmware or taking over a used device: without a backup there is no rollback. Copyright in the dumped file stays with the original firmware author, so do not redistribute it casually. Backup Rollback Flash https://www.16302.com/flashdump "><div class="card-dark ot-card"><h3><a href="https://www.16302.com/flashdump" target="_blank" rel="noopener noreferrer nofollow">Full Flash dump and backup
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">www.16302.com</div><div class="ot-desc">Read the entire current Flash into a single bin file. Do this first before changing firmware or taking over a used device: without a backup there is no rollback. Copyright in the dumped file stays with the original firmware author, so do not redistribute it casually.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-secondary">Backup</span><span class="badge-zouic badge-zouic-secondary">Rollback</span><span class="badge-zouic badge-zouic-secondary">Flash</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Usable without sign-in (no pricing shown on the page)</li><li><strong>Sign-in</strong>：No sign-in</li></ul><div class="ot-note"><i class="fas fa-triangle-exclamation me-1"></i>Back up and restore only devices you are entitled to operate; distributing somebody else&#39;s firmware requires separate permission.</div></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="Batch erase For production lines or lab clean-up: erase devices in sequence so leftover firmware cannot cause unexplained behaviour on the next board. Production Erase https://www.16302.com/multierase "><div class="card-dark ot-card"><h3><a href="https://www.16302.com/multierase" target="_blank" rel="noopener noreferrer nofollow">Batch erase
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">www.16302.com</div><div class="ot-desc">For production lines or lab clean-up: erase devices in sequence so leftover firmware cannot cause unexplained behaviour on the next board.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-secondary">Production</span><span class="badge-zouic badge-zouic-secondary">Erase</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Not stated</li></ul></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="Chip-to-chip firmware copy Read firmware from one board and write it to another of the same model. Quick for duplicating your own device state, but treat it as a backup-and-restore tool, not as a way to crack or mass-produce somebody else&#39;s product. Clone Same model https://www.16302.com/flashclone "><div class="card-dark ot-card"><h3><a href="https://www.16302.com/flashclone" target="_blank" rel="noopener noreferrer nofollow">Chip-to-chip firmware copy
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">www.16302.com</div><div class="ot-desc">Read firmware from one board and write it to another of the same model. Quick for duplicating your own device state, but treat it as a backup-and-restore tool, not as a way to crack or mass-produce somebody else&#39;s product.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-secondary">Clone</span><span class="badge-zouic badge-zouic-secondary">Same model</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Not stated (the page says cloning must be unlocked first; unlock conditions are not explained)</li><li><strong>Sign-in</strong>：Sign-in required to unlock chip-to-chip copy</li></ul><div class="ot-note"><i class="fas fa-triangle-exclamation me-1"></i>Copying commercial firmware you do not own may infringe rights; use only with firmware and devices you are entitled to.</div></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="Read chip and Flash information Start here with an unfamiliar board: chip model, Flash size and Flash mode at a glance. Choosing firmware, sizing partitions and deciding whether OTA will fit all depend on these numbers. Chip model Flash size https://www.16302.com/espinfo "><div class="card-dark ot-card"><h3><a href="https://www.16302.com/espinfo" target="_blank" rel="noopener noreferrer nofollow">Read chip and Flash information
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">www.16302.com</div><div class="ot-desc">Start here with an unfamiliar board: chip model, Flash size and Flash mode at a glance. Choosing firmware, sizing partitions and deciding whether OTA will fit all depend on these numbers.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-secondary">Chip model</span><span class="badge-zouic badge-zouic-secondary">Flash size</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Usable without sign-in (no pricing shown on the page)</li><li><strong>Sign-in</strong>：No sign-in</li></ul></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="Partition table viewer Read the current partition layout to see where the OTA and NVS regions sit and how much space is left. This often answers firmware upgrade questions and &#39;why won&#39;t it flash&#39; reports immediately. Partition table OTA https://www.16302.com/partitions "><div class="card-dark ot-card"><h3><a href="https://www.16302.com/partitions" target="_blank" rel="noopener noreferrer nofollow">Partition table viewer
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">www.16302.com</div><div class="ot-desc">Read the current partition layout to see where the OTA and NVS regions sit and how much space is left. This often answers firmware upgrade questions and &#39;why won&#39;t it flash&#39; reports immediately.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-secondary">Partition table</span><span class="badge-zouic badge-zouic-secondary">OTA</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Not stated</li></ul></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="NVS partition read / write Read NVS key-value pairs straight off the device to inspect provisioning data or device configuration. Export first: corrupting NVS can reset the device to factory state or stop it booting. NVS Configuration https://www.16302.com/nvsreadwrite "><div class="card-dark ot-card"><h3><a href="https://www.16302.com/nvsreadwrite" target="_blank" rel="noopener noreferrer nofollow">NVS partition read / write
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">www.16302.com</div><div class="ot-desc">Read NVS key-value pairs straight off the device to inspect provisioning data or device configuration. Export first: corrupting NVS can reset the device to factory state or stop it booting.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-secondary">NVS</span><span class="badge-zouic badge-zouic-secondary">Configuration</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Reading requires sign-in; modifying, adding, deleting and writing back are paid features</li><li><strong>Sign-in</strong>：Sign-in required for reading</li></ul></div></div></div></div><div class="ot-group mb-8" id="dev" data-group="dev"><div class="d-flex align-items-center gap-3 mb-2"><h2 class="section-title text-2xl font-bold mb-0"><i class="fas fa-code me-2" style="opacity: .7;"></i>Online development and debugging
+                </h2><span class="badge-zouic badge-zouic-secondary">Editor / Terminal / AI Assist</span></div><p class="text-secondary mb-4" style="max-width: 58rem;">Code, logs and controls can also live entirely in the browser. Think quick validation and teaching demos: for a production project, go back to a locally versioned toolchain where artefacts and dependencies are reproducible.</p><div class="row g-3"><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="Browser serial terminal Web Serial terminal for reading boot logs, entering the REPL and sending AT commands. No serial utility to install, and no COM port held open that would stop the flashing tool from connecting. Serial port REPL Logs https://www.16302.com/terminal "><div class="card-dark ot-card"><h3><a href="https://www.16302.com/terminal" target="_blank" rel="noopener noreferrer nofollow">Browser serial terminal
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">www.16302.com</div><div class="ot-desc">Web Serial terminal for reading boot logs, entering the REPL and sending AT commands. No serial utility to install, and no COM port held open that would stop the flashing tool from connecting.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-secondary">Serial port</span><span class="badge-zouic badge-zouic-secondary">REPL</span><span class="badge-zouic badge-zouic-secondary">Logs</span></div><ul class="ot-facts"><li><strong>Cost</strong>：No pricing shown (the page only notes that signing in saves frequently used commands)</li><li><strong>Sign-in</strong>：Usable without sign-in (signing in saves frequently used commands)</li></ul></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="Online code editor (MicroPython) Write MicroPython in the browser and push it straight to the board without creating a project. Good for classroom demos and one-off checks such as &#39;can I read this sensor at all&#39;. MicroPython No project setup https://www.16302.com/editor "><div class="card-dark ot-card"><h3><a href="https://www.16302.com/editor" target="_blank" rel="noopener noreferrer nofollow">Online code editor (MicroPython)
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">www.16302.com</div><div class="ot-desc">Write MicroPython in the browser and push it straight to the board without creating a project. Good for classroom demos and one-off checks such as &#39;can I read this sensor at all&#39;.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-secondary">MicroPython</span><span class="badge-zouic badge-zouic-secondary">No project setup</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Not stated</li></ul></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="Online development workbench Closer to a complete development flow than a single-file editor, suited to small projects spanning several days. For long-term storage and version control, export to a local repository. Workbench Small projects https://www.16302.com/develop "><div class="card-dark ot-card"><h3><a href="https://www.16302.com/develop" target="_blank" rel="noopener noreferrer nofollow">Online development workbench
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">www.16302.com</div><div class="ot-desc">Closer to a complete development flow than a single-file editor, suited to small projects spanning several days. For long-term storage and version control, export to a local repository.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-secondary">Workbench</span><span class="badge-zouic badge-zouic-secondary">Small projects</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Not stated</li></ul></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="Conversational code generation and flashing (MicroAgent) Describe what you want in natural language; it generates MicroPython code and flashes it to the board, supporting ESP32 / ESP8266 / RP2040. There is a free quota and you can supply your own model API key. Whether it saves time depends on how well you review generated code. AI assisted MicroPython Bring your own key https://www.16302.com/microagent "><div class="card-dark ot-card"><h3><a href="https://www.16302.com/microagent" target="_blank" rel="noopener noreferrer nofollow">Conversational code generation and flashing (MicroAgent)
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">www.16302.com</div><div class="ot-desc">Describe what you want in natural language; it generates MicroPython code and flashes it to the board, supporting ESP32 / ESP8266 / RP2040. There is a free quota and you can supply your own model API key. Whether it saves time depends on how well you review generated code.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-secondary">AI assisted</span><span class="badge-zouic badge-zouic-secondary">MicroPython</span><span class="badge-zouic badge-zouic-secondary">Bring your own key</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Free quota, subscription beyond it; own model API key supported</li><li><strong>Sign-in</strong>：Usable without sign-in</li></ul></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="Display font conversion Convert a font into bitmap data that OLED / LCD panels accept. Unavoidable for a Chinese-language UI; afterwards check the font licence, because typefaces are copyrighted too. Fonts OLED Bitmap conversion https://www.16302.com/fontconverter "><div class="card-dark ot-card"><h3><a href="https://www.16302.com/fontconverter" target="_blank" rel="noopener noreferrer nofollow">Display font conversion
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">www.16302.com</div><div class="ot-desc">Convert a font into bitmap data that OLED / LCD panels accept. Unavoidable for a Chinese-language UI; afterwards check the font licence, because typefaces are copyrighted too.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-secondary">Fonts</span><span class="badge-zouic badge-zouic-secondary">OLED</span><span class="badge-zouic badge-zouic-secondary">Bitmap conversion</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Not stated</li></ul><div class="ot-note"><i class="fas fa-triangle-exclamation me-1"></i>Whether you may use the output depends on the font&#39;s licence; confirm it before commercial use.</div></div></div></div></div><div class="ot-group mb-8" id="pinout" data-group="pinout"><div class="d-flex align-items-center gap-3 mb-2"><h2 class="section-title text-2xl font-bold mb-0"><i class="fas fa-diagram-project me-2" style="opacity: .7;"></i>Pinouts, wiring and selection references
+                </h2><span class="badge-zouic badge-zouic-secondary">Pinout &amp; Wiring</span></div><p class="text-secondary mb-4" style="max-width: 58rem;">These pull &#39;what can this pin actually connect to&#39; out of the PDF. Their value is fewer wiring mistakes, but the pitfalls of pin muxing (strapping pins, input-only pins, pins used by Flash) are ultimately governed by the chip datasheet; parameters in our own board library are likewise annotated source by source.</p><div class="row g-3"><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="Online board pinout lookup Look up pin definitions and peripheral capabilities by board, with ADC, touch, SPI and I2C colour-coded and strapping, input-only and occupied pins called out separately. Faster than the datasheet for a pre-wiring check. Pinout Peripherals https://www.16302.com/devboard "><div class="card-dark ot-card"><h3><a href="https://www.16302.com/devboard" target="_blank" rel="noopener noreferrer nofollow">Online board pinout lookup
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">www.16302.com</div><div class="ot-desc">Look up pin definitions and peripheral capabilities by board, with ADC, touch, SPI and I2C colour-coded and strapping, input-only and occupied pins called out separately. Faster than the datasheet for a pre-wiring check.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-secondary">Pinout</span><span class="badge-zouic badge-zouic-secondary">Peripherals</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Not stated</li></ul></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="Visual wiring diagram tool Drag-and-drop wiring diagrams you can drop into slides or documentation. In teaching and handover conversations, one clear diagram beats ten lines of text. Wiring diagram Teaching Documentation https://www.16302.com/wiring "><div class="card-dark ot-card"><h3><a href="https://www.16302.com/wiring" target="_blank" rel="noopener noreferrer nofollow">Visual wiring diagram tool
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">www.16302.com</div><div class="ot-desc">Drag-and-drop wiring diagrams you can drop into slides or documentation. In teaching and handover conversations, one clear diagram beats ten lines of text.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-secondary">Wiring diagram</span><span class="badge-zouic badge-zouic-secondary">Teaching</span><span class="badge-zouic badge-zouic-secondary">Documentation</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Not stated (no pricing or sign-in notice found on the page)</li></ul></div></div></div></div><div class="ot-group mb-8" id="cloud" data-group="cloud"><div class="d-flex align-items-center gap-3 mb-2"><h2 class="section-title text-2xl font-bold mb-0"><i class="fas fa-tower-broadcast me-2" style="opacity: .7;"></i>Connectivity, dashboards and firmware distribution
+                </h2><span class="badge-zouic badge-zouic-secondary">MQTT / Panel / Distribution</span></div><p class="text-secondary mb-4" style="max-width: 58rem;">Once a device is online it needs a message broker and a clickable interface. These are hosted services: convenient, but data passes through someone else&#39;s servers, so factor dependency and migration cost into a product decision. That is also why we recommend looking at upstream open source projects first.</p><div class="row g-3"><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="Fully managed MQTT service Hosted MQTT over TCP and WebSocket, suited to demos and small fleets that need a working link quickly. Billed annually with access ending at expiry; work out the cost of migrating to a self-hosted Mosquitto / EMQX before building a product on it. MQTT Hosted WebSocket https://www.16302.com/mqtt "><div class="card-dark ot-card"><h3><a href="https://www.16302.com/mqtt" target="_blank" rel="noopener noreferrer nofollow">Fully managed MQTT service
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">www.16302.com</div><div class="ot-desc">Hosted MQTT over TCP and WebSocket, suited to demos and small fleets that need a working link quickly. Billed annually with access ending at expiry; work out the cost of migrating to a self-hosted Mosquitto / EMQX before building a product on it.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-secondary">MQTT</span><span class="badge-zouic badge-zouic-secondary">Hosted</span><span class="badge-zouic badge-zouic-secondary">WebSocket</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Annual subscription (no specific price shown)</li><li><strong>Sign-in</strong>：Sign-in required</li><li><strong>Upstream</strong>：
+                                <a href="https://github.com/eclipse-mosquitto/mosquitto" target="_blank" rel="noopener noreferrer nofollow">Eclipse Mosquitto (self-hosted alternative)</a>
+                                · EPL / EDL dual licence (GitHub reports NOASSERTION; the repository LICENSE governs)
+                            </li></ul></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="Smart control dashboard Drag device controls into a shareable panel and auto-generate a mini-program entry, handy for demos to non-technical audiences. For a product delivered to a customer, confirm in advance whether the UI and data path can stay under your control. Dashboard Mini program Demo https://www.16302.com/panel "><div class="card-dark ot-card"><h3><a href="https://www.16302.com/panel" target="_blank" rel="noopener noreferrer nofollow">Smart control dashboard
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">www.16302.com</div><div class="ot-desc">Drag device controls into a shareable panel and auto-generate a mini-program entry, handy for demos to non-technical audiences. For a product delivered to a customer, confirm in advance whether the UI and data path can stay under your control.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-secondary">Dashboard</span><span class="badge-zouic badge-zouic-secondary">Mini program</span><span class="badge-zouic badge-zouic-secondary">Demo</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Not stated; the page says a panel account is assigned once the MQTT subscription is active, i.e. it depends on the annual subscription above</li><li><strong>Sign-in</strong>：Sign-in required</li></ul></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="AI terminal firmware marketplace Share and find firmware by board model, used together with the flashing tools above. Packages are community uploads, so judge copyright and safety yourself — start by checking whether an upstream repository and licence are named. Firmware marketplace Community uploads https://www.16302.com/firmwarehub "><div class="card-dark ot-card"><h3><a href="https://www.16302.com/firmwarehub" target="_blank" rel="noopener noreferrer nofollow">AI terminal firmware marketplace
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">www.16302.com</div><div class="ot-desc">Share and find firmware by board model, used together with the flashing tools above. Packages are community uploads, so judge copyright and safety yourself — start by checking whether an upstream repository and licence are named.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-secondary">Firmware marketplace</span><span class="badge-zouic badge-zouic-secondary">Community uploads</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Publishing requires sign-in; firmware comes in free and paid variants</li><li><strong>Sign-in</strong>：Browsing without sign-in; publishing requires sign-in</li></ul><div class="ot-note"><i class="fas fa-triangle-exclamation me-1"></i>Downloading firmware from an unknown source lets it execute code on your device; read its repository and licence first.</div></div></div></div></div><div class="ot-group mb-8" id="upstream" data-group="upstream"><div class="d-flex align-items-center gap-3 mb-2"><h2 class="section-title text-2xl font-bold mb-0"><i class="fas fa-box-archive me-2" style="opacity: .7;"></i>Upstream open source projects (the genuinely free-to-use part)
+                </h2><span class="badge-zouic badge-zouic-secondary">Open Source Upstream</span></div><p class="text-secondary mb-4" style="max-width: 58rem;">Most of the browser tools on commercial sites above derive their capabilities from these repositories. This is the only group on the page you can safely copy: licences verified through the GitHub API, code that can be audited, self-hosted and run offline, with no dependency on a third party&#39;s availability.</p><div class="row g-3"><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="XiaoZhi AI terminal firmware (xiaozhi-esp32) AI chat terminal firmware for the ESP32 family with MCP tool calling; the foundation of the current wave of desktop AI hardware. If you want to know what an online flasher is actually writing to your board, start here. MIT ESP32-S3 AI terminal https://github.com/78/xiaozhi-esp32 MIT (verified via GitHub API 2026-11-01, about 32k stars)"><div class="card-dark ot-card"><h3><a href="https://github.com/78/xiaozhi-esp32" target="_blank" rel="noopener noreferrer nofollow">XiaoZhi AI terminal firmware (xiaozhi-esp32)
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">github.com</div><div class="ot-desc">AI chat terminal firmware for the ESP32 family with MCP tool calling; the foundation of the current wave of desktop AI hardware. If you want to know what an online flasher is actually writing to your board, start here.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-accent">MIT (verified via GitHub API 2026-11-01, about 32k stars)</span><span class="badge-zouic badge-zouic-secondary">MIT</span><span class="badge-zouic badge-zouic-secondary">ESP32-S3</span><span class="badge-zouic badge-zouic-secondary">AI terminal</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Open source, use as you wish</li><li><strong>Licence</strong>：MIT (verified via GitHub API 2026-11-01, about 32k stars)</li></ul></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="XiaoZhi AI server (xiaozhi-esp32-server) The companion backend: device onboarding, voice pipeline, persona and conversation management. Self-host it to keep the entire chain in your own hands — essential if you do not want device data going to a third-party server. MIT Self-hosted backend Voice https://github.com/xinnan-tech/xiaozhi-esp32-server MIT (verified, about 11k stars)"><div class="card-dark ot-card"><h3><a href="https://github.com/xinnan-tech/xiaozhi-esp32-server" target="_blank" rel="noopener noreferrer nofollow">XiaoZhi AI server (xiaozhi-esp32-server)
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">github.com</div><div class="ot-desc">The companion backend: device onboarding, voice pipeline, persona and conversation management. Self-host it to keep the entire chain in your own hands — essential if you do not want device data going to a third-party server.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-accent">MIT (verified, about 11k stars)</span><span class="badge-zouic badge-zouic-secondary">MIT</span><span class="badge-zouic badge-zouic-secondary">Self-hosted backend</span><span class="badge-zouic badge-zouic-secondary">Voice</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Open source, self-hosted</li><li><strong>Licence</strong>：MIT (verified, about 11k stars)</li></ul></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="esptool-js (browser flashing library) Espressif&#39;s official JavaScript flashing tool built on Web Serial. If you want a &#39;flash firmware online&#39; button on your own product page, use this rather than imitating a third-party site&#39;s interface. Apache-2.0 Web Serial Official https://github.com/espressif/esptool-js Apache-2.0 (verified)"><div class="card-dark ot-card"><h3><a href="https://github.com/espressif/esptool-js" target="_blank" rel="noopener noreferrer nofollow">esptool-js (browser flashing library)
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">github.com</div><div class="ot-desc">Espressif&#39;s official JavaScript flashing tool built on Web Serial. If you want a &#39;flash firmware online&#39; button on your own product page, use this rather than imitating a third-party site&#39;s interface.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-accent">Apache-2.0 (verified)</span><span class="badge-zouic badge-zouic-secondary">Apache-2.0</span><span class="badge-zouic badge-zouic-secondary">Web Serial</span><span class="badge-zouic badge-zouic-secondary">Official</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Open source, use as you wish</li><li><strong>Licence</strong>：Apache-2.0 (verified)</li></ul></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="esptool (command-line flashing tool) The standard choice for scripted local flashing, batch production and firmware writes in CI. When a browser tool fails — driver, occupied serial port, unrecognised chip — falling back to it usually pinpoints the problem. GPL-2.0 Command line Production https://github.com/espressif/esptool GPL-2.0 (verified)"><div class="card-dark ot-card"><h3><a href="https://github.com/espressif/esptool" target="_blank" rel="noopener noreferrer nofollow">esptool (command-line flashing tool)
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">github.com</div><div class="ot-desc">The standard choice for scripted local flashing, batch production and firmware writes in CI. When a browser tool fails — driver, occupied serial port, unrecognised chip — falling back to it usually pinpoints the problem.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-accent">GPL-2.0 (verified)</span><span class="badge-zouic badge-zouic-secondary">GPL-2.0</span><span class="badge-zouic badge-zouic-secondary">Command line</span><span class="badge-zouic badge-zouic-secondary">Production</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Open source, use as you wish</li><li><strong>Licence</strong>：GPL-2.0 (verified)</li></ul></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="ESP-IDF (Espressif&#39;s official framework) The authoritative development framework for the ESP32 family, defining components, partition tables, OTA and low-power behaviour. Code generated by an online IDE eventually lands here; production work cannot avoid it. Apache-2.0 Framework Official https://github.com/espressif/esp-idf Apache-2.0 (verified)"><div class="card-dark ot-card"><h3><a href="https://github.com/espressif/esp-idf" target="_blank" rel="noopener noreferrer nofollow">ESP-IDF (Espressif&#39;s official framework)
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">github.com</div><div class="ot-desc">The authoritative development framework for the ESP32 family, defining components, partition tables, OTA and low-power behaviour. Code generated by an online IDE eventually lands here; production work cannot avoid it.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-accent">Apache-2.0 (verified)</span><span class="badge-zouic badge-zouic-secondary">Apache-2.0</span><span class="badge-zouic badge-zouic-secondary">Framework</span><span class="badge-zouic badge-zouic-secondary">Official</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Open source, use as you wish</li><li><strong>Licence</strong>：Apache-2.0 (verified)</li></ul></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="PlatformIO Core Cross-platform embedded build and library manager; one command in VS Code switches board and framework. Unlike online tools, artefacts, dependencies and versions stay on your machine and are reproducible. Apache-2.0 Build system VS Code https://github.com/platformio/platformio-core Apache-2.0 (verified)"><div class="card-dark ot-card"><h3><a href="https://github.com/platformio/platformio-core" target="_blank" rel="noopener noreferrer nofollow">PlatformIO Core
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">github.com</div><div class="ot-desc">Cross-platform embedded build and library manager; one command in VS Code switches board and framework. Unlike online tools, artefacts, dependencies and versions stay on your machine and are reproducible.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-accent">Apache-2.0 (verified)</span><span class="badge-zouic badge-zouic-secondary">Apache-2.0</span><span class="badge-zouic badge-zouic-secondary">Build system</span><span class="badge-zouic badge-zouic-secondary">VS Code</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Open source, use as you wish</li><li><strong>Licence</strong>：Apache-2.0 (verified)</li></ul></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="MicroPython A Python implementation that runs on microcontrollers, with full ESP32 / RP2040 support. It is the runtime behind the code written in online editors; the repository LICENSE governs the details. Python Teaching Rapid prototyping https://github.com/micropython/micropython MIT variant (GitHub reports NOASSERTION; the repository LICENSE governs)"><div class="card-dark ot-card"><h3><a href="https://github.com/micropython/micropython" target="_blank" rel="noopener noreferrer nofollow">MicroPython
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">github.com</div><div class="ot-desc">A Python implementation that runs on microcontrollers, with full ESP32 / RP2040 support. It is the runtime behind the code written in online editors; the repository LICENSE governs the details.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-accent">MIT variant (GitHub reports NOASSERTION; the repository LICENSE governs)</span><span class="badge-zouic badge-zouic-secondary">Python</span><span class="badge-zouic badge-zouic-secondary">Teaching</span><span class="badge-zouic badge-zouic-secondary">Rapid prototyping</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Open source, use as you wish</li><li><strong>Licence</strong>：MIT variant (GitHub reports NOASSERTION; the repository LICENSE governs)</li></ul></div></div><div class="col-md-6 col-xl-4 ot-item"
+                     data-search="ESPHome Describe a device in YAML and generate firmware automatically, integrating smoothly with Home Assistant. For connected devices without writing code, this is a more controllable route than a commercial hosted dashboard. YAML Home Assistant Firmware generation https://github.com/esphome/esphome Mixed licensing (GitHub reports NOASSERTION; the repository LICENSE governs)"><div class="card-dark ot-card"><h3><a href="https://github.com/esphome/esphome" target="_blank" rel="noopener noreferrer nofollow">ESPHome
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="ot-host">github.com</div><div class="ot-desc">Describe a device in YAML and generate firmware automatically, integrating smoothly with Home Assistant. For connected devices without writing code, this is a more controllable route than a commercial hosted dashboard.</div><div class="ot-meta"><span class="badge-zouic badge-zouic-success">Reachable</span><span class="badge-zouic badge-zouic-accent">Mixed licensing (GitHub reports NOASSERTION; the repository LICENSE governs)</span><span class="badge-zouic badge-zouic-secondary">YAML</span><span class="badge-zouic badge-zouic-secondary">Home Assistant</span><span class="badge-zouic badge-zouic-secondary">Firmware generation</span></div><ul class="ot-facts"><li><strong>Cost</strong>：Open source, use as you wish</li><li><strong>Licence</strong>：Mixed licensing (GitHub reports NOASSERTION; the repository LICENSE governs)</li></ul></div></div></div></div><div class="card-dark p-6 mt-6"><h2 class="text-xl font-bold mb-4">Frequently asked questions</h2><div class="ot-faq"><h3>Can I flash ESP32 firmware in a browser without installing anything?</h3><p>Yes. Chrome / Edge connect to the chip directly over Web Serial; pick a board model or a local bin file and write it, skipping drivers, download mode and flash addresses. Both the online flashing entries and the browser serial terminal listed here use this path, and their capabilities are largely bounded by Espressif&#39;s official esptool-js (Apache-2.0).</p></div><div class="ot-faq"><h3>Is the XiaoZhi AI firmware flashed by third-party sites open source?</h3><p>The firmware itself is: 78/xiaozhi-esp32 is MIT licensed, as is its companion backend xiaozhi-esp32-server (both verified via GitHub API on 2026-11-01). A third party provides a flashing service and firmware packaging; that does not change the upstream licence, nor does it mean every package they distribute is open source — check the repository and licence of each community upload individually.</p></div><div class="ot-faq"><h3>Do these online tools cost anything?</h3><p>Based on the wording visible on the respective pages as of 2026-11-01: flashing and information-reading pages show no sign-in barrier or pricing notice; the serial terminal can save frequently used commands after sign-in; chip-to-chip copy requires unlocking cloning rights first; NVS reading requires sign-in while modifying and writing back is paid; the firmware marketplace has both free and paid firmware, with paid firmware consuming site credits per project and a subscription covering unlimited use; MicroAgent, the conversational generator, has a free quota that does not interrupt a conversation when exhausted, with an AI subscription for more compute and support for your own model API key; hosted MQTT is an annual subscription that ends automatically at expiry, and the dashboard depends on it. Any entry we mark &#39;not stated&#39; means we found no pricing information on the page; the site itself remains authoritative.</p></div><div class="ot-faq"><h3>What should I watch out for when flashing or dumping Flash through someone else&#39;s server?</h3><p>Two things. First, device storage is read in full and copyright in the dumped bin stays with the original firmware author, so do not redistribute it casually. Second, chip-to-chip copy and cloning should only involve devices and firmware you own the rights to. If you need a long-term dependency, keep esptool / esptool-js locally as a fallback rather than tying a production line or a delivery to a third-party site.</p></div><div class="ot-faq"><h3>Does this page reproduce content from the original sites?</h3><p>No. It offers only entry links and purpose summaries written by us. No copy, screenshots, tutorials or trademark assets were reproduced, and no area disallowed by their robots.txt was crawled. Anything involving open source points back to the upstream repository with a verified licence.</p></div></div><div class="card-dark p-6 mt-6"><h2 class="text-xl font-bold mb-3">Related pages on this site</h2><ul class="text-secondary mb-0" style="font-size: .9375rem; line-height: 1.9; padding-left: 1.25rem;"><li><a href="/en/boards/">Board library</a>: chip model, Flash and RAM figures each carry a source, so you can cross-check the numbers read out by browser tools.</li><li><a href="/en/resources/">Resource directory</a>: manuals, mirrors, examples and community links for when you do need a local toolchain — the complement to this page.</li><li><a href="/en/open-source/">Open source projects</a> and <a href="/en/licenses/">licence notes</a>: the licensing standard used for the "upstream OSS" group here is the same — the repository LICENSE governs, our label only records what we verified.</li><li><a href="/en/contribute/">Contribution guide</a>: if an entry is dead or a pricing note has changed, tell us there and we will verify and update the page.</li></ul><p class="text-secondary mt-4 mb-0" style="font-size: .8125rem;"><i class="fas fa-circle-info me-1"></i>Cost and sign-in notes only record what is visible on the respective pages; anything not visible is marked "not stated" and the site itself remains authoritative. All external links carry <code>nofollow</code>; we receive no promotional compensation.
+            </p></div></div></section>
+
+<script>
+(function () {
+    var input = document.getElementById('otSearch');
+    var clearBtn = document.getElementById('otClear');
+    var empty = document.getElementById('otEmpty');
+    if (!input) return;
+    var items = Array.prototype.slice.call(document.querySelectorAll('.ot-item'));
+    var groups = Array.prototype.slice.call(document.querySelectorAll('.ot-group'));
+
+    function apply() {
+        var q = (input.value || '').trim().toLowerCase();
+        var shown = 0;
+        items.forEach(function (el) {
+            var hay = (el.getAttribute('data-search') || '').toLowerCase();
+            var hit = !q || hay.indexOf(q) !== -1;
+            el.hidden = !hit;
+            if (hit) shown++;
+        });
+        groups.forEach(function (g) {
+            var any = g.querySelectorAll('.ot-item:not([hidden])').length > 0;
+            g.hidden = !any;
+        });
+        empty.style.display = shown === 0 ? 'block' : 'none';
+    }
+
+    input.addEventListener('input', apply);
+    if (clearBtn) {
+        clearBtn.addEventListener('click', function () {
+            input.value = '';
+            apply();
+            input.focus();
+        });
+    }
+})();
+</script>
+
+    </main><section id="follow" class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">Follow @GeekWaedon for Weekly Updates</h3><p class="text-secondary text-sm mb-4 mb-lg-0">Board picks, project breakdowns and hardware engineering tips, first published on WeChat and Knowledge Planet.</p></div><div class="col-lg-5"><a href="/en/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">See How to Follow</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> Weekly curated board picks</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Exclusive project deep-dives</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Updated on WeChat and Knowledge Planet</span></div></div></div></div></div></section><section class="py-4" aria-label="Produced by"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">Created by GeekWaedon <span>@GeekWaedon</span></div><div class="author-card-bio">Hardware maker and AI practitioner. This entire website was built hands-on with AI tools.</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Join my Knowledge Planet</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;GeekWaedon&#34;</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/en/" class="footer-brand" aria-label="ZouIC home"><i class="fas fa-microchip"></i><span>ZouIC</span></a><p class="footer-tagline">Quality open hardware projects from platforms worldwide · For developer reference only</p><p class="footer-business-contact">
+                        Business &amp; parts sourcing:
+                        <a href="mailto:waedon@outlook.com?subject=Business%20enquiry"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            Produced by · <strong>GeekWaedon</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware enthusiast</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI practitioner</span><a href="/en/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom service provider"><i class="fab fa-weixin"></i> WeCom service provider
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a><a href="/en/#follow" class="footer-social-link" aria-label="WeChat Official Account · GeekWaedon" title="WeChat Official Account · GeekWaedon"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Products</h5><ul><li><a href="/en/products/">Products</a></li><li><a href="/en/services/">Services</a></li><li><a href="/en/services/website-building/">Website building</a></li><li><a href="/en/services/component-matching/">Component matching</a></li><li><a href="/en/news/">Site Updates</a></li><li><a href="/en/boards/">Development Boards</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Resources</h5><ul><li><a href="/en/board-guide/">Board selection guide</a></li><li><a href="/en/compare/">Board comparison</a></li><li><a href="/en/tutorials/">Tutorials</a></li><li><a href="/en/documentation/">Documentation</a></li><li><a href="/en/online-tools/">Online Tools</a></li><li><a href="/en/tools/">Hardware calculators</a></li><li><a href="/en/cases/">Project Cases</a></li><li><a href="/en/help/">Documentation</a></li><li><a href="/en/games/resistor/">Resistor Color Code Challenge</a></li><li><a href="/en/dashuju/">Data Dashboard</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Open Source</h5><ul><li><a href="/en/open-source/">Open Source Projects</a></li><li><a href="/en/all-projects/">All projects</a></li><li><a href="/en/articles/">Technical articles</a></li><li><a href="/en/contribute/">Contribute</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>About</h5><ul><li><a href="/en/about/">About Us</a></li><li><a href="/en/about/#contact">Contact Us</a></li><li><a href="/en/licenses/">Open Source Licenses</a></li><li><a href="/en/pricing/">Pricing</a></li><li><a href="/en/privacy/">Privacy Policy</a></li><li><a href="/en/terms/">Terms of Service</a></li><li><a href="/en/refund/">Refund Policy</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">Popular Categories</span><div class="footer-category-links"><a href="/en/category/">all</a><a href="/en/category/fpga/">FPGA</a><a href="/en/category/general/">General</a><a href="/en/category/ai_hardware/">AI Hardware</a><a href="/en/category/vision/">Computer Vision</a><a href="/en/category/esp32/">ESP32</a><a href="/en/category/robotics/">Robotics</a><a href="/en/source/github/">GitHub</a><a href="/en/source/hackster/">Hackster.io</a><a href="/en/resources/">Resource Navigation</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="Geek Micro Building" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">Built single-handedly by GeekWaedon (@GeekWaedon) · <span style="color:#a78bfa;">people and AI, working side by side</span></div><div class="text-xs text-secondary">A one-person project run by a real human: the site build, the data pulls, the articles and the artwork all came from me (with a few AI agents). <a href="/en/about/" class="text-primary" style="text-decoration:none;">Meet the person behind it →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>Projects aggregated here are for developer reference only: ZouIC indexes them and hosts no code or files; copyright and licensing stay with their authors. For details, see the <a href="/en/licenses/">Open Source Licenses</a> page.</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Copied';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Removed from favorites');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Saved to favorites');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/online-tools/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=en-US'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>

@@ -1,0 +1,559 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="Kuratierte Eingangspunkte für Embedded- und Linux-Entwicklung: Kernel-Quellen, U-Boot, Buildroot, Vendor-Dokumente, chinesische Foren, offene Bücher und…"><meta name="keywords" content="eingebettete Ressourcen, Linux-Kernel, dev-Board-Dokumente, buildroot, u-boot, Spiegel, Ressourcenverzeichnis"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/de/resources/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/resources/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/resources/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/resources/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/resources/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="Embedded &amp; Linux Entwickler Ressourcenverzeichnis | ZouIC"><meta property="og:description" content="Kuratierte Eingangspunkte für Embedded- und Linux-Entwicklung: Kernel-Quellen, U-Boot, Buildroot, Vendor-Dokumente, chinesische Foren, offene Bücher und Spiegel, mit Erreichbarkeitsnoten."><meta property="og:url" content="https://www.zouic.com/de/resources/"><meta property="og:type" content="article"><meta property="og:locale" content="de_DE"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC – Plattform für Open-Source-Entwicklungsboards · GeekWeidong"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Embedded &amp; Linux Entwickler Ressourcenverzeichnis | ZouIC"><meta name="twitter:description" content="Kuratierte Eingangspunkte für Embedded- und Linux-Entwicklung: Kernel-Quellen, U-Boot, Buildroot, Vendor-Dokumente, chinesische Foren, offene Bücher und Spiegel, mit Erreichbarkeitsnoten."><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/resources/", "name": "Page", "position": 2}]}
+    </script>
+    
+    
+    
+    <title>Embedded &amp; Linux Entwickler Ressourcenverzeichnis | ZouIC</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"></head><body><a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Hauptnavigation"><div class="container"><a class="navbar-brand" href="/de/"><i class="fas fa-microchip"></i> ZouIC
+            </a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Navigation umschalten"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/de/">Startseite</a></li><li class="nav-item"><a class="nav-link" href="/de/all-projects/"><i class="fas fa-project-diagram me-1"></i>Open-Source-Projekte</a></li><li class="nav-item"><a class="nav-link" href="/de/boards/">Open-Source-Boards</a></li><li class="nav-item"><a class="nav-link" href="/de/board-guide/">Dokumentation</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/de/services/component-matching/">Geschäftskontakt</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Mehr
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/de/products/"><i class="fas fa-box me-2"></i>Produkte</a></li><li><a class="dropdown-item" href="/de/services/"><i class="fas fa-cogs me-2"></i>Leistungen</a></li><li><a class="dropdown-item" href="/de/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>elektronische BauteileVermittlung</a></li><li><a class="dropdown-item" href="/de/news/"><i class="fas fa-newspaper me-2"></i>Neuigkeiten</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/de/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Anleitungen</a></li><li><a class="dropdown-item" href="/de/documentation/"><i class="fas fa-book me-2"></i>Dokumentation</a></li><li><a class="dropdown-item" href="/de/resources/"><i class="fas fa-compass me-2"></i>Ressourcennavigation</a></li><li><a class="dropdown-item" href="/de/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>Online-Werkzeuge</a></li><li><a class="dropdown-item" href="/de/tools/"><i class="fas fa-calculator me-2"></i>Hardware calculators</a></li><li><a class="dropdown-item" href="/de/cases/"><i class="fas fa-briefcase me-2"></i>Projektbeispiele</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/de/open-source/"><i class="fas fa-code-branch me-2"></i>Open-Source-Projekte</a></li><li><a class="dropdown-item" href="/de/articles/"><i class="fas fa-pen-fancy me-2"></i>Fachbeiträge</a></li><li><a class="dropdown-item" href="/de/contribute/"><i class="fas fa-handshake me-2"></i>Mitwirken</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/de/dashuju/"><i class="fas fa-chart-line me-2"></i>Datenübersicht</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/de/search/"><i class="fas fa-search me-1"></i>Suche</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="Boards, Projekte oder Schlagworte suchen …" aria-label="Suchen" style="width: 200px;"><select id="searchType" class="form-select input-zouic" aria-label="Suchtyp:" style="width: auto; flex: 0 0 auto;"><option value="">Alle Kategorien</option><option value="board">Open-Source-Boards</option><option value="project">Open-Source-Projekte</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Suchen"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> Deutsch
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/resources/"><i class="fas fa-language me-2"></i> Chinesisch
+                            </a></li><li><a class="dropdown-item" href="/en/resources/"><i class="fas fa-language me-2"></i> Englisch
+                            </a></li><li><a class="dropdown-item" href="/de/resources/"><i class="fas fa-language me-2"></i> Deutsch
+                            </a></li></ul></div></div></div></div></nav><main id="main-content">
+        
+<style>
+    .res-hero-stat {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-top: 1.25rem;
+    }
+    .res-hero-stat .v {
+        font-size: 1.75rem;
+        font-weight: 700;
+        line-height: 1.1;
+        color: var(--accent-primary, #00e5ff);
+    }
+    .res-hero-stat .k {
+        font-size: .8125rem;
+        color: var(--text-secondary, #9aa4b2);
+    }
+    .res-chip-row {
+        display: flex;
+        gap: .5rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+    }
+    .res-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: .375rem;
+        padding: .375rem .75rem;
+        font-size: .8125rem;
+        border-radius: 999px;
+        border: 1px solid var(--glass-stroke, rgba(255,255,255,.12));
+        color: var(--text-secondary, #9aa4b2);
+        text-decoration: none;
+        transition: all .18s ease;
+    }
+    .res-chip:hover {
+        color: var(--accent-primary, #00e5ff);
+        border-color: var(--accent-primary, #00e5ff);
+    }
+    .res-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 1.125rem 1.25rem;
+        border-radius: 12px;
+    }
+    .res-card h3 {
+        font-size: 1.0625rem;
+        font-weight: 600;
+        margin: 0 0 .25rem;
+        line-height: 1.35;
+    }
+    .res-card h3 a {
+        color: inherit;
+        text-decoration: none;
+    }
+    .res-card h3 a:hover {
+        color: var(--accent-primary, #00e5ff);
+    }
+    .res-host {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: .75rem;
+        color: var(--text-tertiary, #6b7684);
+        margin-bottom: .625rem;
+        word-break: break-all;
+    }
+    .res-desc {
+        font-size: .875rem;
+        line-height: 1.65;
+        color: var(--text-secondary, #9aa4b2);
+        margin-bottom: .875rem;
+        flex: 1;
+    }
+    .res-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .375rem;
+        align-items: center;
+    }
+    .res-note {
+        font-size: .75rem;
+        color: var(--text-tertiary, #6b7684);
+        margin-top: .5rem;
+        line-height: 1.5;
+    }
+    .res-mirror {
+        font-size: .8125rem;
+        margin-top: .5rem;
+    }
+    .res-mirror a {
+        color: var(--accent-primary, #00e5ff);
+        text-decoration: none;
+    }
+    .res-mirror a:hover {
+        text-decoration: underline;
+    }
+    .res-group {
+        scroll-margin-top: 96px;
+    }
+    .res-group[hidden] {
+        display: none !important;
+    }
+    .res-item[hidden] {
+        display: none !important;
+    }
+    #resSearch {
+        max-width: 420px;
+    }
+    .res-empty {
+        display: none;
+        padding: 2rem;
+        text-align: center;
+        color: var(--text-secondary, #9aa4b2);
+    }
+</style>
+
+<section class="py-8"><div class="container"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent"><li class="breadcrumb-item"><a href="/de/">Startseite</a></li><li class="breadcrumb-item"><a href="/de/documentation/">Dokumentation</a></li><li class="breadcrumb-item active" aria-current="page">Ressourcenverzeichnis</li></ol></nav></div></section><section class="pb-6"><div class="container"><div class="card-dark p-8"><span class="badge-zouic badge-zouic-accent mb-3">RESOURCE DIRECTORY</span><h1 class="text-3xl font-bold mb-3">Ressourcenverzeichnis für Embedded- und Linux-Entwicklung</h1><p class="text-secondary text-lg mb-0" style="max-width: 62rem;">Debug-Umgebung, Handbuch, Beispielcode, Forum: im Alltag kehrt man immer zu denselben paar Dutzend Seiten zurück. Hier sind sie nach Zweck geordnet, jeweils mit einem Satz dazu, was die Seite leistet und wann man sie braucht. Alle Kurzbeschreibungen stammen von uns, damit Sie vor dem Klick einschätzen können, ob sich der Besuch lohnt.</p><div class="res-hero-stat"><div><div class="v">50</div><div class="k">Einträge</div></div><div><div class="v">6</div><div class="k">Gruppen</div></div><div><div class="v">37</div><div class="k">Direkt erreichbar</div></div><div><div class="v">2026-10-29</div><div class="k">Zuletzt geprüft</div></div></div><p class="text-secondary mt-4 mb-0" style="font-size: .8125rem;"><i class="fas fa-circle-info me-1"></i>Diese Seite bietet ausschließlich Links und selbst verfasste Kurzbeschreibungen; Inhalte fremder Seiten werden weder gespiegelt noch übernommen. Die Urheberrechte liegen bei den jeweiligen Autoren. Als „skriptblockiert" markierte Seiten weisen automatisierte Anfragen ab, lassen sich im Browser aber meist normal öffnen.
+            </p></div></div></section><section class="pb-10"><div class="container"><div class="d-flex flex-wrap gap-3 align-items-center justify-content-between mb-4"><div class="res-chip-row mb-0"><a class="res-chip" href="#core"><i class="fas fa-microchip"></i>Kernel, Bootloader und Build-Systeme
+                    <span style="opacity: .6;">8</span></a><a class="res-chip" href="#vendor"><i class="fas fa-hard-drive"></i>Dokumentationszentren der Board-Hersteller
+                    <span style="opacity: .6;">8</span></a><a class="res-chip" href="#community"><i class="fas fa-comments"></i>Chinesische Communities und Foren
+                    <span style="opacity: .6;">10</span></a><a class="res-chip" href="#tutorial"><i class="fas fa-graduation-cap"></i>Chinesische Lernseiten und Blogs
+                    <span style="opacity: .6;">9</span></a><a class="res-chip" href="#books"><i class="fas fa-book-open"></i>Tutorials, offene Bücher und Dokumentation
+                    <span style="opacity: .6;">9</span></a><a class="res-chip" href="#tools"><i class="fas fa-toolbox"></i>Mirrors und alltägliche Werkzeuge
+                    <span style="opacity: .6;">6</span></a></div><div class="input-group input-group-zouic" style="max-width: 420px;"><input type="text" id="resSearch" class="form-control input-zouic"
+                       placeholder="Seiten, Zweck oder Schlagwörter suchen…" aria-label="Ressourcen suchen"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm" type="button" id="resClear" aria-label="Leeren"><i class="fas fa-xmark"></i></button></div></div><div class="res-empty" id="resEmpty">
+            Keine passende Seite. Versuchen Sie ein anderes Stichwort, etwa „Kernel&#34;, „STM32&#34; oder „Mirror&#34;.
+        </div><div class="res-group mb-8" id="core" data-group="core"><div class="d-flex align-items-center gap-3 mb-2"><h2 class="section-title text-2xl font-bold mb-0"><i class="fas fa-microchip me-2" style="opacity: .7;"></i>Kernel, Bootloader und Build-Systeme
+                </h2><span class="badge-zouic badge-zouic-secondary">Kernel / Bootloader / Buildroot / Distro</span></div><p class="text-secondary mb-4" style="max-width: 58rem;">Die Hauptkette von den Kernel-Quellen bis zum Root-Dateisystem. Wer ein BSP erstellt, ein System verschlankt oder einen Bootfehler sucht, findet hier die Primärquellen – verlässlicher als jedes Tutorial aus zweiter Hand.</p><div class="row g-3"><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Linux-Kernel-Website (kernel.org) Offizielle Veröffentlichungsstelle aller Kernel-Zweige (mainline / stable / longterm) mit Tarballs, Changelogs und Git-Repository-Links. Vor einem Port sollte hier geprüft werden, ob die Zielversion noch langfristig gepflegt wird. Linux Kernel https://www.kernel.org/"><div class="card-dark res-card"><h3><a href="https://www.kernel.org/" target="_blank" rel="noopener noreferrer nofollow">Linux-Kernel-Website (kernel.org)
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.kernel.org</div><div class="res-desc">Offizielle Veröffentlichungsstelle aller Kernel-Zweige (mainline / stable / longterm) mit Tarballs, Changelogs und Git-Repository-Links. Vor einem Port sollte hier geprüft werden, ob die Zielversion noch langfristig gepflegt wird.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">Linux</span><span class="badge-zouic badge-zouic-secondary">Kernel</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Linux-Quellcode-Querverweis Kernel-Quellen lassen sich nach Version, Symbol oder Datei durchsuchen; von einem Funktionsaufruf geht es direkt zur Definition. Beim Treiberlesen schneller als ein lokales grep, um Aufrufketten nachzuvollziehen. Quellcode-Lektüre Treiber https://elixir.bootlin.com/linux/latest/source"><div class="card-dark res-card"><h3><a href="https://elixir.bootlin.com/linux/latest/source" target="_blank" rel="noopener noreferrer nofollow">Linux-Quellcode-Querverweis
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">elixir.bootlin.com</div><div class="res-desc">Kernel-Quellen lassen sich nach Version, Symbol oder Datei durchsuchen; von einem Funktionsaufruf geht es direkt zur Definition. Beim Treiberlesen schneller als ein lokales grep, um Aufrufketten nachzuvollziehen.</div><div class="res-meta"><span class="badge-zouic badge-zouic-warning">Skriptblockiert</span><span class="badge-zouic badge-zouic-secondary">Quellcode-Lektüre</span><span class="badge-zouic badge-zouic-secondary">Treiber</span></div><div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>Bot-Prüfung aktiv; im Browser normal erreichbar</div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="U-Boot-Quellcode-Download Offizielles DENX-Verzeichnis mit tar.bz2-Archiven und Prüfsummen, nach Version geordnet. Bei Board-Ports die vom SoC-Hersteller im BSP vorgegebene Version verwenden, nicht einfach die neueste. Bootloader Portierung https://ftp.denx.de/pub/u-boot/"><div class="card-dark res-card"><h3><a href="https://ftp.denx.de/pub/u-boot/" target="_blank" rel="noopener noreferrer nofollow">U-Boot-Quellcode-Download
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">ftp.denx.de</div><div class="res-desc">Offizielles DENX-Verzeichnis mit tar.bz2-Archiven und Prüfsummen, nach Version geordnet. Bei Board-Ports die vom SoC-Hersteller im BSP vorgegebene Version verwenden, nicht einfach die neueste.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">Bootloader</span><span class="badge-zouic badge-zouic-secondary">Portierung</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Buildroot-Quellpakete Quellpakete und Changelogs nach Releasejahr. Damit lassen sich Cross-Toolchain und Root-Dateisystem erzeugen; die Ergebnisse sind schlanker als bei Yocto und passen zu kleinen und mittleren Produkten. Yocto erst bei tieferem Anpassungsbedarf. Build-System Root-Dateisystem https://buildroot.org/downloads/"><div class="card-dark res-card"><h3><a href="https://buildroot.org/downloads/" target="_blank" rel="noopener noreferrer nofollow">Buildroot-Quellpakete
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">buildroot.org</div><div class="res-desc">Quellpakete und Changelogs nach Releasejahr. Damit lassen sich Cross-Toolchain und Root-Dateisystem erzeugen; die Ergebnisse sind schlanker als bei Yocto und passen zu kleinen und mittleren Produkten. Yocto erst bei tieferem Anpassungsbedarf.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">Build-System</span><span class="badge-zouic badge-zouic-secondary">Root-Dateisystem</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Debian-Projekt Offizieller Mirror-Einstieg für Stable und Testing, einschließlich arm64- und armhf-netinst-Installern. Häufiger Ausgangspunkt für langlebige Geräte und Basis-Images. Distribution https://www.debian.org/"><div class="card-dark res-card"><h3><a href="https://www.debian.org/" target="_blank" rel="noopener noreferrer nofollow">Debian-Projekt
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.debian.org</div><div class="res-desc">Offizieller Mirror-Einstieg für Stable und Testing, einschließlich arm64- und armhf-netinst-Installern. Häufiger Ausgangspunkt für langlebige Geräte und Basis-Images.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">Distribution</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Ubuntu-Projekt Release-Seiten für LTS- und Zwischenversionen, getrennt nach Server, Desktop und Cloud-Image. ARM-Boards wie der Raspberry Pi haben eigene Image-Seiten; bei der Auswahl auf das LTS-Supportfenster achten. Distribution https://ubuntu.com/"><div class="card-dark res-card"><h3><a href="https://ubuntu.com/" target="_blank" rel="noopener noreferrer nofollow">Ubuntu-Projekt
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">ubuntu.com</div><div class="res-desc">Release-Seiten für LTS- und Zwischenversionen, getrennt nach Server, Desktop und Cloud-Image. ARM-Boards wie der Raspberry Pi haben eigene Image-Seiten; bei der Auswahl auf das LTS-Supportfenster achten.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">Distribution</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="GNU-Projekt Zentraler Einstieg für GCC, glibc, binutils, GDB, make und weitere Basiswerkzeuge mit Verzeichnis der Handbücher und Mailinglisten. Bei unterschiedlichem Toolchain-Verhalten sind die offiziellen Handbücher maßgeblich. Toolchain https://www.gnu.org/"><div class="card-dark res-card"><h3><a href="https://www.gnu.org/" target="_blank" rel="noopener noreferrer nofollow">GNU-Projekt
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.gnu.org</div><div class="res-desc">Zentraler Einstieg für GCC, glibc, binutils, GDB, make und weitere Basiswerkzeuge mit Verzeichnis der Handbücher und Mailinglisten. Bei unterschiedlichem Toolchain-Verhalten sind die offiziellen Handbücher maßgeblich.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">Toolchain</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="MicroPython – offizielle Website Offizielle Firmware-Downloads und Dokumentation, nach Chip-Port gegliedert; die Quickref-Seiten listen die auf jedem Board verfügbaren Module. Die ursprünglich verlinkte chinesische Seite wird nicht mehr gepflegt – maßgeblich sind die offizielle Dokumentation und docs.micropython.org. MicroPython Firmware https://micropython.org/"><div class="card-dark res-card"><h3><a href="https://micropython.org/" target="_blank" rel="noopener noreferrer nofollow">MicroPython – offizielle Website
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">micropython.org</div><div class="res-desc">Offizielle Firmware-Downloads und Dokumentation, nach Chip-Port gegliedert; die Quickref-Seiten listen die auf jedem Board verfügbaren Module. Die ursprünglich verlinkte chinesische Seite wird nicht mehr gepflegt – maßgeblich sind die offizielle Dokumentation und docs.micropython.org.</div><div class="res-meta"><span class="badge-zouic badge-zouic-danger">Eintrag geändert</span><span class="badge-zouic badge-zouic-secondary">MicroPython</span><span class="badge-zouic badge-zouic-secondary">Firmware</span></div><div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>Die frühere chinesische Seite micropython.openioe.net löst nicht mehr auf</div></div></div></div></div><div class="res-group mb-8" id="vendor" data-group="vendor"><div class="d-flex align-items-center gap-3 mb-2"><h2 class="section-title text-2xl font-bold mb-0"><i class="fas fa-hard-drive me-2" style="opacity: .7;"></i>Dokumentationszentren der Board-Hersteller
+                </h2><span class="badge-zouic badge-zouic-secondary">Vendor Docs &amp; Examples</span></div><p class="text-secondary mb-4" style="max-width: 58rem;">Unterlagen zu chinesischen Entwicklungsboards werden meist direkt vom Herausgeber verteilt. Offizielle Dokumentationsseiten sind aktueller als Cloud-Speicher-Pakete und vollständiger als Forenbeiträge. Gleichen Sie hier vor Beginn die BSP-Version mit Ihrem genauen Board-Modell ab.</p><div class="row g-3"><div class="col-md-6 col-xl-4 res-item"
+                     data-search="100ask.net Download-Center Materialseite des Teams von Wei Dongshan, nach Kurs und Board (i.MX6ULL, STM32MP157, T113 u. a.) geordnet: Quellcode, Toolchains und Dokumente. Wer einem Kurs Kapitel für Kapitel folgt, findet das passende Paket am schnellsten. i.MX6ULL STM32MP1 https://download.100ask.net/"><div class="card-dark res-card"><h3><a href="https://download.100ask.net/" target="_blank" rel="noopener noreferrer nofollow">100ask.net Download-Center
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">download.100ask.net</div><div class="res-desc">Materialseite des Teams von Wei Dongshan, nach Kurs und Board (i.MX6ULL, STM32MP157, T113 u. a.) geordnet: Quellcode, Toolchains und Dokumente. Wer einem Kurs Kapitel für Kapitel folgt, findet das passende Paket am schnellsten.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">i.MX6ULL</span><span class="badge-zouic badge-zouic-secondary">STM32MP1</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="EmbedFire Download-Center Online-Dokumentation von EmbedFire, nach Board-Modell gegliedert, mit Volltextsuche über Tutorials, Beispiele und Peripherie-Handbücher. Ein einzelnes Kapitelbeispiel findet sich so leichter als in einem großen Gesamtpaket. STM32 Linux https://doc.embedfire.com/"><div class="card-dark res-card"><h3><a href="https://doc.embedfire.com/" target="_blank" rel="noopener noreferrer nofollow">EmbedFire Download-Center
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">doc.embedfire.com</div><div class="res-desc">Online-Dokumentation von EmbedFire, nach Board-Modell gegliedert, mit Volltextsuche über Tutorials, Beispiele und Peripherie-Handbücher. Ein einzelnes Kapitelbeispiel findet sich so leichter als in einem großen Gesamtpaket.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">STM32</span><span class="badge-zouic badge-zouic-secondary">Linux</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="ALIENTEK Download-Center Gesamtverzeichnis in den Bänden STM32 / i.MX6ULL / FPGA / Linux mit Schaltplänen, Beispielen und Begleitdokumenten zu den Videokursen. Vor dem Download die Board-Revision prüfen, damit die Unterlagen zur Hardware passen. STM32 FPGA https://www.openedv.com/docs/index.html"><div class="card-dark res-card"><h3><a href="https://www.openedv.com/docs/index.html" target="_blank" rel="noopener noreferrer nofollow">ALIENTEK Download-Center
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.openedv.com</div><div class="res-desc">Gesamtverzeichnis in den Bänden STM32 / i.MX6ULL / FPGA / Linux mit Schaltplänen, Beispielen und Begleitdokumenten zu den Videokursen. Vor dem Download die Board-Revision prüfen, damit die Unterlagen zur Hardware passen.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">STM32</span><span class="badge-zouic badge-zouic-secondary">FPGA</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Topeet Electronics (iTOP) Offizielle Website von Beijing Topeet (iTOP-Serie). Produktseiten nennen Modulspezifikationen, Carrier-Board-Schnittstellen und BSP-Versionen. Hilfreich beim Vergleich von Modulmaßen und Pinbelegungen für i.MX6-, Exynos- und RK-Plattformen. i.MX6 System-on-Module http://www.topeetboard.com/"><div class="card-dark res-card"><h3><a href="http://www.topeetboard.com/" target="_blank" rel="noopener noreferrer nofollow">Topeet Electronics (iTOP)
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.topeetboard.com</div><div class="res-desc">Offizielle Website von Beijing Topeet (iTOP-Serie). Produktseiten nennen Modulspezifikationen, Carrier-Board-Schnittstellen und BSP-Versionen. Hilfreich beim Vergleich von Modulmaßen und Pinbelegungen für i.MX6-, Exynos- und RK-Plattformen.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">i.MX6</span><span class="badge-zouic badge-zouic-secondary">System-on-Module</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="BearPi Beispiel-Repository Beispielcode für BearPi zu LiteOS, OpenHarmony und gängigen Peripherietreibern; jedes Verzeichnis ist ein direkt lauffähiges Minimalprojekt. Gute Grundlage für einen ersten Bring-up. OpenHarmony LiteOS https://gitee.com/morixinguan/bear-pi"><div class="card-dark res-card"><h3><a href="https://gitee.com/morixinguan/bear-pi" target="_blank" rel="noopener noreferrer nofollow">BearPi Beispiel-Repository
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">gitee.com</div><div class="res-desc">Beispielcode für BearPi zu LiteOS, OpenHarmony und gängigen Peripherietreibern; jedes Verzeichnis ist ein direkt lauffähiges Minimalprojekt. Gute Grundlage für einen ersten Bring-up.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">OpenHarmony</span><span class="badge-zouic badge-zouic-secondary">LiteOS</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="LicheePi Zero Anleitung Einstiegsdokumentation zum Allwinner-V3s-Board LicheePi Zero mit Schritten vom Flashen über den seriellen Login bis zum Mainline-Kernel-Build. Gute Mainline-Unterstützung und niedrige Kosten machen den V3s zu einem verbreiteten Einstiegsboard. Allwinner V3s Mainline-Kernel https://www.kancloud.cn/lichee/lpi0/317714"><div class="card-dark res-card"><h3><a href="https://www.kancloud.cn/lichee/lpi0/317714" target="_blank" rel="noopener noreferrer nofollow">LicheePi Zero Anleitung
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.kancloud.cn</div><div class="res-desc">Einstiegsdokumentation zum Allwinner-V3s-Board LicheePi Zero mit Schritten vom Flashen über den seriellen Login bis zum Mainline-Kernel-Build. Gute Mainline-Unterstützung und niedrige Kosten machen den V3s zu einem verbreiteten Einstiegsboard.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">Allwinner V3s</span><span class="badge-zouic badge-zouic-secondary">Mainline-Kernel</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Diantang STM32-Tutorials Chinesischsprachige Lernseite für STM32 mit Schwerpunkt auf Peripherieexperimenten und Praxisprojekten sowie herunterladbaren Projektvorlagen. Nützlich beim Umstieg von der Standardbibliothek auf HAL und bei konkreten Peripheriekonfigurationen. STM32 Peripherie https://c.51diantang.com/"><div class="card-dark res-card"><h3><a href="https://c.51diantang.com/" target="_blank" rel="noopener noreferrer nofollow">Diantang STM32-Tutorials
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">c.51diantang.com</div><div class="res-desc">Chinesischsprachige Lernseite für STM32 mit Schwerpunkt auf Peripherieexperimenten und Praxisprojekten sowie herunterladbaren Projektvorlagen. Nützlich beim Umstieg von der Standardbibliothek auf HAL und bei konkreten Peripheriekonfigurationen.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">STM32</span><span class="badge-zouic badge-zouic-secondary">Peripherie</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="KST-51 Begleitseite Website von Qingdao Jinsite und Quelle des Begleitmaterials zum 8051-Lehrbuch: Buchbeispiele, Board-Unterlagen und Werkzeug-Downloads. 8051-MCU Kursmaterial http://www.qdkingst.com/cn"><div class="card-dark res-card"><h3><a href="http://www.qdkingst.com/cn" target="_blank" rel="noopener noreferrer nofollow">KST-51 Begleitseite
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.qdkingst.com</div><div class="res-desc">Website von Qingdao Jinsite und Quelle des Begleitmaterials zum 8051-Lehrbuch: Buchbeispiele, Board-Unterlagen und Werkzeug-Downloads.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">8051-MCU</span><span class="badge-zouic badge-zouic-secondary">Kursmaterial</span></div></div></div></div></div><div class="res-group mb-8" id="community" data-group="community"><div class="d-flex align-items-center gap-3 mb-2"><h2 class="section-title text-2xl font-bold mb-0"><i class="fas fa-comments me-2" style="opacity: .7;"></i>Chinesische Communities und Foren
+                </h2><span class="badge-zouic badge-zouic-secondary">Forums &amp; Community</span></div><p class="text-secondary mb-4" style="max-width: 58rem;">Läuft ein Beispiel nicht, steht die Antwort meist schon in einem dieser Foren. Die Suche im Bereich der eigenen Board-Marke trifft deutlich häufiger als eine allgemeine Websuche.</p><div class="row g-3"><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Armfly / HardMan Embedded-Forum Offizielles Armfly-Forum mit Praxisbeiträgen zu STM32H7, RTOS, GUI und Messgeräte-Boards; Diskussionen zu Code-Disziplin und echter Entwicklungspraxis. Hohe Trefferquote bei H7-Peripherie-Timing, DMA und Cache-Kohärenz. STM32H7 RTOS https://forum.anfulai.cn/"><div class="card-dark res-card"><h3><a href="https://forum.anfulai.cn/" target="_blank" rel="noopener noreferrer nofollow">Armfly / HardMan Embedded-Forum
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">forum.anfulai.cn</div><div class="res-desc">Offizielles Armfly-Forum mit Praxisbeiträgen zu STM32H7, RTOS, GUI und Messgeräte-Boards; Diskussionen zu Code-Disziplin und echter Entwicklungspraxis. Hohe Trefferquote bei H7-Peripherie-Timing, DMA und Cache-Kohärenz.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">STM32H7</span><span class="badge-zouic badge-zouic-secondary">RTOS</span></div><div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>Die ursprüngliche Domain armbbs.cn leitet hierher um</div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="EmbedFire Forum Nutzer-Fragenbereich von EmbedFire, nach Board und Modul gegliedert; häufige Themen sind Peripherie-Initialisierung, Clock-Tree-Konfiguration und Dateisystem-Mounten. Wenn ein mitgeliefertes Beispiel nicht läuft, zuerst hier nach Modell suchen. STM32 Linux https://www.firebbs.cn/forum.php"><div class="card-dark res-card"><h3><a href="https://www.firebbs.cn/forum.php" target="_blank" rel="noopener noreferrer nofollow">EmbedFire Forum
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.firebbs.cn</div><div class="res-desc">Nutzer-Fragenbereich von EmbedFire, nach Board und Modul gegliedert; häufige Themen sind Peripherie-Initialisierung, Clock-Tree-Konfiguration und Dateisystem-Mounten. Wenn ein mitgeliefertes Beispiel nicht läuft, zuerst hier nach Modell suchen.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">STM32</span><span class="badge-zouic badge-zouic-secondary">Linux</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="ALIENTEK Forum (OpenEdv) Offizielle ALIENTEK-Community mit vollständigen Bereichen für STM32, Linux und FPGA; Beiträge enthalten oft komplette Projekte und Oszilloskop-Aufnahmen. Korrekturen zur offiziellen Dokumentation erscheinen häufig zuerst hier. STM32 FPGA http://www.openedv.com/forum.php"><div class="card-dark res-card"><h3><a href="http://www.openedv.com/forum.php" target="_blank" rel="noopener noreferrer nofollow">ALIENTEK Forum (OpenEdv)
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.openedv.com</div><div class="res-desc">Offizielle ALIENTEK-Community mit vollständigen Bereichen für STM32, Linux und FPGA; Beiträge enthalten oft komplette Projekte und Oszilloskop-Aufnahmen. Korrekturen zur offiziellen Dokumentation erscheinen häufig zuerst hier.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">STM32</span><span class="badge-zouic badge-zouic-secondary">FPGA</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Topeet ARM-Entwickler-Community Supportforum der Topeet-iTOP-Serie mit vielen Beiträgen zu BSP-Updates, Kernel-Portierung und Android-Systemfragen; der Hersteller antwortet mit. Wichtigster Supportkanal, wenn ein Produkt auf einem dieser Module aufbaut. ARM BSP http://bbs.topeetboard.com/forum.php"><div class="card-dark res-card"><h3><a href="http://bbs.topeetboard.com/forum.php" target="_blank" rel="noopener noreferrer nofollow">Topeet ARM-Entwickler-Community
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">bbs.topeetboard.com</div><div class="res-desc">Supportforum der Topeet-iTOP-Serie mit vielen Beiträgen zu BSP-Updates, Kernel-Portierung und Android-Systemfragen; der Hersteller antwortet mit. Wichtigster Supportkanal, wenn ein Produkt auf einem dieser Module aufbaut.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">ARM</span><span class="badge-zouic badge-zouic-secondary">BSP</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="ST chinesische Community Offizielle chinesische Community von ST zu STM32-/STM8-Auswahl, Firmware-Bibliotheken und CubeMX. Die Domain war zuletzt instabil; bei Ausfall die chinesischen Seiten auf st.com oder die englische Community nutzen. STM32 Offiziell https://www.stmcu.org.cn/module/forum/forum.php"><div class="card-dark res-card"><h3><a href="https://www.stmcu.org.cn/module/forum/forum.php" target="_blank" rel="noopener noreferrer nofollow">ST chinesische Community
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.stmcu.org.cn</div><div class="res-desc">Offizielle chinesische Community von ST zu STM32-/STM8-Auswahl, Firmware-Bibliotheken und CubeMX. Die Domain war zuletzt instabil; bei Ausfall die chinesischen Seiten auf st.com oder die englische Community nutzen.</div><div class="res-meta"><span class="badge-zouic badge-zouic-warning">Skriptblockiert</span><span class="badge-zouic badge-zouic-secondary">STM32</span><span class="badge-zouic badge-zouic-secondary">Offiziell</span></div><div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>Prüfung lief in einen Timeout bzw. unerwartete Weiterleitung; community.st.com nutzen</div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="NXP chinesische Community Chinesische Technik-Community von NXP mit vielen Portierungs- und Serienfertigungsfragen zu i.MX, LPC und KW; FAEs des Herstellers antworten mit. Vor einem i.MX-RT- oder i.MX-8-Design lohnt sich die Suche. NXP i.MX https://www.nxpic.org.cn/"><div class="card-dark res-card"><h3><a href="https://www.nxpic.org.cn/" target="_blank" rel="noopener noreferrer nofollow">NXP chinesische Community
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.nxpic.org.cn</div><div class="res-desc">Chinesische Technik-Community von NXP mit vielen Portierungs- und Serienfertigungsfragen zu i.MX, LPC und KW; FAEs des Herstellers antworten mit. Vor einem i.MX-RT- oder i.MX-8-Design lohnt sich die Suche.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">NXP</span><span class="badge-zouic badge-zouic-secondary">i.MX</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Xinluheng / XiaoMeiGe FPGA FPGA-Lernseite und Forum von XiaoMeiGe (Xinluheng) mit vollständigen Beispielreihen von der Verilog-Syntax über Timing-Constraints bis zu SDRAM-Controllern, direkt lauffähig auf den zugehörigen Boards. FPGA Verilog http://www.corecourse.cn/forum.php"><div class="card-dark res-card"><h3><a href="http://www.corecourse.cn/forum.php" target="_blank" rel="noopener noreferrer nofollow">Xinluheng / XiaoMeiGe FPGA
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.corecourse.cn</div><div class="res-desc">FPGA-Lernseite und Forum von XiaoMeiGe (Xinluheng) mit vollständigen Beispielreihen von der Verilog-Syntax über Timing-Constraints bis zu SDRAM-Controllern, direkt lauffähig auf den zugehörigen Boards.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">FPGA</span><span class="badge-zouic badge-zouic-secondary">Verilog</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Tronlong Entwickler-Community Nutzer-Community von Tronlong mit vielen BSP- und Industrieanwendungs-Beiträgen zu TI AM335x / AM57x und Xilinx Zynq. Für Projekte auf diesen Modulen sind die Unterlagen hier oft detaillierter als auf der Herstellerseite. TI Zynq http://www.51ele.net/"><div class="card-dark res-card"><h3><a href="http://www.51ele.net/" target="_blank" rel="noopener noreferrer nofollow">Tronlong Entwickler-Community
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.51ele.net</div><div class="res-desc">Nutzer-Community von Tronlong mit vielen BSP- und Industrieanwendungs-Beiträgen zu TI AM335x / AM57x und Xilinx Zynq. Für Projekte auf diesen Modulen sind die Unterlagen hier oft detaillierter als auf der Herstellerseite.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">TI</span><span class="badge-zouic badge-zouic-secondary">Zynq</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="ChinaUnix Traditionsreiche Unix-/Linux-Community mit umfangreichem Archiv zu Kernel, Shell, Datenbanken und Betrieb. Gut für klassisches Verhalten und historische Fallstricke – hier finden sich noch Originaldiskussionen von vor fünfzehn Jahren. Linux Betrieb http://www.chinaunix.net/"><div class="card-dark res-card"><h3><a href="http://www.chinaunix.net/" target="_blank" rel="noopener noreferrer nofollow">ChinaUnix
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.chinaunix.net</div><div class="res-desc">Traditionsreiche Unix-/Linux-Community mit umfangreichem Archiv zu Kernel, Shell, Datenbanken und Betrieb. Gut für klassisches Verhalten und historische Fallstricke – hier finden sich noch Originaldiskussionen von vor fünfzehn Jahren.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">Linux</span><span class="badge-zouic badge-zouic-secondary">Betrieb</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="21ic Elektronik-Portal Chinesisches Branchenportal, das Bauteilauswahl, Marktnews und eine Ingenieur-Community verbindet. Nützlich für heimische Alternativbauteile, Branchenentwicklungen und Schaltungsfragen im Forum. Bauteile Branche https://www.21ic.com/"><div class="card-dark res-card"><h3><a href="https://www.21ic.com/" target="_blank" rel="noopener noreferrer nofollow">21ic Elektronik-Portal
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.21ic.com</div><div class="res-desc">Chinesisches Branchenportal, das Bauteilauswahl, Marktnews und eine Ingenieur-Community verbindet. Nützlich für heimische Alternativbauteile, Branchenentwicklungen und Schaltungsfragen im Forum.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">Bauteile</span><span class="badge-zouic badge-zouic-secondary">Branche</span></div></div></div></div></div><div class="res-group mb-8" id="tutorial" data-group="tutorial"><div class="d-flex align-items-center gap-3 mb-2"><h2 class="section-title text-2xl font-bold mb-0"><i class="fas fa-graduation-cap me-2" style="opacity: .7;"></i>Chinesische Lernseiten und Blogs
+                </h2><span class="badge-zouic badge-zouic-secondary">Tutorials &amp; Blogs</span></div><p class="text-secondary mb-4" style="max-width: 58rem;">Zusammenhängendes chinesischsprachiges Material, das sich besser in Kapitelfolge lesen als punktuell durchsuchen lässt. Gerade tiefergehende Erklärungen von Kernel-Mechanismen brauchen solche Langtexte.</p><div class="row g-3"><div class="col-md-6 col-xl-4 res-item"
+                     data-search="ALIENTEK Online-Kurse Die Lernplattform von ALIENTEK zerlegt Board-Kurse in abrufbare Kapitel zu STM32, Linux und FPGA. Geeignet, um ein Thema systematisch anhand des Inhaltsverzeichnisses durchzuarbeiten. STM32 Videokurse https://www.yuanzige.com/"><div class="card-dark res-card"><h3><a href="https://www.yuanzige.com/" target="_blank" rel="noopener noreferrer nofollow">ALIENTEK Online-Kurse
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.yuanzige.com</div><div class="res-desc">Die Lernplattform von ALIENTEK zerlegt Board-Kurse in abrufbare Kapitel zu STM32, Linux und FPGA. Geeignet, um ein Thema systematisch anhand des Inhaltsverzeichnisses durchzuarbeiten.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">STM32</span><span class="badge-zouic badge-zouic-secondary">Videokurse</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Zhaixue Buluo Embedded-Tutorials Chinesische Lernseite zu Embedded-Systemen und Linux-Kernel mit strukturierten Reihen zu C, Treibermodell, Nebenläufigkeit und Speicherverwaltung. Dichte Texte, gut als zweite, gründliche Lektüre. Linux-Kernel Sprache C https://www.zhaixue.cc/"><div class="card-dark res-card"><h3><a href="https://www.zhaixue.cc/" target="_blank" rel="noopener noreferrer nofollow">Zhaixue Buluo Embedded-Tutorials
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.zhaixue.cc</div><div class="res-desc">Chinesische Lernseite zu Embedded-Systemen und Linux-Kernel mit strukturierten Reihen zu C, Treibermodell, Nebenläufigkeit und Speicherverwaltung. Dichte Texte, gut als zweite, gründliche Lektüre.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">Linux-Kernel</span><span class="badge-zouic badge-zouic-secondary">Sprache C</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="MCU-Tutorial-Seite Lern- und Beispielseite mit Schwerpunkt 8051, STM32 und AVR, stark bei grundlegender Peripherie und Studienprojekten; im Forum finden sich vollständige Ausarbeitungen studentischer Projekte. Gut für erste Laborübungen und Studienarbeiten. 51 STM32 http://www.51hei.com/"><div class="card-dark res-card"><h3><a href="http://www.51hei.com/" target="_blank" rel="noopener noreferrer nofollow">MCU-Tutorial-Seite
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.51hei.com</div><div class="res-desc">Lern- und Beispielseite mit Schwerpunkt 8051, STM32 und AVR, stark bei grundlegender Peripherie und Studienprojekten; im Forum finden sich vollständige Ausarbeitungen studentischer Projekte. Gut für erste Laborübungen und Studienarbeiten.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">51</span><span class="badge-zouic badge-zouic-secondary">STM32</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="TinyLab (TaiXiao Technology) Technikblog zum Linux-Kernel, Echtzeitverhalten, RISC-V und Toolchains; zugleich Heimat offener Projekte wie Linux Lab. Empfehlenswert für mechanismusorientierte Analysen in chinesischer Sprache. Linux RISC-V https://tinylab.org/"><div class="card-dark res-card"><h3><a href="https://tinylab.org/" target="_blank" rel="noopener noreferrer nofollow">TinyLab (TaiXiao Technology)
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">tinylab.org</div><div class="res-desc">Technikblog zum Linux-Kernel, Echtzeitverhalten, RISC-V und Toolchains; zugleich Heimat offener Projekte wie Linux Lab. Empfehlenswert für mechanismusorientierte Analysen in chinesischer Sprache.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">Linux</span><span class="badge-zouic badge-zouic-secondary">RISC-V</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Linux-Lab-Entwicklungsumgebung Per Container und einem Befehl steht eine Umgebung für Kernel- und Treiberentwicklung samt QEMU-Debugging bereit – ohne manuelles Einrichten der Cross-Toolchain. Der schnellste Weg zu einem Kernel-Labor mit Haltepunkten. Umgebung einrichten QEMU http://tinylab.org/using-linux-lab-to-do-embedded-linux-development/"><div class="card-dark res-card"><h3><a href="http://tinylab.org/using-linux-lab-to-do-embedded-linux-development/" target="_blank" rel="noopener noreferrer nofollow">Linux-Lab-Entwicklungsumgebung
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">tinylab.org</div><div class="res-desc">Per Container und einem Befehl steht eine Umgebung für Kernel- und Treiberentwicklung samt QEMU-Debugging bereit – ohne manuelles Einrichten der Cross-Toolchain. Der schnellste Weg zu einem Kernel-Labor mit Haltepunkten.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">Umgebung einrichten</span><span class="badge-zouic badge-zouic-secondary">QEMU</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Linux-Kernel-Exkurs Chinesische Seite mit Quellcode-Lektüren: Speicherverwaltung, Prozess-Scheduling und Dateisysteme werden modulweise mit Diagrammen erklärt. Am besten Kapitel für Kapitel parallel zum Quellcode lesen. Kernel Quellcode-Lektüre http://www.kerneltravel.net/"><div class="card-dark res-card"><h3><a href="http://www.kerneltravel.net/" target="_blank" rel="noopener noreferrer nofollow">Linux-Kernel-Exkurs
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.kerneltravel.net</div><div class="res-desc">Chinesische Seite mit Quellcode-Lektüren: Speicherverwaltung, Prozess-Scheduling und Dateisysteme werden modulweise mit Diagrammen erklärt. Am besten Kapitel für Kapitel parallel zum Quellcode lesen.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">Kernel</span><span class="badge-zouic badge-zouic-secondary">Quellcode-Lektüre</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Wowotech Kernel-Blog Ausführliche Analysen von Kernel-Subsystemen (Takt, Power-Management, USB, Display) und Android-Grundlagen, mit kommentierten Quellcode-Auszügen. Besonders wertvoll bei weniger bekannten Subsystemen. Kernel-Subsysteme Android http://www.wowotech.net/"><div class="card-dark res-card"><h3><a href="http://www.wowotech.net/" target="_blank" rel="noopener noreferrer nofollow">Wowotech Kernel-Blog
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.wowotech.net</div><div class="res-desc">Ausführliche Analysen von Kernel-Subsystemen (Takt, Power-Management, USB, Display) und Android-Grundlagen, mit kommentierten Quellcode-Auszügen. Besonders wertvoll bei weniger bekannten Subsystemen.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">Kernel-Subsysteme</span><span class="badge-zouic badge-zouic-secondary">Android</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Elektronik-Linkverzeichnis Verzeichnis von Elektronik-Seiten, das Bauteilhersteller, Boards, Foren und Werkzeugseiten nach Kategorien ordnet. Schneller als eine Suchmaschine, um sich einen Überblick über ein Teilgebiet zu verschaffen. Verzeichnis http://www.dianzishijia.com/"><div class="card-dark res-card"><h3><a href="http://www.dianzishijia.com/" target="_blank" rel="noopener noreferrer nofollow">Elektronik-Linkverzeichnis
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.dianzishijia.com</div><div class="res-desc">Verzeichnis von Elektronik-Seiten, das Bauteilhersteller, Boards, Foren und Werkzeugseiten nach Kategorien ordnet. Schneller als eine Suchmaschine, um sich einen Überblick über ein Teilgebiet zu verschaffen.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">Verzeichnis</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="codingdict Eine Lernseite nach Art der Kurzreferenz-Programmierkurse: Einstiegssyntax vieler Sprachen und Frameworks mit lauffähigen Beispielen. Schnell für die minimale Verwendung einer API; für tiefere Mechanik bleibt die offizielle Dokumentation nötig. Programmiergrundlagen https://codingdict.com/"><div class="card-dark res-card"><h3><a href="https://codingdict.com/" target="_blank" rel="noopener noreferrer nofollow">codingdict
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">codingdict.com</div><div class="res-desc">Eine Lernseite nach Art der Kurzreferenz-Programmierkurse: Einstiegssyntax vieler Sprachen und Frameworks mit lauffähigen Beispielen. Schnell für die minimale Verwendung einer API; für tiefere Mechanik bleibt die offizielle Dokumentation nötig.</div><div class="res-meta"><span class="badge-zouic badge-zouic-warning">Skriptblockiert</span><span class="badge-zouic badge-zouic-secondary">Programmiergrundlagen</span></div><div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>Die Seite wird gewartet; einzelne Seiten sind eventuell nicht erreichbar</div></div></div></div></div><div class="res-group mb-8" id="books" data-group="books"><div class="d-flex align-items-center gap-3 mb-2"><h2 class="section-title text-2xl font-bold mb-0"><i class="fas fa-book-open me-2" style="opacity: .7;"></i>Tutorials, offene Bücher und Dokumentation
+                </h2><span class="badge-zouic badge-zouic-secondary">Books &amp; References</span></div><p class="text-secondary mb-4" style="max-width: 58rem;">Material, das sich von vorn bis hinten lesen lässt. Der Vorteil offener chinesischer Bücher liegt in den beigefügten ausführbaren Experimenten: Gelesenes lässt sich sofort am eigenen Rechner prüfen.</p><div class="row g-3"><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Pro Git (chinesische Ausgabe) Vollständige chinesische Übersetzung des offiziellen Git-Buchs, von Branching-Modellen über Serverbetrieb bis zu den Interna. Die ersten vier Kapitel decken die tägliche Zusammenarbeit ab; bei Rebase-Konflikten kehrt man zum passenden Kapitel zurück. Git Versionsverwaltung https://git-scm.com/book/zh/v2"><div class="card-dark res-card"><h3><a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener noreferrer nofollow">Pro Git (chinesische Ausgabe)
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">git-scm.com</div><div class="res-desc">Vollständige chinesische Übersetzung des offiziellen Git-Buchs, von Branching-Modellen über Serverbetrieb bis zu den Interna. Die ersten vier Kapitel decken die tägliche Zusammenarbeit ab; bei Rebase-Konflikten kehrt man zum passenden Kapitel zurück.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">Git</span><span class="badge-zouic badge-zouic-secondary">Versionsverwaltung</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Google Style Guides (chinesische Ausgabe) Chinesische Übersetzungen der Google-Stilrichtlinien mit Namens-, Kommentar- und Header-Konventionen für C++, Python, Java und Shell. Bei teamweiten Regeln lassen sich die Abschnittsnummern direkt zitieren. Code-Konventionen https://zh-google-styleguide.readthedocs.io/en/latest"><div class="card-dark res-card"><h3><a href="https://zh-google-styleguide.readthedocs.io/en/latest" target="_blank" rel="noopener noreferrer nofollow">Google Style Guides (chinesische Ausgabe)
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">zh-google-styleguide.readthedocs.io</div><div class="res-desc">Chinesische Übersetzungen der Google-Stilrichtlinien mit Namens-, Kommentar- und Header-Konventionen für C++, Python, Java und Shell. Bei teamweiten Regeln lassen sich die Abschnittsnummern direkt zitieren.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">Code-Konventionen</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="C Programming Perspective Offenes chinesisches Buch von TinyLab: Schicht für Schicht wird nachvollzogen, wie aus einem C-Programm ein Prozess wird – vom Kompilieren und Linken über das Laden bis zur Laufzeit, mit gcc-/objdump-Experimenten. Erste Wahl für dieses Grundlagenwissen. Sprache C Kompilieren und Linken https://github.com/tinyclub/open-c-book"><div class="card-dark res-card"><h3><a href="https://github.com/tinyclub/open-c-book" target="_blank" rel="noopener noreferrer nofollow">C Programming Perspective
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">github.com</div><div class="res-desc">Offenes chinesisches Buch von TinyLab: Schicht für Schicht wird nachvollzogen, wie aus einem C-Programm ein Prozess wird – vom Kompilieren und Linken über das Laden bis zur Laufzeit, mit gcc-/objdump-Experimenten. Erste Wahl für dieses Grundlagenwissen.</div><div class="res-meta"><span class="badge-zouic badge-zouic-warning">Skriptblockiert</span><span class="badge-zouic badge-zouic-secondary">Sprache C</span><span class="badge-zouic badge-zouic-secondary">Kompilieren und Linken</span></div><div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>Direkte GitHub-Zugriffe laufen gelegentlich in Timeouts; der BookStack-Spiegel ist eine Alternative</div><div class="res-mirror"><i class="fas fa-shuffle me-1"></i>Alternativer Einstieg: 
+                            <a href="https://www.bookstack.cn/read/open-c-book/README.md" target="_blank" rel="noopener noreferrer nofollow">Online auf BookStack lesen</a></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Shell-Programmierung an Beispielen Praxisbuch derselben Reihe, nach Aufgaben gegliedert (Textverarbeitung, Prozesssteuerung, Batch-Betrieb) mit lauffähigen Skripten und Erklärungen in jedem Abschnitt. Zum Verstehen von Schreibweisen, nicht nur zum Nachschlagen von Befehlen. Shell Skripte https://github.com/tinyclub/open-shell-book"><div class="card-dark res-card"><h3><a href="https://github.com/tinyclub/open-shell-book" target="_blank" rel="noopener noreferrer nofollow">Shell-Programmierung an Beispielen
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">github.com</div><div class="res-desc">Praxisbuch derselben Reihe, nach Aufgaben gegliedert (Textverarbeitung, Prozesssteuerung, Batch-Betrieb) mit lauffähigen Skripten und Erklärungen in jedem Abschnitt. Zum Verstehen von Schreibweisen, nicht nur zum Nachschlagen von Befehlen.</div><div class="res-meta"><span class="badge-zouic badge-zouic-warning">Skriptblockiert</span><span class="badge-zouic badge-zouic-secondary">Shell</span><span class="badge-zouic badge-zouic-secondary">Skripte</span></div><div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>Direkte GitHub-Zugriffe laufen gelegentlich in Timeouts; ein BookStack-Spiegel ist verfügbar</div><div class="res-mirror"><i class="fas fa-shuffle me-1"></i>Alternativer Einstieg: 
+                            <a href="https://www.bookstack.cn/read/open-shell-book/README.md" target="_blank" rel="noopener noreferrer nofollow">Online auf BookStack lesen</a></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Einführung in Software-Unit-Tests Einführungsmaterial (PDF) von Zhiyuan Electronics zum Aufbau eines Test-Frameworks, zu Assertions und Coverage-Messung in C-Projekten. Ein brauchbarer Einstieg, wenn ein Embedded-Projekt erstmals Tests bekommt. Unit-Tests PDF https://www.zlg.cn/foxmail/weixinpdf/software_unit_test.pdf"><div class="card-dark res-card"><h3><a href="https://www.zlg.cn/foxmail/weixinpdf/software_unit_test.pdf" target="_blank" rel="noopener noreferrer nofollow">Einführung in Software-Unit-Tests
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.zlg.cn</div><div class="res-desc">Einführungsmaterial (PDF) von Zhiyuan Electronics zum Aufbau eines Test-Frameworks, zu Assertions und Coverage-Messung in C-Projekten. Ein brauchbarer Einstieg, wenn ein Embedded-Projekt erstmals Tests bekommt.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">Unit-Tests</span><span class="badge-zouic badge-zouic-secondary">PDF</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="PyQt5-Tutorial Englischsprachiges PyQt5-Tutorial, das von Fenstern und Layouts über Signals und Slots bis zum Packaging fortschreitet; die Beispiele sind direkt lauffähig. Die chinesische Lernseite aus der ursprünglichen Liste ist nicht mehr erreichbar und wurde durch diese gepflegte Quelle ersetzt. PyQt5 GUI https://www.pythonguis.com/pyqt5-tutorial/"><div class="card-dark res-card"><h3><a href="https://www.pythonguis.com/pyqt5-tutorial/" target="_blank" rel="noopener noreferrer nofollow">PyQt5-Tutorial
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.pythonguis.com</div><div class="res-desc">Englischsprachiges PyQt5-Tutorial, das von Fenstern und Layouts über Signals und Slots bis zum Packaging fortschreitet; die Beispiele sind direkt lauffähig. Die chinesische Lernseite aus der ursprünglichen Liste ist nicht mehr erreichbar und wurde durch diese gepflegte Quelle ersetzt.</div><div class="res-meta"><span class="badge-zouic badge-zouic-danger">Eintrag geändert</span><span class="badge-zouic badge-zouic-secondary">PyQt5</span><span class="badge-zouic badge-zouic-secondary">GUI</span></div><div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>Der ursprüngliche Einstieg code.py40.com ist nicht mehr erreichbar</div><div class="res-mirror"><i class="fas fa-shuffle me-1"></i>Alternativer Einstieg: 
+                            <a href="https://zetcode.com/gui/pyqt5/" target="_blank" rel="noopener noreferrer nofollow">Ein weiteres, noch gepflegtes Tutorial (zetcode)</a></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="qter Qt-Community Chinesische Qt-Community mit gebündelten Diskussionen zu QML, eingebettetem Qt, Cross-Kompilierung und Packaging sowie Tutorials und einer Übersicht offener Projekte. Hilfreich bei Cross-Build-Konfigurationen für Desktop- oder Embedded-GUIs. Qt QML https://www.qter.org/"><div class="card-dark res-card"><h3><a href="https://www.qter.org/" target="_blank" rel="noopener noreferrer nofollow">qter Qt-Community
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.qter.org</div><div class="res-desc">Chinesische Qt-Community mit gebündelten Diskussionen zu QML, eingebettetem Qt, Cross-Kompilierung und Packaging sowie Tutorials und einer Übersicht offener Projekte. Hilfreich bei Cross-Build-Konfigurationen für Desktop- oder Embedded-GUIs.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">Qt</span><span class="badge-zouic badge-zouic-secondary">QML</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="BookStack – offene Bücher online Online-Leseplattform, die offene Fachbücher bündelt, nach Sprache und Gebiet ordnet und kapitelweise ohne Klonen des Repositories lesbar macht. Praktisch, um Inhaltsverzeichnis und Text eines Buches schnell zu sichten. Offene Bücher Online lesen https://www.bookstack.cn/"><div class="card-dark res-card"><h3><a href="https://www.bookstack.cn/" target="_blank" rel="noopener noreferrer nofollow">BookStack – offene Bücher online
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.bookstack.cn</div><div class="res-desc">Online-Leseplattform, die offene Fachbücher bündelt, nach Sprache und Gebiet ordnet und kapitelweise ohne Klonen des Repositories lesbar macht. Praktisch, um Inhaltsverzeichnis und Text eines Buches schnell zu sichten.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">Offene Bücher</span><span class="badge-zouic badge-zouic-secondary">Online lesen</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="C++-Beispielsammlung Zieht Funktionsaufruf-Beispiele aus vielen Open-Source-Projekten und verlinkt zurück zur Fundstelle; Klassen- oder Funktionsname eingeben und sehen, wie andere sie verwenden. Baut schneller ein Gefühl für eine fremde Bibliothek auf als die Dokumentation. Codebeispiele C++ https://www.hotexamples.com/"><div class="card-dark res-card"><h3><a href="https://www.hotexamples.com/" target="_blank" rel="noopener noreferrer nofollow">C++-Beispielsammlung
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.hotexamples.com</div><div class="res-desc">Zieht Funktionsaufruf-Beispiele aus vielen Open-Source-Projekten und verlinkt zurück zur Fundstelle; Klassen- oder Funktionsname eingeben und sehen, wie andere sie verwenden. Baut schneller ein Gefühl für eine fremde Bibliothek auf als die Dokumentation.</div><div class="res-meta"><span class="badge-zouic badge-zouic-danger">Eintrag geändert</span><span class="badge-zouic badge-zouic-secondary">Codebeispiele</span><span class="badge-zouic badge-zouic-secondary">C++</span></div><div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>Die ursprüngliche Seite cpp.hotexamples.com ist offline; die Hauptseite funktioniert noch</div></div></div></div></div><div class="res-group mb-8" id="tools" data-group="tools"><div class="d-flex align-items-center gap-3 mb-2"><h2 class="section-title text-2xl font-bold mb-0"><i class="fas fa-toolbox me-2" style="opacity: .7;"></i>Mirrors und alltägliche Werkzeuge
+                </h2><span class="badge-zouic badge-zouic-secondary">Mirrors &amp; Tooling</span></div><p class="text-secondary mb-4" style="max-width: 58rem;">Einige Einstiege, um die man bei Systeminstallation, Paketanalyse oder Board-Anschluss nicht herumkommt. Die Mirrors stehen vorn: Wer vor der Installation die Paketquelle wechselt, spart viel Wartezeit.</p><div class="row g-3"><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Open-Source-Mirror der Tsinghua-Universität Einer der meistgenutzten Mirrors in China: Distributions-ISOs, apt-/yum-Quellen, PyPI, GitHub Releases und Container-Images. Bei einer Systeminstallation oder Paketverwaltungskonfiguration zuerst hierher wechseln. Mirror apt https://mirrors.tuna.tsinghua.edu.cn/"><div class="card-dark res-card"><h3><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer nofollow">Open-Source-Mirror der Tsinghua-Universität
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">mirrors.tuna.tsinghua.edu.cn</div><div class="res-desc">Einer der meistgenutzten Mirrors in China: Distributions-ISOs, apt-/yum-Quellen, PyPI, GitHub Releases und Container-Images. Bei einer Systeminstallation oder Paketverwaltungskonfiguration zuerst hierher wechseln.</div><div class="res-meta"><span class="badge-zouic badge-zouic-warning">Skriptblockiert</span><span class="badge-zouic badge-zouic-secondary">Mirror</span><span class="badge-zouic badge-zouic-secondary">apt</span></div><div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>Gibt skriptgestellten Anfragen 403 zurück; im Browser normal erreichbar</div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Mirror der USTC Mirror der University of Science and Technology of China mit ähnlichem Sync-Umfang wie Tsinghua, bei manchen Quellen (Anaconda, Arch) sogar aktueller. Gute Ausweichlösung bei Störungen des Tsinghua-Mirrors. Mirror Ausweich-Mirror https://mirrors.ustc.edu.cn/"><div class="card-dark res-card"><h3><a href="https://mirrors.ustc.edu.cn/" target="_blank" rel="noopener noreferrer nofollow">Mirror der USTC
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">mirrors.ustc.edu.cn</div><div class="res-desc">Mirror der University of Science and Technology of China mit ähnlichem Sync-Umfang wie Tsinghua, bei manchen Quellen (Anaconda, Arch) sogar aktueller. Gute Ausweichlösung bei Störungen des Tsinghua-Mirrors.</div><div class="res-meta"><span class="badge-zouic badge-zouic-warning">Skriptblockiert</span><span class="badge-zouic badge-zouic-secondary">Mirror</span><span class="badge-zouic badge-zouic-secondary">Ausweich-Mirror</span></div><div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>Gibt skriptgestellten Anfragen 403 zurück; im Browser normal erreichbar</div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Wireshark Offizielle Download-Seite des Werkzeugs für Paketanalyse und Protokolluntersuchung mit Installationspaketen und Quellcode für alle Plattformen. Unverzichtbar bei Netzwerkprotokollen und Kommunikationsfehlern von Boards. Paketanalyse Protokolle https://www.wireshark.org/#download"><div class="card-dark res-card"><h3><a href="https://www.wireshark.org/#download" target="_blank" rel="noopener noreferrer nofollow">Wireshark
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.wireshark.org</div><div class="res-desc">Offizielle Download-Seite des Werkzeugs für Paketanalyse und Protokolluntersuchung mit Installationspaketen und Quellcode für alle Plattformen. Unverzichtbar bei Netzwerkprotokollen und Kommunikationsfehlern von Boards.</div><div class="res-meta"><span class="badge-zouic badge-zouic-success">Direkt erreichbar</span><span class="badge-zouic badge-zouic-secondary">Paketanalyse</span><span class="badge-zouic badge-zouic-secondary">Protokolle</span></div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="MobaXterm Terminal-Werkzeugsammlung für Windows mit SSH / SFTP, X11-Weiterleitung, seriellen Ports und Registerkarten. Genügt allein, wenn gleichzeitig serielle Logs mitgelesen und Dateien übertragen werden. Serieller Port SSH https://mobaxterm.mobatek.net/download.html"><div class="card-dark res-card"><h3><a href="https://mobaxterm.mobatek.net/download.html" target="_blank" rel="noopener noreferrer nofollow">MobaXterm
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">mobaxterm.mobatek.net</div><div class="res-desc">Terminal-Werkzeugsammlung für Windows mit SSH / SFTP, X11-Weiterleitung, seriellen Ports und Registerkarten. Genügt allein, wenn gleichzeitig serielle Logs mitgelesen und Dateien übertragen werden.</div><div class="res-meta"><span class="badge-zouic badge-zouic-warning">Skriptblockiert</span><span class="badge-zouic badge-zouic-secondary">Serieller Port</span><span class="badge-zouic badge-zouic-secondary">SSH</span></div><div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>Die Download-Seite läuft gelegentlich beim TLS-Handshake in einen Timeout</div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Stduino Grafische Entwicklungsumgebung für 32-Bit-MCUs mit Arduino-ähnlicher Oberfläche auf HAL-Basis. In der Lehre schnell sichtbare Ergebnisse; für Produktionsprojekte bleiben CubeIDE / Keil ratsam. IDE Lehre http://www.stduino.com/pindex.php"><div class="card-dark res-card"><h3><a href="http://www.stduino.com/pindex.php" target="_blank" rel="noopener noreferrer nofollow">Stduino
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.stduino.com</div><div class="res-desc">Grafische Entwicklungsumgebung für 32-Bit-MCUs mit Arduino-ähnlicher Oberfläche auf HAL-Basis. In der Lehre schnell sichtbare Ergebnisse; für Produktionsprojekte bleiben CubeIDE / Keil ratsam.</div><div class="res-meta"><span class="badge-zouic badge-zouic-warning">Skriptblockiert</span><span class="badge-zouic badge-zouic-secondary">IDE</span><span class="badge-zouic badge-zouic-secondary">Lehre</span></div><div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>Die Seite antwortet sehr langsam und ist zeitweise nicht erreichbar</div></div></div><div class="col-md-6 col-xl-4 res-item"
+                     data-search="Alibaba iconfont Weit verbreitete kostenlose Sammlung für Icons und Icon-Fonts: projektspezifische Sammlungen anlegen, SVG / PNG stapelweise laden, Farben online ändern. Die Domain easyicon aus der ursprünglichen Liste ist abgelaufen und wird hierdurch ersetzt. Icons Assets https://www.iconfont.cn/"><div class="card-dark res-card"><h3><a href="https://www.iconfont.cn/" target="_blank" rel="noopener noreferrer nofollow">Alibaba iconfont
+                                <i class="fas fa-arrow-up-right-from-square" style="font-size: .75rem; opacity: .5;"></i></a></h3><div class="res-host">www.iconfont.cn</div><div class="res-desc">Weit verbreitete kostenlose Sammlung für Icons und Icon-Fonts: projektspezifische Sammlungen anlegen, SVG / PNG stapelweise laden, Farben online ändern. Die Domain easyicon aus der ursprünglichen Liste ist abgelaufen und wird hierdurch ersetzt.</div><div class="res-meta"><span class="badge-zouic badge-zouic-danger">Eintrag geändert</span><span class="badge-zouic badge-zouic-secondary">Icons</span><span class="badge-zouic badge-zouic-secondary">Assets</span></div><div class="res-note"><i class="fas fa-triangle-exclamation me-1"></i>Die ursprüngliche Domain easyicon.net löst nicht mehr auf</div></div></div></div></div><div class="card-dark p-6 mt-6"><h2 class="text-xl font-bold mb-3">Über diese Liste</h2><ul class="text-secondary mb-0" style="font-size: .9375rem; line-height: 1.9; padding-left: 1.25rem;"><li>Die Erreichbarkeit entspricht den Prüfungen vom 29.10.2026. Drei Zustände werden angegeben: <strong>direkt erreichbar</strong> (HTTP 200), <strong>skriptblockiert</strong> (die Seite existiert, weist aber automatisierte Anfragen ab; im Browser erreichbar) und <strong>Eintrag geändert</strong> (der ursprüngliche Link ist tot und wurde durch eine funktionierende Adresse ersetzt).</li><li>Tote Einträge werden nicht stillschweigend gelöscht: „Digoboy" leitete bei der Aufnahme bereits auf eine fremde Anmeldeseite um und wird daher ohne Link geführt. easyicon, code.py40.com, cpp.hotexamples.com und micropython.openioe.net sind offline und wurden durch iconfont, PythonGUIs / zetcode, die Hotexamples-Hauptseite bzw. die offizielle MicroPython-Seite ersetzt; die Karten weisen jeweils darauf hin.</li><li>Bietet ein Anbieter mehrere Einstiegspunkte (etwa die EmbedFire-Dokumentation und deren Forum oder die Website und Community von Tronlong), werden sie getrennt geführt, weil sie unterschiedlichen Zwecken dienen.</li><li>Wer keine Toolchain installieren möchte, findet im Schwesterartikel <a href="/de/online-tools/">Browser-Werkzeuge im Überblick</a> Firmware-Flashen, Flash-Auslesen und ein serielles Terminal direkt im Browser sowie die Open-Source-Repositories und Lizenzen, auf denen diese Funktionen beruhen.</li><li>Ein Link ist tot? Melden Sie ihn über den <a href="/de/contribute/">Leitfaden für Beiträge</a>; nach Prüfung aktualisieren wir diese Seite.</li></ul></div></div></section>
+
+<script>
+(function () {
+    var input = document.getElementById('resSearch');
+    var clearBtn = document.getElementById('resClear');
+    var empty = document.getElementById('resEmpty');
+    if (!input) return;
+    var items = Array.prototype.slice.call(document.querySelectorAll('.res-item'));
+    var groups = Array.prototype.slice.call(document.querySelectorAll('.res-group'));
+
+    function apply() {
+        var q = (input.value || '').trim().toLowerCase();
+        var shown = 0;
+        items.forEach(function (el) {
+            var hay = (el.getAttribute('data-search') || '').toLowerCase();
+            var hit = !q || hay.indexOf(q) !== -1;
+            el.hidden = !hit;
+            if (hit) shown++;
+        });
+        groups.forEach(function (g) {
+            var any = g.querySelectorAll('.res-item:not([hidden])').length > 0;
+            g.hidden = !any;
+        });
+        empty.style.display = shown === 0 ? 'block' : 'none';
+    }
+
+    input.addEventListener('input', apply);
+    if (clearBtn) {
+        clearBtn.addEventListener('click', function () {
+            input.value = '';
+            apply();
+            input.focus();
+        });
+    }
+})();
+</script>
+
+    </main><section id="follow" class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">Wöchentliche Updates von @GeekWaedon</h3><p class="text-secondary text-sm mb-4 mb-lg-0">Board-Empfehlungen, Projektanalysen und Tipps aus der Hardware-Entwicklung – zuerst auf WeChat und im Knowledge Planet.</p></div><div class="col-lg-5"><a href="/de/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">So folgen Sie mir</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> Wöchentlich kuratierte Board-Empfehlungen</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Exklusive Projektanalysen</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Aktualisiert auf WeChat und im Knowledge Planet</span></div></div></div></div></div></section><section class="py-4" aria-label="Hergestellt von"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">Erstellt von GeekWaedon <span>@GeekWaedon</span></div><div class="author-card-bio">Hardware-Bastler und KI-Praktiker. Diese gesamte Website wurde mit KI-Werkzeugen selbst gebaut.</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Meinem Knowledge Planet beitreten</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: nach „GeekWaedon“ suchen</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/de/" class="footer-brand" aria-label="ZouIC-Startseite"><i class="fas fa-microchip"></i><span>ZouIC</span></a><p class="footer-tagline">Ausgewählte Open-Source-Hardwareprojekte von Plattformen weltweit · Ausschließlich als Referenz für Entwickler</p><p class="footer-business-contact">
+                        Geschäftskontakt &amp; Bauteilbeschaffung:
+                        <a href="mailto:waedon@outlook.com?subject=Gesch%C3%A4ftliche%20Anfrage"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            Hergestellt von · <strong>GeekWaedon</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware-Enthusiast</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> KI-Praktiker</span><a href="/de/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom-Lösungsanbieter"><i class="fab fa-weixin"></i> WeCom-Lösungsanbieter
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a><a href="/de/#follow" class="footer-social-link" aria-label="WeChat-Offizieller Account · GeekWaedon" title="WeChat-Offizieller Account · GeekWaedon"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Produkte</h5><ul><li><a href="/de/products/">Produkte</a></li><li><a href="/de/services/">Leistungen</a></li><li><a href="/de/services/website-building/">Website-Erstellung</a></li><li><a href="/de/services/component-matching/">elektronische BauteileVermittlung</a></li><li><a href="/de/news/">Neuigkeiten</a></li><li><a href="/de/boards/">Entwicklungsboards</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Ressourcen</h5><ul><li><a href="/de/board-guide/">Leitfaden zur Board-Auswahl</a></li><li><a href="/de/compare/">Board-Vergleich</a></li><li><a href="/de/tutorials/">Anleitungen</a></li><li><a href="/de/documentation/">Dokumentation</a></li><li><a href="/de/online-tools/">Online-Werkzeuge</a></li><li><a href="/de/tools/">Hardware calculators</a></li><li><a href="/de/cases/">Projektbeispiele</a></li><li><a href="/de/help/">Dokumentation</a></li><li><a href="/de/games/resistor/">Widerstands-Farbcode-Quiz</a></li><li><a href="/de/dashuju/">Datenübersicht</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Open Source</h5><ul><li><a href="/de/open-source/">Open-Source-Projekte</a></li><li><a href="/de/all-projects/">Alle Projekte</a></li><li><a href="/de/articles/">Fachbeiträge</a></li><li><a href="/de/contribute/">Mitwirken</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>Über</h5><ul><li><a href="/de/about/">Über uns</a></li><li><a href="/de/about/#contact">Kontakt</a></li><li><a href="/de/licenses/">Open-Source-Lizenzen</a></li><li><a href="/de/pricing/">Preise</a></li><li><a href="/de/privacy/">Datenschutz</a></li><li><a href="/de/terms/">Nutzungsbedingungen</a></li><li><a href="/de/refund/">Rückerstattung</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">Beliebte Kategorien</span><div class="footer-category-links"><a href="/de/category/">alle</a><a href="/de/category/fpga/">FPGA</a><a href="/de/category/general/">Allgemein</a><a href="/de/category/ai_hardware/">KI-Hardware</a><a href="/de/category/vision/">Computer Vision</a><a href="/de/category/esp32/">ESP32</a><a href="/de/category/robotics/">Robotik</a><a href="/de/source/github/">GitHub</a><a href="/de/source/hackster/">Hackster.io</a><a href="/de/resources/">Ressourcennavigation</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="GeekWaedon" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">Allein entwickelt von GeekWaedon (@GeekWaedon) · <span style="color:#a78bfa;">Mensch und KI, Seite an Seite</span></div><div class="text-xs text-secondary">Ein Ein-Personen-Projekt, betrieben von einem echten Menschen: Website-Aufbau, Datenabgleich, Artikel und Grafiken stammen von mir (mit Unterstützung einiger KI-Agenten). <a href="/de/about/" class="text-primary" style="text-decoration:none;">Die Person dahinter kennenlernen →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. Alle Rechte vorbehalten.</p><p>Die hier gebündelten Projekte dienen ausschließlich als Referenz für Entwickler: ZouIC verweist auf sie und hostet weder Code noch Dateien; Urheberrecht und Lizenz verbleiben bei den Autoren. Einzelheiten finden Sie auf der <a href="/de/licenses/">Open-Source-Lizenzen</a> Seite.</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="Nach oben"><i class="fas fa-chevron-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Kopiert';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Aus Favoriten entfernt');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Zu Favoriten hinzugefügt');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/resources/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=de-DE'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>
