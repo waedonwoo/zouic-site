@@ -1,0 +1,281 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="争议点不是钱有没有扣，而是这笔扣款算不算用户授权。持卡人完成了生物识别、商户按订单发货、智能体只是理解错了语义——现行争议与拒付规则以「交易由人发起」为默示前提，三方都无过错时损失悬空。"><meta name="keywords" content="5W1H, 智能体支付, 责任归属, 授权边界, 拒付争议, 交易日志, 了解你的智能体"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/articles/agent-order-liability-5w1h/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/agent-order-liability-5w1h/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/agent-order-liability-5w1h/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/agent-order-liability-5w1h/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/agent-order-liability-5w1h/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="智能体买错了谁赔：授权、追溯与拒付规则里的空白"><meta property="og:description" content="争议点不是钱有没有扣，而是这笔扣款算不算用户授权。持卡人完成了生物识别、商户按订单发货、智能体只是理解错了语义——现行争议与拒付规则以「交易由人发起」为默示前提，三方都无过错时损失悬空。"><meta property="og:url" content="https://www.zouic.com/articles/agent-order-liability-5w1h/"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="智能体买错了谁赔：授权、追溯与拒付规则里的空白"><meta name="twitter:description" content="争议点不是钱有没有扣，而是这笔扣款算不算用户授权。持卡人完成了生物识别、商户按订单发货、智能体只是理解错了语义——现行争议与拒付规则以「交易由人发起」为默示前提，三方都无过错时损失悬空。"><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "\u4e89\u8bae\u70b9\u4e0d\u662f\u94b1\u6709\u6ca1\u6709\u6263\uff0c\u800c\u662f\u8fd9\u7b14\u6263\u6b3e\u7b97\u4e0d\u7b97\u7528\u6237\u6388\u6743\u3002\u6301\u5361\u4eba\u5b8c\u6210\u4e86\u751f\u7269\u8bc6\u522b\u3001\u5546\u6237\u6309\u8ba2\u5355\u53d1\u8d27\u3001\u667a\u80fd\u4f53\u53ea\u662f\u7406\u89e3\u9519\u4e86\u8bed\u4e49\u2014\u2014\u73b0\u884c\u4e89\u8bae\u4e0e\u62d2\u4ed8\u89c4\u5219\u4ee5\u300c\u4ea4\u6613\u7531\u4eba\u53d1\u8d77\u300d\u4e3a\u9ed8\u793a\u524d\u63d0\uff0c\u4e09\u65b9\u90fd\u65e0\u8fc7\u9519\u65f6\u635f\u5931\u60ac\u7a7a\u3002", "headline": "\u667a\u80fd\u4f53\u4e70\u9519\u4e86\u8c01\u8d54\uff1a\u6388\u6743\u3001\u8ffd\u6eaf\u4e0e\u62d2\u4ed8\u89c4\u5219\u91cc\u7684\u7a7a\u767d", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/agent-order-liability-5w1h/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/agent-order-liability-5w1h/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/agent-order-liability-5w1h/", "name": "\u667a\u80fd\u4f53\u4e70\u9519\u4e86\u8c01\u8d54\uff1a\u6388\u6743\u3001\u8ffd\u6eaf\u4e0e\u62d2\u4ed8\u89c4\u5219\u91cc\u7684\u7a7a\u767d", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u8ba4\u8bc1\u73af\u8282\u901a\u8fc7\u4e0d\u7b49\u4e8e\u667a\u80fd\u4f53\u7684\u8bed\u4e49\u7406\u89e3\u843d\u5728\u6388\u6743\u8303\u56f4\u5185\u3002\u96be\u70b9\u6070\u5728\u4e8e\u6b64\uff1a\u5b83\u65e2\u4e0d\u80fd\u6309\u4f2a\u5192\u76d7\u5237\u5904\u7406\uff0c\u4e5f\u96be\u4ee5\u6309\u5546\u6237\u7ea0\u7eb7\u9000\u5355\uff0c\u73b0\u884c\u89c4\u5219\u6ca1\u6709\u4e3a\u8fd9\u79cd\u9519\u5355\u51c6\u5907\u4f4d\u7f6e\u3002"}, "name": "\u7528\u6237\u5b8c\u6210\u4e86\u751f\u7269\u8bc6\u522b\u6388\u6743\uff0c\u662f\u4e0d\u662f\u5c31\u7b49\u4e8e\u8ba4\u53ef\u8fd9\u7b14\u4ea4\u6613\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u662f\u8d23\u4efb\u89c4\u5219\u5c1a\u672a\u6e05\u6670\u65f6\u7684\u8fc7\u6e21\u505a\u6cd5\u3002\u5b83\u786e\u5b9e\u727a\u7272\u4f53\u9a8c\uff0c\u4f46\u5728\u4e89\u8bae\u6210\u672c\u9ad8\u3001\u54c1\u7c7b\u4e0d\u53ef\u9000\u7684\u573a\u666f\u91cc\uff0c\u6bd4\u4e8b\u540e\u5404\u6267\u4e00\u8bcd\u4fbf\u5b9c\u3002\u66f4\u7a33\u59a5\u7684\u65b9\u5411\u662f\u628a\u786e\u8ba4\u505a\u6210\u7ed3\u6784\u5316\u95f8\u95e8\u800c\u4e0d\u662f\u5168\u4eba\u5de5\u3002"}, "name": "\u5546\u6237\u8ba9\u5ba2\u670d\u6253\u7535\u8bdd\u786e\u8ba4\uff0c\u662f\u4e0d\u662f\u6280\u672f\u5012\u9000\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u5148\u9650\u5b9a\u54c1\u7c7b\u4e0e\u989d\u5ea6\uff0c\u518d\u5b9a\u4e49\u65e5\u5fd7\u683c\u5f0f\u3002\u81f3\u5c11\u8981\u80fd\u8fd8\u539f\u539f\u59cb\u6307\u4ee4\u3001\u89e3\u6790\u7ed3\u679c\u3001\u9009\u4e2d SKU \u4e0e\u786e\u8ba4\u52a8\u4f5c\uff1b\u6ca1\u6709\u8fd9\u6761\u94fe\uff0c\u4efb\u4f55\u4e8b\u540e\u4e3b\u5f20\u90fd\u53ea\u80fd\u9760\u53e3\u5934\u63cf\u8ff0\u3002"}, "name": "\u5c0f\u56e2\u961f\u63a5\u667a\u80fd\u4f53\u6536\u6b3e\uff0c\u6700\u5148\u8be5\u8865\u4ec0\u4e48\uff1f"}]}]}
+    </script>
+    
+    
+    <title>智能体买错了谁赔：授权、追溯与拒付规则里的空白 - ZouIC</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 50%, var(--color-bg-primary) 100%); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"></head><body><a href="#main-content" class="skip-link">跳转到主要内容</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航"><div class="container"><a class="navbar-brand" href="/"><i class="fas fa-microchip"></i> ZouIC
+            </a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/all-projects/"><i class="fas fa-project-diagram me-1"></i>开源项目</a></li><li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li><li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/services/component-matching/">商务合作</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li><li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li><li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li><li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li><li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li><li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li><li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li><li><a class="dropdown-item" href="/tools/"><i class="fas fa-calculator me-2"></i>硬件计算器</a></li><li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li><li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li><li><a class="dropdown-item" href="/ideas/"><i class="fas fa-lightbulb me-2"></i>创意树洞</a></li><li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic" 
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" style="width: 200px;"><select id="searchType" class="form-select input-zouic" aria-label="搜索类型:" style="width: auto; flex: 0 0 auto;"><option value="">全部分类</option><option value="board">开源开发板</option><option value="project">开源项目</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/agent-order-liability-5w1h/"><i class="fas fa-language me-2"></i> 中文
+                            </a></li><li><a class="dropdown-item" href="/en/articles/agent-order-liability-5w1h/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/articles/agent-order-liability-5w1h/"><i class="fas fa-language me-2"></i> 德语
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/">首页</a></li><li class="breadcrumb-item"><a href="/articles/">技术文章</a></li><li class="breadcrumb-item active" aria-current="page">智能体买错了谁赔：授权、追溯与拒付规则里的空白</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">免费公开 · 欢迎转发</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">智能体买错了谁赔：授权、追溯与拒付规则里的空白</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">算力行业观察 · 极客微栋 @GeekWaedon</p><p class="text-secondary text-sm mt-4">极客微栋 @GeekWaedon · 2026 年 11 月</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p>智能体支付里最难回答的问题不是「钱扣没扣」，而是「这笔扣款算不算用户授权过」。当用户把决策权让渡给智能体，一次语义理解偏差就可能买错商品；此时持卡人确实完成了生物识别，商户确实按订单发了货，智能体开发者也可以说自己只是执行了指令。现行卡组织与清算网络的争议、拒付、调单规则以「交易由人发起」为默示前提，没有给这种错单准备位置。下面用 5W1H 拆开这件事，结论先说：在规则补齐之前，能自己做的不是争谁赔，而是把授权边界、原始意图和确认动作留成一份可出示的记录。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何事 · What：一个谁都没有违规、却没人承担损失的错单</h2><p>律师事务所公开推演过一个虚拟案例：用户让智能体在某主播直播间「1999 元护肤套装上架后立即购买」，智能体误拍下同为 1999 元、标注「拆封不退不换」的定制盲盒并完成扣款。持卡人已完成生物识别授权，不能按伪冒盗刷处理；商户按订单发货且事先明示规则，没有过错，也不能按商户纠纷退单；差错来自智能体的语义理解，而人工智能平台并未纳入清算规则体系，发卡行无权要求其赔偿。结果是三方各不违规、损失无人承担。这不是抠字眼：媒体访谈里，已上线 AI 支付智能体的电商企业反映的正是「买错、多买、重复买」，以及用户投诉后企业、开发者、用户各执一词的局面。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何因 · Why：旧风控识别的是人，新差错来自语义</h2><p>传统风控建立在对人的行为刻画上：IP 地址、国家归属、消费习惯构成识别基础，而智能体之间的交易逻辑不遵循这些特征，原有模型面临适配困境（经济参考报 2026-09 报道中的行业观点）。差错的性质也变了：盗刷是身份被冒用，错单是身份真实、授权形式也完成，只是「原始意图」与「最终业务行为」之间发生了偏差。蚂蚁集团风控安全负责人在同一轮报道中提出需要两类新能力：在眼镜、耳机、手表等泛终端上建立更原生的身份核验，以及在交易发生前后持续校验用户意图和授权，还原多级委托链路，把防护延伸到事前约束、事中判断和事后追溯。换句话说，单点的一次性授权不足以覆盖多步委托。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何人 · Who：六方参与，责任文件刚起步</h2><p>链条上有用户、智能体开发者、商户、发卡行、清算网络与支付机构。2026 年 8 月，在中国人民银行指导下，中国支付清算协会发布《智能体支付应用自律公约》，要求会员单位在「了解你的客户」基础上探索建立「了解你的智能体」机制，明确智能体支付应用的授权边界、与用户签订责任清晰的授权协议；涉及账户管理、交易处理、资金清结算等核心环节的，应由持牌机构开展，并按「谁提供支付服务谁负责」承担主体责任（公约内容经媒体与律所整理转述）。同期，中国网络空间安全协会提出的两项团体标准《智能体身份鉴别与授权技术框架》《智能体运行时安全技术要求》启动。要留意性质：这是自律文件与在研标准，不是法律或判例，不能直接推出个案责任结论。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何时 · When：规则空白期里，商家已经在用笨办法</h2><p>时间线是：2026 年 8 月公约发布；2026 年 9 月经济参考报报道「责任归属模糊」是智能体支付的核心痛点之一，并指出此类纠纷已在实际场景中发生；两项团体标准处于启动阶段，尚未形成可援引的技术规范。规则空白期里的现实做法很朴素：有电商企业在获知用户通过智能体自动下单后，让客服致电确认再发货，用户对此并不满意；同一批访谈里，企业正在补的措施包括授权环节的预算控制与二次确认、接单环节的「用户确认订单」提醒，以及交易日志与风控识别等追溯机制。这说明当下可执行的止损点在流程和证据，而不在等待一份统一判决标准。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何地 · Where：三个环节各留一道闸门</h2><p>授权环节要写清额度上限、允许品类、有效期、是否允许免确认付款，并保存用户的原始指令文本；接单环节要在商户侧识别订单来自智能体，对高争议品类触发用户确认；追溯环节要能还原「原始指令 → 解析结果 → 选中 SKU → 金额 → 确认动作」这条链，而不是只有一条支付成功记录。律所分析补充了另一个层面的空白：核心风控不得外包的红线，在「发卡行把交易授权决策交给外部大模型」这种情形下如何认定，现行规则并无明确答案。因此自家系统的边界也要写清楚：哪些判断由外部模型做、哪些判断必须留在自己的规则引擎里，这决定了事后能不能说清决策路径。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">如何 · How：把「说得清」做成系统要求</h2><p>第一步，把授权写成结构化对象而不是一句「同意自动下单」：额度、品类、时间窗、单笔上限、是否允许拆单，每项都能单独出示。第二步，对高争议品类（定制、拆封不退、预售、虚拟商品）强制二次确认，宁可牺牲一点转化率，也不要把成本推到事后扯皮。第三步，定义日志格式并长期留存：原始指令、模型解析结果、候选 SKU 列表、最终选中项、确认动作、时间戳与版本，缺一项都会在争议时变成各执一词。第四步，把自动付款做成品类白名单先跑小范围，用真实错单率决定要不要扩大，而不是一次全开。这四步都不是在替规则制定者下结论，而是让自己成为链条里唯一能拿出完整记录的一方。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">边界：不能从这些材料推出的结论</h2><p>国内自律公约与国际卡组织争议规则是两套体系，不能互相套用；公约是行业自律文件，不是法律，媒体报道中的企业做法也不是监管要求。1999 元盲盒案例是律所用于说明制度缺口的虚拟推演，不是已生效判决，不能写成「法院已认定无人承担」。用户不敢授权、商家致电确认来自个别企业访谈，属于个案，不代表行业普遍水平。还有一层容易混淆：生物识别授权完成只说明认证环节通过，不等于智能体的语义理解在授权范围内；反过来，也不能据此认定商户必须赔付。把「谁赔」留给规则制定者，把自己能控制的证据链做完整，是当前更稳的站位。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">结论：一人公司也能先做的三件事</h2><p>第一，把授权边界写成可出示的结构化记录，并让用户能回看自己同意过什么；第二，在商户侧加一道确认闸门，对高争议品类不做免确认付款，把成本花在事前而不是售后；第三，先定义日志格式再接支付，任何模型参与的决策都留原始输入与解析结果。这三件事不需要等标准落地，也不依赖平台配合。智能体支付真正的门槛不是给智能体更多决策权，而是在效率与可控之间划出一条能被证明的边界——规则空白期里，能证明自己的那一方最不容易被卷进争议。</p></div><div class="card-dark p-6 mb-5"><p>数据与口径（基准日 2026-11-11）：中国支付清算协会《智能体支付应用自律公约》2026-08 发布，内容经经济参考报 2026-09-19/20 报道及律师事务所研究整理转述；「责任归属模糊」、实际纠纷已发生、传统风控适配困境与蚂蚁集团风控负责人的两类能力表述，来自该报道中的行业与企业口径；用户不敢授权、商家致电确认、预算控制与二次确认等措施，来自南方+ 与中新经纬的企业访谈（媒体个案）；1999 元盲盒案例与拒付规则空白分析，来自广东广和律师事务所公开研究中的虚拟推演（第三方法律分析，非判例）。团体标准处于启动阶段，未见可援引的正式文本。</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>用户完成了生物识别授权，是不是就等于认可这笔交易？</h3><p class="faq-a">认证环节通过不等于智能体的语义理解落在授权范围内。难点恰在于此：它既不能按伪冒盗刷处理，也难以按商户纠纷退单，现行规则没有为这种错单准备位置。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>商户让客服打电话确认，是不是技术倒退？</h3><p class="faq-a">是责任规则尚未清晰时的过渡做法。它确实牺牲体验，但在争议成本高、品类不可退的场景里，比事后各执一词便宜。更稳妥的方向是把确认做成结构化闸门而不是全人工。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>小团队接智能体收款，最先该补什么？</h3><p class="faq-a">先限定品类与额度，再定义日志格式。至少要能还原原始指令、解析结果、选中 SKU 与确认动作；没有这条链，任何事后主张都只能靠口头描述。</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/articles/" class="btn-zouic">技术文章</a><a href="/boards/" class="btn-zouic">开源开发板</a><a href="/compare/" class="btn-zouic btn-zouic-primary">开发板对比</a></div></div></section></main><section id="follow" class="py-12" style="background: linear-gradient(135deg, var(--color-bg-primary) 0%, #1e1b4b 100%);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3><p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p></div><div class="col-lg-5"><a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span></div></div></div></div></div></section><section class="py-4" aria-label="出品人"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div><div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/" class="footer-brand" aria-label="ZouIC 首页"><i class="fas fa-microchip"></i><span>ZouIC</span></a><p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p><p class="footer-business-contact">
+                        商务合作 / 器件选型：
+                        <a href="mailto:waedon@outlook.com?subject=%E5%95%86%E5%8A%A1%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            出品人 · <strong>极客微栋</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span><a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商"><i class="fab fa-weixin"></i> 企业微信服务商
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a><a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>产品</h5><ul><li><a href="/products/">产品介绍</a></li><li><a href="/services/">服务说明</a></li><li><a href="/services/website-building/">建站服务</a></li><li><a href="/services/component-matching/">元器件撮合</a></li><li><a href="/news/">站内动态</a></li><li><a href="/boards/">开源开发板</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>资源</h5><ul><li><a href="/board-guide/">选型指南</a></li><li><a href="/compare/">开发板对比</a></li><li><a href="/tutorials/">开发板教程</a></li><li><a href="/documentation/">技术文档</a></li><li><a href="/online-tools/">在线工具</a></li><li><a href="/tools/">硬件计算器</a></li><li><a href="/cases/">项目案例</a></li><li><a href="/help/">文档中心</a></li><li><a href="/games/resistor/">色环电阻识别挑战</a></li><li><a href="/dashuju/">数据大屏</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>开源生态</h5><ul><li><a href="/open-source/">开源项目</a></li><li><a href="/all-projects/">全部项目</a></li><li><a href="/articles/">技术文章</a></li><li><a href="/ideas/">创意树洞</a></li><li><a href="/wechat/">公众号专栏</a></li><li><a href="/contribute/">贡献指南</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>关于</h5><ul><li><a href="/about/">关于我们</a></li><li><a href="/about/#contact">联系我们</a></li><li><a href="/licenses/">开源协议</a></li><li><a href="/pricing/">服务报价</a></li><li><a href="/privacy/">隐私政策</a></li><li><a href="/terms/">服务条款</a></li><li><a href="/refund/">退款政策</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">热门分类</span><div class="footer-category-links"><a href="/category/">全部</a><a href="/category/fpga/">FPGA</a><a href="/category/general/">综合</a><a href="/category/ai_hardware/">AI 硬件</a><a href="/category/vision/">机器视觉</a><a href="/category/esp32/">ESP32</a><a href="/category/robotics/">机器人</a><a href="/source/github/">GitHub</a><a href="/source/hackster/">Hackster.io</a><a href="/resources/">资源导航</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div><div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="返回顶部"><i class="fas fa-chevron-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/agent-order-liability-5w1h/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=zh-CN'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>
