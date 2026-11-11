@@ -16,18 +16,18 @@
 ## 场景速查（12 个高频场景）
 | 你要做的事 | 首选 | 备选 | 为什么是它 | 避坑提示 |
 | --- | --- | --- | --- | --- |
-| 第一个物联网项目（温湿度上报、远程开关） | ESP32-S3-DevKitC ¥¥ | ESP32-C3 ¥ | 乐鑫生态最全，教程遍地，WiFi+蓝牙都有 | 买官方 DevKit，杂牌最小系统板引脚标注混乱 |
-| 学嵌入式基本功（GPIO、中断、定时器） | STM32F103C8T6 ¥ | Arduino UNO R4 ¥¥ | 寄存器级操作逼你理解原理，教程体系最成熟 | 需另购 ST-Link 下载器；国产兼容片注意识别 |
-| 电池供电低功耗（传感器节点、便携设备） | Raspberry Pi Pico ¥ | ESP32-C3 ¥ | RP2040 功耗控制简单直接，双核够用 | Pico 无 WiFi，要联网选 Pico W（¥¥） |
-| Arduino 生态快速验证（接现成模块库） | Arduino UNO R4 Minima ¥¥ | Nano ESP32 ¥¥ | 库生态无敌，什么都接得上 | UNO R4 换了瑞萨芯片，个别老库不兼容，下单前查库支持 |
-| AI 边缘推理（人脸、物体识别） | Sipeed Maixduino ¥¥ | — | K210 自带 NPU，推理不依赖云端 | 算力有上限，复杂模型别指望；适合学习和轻量部署 |
-| 电机控制 / PID（平衡车、云台） | STM32F103C8T6 ¥ | STM32F407 ¥¥ | 定时器资源丰富，实时性好，FOC 教程多 | 算法新手先跑通开环再上闭环 |
-| 工业场景 / CAN 总线（车载、工控采集） | STM32F407ZGT6 ¥¥ | — | 原生 CAN 控制器 | CAN 收发器芯片（如 TJA1050）仍需另配 |
-| 学 RISC-V（指令集、体系结构） | CH32V307 ¥ | GD32VF103 ¥ | 国产便宜，够把 RISC-V 架构学明白 | 想要 Linux 级 RISC-V 体验看下一行 |
-| RISC-V + Linux（跑真实操作系统） | VisionFive 2 ¥¥¥ | HiFive Unmatched ¥¥¥ | 能跑完整 Linux 发行版，体验接近 PC 开发 | 价格不低，仅建议明确需要 RISC-V Linux 环境的人 |
-| 语音交互（离线语音控制） | ESP32-S3-DevKitC ¥¥ | — | 乐鑫官方语音方案（ESP-SR）直接可用 | 离线词表有限，复杂语义识别还是要联网方案 |
-| 新协议尝鲜（星闪 NearLink） | NearLink DevKit Pro ¥¥ | Sensor Node ¥¥ | 星闪生态早期，现在入场是内容红利期 | 资料少、生态新，适合有基础的玩家，新手先别碰 |
-| LoRa 远距离通信（几百米到几公里） | ESP32-S3 + LoRa 模块 ¥¥ | — | 场景 1 的板子加个 SX1276 模块即可，不用换板 | 注意所在地区 ISM 频段规定（国内用 470MHz） |
+| Erstes IoT-Projekt (Temperatur-/Feuchtigkeitsmeldung, ferngesteuerte Schalter) | ESP32-S3-DevKitC ¥¥ | ESP32-C3 ¥ | Vollständigstes Espressif-Ökosystem, Tutorials überall, WLAN und Bluetooth integriert | Offizielles DevKit kaufen; No-Name-Minimalboards haben verwirrende Pin-Beschriftungen |
+| Embedded-Grundlagen lernen (GPIO, Interrupts, Timer) | STM32F103C8T6 ¥ | Arduino UNO R4 ¥¥ | Arbeit auf Registerebene vermittelt die Grundlagen; ausgereifteste Tutorial-Landschaft | Separater ST-Link-Programmer nötig; auf Klon-Chips achten |
+| Batteriebetrieb / Low Power (Sensorknoten, mobile Geräte) | Raspberry Pi Pico ¥ | ESP32-C3 ¥ | RP2040-Power-Management ist einfach und direkt; zwei Kerne reichen | Pico hat kein WLAN – für Konnektivität Pico W (¥¥) wählen |
+| Schnelle Validierung im Arduino-Ökosystem (fertige Modulbibliotheken) | Arduino UNO R4 Minima ¥¥ | Nano ESP32 ¥¥ | Unschlagbare Bibliotheksvielfalt; alles lässt sich anbinden | UNO R4 nutzt einen Renesas-Chip; vor der Bestellung Bibliotheksunterstützung prüfen |
+| Edge-AI-Inferenz (Gesichter, Objekterkennung) | Sipeed Maixduino ¥¥ | — | Der K210 hat eine eingebaute NPU, Inferenz braucht keine Cloud | Rechenleistung begrenzt – gut für Lernen und leichte Einsätze, nicht für komplexe Modelle |
+| Motorsteuerung / PID (Balance-Roboter, Gimbal) | STM32F103C8T6 ¥ | STM32F407 ¥¥ | Viele Timer, gutes Echtzeitverhalten, reichlich FOC-Tutorials | Zuerst den offenen Regelkreis zum Laufen bringen, dann schließen |
+| Industrie / CAN-Bus (Automotive, industrielle Datenerfassung) | STM32F407ZGT6 ¥¥ | — | Nativer CAN-Controller | Ein CAN-Transceiver (z. B. TJA1050) muss zusätzlich beschafft werden |
+| RISC-V lernen (Befehlssatz, Architektur) | CH32V307 ¥ | GD32VF103 ¥ | Günstig und aus China; reicht aus, um die Architektur solide zu lernen | Für RISC-V auf Linux-Niveau siehe nächste Zeile |
+| RISC-V + Linux (echtes Betriebssystem) | VisionFive 2 ¥¥¥ | HiFive Unmatched ¥¥¥ | Läuft mit vollständiger Linux-Distribution, nah an der PC-Entwicklung | Nicht günstig – nur bei klarem Bedarf an einer RISC-V-Linux-Umgebung |
+| Sprachsteuerung (Offline-Sprachbefehle) | ESP32-S3-DevKitC ¥¥ | — | Espressifs ESP-SR funktioniert ohne Weiteres | Offline-Vokabular begrenzt; komplexe Absichten brauchen eine Cloud-Lösung |
+| Neues Protokoll ausprobieren (NearLink) | NearLink DevKit Pro ¥¥ | Sensor Node ¥¥ | NearLink ist noch jung – der Einstieg ist jetzt eine Content-Chance | Wenig Material und ein junges Ökosystem; eher für erfahrene Maker als für Einsteiger |
+| LoRa-Funk (hunderte Meter bis mehrere Kilometer) | ESP32-S3 + LoRa-Modul ¥¥ | — | Ein SX1276-Modul zum Board aus Zeile 1 genügt – kein Boardwechsel nötig | ISM-Bandregeln des eigenen Landes beachten (in China 470 MHz) |
 
 ## 新手三问（下单前自检）
 1. 这块板的中文教程多不多？（搜一下，像样教程少于 10 篇的板子，新手别碰）

@@ -1,63 +1,85 @@
 # ZouIC
 
-> ZouIC 聚合 GitHub、Hackster.io、CrowdSupply、Hackaday、Seeed Studio 等全球开源硬件平台的优质项目，统一筛选与分页；项目仅供开发者参考，遵循其各自开源协议。
+> ZouIC aggregiert Open-Source-Hardwareprojekte von GitHub, Hackster.io, CrowdSupply, Hackaday, Seeed Studio und mehr. Nur zur Entwicklerreferenz, unter jeder Projektlizenz.
 
-ZouIC 以「聚合全球开源硬件平台的优质项目」为核心：收录 GitHub、Hackster.io、CrowdSupply、Hackaday、Seeed Studio 等平台的开源硬件项目，统一筛选与分页，并提供开源开发板规格与选型资料。所有项目仅供开发者参考，版权与授权归原作者，遵循其各自开源协议。
+ZouIC umfasst heute drei gleichrangige Inhaltslinien: eine Open-Source-Hardware-Datenbank (Board-Spezifikationen, aggregierte Projekte, Auswahlhilfen und browserbasierte Werkzeuge); Branchenanalysen zu Halbleitern und AI-Rechenleistung (Zugang und Abrechnung von Agenten, Bauteil-Datenengineering, Flüssigkeitskühlung und Aftermarket, durchgehend mit nachprüfbaren Erstparteiquellen belegt); sowie technische Dienstleistungen (Website-Erstellung und GEO, Bauteilvermittlung, Vertrieb erweiterter WeCom-Funktionen). Die Kerninhalte sind öffentlich und kostenlos. Chinesisch ist der Originaltext; Englisch und Deutsch sind vollständige, blockweise von Hand erstellte Übersetzungen und keine maschinellen Kurzfassungen.
 
-## 数据库现状（导出当日实时统计）
+## Inhaltsbasis (zum Exportzeitpunkt gezählt, nicht geschätzt)
 
-- 开源开发板：67 款，覆盖 14 种指令架构、12 家厂商，列表见 https://www.zouic.com/boards/
-- 站内实战项目：8 个，列表见 https://www.zouic.com/projects/
-- 聚合收录的开源项目：1530 条，按来源为 Hackster.io 1303 条、GitHub 138 条、Hackaday 38 条、厂商与社区官网 18 条、CrowdSupply 15 条、Hackaday.io 15 条、Seeed Studio 3 条。
-- 方向聚合页：7 个，按条目数排列为 FPGA 733 条、Allgemein 243 条、KI-Hardware 173 条、Computer Vision 118 条、ESP32 89 条、Robotik 77 条、IoT 67 条。
-- 每块开发板、每个项目的详情页都带「30 秒结论」与「常见问题」，文案只由库内字段拼装，字段缺失则该句不生成；页面可见文字与 FAQPage 结构化数据逐字一致。
+- Stichtag 2026-11-11; die folgenden Zahlen werden beim Build aus dem Artikelverzeichnis und dem Kolumnenarchiv berechnet und bei jedem Export erneuert.
+- 106 chinesische Artikel: 93 Analysen zu Rechenleistung und Halbleitern (in 13 Themengruppen archiviert, nicht nach Veröffentlichungsreihenfolge) sowie 13 Hardware-Ratgeber für Long-Tail-Fragen; jeweils 106 Volltexte auf Englisch und Deutsch.
+- Jede Analyse enthält Einleitung, eine sechsdimensionale oder abschnittsweise Argumentation, Grenzen, Fazit, Daten und Bezugsgrößen sowie 3 FAQ-Einträge; sichtbarer Seitentext und FAQPage-strukturierte Daten stimmen Wort für Wort überein.
+- Open-Hardware-Datenbank: 67 Boards, 14 Befehlssatzarchitekturen, 12 Hersteller, 8 eigene Projektanleitungen und 1530 aggregierte Projekteinträge.
+- Belege werden nach Ebene gekennzeichnet: offizielle Angaben, Selbstdarstellungen von Plattformen, Hersteller-Eigentests, Zusammenstellungen Dritter, Presseberichte sowie Rechtsanalysen und hypothetische Fälle. Widersprüchliche Zahlen werden nebeneinander genannt, nicht gemittelt und nicht in die Grundlage eines Fazits aufgenommen.
+- Offizielle Listenpreise, Marktpreise Dritter und projektbezogene Angebote werden nicht vermischt. Wer eine Zahl übernimmt, sollte Ebene und Stichtag mit übernehmen.
 
-## 核心页面
-- [首页](https://www.zouic.com/)：全球开源硬件项目聚合入口，含各收录来源与精选项目
-- [开源开发板](https://www.zouic.com/boards/)：ESP32、STM32、RP2040、RISC-V、星闪等开发板的规格与选购建议
-- [开源项目](https://www.zouic.com/projects/)：带框架、难度与源码链接的实战项目案例
-- [开源项目总库](https://www.zouic.com/all-projects/)：GitHub、Hackster.io、CrowdSupply、Hackaday、Seeed Studio 等平台项目统一收录
-- [按方向浏览](https://www.zouic.com/category/)：[FPGA](https://www.zouic.com/category/fpga/)、[Allgemein](https://www.zouic.com/category/general/)、[KI-Hardware](https://www.zouic.com/category/ai_hardware/)、[Computer Vision](https://www.zouic.com/category/vision/)、[ESP32](https://www.zouic.com/category/esp32/)、[Robotik](https://www.zouic.com/category/robotics/)、[IoT](https://www.zouic.com/category/iot/)
-- [AI 硬件开源目录](https://www.zouic.com/open-source/ai-hardware/)：127+ 款开源 AI 硬件，含原始仓库地址
-- [GitHub 来源](https://www.zouic.com/source/github/)、[Hackster.io 来源](https://www.zouic.com/source/hackster/)、[CrowdSupply 来源](https://www.zouic.com/source/crowdsupply/)、[Hackaday 来源](https://www.zouic.com/source/hackaday/)
-- [选型指南](https://www.zouic.com/board-guide/)：第一块开发板怎么选
-- [色环电阻识别挑战](https://www.zouic.com/games/resistor/)：60 秒读阻值小游戏，附色环速查表
-- [文档中心](https://www.zouic.com/documentation/) 与 [星闪文档](https://www.zouic.com/docs/nearlink/)
-- [在线工具精选](https://www.zouic.com/online-tools/)：27 个免装工具链的浏览器端入口（Web Serial 在线烧录、Flash 备份、串口终端、引脚查询），另附 8 个许可经过实测的上游开源仓库
-- [硬件计算器](https://www.zouic.com/tools/)：走线线宽、过孔载流、供电预算 3 个浏览器端计算器，公式、算例与适用边界都印在页面上；输入不出本机，也不落库
-- [建站服务](https://www.zouic.com/services/website-building/)：企业官网 ¥3,000 起、GEO 代运营 ¥1,500/月起，含 30 分钟免费可见性审计
-- [元器件分销与贸易撮合](https://www.zouic.com/services/component-matching/)：BOM 寻料、国产替代交叉参考、原厂与方案商对接；由极客微栋本人主理（10+ 年研发、产业媒体、分销供应链三段经历），首轮需求梳理免费
-- [关于出品人](https://www.zouic.com/about/)：极客微栋 @GeekWaedon，数码研发测试 → 电子产业媒体 → 元器件分销营销
+## Zentrale Seiten (Auswahl)
 
-## 文章
-- [一页纸速查表：我要做 XX，该买哪块开发板](https://www.zouic.com/articles/board-selection-cheatsheet/)（[Markdown](https://www.zouic.com/articles/board-selection-cheatsheet.md)）
-- [选型的正确顺序（手册第一章）](https://www.zouic.com/articles/handbook-ch1/)（[Markdown](https://www.zouic.com/articles/handbook-ch1.md)）
-- [别做“割韭菜”的生意：知识付费模式拆解与复利模型](https://www.zouic.com/articles/knowledge-business-models/)（[Markdown](https://www.zouic.com/articles/knowledge-business-models.md)）
-- [ESP32 vs STM32：2026 开发板怎么选](https://www.zouic.com/articles/esp32-vs-stm32/)
-- [RISC-V 开发板选型指南（2026）](https://www.zouic.com/articles/riscv-dev-board-guide/)
-- [星闪 NearLink 开发实战：从 DevKit 到第一缕数据](https://www.zouic.com/articles/nearlink-getting-started/)
-- [树莓派 Pico / RP2040 入门：MicroPython 第一个项目](https://www.zouic.com/articles/rp2040-beginner/)
-- [MicroPython vs C：嵌入式开发该用哪种语言](https://www.zouic.com/articles/micropython-vs-c/)
-- [开发板购买渠道与避坑指南](https://www.zouic.com/articles/dev-board-buy-guide/)
-- [ESP32-S3 能做什么：5 个开源项目灵感](https://www.zouic.com/articles/esp32-s3-projects/)
-- [STM32 vs Arduino：从 8 位到 32 位怎么过渡](https://www.zouic.com/articles/stm32-vs-arduino/)
-- [开源硬件项目去哪找：GitHub、Hackster、CrowdSupply、Hackaday、Seeed 五个来源怎么用（2026）](https://www.zouic.com/articles/open-hardware-project-sources/)
-- [开源硬件许可证怎么读：MIT、Apache-2.0、GPL-3.0、CERN OHL、CC BY-SA 一次讲清](https://www.zouic.com/articles/open-hardware-license-guide/)
-- [人形与四足机器人开源项目清单：8 个能真正跑起来的仓库](https://www.zouic.com/articles/humanoid-robot-open-source-projects/)
-- [在 CrowdSupply 支持开源硬件前，先看这 6 件事](https://www.zouic.com/articles/crowdsupply-open-hardware-checklist/)
-- [Hackaday 上的开源硬件项目怎么用：从一篇报道到一个能复现的仓库](https://www.zouic.com/articles/hackaday-open-hardware-guide/)
+- [Startseite](https://www.zouic.com/): Einstieg in Datenbank, Werkzeuge und Fachartikel
+- [Board-Datenbank](https://www.zouic.com/boards/): Spezifikationen und Kaufberatung zu ESP32, STM32, RP2040, RISC-V und NearLink
+- [Aggregierte Projekte](https://www.zouic.com/all-projects/): ein gemeinsamer Index für GitHub, Hackster.io, CrowdSupply, Hackaday und weitere Quellen
+- [Nach Thema stöbern](https://www.zouic.com/category/): FPGA, KI-Hardware, Computer Vision, Robotik, IoT und weitere Sammlungen
+- [Katalog offener KI-Hardware](https://www.zouic.com/open-source/ai-hardware/): mit Links zu den ursprünglichen Repositories
+- [Auswahlhilfe](https://www.zouic.com/board-guide/): das erste Entwicklungsboard wählen
+- [Browser-Werkzeuge](https://www.zouic.com/online-tools/): Web-Serial-Flashing, Flash-Sicherung, serielles Terminal und mehr
+- [Hardware-Rechner](https://www.zouic.com/tools/): Leiterbahnbreite, Via-Stromtragfähigkeit, Leistungsbudget, mit Formeln und Grenzen auf der Seite
+- [Über den Herausgeber](https://www.zouic.com/about/): Hardwareentwicklung, Fachmedien und Bauteilvertrieb
 
-文章全文与开发板问答合并版：[llms-full.txt](https://www.zouic.com/llms-full.txt)
+## Branchenanalysen und Entscheidungsdossiers
 
-## 联系方式
-- 邮箱：waedon@outlook.com
-- 微信公众号：极客微栋（GeekWaedon）
-- 知乎：https://www.zhihu.com/people/Waedon
+- [Fach- und Branchenartikel](https://www.zouic.com/articles/): nach Themen archiviert, Index aller Analysen und Ratgeber
+- [5W1H-Entscheidungsdossier](https://www.zouic.com/articles/agent-access-decision-5w1h/): was es wirklich bedeutet, einem signierten Agenten Zugang zu geben
+- [5W1H-Entscheidungsdossier](https://www.zouic.com/articles/component-db-cold-start-5w1h/): woher die ersten Dutzend Bauteildatensätze stammen und wer sie nutzen darf
+- [5W1H-Entscheidungsdossier](https://www.zouic.com/articles/used-gpu-inspection-5w1h/): Gebraucht-GPU-Prüfung und die Definition des Restwerts im Übergabepaket
+- [llms.txt](https://www.zouic.com/articles/llms-txt-zero-fetch/): 8,8-mal mehr Veröffentlichungen, bei 97 % der Dateien kein einziger Abruf
+- [Ideenarchiv](https://www.zouic.com/ideas/): vier Projektunterlagen mit Zugangsbarrieren und 5W1H-Neubewertung
 
-## 使用说明
-- 内容可引用或摘要，请注明出处并链接原文。
-- 开发板参数整理自厂商资料，采购前请核对关键参数。
-- 项目条目链接至原始仓库与平台，许可证以各项目为准。
+## Leistungen und Geschäftliches
 
-## 爬虫观测点
-- [爬虫观测台](https://waedon.pythonanywhere.com/observatory)：搜索引擎与 AI 爬虫抓取此页时，服务端按 User-Agent 记录抓取行为，用于评估本站的 SEO / GEO 收录意愿；人类访问不计入。
+- [Leistungsübersicht](https://www.zouic.com/services/): Websites und GEO, Bauteilvermittlung, vertreibbare erweiterte WeCom-Funktionen
+- [Website-Erstellung und GEO-Betreuung, einschließlich Sichtbarkeitsaudit](https://www.zouic.com/services/website-building/)
+- [Bauteilbeschaffung und Vermittlung](https://www.zouic.com/services/component-matching/): BOM-Suche, Alternativenvergleich, erste Prüfung kostenfrei
+- [Test für ¥9,9](https://www.zouic.com/services/trial/): vier kostenpflichtige Angebote mit kleinem ersten Schritt prüfen
+- [Preise und Lieferbedingungen](https://www.zouic.com/pricing/): CNY auf chinesischen, USD auf englischen und deutschen Seiten
+
+## Long-Tail-Ratgeber (Auswahl)
+
+- [Einseitige Kurzübersicht](https://www.zouic.com/articles/board-selection-cheatsheet/): welches Board für welche Aufgabe ([Markdown](https://www.zouic.com/articles/board-selection-cheatsheet.md))
+- [Die richtige Reihenfolge bei der Auswahl, Handbuch Kapitel 1 ([Markdown](/articles/handbook-ch1.md))](https://www.zouic.com/articles/handbook-ch1/)
+- [Open-Hardware-Lizenzen verstehen](https://www.zouic.com/articles/open-hardware-license-guide/): MIT, Apache-2.0, GPL-3.0, CERN OHL, CC BY-SA
+- [ESP32 gegen STM32](https://www.zouic.com/articles/esp32-vs-stm32/): die Board-Wahl 2026
+- [Ratgeber zur Auswahl von RISC-V-Boards (2026)](https://www.zouic.com/articles/riscv-dev-board-guide/)
+- [Wo man Open-Hardware-Projekte findet](https://www.zouic.com/articles/open-hardware-project-sources/): fünf Quellen im Vergleich (2026)
+
+Volltextindex: [llms-full.txt](https://www.zouic.com/llms-full.txt) (nur die wenigen Artikel mit passender Markdown-Fassung sowie der Board-FAQ-Index, kein Archiv sämtlicher Artikel)
+
+## Zitieren und Weiterverwendung
+
+- Zitate und Zusammenfassungen sind mit Quellenangabe und Link auf das Original willkommen; für englische oder deutsche Inhalte bitte die jeweilige Sprachfassung verlinken.
+- Bei Zahlen sind Belegebene und Stichtag beizubehalten; Hochrechnungen ohne diesen Zusammenhang werden von dieser Seite nicht vertreten.
+- Die angegebenen Preise für erweiterte WeCom-Funktionen sind offizielle Listenpreise und kein Angebot von uns; Archivierung von Gesprächsinhalten und Private Deployment werden projektbezogen angeboten und ohne veröffentlichte Zahl geführt.
+- Korrekturen, Ergänzungen oder Löschwünsche: waedon@outlook.com.
+
+## Maschinenlesbare Einstiegspunkte
+
+- robots.txt: Content Signals legen Präferenzen für search / ai-input / ai-train fest; gängige AI-Crawler sind nach Search, Agent und Training gruppiert.
+- sitemap.xml: aufgeteilter Index aller öffentlichen Seiten-URLs.
+- Drei Sprachfassungen dieser Datei: /llms.txt, /en/llms.txt, /de/llms.txt; Seiten-URLs verwenden stets die kanonische Hauptadresse.
+- Ausgewählte Analysen liegen zusätzlich als reine .md-Textdatei vor, inhaltlich identisch mit der veröffentlichten Seite.
+- Diese Seite behandelt llms.txt weder als Ranking- noch als Zitiersignal und leitet daraus keine Reichweitenkennzahl ab. Abrufe und Zitate werden über Serverprotokolle und nachprüfbare Rückverweise festgestellt.
+
+## Kontakt
+
+- E-Mail: waedon@outlook.com
+- WeChat-Offizielles Konto: GeekWaedon
+- Zhihu: https://www.zhihu.com/people/Waedon
+
+## Hinweise zur Nutzung
+
+- Board-Spezifikationen stammen aus Herstellerunterlagen; kritische Parameter bitte vor dem Kauf prüfen.
+- Aggregierte Projekte verlinken auf die ursprünglichen Repositories und Plattformen; die Lizenz liegt beim jeweiligen Projekt, die Einträge dienen nur als Entwicklerreferenz.
+- Preise für Dienstleistungen bedürfen der schriftlichen Bestätigung; diese Datei ist kein Angebot.
+
+## Crawler-Beobachtung
+
+- [Crawler-Observatorium](https://waedon.pythonanywhere.com/observatory): Zugriffe von Suchmaschinen- und AI-Crawlern werden anhand des User-Agent protokolliert, um das SEO- und GEO-Interesse einzuschätzen; menschliche Besuche werden dort nicht erfasst.
