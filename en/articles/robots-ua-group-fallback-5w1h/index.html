@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="When writing robots.txt, many people give each AI crawler its own dedicated User-agent group, believing this is more precise. RFC 9309 group matching says…"><meta name="keywords" content="5W1H, RFC 9309, robots.txt, User-agent, Content Signals, AI crawler, group matching, publishing policy"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/en/articles/robots-ua-group-fallback-5w1h/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/robots-ua-group-fallback-5w1h/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/robots-ua-group-fallback-5w1h/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/robots-ua-group-fallback-5w1h/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/robots-ua-group-fallback-5w1h/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="Giving AI crawlers their own group removes them from the default rules"><meta property="og:description" content="When writing robots.txt, many people give each AI crawler its own dedicated User-agent group, believing this is more precise. RFC 9309 group matching says the opposite: a dedicated group replaces the wildcard group rather than layering on top of it. If you want a use declaration to apply to everyone, first work out which group it has to live in."><meta property="og:url" content="https://www.zouic.com/en/articles/robots-ua-group-fallback-5w1h/"><meta property="og:type" content="article"><meta property="og:locale" content="en_US"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC open source development board platform · GeekWeidong"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Giving AI crawlers their own group removes them from the default rules"><meta name="twitter:description" content="When writing robots.txt, many people give each AI crawler its own dedicated User-agent group, believing this is more precise. RFC 9309 group matching says the opposite: a dedicated group replaces the wildcard group rather than layering on top of it. If you want a use declaration to apply to everyone, first work out which group it has to live in."><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "When writing robots.txt, many people give each AI crawler its own dedicated User-agent group, believing this is more precise. RFC 9309 group matching says the opposite: a dedicated group replaces the wildcard group rather than layering on top of it. If you want a use declaration to apply to everyone, first work out which group it has to live in.", "headline": "Giving AI crawlers their own group removes them from the default rules", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "en", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/robots-ua-group-fallback-5w1h/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/robots-ua-group-fallback-5w1h/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "Articles", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/robots-ua-group-fallback-5w1h/", "name": "Giving AI crawlers their own group removes them from the default rules", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "No. Under RFC 9309 a crawler falls back to the wildcard group only when it matches no dedicated group at all; once it matches a dedicated group, the Allow and Disallow lines and any extension declarations in the wildcard group play no part in its evaluation. Multiple groups with the same name are merged, and only the rules among those named groups are merged."}, "name": "If a crawler gets its own dedicated group, does it still follow the rules in the wildcard group?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "The comment is a policy text meant for humans; the preference itself is expressed by an extension directive line of the same name. The two should be published as a pair: the comment explains the three purpose terms and the reservation of rights, the directive line carries the concrete values. Parsers handle non-standard directives inconsistently, so no client can be guaranteed to recognise it."}, "name": "If Content Signals is written as a comment, can machines still read it?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "The specification requires compliant crawlers to assume the entire site is disallowed for the duration, so the impact is far greater than a single mistyped rule; a 4xx such as 404, by contrast, is treated as no restrictions at all. Confirming a 200 status before release takes priority over checking the wording of any one line."}, "name": "What happens if robots.txt returns a 5xx status?"}]}]}
+    </script>
+    
+    
+    <title>Giving AI crawlers their own group removes them from the default rules</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">Skip to main content</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Main navigation"><div class="container"><a class="navbar-brand" href="/en/" aria-label="ZouIC home"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/en/">Home</a></li><li class="nav-item"><a class="nav-link" href="/en/all-projects/">Open Source Projects</a></li><li class="nav-item"><a class="nav-link" href="/en/boards/">Open Source Boards</a></li><li class="nav-item"><a class="nav-link" href="/en/board-guide/">Documentation</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/en/services/component-matching/">Business</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/en/products/"><i class="fas fa-box me-2"></i>Products</a></li><li><a class="dropdown-item" href="/en/services/"><i class="fas fa-cogs me-2"></i>Services</a></li><li><a class="dropdown-item" href="/en/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>Component matching</a></li><li><a class="dropdown-item" href="/en/news/"><i class="fas fa-newspaper me-2"></i>Site Updates</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/en/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li><li><a class="dropdown-item" href="/en/documentation/"><i class="fas fa-book me-2"></i>Documentation</a></li><li><a class="dropdown-item" href="/en/resources/"><i class="fas fa-compass me-2"></i>Resource Navigation</a></li><li><a class="dropdown-item" href="/en/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>Online Tools</a></li><li><a class="dropdown-item" href="/en/tools/"><i class="fas fa-calculator me-2"></i>Hardware calculators</a></li><li><a class="dropdown-item" href="/en/cases/"><i class="fas fa-briefcase me-2"></i>Project Cases</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/en/open-source/"><i class="fas fa-code-branch me-2"></i>Open Source Projects</a></li><li><a class="dropdown-item" href="/en/articles/"><i class="fas fa-pen-fancy me-2"></i>Technical articles</a></li><li><a class="dropdown-item" href="/en/contribute/"><i class="fas fa-handshake me-2"></i>Contribute</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/en/dashuju/"><i class="fas fa-chart-line me-2"></i>Data Dashboard</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/en/search/"><i class="fas fa-search me-1"></i>Search</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="Search boards, projects or keywords..." aria-label="Search" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="Search Type:"><option value="">All Categories</option><option value="board">Open Source Boards</option><option value="project">Open Source Projects</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="Open smart search"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> English
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/robots-ua-group-fallback-5w1h/"><i class="fas fa-language me-2"></i> Chinese
+                            </a></li><li><a class="dropdown-item" href="/en/articles/robots-ua-group-fallback-5w1h/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/articles/robots-ua-group-fallback-5w1h/"><i class="fas fa-language me-2"></i> German
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/en/">Home</a></li><li class="breadcrumb-item"><a href="/en/articles/">Technical articles</a></li><li class="breadcrumb-item active" aria-current="page">Giving AI crawlers their own group removes them from the default rules</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">Free to read · sharing welcome</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">Giving AI crawlers their own group removes them from the default rules</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">Compute industry notes · GeekWaedon @GeekWaedon</p><p class="text-secondary text-sm mt-4">GeekWaedon @GeekWaedon · November 2026</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p>Giving each AI crawler its own User-agent group is the most natural step when a site refines its admission rules, and the easiest one to get wrong. Intuition says a dedicated group adds one exception on top of the wildcard group default; under RFC 9309 group matching, what actually happens is replacement: as soon as a crawler matches a group that names it, it reads only that group, and whatever is written in the wildcard group is irrelevant to it. The crawlers listed one by one therefore become precisely the clients least likely to see the site default declaration. The 5W1H breakdown follows. Conclusion first: a use declaration reaches only those whose group it is written into; a longer list is not the same as a stricter rule.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">What: a group-matching rule that is consistently read backwards</h2><p>RFC 9309 defines robots.txt as a set of groups, each beginning with one or more User-agent lines followed by Allow and Disallow rules, and ending when the next User-agent line starts a new group. The specification asks a crawler to find its matching groups using its product token with case-insensitive matching, and when several groups of the same name match, to merge their rules into a single group for parsing; only when it matches no dedicated group at all does it obey the asterisk wildcard group. A dedicated group, in other words, is not an exception but a complete substitute. The same mechanism has two consequences that are often overlooked. Within a group, the longest path match wins, with Allow taking precedence at equal length, and the order of lines does not decide priority — the opposite of the firewall instinct that the first matching rule takes effect. And an empty Disallow means no path is restricted at all, which is entirely different from Disallow: / blocking the whole site. Taken together, a file that writes one group per crawler and puts the blanket declaration in the wildcard group in fact reserves that declaration for the clients with no name.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Why: declaration and enforcement are mixed into one file</h2><p>robots.txt was created to answer only which paths not to crawl, yet today it is asked to answer at the same time what may be done with content after it is taken. RFC 9309 states at the outset that these rules are not a form of access authorisation, and the Cloudflare developer documentation says plainly that compliance is voluntary: the file expresses a preference and cannot technically prevent crawling, so actually blocking requires enforcement at the edge or authentication layer. Use declarations (Content Signals, terms text) belong to the first category, bans and rate limits to the second. Once both are packed into the same plain-text file, an engineering illusion follows easily: that naming every crawler and writing a Disallow into each group also brings the uses under control. In reality a named crawler reads only the few lines in its dedicated group, and if that group holds a single Disallow, the entire declaration about uses simply does not exist for it. Worse, the file has its own reliability limits: the specification treats 4xx as no restrictions, 5xx and unreachability as a temporary whole-site ban, requires only the first 500 KiB to be read, and lets clients cache the file for up to 24 hours. A publishing incident here tends to do more damage than one mistyped business rule.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Who: four parties each write a section, nobody owns overall consistency</h2><p>Standards bodies define the syntax and error semantics, site operators decide use preferences, an edge platform may host the file and prepend a block of its own managed content, and crawler operators decide whether and how to read it. The managed example in the Cloudflare developer documentation (updated 2 November 2026) stacks all four parties neatly: it prepends a block of managed content before the original robots.txt of the site, containing a User-agent: * group with Content-signal and Allow: /, followed by dedicated groups each carrying Disallow: / for Amazonbot, Applebot-Extended, Bytespider, CCBot, ClaudeBot, Google-Extended, GPTBot, meta-externalagent and others, and only then the original wildcard group of the site. This example is an official platform statement and must not be read as a mistake — the same platform enforces blocks at the edge through a separate crawler-control layer, and the Disallow in the file is only part of a preference sync. But it demonstrates one thing clearly: when a file is assembled by several parties, the assumption that every UA reads the same declaration does not hold, and the site must verify the final assembled full text itself rather than only the section it wrote.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">When: three time scales that do not line up</h2><p>The first layer is standards time. RFC 9309 is an IETF Standards Track document published in 2022, so group matching and error-handling semantics are relatively stable, whereas Content Signals is a policy text introduced by a platform in 2025, written into robots.txt comments and extension directives; it is not an RFC and its fields are still growing. Cloudflare documentation currently marks the fourth field, use, as an extension under testing, with three values — immediate, reference and full — and the managed content defaults to use=reference. The second layer is platform time: policy sync for managed robots.txt takes effect within seconds of saving, and the documentation explicitly says no cache purge is needed. The third is client time: crawlers may cache the file for up to 24 hours under the specification, their parsing implementations are not fully consistent, and Google Search Console may even report a new directive such as Content Signals as unrecognised syntax, with the platform documentation stating no observed effect on crawl rate. Treating a field under test, a platform default and a 24-hour cache as one single moment of being live is the most common source of misdiagnosis during troubleshooting.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Where: four locations whose boundaries do not overlap</h2><p>Use preferences live in the comments and extension directives of robots.txt and belong to the declaration layer; path accessibility lives in Allow/Disallow rules and is a crawl instruction to compliant clients; actual allow, rate limiting and blocking live in the edge WAF, gateway or authentication layer and belong to enforcement; and what really happened lives in origin logs and ledgers and belongs to the fact layer. RFC 9309 also fixes the scope of the file itself: it is valid only for the host, protocol and port that serve it, so a subdomain, another protocol or another port each needs its own copy. One concrete engineering choice follows: if you do not intend to give different crawlers different path rules, do not open a group for each; keep a single wildcard group, put both the use declaration and the path rules inside it, and list the crawler roster as a comment at the top of the file for human review, so every client reads the same declaration. If dedicated groups are genuinely needed, accept that the declaration must be copied into every group, and encode every group has it as an automated check rather than relying on memory.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">How: turn group matching into four reviewable steps</h2><p>Step one: retrieve the full robots.txt text actually served to the outside as the single source of truth, rather than reading the template in the repository; when a platform prepends content, re-check the assembled result externally with a request carrying Cache-Control: no-cache. Step two: enumerate every User-agent line, compute for each product token, according to group-matching semantics, which group it actually reads, then check whether that group contains the use declaration and the necessary path rules; multiple groups with the same name must be evaluated on their merged rules, and longest-match precedence requires computing the length line by line. Step three: verify file reliability — a 200 status, a size well below 500 KiB, syntax accepted by the parser, and the publication time and version number of the two declaration files written into the log, so a 5xx is not silently read as a whole-site ban. Step four: make whether the declaration covers the target UA an assertion at release time, and keep a 24-hour crawl observation window on each side of a change, because old behaviour seen during the cache period is not a regression. Only after these four steps does a discussion of charging or blocking have a verifiable baseline.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Boundaries: where this decomposition stops holding</h2><p>Group-matching semantics bind only clients willing to honour the REP and have no effect on fetchers that never read the file; a use declaration does not even reach the question of compliance, because it expresses a preference and a reservation of rights rather than a technical gate. The specification does not define extension directives such as Content-signal or use, and implementations differ on whether to ignore, reject or log them, so “written in the file” must not be equated with “received by the other side”. A platform prepending managed content changes the final full text, and if a site also runs several policy layers, the rules it sees may be a composite from several parties, where an update by any one of them can invalidate the assertion. One more layer is even easier to omit: HTTP cannot see whether content flows into an index, a summary or a training set after delivery, so declarations and logs cover only the period before delivery and the moment of delivery. These gaps cannot be closed by configuration; they need contracts, platform relationships and after-the-fact reconciliation.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Conclusion: a simple structure is stricter than it looks</h2><p>If there is no real need to differentiate path rules by crawler, keep a single wildcard group, put the use declaration, the path rules and the sitemap index all inside it, and write the AI crawler roster as a comment. That is stricter than listing a dozen dedicated groups, because no client can slip out of the declaration merely by being named. Where differentiated rules are genuinely needed, accept the cost of copying the declaration into each group and turn group-coverage completeness into an automated assertion. Finally, complete the enforcement layer and the fact layer: edge policy does the blocking, origin logs answer what was actually returned at the time. A twelve-line file plus one reviewable assertion is usually closer to what the site truly wants to say than a 120-line file that merely reads as thorough.</p></div><div class="card-dark p-6 mb-5"><p>Sources and framing (as of 12 November 2026): group matching, merging groups of the same name, longest path match, Allow precedence at equal length, the 500 KiB read floor, the 24-hour cache, the differing semantics of 4xx and 5xx, and the statement that the rules are not a form of access authorisation all come from the IETF RFC 9309 specification text. The prepended content of Cloudflare managed robots.txt, Bot Preference Sync, the use extension being under test, and the absence of observed impact from syntax warnings come from its developer documentation (page marked updated 2 November 2026) and the official blog, and are official platform statements. A plain-language explanation of a dedicated group replacing the wildcard group also appears in public third-party technical write-ups, consistent with the specification text, and is cited here only as supporting context. The platform managed example and the single wildcard group recommended here are two different trade-offs, set side by side without judging either as right; check the current documentation of your platform before implementing.</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">Frequently asked questions</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>If a crawler gets its own dedicated group, does it still follow the rules in the wildcard group?</h3><p class="faq-a">No. Under RFC 9309 a crawler falls back to the wildcard group only when it matches no dedicated group at all; once it matches a dedicated group, the Allow and Disallow lines and any extension declarations in the wildcard group play no part in its evaluation. Multiple groups with the same name are merged, and only the rules among those named groups are merged.</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>If Content Signals is written as a comment, can machines still read it?</h3><p class="faq-a">The comment is a policy text meant for humans; the preference itself is expressed by an extension directive line of the same name. The two should be published as a pair: the comment explains the three purpose terms and the reservation of rights, the directive line carries the concrete values. Parsers handle non-standard directives inconsistently, so no client can be guaranteed to recognise it.</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>What happens if robots.txt returns a 5xx status?</h3><p class="faq-a">The specification requires compliant crawlers to assume the entire site is disallowed for the duration, so the impact is far greater than a single mistyped rule; a 4xx such as 404, by contrast, is treated as no restrictions at all. Confirming a 200 status before release takes priority over checking the wording of any one line.</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/en/articles/" class="btn-zouic">Technical articles</a><a href="/en/boards/" class="btn-zouic">Development Boards</a><a href="/en/compare/" class="btn-zouic btn-zouic-primary">Board comparison</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">Follow @GeekWaedon for Weekly Updates</h3><p class="text-secondary text-sm mb-4 mb-lg-0">Board picks, project breakdowns and hardware engineering tips, first published on WeChat and Knowledge Planet.</p></div><div class="col-lg-5"><a href="/en/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">See How to Follow</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> Weekly curated board picks</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Exclusive project deep-dives</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Updated on WeChat and Knowledge Planet</span></div></div></div></div></div></section><section class="py-4" aria-label="Produced by"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">Created by GeekWaedon <span>@GeekWaedon</span></div><div class="author-card-bio">Hardware maker and AI practitioner. This entire website was built hands-on with AI tools.</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Join my Knowledge Planet</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;GeekWaedon&#34;</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/en/" class="footer-brand" aria-label="ZouIC home"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">Quality open hardware projects from platforms worldwide · For developer reference only</p><p class="footer-business-contact">
+                        Business &amp; parts sourcing:
+                        <a href="mailto:waedon@outlook.com?subject=Business%20enquiry"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            Produced by · <strong>GeekWaedon</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware enthusiast</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI practitioner</span><a href="/en/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom service provider"><i class="fab fa-weixin"></i> WeCom service provider
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a><a href="/en/#follow" class="footer-social-link" aria-label="WeChat Official Account · GeekWaedon" title="WeChat Official Account · GeekWaedon"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Products</h5><ul><li><a href="/en/products/">Products</a></li><li><a href="/en/services/">Services</a></li><li><a href="/en/services/website-building/">Website building</a></li><li><a href="/en/services/component-matching/">Component matching</a></li><li><a href="/en/news/">Site Updates</a></li><li><a href="/en/boards/">Development Boards</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Resources</h5><ul><li><a href="/en/board-guide/">Board selection guide</a></li><li><a href="/en/compare/">Board comparison</a></li><li><a href="/en/tutorials/">Tutorials</a></li><li><a href="/en/documentation/">Documentation</a></li><li><a href="/en/online-tools/">Online Tools</a></li><li><a href="/en/tools/">Hardware calculators</a></li><li><a href="/en/cases/">Project Cases</a></li><li><a href="/en/help/">Documentation</a></li><li><a href="/en/games/resistor/">Resistor Color Code Challenge</a></li><li><a href="/en/dashuju/">Data Dashboard</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Open Source</h5><ul><li><a href="/en/open-source/">Open Source Projects</a></li><li><a href="/en/all-projects/">All projects</a></li><li><a href="/en/articles/">Technical articles</a></li><li><a href="/en/contribute/">Contribute</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>About</h5><ul><li><a href="/en/about/">About Us</a></li><li><a href="/en/about/#contact">Contact Us</a></li><li><a href="/en/licenses/">Open Source Licenses</a></li><li><a href="/en/pricing/">Pricing</a></li><li><a href="/en/privacy/">Privacy Policy</a></li><li><a href="/en/terms/">Terms of Service</a></li><li><a href="/en/refund/">Refund Policy</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">Popular Categories</span><div class="footer-category-links"><a href="/en/category/">all</a><a href="/en/category/fpga/">FPGA</a><a href="/en/category/general/">General</a><a href="/en/category/ai_hardware/">AI Hardware</a><a href="/en/category/vision/">Computer Vision</a><a href="/en/category/esp32/">ESP32</a><a href="/en/category/robotics/">Robotics</a><a href="/en/source/github/">GitHub</a><a href="/en/source/hackster/">Hackster.io</a><a href="/en/resources/">Resource Navigation</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="Geek Micro Building" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">Built single-handedly by GeekWaedon (@GeekWaedon) · <span style="color:#a78bfa;">people and AI, working side by side</span></div><div class="text-xs text-secondary">A one-person project run by a real human: the site build, the data pulls, the articles and the artwork all came from me (with a few AI agents). <a href="/en/about/" class="text-primary" style="text-decoration:none;">Meet the person behind it →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>Projects aggregated here are for developer reference only: ZouIC indexes them and hosts no code or files; copyright and licensing stay with their authors. For details, see the <a href="/en/licenses/">Open Source Licenses</a> page.</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="On-site smart search"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="Search boards, projects and articles, or type a question…"
+                       aria-label="On-site smart search"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> Select</span><span><kbd>↵</kbd> Open</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Copied';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Removed from favorites');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Saved to favorites');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/robots-ua-group-fallback-5w1h/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=en-US'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>

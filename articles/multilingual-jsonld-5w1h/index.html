@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="同一项服务在中文页用人民币目录价、在英德页用美元报价口径，结构化数据该写哪一个？这不是格式题：标记里的价格必须与页面可见价格一致，币种必须写明，而项目制产品根本不该出现 price 字段。"><meta name="keywords" content="5W1H, JSON-LD, schema.org, Service, OfferCatalog, priceCurrency, CNY, USD, 结构化数据"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/articles/multilingual-jsonld-5w1h/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/multilingual-jsonld-5w1h/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/multilingual-jsonld-5w1h/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/multilingual-jsonld-5w1h/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/multilingual-jsonld-5w1h/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="结构化数据要不要跟着语言换币种"><meta property="og:description" content="同一项服务在中文页用人民币目录价、在英德页用美元报价口径，结构化数据该写哪一个？这不是格式题：标记里的价格必须与页面可见价格一致，币种必须写明，而项目制产品根本不该出现 price 字段。"><meta property="og:url" content="https://www.zouic.com/articles/multilingual-jsonld-5w1h/"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="结构化数据要不要跟着语言换币种"><meta name="twitter:description" content="同一项服务在中文页用人民币目录价、在英德页用美元报价口径，结构化数据该写哪一个？这不是格式题：标记里的价格必须与页面可见价格一致，币种必须写明，而项目制产品根本不该出现 price 字段。"><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "\u540c\u4e00\u9879\u670d\u52a1\u5728\u4e2d\u6587\u9875\u7528\u4eba\u6c11\u5e01\u76ee\u5f55\u4ef7\u3001\u5728\u82f1\u5fb7\u9875\u7528\u7f8e\u5143\u62a5\u4ef7\u53e3\u5f84\uff0c\u7ed3\u6784\u5316\u6570\u636e\u8be5\u5199\u54ea\u4e00\u4e2a\uff1f\u8fd9\u4e0d\u662f\u683c\u5f0f\u9898\uff1a\u6807\u8bb0\u91cc\u7684\u4ef7\u683c\u5fc5\u987b\u4e0e\u9875\u9762\u53ef\u89c1\u4ef7\u683c\u4e00\u81f4\uff0c\u5e01\u79cd\u5fc5\u987b\u5199\u660e\uff0c\u800c\u9879\u76ee\u5236\u4ea7\u54c1\u6839\u672c\u4e0d\u8be5\u51fa\u73b0 price \u5b57\u6bb5\u3002", "headline": "\u7ed3\u6784\u5316\u6570\u636e\u8981\u4e0d\u8981\u8ddf\u7740\u8bed\u8a00\u6362\u5e01\u79cd", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/multilingual-jsonld-5w1h/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/multilingual-jsonld-5w1h/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/multilingual-jsonld-5w1h/", "name": "\u7ed3\u6784\u5316\u6570\u636e\u8981\u4e0d\u8981\u8ddf\u7740\u8bed\u8a00\u6362\u5e01\u79cd", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u4e0d\u7b97\uff0c\u524d\u63d0\u662f\u6bcf\u4e00\u8fb9\u7684 priceCurrency \u90fd\u4e0e\u5404\u81ea\u9875\u9762\u53ef\u89c1\u6570\u5b57\u4e00\u81f4\uff0c\u4e14\u4e24\u5957\u53e3\u5f84\u5206\u522b\u8bf4\u660e\u5b9a\u4ef7\u65b9\u4e0e\u9002\u7528\u8303\u56f4\u3002\u51b2\u7a81\u7684\u662f\u628a\u76ee\u5f55\u4ef7\u6298\u7b97\u6210\u7f8e\u5143\u3001\u6216\u628a\u4e24\u79cd\u53e3\u5f84\u585e\u8fdb\u540c\u4e00\u4e2a Offer\uff1b\u4e0d\u8981\u53d6\u5e73\u5747\uff0c\u4e5f\u4e0d\u8981\u6362\u7b97\u5408\u5e76\u3002"}, "name": "\u82f1\u6587\u9875\u7528\u7f8e\u5143\u3001\u4e2d\u6587\u9875\u7528\u4eba\u6c11\u5e01\uff0c\u7ed3\u6784\u5316\u6570\u636e\u7b97\u4e0d\u7b97\u51b2\u7a81\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u4e0d\u5199\u3002\u9875\u9762\u6ca1\u6709\u663e\u793a\u4ef7\u683c\u5c31\u4e0d\u6807 price\uff0c\u4e5f\u4e0d\u5fc5\u4e3a\u4e86\u5b57\u6bb5\u5b8c\u6574\u7f16\u4e00\u4e2a\u96f6\u6216\u5360\u4f4d\u6570\u5b57\uff1b\u5728\u53ef\u89c1\u6587\u6848\u91cc\u8bf4\u660e\u6309\u9879\u76ee\u62a5\u4ef7\u3001\u9700\u8981\u54ea\u4e9b\u4fe1\u606f\u624d\u80fd\u6d4b\u7b97\uff0c\u6bd4\u4e00\u4e2a\u770b\u4f3c\u5b8c\u6574\u7684\u5b57\u6bb5\u66f4\u51c6\u786e\u3002"}, "name": "\u9879\u76ee\u5236\u4ea7\u54c1\u6ca1\u6709\u516c\u5f00\u4ef7\uff0cprice \u5b57\u6bb5\u8be5\u5199\u4ec0\u4e48\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u9875\u9762\u91cc\u7684\u6838\u5bf9\u65e5\u671f\u662f\u7ed9\u8bfb\u8005\u7684\u53e3\u5f84\u8bf4\u660e\uff0c\u5fc5\u987b\u4fdd\u7559\uff1b\u6807\u8bb0\u91cc\u4e0d\u8981\u628a\u5b83\u5305\u88c5\u6210\u672c\u7ad9\u62a5\u4ef7\u6216\u6709\u6548\u671f\u627f\u8bfa\u3002\u76ee\u5f55\u4ef7\u7531\u5e73\u53f0\u5b9a\uff0c\u7ad9\u70b9\u53ea\u505a\u8f6c\u8ff0\uff0c\u5b9e\u9645\u4ee5\u4e0b\u5355\u9875\u4e3a\u51c6\u3002"}, "name": "\u5b98\u65b9\u76ee\u5f55\u4ef7\u9875\u9762\u4e0a\u5199\u7740\u6838\u5bf9\u65e5\u671f\uff0c\u6807\u8bb0\u91cc\u4e5f\u8981\u5199\u5417\uff1f"}]}]}
+    </script>
+    
+    
+    <title>结构化数据要不要跟着语言换币种 - ZouIC</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">跳转到主要内容</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航"><div class="container"><a class="navbar-brand" href="/" aria-label="ZouIC 首页"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/all-projects/">开源项目</a></li><li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li><li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/services/component-matching/">商务合作</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li><li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li><li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li><li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li><li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li><li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li><li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li><li><a class="dropdown-item" href="/tools/"><i class="fas fa-calculator me-2"></i>硬件计算器</a></li><li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li><li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li><li><a class="dropdown-item" href="/ideas/"><i class="fas fa-lightbulb me-2"></i>创意树洞</a></li><li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="搜索类型:"><option value="">全部分类</option><option value="board">开源开发板</option><option value="project">开源项目</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="打开智能搜索"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/multilingual-jsonld-5w1h/"><i class="fas fa-language me-2"></i> 中文
+                            </a></li><li><a class="dropdown-item" href="/en/articles/multilingual-jsonld-5w1h/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/articles/multilingual-jsonld-5w1h/"><i class="fas fa-language me-2"></i> 德语
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/">首页</a></li><li class="breadcrumb-item"><a href="/articles/">技术文章</a></li><li class="breadcrumb-item active" aria-current="page">结构化数据要不要跟着语言换币种</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">免费公开 · 欢迎转发</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">结构化数据要不要跟着语言换币种</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">算力行业观察 · 极客微栋 @GeekWaedon</p><p class="text-secondary text-sm mt-4">极客微栋 @GeekWaedon · 2026 年 11 月</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p>多语站点里最容易被当成「配置差异」处理的一件事，是同一个服务在不同语言页面上用了不同币种。结构化数据一旦跟着页面写价格，就会牵出三个必须明确的问题：这个数字是谁定的、页面上看不看得到、带的是哪种货币。下面按 5W1H 把「要不要跟着语言换币种」拆开。结论先说：币种可以随报价口径变，但必须一次只写清一套口径；页面没有显示价格就不标价格；目录价与自行报价绝不能混进同一个 Offer 里，也不能折算成一个看起来方便的数字。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何事 · What：三类页面，三种价格事实</h2><p>服务总览页描述的是平台官方公开的目录价，属于「别人定价、站点代开通」的事实；报价页描述的是站点自己承接项目的报价口径，属于「站点定价」的事实；项目制产品（例如会话内容存档、私有化部署）没有公开价格，只接受询价，属于「没有价格可写」的事实。schema.org 提供的是描述这些事实的词表：Service 描述一项服务，provider 指向提供它的组织，ContactPoint 描述联系渠道，hasOfferCatalog 与 OfferCatalog 描述一份确实存在的价目清单，Offer 与 PriceSpecification、UnitPriceSpecification 描述具体价格。词表不负责判断哪个数字是真的，它只要求写进去的东西能在页面上被看到。把这三类事实混成一件事，是多语结构化数据里最常见的错误来源：明明页面只写了目录价，标记里却出现一个折算后的本币数字。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何因 · Why：标记与可见内容不一致，是口径事故不是语法事故</h2><p>结构化数据的价值在于把页面事实变成可提取的字段，机器读到 price 时会默认这个数字在页面上也存在。第三方技术整理普遍强调：只在页面确实展示价格时才写 price 或 priceSpecification，报价制或面议的服务应当不写 offers，或用页面明确写出的起步价；把没展示的数字编进标记，属于标记与可见内容不一致，比缺一个字段风险更大。schema.org 对 priceCurrency 的要求也写得很具体：使用 ISO 4217 三字母代码，不要把货币符号混进数值里；数值用句点作小数点，不要用逗号作千位分隔。于是「换币种」这件事的边界变得很清楚：如果中文页写人民币目录价、英德页用美元描述海外项目报价，两边可以各有自己的 priceCurrency，但每一边都必须与各自页面上的可见数字、单位与说明一致；跨页复制一个标记块再改币种符号，几乎必然造成不一致。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何人 · Who：定价方、代开通方与标记维护方不是同一批人</h2><p>官方目录价由平台定，页面上的数字、核对日期与「以下单页为准」的说明是转述，站点不能承诺折扣也不能自行加价；项目报价由站点定，可以按目标市场选择币种与单位；标记由模板或服务端生成，通常由工程侧维护。三方职责不同，却共用同一组字段，因此最需要一条明确的规则：谁定价，谁解释。目录价页面里应当写清这是官方公开目录价、核对日期、不是本站报价、实际以下单页为准，标记里也不要出现把目录价包装成站点售价的措辞。ContactPoint 里列出的联系邮箱、可用语言与服务类型，则属于站点自己能提供的事实，可以放心写。把「平台定价」与「站点报价」分开描述，既是对读者负责，也让机器不会把两种收入口径混为一笔。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何时 · When：三个必须同步更新的时刻</h2><p>官方目录价调整时，页面数字、核对日期与标记要一起改；站点报价口径调整（例如海外项目改用另一币种）时，对应语言页面的可见文案与 priceCurrency 要一起改；词表或平台校验规则变化时，字段写法要复核。三者不同步会留下一类很难察觉的残留：页面已经换了币种，标记里还留着旧代码；或官方目录价早就变了，页面还挂着几个月前的核对日期。多语场景还多一步——语言版本之间的更新往往分批做，中文页改了而英文页没改，就会出现同一 @id 实体在不同语言版本里带着不同数字。合理的做法是把价格、币种、核对日期与语种一起写进一份结构化清单，由模板按语言取值，并把「各语言页面的标记与该页可见文案一致」做成导出后的断言，而不是靠发布时人工对照。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何地 · Where：站点级与页面级各自写什么</h2><p>组织实体（Organization、@id、联系渠道）属于站点级，通常在全站统一声明，各语言版本指向同一个 @id，避免每个语种各自造一个「公司」。服务与报价属于页面级，随该语言页面的事实走：服务名称、描述、serviceType 用本语种文本，priceCurrency 用该页口径对应的 ISO 代码，带单位的报价用 UnitPriceSpecification 并写清 unitText。语言纯度也在这里体现——英文与德文页面的 JSON-LD 里不应残留中文服务名或中文说明，否则即便页面正文译完，机器读到的仍是中文字段。还有一处容易越界：hasOfferCatalog 应当只在页面真的列出价目清单时使用，把服务总览里的一段介绍包装成 OfferCatalog，等于凭空造了一份并不存在的价目表。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">如何 · How：把三语标记做成一张口径表</h2><p>第一步按页面分类：服务总览页只描述服务与提供方，若展示官方目录价，就在可见文案里写清定价方与核对日期；报价页描述站点自己的 OfferCatalog，逐项写明价格、币种与单位；项目制产品标记为询价，不写 price。第二步为每个语言版本列出「可见数字、币种代码、单位、核对日期、定价方」五行，模板只从这张表取值，保证页面与标记同源。第三步做五项断言：标记里的每个 price 都能在该页可见文案中找到；priceCurrency 是 ISO 4217 代码且数值不含货币符号；询价类条目完全没有 price 字段；英文与德文标记里无中文字符；@id 与 canonical 指向同一实体且各语言版本一致。第四步用两类校验器各跑一次——搜索平台侧查是否有资格进入其支持的展示，通用校验器查词表与语法，两者回答的问题不同，可以给出不同结论，都要留记录。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">边界：结构化数据不带来展示，也不证明价格真实</h2><p>Service 类型在搜索平台的富媒体结果展示列表里并没有对应特性，标记的作用是说明「谁提供什么、怎么联系、有哪些报价」，不是换取一个特殊展示位；第三方整理把这一点写得很清楚，此处只作方向性引用。标记也不会让价格变得更可信：数字是否成立取决于定价方与核对日期，字段写对了但数字过期，仍然是错的。关于「报价制服务怎么写」，公开资料里存在分歧：多数建议干脆不写 offers，也有资料建议用 price 为零并附说明字段来占位；后者与「不要编造页面没显示的数字」这条原则冲突，本文不采纳，且不把任一方写成规范要求。还有一层口径冲突要并列保留：目录价页面保留官方人民币报价、不折算成美元，与海外项目按美元报价，是两套并行口径，不应取平均、不应换算合并、也不应写进同一个 Offer。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">结论：币种可换，口径不能混</h2><p>让每个语言版本描述自己页面上真实存在的那套价格事实：目录价写清是官方定价、附核对日期与以下单页为准；站点报价写清币种、单位与适用范围；询价类产品干脆不写价格。用一份「可见数字 / 币种 / 单位 / 日期 / 定价方」的清单驱动模板，让页面与标记同源，并把五项断言接进导出流程。这样即便搜索平台从未展示这些字段，站点至少保住了一件更基础的事：机器读到的价格，和人在这页上看到的价格，是同一个数、同一个币种、同一个出处。</p></div><div class="card-dark p-6 mb-5"><p>数据与口径（基准日 2026-11-12）：Service、provider、ContactPoint、hasOfferCatalog、OfferCatalog、Offer、PriceSpecification、UnitPriceSpecification 的用途，以及 priceCurrency 使用 ISO 4217 代码、数值用句点作小数点、不要把货币符号混进数值，出自 schema.org 词表文档。仅在页面显示价格时才标注、报价制服务不写 offers、Service 类型无对应富媒体展示、两类校验器分工不同，来自公开第三方技术整理，属工具与实务口径，不写作平台规范；其中关于报价制可用零价格占位的建议与本文取舍冲突，已并列写出且不采纳。企业微信官方商城目录价与服务页「不是本站报价、以下单页为准」的说明为平台官方口径与站点转述口径的区分，核对日期以页面标注为准。基准日后官方目录价与平台规则均可能调整，实施前请核对当期页面。</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>英文页用美元、中文页用人民币，结构化数据算不算冲突？</h3><p class="faq-a">不算，前提是每一边的 priceCurrency 都与各自页面可见数字一致，且两套口径分别说明定价方与适用范围。冲突的是把目录价折算成美元、或把两种口径塞进同一个 Offer；不要取平均，也不要换算合并。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>项目制产品没有公开价，price 字段该写什么？</h3><p class="faq-a">不写。页面没有显示价格就不标 price，也不必为了字段完整编一个零或占位数字；在可见文案里说明按项目报价、需要哪些信息才能测算，比一个看似完整的字段更准确。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>官方目录价页面上写着核对日期，标记里也要写吗？</h3><p class="faq-a">页面里的核对日期是给读者的口径说明，必须保留；标记里不要把它包装成本站报价或有效期承诺。目录价由平台定，站点只做转述，实际以下单页为准。</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/articles/" class="btn-zouic">技术文章</a><a href="/boards/" class="btn-zouic">开源开发板</a><a href="/compare/" class="btn-zouic btn-zouic-primary">开发板对比</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3><p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p></div><div class="col-lg-5"><a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span></div></div></div></div></div></section><section class="py-4" aria-label="出品人"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div><div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/" class="footer-brand" aria-label="ZouIC 首页"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p><p class="footer-business-contact">
+                        商务合作 / 器件选型：
+                        <a href="mailto:waedon@outlook.com?subject=%E5%95%86%E5%8A%A1%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            出品人 · <strong>极客微栋</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span><a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商"><i class="fab fa-weixin"></i> 企业微信服务商
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a><a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>产品</h5><ul><li><a href="/products/">产品介绍</a></li><li><a href="/services/">服务说明</a></li><li><a href="/services/website-building/">建站服务</a></li><li><a href="/services/component-matching/">元器件撮合</a></li><li><a href="/news/">站内动态</a></li><li><a href="/boards/">开源开发板</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>资源</h5><ul><li><a href="/board-guide/">选型指南</a></li><li><a href="/compare/">开发板对比</a></li><li><a href="/tutorials/">开发板教程</a></li><li><a href="/documentation/">技术文档</a></li><li><a href="/online-tools/">在线工具</a></li><li><a href="/tools/">硬件计算器</a></li><li><a href="/cases/">项目案例</a></li><li><a href="/help/">文档中心</a></li><li><a href="/games/resistor/">色环电阻识别挑战</a></li><li><a href="/dashuju/">数据大屏</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>开源生态</h5><ul><li><a href="/open-source/">开源项目</a></li><li><a href="/all-projects/">全部项目</a></li><li><a href="/articles/">技术文章</a></li><li><a href="/ideas/">创意树洞</a></li><li><a href="/wechat/">公众号专栏</a></li><li><a href="/contribute/">贡献指南</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>关于</h5><ul><li><a href="/about/">关于我们</a></li><li><a href="/about/#contact">联系我们</a></li><li><a href="/licenses/">开源协议</a></li><li><a href="/pricing/">服务报价</a></li><li><a href="/privacy/">隐私政策</a></li><li><a href="/terms/">服务条款</a></li><li><a href="/refund/">退款政策</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">热门分类</span><div class="footer-category-links"><a href="/category/">全部</a><a href="/category/fpga/">FPGA</a><a href="/category/general/">综合</a><a href="/category/ai_hardware/">AI 硬件</a><a href="/category/vision/">机器视觉</a><a href="/category/esp32/">ESP32</a><a href="/category/robotics/">机器人</a><a href="/source/github/">GitHub</a><a href="/source/hackster/">Hackster.io</a><a href="/resources/">资源导航</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div><div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="返回顶部"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="站内智能搜索"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="搜索开发板、项目、文章，或直接输入问题…"
+                       aria-label="站内智能搜索"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> 选择</span><span><kbd>↵</kbd> 打开</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/multilingual-jsonld-5w1h/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=zh-CN'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>

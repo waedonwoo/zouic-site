@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="Die gängigste Formel in einer mehrsprachigen Vorlage lautet „wenn der Übersetzungsschlüssel fehlt, den chinesischen Standardwert nehmen“. Genau dieser…"><meta name="keywords" content="5W1H, i18n, Übersetzungsabdeckung, Fallback bei fehlenden Übersetzungsschlüsseln, Sprachreinheit, blockweiser Abgleich, dreisprachige Veröffentlichung, automatisierte Prüfung"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/de/articles/translation-coverage-5w1h/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/translation-coverage-5w1h/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/translation-coverage-5w1h/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/translation-coverage-5w1h/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/translation-coverage-5w1h/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="Was eine Seite zeigen soll, wenn die Übersetzung noch fehlt"><meta property="og:description" content="Die gängigste Formel in einer mehrsprachigen Vorlage lautet „wenn der Übersetzungsschlüssel fehlt, den chinesischen Standardwert nehmen“. Genau dieser Fallback lässt auf englischen und deutschen Seiten bei fehlenden Schlüsseln still Chinesisch durchscheinen. Eine fehlende Übersetzung ist keine Renderfrage, sondern eine Veröffentlichungsentscheidung: entweder bewusst auslassen oder bewusst kennzeichnen, aber niemals den Standardwert für das Content-Team sprechen lassen."><meta property="og:url" content="https://www.zouic.com/de/articles/translation-coverage-5w1h/"><meta property="og:type" content="article"><meta property="og:locale" content="de_DE"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC – Plattform für Open-Source-Entwicklungsboards · GeekWeidong"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Was eine Seite zeigen soll, wenn die Übersetzung noch fehlt"><meta name="twitter:description" content="Die gängigste Formel in einer mehrsprachigen Vorlage lautet „wenn der Übersetzungsschlüssel fehlt, den chinesischen Standardwert nehmen“. Genau dieser Fallback lässt auf englischen und deutschen Seiten bei fehlenden Schlüsseln still Chinesisch durchscheinen. Eine fehlende Übersetzung ist keine Renderfrage, sondern eine Veröffentlichungsentscheidung: entweder bewusst auslassen oder bewusst kennzeichnen, aber niemals den Standardwert für das Content-Team sprechen lassen."><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "Die g\u00e4ngigste Formel in einer mehrsprachigen Vorlage lautet \u201ewenn der \u00dcbersetzungsschl\u00fcssel fehlt, den chinesischen Standardwert nehmen\u201c. Genau dieser Fallback l\u00e4sst auf englischen und deutschen Seiten bei fehlenden Schl\u00fcsseln still Chinesisch durchscheinen. Eine fehlende \u00dcbersetzung ist keine Renderfrage, sondern eine Ver\u00f6ffentlichungsentscheidung: entweder bewusst auslassen oder bewusst kennzeichnen, aber niemals den Standardwert f\u00fcr das Content-Team sprechen lassen.", "headline": "Was eine Seite zeigen soll, wenn die \u00dcbersetzung noch fehlt", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "de", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/translation-coverage-5w1h/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/translation-coverage-5w1h/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/translation-coverage-5w1h/", "name": "Was eine Seite zeigen soll, wenn die \u00dcbersetzung noch fehlt", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Das Problem ist, dass die Sprachenentscheidung an die Render-Schicht wandert. Fehlt ein Schl\u00fcssel im englischen oder deutschen W\u00f6rterbuch, zeigt die Seite einfach Chinesisch, und Statuscode wie Wortzahl wirken v\u00f6llig normal; nur eine Pr\u00fcfung der Sprachreinheit deckt es auf. Besser l\u00e4sst man einen fehlenden Schl\u00fcssel in einer Pr\u00fcfung vor dem Export scheitern, statt ihn still zur\u00fcckfallen zu lassen."}, "name": "Was ist daran falsch, in der Vorlage einen chinesischen Standardwert als Fallback zu hinterlegen?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Nicht genau genug. Chinesische Kommentare in script- und style-Bl\u00f6cken, HTML-Kommentare und Autorenkarten in Vorlagen erzeugen Fehlalarme; man sollte diese Teile entfernen, dann den sichtbaren Text z\u00e4hlen, Metadaten wie title, desc und aria-label getrennt pr\u00fcfen und f\u00fcr berechtigte Ausnahmen wie Markennamen eine Positivliste f\u00fchren."}, "name": "Reicht es, englische und deutsche Seiten einfach nach chinesischen Zeichen zu durchsuchen?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "In Archivdateien nicht empfehlenswert. Ein Originaltext-Platzhalter zerst\u00f6rt die Sprachreinheit der Datei und l\u00e4sst sprachbasierte automatische Verarbeitung falsch urteilen; sicherer ist, den Eintrag ganz zu \u00fcberspringen und im Dateikopf zu vermerken, dass Inhalte ohne \u00dcbersetzung in dieser Sprache nicht aufgenommen werden, samt Geltungsbereich und Stichtag."}, "name": "Kann ein Beitrag ohne \u00dcbersetzung zun\u00e4chst als Originaltext-Platzhalter stehen bleiben?"}]}]}
+    </script>
+    
+    
+    <title>Was eine Seite zeigen soll, wenn die Übersetzung noch fehlt</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Hauptnavigation"><div class="container"><a class="navbar-brand" href="/de/" aria-label="ZouIC-Startseite"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Navigation umschalten"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/de/">Startseite</a></li><li class="nav-item"><a class="nav-link" href="/de/all-projects/">Open-Source-Projekte</a></li><li class="nav-item"><a class="nav-link" href="/de/boards/">Open-Source-Boards</a></li><li class="nav-item"><a class="nav-link" href="/de/board-guide/">Dokumentation</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/de/services/component-matching/">Geschäftskontakt</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Mehr
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/de/products/"><i class="fas fa-box me-2"></i>Produkte</a></li><li><a class="dropdown-item" href="/de/services/"><i class="fas fa-cogs me-2"></i>Leistungen</a></li><li><a class="dropdown-item" href="/de/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>elektronische BauteileVermittlung</a></li><li><a class="dropdown-item" href="/de/news/"><i class="fas fa-newspaper me-2"></i>Neuigkeiten</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/de/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Anleitungen</a></li><li><a class="dropdown-item" href="/de/documentation/"><i class="fas fa-book me-2"></i>Dokumentation</a></li><li><a class="dropdown-item" href="/de/resources/"><i class="fas fa-compass me-2"></i>Ressourcennavigation</a></li><li><a class="dropdown-item" href="/de/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>Online-Werkzeuge</a></li><li><a class="dropdown-item" href="/de/tools/"><i class="fas fa-calculator me-2"></i>Hardware calculators</a></li><li><a class="dropdown-item" href="/de/cases/"><i class="fas fa-briefcase me-2"></i>Projektbeispiele</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/de/open-source/"><i class="fas fa-code-branch me-2"></i>Open-Source-Projekte</a></li><li><a class="dropdown-item" href="/de/articles/"><i class="fas fa-pen-fancy me-2"></i>Fachbeiträge</a></li><li><a class="dropdown-item" href="/de/contribute/"><i class="fas fa-handshake me-2"></i>Mitwirken</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/de/dashuju/"><i class="fas fa-chart-line me-2"></i>Datenübersicht</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/de/search/"><i class="fas fa-search me-1"></i>Suche</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="Boards, Projekte oder Schlagworte suchen …" aria-label="Suchen" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="Suchtyp:"><option value="">Alle Kategorien</option><option value="board">Open-Source-Boards</option><option value="project">Open-Source-Projekte</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Suchen"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="Smart-Suche öffnen"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> Deutsch
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/translation-coverage-5w1h/"><i class="fas fa-language me-2"></i> Chinesisch
+                            </a></li><li><a class="dropdown-item" href="/en/articles/translation-coverage-5w1h/"><i class="fas fa-language me-2"></i> Englisch
+                            </a></li><li><a class="dropdown-item" href="/de/articles/translation-coverage-5w1h/"><i class="fas fa-language me-2"></i> Deutsch
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/de/">Startseite</a></li><li class="breadcrumb-item"><a href="/de/articles/">Fachbeiträge</a></li><li class="breadcrumb-item active" aria-current="page">Was eine Seite zeigen soll, wenn die Übersetzung noch fehlt</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">Frei zugänglich · Weitergabe erwünscht</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">Was eine Seite zeigen soll, wenn die Übersetzung noch fehlt</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">Notizen zur Compute-Branche · GeekWaedon @GeekWaedon</p><p class="text-secondary text-sm mt-4">GeekWaedon @GeekWaedon · November 2026</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p>Eine Weile nach dem Start einer mehrsprachigen Website tauchen auf englischen und deutschen Seiten gelegentlich ein, zwei chinesische Sätze auf. Die Ursache ist fast nie eine übersehene Übersetzung selbst, sondern der scheinbar solide Fallback in der Vorlage: Lässt sich ein Übersetzungsschlüssel nicht finden, wird der in die Vorlage geschriebene chinesische Standardwert genommen. Das System meldet keinen Fehler, die Seite liefert 200, nur liest der Leser auf einer englischen Seite eine andere Sprache. Im Folgenden zerlegt die 5W1H-Sicht die Frage „Was soll die Seite zeigen, wenn die Übersetzung noch fehlt?“. Das Fazit vorab: Eine fehlende Übersetzung muss die Inhaltsliste ausdrücklich entscheiden, nicht ein Standardwert in der Render-Schicht implizit; lieber einen Eintrag weniger aufnehmen, als Sprachmischung als Kompatibilitätsstrategie zu behandeln.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Was: drei Stellen, an denen Chinesisch nach außen dringt</h2><p>Die erste ist das UI-Wörterbuch. Vorlagen nutzen verbreitet die Form „Schlüssel nachschlagen, bei Fehlschlag auf das in die Vorlage geschriebene Chinesisch zurückfallen“; kommt bei einer neuen Funktion nur die chinesische Vorlage hinzu und werden das englische und deutsche Wörterbuch nicht synchronisiert, erscheint der Standardwert direkt auf der Seite – einschließlich Texten wie aria-label, placeholder und Bild-alt, die das Auge nicht auf einen Blick erfasst, die ein Screenreader aber vorliest. Die zweite ist die Übersetzung des Fließtexts. Mehrsprachige Sites stapeln Wörterbücher oft in der Reihenfolge „Basissprache, dann Englisch, dann Deutsch“; fehlt in einer Ebene ein Schlüssel, fällt sie auf eine frühere Sprache zurück, und bei einem langen Beitrag mit blockweisem Abgleich verschiebt ein fehlender Block alle späteren Blöcke. Die dritte sind Archivdateien mit Volltext: Werden sie in die englische oder deutsche Fassung montiert und der Originaltext trotz fehlender Übersetzung hineingeschoben, ist die Sprachreinheit der ganzen Datei zerstört. Allen dreien gemeinsam ist: Die Fallback-Logik verbessert „nicht leer“, verschiebt aber die Entscheidung „welche Sprache“ leise von der Inhalts- auf die Render-Seite.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Warum: Sprachreinheit ist ein Versprechen, keine Frage der Optik</h2><p>Wer eine Sprachversion aufruft, geht davon aus, dass alles auf dieser Seite zu dieser Sprache gehört; auch Suche und automatische Verarbeitung nehmen die Seitensprache als Entscheidungsgrundlage. Sprachmischung kostet auf drei Ebenen: dem Leser Zusammenhang, der Spracherkennung Fehlurteile und nachgelagerten Systemen die Klarheit darüber, „welche Version diese Seite eigentlich ist“. Erschwerend tarnt sie sich als Normalzustand: Die Seite rendert, der Statuscode ist 200, die Wortzahl reicht, und erst eine Prüfung der Sprachreinheit deckt sie auf. Auch die Prüfung hat Tücken – zählt man chinesische Zeichen über das gesamte HTML, erzeugen chinesische Kommentare in script- und style-Blöcken, Chinesisch in Autorenkarten der Vorlage und auskommentierte alte Texte Fehlalarme; umgekehrt wandelt MarkupSafe ASCII-Apostrophe und gerade Anführungszeichen in HTML-Entitäten um, was eine grobe Regel fälschlich als Auffälligkeit deuten kann. Darum muss die Kennzahl „keine chinesischen Reste auf englischen und deutschen Seiten“ zuerst festlegen, welcher Text überhaupt gezählt wird: meist der sichtbare Fließtext nach Entfernen von script, style und HTML-Kommentaren, ergänzt um Metadaten wie title, desc und aria-label.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Wer: Inhalt, Übersetzung, Vorlagen und Prüfung tragen je eigene Verantwortung</h2><p>Das Content-Team entscheidet, welche Einträge in einer Sprache tatsächlich existieren, und verantwortet die Wahl zwischen „auslassen“ und „Platzhalterhinweis behalten“; das Übersetzungsmodul sorgt für den blockweisen Abgleich von Titel, Kurzfassung, Schlagwörtern, häufigen Fragen und jedem Fließtextblock; Vorlagen dürfen einen chinesischen Standardwert nicht als Fallback an nicht-chinesische Seiten ausgeben; und das Prüfskript soll die Abdeckung vor der Veröffentlichung als Tabelle aufbereiten statt nur eine Gesamtzahl zu melden. In dieser Aufteilung fehlt meist die letzte Partei: Ohne automatisierte Prüfung entdecken Leser die Lücken zuerst. Eine weitere, von Aufrufenden oft übersehene Rolle sind Screenreader-Nutzer: aria-label eines Buttons, placeholder eines Suchfelds und das alt eines QR-Code-Bildes liegen genau auf der Grenze von Sichtbarkeitsprüfungen – ein flüchtiger Blick über die Seite sieht sie nicht, doch sie gehören ganz real zu „was die Seite anzeigt“. Diese Texte in die Wörterbuch-Abdeckung aufzunehmen ist ebenso wichtig wie den Fließtext fertig zu übersetzen.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Wann: drei Aktualisierungszeitpunkte, die nicht zusammenfallen</h2><p>Aktualisierungen von Quelltext, Übersetzung und Wörterbuch laufen nicht synchron: Ändert ein chinesischer Beitrag seinen Einleitungssatz, ziehen die englische und deutsche Fassung nicht zwingend am selben Tag nach; geht ein neues UI-Bauteil live, wird das UI-Wörterbuch vielleicht für mehrere Sprachen zugleich gefüllt, vielleicht zuerst auf Chinesisch. Abdeckungsprüfungen dürfen daher nicht nur bei „großen Releases“ laufen, sondern gehören an jede Änderung von Inhalt oder Vorlage. Auch die Stapelreihenfolge der Sprachen hat eine zeitliche Bedeutung: Die Basissprache ist die Standardebene, Englisch und Deutsch sind Override-Ebenen; landet ein neu hinzugekommener Schlüssel nur in der chinesischen Vorlage, liegen die beiden anderen Ebenen bis zum Auffüllen in einem Fenster, in dem „Chinesisch durchscheint“. Sinnvoll ist, dieses Fenster im Veröffentlichungsprozess sichtbar zu machen – die „Liste fehlender Schlüssel“ als Hürde vor dem Export, und solange sie nicht leer ist, wird die betroffene Sprache nicht freigegeben – statt nach dem Livegang durch Stichproben nachzufassen. Die Qualitätsprüfung der Übersetzungen darf langsamer takten, aber Abdeckung und Blockzahl müssen bei jedem Export in Echtzeit geprüft werden.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Wo: vier Arten von Ankerpunkten getrennt prüfen</h2><p>Die erste Art sind sichtbarer Fließtext und Überschriften: Prüfen, ob Text in der Zielsprache vorhanden ist und die Blockzahl mit dem Quelltext übereinstimmt. Die zweite sind Metadaten – title, description, keywords, H1 sowie Namen und Kontaktdaten in strukturierten Daten –, die oft aus einem anderen Wörterbuch stammen; ein fertig übersetzter Fließtext bedeutet nicht, dass sie ebenfalls übersetzt sind. Die dritte sind Barrierefreiheitstexte und Bedienelemente – aria-label, placeholder, alt, Button-Texte –, die am häufigsten unübersetzt bleiben. Die vierte sind Archivdateien: Listen, Volltextdateien und die Sprachversionen der sitemap. Hier sollte die Regel strenger sein – Einträge ohne Übersetzung in dieser Sprache direkt auslassen und die Filterregel im Dateikopf nennen statt einen Originaltext-Platzhalter zu behalten. Gemeinsame verbindliche Quelle aller vier Arten ist die Liste „welche Schlüssel / welche Einträge in dieser Sprache tatsächlich eine Übersetzung haben“; das Prüfskript sollte gegen diese Liste abgleichen statt danach, ob auf der Seite zufällig chinesische Zeichen auftauchen.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Wie: aus Abdeckung vier ausführbare Regeln machen</h2><p>Erstens: Alle Nachschlage-Ausdrücke in den Vorlagen scannen; jeder Schlüssel mit chinesischem Fallback-Wert muss zugleich im englischen und im deutschen Wörterbuch stehen, und „Anzahl fehlender Schlüssel gleich null“ wird zur Exporthürde. Zweitens: Fließtext blockweise abgleichen und Beitrag für Beitrag Quelltext und beide Sprachen auf Blockzahl, Zahl der FAQ-Einträge sowie Titel- und Kurzfassungsfeld prüfen; weicht nur ein Wert ab, wird die Veröffentlichung blockiert, denn eine verschobene Blockzahl wirft alle späteren Absätze aus der Reihenfolge. Drittens: Bei der Sprachreinheit des sichtbaren Textes zuerst script, style und HTML-Kommentare entfernen, dann Metadaten wie title, desc und aria-label prüfen; bestehende Entitäts-Maskierung und Autorenkarten der Vorlage auf die Positivliste setzen, damit Fehlalarme echte Probleme nicht verdecken. Viertens: Archivdateien nach „nur aufnehmen, wo eine Übersetzung vorliegt“ erzeugen und Geltungsbereich sowie Stichtag im Dateikopf nennen. Heraus kommt eine Abdeckungstabelle – wie viele Fließtexte, wie viele UI-Schlüssel, wie viele Archiveinträge jede Sprache hat und wo die Lücken liegen – statt eines pauschalen „Dreisprachigkeit unterstützt“.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Grenzen: Abdeckungsprüfungen belegen keine Übersetzungsqualität</h2><p>Abgeglichene Blockzahlen, vollständige Schlüssel und keine chinesischen Reste belegen nur strukturelle Vollständigkeit und Sprachreinheit, nicht treffende Übersetzung, konsistente Terminologie oder angemessenen Ton; Maschinenübersetzung, Wort-für-Wort-Übertragung und schwankende Fachbegriffe bestehen diese vier Regeln mühelos. Umgekehrt hält eine strenge Regel auch berechtigte Ausnahmen auf: Markennamen, der offizielle chinesische Produktname, der Originaltitel einer Rechtsvorschrift, Code-Bezeichner und zitierte Originalstellen aus fremden Texten dürfen auf einer Seite einer Sprache durchaus Zeichen einer anderen Sprache enthalten und brauchen eine Positivliste statt eines pauschalen Verbots. Eine weitere technische Grenze: Maskierte Entitäten und der Unterschied zwischen typografischen und geraden Anführungszeichen erzeugen Rauschen in zeichenbasierten Scans; die Prüfkonvention muss festgeschrieben und ins Skript geschrieben werden, sonst sind die Ergebnisse von Lauf zu Lauf nicht vergleichbar. Zuletzt sind Abdeckung und Sprachsignale zwei getrennte Systeme: „hreflang überall grün“ besagt nur, dass die Versionsbeziehungen stimmen, nicht dass der Text in einer Version wirklich zu dieser Sprache gehört.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Fazit: fehlende Übersetzung zur ausdrücklichen Entscheidung machen</h2><p>Machen Sie „was in dieser Sprache existiert“ zu einer Liste, die Vorlagen und Exportskript nur konsumieren; ein fehlender Schlüssel fällt nicht mehr auf Chinesisch zurück, sondern lässt eine Prüfung vor der Veröffentlichung scheitern; Archivdateien nehmen lieber weniger auf und nennen ihren Geltungsbereich im Dateikopf. Dann sichtbaren Text, Metadaten und Barrierefreiheitstexte gemeinsam in die Prüfung der Sprachreinheit aufnehmen und berechtigte fremdsprachige Ausnahmen als Positivliste führen. Erst so ist „Dreisprachigkeit unterstützt“ ein nachprüfbarer Satz: Wie viele Einträge jede Sprache abdeckt, ob die Blockzahlen stimmen und ob eine Seite Sprachen mischt, lässt sich auf der Stelle berechnen. Die Übersetzungsqualität braucht weiterhin manuelle Sichtprüfung, aber jedenfalls entfällt der vermeidbare Fehler, dass „Leser durchscheinendes Chinesisch früher entdecken als wir“.</p></div><div class="card-dark p-6 mb-5"><p>Quellen und Einordnung (Stichtag 12. November 2026): Die Wörterbuch-Stapelung „Basissprache, dann Englisch, dann Deutsch“, der Fallback bei fehlenden Übersetzungsschlüsseln auf einen chinesischen Standardwert, der beitragsweise blockweise Abgleich, das Zählen chinesischer Zeichen erst nach Entfernen von script und style, HTML-Entitäten-Maskierung als bestehendes Phänomen statt Übersetzungsfehler sowie typografische Anführungszeichen zur Vermeidung von Escape-Fehlalarmen sind durchweg die eigene mehrsprachige Veröffentlichungspraxis der Site und öffentliche technische Zusammenstellungen, keine Spezifikation irgendeiner Plattform. Die Anforderungen an Bidirektionalität und Selbstreferenz bei hreflang stammen aus der Dokumentation von Google Search Central; dieser Beitrag zitiert nur deren Beziehungssemantik und vermengt Abdeckungsprüfung und Sprachsignal nicht. Die Qualität von Maschinenübersetzungen Dritter und das Spracherkennungsverhalten einzelner Plattformen wurden nicht unabhängig geprüft und dienen nicht als Grundlage für Schlussfolgerungen; vor der Umsetzung zählt das tatsächliche Verhalten der eigenen Vorlagen, Wörterbücher und des Exportskripts.</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">Häufige Fragen</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>Was ist daran falsch, in der Vorlage einen chinesischen Standardwert als Fallback zu hinterlegen?</h3><p class="faq-a">Das Problem ist, dass die Sprachenentscheidung an die Render-Schicht wandert. Fehlt ein Schlüssel im englischen oder deutschen Wörterbuch, zeigt die Seite einfach Chinesisch, und Statuscode wie Wortzahl wirken völlig normal; nur eine Prüfung der Sprachreinheit deckt es auf. Besser lässt man einen fehlenden Schlüssel in einer Prüfung vor dem Export scheitern, statt ihn still zurückfallen zu lassen.</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>Reicht es, englische und deutsche Seiten einfach nach chinesischen Zeichen zu durchsuchen?</h3><p class="faq-a">Nicht genau genug. Chinesische Kommentare in script- und style-Blöcken, HTML-Kommentare und Autorenkarten in Vorlagen erzeugen Fehlalarme; man sollte diese Teile entfernen, dann den sichtbaren Text zählen, Metadaten wie title, desc und aria-label getrennt prüfen und für berechtigte Ausnahmen wie Markennamen eine Positivliste führen.</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>Kann ein Beitrag ohne Übersetzung zunächst als Originaltext-Platzhalter stehen bleiben?</h3><p class="faq-a">In Archivdateien nicht empfehlenswert. Ein Originaltext-Platzhalter zerstört die Sprachreinheit der Datei und lässt sprachbasierte automatische Verarbeitung falsch urteilen; sicherer ist, den Eintrag ganz zu überspringen und im Dateikopf zu vermerken, dass Inhalte ohne Übersetzung in dieser Sprache nicht aufgenommen werden, samt Geltungsbereich und Stichtag.</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/de/articles/" class="btn-zouic">Fachbeiträge</a><a href="/de/boards/" class="btn-zouic">Entwicklungsboards</a><a href="/de/compare/" class="btn-zouic btn-zouic-primary">Board-Vergleich</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">Wöchentliche Updates von @GeekWaedon</h3><p class="text-secondary text-sm mb-4 mb-lg-0">Board-Empfehlungen, Projektanalysen und Tipps aus der Hardware-Entwicklung – zuerst auf WeChat und im Knowledge Planet.</p></div><div class="col-lg-5"><a href="/de/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">So folgen Sie mir</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> Wöchentlich kuratierte Board-Empfehlungen</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Exklusive Projektanalysen</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Aktualisiert auf WeChat und im Knowledge Planet</span></div></div></div></div></div></section><section class="py-4" aria-label="Hergestellt von"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">Erstellt von GeekWaedon <span>@GeekWaedon</span></div><div class="author-card-bio">Hardware-Bastler und KI-Praktiker. Diese gesamte Website wurde mit KI-Werkzeugen selbst gebaut.</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Meinem Knowledge Planet beitreten</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: nach „GeekWaedon“ suchen</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/de/" class="footer-brand" aria-label="ZouIC-Startseite"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">Ausgewählte Open-Source-Hardwareprojekte von Plattformen weltweit · Ausschließlich als Referenz für Entwickler</p><p class="footer-business-contact">
+                        Geschäftskontakt &amp; Bauteilbeschaffung:
+                        <a href="mailto:waedon@outlook.com?subject=Gesch%C3%A4ftliche%20Anfrage"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            Hergestellt von · <strong>GeekWaedon</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware-Enthusiast</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> KI-Praktiker</span><a href="/de/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom-Lösungsanbieter"><i class="fab fa-weixin"></i> WeCom-Lösungsanbieter
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a><a href="/de/#follow" class="footer-social-link" aria-label="WeChat-Offizieller Account · GeekWaedon" title="WeChat-Offizieller Account · GeekWaedon"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Produkte</h5><ul><li><a href="/de/products/">Produkte</a></li><li><a href="/de/services/">Leistungen</a></li><li><a href="/de/services/website-building/">Website-Erstellung</a></li><li><a href="/de/services/component-matching/">elektronische BauteileVermittlung</a></li><li><a href="/de/news/">Neuigkeiten</a></li><li><a href="/de/boards/">Entwicklungsboards</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Ressourcen</h5><ul><li><a href="/de/board-guide/">Leitfaden zur Board-Auswahl</a></li><li><a href="/de/compare/">Board-Vergleich</a></li><li><a href="/de/tutorials/">Anleitungen</a></li><li><a href="/de/documentation/">Dokumentation</a></li><li><a href="/de/online-tools/">Online-Werkzeuge</a></li><li><a href="/de/tools/">Hardware calculators</a></li><li><a href="/de/cases/">Projektbeispiele</a></li><li><a href="/de/help/">Dokumentation</a></li><li><a href="/de/games/resistor/">Widerstands-Farbcode-Quiz</a></li><li><a href="/de/dashuju/">Datenübersicht</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Open Source</h5><ul><li><a href="/de/open-source/">Open-Source-Projekte</a></li><li><a href="/de/all-projects/">Alle Projekte</a></li><li><a href="/de/articles/">Fachbeiträge</a></li><li><a href="/de/contribute/">Mitwirken</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>Über</h5><ul><li><a href="/de/about/">Über uns</a></li><li><a href="/de/about/#contact">Kontakt</a></li><li><a href="/de/licenses/">Open-Source-Lizenzen</a></li><li><a href="/de/pricing/">Preise</a></li><li><a href="/de/privacy/">Datenschutz</a></li><li><a href="/de/terms/">Nutzungsbedingungen</a></li><li><a href="/de/refund/">Rückerstattung</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">Beliebte Kategorien</span><div class="footer-category-links"><a href="/de/category/">alle</a><a href="/de/category/fpga/">FPGA</a><a href="/de/category/general/">Allgemein</a><a href="/de/category/ai_hardware/">KI-Hardware</a><a href="/de/category/vision/">Computer Vision</a><a href="/de/category/esp32/">ESP32</a><a href="/de/category/robotics/">Robotik</a><a href="/de/source/github/">GitHub</a><a href="/de/source/hackster/">Hackster.io</a><a href="/de/resources/">Ressourcennavigation</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="GeekWaedon" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">Allein entwickelt von GeekWaedon (@GeekWaedon) · <span style="color:#a78bfa;">Mensch und KI, Seite an Seite</span></div><div class="text-xs text-secondary">Ein Ein-Personen-Projekt, betrieben von einem echten Menschen: Website-Aufbau, Datenabgleich, Artikel und Grafiken stammen von mir (mit Unterstützung einiger KI-Agenten). <a href="/de/about/" class="text-primary" style="text-decoration:none;">Die Person dahinter kennenlernen →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. Alle Rechte vorbehalten.</p><p>Die hier gebündelten Projekte dienen ausschließlich als Referenz für Entwickler: ZouIC verweist auf sie und hostet weder Code noch Dateien; Urheberrecht und Lizenz verbleiben bei den Autoren. Einzelheiten finden Sie auf der <a href="/de/licenses/">Open-Source-Lizenzen</a> Seite.</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="Nach oben"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="Intelligente Suche auf der Website"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="Boards, Projekte und Artikel suchen oder Frage eintippen…"
+                       aria-label="Intelligente Suche auf der Website"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> Auswählen</span><span><kbd>↵</kbd> Öffnen</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Kopiert';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Aus Favoriten entfernt');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Zu Favoriten hinzugefügt');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/translation-coverage-5w1h/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=de-DE'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>
