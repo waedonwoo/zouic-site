@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="用无头浏览器把窗口设成 390 去验移动端，得到的可能根本不是 390。截图裁出来的宽度、窗口参数、CSS 视口宽度与物理像素是四个不同的量；把其中任何一个当成证据，都会得出假破版或假通过。"><meta name="keywords" content="5W1H, 视口, CSS 像素, devicePixelRatio, 无头浏览器, 移动端复核, rpx, 测量口径"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/articles/viewport-measurement-5w1h/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/viewport-measurement-5w1h/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/viewport-measurement-5w1h/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/viewport-measurement-5w1h/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/viewport-measurement-5w1h/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="390px 该信谁：截图宽度、CSS 像素与真机口径"><meta property="og:description" content="用无头浏览器把窗口设成 390 去验移动端，得到的可能根本不是 390。截图裁出来的宽度、窗口参数、CSS 视口宽度与物理像素是四个不同的量；把其中任何一个当成证据，都会得出假破版或假通过。"><meta property="og:url" content="https://www.zouic.com/articles/viewport-measurement-5w1h/"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="390px 该信谁：截图宽度、CSS 像素与真机口径"><meta name="twitter:description" content="用无头浏览器把窗口设成 390 去验移动端，得到的可能根本不是 390。截图裁出来的宽度、窗口参数、CSS 视口宽度与物理像素是四个不同的量；把其中任何一个当成证据，都会得出假破版或假通过。"><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "\u7528\u65e0\u5934\u6d4f\u89c8\u5668\u628a\u7a97\u53e3\u8bbe\u6210 390 \u53bb\u9a8c\u79fb\u52a8\u7aef\uff0c\u5f97\u5230\u7684\u53ef\u80fd\u6839\u672c\u4e0d\u662f 390\u3002\u622a\u56fe\u88c1\u51fa\u6765\u7684\u5bbd\u5ea6\u3001\u7a97\u53e3\u53c2\u6570\u3001CSS \u89c6\u53e3\u5bbd\u5ea6\u4e0e\u7269\u7406\u50cf\u7d20\u662f\u56db\u4e2a\u4e0d\u540c\u7684\u91cf\uff1b\u628a\u5176\u4e2d\u4efb\u4f55\u4e00\u4e2a\u5f53\u6210\u8bc1\u636e\uff0c\u90fd\u4f1a\u5f97\u51fa\u5047\u7834\u7248\u6216\u5047\u901a\u8fc7\u3002", "headline": "390px \u8be5\u4fe1\u8c01\uff1a\u622a\u56fe\u5bbd\u5ea6\u3001CSS \u50cf\u7d20\u4e0e\u771f\u673a\u53e3\u5f84", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/viewport-measurement-5w1h/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/viewport-measurement-5w1h/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/viewport-measurement-5w1h/", "name": "390px \u8be5\u4fe1\u8c01\uff1a\u622a\u56fe\u5bbd\u5ea6\u3001CSS \u50cf\u7d20\u4e0e\u771f\u673a\u53e3\u5f84", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u7a97\u53e3\u53c2\u6570\u53ea\u662f\u542f\u52a8\u503c\uff0c\u53ef\u80fd\u88ab\u6700\u5c0f\u7a97\u53e3\u5c3a\u5bf8\u4e0e\u7cfb\u7edf\u7f29\u653e\u6539\u5199\uff1b\u82e5\u9875\u9762\u8bbe\u7f6e\u4e86 initial \u6216 maximum scale\uff0cMDN \u8bf4\u660e width \u5b9e\u9645\u8868\u73b0\u4e3a\u6700\u5c0f\u89c6\u53e3\u5bbd\u5ea6\uff0c\u6d4f\u89c8\u5668\u8fd8\u53ef\u80fd\u6269\u5c55\u89c6\u53e3\u3002\u8981\u4ee5\u9875\u9762\u5185\u63a2\u9488\u8bfb\u5230\u7684 innerWidth \u4e3a\u51c6\u3002"}, "name": "\u628a\u6d4f\u89c8\u5668\u7a97\u53e3\u8bbe\u6210 390\uff0c\u4e3a\u4ec0\u4e48\u5e03\u5c40\u4e0d\u662f 390\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u4e0d\u80fd\u5355\u72ec\u7b97\u3002\u622a\u56fe\u53ef\u80fd\u88ab\u8bbe\u5907\u50cf\u7d20\u6bd4\u653e\u5927\u6216\u7f29\u653e\uff0c\u4e5f\u53ef\u80fd\u6839\u672c\u6ca1\u89e6\u53d1\u76ee\u6807\u65ad\u70b9\u3002\u5e94\u5148\u6253\u5370\u5b9e\u9645 CSS \u89c6\u53e3\u5bbd\u5ea6\u4e0e devicePixelRatio\uff0c\u786e\u8ba4\u91cf\u5bf9\u4e86\uff0c\u518d\u8ba9\u622a\u56fe\u627f\u62c5\u300c\u770b\u91cd\u53e0\u3001\u9519\u4f4d\u3001\u6ea2\u51fa\u300d\u7684\u89c6\u89c9\u804c\u8d23\u3002"}, "name": "\u622a\u56fe\u770b\u7740\u6ca1\u6ea2\u51fa\uff0c\u80fd\u7b97\u79fb\u52a8\u7aef\u9a8c\u8bc1\u901a\u8fc7\u5417\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u4e0d\u80fd\u3002\u5c0f\u7a0b\u5e8f\u6309 rpx \u4f53\u7cfb\u7531\u5e73\u53f0\u6362\u7b97\uff0c\u9875\u9762\u5bbd\u5ea6\u57fa\u51c6\u662f 750rpx\uff0c\u4e0e\u4e3b\u7ad9\u7684 CSS \u50cf\u7d20\u548c\u5a92\u4f53\u67e5\u8be2\u4e0d\u662f\u540c\u4e00\u5957\u53e3\u5f84\u3002\u4e24\u7aef\u5e94\u5206\u522b\u53d6\u6837\u3001\u5206\u522b\u8bb0\u5f55\uff0c\u6570\u503c\u4e0d\u4e92\u76f8\u5f15\u7528\uff1b\u771f\u673a\u9884\u89c8\u4ecd\u662f\u72ec\u7acb\u73af\u8282\u3002"}, "name": "\u4e3b\u7ad9\u91cf\u5230 390 CSS \u50cf\u7d20\uff0c\u80fd\u76f4\u63a5\u63a8\u65ad\u5c0f\u7a0b\u5e8f\u7684\u8868\u73b0\u5417\uff1f"}]}]}
+    </script>
+    
+    
+    <title>390px 该信谁：截图宽度、CSS 像素与真机口径 - ZouIC</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">跳转到主要内容</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航"><div class="container"><a class="navbar-brand" href="/" aria-label="ZouIC 首页"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/all-projects/">开源项目</a></li><li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li><li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/services/component-matching/">商务合作</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li><li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li><li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li><li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li><li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li><li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li><li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li><li><a class="dropdown-item" href="/tools/"><i class="fas fa-calculator me-2"></i>硬件计算器</a></li><li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li><li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li><li><a class="dropdown-item" href="/ideas/"><i class="fas fa-lightbulb me-2"></i>创意树洞</a></li><li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="搜索类型:"><option value="">全部分类</option><option value="board">开源开发板</option><option value="project">开源项目</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="打开智能搜索"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/viewport-measurement-5w1h/"><i class="fas fa-language me-2"></i> 中文
+                            </a></li><li><a class="dropdown-item" href="/en/articles/viewport-measurement-5w1h/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/articles/viewport-measurement-5w1h/"><i class="fas fa-language me-2"></i> 德语
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/">首页</a></li><li class="breadcrumb-item"><a href="/articles/">技术文章</a></li><li class="breadcrumb-item active" aria-current="page">390px 该信谁：截图宽度、CSS 像素与真机口径</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">免费公开 · 欢迎转发</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">390px 该信谁：截图宽度、CSS 像素与真机口径</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">算力行业观察 · 极客微栋 @GeekWaedon</p><p class="text-secondary text-sm mt-4">极客微栋 @GeekWaedon · 2026 年 11 月</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p>项目里做过一次移动端复核：把无头浏览器的窗口尺寸设成 390 宽，截图看起来满屏溢出，差点去改一版本来没问题的样式。后来发现浏览器把窗口钳到了更宽的值，裁出来的 390 只是图片宽度，不是页面实际布局宽度。改用强制设备像素比配合成倍窗口尺寸，再用页面内探针读一次真实值，才拿到可信的 390 CSS 像素。这类误判不来自 CSS 写错，而来自把四种不同的「宽度」当成同一个。下面按 5W1H 拆开。结论先说：截图只作视觉证据，不作宽度证据；任何移动端复核都要在页面内读一次实际值，并把测量口径写进记录。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何事 · What：四个都叫宽度的量</h2><p>第一个是窗口参数，是给浏览器进程的启动值，可能被最小窗口尺寸、系统缩放或窗口管理器改写。第二个是 CSS 视口宽度，也就是布局与媒体查询真正使用的宽度，单位是 CSS 像素。第三个是物理像素，等于 CSS 像素乘以设备像素比，同一块屏在高密度下可以有成倍的物理像素。第四个是截图裁切宽度，只是输出图片的像素尺寸，与页面按多宽布局没有必然关系。MDN 的 viewport 文档把关键机制写得很清楚：width 在设置了 initial 或 maximum scale 时，实际表现为「最小视口宽度」，浏览器会在需要时扩展视口去填满屏幕；高密度屏上多个硬件像素对应一个 CSS 像素，devicePixelRatio 默认值随屏幕密度变化，且只有缩放为 1 时默认比例才成立；没有合适的 viewport 声明时，一些浏览器会采用约 980 CSS 像素的虚拟视口并缩放，导致窄屏媒体查询根本不生效。四个量混用，结论必然漂移。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何因 · Why：假破版和假通过都源自同一个错误</h2><p>把窗口参数当 CSS 视口，会得到假破版：以为在 390 下溢出，其实页面按更宽布局，图片被裁窄后自然显得内容被切。反过来，把截图看着没问题当验证通过，会得到假通过：图片可能按设备像素比放大过、可能被缩放、也可能根本没触发目标断点。项目里的修复路径说明了这一点：不靠再调一次窗口参数去猜，而是在页面里放探针读 innerWidth 与 devicePixelRatio，必要时用固定宽度的 iframe 复测，把「当前布局宽度」变成一个可打印的数值。MDN 还提示了另外两类干扰：浏览器缩放会改变 CSS 视口宽度，虚拟键盘等交互组件也会改变视口，且可通过 interactive-widget 控制影响的是视觉视口还是布局。这些都说明，宽度不是启动参数能单独决定的常量，而是运行时状态。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何人 · Who：浏览器、页面、小程序与复核脚本各自说了算的部分</h2><p>浏览器决定窗口钳制、缩放、虚拟视口与设备像素比；页面自己的 viewport 声明决定布局视口如何计算；小程序则完全是另一套体系，微信开放文档规定页面宽度统一为 750rpx，由平台按机型换算成实际尺寸，不能拿主站的 CSS 像素值直接套用。复核脚本决定取样方式：是读页面内探针，还是只看输出图片；人工复核者决定有没有把「看着像」当成「量过了」。四方里唯一能给出权威数值的是页面内探针，因为它读的就是布局实际使用的 CSS 像素。把这层分清后，讨论就会从「截图看起来对不对」变成「这次测量的对象是什么、谁测的、数值多少」——这才是能写进验证记录的话。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何时 · When：三个取样时刻，缺一个就可能误判</h2><p>第一是页面加载完成时：此时布局视口已确定，适合读 innerWidth 与 devicePixelRatio。第二是字体、图片与脚本执行稳定之后：异步内容可能改变滚动宽度或触发横向溢出，过早截图会漏掉真实破版。第三是交互状态改变之后：虚拟键盘弹出、旋转屏幕、缩放变化都会改变视口，若要验这些场景就得单独取样。项目里用虚拟时间预算等待渲染稳定，再做整页截图与局部裁剪，正是为了把前两个时刻分开。缓存与版本也构成时间维度：截图对应的到底是哪一版页面，记录里要能追溯到提交号或导出批次，否则同一张图过几天就无法解释。把三个时刻与目标版本一起写进记录，比保存一堆没有元数据的图片有用得多。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何地 · Where：数值落在记录，图片落在附件，结论落在断点</h2><p>验证记录里应写：目标 CSS 视口宽度、实际读到的 innerWidth、devicePixelRatio、窗口启动参数、缩放设置、页面版本，以及取样时刻；这些是可复核的数值。截图只作为视觉附件，用于看有没有重叠、错位、溢出，不承担证明宽度的职责。结论则落在断点上：目标宽度下哪些媒体查询生效、布局是否单列、导航是否折叠、有没有横向滚动。多端场景要分开记：主站按 CSS 像素与媒体查询，小程序按 rpx 与平台换算，两套记录不互相引用数值。若用 iframe 固定宽度做探针，也要注明这是「容器内宽度」而非浏览器窗口宽度，避免下一个人把两者等同。三层分开，截图才不会被误当成测量报告。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">如何 · How：把移动端复核做成五步，且每步留数</h2><p>第一步，明确目标值：要验的是哪个 CSS 视口宽度、对应哪个断点，而不是「手机大概多宽」。第二步，用能产生目标 CSS 宽度的方式启动浏览器：必要时用强制设备像素比配合成倍窗口尺寸，或改用固定宽度 iframe，别指望窗口参数等于布局宽度。第三步，页面内探针打印 innerWidth、devicePixelRatio 与滚动宽度，确认实际值与目标值一致，不一致就先修测量方式，不改样式。第四步，等渲染稳定后再截图，检查重叠、溢出与折叠；交互场景另行取样。第五步，写记录：目标值、实际值、启动参数、缩放、页面版本、取样时刻、截图路径与结论。若某一步发现破版，先确认不是测量误差，再动 CSS。这五步的核心不是工具，而是把「我看到了」换成「我量到了多少、按什么口径量的」。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">边界：量准了也不等于真机没问题</h2><p>无头浏览器量到 390 CSS 像素，只能说明这次布局宽度符合目标；它复现不了真机的字体渲染、系统缩放、浏览器界面占用、刘海与安全区、触摸目标手感，也复现不了不同厂商对 viewport 与虚拟键盘的细微差异。MDN 文档本身就把 interactive-widget 的三种取值列为不同行为，说明视口变化还有交互维度。小程序的 rpx 体系更是平台负责换算，桌面浏览器里的模拟值不能替代平台内的实际表现。因此这类复核应定位为「排除测量误差后的布局检查」，真机预览与设备上取样仍是独立环节。此外，截图只能覆盖被截取的可视区域，长页面下半部分的破版要靠加高视口或分段取样，不能凭上半部分正常推断整页正常。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">结论：把测量口径写进验证记录</h2><p>移动端复核最值钱的不是那张截图，是截图旁边那行数：目标多少、实际多少、按什么方式测的、测的是哪一版。项目里那次「390 满屏溢出」的虚惊，代价只是多跑一轮；如果当时直接按假破版改了样式，真正的断点问题反而会被掩盖。建议把探针打印、等待渲染稳定、数值与图片分开归档、结论落在断点这四件事固定成流程，并把主站 CSS 像素与小程序 rpx 明确分成两套口径。这样下次有人说「手机上看不对」，第一句回答就不是「我这边截图是好的」，而是「先报一下你量到的 innerWidth」。</p></div><div class="card-dark p-6 mb-5"><p>数据与口径（基准日 2026-11-13）：无头浏览器把 390 窗口参数钳到更宽值、裁出的 390 只是图片宽度、改用强制设备像素比配合成倍窗口尺寸并以页面内 iframe 探针复核，出自 ZouIC 自身视觉复核记录，属站点自身口径。width 在设置 initial / maximum scale 时表现为最小视口宽度、浏览器可扩展视口填满屏幕、CSS 像素与硬件像素通过 devicePixelRatio 换算、默认像素比随屏幕密度分档且仅缩放为 1 时成立、缺失 viewport 声明时约 980 CSS 像素虚拟视口、interactive-widget 的三种取值，以及规范出处 CSS Viewport Module Level 1，均出自 MDN Web Docs 的 viewport 文档，属权威文档与规范口径。rpx 以 750rpx 为页面宽度基准、由平台换算，出自微信开放文档，属平台官方口径。第三方视口检测工具与断点经验文章只作方向性引用，不写进结论；浏览器模拟值与真机表现并列写出，不互相替代。</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>把浏览器窗口设成 390，为什么布局不是 390？</h3><p class="faq-a">窗口参数只是启动值，可能被最小窗口尺寸与系统缩放改写；若页面设置了 initial 或 maximum scale，MDN 说明 width 实际表现为最小视口宽度，浏览器还可能扩展视口。要以页面内探针读到的 innerWidth 为准。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>截图看着没溢出，能算移动端验证通过吗？</h3><p class="faq-a">不能单独算。截图可能被设备像素比放大或缩放，也可能根本没触发目标断点。应先打印实际 CSS 视口宽度与 devicePixelRatio，确认量对了，再让截图承担「看重叠、错位、溢出」的视觉职责。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>主站量到 390 CSS 像素，能直接推断小程序的表现吗？</h3><p class="faq-a">不能。小程序按 rpx 体系由平台换算，页面宽度基准是 750rpx，与主站的 CSS 像素和媒体查询不是同一套口径。两端应分别取样、分别记录，数值不互相引用；真机预览仍是独立环节。</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/articles/" class="btn-zouic">技术文章</a><a href="/boards/" class="btn-zouic">开源开发板</a><a href="/compare/" class="btn-zouic btn-zouic-primary">开发板对比</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3><p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p></div><div class="col-lg-5"><a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span></div></div></div></div></div></section><section class="py-4" aria-label="出品人"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div><div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/" class="footer-brand" aria-label="ZouIC 首页"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p><p class="footer-business-contact">
+                        商务合作 / 器件选型：
+                        <a href="mailto:waedon@outlook.com?subject=%E5%95%86%E5%8A%A1%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            出品人 · <strong>极客微栋</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span><a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商"><i class="fab fa-weixin"></i> 企业微信服务商
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a><a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>产品</h5><ul><li><a href="/products/">产品介绍</a></li><li><a href="/services/">服务说明</a></li><li><a href="/services/website-building/">建站服务</a></li><li><a href="/services/component-matching/">元器件撮合</a></li><li><a href="/news/">站内动态</a></li><li><a href="/boards/">开源开发板</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>资源</h5><ul><li><a href="/board-guide/">选型指南</a></li><li><a href="/compare/">开发板对比</a></li><li><a href="/tutorials/">开发板教程</a></li><li><a href="/documentation/">技术文档</a></li><li><a href="/online-tools/">在线工具</a></li><li><a href="/tools/">硬件计算器</a></li><li><a href="/cases/">项目案例</a></li><li><a href="/help/">文档中心</a></li><li><a href="/games/resistor/">色环电阻识别挑战</a></li><li><a href="/dashuju/">数据大屏</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>开源生态</h5><ul><li><a href="/open-source/">开源项目</a></li><li><a href="/all-projects/">全部项目</a></li><li><a href="/articles/">技术文章</a></li><li><a href="/ideas/">创意树洞</a></li><li><a href="/wechat/">公众号专栏</a></li><li><a href="/contribute/">贡献指南</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>关于</h5><ul><li><a href="/about/">关于我们</a></li><li><a href="/about/#contact">联系我们</a></li><li><a href="/licenses/">开源协议</a></li><li><a href="/pricing/">服务报价</a></li><li><a href="/privacy/">隐私政策</a></li><li><a href="/terms/">服务条款</a></li><li><a href="/refund/">退款政策</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">热门分类</span><div class="footer-category-links"><a href="/category/">全部</a><a href="/category/fpga/">FPGA</a><a href="/category/general/">综合</a><a href="/category/ai_hardware/">AI 硬件</a><a href="/category/vision/">机器视觉</a><a href="/category/esp32/">ESP32</a><a href="/category/robotics/">机器人</a><a href="/source/github/">GitHub</a><a href="/source/hackster/">Hackster.io</a><a href="/resources/">资源导航</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div><div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="返回顶部"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="站内智能搜索"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="搜索开发板、项目、文章，或直接输入问题…"
+                       aria-label="站内智能搜索"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> 选择</span><span><kbd>↵</kbd> 打开</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/viewport-measurement-5w1h/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=zh-CN'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>

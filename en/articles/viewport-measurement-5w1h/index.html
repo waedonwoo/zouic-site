@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="Setting a headless browser window to 390 to verify mobile may not give you 390 at all. The width cropped out of a screenshot, the window argument, the CSS…"><meta name="keywords" content="5W1H, viewport, CSS pixels, devicePixelRatio, headless browser, mobile review, rpx, measurement framing"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/en/articles/viewport-measurement-5w1h/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/viewport-measurement-5w1h/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/viewport-measurement-5w1h/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/viewport-measurement-5w1h/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/viewport-measurement-5w1h/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="Who to trust at 390px: screenshot width, CSS pixels and real-device framing"><meta property="og:description" content="Setting a headless browser window to 390 to verify mobile may not give you 390 at all. The width cropped out of a screenshot, the window argument, the CSS viewport width and physical pixels are four different quantities; treating any one of them as evidence produces either a false layout break or a false pass."><meta property="og:url" content="https://www.zouic.com/en/articles/viewport-measurement-5w1h/"><meta property="og:type" content="article"><meta property="og:locale" content="en_US"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC open source development board platform · GeekWeidong"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Who to trust at 390px: screenshot width, CSS pixels and real-device framing"><meta name="twitter:description" content="Setting a headless browser window to 390 to verify mobile may not give you 390 at all. The width cropped out of a screenshot, the window argument, the CSS viewport width and physical pixels are four different quantities; treating any one of them as evidence produces either a false layout break or a false pass."><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "Setting a headless browser window to 390 to verify mobile may not give you 390 at all. The width cropped out of a screenshot, the window argument, the CSS viewport width and physical pixels are four different quantities; treating any one of them as evidence produces either a false layout break or a false pass.", "headline": "Who to trust at 390px: screenshot width, CSS pixels and real-device framing", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "en", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/viewport-measurement-5w1h/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/viewport-measurement-5w1h/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "Articles", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/viewport-measurement-5w1h/", "name": "Who to trust at 390px: screenshot width, CSS pixels and real-device framing", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "The window argument is only a startup value and may be rewritten by minimum window size or system scaling; and if the page sets initial or maximum scale, MDN notes that width actually behaves as a minimum viewport width, and the browser may expand the viewport. The innerWidth read by a probe inside the page is what counts."}, "name": "I set the browser window to 390 \u2014 why is the layout not 390?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Not on its own. The screenshot may have been magnified by devicePixelRatio or scaled, or the target breakpoint may never have fired. Print the actual CSS viewport width and devicePixelRatio first, confirm the measurement is right, then let the screenshot do the visual job of showing overlap, misalignment and overflow."}, "name": "The screenshot shows no overflow \u2014 can that count as a mobile pass?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "No. The mini program works in rpx converted by the platform, with 750rpx as the page-width basis, which is a different framing from the main site CSS pixels and media queries. The two ends are sampled and recorded separately and neither record borrows numbers from the other; real-device preview remains a separate step."}, "name": "The main site measures 390 CSS pixels \u2014 can I infer the mini program behaviour from that?"}]}]}
+    </script>
+    
+    
+    <title>Who to trust at 390px: screenshot width, CSS pixels and real-device framing</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">Skip to main content</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Main navigation"><div class="container"><a class="navbar-brand" href="/en/" aria-label="ZouIC home"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/en/">Home</a></li><li class="nav-item"><a class="nav-link" href="/en/all-projects/">Open Source Projects</a></li><li class="nav-item"><a class="nav-link" href="/en/boards/">Open Source Boards</a></li><li class="nav-item"><a class="nav-link" href="/en/board-guide/">Documentation</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/en/services/component-matching/">Business</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/en/products/"><i class="fas fa-box me-2"></i>Products</a></li><li><a class="dropdown-item" href="/en/services/"><i class="fas fa-cogs me-2"></i>Services</a></li><li><a class="dropdown-item" href="/en/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>Component matching</a></li><li><a class="dropdown-item" href="/en/news/"><i class="fas fa-newspaper me-2"></i>Site Updates</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/en/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li><li><a class="dropdown-item" href="/en/documentation/"><i class="fas fa-book me-2"></i>Documentation</a></li><li><a class="dropdown-item" href="/en/resources/"><i class="fas fa-compass me-2"></i>Resource Navigation</a></li><li><a class="dropdown-item" href="/en/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>Online Tools</a></li><li><a class="dropdown-item" href="/en/tools/"><i class="fas fa-calculator me-2"></i>Hardware calculators</a></li><li><a class="dropdown-item" href="/en/cases/"><i class="fas fa-briefcase me-2"></i>Project Cases</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/en/open-source/"><i class="fas fa-code-branch me-2"></i>Open Source Projects</a></li><li><a class="dropdown-item" href="/en/articles/"><i class="fas fa-pen-fancy me-2"></i>Technical articles</a></li><li><a class="dropdown-item" href="/en/contribute/"><i class="fas fa-handshake me-2"></i>Contribute</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/en/dashuju/"><i class="fas fa-chart-line me-2"></i>Data Dashboard</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/en/search/"><i class="fas fa-search me-1"></i>Search</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="Search boards, projects or keywords..." aria-label="Search" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="Search Type:"><option value="">All Categories</option><option value="board">Open Source Boards</option><option value="project">Open Source Projects</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="Open smart search"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> English
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/viewport-measurement-5w1h/"><i class="fas fa-language me-2"></i> Chinese
+                            </a></li><li><a class="dropdown-item" href="/en/articles/viewport-measurement-5w1h/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/articles/viewport-measurement-5w1h/"><i class="fas fa-language me-2"></i> German
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/en/">Home</a></li><li class="breadcrumb-item"><a href="/en/articles/">Technical articles</a></li><li class="breadcrumb-item active" aria-current="page">Who to trust at 390px: screenshot width, CSS pixels and real-device framing</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">Free to read · sharing welcome</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">Who to trust at 390px: screenshot width, CSS pixels and real-device framing</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">Compute industry notes · GeekWaedon @GeekWaedon</p><p class="text-secondary text-sm mt-4">GeekWaedon @GeekWaedon · November 2026</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p>A mobile review in the project set the headless browser window to 390 wide; the screenshot looked as though the whole page overflowed, and a version of perfectly fine styles was nearly changed. It later turned out the browser had clamped the window to a wider value, and the cropped 390 was only the image width, not the page actual layout width. Switching to a forced device pixel ratio with a multiplied window size, then reading the real value once with an in-page probe, finally produced a trustworthy 390 CSS pixels. This kind of misjudgement does not come from wrong CSS but from treating four different widths as one. The 5W1H breakdown follows. Conclusion first: a screenshot is visual evidence, not width evidence; every mobile review must read the actual value once inside the page and write the measurement framing into the record.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">What: four quantities that all go by the name of width</h2><p>The first is the window argument, a startup value handed to the browser process that may be rewritten by a minimum window size, system scaling or the window manager. The second is the CSS viewport width, the width layout and media queries actually use, in CSS pixels. The third is physical pixels, equal to CSS pixels multiplied by the device pixel ratio, so the same screen can hold several times as many physical pixels at high density. The fourth is the screenshot crop width, merely the pixel size of the output image, with no necessary relation to the width the page laid out at. The MDN viewport documentation spells out the key mechanics: when initial or maximum scale is set, width actually behaves as a minimum viewport width, and the browser expands the viewport to fill the screen when needed; on high-density screens several hardware pixels map to one CSS pixel, the devicePixelRatio default varies with screen density, and the default ratio holds only at zoom 1; without a suitable viewport declaration some browsers adopt a virtual viewport of about 980 CSS pixels and scale it, so narrow-screen media queries never fire at all. Mix the four up and the conclusion is bound to drift.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Why: false breaks and false passes come from the same mistake</h2><p>Treating the window argument as the CSS viewport gives a false break: you think there is overflow at 390, when in fact the page laid out wider and the image, cropped narrow, naturally looks as though content is cut off. The reverse, treating a screenshot that looks fine as a pass, gives a false pass: the image may have been magnified by the device pixel ratio, may have been scaled, or the target breakpoint may simply never have fired. The fix path in the project illustrates the point: rather than guessing by adjusting the window argument again, put a probe in the page to read innerWidth and devicePixelRatio, retest with a fixed-width iframe if needed, and turn current layout width into a printable number. MDN also flags two further kinds of interference: browser zoom changes the CSS viewport width, and interactive components such as a virtual keyboard change the viewport too, with interactive-widget controlling whether the visual or the layout viewport is affected. All of this says width is not a constant a startup argument can decide on its own, but a runtime state.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Who: the browser, the page, the mini program and the review script each decide their own part</h2><p>The browser decides window clamping, zoom, the virtual viewport and the device pixel ratio; the viewport declaration in the page itself decides how the layout viewport is computed; the mini program is an entirely separate system, with the WeChat open documentation fixing page width at 750rpx and the platform converting it into real dimensions by device model, so the main site CSS pixel values cannot be applied directly. The review script decides the sampling method: whether it reads an in-page probe or only looks at the output image; the human reviewer decides whether looking right was taken for having measured. Of the four parties, the only one that can give an authoritative number is the in-page probe, because it reads exactly the CSS pixels layout used. Once this layer is separated, the discussion shifts from “does the screenshot look right” to “what was measured this time, by whom, and with what number” — which is the kind of sentence that belongs in a verification record.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">When: three sampling moments, and missing one can mean a misjudgement</h2><p>The first is at page load completion: the layout viewport is settled and it is a good moment to read innerWidth and devicePixelRatio. The second is after fonts, images and script execution have stabilised: asynchronous content can change scroll width or trigger horizontal overflow, so an early screenshot misses a real break. The third is after an interaction state changes: a virtual keyboard appearing, a screen rotation or a zoom change all alter the viewport, and verifying those scenarios means sampling them separately. The project used a virtual time budget to wait for rendering to settle, then took a full-page screenshot plus local crops, precisely to separate the first two moments. Caching and versions form a time dimension too: which version of the page a screenshot corresponds to must be traceable to a commit or an export batch, or the same image cannot be explained a few days later. Writing the three moments into the record together with the target version is far more useful than keeping a pile of images without metadata.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Where: numbers in the record, images in the attachments, conclusions at the breakpoint</h2><p>The verification record should state the target CSS viewport width, the innerWidth actually read, devicePixelRatio, the window startup argument, the zoom setting, the page version and the sampling moment; these are reproducible numbers. Screenshots are visual attachments only, for seeing overlap, misalignment and overflow, and carry no burden of proving width. The conclusion lands at the breakpoint: which media queries fire at the target width, whether the layout is single-column, whether navigation collapses, whether there is horizontal scrolling. Multi-end cases are recorded separately: the main site in CSS pixels and media queries, the mini program in rpx and platform conversion, and neither record borrows numbers from the other. If a fixed-width iframe is used as the probe, note that this is container width rather than browser window width, so the next person does not equate the two. Keeping the three layers apart is what stops a screenshot being mistaken for a measurement report.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">How: make mobile review five steps, each leaving a number behind</h2><p>Step one, fix the target: which CSS viewport width is being verified and which breakpoint it corresponds to, not roughly how wide a phone is. Step two, launch the browser in a way that actually produces the target CSS width: if needed use a forced device pixel ratio with a multiplied window size, or switch to a fixed-width iframe, and do not expect the window argument to equal the layout width. Step three, have the in-page probe print innerWidth, devicePixelRatio and scroll width, confirm the actual value matches the target, and if it does not, fix the measurement method first rather than the styles. Step four, wait for rendering to settle before screenshotting, then check overlap, overflow and collapse; sample interaction scenarios separately. Step five, write the record: target value, actual value, startup argument, zoom, page version, sampling moment, screenshot path and conclusion. If a break shows up at any step, first confirm it is not a measurement error, then touch the CSS. The core of these five steps is not the tool but replacing “I saw it” with “I measured this much, by which framing”.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Boundaries: measuring correctly still does not mean the real device is fine</h2><p>A headless browser measuring 390 CSS pixels only says this layout width matches the target; it cannot reproduce real-device font rendering, system scaling, browser chrome occupation, notches and safe areas, touch-target feel, or the small differences between vendors in viewport and virtual-keyboard behaviour. The MDN documentation itself lists the three values of interactive-widget as distinct behaviours, which shows viewport change has an interaction dimension too. The rpx system of the mini program is converted by the platform, so simulated values in a desktop browser cannot stand in for actual behaviour inside the platform. This kind of review should therefore be framed as a layout check after measurement error has been excluded, with on-device preview and sampling on the device remaining separate steps. A screenshot also covers only the visible area captured; breakage in the lower half of a long page needs a taller viewport or segmented sampling, and a normal upper half does not prove the whole page is normal.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Conclusion: write the measurement framing into the verification record</h2><p>The most valuable thing in a mobile review is not the screenshot but the line of numbers beside it: what the target was, what was actually read, by which method, and which version was measured. The “390 full-screen overflow” scare in the project cost only one extra run; had the styles been changed on the strength of that false break, the real breakpoint problem would have been masked instead. Make four things a fixed routine: printing the probe, waiting for rendering to settle, filing numbers and images separately, and landing the conclusion at the breakpoint, and keep main site CSS pixels and mini program rpx explicitly as two framings. Then the next time someone says “it looks wrong on a phone”, the first answer is not “my screenshot is fine here” but “first tell me the innerWidth you measured”.</p></div><div class="card-dark p-6 mb-5"><p>Sources and framing (as of 13 November 2026): that the headless browser clamped a 390 window argument to a wider value, that the cropped 390 was only the image width, and that switching to a forced device pixel ratio with a multiplied window size and re-checking with an in-page iframe probe produced the right value all come from ZouIC site-internal visual review records and count as site-internal framing. That width behaves as a minimum viewport width when initial / maximum scale is set, that the browser can expand the viewport to fill the screen, that CSS pixels and hardware pixels convert through devicePixelRatio, that the default pixel ratio is tiered by screen density and holds only at zoom 1, that a missing viewport declaration yields a virtual viewport of about 980 CSS pixels, the three values of interactive-widget, and the specification reference CSS Viewport Module Level 1 all come from the MDN Web Docs viewport documentation and count as authoritative documentation and specification framing. That rpx takes 750rpx as the page-width basis and is converted by the platform comes from the WeChat open documentation and is official platform framing. Third-party viewport test tools and breakpoint experience articles are cited only directionally and are not written into the conclusion; browser-simulated values and real-device behaviour are set side by side and do not replace each other.</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">Frequently asked questions</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>I set the browser window to 390 — why is the layout not 390?</h3><p class="faq-a">The window argument is only a startup value and may be rewritten by minimum window size or system scaling; and if the page sets initial or maximum scale, MDN notes that width actually behaves as a minimum viewport width, and the browser may expand the viewport. The innerWidth read by a probe inside the page is what counts.</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>The screenshot shows no overflow — can that count as a mobile pass?</h3><p class="faq-a">Not on its own. The screenshot may have been magnified by devicePixelRatio or scaled, or the target breakpoint may never have fired. Print the actual CSS viewport width and devicePixelRatio first, confirm the measurement is right, then let the screenshot do the visual job of showing overlap, misalignment and overflow.</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>The main site measures 390 CSS pixels — can I infer the mini program behaviour from that?</h3><p class="faq-a">No. The mini program works in rpx converted by the platform, with 750rpx as the page-width basis, which is a different framing from the main site CSS pixels and media queries. The two ends are sampled and recorded separately and neither record borrows numbers from the other; real-device preview remains a separate step.</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/en/articles/" class="btn-zouic">Technical articles</a><a href="/en/boards/" class="btn-zouic">Development Boards</a><a href="/en/compare/" class="btn-zouic btn-zouic-primary">Board comparison</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">Follow @GeekWaedon for Weekly Updates</h3><p class="text-secondary text-sm mb-4 mb-lg-0">Board picks, project breakdowns and hardware engineering tips, first published on WeChat and Knowledge Planet.</p></div><div class="col-lg-5"><a href="/en/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">See How to Follow</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> Weekly curated board picks</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Exclusive project deep-dives</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Updated on WeChat and Knowledge Planet</span></div></div></div></div></div></section><section class="py-4" aria-label="Produced by"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">Created by GeekWaedon <span>@GeekWaedon</span></div><div class="author-card-bio">Hardware maker and AI practitioner. This entire website was built hands-on with AI tools.</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Join my Knowledge Planet</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;GeekWaedon&#34;</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/en/" class="footer-brand" aria-label="ZouIC home"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">Quality open hardware projects from platforms worldwide · For developer reference only</p><p class="footer-business-contact">
+                        Business &amp; parts sourcing:
+                        <a href="mailto:waedon@outlook.com?subject=Business%20enquiry"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            Produced by · <strong>GeekWaedon</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware enthusiast</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI practitioner</span><a href="/en/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom service provider"><i class="fab fa-weixin"></i> WeCom service provider
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a><a href="/en/#follow" class="footer-social-link" aria-label="WeChat Official Account · GeekWaedon" title="WeChat Official Account · GeekWaedon"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Products</h5><ul><li><a href="/en/products/">Products</a></li><li><a href="/en/services/">Services</a></li><li><a href="/en/services/website-building/">Website building</a></li><li><a href="/en/services/component-matching/">Component matching</a></li><li><a href="/en/news/">Site Updates</a></li><li><a href="/en/boards/">Development Boards</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Resources</h5><ul><li><a href="/en/board-guide/">Board selection guide</a></li><li><a href="/en/compare/">Board comparison</a></li><li><a href="/en/tutorials/">Tutorials</a></li><li><a href="/en/documentation/">Documentation</a></li><li><a href="/en/online-tools/">Online Tools</a></li><li><a href="/en/tools/">Hardware calculators</a></li><li><a href="/en/cases/">Project Cases</a></li><li><a href="/en/help/">Documentation</a></li><li><a href="/en/games/resistor/">Resistor Color Code Challenge</a></li><li><a href="/en/dashuju/">Data Dashboard</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Open Source</h5><ul><li><a href="/en/open-source/">Open Source Projects</a></li><li><a href="/en/all-projects/">All projects</a></li><li><a href="/en/articles/">Technical articles</a></li><li><a href="/en/contribute/">Contribute</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>About</h5><ul><li><a href="/en/about/">About Us</a></li><li><a href="/en/about/#contact">Contact Us</a></li><li><a href="/en/licenses/">Open Source Licenses</a></li><li><a href="/en/pricing/">Pricing</a></li><li><a href="/en/privacy/">Privacy Policy</a></li><li><a href="/en/terms/">Terms of Service</a></li><li><a href="/en/refund/">Refund Policy</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">Popular Categories</span><div class="footer-category-links"><a href="/en/category/">all</a><a href="/en/category/fpga/">FPGA</a><a href="/en/category/general/">General</a><a href="/en/category/ai_hardware/">AI Hardware</a><a href="/en/category/vision/">Computer Vision</a><a href="/en/category/esp32/">ESP32</a><a href="/en/category/robotics/">Robotics</a><a href="/en/source/github/">GitHub</a><a href="/en/source/hackster/">Hackster.io</a><a href="/en/resources/">Resource Navigation</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="Geek Micro Building" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">Built single-handedly by GeekWaedon (@GeekWaedon) · <span style="color:#a78bfa;">people and AI, working side by side</span></div><div class="text-xs text-secondary">A one-person project run by a real human: the site build, the data pulls, the articles and the artwork all came from me (with a few AI agents). <a href="/en/about/" class="text-primary" style="text-decoration:none;">Meet the person behind it →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>Projects aggregated here are for developer reference only: ZouIC indexes them and hosts no code or files; copyright and licensing stay with their authors. For details, see the <a href="/en/licenses/">Open Source Licenses</a> page.</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="On-site smart search"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="Search boards, projects and articles, or type a question…"
+                       aria-label="On-site smart search"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> Select</span><span><kbd>↵</kbd> Open</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Copied';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Removed from favorites');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Saved to favorites');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/viewport-measurement-5w1h/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=en-US'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>

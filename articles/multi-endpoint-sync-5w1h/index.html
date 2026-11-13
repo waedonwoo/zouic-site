@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="改一句定价口径，牵动的不只是一个页面：三语译文、机器可读文本、sitemap、小程序、以及机器读者手里的旧副本，各有各的生效方式。把所有端都当成「推送即同步」，就会在没人察觉的情况下让几个端说着不同的话。"><meta name="keywords" content="5W1H, 多端同步, 口径变更, 三语, llms.txt, sitemap, 发布流程, 滞后声明, 缓存"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/articles/multi-endpoint-sync-5w1h/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/multi-endpoint-sync-5w1h/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/multi-endpoint-sync-5w1h/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/multi-endpoint-sync-5w1h/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/multi-endpoint-sync-5w1h/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="主站改了口径，其他端何时跟随、滞后怎么声明"><meta property="og:description" content="改一句定价口径，牵动的不只是一个页面：三语译文、机器可读文本、sitemap、小程序、以及机器读者手里的旧副本，各有各的生效方式。把所有端都当成「推送即同步」，就会在没人察觉的情况下让几个端说着不同的话。"><meta property="og:url" content="https://www.zouic.com/articles/multi-endpoint-sync-5w1h/"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="主站改了口径，其他端何时跟随、滞后怎么声明"><meta name="twitter:description" content="改一句定价口径，牵动的不只是一个页面：三语译文、机器可读文本、sitemap、小程序、以及机器读者手里的旧副本，各有各的生效方式。把所有端都当成「推送即同步」，就会在没人察觉的情况下让几个端说着不同的话。"><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "\u6539\u4e00\u53e5\u5b9a\u4ef7\u53e3\u5f84\uff0c\u7275\u52a8\u7684\u4e0d\u53ea\u662f\u4e00\u4e2a\u9875\u9762\uff1a\u4e09\u8bed\u8bd1\u6587\u3001\u673a\u5668\u53ef\u8bfb\u6587\u672c\u3001sitemap\u3001\u5c0f\u7a0b\u5e8f\u3001\u4ee5\u53ca\u673a\u5668\u8bfb\u8005\u624b\u91cc\u7684\u65e7\u526f\u672c\uff0c\u5404\u6709\u5404\u7684\u751f\u6548\u65b9\u5f0f\u3002\u628a\u6240\u6709\u7aef\u90fd\u5f53\u6210\u300c\u63a8\u9001\u5373\u540c\u6b65\u300d\uff0c\u5c31\u4f1a\u5728\u6ca1\u4eba\u5bdf\u89c9\u7684\u60c5\u51b5\u4e0b\u8ba9\u51e0\u4e2a\u7aef\u8bf4\u7740\u4e0d\u540c\u7684\u8bdd\u3002", "headline": "\u4e3b\u7ad9\u6539\u4e86\u53e3\u5f84\uff0c\u5176\u4ed6\u7aef\u4f55\u65f6\u8ddf\u968f\u3001\u6ede\u540e\u600e\u4e48\u58f0\u660e", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/multi-endpoint-sync-5w1h/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/multi-endpoint-sync-5w1h/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/multi-endpoint-sync-5w1h/", "name": "\u4e3b\u7ad9\u6539\u4e86\u53e3\u5f84\uff0c\u5176\u4ed6\u7aef\u4f55\u65f6\u8ddf\u968f\u3001\u6ede\u540e\u600e\u4e48\u58f0\u660e", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u56e0\u4e3a\u589e\u91cf\u6587\u7ae0\u5bfc\u51fa\u53ea\u8986\u76d6\u6587\u7ae0\u9875\uff0c\u673a\u5668\u53ef\u8bfb\u6e05\u5355\u91cc\u7684\u7edf\u8ba1\u6570\u5b57\u3001\u8303\u56f4\u8bf4\u660e\u4e0e\u57fa\u51c6\u65e5\u4e0d\u4f1a\u8ddf\u7740\u91cd\u7b97\u3002\u9879\u76ee\u91cc\u7684\u505a\u6cd5\u662f\u5355\u72ec\u5237\u65b0\u4e09\u8bed\u7248\u672c\uff0c\u5e76\u6838\u5bf9\u5dee\u5f02\uff1b\u5237\u65b0\u65f6\u8fd8\u8981\u5e26\u4e0a\u8fd0\u884c\u65f6\u914d\u7f6e\u91cc\u7684\u76d1\u63a7\u5730\u5740\uff0c\u5426\u5219\u4f1a\u6f0f\u6389\u89c2\u6d4b\u70b9\u6bb5\u843d\u3002"}, "name": "\u6539\u4e00\u53e5\u4e2d\u6587\u6587\u6848\uff0c\u4e3a\u4ec0\u4e48\u673a\u5668\u53ef\u8bfb\u6587\u672c\u4e5f\u8981\u5355\u72ec\u5237\u65b0\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u4e0d\u5fc5\uff0c\u4f46\u4e5f\u4e0d\u80fd\u9759\u9ed8\u3002\u5e94\u5728\u5f71\u54cd\u9762\u6e05\u5355\u91cc\u6807\u300c\u5f85\u8ddf\u968f\u300d\u3001\u5199\u660e\u76ee\u6807\u7248\u672c\u4e0e\u8d23\u4efb\u4eba\uff0c\u5e76\u8ba9\u5404\u7aef\u5e26\u4e0a\u81ea\u5df1\u7684\u57fa\u51c6\u65e5\u4e0e\u7248\u672c\u8bf4\u660e\u3002\u7528\u6237\u80fd\u7406\u89e3\u4e0d\u540c\u7aef\u6709\u65f6\u95f4\u5dee\uff0c\u4e0d\u80fd\u63a5\u53d7\u7ad9\u70b9\u81ea\u5df1\u4e5f\u8bf4\u4e0d\u6e05\u54ea\u4e2a\u7aef\u662f\u65e7\u7684\u3002"}, "name": "\u5c0f\u7a0b\u5e8f\u6682\u65f6\u6ca1\u8ddf\u4e0a\uff0c\u8981\u4e0d\u8981\u5728\u4e3b\u7ad9\u85cf\u8d77\u65b0\u53e3\u5f84\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u4e0d\u80fd\u3002\u5916\u90e8\u526f\u672c\u7531\u5bf9\u65b9\u6293\u53d6\u4e0e\u7f13\u5b58\u51b3\u5b9a\uff0c\u7ad9\u70b9\u65e2\u4e0d\u80fd\u5f3a\u5236\u5237\u65b0\uff0c\u4e5f\u4e0d\u5b9c\u58f0\u79f0\u5168\u7f51\u5df2\u540c\u6b65\u3002\u53ef\u63a7\u7684\u505a\u6cd5\u662f\u5728\u5bf9\u5916\u6587\u672c\u91cc\u5199\u6e05\u57fa\u51c6\u65e5\u3001\u7248\u672c\u53f7\u4e0e\u8303\u56f4\uff0c\u8ba9\u65e7\u526f\u672c\u81ea\u5df1\u5e26\u4e0a\u65f6\u95f4\u4fe1\u606f\uff0c\u5e76\u628a\u8fd9\u7c7b\u6ede\u540e\u5355\u72ec\u5f52\u4e3a\u4e0d\u53ef\u63a7\u4e00\u7c7b\u3002"}, "name": "\u80fd\u8981\u6c42\u641c\u7d22\u5f15\u64ce\u548c AI \u5ba2\u6237\u7aef\u7acb\u523b\u66f4\u65b0\u5230\u65b0\u53e3\u5f84\u5417\uff1f"}]}]}
+    </script>
+    
+    
+    <title>主站改了口径，其他端何时跟随、滞后怎么声明 - ZouIC</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">跳转到主要内容</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航"><div class="container"><a class="navbar-brand" href="/" aria-label="ZouIC 首页"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/all-projects/">开源项目</a></li><li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li><li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/services/component-matching/">商务合作</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li><li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li><li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li><li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li><li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li><li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li><li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li><li><a class="dropdown-item" href="/tools/"><i class="fas fa-calculator me-2"></i>硬件计算器</a></li><li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li><li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li><li><a class="dropdown-item" href="/ideas/"><i class="fas fa-lightbulb me-2"></i>创意树洞</a></li><li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="搜索类型:"><option value="">全部分类</option><option value="board">开源开发板</option><option value="project">开源项目</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="打开智能搜索"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/multi-endpoint-sync-5w1h/"><i class="fas fa-language me-2"></i> 中文
+                            </a></li><li><a class="dropdown-item" href="/en/articles/multi-endpoint-sync-5w1h/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/articles/multi-endpoint-sync-5w1h/"><i class="fas fa-language me-2"></i> 德语
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/">首页</a></li><li class="breadcrumb-item"><a href="/articles/">技术文章</a></li><li class="breadcrumb-item active" aria-current="page">主站改了口径，其他端何时跟随、滞后怎么声明</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">免费公开 · 欢迎转发</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">主站改了口径，其他端何时跟随、滞后怎么声明</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">算力行业观察 · 极客微栋 @GeekWaedon</p><p class="text-secondary text-sm mt-4">极客微栋 @GeekWaedon · 2026 年 11 月</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p>站点改一句口径，比如把「目录价不是本站报价」写进服务页，看起来只是改个模板。但真正对外说话的不止这个页面：三语译文要跟着改，机器可读清单里的范围与基准日要刷新，sitemap 与结构化数据由导出派生，小程序是另一套代码与另一套发布流程，还有早已抓走旧页面的机器读者。这些端不会同时生效，甚至不会由同一次操作触发。下面按 5W1H 拆开。结论先说：先列一张口径变更影响面清单，给每个端写清触发方式、责任人与滞后声明；「尚未跟随」要显式标注，不能静默保持旧口径。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何事 · What：一次改动至少牵动六处</h2><p>以站内真实链路为例：源码模板与多语字典是源头；全量导出把三语页面、栏目页、sitemap 分片、robots 与机器可读文本固化成静态产物；build 仓库的提交推送触发 Pages 构建；增量文章导出只覆盖文章页，机器可读文本需要单独刷新，且刷新时要带上运行时配置里的监控地址，否则会漏掉一整段观测点说明；小程序在独立目录里，有自己的版本与平台发布流程；最后是外部缓存与机器读者持有的旧副本。六处的生效方式彼此不同：有的随导出自动派生，有的必须手动触发，有的要等平台分发，有的根本不归站点控制。把它们统称「发布」，就会漏掉那些不会自动跟随的部分，而漏掉的部分往往正是对外承诺最明确的那几份文本。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何因 · Why：静默滞后比明确滞后危险得多</h2><p>用户能理解不同端有时间差：小程序审核需要时间、CDN 有缓存、第三方还拿着旧快照。用户不能接受的是站点自己都没说清楚哪个端是旧的。一个具体风险是机器可读文本：页面已经改成新口径，清单里却还写着旧的统计数字与基准日，机器读者读到的是一份自相矛盾的说明。另一个风险是译文：中文改了，英德字典未补，页面要么露中文、要么回退到旧译，读者看到的是第三种口径。项目里的对应做法是「单独刷新三语机器可读文本并核对差异只剩计数与基准日两行」，以及「全模板扫描缺失键为零」——这些检查的意义不是让所有端瞬间一致，而是让不一致立刻可见。把滞后明示出来，本质上是把「暂时不同」变成一条有记录的状态，而不是一个没人认领的空白。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何人 · Who：触发者、跟随者、背书者不是同一人</h2><p>改口径的人负责写清影响面：这条变更属于事实、价格、授权还是视觉，哪些端引用了它。导出与构建脚本是自动跟随者，只处理被纳入流程的部分，任何「手工单独生成」的环节都要有人显式触发。平台是分发者：Pages 由推送触发构建，GitHub Docs 也提醒自定义域名的 DNS 变更传播可能需要较长时间；小程序按平台当期发布流程执行，站点不能假定推送即生效。背书者是发布记录：它要说明这次变更由谁确认、哪些端已跟随、哪些端标注为滞后。最容易被忽略的是机器读者与搜索平台，它们既不读站内的发布说明，也不会主动回来核对，站点能做的只有把基准日、版本号与范围写进对外文本，让旧副本自己带上「这是哪一天的版本」。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何时 · When：三种同步节奏，写进一张表</h2><p>第一类是同批次同步：模板、三语字典、结构化数据与 sitemap 随同一次导出一起产出，必须在这次发布里对齐，不允许留到下次。第二类是可声明滞后：小程序这类需要独立发布流程的端，允许在下一个版本跟随，但要在变更记录里写明「待跟随」、目标版本与责任人，并在站内侧给出不误导用户的措辞。第三类是不可控滞后：CDN 缓存、外部抓取与机器读者持有的旧副本，站点只能等待并靠基准日与版本号标注，不能承诺清除。三类节奏要区分，否则要么把不可控的滞后当成事故反复排查，要么把本该同批次的译文漏到下次。项目里的实际做法也符合这个分层：源码定稿后一次性全量重导，确认快照与源码一致再推送；推送后留部署窗口，再复验；机器可读文本单独刷新并核对差异。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何地 · Where：影响面清单落在一处，状态落在各端</h2><p>建议在项目约定里维护一张口径变更影响面清单，列六列：端、承载内容、触发方式、是否同批次、滞后声明模板、责任人。三语页面与结构化数据标「同批次」，机器可读文本标「单独触发且需带配置」，sitemap 标「随导出派生」，小程序标「独立发布流程」，外部缓存与机器读者标「仅标注基准日、不承诺清除」。状态则落在各端自己：页面标注核对日期与基准日，机器可读文本在文件头写范围说明与基准日，小程序在版本记录里写所跟随的主站版本，发布记录里汇总各端状态。清单与状态分开，是为了让「哪些端该跟随」不随人员记忆漂移，而「现在跟到哪一步」又能从各端自身读出来。这样也不需要一套中心化的同步系统，一份表加几条检查就够。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">如何 · How：把口径变更做成六步闭环</h2><p>第一步，判定变更类型：事实、价格、授权、视觉、机器可读范围，不同类型的影响面不同，价格与授权类必须全端覆盖。第二步，按影响面清单列出待跟随端，标出哪些是同批次、哪些允许滞后。第三步，源码侧一次改齐：模板、三语字典、结构化数据、口径说明与基准日，跑全模板缺失键扫描。第四步，导出后核对产物：三语页面存在、机器可读文本单独刷新且差异符合预期、sitemap 无重复与死链、配置文件注入未漏段落。第五步，推送后等部署窗口，跑三源自检并做跨源逐字比对；把已跟随与待跟随端写进发布记录。第六步，滞后端在下一次发布时复核并关闭状态，同时保留当时的基准日与版本说明。六步的关键在第五步那句「待跟随」：宁可明写，也不要让一份旧口径在无人认领的状态下继续对外说话。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">边界：这张清单管不到的三种滞后</h2><p>其一，平台侧时间：构建队列、审核与 DNS 传播都不由站点控制，文档只给出可能的时间范围，不能当作承诺；具体流程与时长以平台当期文档为准。其二，外部副本：搜索引擎、AI 客户端与第三方索引持有的是它们自己抓走的版本，站点既不能强制刷新，也不能据此声称「全网已同步」，只能靠基准日与版本号让旧副本自证时间。其三，内容本身的准确性：口径在各端一致，不代表口径正确，事实核查、授权依据与第三方来源性质是另一条线。此外，公开仓库的产物内容本身是公开的、删除文件仍留在版本历史里，所以口径变更还应注意别把内部路径、密钥或调试信息一并带进产物。本文讨论的是「同一句话在各端是否一致」，不涉及两端功能范围是否对齐。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">结论：宁可写明滞后，不要静默不同</h2><p>多端同步真正的目标不是所有端在同一秒说同一句话，而是任何时刻都能回答「哪个端说的是哪一版、谁负责跟上、预计什么时候跟」。把影响面清单、三种同步节奏、基准日与版本说明、以及发布记录里的「待跟随」状态固定下来，就能用很轻的机制覆盖大部分风险。项目里那些看似琐碎的检查——三语字典缺键为零、机器可读文本差异只剩计数与基准日、源码与快照一致后再推送——其实都在做同一件事：把不一致变成可见项。跨端一致性不是一次彻底对齐的胜利，而是每次变更都愿意把滞后写下来的习惯。</p></div><div class="card-dark p-6 mb-5"><p>数据与口径（基准日 2026-11-13）：Flask 源码经全量导出生成 build 产物、build 仓库提交推送触发 Pages、增量文章导出只覆盖文章页、机器可读文本需单独刷新且刷新时须带运行时配置中的监控地址否则漏段、刷新后核对差异只剩计数与基准日、全模板缺失键扫描、源码与快照一致后再推送、部署窗口后三源自检与跨源逐字比对、小程序为独立代码目录——以上出自 ZouIC 自身工程记录与脚本实现，属站点自身口径。「自定义域名 DNS 变更传播可能需要较长时间」「Pages 仓库内容公开、删除文件仍留在版本历史」出自 GitHub Docs 官方文档，属平台官方口径。第三方关于静态托管分发延迟与多端发布的经验整理只作方向性引用，不写进结论；平台流程时长以当期官方文档为准，站点不做承诺。</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>改一句中文文案，为什么机器可读文本也要单独刷新？</h3><p class="faq-a">因为增量文章导出只覆盖文章页，机器可读清单里的统计数字、范围说明与基准日不会跟着重算。项目里的做法是单独刷新三语版本，并核对差异；刷新时还要带上运行时配置里的监控地址，否则会漏掉观测点段落。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>小程序暂时没跟上，要不要在主站藏起新口径？</h3><p class="faq-a">不必，但也不能静默。应在影响面清单里标「待跟随」、写明目标版本与责任人，并让各端带上自己的基准日与版本说明。用户能理解不同端有时间差，不能接受站点自己也说不清哪个端是旧的。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>能要求搜索引擎和 AI 客户端立刻更新到新口径吗？</h3><p class="faq-a">不能。外部副本由对方抓取与缓存决定，站点既不能强制刷新，也不宜声称全网已同步。可控的做法是在对外文本里写清基准日、版本号与范围，让旧副本自己带上时间信息，并把这类滞后单独归为不可控一类。</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/articles/" class="btn-zouic">技术文章</a><a href="/boards/" class="btn-zouic">开源开发板</a><a href="/compare/" class="btn-zouic btn-zouic-primary">开发板对比</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3><p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p></div><div class="col-lg-5"><a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span></div></div></div></div></div></section><section class="py-4" aria-label="出品人"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div><div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/" class="footer-brand" aria-label="ZouIC 首页"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p><p class="footer-business-contact">
+                        商务合作 / 器件选型：
+                        <a href="mailto:waedon@outlook.com?subject=%E5%95%86%E5%8A%A1%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            出品人 · <strong>极客微栋</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span><a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商"><i class="fab fa-weixin"></i> 企业微信服务商
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a><a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>产品</h5><ul><li><a href="/products/">产品介绍</a></li><li><a href="/services/">服务说明</a></li><li><a href="/services/website-building/">建站服务</a></li><li><a href="/services/component-matching/">元器件撮合</a></li><li><a href="/news/">站内动态</a></li><li><a href="/boards/">开源开发板</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>资源</h5><ul><li><a href="/board-guide/">选型指南</a></li><li><a href="/compare/">开发板对比</a></li><li><a href="/tutorials/">开发板教程</a></li><li><a href="/documentation/">技术文档</a></li><li><a href="/online-tools/">在线工具</a></li><li><a href="/tools/">硬件计算器</a></li><li><a href="/cases/">项目案例</a></li><li><a href="/help/">文档中心</a></li><li><a href="/games/resistor/">色环电阻识别挑战</a></li><li><a href="/dashuju/">数据大屏</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>开源生态</h5><ul><li><a href="/open-source/">开源项目</a></li><li><a href="/all-projects/">全部项目</a></li><li><a href="/articles/">技术文章</a></li><li><a href="/ideas/">创意树洞</a></li><li><a href="/wechat/">公众号专栏</a></li><li><a href="/contribute/">贡献指南</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>关于</h5><ul><li><a href="/about/">关于我们</a></li><li><a href="/about/#contact">联系我们</a></li><li><a href="/licenses/">开源协议</a></li><li><a href="/pricing/">服务报价</a></li><li><a href="/privacy/">隐私政策</a></li><li><a href="/terms/">服务条款</a></li><li><a href="/refund/">退款政策</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">热门分类</span><div class="footer-category-links"><a href="/category/">全部</a><a href="/category/fpga/">FPGA</a><a href="/category/general/">综合</a><a href="/category/ai_hardware/">AI 硬件</a><a href="/category/vision/">机器视觉</a><a href="/category/esp32/">ESP32</a><a href="/category/robotics/">机器人</a><a href="/source/github/">GitHub</a><a href="/source/hackster/">Hackster.io</a><a href="/resources/">资源导航</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div><div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="返回顶部"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="站内智能搜索"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="搜索开发板、项目、文章，或直接输入问题…"
+                       aria-label="站内智能搜索"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> 选择</span><span><kbd>↵</kbd> 打开</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/multi-endpoint-sync-5w1h/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=zh-CN'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>

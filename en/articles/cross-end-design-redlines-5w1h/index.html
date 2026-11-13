@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="The main site has eliminated gradient backgrounds, decorative emoji, rounded cards with a coloured left border and overused fonts, while the mini program…"><meta name="keywords" content="5W1H, cross-end consistency, WeChat mini program, rpx, design red lines, system font stack, gradient, platform guidelines"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/en/articles/cross-end-design-redlines-5w1h/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/cross-end-design-redlines-5w1h/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/cross-end-design-redlines-5w1h/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/cross-end-design-redlines-5w1h/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/cross-end-design-redlines-5w1h/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="The main site cleared its visual red lines; should the WeChat mini program follow"><meta property="og:description" content="The main site has eliminated gradient backgrounds, decorative emoji, rounded cards with a coloured left border and overused fonts, while the mini program still keeps a few of them. Cross-end consistency sounds like it should mean aligning everything, but copying the main site stylesheet runs into the mini program size units, system fonts and platform rules. What needs to be unified is the judgement, not the code."><meta property="og:url" content="https://www.zouic.com/en/articles/cross-end-design-redlines-5w1h/"><meta property="og:type" content="article"><meta property="og:locale" content="en_US"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC open source development board platform · GeekWeidong"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="The main site cleared its visual red lines; should the WeChat mini program follow"><meta name="twitter:description" content="The main site has eliminated gradient backgrounds, decorative emoji, rounded cards with a coloured left border and overused fonts, while the mini program still keeps a few of them. Cross-end consistency sounds like it should mean aligning everything, but copying the main site stylesheet runs into the mini program size units, system fonts and platform rules. What needs to be unified is the judgement, not the code."><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "The main site has eliminated gradient backgrounds, decorative emoji, rounded cards with a coloured left border and overused fonts, while the mini program still keeps a few of them. Cross-end consistency sounds like it should mean aligning everything, but copying the main site stylesheet runs into the mini program size units, system fonts and platform rules. What needs to be unified is the judgement, not the code.", "headline": "The main site cleared its visual red lines; should the WeChat mini program follow", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "en", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/cross-end-design-redlines-5w1h/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/cross-end-design-redlines-5w1h/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "Articles", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/cross-end-design-redlines-5w1h/", "name": "The main site cleared its visual red lines; should the WeChat mini program follow", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Under the classification used here, no. What the main site bans are explicitly declared font stacks that have been used repeatedly; the platform default sans-serif font in the mini program is an adaptation mechanism. It should be registered as a documented exception rather than offset by importing a custom font package, which would add size, loading and licensing costs."}, "name": "Does the mini program using the system font stack count as violating the ban on overused fonts?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Not recommended. The main site works in CSS pixels and media queries, the mini program in rpx converted by the platform, and each has its own platform-level interaction conventions. A shared stylesheet would turn adaptation differences into a long series of hard-coded special cases. What should be unified is the set of prohibitions; concrete values may differ but need a recorded reason."}, "name": "Could both ends share one stylesheet to rule out inconsistency entirely?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "It is better to wait until the main site judgement is frozen, then review the exception list before the next mini program release. The two ends publish through different mechanisms and cannot take effect at the same moment by nature; the record should carry a check date and both versions, and treat the time gap as a known fact rather than a missed change."}, "name": "The main site is finalised; should the mini program be changed immediately?"}]}]}
+    </script>
+    
+    
+    <title>The main site cleared its visual red lines; should the WeChat mini program follow</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">Skip to main content</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Main navigation"><div class="container"><a class="navbar-brand" href="/en/" aria-label="ZouIC home"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/en/">Home</a></li><li class="nav-item"><a class="nav-link" href="/en/all-projects/">Open Source Projects</a></li><li class="nav-item"><a class="nav-link" href="/en/boards/">Open Source Boards</a></li><li class="nav-item"><a class="nav-link" href="/en/board-guide/">Documentation</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/en/services/component-matching/">Business</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/en/products/"><i class="fas fa-box me-2"></i>Products</a></li><li><a class="dropdown-item" href="/en/services/"><i class="fas fa-cogs me-2"></i>Services</a></li><li><a class="dropdown-item" href="/en/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>Component matching</a></li><li><a class="dropdown-item" href="/en/news/"><i class="fas fa-newspaper me-2"></i>Site Updates</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/en/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li><li><a class="dropdown-item" href="/en/documentation/"><i class="fas fa-book me-2"></i>Documentation</a></li><li><a class="dropdown-item" href="/en/resources/"><i class="fas fa-compass me-2"></i>Resource Navigation</a></li><li><a class="dropdown-item" href="/en/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>Online Tools</a></li><li><a class="dropdown-item" href="/en/tools/"><i class="fas fa-calculator me-2"></i>Hardware calculators</a></li><li><a class="dropdown-item" href="/en/cases/"><i class="fas fa-briefcase me-2"></i>Project Cases</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/en/open-source/"><i class="fas fa-code-branch me-2"></i>Open Source Projects</a></li><li><a class="dropdown-item" href="/en/articles/"><i class="fas fa-pen-fancy me-2"></i>Technical articles</a></li><li><a class="dropdown-item" href="/en/contribute/"><i class="fas fa-handshake me-2"></i>Contribute</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/en/dashuju/"><i class="fas fa-chart-line me-2"></i>Data Dashboard</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/en/search/"><i class="fas fa-search me-1"></i>Search</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="Search boards, projects or keywords..." aria-label="Search" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="Search Type:"><option value="">All Categories</option><option value="board">Open Source Boards</option><option value="project">Open Source Projects</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="Open smart search"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> English
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/cross-end-design-redlines-5w1h/"><i class="fas fa-language me-2"></i> Chinese
+                            </a></li><li><a class="dropdown-item" href="/en/articles/cross-end-design-redlines-5w1h/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/articles/cross-end-design-redlines-5w1h/"><i class="fas fa-language me-2"></i> German
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/en/">Home</a></li><li class="breadcrumb-item"><a href="/en/articles/">Technical articles</a></li><li class="breadcrumb-item active" aria-current="page">The main site cleared its visual red lines; should the WeChat mini program follow</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">Free to read · sharing welcome</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">The main site cleared its visual red lines; should the WeChat mini program follow</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">Compute industry notes · GeekWaedon @GeekWaedon</p><p class="text-secondary text-sm mt-4">GeekWaedon @GeekWaedon · November 2026</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p>A round of visual consolidation on the site removed gradient backgrounds, rounded cards with a coloured left border, decorative emoji and an overused Latin font stack from the main site style layer; the mini program, meanwhile, still keeps a few gradients, uses the system font stack for body text and carries emoji in some page copy. That produced a task that sounds simple: bring the mini program into line as well. Starting the work reveals that the question is not “whether to change it” but “which layer to align” — copying the main site CSS runs into rpx, platform fonts and navigation-bar rules, while ignoring it entirely makes users feel they are looking at two different products. The 5W1H breakdown follows. Conclusion first: split the red lines into brand judgements and platform adaptations, keep the former consistent across ends, execute the latter according to platform guidelines, and list the exceptions explicitly.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">What: four red lines that are not of the same kind</h2><p>No gradient backgrounds, no emoji as decoration, no rounded cards with a coloured left border, no overused font stack read like a single checklist but actually belong to two different kinds. The first three are brand judgements: they set the tone — restraint, not piling up information with ornament, not filling the screen with meaningless figures and icons. The fourth is entangled with platform convention: what the main site bans are explicit stacks such as Inter, Roboto, Arial, Fraunces and system-ui that have been used over and over, whereas the mini program uses the system sans-serif font by default, a mechanism the platform provides to keep text legible across device models, not designers lazily picking a ubiquitous font. Sweeping all four as the same kind of violation leads to the conclusion that the mini program must import a custom font package, which adds size while introducing loading and licensing problems. The right approach is to classify first: which things are never done on any end, and which the platform has already decided for you and need only not be layered on top of.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Why: the cost of cross-end consistency lands on maintenance, not the first version</h2><p>Aligning the first version is always easy; the difficulty comes six months later. If the red lines are frozen as the two stylesheets matching line by line, every platform update and every main site redesign forces a human to decide which differences are legitimate exceptions and which are missed changes; exceptions pile up until nobody dares touch the list. In the opposite direction, if all that is written is roughly the same style, the mini program slowly grows its own decorative habits in practice, and a user arriving from the main site sees a different visual language. What really has to be controlled is consistency of judgement, not equality of property values: whether a gradient should be used, whether emoji may enter body copy, whether a card needs a coloured border — these answers must be the same on both ends; how many rpx to use, how type sizes are graded, who owns the font may differ. The rpx mechanism in the WeChat open documentation illustrates the second category precisely: page width is fixed at 750rpx and the platform converts it into real dimensions on different device models, so adaptation rules of this kind should not be overwritten by the main site CSS pixel values.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Who: brand judgement, platform rules and end implementation each belong to someone</h2><p>Brand and visual judgement are set by the site itself and hold across ends; platform rules are set by platforms such as WeChat, whose official design guidelines and size-unit documentation state which interaction conventions are uniform and which can be customised — third-party compilations often mention constraints such as the top-right official menu not being customisable, but details of this kind should follow the current official documentation rather than anecdotal posts taken as evidence; end implementers land the work within those constraints and register whatever cannot or should not be done as exceptions. One more role is easily overlooked: review and release. The main site takes effect on push, while the mini program goes through its own platform release process, so the two ends naturally cannot update at the same time. Cross-end consistency therefore cannot demand identical at the same instant, only the same judgement with traceable exceptions. With responsibilities separated, a difference prompts the question “registered exception or missed change?” rather than “whose stylesheet is newer”.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">When: convergence happens when the main site is final, review happens before each end releases</h2><p>The best moment is after the main site visual design is final and before the next mini program release: write down the judgements the main site finally adopted first, then scan each end, so as not to keep aligning against a version that is still changing. The real order in the project was the same — the main site first converged its last two gradients, returned the font stack and completed a full-page screenshot review, and only then were the mini program leftovers put on the to-do list; had both ends changed at once, the main site would likely have finished and then rolled back, with the mini program wasting a round of changes following it. After that, every main site visual change triggers one cross-end check, and every mini program release re-checks whether the exception list still holds. Because the two release rhythms differ, alignment is a continuing state rather than a one-off task: the record needs a check date and the version of each end, not just a note saying “unified”. Caches and older client versions also let users see different versions for a while; that belongs to the release mechanism and does not count as visual inconsistency.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Where: the checklist lives in one place, the exceptions live inside each end</h2><p>Maintain one cross-end red-line checklist with two columns. The first column is prohibitions, effective on both ends, written as judgements rather than CSS values — no gradient backgrounds, no decorative emoji, no rounded cards with a coloured left border, no importing overused explicit font stacks, no piling up meaningless figures and icons. The second column is platform exceptions, written per end: the mini program using rpx and the platform default font stack is an adaptation mechanism, so no custom font is layered on; navigation and capsule areas follow platform rules; sizes, type grades and line heights follow platform legibility. Keep the checklist in the project conventions and reflect the exceptions in end-side code comments and check scripts, so a scanner can tell violating a prohibition from hitting a registered exception. The rendered page should agree too: information blocks use solid colours instead of coloured-border cards, so both ends look like the same language even though the implementation values differ. Keeping the checklist and the exceptions apart is what makes exceptions traceable rather than a quietly loosened opening.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">How: turn cross-end alignment into four actions</h2><p>First, freeze the judgements: once the main site is final, write the prohibitions as short sentences with no property values, so “0 gradients” does not turn into a demand that a particular selector in a particular file be a solid colour. Second, scan each end: check styles and copy against the prohibitions, record hit positions and counts, but do not count platform defaults as violations; a hit on the system font stack, for example, belongs in exceptions rather than in pending fixes. Third, register exceptions: each one states the platform, the reason, the basis (official documentation or an engineering trade-off) and a review date, and no exception without a basis is registered. Fourth, wire it into pre-release checks: each end runs the prohibition scan on its own, outputs two numbers — violations and registered exceptions — and files both in the release record. Then the day the mini program adds a gradient, the tool reports a violation; the day the platform changes its font mechanism, a person updates the exception note instead of throwing the whole checklist out. None of the four actions needs a stylesheet shared by both ends.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Boundaries: the parts that cannot and need not be unified</h2><p>Platform-level interaction conventions should not be overridden by main site habits: navigation bars, capsule areas and back behaviour follow the current platform rules, and third-party descriptions of such constraints are only leads, with the official documentation as the final word. Size systems cannot be unified either: the main site works in CSS pixels and media queries, the mini program in rpx converted by the platform, and forcing one side values onto the other only creates new layout breakage. Font licensing and package size are another hard constraint — importing a custom font package for the sake of complete visual identity can bring loading, copyright and performance costs with no guaranteed visible gain. There is also the time gap caused by release: the mini program goes through a platform release flow and users may stay on an older version, so differences during that window belong in the record and are not missed changes. Finally, this note is about consistency of visual and copy judgements; it does not cover whether the two ends align on feature scope, data framing or commercial framing, which is a separate question.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Conclusion: unify the judgement, allow exceptions, and write the exceptions down</h2><p>The easiest way for cross-end consistency to go wrong is to treat looking the same as the goal. The steadier goal is this: the same brand judgement gets the same answer on both ends, and every difference has a reason and a date in the exception list. Write prohibitions as short sentences without property values, register platform adaptation mechanisms as exceptions with a basis, and have each end scan before release and report both the violation count and the exception count. Then, when the mini program clears leftover gradients and removes decorative emoji from copy, it is not also asked to replace the platform font stack; and if the main site ever wants to bring gradients back, it hits this cross-end checklist first and forces the team to decide again. What has to align is the decision, not the stylesheet — the rework that sentence saves is usually far more than one thorough stylesheet rewrite.</p></div><div class="card-dark p-6 mb-5"><p>Sources and framing (as of 13 November 2026): the main site visual consolidation results — zero gradients in the style layer, no explicit Inter / Roboto / Arial / Fraunces / system-ui font stack, no emoji on the home and services pages, no rounded cards with a coloured left border, no piling up of meaningless figures and icons — and the mini program leftovers — several gradients, the system font stack in body text, emoji in some page copy — come from the ZouIC project design conventions and the current source state and are site-internal statements. That rpx takes 750rpx as the page-width basis and that the platform converts it to real dimensions by device model come from the WeChat open documentation and the official tutorials of the WeChat open community and are official platform statements; the official design guideline address is developers.weixin.qq.com/miniprogram/design/. Third-party experience compilations on the navigation bar not being customisable, component libraries and design conventions serve only as directional leads, are not written into the conclusion, and the concrete constraints follow the current official platform documentation. Brand judgements and platform adaptations are written side by side, with no averaging between them.</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">Frequently asked questions</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>Does the mini program using the system font stack count as violating the ban on overused fonts?</h3><p class="faq-a">Under the classification used here, no. What the main site bans are explicitly declared font stacks that have been used repeatedly; the platform default sans-serif font in the mini program is an adaptation mechanism. It should be registered as a documented exception rather than offset by importing a custom font package, which would add size, loading and licensing costs.</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>Could both ends share one stylesheet to rule out inconsistency entirely?</h3><p class="faq-a">Not recommended. The main site works in CSS pixels and media queries, the mini program in rpx converted by the platform, and each has its own platform-level interaction conventions. A shared stylesheet would turn adaptation differences into a long series of hard-coded special cases. What should be unified is the set of prohibitions; concrete values may differ but need a recorded reason.</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>The main site is finalised; should the mini program be changed immediately?</h3><p class="faq-a">It is better to wait until the main site judgement is frozen, then review the exception list before the next mini program release. The two ends publish through different mechanisms and cannot take effect at the same moment by nature; the record should carry a check date and both versions, and treat the time gap as a known fact rather than a missed change.</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/en/articles/" class="btn-zouic">Technical articles</a><a href="/en/boards/" class="btn-zouic">Development Boards</a><a href="/en/compare/" class="btn-zouic btn-zouic-primary">Board comparison</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">Follow @GeekWaedon for Weekly Updates</h3><p class="text-secondary text-sm mb-4 mb-lg-0">Board picks, project breakdowns and hardware engineering tips, first published on WeChat and Knowledge Planet.</p></div><div class="col-lg-5"><a href="/en/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">See How to Follow</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> Weekly curated board picks</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Exclusive project deep-dives</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Updated on WeChat and Knowledge Planet</span></div></div></div></div></div></section><section class="py-4" aria-label="Produced by"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">Created by GeekWaedon <span>@GeekWaedon</span></div><div class="author-card-bio">Hardware maker and AI practitioner. This entire website was built hands-on with AI tools.</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Join my Knowledge Planet</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;GeekWaedon&#34;</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/en/" class="footer-brand" aria-label="ZouIC home"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">Quality open hardware projects from platforms worldwide · For developer reference only</p><p class="footer-business-contact">
+                        Business &amp; parts sourcing:
+                        <a href="mailto:waedon@outlook.com?subject=Business%20enquiry"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            Produced by · <strong>GeekWaedon</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware enthusiast</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI practitioner</span><a href="/en/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom service provider"><i class="fab fa-weixin"></i> WeCom service provider
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a><a href="/en/#follow" class="footer-social-link" aria-label="WeChat Official Account · GeekWaedon" title="WeChat Official Account · GeekWaedon"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Products</h5><ul><li><a href="/en/products/">Products</a></li><li><a href="/en/services/">Services</a></li><li><a href="/en/services/website-building/">Website building</a></li><li><a href="/en/services/component-matching/">Component matching</a></li><li><a href="/en/news/">Site Updates</a></li><li><a href="/en/boards/">Development Boards</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Resources</h5><ul><li><a href="/en/board-guide/">Board selection guide</a></li><li><a href="/en/compare/">Board comparison</a></li><li><a href="/en/tutorials/">Tutorials</a></li><li><a href="/en/documentation/">Documentation</a></li><li><a href="/en/online-tools/">Online Tools</a></li><li><a href="/en/tools/">Hardware calculators</a></li><li><a href="/en/cases/">Project Cases</a></li><li><a href="/en/help/">Documentation</a></li><li><a href="/en/games/resistor/">Resistor Color Code Challenge</a></li><li><a href="/en/dashuju/">Data Dashboard</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Open Source</h5><ul><li><a href="/en/open-source/">Open Source Projects</a></li><li><a href="/en/all-projects/">All projects</a></li><li><a href="/en/articles/">Technical articles</a></li><li><a href="/en/contribute/">Contribute</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>About</h5><ul><li><a href="/en/about/">About Us</a></li><li><a href="/en/about/#contact">Contact Us</a></li><li><a href="/en/licenses/">Open Source Licenses</a></li><li><a href="/en/pricing/">Pricing</a></li><li><a href="/en/privacy/">Privacy Policy</a></li><li><a href="/en/terms/">Terms of Service</a></li><li><a href="/en/refund/">Refund Policy</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">Popular Categories</span><div class="footer-category-links"><a href="/en/category/">all</a><a href="/en/category/fpga/">FPGA</a><a href="/en/category/general/">General</a><a href="/en/category/ai_hardware/">AI Hardware</a><a href="/en/category/vision/">Computer Vision</a><a href="/en/category/esp32/">ESP32</a><a href="/en/category/robotics/">Robotics</a><a href="/en/source/github/">GitHub</a><a href="/en/source/hackster/">Hackster.io</a><a href="/en/resources/">Resource Navigation</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="Geek Micro Building" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">Built single-handedly by GeekWaedon (@GeekWaedon) · <span style="color:#a78bfa;">people and AI, working side by side</span></div><div class="text-xs text-secondary">A one-person project run by a real human: the site build, the data pulls, the articles and the artwork all came from me (with a few AI agents). <a href="/en/about/" class="text-primary" style="text-decoration:none;">Meet the person behind it →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>Projects aggregated here are for developer reference only: ZouIC indexes them and hosts no code or files; copyright and licensing stay with their authors. For details, see the <a href="/en/licenses/">Open Source Licenses</a> page.</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="On-site smart search"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="Search boards, projects and articles, or type a question…"
+                       aria-label="On-site smart search"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> Select</span><span><kbd>↵</kbd> Open</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Copied';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Removed from favorites');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Saved to favorites');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/cross-end-design-redlines-5w1h/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=en-US'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>

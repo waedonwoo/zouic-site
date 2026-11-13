@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="一个聚合站把「版权与授权归原作者」写在首屏，只是把边界告诉了人。真正要拍板的是：这条边界在数据层、结构化数据层、机器可读层是不是同一条。只要有一层把来源项目的正文或设计文件存进了自己的库，页面上的那句话就不再成立。"><meta name="keywords" content="5W1H, 聚合站, 开源硬件, canonical, schema.org, isBasedOn, sameAs, 版权口径, 索引边界"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/articles/aggregation-not-reposting-5w1h/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/aggregation-not-reposting-5w1h/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/aggregation-not-reposting-5w1h/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/aggregation-not-reposting-5w1h/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/aggregation-not-reposting-5w1h/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="聚合不是转载：索引卡的内容边界要写在哪一层"><meta property="og:description" content="一个聚合站把「版权与授权归原作者」写在首屏，只是把边界告诉了人。真正要拍板的是：这条边界在数据层、结构化数据层、机器可读层是不是同一条。只要有一层把来源项目的正文或设计文件存进了自己的库，页面上的那句话就不再成立。"><meta property="og:url" content="https://www.zouic.com/articles/aggregation-not-reposting-5w1h/"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="聚合不是转载：索引卡的内容边界要写在哪一层"><meta name="twitter:description" content="一个聚合站把「版权与授权归原作者」写在首屏，只是把边界告诉了人。真正要拍板的是：这条边界在数据层、结构化数据层、机器可读层是不是同一条。只要有一层把来源项目的正文或设计文件存进了自己的库，页面上的那句话就不再成立。"><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "\u4e00\u4e2a\u805a\u5408\u7ad9\u628a\u300c\u7248\u6743\u4e0e\u6388\u6743\u5f52\u539f\u4f5c\u8005\u300d\u5199\u5728\u9996\u5c4f\uff0c\u53ea\u662f\u628a\u8fb9\u754c\u544a\u8bc9\u4e86\u4eba\u3002\u771f\u6b63\u8981\u62cd\u677f\u7684\u662f\uff1a\u8fd9\u6761\u8fb9\u754c\u5728\u6570\u636e\u5c42\u3001\u7ed3\u6784\u5316\u6570\u636e\u5c42\u3001\u673a\u5668\u53ef\u8bfb\u5c42\u662f\u4e0d\u662f\u540c\u4e00\u6761\u3002\u53ea\u8981\u6709\u4e00\u5c42\u628a\u6765\u6e90\u9879\u76ee\u7684\u6b63\u6587\u6216\u8bbe\u8ba1\u6587\u4ef6\u5b58\u8fdb\u4e86\u81ea\u5df1\u7684\u5e93\uff0c\u9875\u9762\u4e0a\u7684\u90a3\u53e5\u8bdd\u5c31\u4e0d\u518d\u6210\u7acb\u3002", "headline": "\u805a\u5408\u4e0d\u662f\u8f6c\u8f7d\uff1a\u7d22\u5f15\u5361\u7684\u5185\u5bb9\u8fb9\u754c\u8981\u5199\u5728\u54ea\u4e00\u5c42", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/aggregation-not-reposting-5w1h/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/aggregation-not-reposting-5w1h/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/aggregation-not-reposting-5w1h/", "name": "\u805a\u5408\u4e0d\u662f\u8f6c\u8f7d\uff1a\u7d22\u5f15\u5361\u7684\u5185\u5bb9\u8fb9\u754c\u8981\u5199\u5728\u54ea\u4e00\u5c42", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u6309\u672c\u6587\u91c7\u7528\u7684\u5224\u65ad\u7ebf\uff0c\u5df2\u7ecf\u4e0d\u662f\u7eaf\u7d22\u5f15\u4e86\u3002\u53ef\u590d\u6838\u7684\u6807\u51c6\u662f\uff1a\u5220\u6389\u672c\u5730\u526f\u672c\u540e\uff0c\u80fd\u5426\u4ec5\u51ed\u539f\u94fe\u63a5\u628a\u5361\u7247\u91cd\u5efa\u8d77\u6765\u3002\u82e5\u4e0d\u80fd\uff0c\u5c31\u5e94\u5f53\u628a\u5b83\u5f53\u4f5c\u8f6c\u8f7d\u5904\u7406\uff0c\u660e\u786e\u6388\u6743\u4e0e\u7f72\u540d\uff0c\u800c\u4e0d\u662f\u7ee7\u7eed\u7528\u300c\u4ec5\u4f9b\u5f00\u53d1\u8005\u53c2\u8003\u300d\u63cf\u8ff0\u3002"}, "name": "\u5361\u7247\u91cc\u5b58\u4e86\u6765\u6e90\u9879\u76ee\u7684 README \u5168\u6587\uff0c\u8fd8\u7b97\u805a\u5408\u5417\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u4e24\u8005\u58f0\u660e\u7684\u5173\u7cfb\u4e0d\u540c\uff1asameAs \u8868\u793a\u8eab\u4efd\u4e00\u81f4\uff0cisBasedOn \u8868\u793a\u672c\u4f5c\u54c1\u7531\u8be5\u8d44\u6e90\u884d\u751f\u3002\u540c\u4e00\u5f20\u5361\u82e5\u7528\u4e24\u4e2a\u5b57\u6bb5\u6307\u5411\u540c\u4e00 URL \u8868\u8fbe\u540c\u4e00\u4ef6\u4e8b\uff0c\u673a\u5668\u8bfb\u8005\u65e0\u6cd5\u5224\u65ad\u7ad9\u70b9\u662f\u5728\u8bf4\u300c\u8fd9\u662f\u90a3\u4e2a\u9879\u76ee\u300d\u8fd8\u662f\u300c\u8fd9\u662f\u57fa\u4e8e\u90a3\u4e2a\u9879\u76ee\u7684\u4f5c\u54c1\u300d\u3002\u6309\u9700\u9009\u4e00\u4e2a\uff0c\u5176\u4f59\u7528 citation \u6216\u666e\u901a\u94fe\u63a5\u3002"}, "name": "sameAs \u548c isBasedOn \u90fd\u586b\u6765\u6e90\u94fe\u63a5\uff0c\u4f1a\u6709\u4ec0\u4e48\u95ee\u9898\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u4e0d\u5e94\u8be5\u3002sitemap \u8868\u8fbe\u7684\u662f\u672c\u7ad9\u5e0c\u671b\u88ab\u6293\u53d6\u7684\u5730\u5740\u96c6\u5408\uff0c\u628a\u522b\u4eba\u7684\u9875\u9762\u5217\u8fdb\u53bb\u65e2\u4e0d\u6539\u53d8\u5f52\u5c5e\uff0c\u4e5f\u4f1a\u8ba9\u6e05\u5355\u53e3\u5f84\u5931\u771f\u3002\u6765\u6e90\u9875\u5e94\u4f5c\u4e3a\u5361\u7247\u91cc\u7684\u53ef\u70b9\u94fe\u63a5\u5b58\u5728\uff1b\u672c\u7ad9\u6e05\u5355\u53ea\u5217\u672c\u7ad9\u5730\u5740\uff0c\u8fd9\u662f\u56db\u5c42\u4e00\u81f4\u6027\u91cc\u6700\u5bb9\u6613\u9a8c\u8bc1\u7684\u4e00\u6761\u3002"}, "name": "\u628a\u6765\u6e90\u9879\u76ee\u9875\u4e5f\u653e\u8fdb sitemap\uff0c\u80fd\u8ba9\u5b83\u4eec\u66f4\u5feb\u88ab\u6536\u5f55\u5417\uff1f"}]}]}
+    </script>
+    
+    
+    <title>聚合不是转载：索引卡的内容边界要写在哪一层 - ZouIC</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">跳转到主要内容</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航"><div class="container"><a class="navbar-brand" href="/" aria-label="ZouIC 首页"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/all-projects/">开源项目</a></li><li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li><li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/services/component-matching/">商务合作</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li><li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li><li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li><li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li><li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li><li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li><li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li><li><a class="dropdown-item" href="/tools/"><i class="fas fa-calculator me-2"></i>硬件计算器</a></li><li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li><li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li><li><a class="dropdown-item" href="/ideas/"><i class="fas fa-lightbulb me-2"></i>创意树洞</a></li><li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="搜索类型:"><option value="">全部分类</option><option value="board">开源开发板</option><option value="project">开源项目</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="打开智能搜索"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/aggregation-not-reposting-5w1h/"><i class="fas fa-language me-2"></i> 中文
+                            </a></li><li><a class="dropdown-item" href="/en/articles/aggregation-not-reposting-5w1h/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/articles/aggregation-not-reposting-5w1h/"><i class="fas fa-language me-2"></i> 德语
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/">首页</a></li><li class="breadcrumb-item"><a href="/articles/">技术文章</a></li><li class="breadcrumb-item active" aria-current="page">聚合不是转载：索引卡的内容边界要写在哪一层</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">免费公开 · 欢迎转发</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">聚合不是转载：索引卡的内容边界要写在哪一层</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">算力行业观察 · 极客微栋 @GeekWaedon</p><p class="text-secondary text-sm mt-4">极客微栋 @GeekWaedon · 2026 年 11 月</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p>ZouIC 首屏写着一句话：聚合 GitHub、Hackster.io、CrowdSupply、Hackaday、Seeed Studio 等平台的开源硬件项目，统一筛选与分页；所有项目仅供开发者参考，版权与授权归原作者，遵循其各自开源协议。这句话说得很清楚，但它是一句给人看的页面说明。一个聚合站真正要拍板的决定不在措辞，而在分层：数据层到底存了什么、结构化数据层把什么声明成主体、机器可读层又把哪些链接当成自己的内容推出去。只要其中一层越过界，首屏那句话就变成了单方面的愿望。下面按 5W1H 拆开。结论先说：索引卡是「关于项目的描述」，不是「项目的副本」；这条边界必须在四层里各写一次，而且四次要能互相印证。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何事 · What：被混淆的两种「内容」</h2><p>聚合站生产的其实是两份东西。第一份是索引卡：项目名、一句话说明、来源平台、原链接、筛选标签、收录日期，以及站点自己写的归类与点评，这是站点原创的描述性内容。第二份是来源项目本身：仓库里的原理图、固件、BOM、README、教程正文、商品规格，版权与授权归原作者。混淆通常不是从抄袭开始的，而是从一次「为了搜索方便」的缓存开始的：把 README 全文抓下来存进自己的表，让站内搜索能命中；再把几张原理图存成本地图片，避免外链失效；接着为了让详情页显得完整，把教程正文也拼进去。每一步单独看都合理，四步之后，页面上那句「仅供开发者参考」已经描述不了实际发生的事。判断标准可以定得很朴素：站点能不能在删掉本地副本后，仅凭原链接把这张卡重新建起来。能，就还是索引；不能，就已经是转载。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何因 · Why：搜索引擎、机器读者与原作者要的不是同一句话</h2><p>Google Search Central 的入门指南把话说得直白：内容要自己写、基于自己的认知，不要照搬或只是复述别人已发布的内容；它同时说明站内存在重复内容本身并不违反垃圾内容政策，但同样的信息出现在一堆不同地址上会造成体验问题并浪费抓取资源。规范化文档补了两条容易踩的细节：rel=canonical 是提示而非规则，平台仍可能另选规范网址；不要用 robots.txt 做规范化，被禁止抓取的地址仍可能被索引、只是不收录内容。于是三方诉求就分叉了：搜索引擎要判断这张卡是不是有独立价值、以及哪个地址算正主；机器读者要判断这段描述对应哪个真实项目、授权是什么；原作者要的是署名、原链接和协议不被改写。只写一句「版权归原作者」无法同时回答这三方，因为它们分别读的是页面可见文案、结构化数据和链接关系，而不是同一层。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何人 · Who：四方各管一段，一致性没人自动负责</h2><p>来源平台决定项目页有什么、协议挂在哪、什么时候下架；原作者决定授权范围，且可能在不同平台用不同协议发布不同产物；站点运营者决定收录哪些字段、写多少自己的描述、把哪些链接写进机器可读清单；搜索引擎与 AI 客户端决定怎么理解这些标记。schema.org 的词汇定义正好把这四方的边界摆出来：sameAs 指向「能无歧义表明该条目身份」的参考页，isBasedOn 表示本作品由哪个资源衍生或改编（并已取代 isBasedOnUrl），license 指向适用于本内容的许可文档，citation 是对另一作品的引用，mainEntityOfPage 则说明某页以哪个东西为主体。这些字段不是装饰：把来源仓库的链接填进 sameAs，等于声明「这张卡和那个仓库是同一个身份」；填进 isBasedOn，等于声明「这张卡是那个项目的衍生作品」。两种声明对应的责任完全不同，而填错的成本要由站点承担，不由填字段的模板承担。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何时 · When：四个不同步的时间点</h2><p>第一是收录时刻：站点抓取元数据、写下收录日期，这是唯一能证明「当时看到了什么」的时间点。第二是来源变更时刻：仓库改协议、归档、删库、商品页下架、教程被编辑，站点未必收到通知。第三是站点导出时刻：静态导出把当前卡片固化成 HTML，此后页面不再随源站变化，直到下次重导。第四是外部读取时刻：搜索引擎或机器客户端可能拿着几周前缓存的版本。把这四个时刻压成一个「当前状态」，是聚合站最常见的失真来源。工程上的对策不是实时同步——那会引入更多抓取与合规问题——而是把时间显式化：卡片写收录日期与最近核对日期，机器可读清单写基准日，失效与协议变更另行标注状态，并且让「最近核对」不等于「内容已核对无误」，只是「链接与字段在这一天被访问过」。Google 的规范化文档还提醒，不同语言版本只有在主要内容仍是同一语言时才算重复页，所以三语索引卡不能用一套 canonical 互相指来指去，得各自自引用并靠 hreflang 闭环。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何地 · Where：四层落点，缺一层就会被读成另一种站</h2><p>数据层只该有元数据、原链接、来源平台、协议指向、收录与核对日期、站点自己的描述和标签；正文、原理图、固件与商品图留在原站，用链接引用。页面层把「版权与授权归原作者、遵循各自开源协议」写成可见说明，并把原链接做成可点的显眼出口，而不是藏在页脚。结构化数据层用 sameAs 指向权威身份页、isBasedOn 或 citation 表达衍生与引用、license 指向协议地址，主体的 mainEntityOfPage 指向本站这张卡，明确站点描述的是「关于项目的条目」而不是「项目本身」。机器可读层（sitemap、llms.txt 一类清单）只列本站页面地址，不把来源项目页混进本站清单冒充自家内容。四层的边界必须一致：任何一层出现了来源全文或把来源页列进本站清单，另外三层的说明就自动失效。站内做死链与 sitemap 校验时，也应分清「本站地址是否存在」和「外链是否还活着」，两者不是一次检查。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">如何 · How：把边界做成四条可复核的断言</h2><p>第一条，数据层断言：本地表里不存在来源项目的正文字段、设计文件二进制或图片副本；若确有缩略图，单独标注用途与来源，并允许一键清除。第二条，链接层断言：每张索引卡的来源链接可解析、指向原站而非本站镜像，且协议地址（若有）与卡片标注一致；原链接失效时进入待复核状态，不静默删除也不当作正常。第三条，标记层断言：sameAs 与 isBasedOn 不指向同一个 URL 表达同一件事，license 不与来源平台主页混用，三语卡各自自引用 canonical 并构成 hreflang 闭环。第四条，清单层断言：sitemap 与机器可读清单里出现的每个地址都属于本站域名，来源项目页只以链接形式出现在卡片里。四条断言都写进上线前自检，而不是写进编辑规范让人自觉遵守。做完这一步，再讨论要不要为来源做快照、要不要加摘要，讨论才有共同基线。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">边界：这套拆法在哪里不成立</h2><p>它解决的是「站点自己有没有越界」，不解决「来源本身是否授权清晰」。一个仓库可能把代码、原理图、文档分别挂在不同协议下，也可能根本没有许可证文件；此时站点写「遵循其各自开源协议」只是在转述，不能替原作者补全授权。schema.org 的字段是词汇定义，不保证任何搜索引擎都会读取或据此改判内容归属；rel=canonical 按平台文档只是提示，站点不能靠它强制指定身份。静态导出还带来一层滞后：页面是某个时刻的快照，机器读者拿到的可能是更早的缓存，两者都可能与今天的源站不同。更实际的缺口是，HTTP 层看不到内容被取走之后是否被用于索引、摘要或训练，声明与日志都只覆盖到交付当时。这些缺口不是加一个字段能补的，只能靠标注基准日、保留核对记录，以及遇到争议时以原作者页面为准。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">结论：把「不是转载」写成结构，而不是写成表态</h2><p>一句写在首屏的版权说明有价值，但它是表态；真正的边界是数据结构、链接关系、标记字段和清单范围共同构成的事实。建议把顺序倒过来：先决定本地不存什么，再决定卡片里放什么，然后补齐 sameAs、isBasedOn、license 与自引用 canonical，最后把四层一致性做成上线前的自动断言。这样即便将来要加全文摘要、要做离线快照，也会立刻撞上其中一条断言，迫使团队重新拍板，而不是在无人察觉的情况下把聚合站慢慢变成转载站。对读者而言这同样更省事：他能在一张卡上看到「这是什么、原站在哪、谁定的协议、我们什么时候核对过」，然后自己决定要不要点过去。</p></div><div class="card-dark p-6 mb-5"><p>数据与口径（基准日 2026-11-13）：首屏文案「聚合 GitHub、Hackster.io、CrowdSupply、Hackaday、Seeed Studio 等平台；所有项目仅供开发者参考，版权与授权归原作者，遵循其各自开源协议」出自 ZouIC 首页 hero 的站点自身口径。sameAs、isBasedOn（取代 isBasedOnUrl）、license、citation、mainEntityOfPage 的词义出自 schema.org CreativeWork 与 SoftwareSourceCode 词汇定义，属规范文本口径。「重复内容本身不违反垃圾内容政策、内容需自己撰写、rel=canonical 是提示而非规则、不要用 robots.txt 做规范化、不同语言版本仅在主要内容同语言时才算重复」出自 Google Search Central 的入门指南与规范化文档，属平台官方口径。第三方 SEO 整理中关于「重复内容惩罚」的讨论与本文结论方向一致，只作辅助说明，不作为依据。规范词汇定义不等于搜索引擎的实际采纳行为，两者并列写出，不取平均。</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>卡片里存了来源项目的 README 全文，还算聚合吗？</h3><p class="faq-a">按本文采用的判断线，已经不是纯索引了。可复核的标准是：删掉本地副本后，能否仅凭原链接把卡片重建起来。若不能，就应当把它当作转载处理，明确授权与署名，而不是继续用「仅供开发者参考」描述。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>sameAs 和 isBasedOn 都填来源链接，会有什么问题？</h3><p class="faq-a">两者声明的关系不同：sameAs 表示身份一致，isBasedOn 表示本作品由该资源衍生。同一张卡若用两个字段指向同一 URL 表达同一件事，机器读者无法判断站点是在说「这是那个项目」还是「这是基于那个项目的作品」。按需选一个，其余用 citation 或普通链接。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>把来源项目页也放进 sitemap，能让它们更快被收录吗？</h3><p class="faq-a">不应该。sitemap 表达的是本站希望被抓取的地址集合，把别人的页面列进去既不改变归属，也会让清单口径失真。来源页应作为卡片里的可点链接存在；本站清单只列本站地址，这是四层一致性里最容易验证的一条。</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/articles/" class="btn-zouic">技术文章</a><a href="/boards/" class="btn-zouic">开源开发板</a><a href="/compare/" class="btn-zouic btn-zouic-primary">开发板对比</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3><p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p></div><div class="col-lg-5"><a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span></div></div></div></div></div></section><section class="py-4" aria-label="出品人"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div><div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/" class="footer-brand" aria-label="ZouIC 首页"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p><p class="footer-business-contact">
+                        商务合作 / 器件选型：
+                        <a href="mailto:waedon@outlook.com?subject=%E5%95%86%E5%8A%A1%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            出品人 · <strong>极客微栋</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span><a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商"><i class="fab fa-weixin"></i> 企业微信服务商
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a><a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>产品</h5><ul><li><a href="/products/">产品介绍</a></li><li><a href="/services/">服务说明</a></li><li><a href="/services/website-building/">建站服务</a></li><li><a href="/services/component-matching/">元器件撮合</a></li><li><a href="/news/">站内动态</a></li><li><a href="/boards/">开源开发板</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>资源</h5><ul><li><a href="/board-guide/">选型指南</a></li><li><a href="/compare/">开发板对比</a></li><li><a href="/tutorials/">开发板教程</a></li><li><a href="/documentation/">技术文档</a></li><li><a href="/online-tools/">在线工具</a></li><li><a href="/tools/">硬件计算器</a></li><li><a href="/cases/">项目案例</a></li><li><a href="/help/">文档中心</a></li><li><a href="/games/resistor/">色环电阻识别挑战</a></li><li><a href="/dashuju/">数据大屏</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>开源生态</h5><ul><li><a href="/open-source/">开源项目</a></li><li><a href="/all-projects/">全部项目</a></li><li><a href="/articles/">技术文章</a></li><li><a href="/ideas/">创意树洞</a></li><li><a href="/wechat/">公众号专栏</a></li><li><a href="/contribute/">贡献指南</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>关于</h5><ul><li><a href="/about/">关于我们</a></li><li><a href="/about/#contact">联系我们</a></li><li><a href="/licenses/">开源协议</a></li><li><a href="/pricing/">服务报价</a></li><li><a href="/privacy/">隐私政策</a></li><li><a href="/terms/">服务条款</a></li><li><a href="/refund/">退款政策</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">热门分类</span><div class="footer-category-links"><a href="/category/">全部</a><a href="/category/fpga/">FPGA</a><a href="/category/general/">综合</a><a href="/category/ai_hardware/">AI 硬件</a><a href="/category/vision/">机器视觉</a><a href="/category/esp32/">ESP32</a><a href="/category/robotics/">机器人</a><a href="/source/github/">GitHub</a><a href="/source/hackster/">Hackster.io</a><a href="/resources/">资源导航</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div><div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="返回顶部"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="站内智能搜索"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="搜索开发板、项目、文章，或直接输入问题…"
+                       aria-label="站内智能搜索"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> 选择</span><span><kbd>↵</kbd> 打开</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/aggregation-not-reposting-5w1h/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=zh-CN'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>
