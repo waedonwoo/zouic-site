@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="O-RAN-Spezifikationen, Zertifizierungsabzeichen und Global PlugFests belegen Schnittstellen und Interoperabilität, nicht die Leistung kommerzieller Netze.…"><meta name="keywords" content="AI-RAN, O-RAN ALLIANCE, O-RAN-R005, PlugFest, Interoperabilitätstest, Beschaffungsabnahme, SLA, Messpunkt, Verantwortlicher, 5W1H"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/de/articles/ai-ran-procurement-framing-5w1h/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/ai-ran-procurement-framing-5w1h/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/ai-ran-procurement-framing-5w1h/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/ai-ran-procurement-framing-5w1h/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/ai-ran-procurement-framing-5w1h/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="AI-RAN von Laborkennzahlen zur Beschaffungsabnahme: welche Ebene überhaupt prüfbar ist"><meta property="og:description" content="O-RAN-Spezifikationen, Zertifizierungsabzeichen und Global PlugFests belegen Schnittstellen und Interoperabilität, nicht die Leistung kommerzieller Netze. Testergebnisse als SLA zu lesen ist ein Kategorienfehler. Der Beschaffer muss vier Dinge selbst festlegen — Abnahmeobjekt, Messpunkt, Fehlerkriterium und Verantwortlichen — und sie als überprüfbare Klauseln schreiben, nicht als Bekenntnis."><meta property="og:url" content="https://www.zouic.com/de/articles/ai-ran-procurement-framing-5w1h/"><meta property="og:type" content="article"><meta property="og:locale" content="de_DE"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC – Plattform für Open-Source-Entwicklungsboards · GeekWeidong"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="AI-RAN von Laborkennzahlen zur Beschaffungsabnahme: welche Ebene überhaupt prüfbar ist"><meta name="twitter:description" content="O-RAN-Spezifikationen, Zertifizierungsabzeichen und Global PlugFests belegen Schnittstellen und Interoperabilität, nicht die Leistung kommerzieller Netze. Testergebnisse als SLA zu lesen ist ein Kategorienfehler. Der Beschaffer muss vier Dinge selbst festlegen — Abnahmeobjekt, Messpunkt, Fehlerkriterium und Verantwortlichen — und sie als überprüfbare Klauseln schreiben, nicht als Bekenntnis."><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "O-RAN-Spezifikationen, Zertifizierungsabzeichen und Global PlugFests belegen Schnittstellen und Interoperabilit\u00e4t, nicht die Leistung kommerzieller Netze. Testergebnisse als SLA zu lesen ist ein Kategorienfehler. Der Beschaffer muss vier Dinge selbst festlegen \u2014 Abnahmeobjekt, Messpunkt, Fehlerkriterium und Verantwortlichen \u2014 und sie als \u00fcberpr\u00fcfbare Klauseln schreiben, nicht als Bekenntnis.", "headline": "AI-RAN von Laborkennzahlen zur Beschaffungsabnahme: welche Ebene \u00fcberhaupt pr\u00fcfbar ist", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "de", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/ai-ran-procurement-framing-5w1h/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/ai-ran-procurement-framing-5w1h/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/ai-ran-procurement-framing-5w1h/", "name": "AI-RAN von Laborkennzahlen zur Beschaffungsabnahme: welche Ebene \u00fcberhaupt pr\u00fcfbar ist", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Nach der Einordnung dieses Textes nicht. Zertifizierungs- und PlugFest-Ergebnisse belegen die Interoperabilit\u00e4t einer bestimmten Kombination, keine Leistungszusage f\u00fcr ein kommerzielles Netz. \u00dcberpr\u00fcfbar ist: die vier Dinge \u2014 Abnahmeobjekt, Messpunkt, Fehlerkriterium, Verantwortlicher \u2014 als eigene Klauseln schreiben und dann die konkreten Spezifikationsversionen und die Anwendungskombination zitieren; sonst l\u00e4sst sich die Vertragszeile \u201ezertifiziert\u201c weder als erf\u00fcllt noch als verfehlt beweisen."}, "name": "Kann eine im Beschaffungsvertrag festgehaltene O-RAN-Zertifizierung als Erf\u00fcllung der Leistungsziele gelten?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Weil sich die Messbedingungen \u00e4ndern. Das Labor f\u00e4hrt eine bestimmte Last, eine bestimmte Nachbarschaftszellkonfiguration und eine bestimmte rApp/xApp-Kombination; das Live-Netz hat ein anderes Verkehrsprofil, andere Temperaturen und einen anderen Hersteller-Mix, und die Anwendungskombinationen verschiedener Hersteller definieren die Messpunkte ohnehin unterschiedlich. Den Messwert zusammen mit Messpunkt, Abtastfenster und Lastbedingungen abnehmen und die Vergleichbarkeit der beiden Bedingungss\u00e4tze angeben \u2014 keinen nackten Prozentsatz \u00fcbernehmen."}, "name": "Warum l\u00e4sst sich ein im Labor gemessener Einsparanteil nicht direkt ins Live-Netz \u00fcbertragen?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Meist der Verantwortliche, vor allem \u201ewelcher Nachweis im Streitfall gilt\u201c. Das Testzentrum stellt Berichte aus, der Hersteller Anwendungen, die Allianz Spezifikationen \u2014 keine Seite steht automatisch f\u00fcr die Live-Netz-Kennzahl gerade. Zeitquellen, Aufbewahrungsfristen und Rangfolge des Monitoring auf Dienstleisterseite, der Sonden auf Kundenseite und der Nachpr\u00fcfung durch Dritte vorab in einen Anhang zu schreiben, ist weit billiger, als nachtr\u00e4glich zu vergleichen, wessen Monitoring vollst\u00e4ndiger ist."}, "name": "Welches der vier Dinge wird von Beschaffern am h\u00e4ufigsten ausgelassen?"}]}]}
+    </script>
+    
+    
+    <title>AI-RAN von Laborkennzahlen zur Beschaffungsabnahme: welche Ebene überhaupt prüfbar ist</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Hauptnavigation"><div class="container"><a class="navbar-brand" href="/de/" aria-label="ZouIC-Startseite"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Navigation umschalten"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/de/">Startseite</a></li><li class="nav-item"><a class="nav-link" href="/de/all-projects/">Open-Source-Projekte</a></li><li class="nav-item"><a class="nav-link" href="/de/boards/">Open-Source-Boards</a></li><li class="nav-item"><a class="nav-link" href="/de/board-guide/">Dokumentation</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/de/services/component-matching/">Geschäftskontakt</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Mehr
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/de/products/"><i class="fas fa-box me-2"></i>Produkte</a></li><li><a class="dropdown-item" href="/de/services/"><i class="fas fa-cogs me-2"></i>Leistungen</a></li><li><a class="dropdown-item" href="/de/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>elektronische BauteileVermittlung</a></li><li><a class="dropdown-item" href="/de/news/"><i class="fas fa-newspaper me-2"></i>Neuigkeiten</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/de/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Anleitungen</a></li><li><a class="dropdown-item" href="/de/documentation/"><i class="fas fa-book me-2"></i>Dokumentation</a></li><li><a class="dropdown-item" href="/de/resources/"><i class="fas fa-compass me-2"></i>Ressourcennavigation</a></li><li><a class="dropdown-item" href="/de/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>Online-Werkzeuge</a></li><li><a class="dropdown-item" href="/de/tools/"><i class="fas fa-calculator me-2"></i>Hardware calculators</a></li><li><a class="dropdown-item" href="/de/cases/"><i class="fas fa-briefcase me-2"></i>Projektbeispiele</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/de/open-source/"><i class="fas fa-code-branch me-2"></i>Open-Source-Projekte</a></li><li><a class="dropdown-item" href="/de/articles/"><i class="fas fa-pen-fancy me-2"></i>Fachbeiträge</a></li><li><a class="dropdown-item" href="/de/contribute/"><i class="fas fa-handshake me-2"></i>Mitwirken</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/de/dashuju/"><i class="fas fa-chart-line me-2"></i>Datenübersicht</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/de/search/"><i class="fas fa-search me-1"></i>Suche</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="Boards, Projekte oder Schlagworte suchen …" aria-label="Suchen" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="Suchtyp:"><option value="">Alle Kategorien</option><option value="board">Open-Source-Boards</option><option value="project">Open-Source-Projekte</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Suchen"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="Smart-Suche öffnen"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> Deutsch
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/ai-ran-procurement-framing-5w1h/"><i class="fas fa-language me-2"></i> Chinesisch
+                            </a></li><li><a class="dropdown-item" href="/en/articles/ai-ran-procurement-framing-5w1h/"><i class="fas fa-language me-2"></i> Englisch
+                            </a></li><li><a class="dropdown-item" href="/de/articles/ai-ran-procurement-framing-5w1h/"><i class="fas fa-language me-2"></i> Deutsch
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/de/">Startseite</a></li><li class="breadcrumb-item"><a href="/de/articles/">Fachbeiträge</a></li><li class="breadcrumb-item active" aria-current="page">AI-RAN von Laborkennzahlen zur Beschaffungsabnahme: welche Ebene überhaupt prüfbar ist</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">Frei zugänglich · Weitergabe erwünscht</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">AI-RAN von Laborkennzahlen zur Beschaffungsabnahme: welche Ebene überhaupt prüfbar ist</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">Notizen zur Compute-Branche · GeekWaedon @GeekWaedon</p><p class="text-secondary text-sm mt-4">GeekWaedon @GeekWaedon · November 2026</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p>Fazit vorweg: Die Spezifikationen, Zertifizierungsabzeichen und Global PlugFests der O-RAN ALLIANCE beantworten die Frage, ob sich Schnittstellen verbinden lassen und ob ein Mehrhersteller-Verbund überhaupt zusammenläuft — nicht, ob ein kommerzielles Netz Strom spart oder seine Ziele erreicht. Wer das Ergebnis eines Interoperabilitätstests in das Service-Level-Agreement einer Beschaffungsabnahme schreibt, vermengt zwei Ebenen zu einer; das ist ein Kategorienfehler. Was der Beschaffer tatsächlich entscheiden muss, sind vier Dinge: Abnahmeobjekt, Messpunkt, Fehlerkriterium und Verantwortlicher; keines davon liefert eine Allianz-Spezifikation fertig mit. Dieser Text folgt dem Format eines Entscheidungsprotokolls: Die 5W1H-Dimensionen beantworten je eine Entscheidungsfrage, Grenzen und Fazit stehen gesondert. Jede Dimension stellt eine angreifbare These auf, statt Spezifikationsklauseln nachzubeten — denn eine Entscheidung braucht Klauseln, die sich bestreiten und ändern lassen, nicht Begriffserklärungen, über die kein Streit möglich ist.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Was: welche Ebene überhaupt abgenommen wird</h2><p>Zunächst das Objekt klären. O-RAN-R005 wurde im November 2025 abgeschlossen und umfasst KI/ML-Workflow-Dienste, die Kombination von Non-RT RIC (nicht echtzeitfähigem RAN Intelligent Controller) und Near-RT RIC (nahezu echtzeitfähigem RAN Intelligent Controller), Massive-MIMO-Strahloptimierung (Optimierung großer Antennenarrays) sowie die Übernahme der Energiesparfunktionen aus 3GPP Release-18; der Spezifikationstext ist auf specifications.o-ran.org öffentlich abrufbar. All das ist Beleg dafür, dass Schnittstellen und Frameworks eine dokumentierte Grundlage haben — dass eine Funktionsklasse definiert und ihr Zusammenwirken vereinbart ist — nicht dafür, dass kommerzielle Netze den entsprechenden Nutzen bereits erbracht haben. Die angreifbare These: „die Spezifikation deckt eine Funktion ab“ als „das Live-Netz erzielt diesen Nutzen sicher“ zu lesen, ist die häufigste und teuerste Form des Beschaffungsirrtums. Es ist wie die Abnahme neu installierter Steckdosen: Die Zertifizierung beweist nur, dass der Stecker passt und die Kontakte ausgerichtet sind, nicht dass die Stromrechnung des Gebäudes im nächsten Monat sinkt. Die Steckdose ist die Schnittstellenebene, die Rechnung die Betriebsebene. Gegenstand einer Beschaffungsabnahme ist genau die letztere, beobachtbare Ebene — nicht die vordere, anschließbare Fähigkeit.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Warum: warum ein Zertifizierungsergebnis eine SLA nicht ersetzen kann</h2><p>Die Allianz betreibt ein Certification and Badging Program, OTIC-Test- und Integrationszentren (Open Test and Integration Centres) sowie Global PlugFests, offiziell beschrieben als Mehrhersteller-Integrationstests Ende-zu-Ende; die offizielle Website nennt als Schwerpunkt 2026 die Konsolidierung der bestehenden 5G-Netzspezifikationen und besagt, dass KI-gesteuerte Netzintelligenz vom Versuch in die skalierte Bereitstellung übergeht. Die angreifbare These: Die Bestehensbedingung eines Interoperabilitätstests lautet „es verbindet sich, und die vereinbarten Abläufe laufen“, die Bestehensbedingung eines Service-Level-Agreements lautet „unter vereinbarter Last und in vereinbarten Zeitfenstern werden vereinbarte Kennzahlen erreicht, und bei Fehlschlag ist die Verantwortung zuordenbar“. Beide haben nicht einmal dasselbe Messobjekt, sodass das erstere das letztere nicht implizieren kann. Bestandener Labor-Interoperabilitätstest ist kein Energieeinsparungsergebnis im Live-Netz — das ist keine Kontrahaltung, sondern die Folge unterschiedlicher Messbedingungen. „Vom Versuch in die skalierte Bereitstellung“ ist zudem eine Verlaufsform und besagt gerade, dass die skalierte Bereitstellung ein laufendes Ziel ist, kein bereits spezifikationsbestätigtes Ergebnis; es als „die Spezifikationen garantieren kommerzielle Leistung“ zu lesen, macht Roadmap-Tonfall zum Abnahmeurteil. Genau da sitzt der Kategorienfehler: Der Existenznachweis beantwortet „gibt es das, verbindet es sich“; die Leistungszusage beantwortet „reicht es, und wessen Verantwortung ist es“.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Wer: wer über die vier Dinge entscheidet und wer dafür geradesteht</h2><p>Die Verantwortung ist verteilt, und eben diese Verteilung ist der Grund, warum entschieden werden muss. Die Allianz definiert Schnittstellen, Frameworks und Testbedingungen; Geräte- und Softwarehersteller liefern die konkreten Netzelemente sowie rApps (Anwendungen auf dem nicht echtzeitfähigen Controller) und xApps (Anwendungen auf dem nahezu echtzeitfähigen Controller); OTIC und die PlugFests stellen Integrationsumgebungen bereit und stellen Testergebnisse für bestimmte Kombinationen aus; der Beschaffer — der Netzbetreiber oder sein Integrator — muss Abnahmeobjekt, Messpunkt, Fehlerkriterium und Verantwortlichen selbst festlegen. Die angreifbare These: „wer den Testbericht ausstellt, haftet für die Live-Netz-Leistung“ ist von vornherein falsch; ein Testbericht haftet nur für die eine getestete Kombination und die eine getestete Bedingungsmenge, nicht für die Kombination im Live-Netz, nachdem Hersteller, Last oder Nachbarschaftszellkonfiguration gewechselt sind. Keines der vier Dinge lässt sich an die Allianz auslagern: Die Allianz legt keine Schwellenwerte für Ihr Netz fest, der Hersteller schreibt Ihre Fehlerkriterien nicht, und das Testzentrum schreibt erst recht nicht in Ihren Vertrag, welcher Nachweis im Streitfall gilt. Den Verantwortlichen leer zu lassen heißt, den Streit auf die Zeit nach dem Livegang zu verschieben.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Wann: welche Zeitpunkte in die Abnahmekriterien geschrieben werden müssen</h2><p>Zuerst zwei Arten von Daten trennen: 2026-11-14 ist der Stichtag dieser Prüfung, nicht der Tag einer Spezifikationsveröffentlichung oder eines Ereignisses; O-RAN-R005 wurde 2025-11 abgeschlossen, und in der offiziellen Lesart ist der Schwerpunkt 2026 die Konsolidierung der bestehenden 5G-Netzspezifikationen. Die angreifbare These: Das Veröffentlichungsdatum der Spezifikation als Wirksamkeitsdatum der Abnahme zu nehmen übersieht Versions- und Kombinationsdrift — zwischen Veröffentlichung und Livegang wird die Spezifikation überarbeitet, rApps und xApps wechseln die Version, die Live-Netz-Konfiguration ändert sich; ein statisches Datum deckt das nicht ab. Anker der Abnahmekriterien ist nicht ein Veröffentlichungsdatum, sondern ein Satz von Schnappschüssen: welche Spezifikationsversion, welche Anwendungskombination, welches Messfenster, welcher Stichtag der Prüfung. Ebenso ist „vom Versuch in die skalierte Bereitstellung“ eine Vorgangsbeschreibung und darf nicht zu „im Jahr X skaliert bereitgestellt“ im Vollzug umgeschrieben werden. Die Zeitpunkte in die Klausel zu schreiben, ist das, was jemandem, der dieses Abnahmeprotokoll zwei Jahre später wiederliest, erlaubt nachzuvollziehen, welche Kombination damals gemessen wurde — statt nur einer nackten Jahreszahl.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Wo: auf welcher Ebene der Messpunkt liegt</h2><p>Der Messpunkt entscheidet, ob eine Zahl überhaupt etwas bedeutet. In der Architektur, die Non-RT RIC und Near-RT RIC kombiniert, liegen die Beobachtung von KI/ML-Workflows, Massive-MIMO-Strahloptimierung und den Energiesparfunktionen aus 3GPP Release-18 auf verschiedenen Zeitskalen und verschiedenen Schnittstellen-Zählern: Die nicht echtzeitfähige Seite neigt zu Strategie und Modelltraining, die nahezu echtzeitfähige Seite zu millisekundenschnellen Steuerentscheidungen, und der Energieeinspareffekt hängt zusätzlich von Verkehrslast, Nachbarschaftsbeziehungen und Temperatur ab. Die angreifbare These: Ein im OTIC-Labor gemessener Einsparanteil lässt sich nicht direkt ins Live-Netz übertragen, weil Lastprofil und Umgebung beide anders sind; und die rApp/xApp-Kombinationen verschiedener Hersteller definieren dieselbe Kennzahl auf verschiedenen Messpunkten, sodass ein bestandener Messwert der Kombination A für die Kombination B nichts bedeutet. „Wo“ muss also festlegen: welches Netzelement, welche Schnittstelle, welcher Zähler und welches Abtastfenster maßgeblich sind, und wie die Differenz zwischen Labor- und Live-Netz-Messpunkt dokumentiert wird. Ohne festen Anlandepunkt ist jeder Prozentsatz nur eine schwebende Zahl.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Wie: die vier Dinge als überprüfbare Abnahmepunkte formulieren</h2><p>Hier ein umsetzbarer Formulierungsvorschlag. Erstens das Abnahmeobjekt: die geprüften Funktionen, die Spezifikationsversionen und das rApp/xApp-Verzeichnis auflisten; keine unfalsifizierbaren Pauschalen wie „mit AI-RAN-Fähigkeit“ schreiben. Zweitens der Messpunkt: Netzelement, Zähler, Abtastfenster und Lastbedingungen definieren, die Abweichung von den OTIC-Testbedingungen angeben und wie sie umgerechnet oder für unvergleichbar erklärt wird. Drittens das Fehlerkriterium: Schwellenwerte, zusammenhängende Beobachtungsdauer, zulässige Wiederholungen, Ausschlussregeln und ob eine Verfehlung Nachbesserung, herabgestufte Abnahme oder Ablehnung auslöst. Viertens der Verantwortliche: wer protokolliert, wer nachprüft, welche Zeitquellen die Monitoring- und Abrechnungsdaten je haben, wie lange aufbewahrt wird und welcher Nachweis im Streitfall gilt. Die angreifbare These: Eine Klausel, die nur „Einsparziel erreichen“ sagt, ohne Messpunkt und Fehlerkriterium, ist im Kern nicht durchsetzbar, weil sich weder Erreichen noch Verfehlen beweisen lässt. Die vier Punkte als vor dem Livegang automatisch prüfbare Aussagen zu formulieren — statt als redaktionelle Richtlinien, auf die man sich verlässt — ist es, was die Entscheidung landen lässt; eine Klausel muss maschinell nachprüfbar sein, nicht nur menschenlesbar.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Grenzen: was die Spezifikationen nicht regeln und die Tests nicht abdecken</h2><p>Die Lücken hier sammeln statt sie im Fazit zu verstecken. Die Allianz-Spezifikationen legen keine kommerziellen Leistungsschwellen fest, definieren kein Service-Level-Agreement und garantieren keine Energieeinsparung im Live-Netz; Zertifizierungs- und PlugFest-Ergebnisse gelten nur für die getestete Kombination und die getesteten Bedingungen; der offizielle Schwerpunkt 2026 ist noch „Konsolidierung der bestehenden Spezifikationen“, also ist der Spezifikationskanon selbst noch in Bewegung; die Messpunkte unterscheiden sich je nach Hersteller-Anwendungskombination, ein herstellerübergreifender Vergleich entbehrt der gemeinsamen Basis; und zu Recht, Compliance und Preisen liefert dieser Text nur technische Einordnungen, keine Wertung. Die angreifbare These: „ein weiteres Zertifizierungselement deckt die Abnahme ab“ trägt nicht, weil zwischen Spezifikationsebene und Beschaffungsebene kein Mehr-oder-weniger-Verhältnis besteht, sondern zwei verschiedene Fragen. Noch eine praktischere Lücke: Ein Testbericht sieht das Verhalten der getesteten Kombination zu ihrem Zeitpunkt, nicht die Verschiebung nach dem Livegang durch Lastwechsel, Strategieupdates und Mehrhersteller-Betrieb; das können nur die eigenen Aufzeichnungen und Nachprüfungen des Live-Netzes auffangen. Diese Grenzen einzugestehen schwächt das Abnahmeprotokoll nicht — es bewahrt es davor, zu versprechen, was es nicht halten kann.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Fazit: die Zertifizierung dorthin zurückstellen, wo sie hingehört</h2><p>Zertifizierung und Interoperabilität sind die Eintrittskarte, nicht das Abnahmeprotokoll; sie können belegen, dass diese Kombination sich einsteckt und durchläuft, nicht dass die Rechnung des Gebäudes sinkt. Empfohlen wird die umgekehrte Reihenfolge: Der Beschaffer legt zuerst die vier Dinge fest — Abnahmeobjekt, Messpunkt, Fehlerkriterium, Verantwortlicher —, zitiert sodann die konkreten Spezifikationsversionen und die Anwendungskombination, ergänzt Messfenster und Fehlerkriterium und schreibt zuletzt die Aufteilung der Aufzeichnungen und den im Streitfall maßgeblichen Nachweis in den Vertragsanhang, statt in den Haupttext eine Zeile „O-RAN-zertifiziert“ zu setzen. Sobald dann rApps oder xApps getauscht, die Einsparstrategie angepasst oder ein neuer Hersteller eingeführt wird, stößt das Team sofort auf eine der Aussagen und muss neu entscheiden — statt dass Laborergebnisse unbemerkt allmählich zu kommerziellen Zusagen erstarren. Auch für den Leser ist das brauchbarer: Beim Wort „zertifiziert“ sollten drei Fragen folgen — welche Kombination wurde getestet, auf welcher Ebene liegt der Messpunkt, wer antwortet für die Live-Netz-Kennzahl. Eine Abnahme, die diese drei nicht beantworten kann, ist so schön formuliert sie auch sei nur eine Geste.</p></div><div class="card-dark p-6 mb-5"><p>Quellen und Einordnung (Stichtag 14. November 2026): Stufe 1 (Spezifikationstext): O-RAN-R005 selbst, abgeschlossen 2025-11, mit KI/ML-Workflow-Diensten, der Kombination von Non-RT RIC und Near-RT RIC, Massive-MIMO-Strahloptimierung und der Übernahme der Energiesparfunktionen aus 3GPP Release-18, öffentlich abrufbar auf specifications.o-ran.org — die Einordnung des Spezifikationstextes. Stufe 2 (offizielle Dokumente und Bekanntgaben der Allianz): Website und Bekanntgaben der O-RAN ALLIANCE zum Abschlussdatum von R005, zum Certification and Badging Program, zu den OTIC-Test- und Integrationszentren, zu den Global PlugFests für Mehrhersteller-Integrationstests Ende-zu-Ende, zum Schwerpunkt 2026 (Konsolidierung der bestehenden 5G-Netzspezifikationen) und zum Übergehen KI-gesteuerter Netzintelligenz vom Versuch in die skalierte Bereitstellung — die offizielle Allianz-Einordnung. Stufe 3 (eigene Einordnung dieser Website): der Vier-Punkte-Entscheidungsrahmen, der Kategorienfehler-Schluss, die Steckdosen-Analogie und die Formulierung überprüfbarer Aussagen sind Urteile dieser Website und gehören zu keinem Allianzdokument. Stufe 4 (Fremdzusammenstellungen): Alles zu Einsparquoten im Live-Netz oder kommerziellen SLA-Zahlen stammt aus Fremdzusammenstellungen, wurde nicht mit den Originalen abgeglichen, gilt nur richtungsweise; konkrete Zahlen gehen nicht in den Schluss. Stufe 5 (parallel gesetzte Einordnungen): „die Spezifikationen garantieren Schnittstellen und Interoperabilität“ und „die Beschaffung verlangt Live-Netz-Leistung und Zuordenbarkeit“ werden nebeneinander stehen gelassen, ihre Ebenen unterscheiden sich, keines ersetzt das andere, es wird kein Mittelwert gebildet. Der Stichtag 2026-11-14 ist das Datum der Prüfung, nicht das Veröffentlichungs- oder Ereignisdatum einer Spezifikation; Recht, Compliance und Preise werden nur technisch beschrieben, nicht gewertet.</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">Häufige Fragen</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>Kann eine im Beschaffungsvertrag festgehaltene O-RAN-Zertifizierung als Erfüllung der Leistungsziele gelten?</h3><p class="faq-a">Nach der Einordnung dieses Textes nicht. Zertifizierungs- und PlugFest-Ergebnisse belegen die Interoperabilität einer bestimmten Kombination, keine Leistungszusage für ein kommerzielles Netz. Überprüfbar ist: die vier Dinge — Abnahmeobjekt, Messpunkt, Fehlerkriterium, Verantwortlicher — als eigene Klauseln schreiben und dann die konkreten Spezifikationsversionen und die Anwendungskombination zitieren; sonst lässt sich die Vertragszeile „zertifiziert“ weder als erfüllt noch als verfehlt beweisen.</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>Warum lässt sich ein im Labor gemessener Einsparanteil nicht direkt ins Live-Netz übertragen?</h3><p class="faq-a">Weil sich die Messbedingungen ändern. Das Labor fährt eine bestimmte Last, eine bestimmte Nachbarschaftszellkonfiguration und eine bestimmte rApp/xApp-Kombination; das Live-Netz hat ein anderes Verkehrsprofil, andere Temperaturen und einen anderen Hersteller-Mix, und die Anwendungskombinationen verschiedener Hersteller definieren die Messpunkte ohnehin unterschiedlich. Den Messwert zusammen mit Messpunkt, Abtastfenster und Lastbedingungen abnehmen und die Vergleichbarkeit der beiden Bedingungssätze angeben — keinen nackten Prozentsatz übernehmen.</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>Welches der vier Dinge wird von Beschaffern am häufigsten ausgelassen?</h3><p class="faq-a">Meist der Verantwortliche, vor allem „welcher Nachweis im Streitfall gilt“. Das Testzentrum stellt Berichte aus, der Hersteller Anwendungen, die Allianz Spezifikationen — keine Seite steht automatisch für die Live-Netz-Kennzahl gerade. Zeitquellen, Aufbewahrungsfristen und Rangfolge des Monitoring auf Dienstleisterseite, der Sonden auf Kundenseite und der Nachprüfung durch Dritte vorab in einen Anhang zu schreiben, ist weit billiger, als nachträglich zu vergleichen, wessen Monitoring vollständiger ist.</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/de/articles/" class="btn-zouic">Fachbeiträge</a><a href="/de/boards/" class="btn-zouic">Entwicklungsboards</a><a href="/de/compare/" class="btn-zouic btn-zouic-primary">Board-Vergleich</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">Wöchentliche Updates von @GeekWaedon</h3><p class="text-secondary text-sm mb-4 mb-lg-0">Board-Empfehlungen, Projektanalysen und Tipps aus der Hardware-Entwicklung – zuerst auf WeChat und im Knowledge Planet.</p></div><div class="col-lg-5"><a href="/de/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">So folgen Sie mir</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> Wöchentlich kuratierte Board-Empfehlungen</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Exklusive Projektanalysen</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Aktualisiert auf WeChat und im Knowledge Planet</span></div></div></div></div></div></section><section class="py-4" aria-label="Hergestellt von"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">Erstellt von GeekWaedon <span>@GeekWaedon</span></div><div class="author-card-bio">Hardware-Bastler und KI-Praktiker. Diese gesamte Website wurde mit KI-Werkzeugen selbst gebaut.</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Meinem Knowledge Planet beitreten</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: nach „GeekWaedon“ suchen</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/de/" class="footer-brand" aria-label="ZouIC-Startseite"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">Ausgewählte Open-Source-Hardwareprojekte von Plattformen weltweit · Ausschließlich als Referenz für Entwickler</p><p class="footer-business-contact">
+                        Geschäftskontakt &amp; Bauteilbeschaffung:
+                        <a href="mailto:waedon@outlook.com?subject=Gesch%C3%A4ftliche%20Anfrage"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            Hergestellt von · <strong>GeekWaedon</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware-Enthusiast</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> KI-Praktiker</span><a href="/de/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom-Lösungsanbieter"><i class="fab fa-weixin"></i> WeCom-Lösungsanbieter
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a><a href="/de/#follow" class="footer-social-link" aria-label="WeChat-Offizieller Account · GeekWaedon" title="WeChat-Offizieller Account · GeekWaedon"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Produkte</h5><ul><li><a href="/de/products/">Produkte</a></li><li><a href="/de/services/">Leistungen</a></li><li><a href="/de/services/website-building/">Website-Erstellung</a></li><li><a href="/de/services/component-matching/">elektronische BauteileVermittlung</a></li><li><a href="/de/news/">Neuigkeiten</a></li><li><a href="/de/boards/">Entwicklungsboards</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Ressourcen</h5><ul><li><a href="/de/board-guide/">Leitfaden zur Board-Auswahl</a></li><li><a href="/de/compare/">Board-Vergleich</a></li><li><a href="/de/tutorials/">Anleitungen</a></li><li><a href="/de/documentation/">Dokumentation</a></li><li><a href="/de/online-tools/">Online-Werkzeuge</a></li><li><a href="/de/tools/">Hardware calculators</a></li><li><a href="/de/cases/">Projektbeispiele</a></li><li><a href="/de/help/">Dokumentation</a></li><li><a href="/de/games/resistor/">Widerstands-Farbcode-Quiz</a></li><li><a href="/de/dashuju/">Datenübersicht</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Open Source</h5><ul><li><a href="/de/open-source/">Open-Source-Projekte</a></li><li><a href="/de/all-projects/">Alle Projekte</a></li><li><a href="/de/articles/">Fachbeiträge</a></li><li><a href="/de/contribute/">Mitwirken</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>Über</h5><ul><li><a href="/de/about/">Über uns</a></li><li><a href="/de/about/#contact">Kontakt</a></li><li><a href="/de/licenses/">Open-Source-Lizenzen</a></li><li><a href="/de/pricing/">Preise</a></li><li><a href="/de/privacy/">Datenschutz</a></li><li><a href="/de/terms/">Nutzungsbedingungen</a></li><li><a href="/de/refund/">Rückerstattung</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">Beliebte Kategorien</span><div class="footer-category-links"><a href="/de/category/">alle</a><a href="/de/category/fpga/">FPGA</a><a href="/de/category/general/">Allgemein</a><a href="/de/category/ai_hardware/">KI-Hardware</a><a href="/de/category/vision/">Computer Vision</a><a href="/de/category/esp32/">ESP32</a><a href="/de/category/robotics/">Robotik</a><a href="/de/source/github/">GitHub</a><a href="/de/source/hackster/">Hackster.io</a><a href="/de/resources/">Ressourcennavigation</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="GeekWaedon" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">Allein entwickelt von GeekWaedon (@GeekWaedon) · <span style="color:#a78bfa;">Mensch und KI, Seite an Seite</span></div><div class="text-xs text-secondary">Ein Ein-Personen-Projekt, betrieben von einem echten Menschen: Website-Aufbau, Datenabgleich, Artikel und Grafiken stammen von mir (mit Unterstützung einiger KI-Agenten). <a href="/de/about/" class="text-primary" style="text-decoration:none;">Die Person dahinter kennenlernen →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. Alle Rechte vorbehalten.</p><p>Die hier gebündelten Projekte dienen ausschließlich als Referenz für Entwickler: ZouIC verweist auf sie und hostet weder Code noch Dateien; Urheberrecht und Lizenz verbleiben bei den Autoren. Einzelheiten finden Sie auf der <a href="/de/licenses/">Open-Source-Lizenzen</a> Seite.</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="Nach oben"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="Intelligente Suche auf der Website"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="Boards, Projekte und Artikel suchen oder Frage eintippen…"
+                       aria-label="Intelligente Suche auf der Website"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> Auswählen</span><span><kbd>↵</kbd> Öffnen</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Kopiert';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Aus Favoriten entfernt');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Zu Favoriten hinzugefügt');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/ai-ran-procurement-framing-5w1h/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=de-DE'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>

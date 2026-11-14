@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="Depreciation life, used-equipment residual value and lease structure are often folded into one compute-asset table, yet the three come from different…"><meta name="keywords" content="depreciation life, used-equipment residual value, lease structure, change in accounting estimate, server useful life, framing analysis, non-comparable residual values, third-party compilation, source level"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/en/articles/depreciation-residual-lease-framing/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/depreciation-residual-lease-framing/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/depreciation-residual-lease-framing/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/depreciation-residual-lease-framing/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/depreciation-residual-lease-framing/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="Depreciation life, residual value and lease structure: three framings not to be mixed"><meta property="og:description" content="Depreciation life, used-equipment residual value and lease structure are often folded into one compute-asset table, yet the three come from different accounting and transaction logics: one is a management estimate, one is a market transaction, and one decides where cash and risk land. This data review only separates the framings and offers no valuation; it shows why deriving residual value from depreciation life is bound to distort, and lists the sources by level."><meta property="og:url" content="https://www.zouic.com/en/articles/depreciation-residual-lease-framing/"><meta property="og:type" content="article"><meta property="og:locale" content="en_US"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC open source development board platform · GeekWeidong"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Depreciation life, residual value and lease structure: three framings not to be mixed"><meta name="twitter:description" content="Depreciation life, used-equipment residual value and lease structure are often folded into one compute-asset table, yet the three come from different accounting and transaction logics: one is a management estimate, one is a market transaction, and one decides where cash and risk land. This data review only separates the framings and offers no valuation; it shows why deriving residual value from depreciation life is bound to distort, and lists the sources by level."><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "Depreciation life, used-equipment residual value and lease structure are often folded into one compute-asset table, yet the three come from different accounting and transaction logics: one is a management estimate, one is a market transaction, and one decides where cash and risk land. This data review only separates the framings and offers no valuation; it shows why deriving residual value from depreciation life is bound to distort, and lists the sources by level.", "headline": "Depreciation life, residual value and lease structure: three framings not to be mixed", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "en", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/depreciation-residual-lease-framing/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/depreciation-residual-lease-framing/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "Articles", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/depreciation-residual-lease-framing/", "name": "Depreciation life, residual value and lease structure: three framings not to be mixed", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "No, and this is the conversion the note most wants to block. Depreciation life is management\u2019s estimate of the number of years over which cost is spread on the books; used-equipment residual value is a market transaction price. The two share neither a denominator nor a stable conversion factor. Treating the remaining book value as what a machine would fetch assumes a device loses value according to an accounting estimate, while market quotes do not follow that estimate."}, "name": "Can depreciation life be used to derive used-equipment residual value?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Because what this review read was a third-party compilation of annual reports, a directional clue, and per the third-party compilation the SEC originals were not checked directly. By the source levels, specific lives and amounts are not written into the conclusion; the compiler itself also points out that no company discloses GPU life separately in its annual report and that book life is not the same as resale value, with the originals still awaiting direct verification."}, "name": "If annual reports include server useful lives, why does this note give no specific number of years?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "No. A change in estimate only alters how cost is spread across reporting periods; it neither changes how long the hardware remains usable nor conjures up or removes a cent of cash. Reading it as \u201cthe equipment is scrapped early\u201d or \u201ca sum of money was saved\u201d collapses the accounting, physical and cash framings into one, which is exactly what this note sets out to pull apart."}, "name": "Does a change in accounting estimate affect the physical life of the equipment or its cash flow?"}]}]}
+    </script>
+    
+    
+    <title>Depreciation life, residual value and lease structure: three framings not to be mixed</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">Skip to main content</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Main navigation"><div class="container"><a class="navbar-brand" href="/en/" aria-label="ZouIC home"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/en/">Home</a></li><li class="nav-item"><a class="nav-link" href="/en/all-projects/">Open Source Projects</a></li><li class="nav-item"><a class="nav-link" href="/en/boards/">Open Source Boards</a></li><li class="nav-item"><a class="nav-link" href="/en/board-guide/">Documentation</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/en/services/component-matching/">Business</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/en/products/"><i class="fas fa-box me-2"></i>Products</a></li><li><a class="dropdown-item" href="/en/services/"><i class="fas fa-cogs me-2"></i>Services</a></li><li><a class="dropdown-item" href="/en/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>Component matching</a></li><li><a class="dropdown-item" href="/en/news/"><i class="fas fa-newspaper me-2"></i>Site Updates</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/en/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li><li><a class="dropdown-item" href="/en/documentation/"><i class="fas fa-book me-2"></i>Documentation</a></li><li><a class="dropdown-item" href="/en/resources/"><i class="fas fa-compass me-2"></i>Resource Navigation</a></li><li><a class="dropdown-item" href="/en/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>Online Tools</a></li><li><a class="dropdown-item" href="/en/tools/"><i class="fas fa-calculator me-2"></i>Hardware calculators</a></li><li><a class="dropdown-item" href="/en/cases/"><i class="fas fa-briefcase me-2"></i>Project Cases</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/en/open-source/"><i class="fas fa-code-branch me-2"></i>Open Source Projects</a></li><li><a class="dropdown-item" href="/en/articles/"><i class="fas fa-pen-fancy me-2"></i>Technical articles</a></li><li><a class="dropdown-item" href="/en/contribute/"><i class="fas fa-handshake me-2"></i>Contribute</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/en/dashuju/"><i class="fas fa-chart-line me-2"></i>Data Dashboard</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/en/search/"><i class="fas fa-search me-1"></i>Search</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="Search boards, projects or keywords..." aria-label="Search" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="Search Type:"><option value="">All Categories</option><option value="board">Open Source Boards</option><option value="project">Open Source Projects</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="Open smart search"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> English
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/depreciation-residual-lease-framing/"><i class="fas fa-language me-2"></i> Chinese
+                            </a></li><li><a class="dropdown-item" href="/en/articles/depreciation-residual-lease-framing/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/articles/depreciation-residual-lease-framing/"><i class="fas fa-language me-2"></i> German
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/en/">Home</a></li><li class="breadcrumb-item"><a href="/en/articles/">Technical articles</a></li><li class="breadcrumb-item active" aria-current="page">Depreciation life, residual value and lease structure: three framings not to be mixed</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">Free to read · sharing welcome</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">Depreciation life, residual value and lease structure: three framings not to be mixed</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">Compute industry notes · GeekWaedon @GeekWaedon</p><p class="text-secondary text-sm mt-4">GeekWaedon @GeekWaedon · November 2026</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p>This is a data review, but what it reviews is not a number — it is the framings of three numbers. Depreciation life, used-equipment residual value and lease structure are often written side by side into one compute-asset table to argue whether a batch of equipment is worth it; yet the three come from three unrelated logics: accounting depreciation life is management’s estimate of useful life, used-equipment residual value is a resale transaction that actually happens in the market, and lease structure decides when cash flows out and on whom the risk lands. From this a falsifiable claim can be set up first: convert any one of them into another and the result will only look precise while being distorted. This note reviews line items, looking at how each item moves under one framing, which numbers simply cannot be placed in the same row for comparison, and into how many levels the sources should be split. Conclusion up front: this note offers no valuation and makes no accounting or legal characterisation; it only pulls the three framings apart and explains why they cannot be mixed.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">What: the review covers three line items, not one asset price</h2><p>The first thing to get straight is the object: what is discussed here is not “how much is a server worth” but three independent sets of data. Accounting depreciation life is an estimate that spreads equipment cost across reporting periods, answering “over how many years is it spread on the books”; used-equipment residual value is the price a device can fetch on the market when it is retired, answering “what is someone willing to pay now”; lease structure is the arrangement of own use, finance lease or operating lease, answering “to whom do the cash flow and the residual-value risk belong”. An everyday analogy helps: it is like spreading out three sheets of paper — a car maker’s book depreciation, a used-car dealer’s purchase price, and whether you paid cash or took a loan — to work out “the monthly cost”; the digits line up but the meanings do not. So this note’s claim is that the three share neither a common denominator nor a common domain of definition; writing them side by side in one table is fine, but side by side does not mean comparable.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Why: the line items must be separated because their mechanisms of change differ</h2><p>Why insist on reviewing line items instead of just taking one number? Because the reasons these three sets of data change come from completely different mechanisms. A change in depreciation life is triggered by management revising an accounting estimate on the basis of technology turnover, usage intensity and maintenance experience, and it alters the pace at which cost is spread across reports. A change in used-equipment residual value depends on second-hand supply and demand, device condition, whether the model has been superseded by a new generation, and whether any buyer steps in, and it alters the transaction price. A change in lease structure stems from contract arrangements and financing choices, and it alters where cash and risk land. Putting the three in one table and assuming they “rise and fall together” silently introduces a premise that almost never holds: that all three are driven by the same factor. Here is a falsifiable judgement: the most dangerous thing in a table is not a number copied wrong, but three numbers from different mechanisms being treated as if they could be added or divided. The point of a review is precisely to turn that hidden premise over.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Who: ask who defines each framing before asking what the framing is</h2><p>Who defines these three framings deserves to be asked before the framings themselves, because it decides where to check the originals. Depreciation life is estimated by company management, audited, and disclosed in the accounting-policy notes of the annual report, making it a company official framing. Used-equipment residual value is not defined unilaterally by any company; it is formed jointly by transaction after transaction between buyers and sellers. Lease structure is agreed between lessor and lessee in the contract. The sources must be stated plainly here: the server-life changes read in this review are not the annual-report originals but a third-party compilation of those reports, and according to the third-party compilation the SEC originals were not checked directly. The direction the compiler relays is that over a recent span several large cloud providers adjusted server accounting lives, and that on the same effective date some lengthened and some shortened them, citing the pace of AI hardware iteration; the compiler also states explicitly that no company discloses GPU life separately in its annual report and that book life is not the same as resale value. This note’s claim is that even “who wrote it” has to be graded by source level, otherwise it is easy to mistake a retelling for the original, a directional clue for a citable fact, and in turn to misremember a compiler’s observation as a company’s own commitment.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">When: several different kinds of time are stacked inside the span</h2><p>A data review cannot avoid the time span, and here at least four different times are stacked: the effective date of an accounting estimate, the baseline date of a financial report, the date a second-hand transaction occurs, and the start and end dates of a lease — and they are not on the same axis. One easily overlooked counter-example is that the same piece of hardware can correspond to two different depreciation lives at once under the accounting policies of different companies; a change in accounting estimate affects only how cost is spread across reports, changing neither the physical life of the device nor producing a cent of extra cash. Another counter-example is forcing two lives with different effective dates into a “year-on-year comparison” as if they described the same device at the same point in time, which is itself wrong. From this comes a falsifiable judgement: in depreciation, time stands for “how the books are kept”, not “how long the machine still works”, still less “when the money is spent”. Blending effective dates, reporting periods and transaction dates into one “current state” is the most common source of distortion in this kind of review.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Where: which document and which account each line item lands in</h2><p>For a framing to be reviewable, you have to say where it lands. Depreciation life lands in the accounting-policy notes of the annual report and in fixed-asset related accounts — this is where the original can be found. Used-equipment residual value is usually not in that document; as the compiler already points out, no company discloses GPU life separately and book life is not the same as resale value, so it is scattered across transaction records, recycler quotes and listings on second-hand platforms. Lease structure lands in contract clauses and in the related lines for the right-of-use asset, the lease liability and the cash flow statement in the financial statements. Here is a judgement worth arguing over: failing to find a residual value in a given document does not mean the residual value is zero; it only means “it is not in the document you checked”. Reading “not disclosed” as “none”, then filling in a zero or substituting the remaining book value, is the most concealed kind of framing mismatch. Listing source locations separately exists so that every number can be traced to where it actually appears, rather than being given a plausible-looking stand-in from next door.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">How: how to review the line items, and which numbers are not comparable</h2><p>Turning to actionable review steps, this note advocates one plain rule: label the source level first, then the framing and the denominator, and only then look at the value itself. In four concrete steps. Step one, tag each item as an original disclosure, a company official framing, or a directional clue from a third-party compilation. Step two, write down its domain of definition: a book-spreading life, a market transaction price, or a contract arrangement. Step three, record its time axis and baseline date, confirming that numbers with different effective dates have not been lumped together. Step four, for any conversion across framings, mark it explicitly as “not comparable” rather than producing a tidy-looking result. The most typical counter-example is deriving used-equipment residual value from depreciation life: the former is an accounting estimate, the latter a market transaction, with no stable conversion factor in between. Here is a sharp, falsifiable conclusion: the value of a review lies not in computing a new number but in putting enough labels on every old number that the next reader can see at a glance what it cannot be added to.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Boundaries: what this decomposition cannot answer</h2><p>The boundaries have to be fixed, otherwise framing analysis is mistaken for valuation advice. This note offers no valuation, draws no conclusion on specific lives or amounts, and makes no accounting or legal characterisation of accounting treatments or lease contracts; for the application and interpretation of lease clauses, separate professional advice is recommended. The life adjustments read in this review belong to a third-party compilation of annual reports, and according to the third-party compilation the SEC originals were not checked directly, so its retelling serves only as a directional clue and is not written into the conclusion. One more common misreading has to be blocked: the question here is “can the three numbers be mixed in calculation”, not “which number is more accurate”; a review that only separates framings has no standing to answer how many years a device should be depreciated over or what price it should fetch. The falsifiable claim is that putting “no characterisation” in the boundaries is not an evasion: valuation questions lie entirely outside this note’s evidence base, and forcing an answer would only dress a directional clue up as a conclusion.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Conclusion: framing analysis only, no conversion</h2><p>Put the three line items back in their own places and the conclusion is quite restrained: accounting depreciation life is a management estimate that acts only on the reports, used-equipment residual value is a market transaction set by supply and demand, and lease structure decides where cash and risk land. Their framings differ, so any conversion — “deriving residual value from depreciation life” or “folding leased and purchased items into one table” — will distort. So this note’s conclusion is not a more accurate number but a more reliable judgment: these three numbers cannot be mixed, and wherever they are shown side by side, the source level, the domain of definition and the time axis must be shown along with them. If one insists on asking “is that batch of assets worth it after all”, the correct move is to build separate tables along the accounting, market and contract lines, then state explicitly at the decision level which numbers were looked at together and which never had comparability at all. In one sentence: clear framings matter more than pretty numbers.</p></div><div class="card-dark p-6 mb-5"><p>Sources and framing (as of 14 November 2026): the baseline date is the date of this review, not the effective date of any accounting estimate and not an asset transaction date. Sources are listed by level, set side by side with no averaging. Level 1 (normative text): this note does not use any accounting-standard clause as a basis for its conclusion, makes no accounting or legal characterisation, and cites nothing at this level into the conclusion. Level 2 (company official framing): the disclosure of “useful lives of servers and network equipment” in the 10-K and 20-F annual reports of listed companies is a company official framing, the original that the depreciation-life line item should be traced back to, and its original text was not directly verified in this review. Level 3 (the site’s own framing): the three-item framework of this note, the review rule that “comparison is valid only under one framing”, and the method of framing analysis are all the site’s own analytical framing, not any company’s disclosure. Level 4 (third-party compilation, directional only): what this review actually read was a third-party compilation of annual reports, and according to the third-party compilation the SEC originals were not checked directly; its retelling covers recent adjustments by cloud providers to server accounting lives, some lengthening and some shortening on the same effective date while citing the pace of AI hardware iteration, plus the compiler’s points that “no company discloses GPU life separately in its annual report” and “book life is not the same as resale value”. By the source-grading rules, this level serves only as directional context; specific lives and amounts are in no case written into the conclusion, nor is any accounting or legal characterisation based on them. Level 5 (framings side by side): accounting depreciation life and second-hand market transactions are two parallel framings, lengthening and shortening are parallel facts, and this note writes the differences side by side, takes no average, and does not convert the two into a single number.</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">Frequently asked questions</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>Can depreciation life be used to derive used-equipment residual value?</h3><p class="faq-a">No, and this is the conversion the note most wants to block. Depreciation life is management’s estimate of the number of years over which cost is spread on the books; used-equipment residual value is a market transaction price. The two share neither a denominator nor a stable conversion factor. Treating the remaining book value as what a machine would fetch assumes a device loses value according to an accounting estimate, while market quotes do not follow that estimate.</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>If annual reports include server useful lives, why does this note give no specific number of years?</h3><p class="faq-a">Because what this review read was a third-party compilation of annual reports, a directional clue, and per the third-party compilation the SEC originals were not checked directly. By the source levels, specific lives and amounts are not written into the conclusion; the compiler itself also points out that no company discloses GPU life separately in its annual report and that book life is not the same as resale value, with the originals still awaiting direct verification.</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>Does a change in accounting estimate affect the physical life of the equipment or its cash flow?</h3><p class="faq-a">No. A change in estimate only alters how cost is spread across reporting periods; it neither changes how long the hardware remains usable nor conjures up or removes a cent of cash. Reading it as “the equipment is scrapped early” or “a sum of money was saved” collapses the accounting, physical and cash framings into one, which is exactly what this note sets out to pull apart.</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/en/articles/" class="btn-zouic">Technical articles</a><a href="/en/boards/" class="btn-zouic">Development Boards</a><a href="/en/compare/" class="btn-zouic btn-zouic-primary">Board comparison</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">Follow @GeekWaedon for Weekly Updates</h3><p class="text-secondary text-sm mb-4 mb-lg-0">Board picks, project breakdowns and hardware engineering tips, first published on WeChat and Knowledge Planet.</p></div><div class="col-lg-5"><a href="/en/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">See How to Follow</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> Weekly curated board picks</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Exclusive project deep-dives</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Updated on WeChat and Knowledge Planet</span></div></div></div></div></div></section><section class="py-4" aria-label="Produced by"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">Created by GeekWaedon <span>@GeekWaedon</span></div><div class="author-card-bio">Hardware maker and AI practitioner. This entire website was built hands-on with AI tools.</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Join my Knowledge Planet</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;GeekWaedon&#34;</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/en/" class="footer-brand" aria-label="ZouIC home"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">Quality open hardware projects from platforms worldwide · For developer reference only</p><p class="footer-business-contact">
+                        Business &amp; parts sourcing:
+                        <a href="mailto:waedon@outlook.com?subject=Business%20enquiry"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            Produced by · <strong>GeekWaedon</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware enthusiast</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI practitioner</span><a href="/en/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom service provider"><i class="fab fa-weixin"></i> WeCom service provider
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a><a href="/en/#follow" class="footer-social-link" aria-label="WeChat Official Account · GeekWaedon" title="WeChat Official Account · GeekWaedon"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Products</h5><ul><li><a href="/en/products/">Products</a></li><li><a href="/en/services/">Services</a></li><li><a href="/en/services/website-building/">Website building</a></li><li><a href="/en/services/component-matching/">Component matching</a></li><li><a href="/en/news/">Site Updates</a></li><li><a href="/en/boards/">Development Boards</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Resources</h5><ul><li><a href="/en/board-guide/">Board selection guide</a></li><li><a href="/en/compare/">Board comparison</a></li><li><a href="/en/tutorials/">Tutorials</a></li><li><a href="/en/documentation/">Documentation</a></li><li><a href="/en/online-tools/">Online Tools</a></li><li><a href="/en/tools/">Hardware calculators</a></li><li><a href="/en/cases/">Project Cases</a></li><li><a href="/en/help/">Documentation</a></li><li><a href="/en/games/resistor/">Resistor Color Code Challenge</a></li><li><a href="/en/dashuju/">Data Dashboard</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Open Source</h5><ul><li><a href="/en/open-source/">Open Source Projects</a></li><li><a href="/en/all-projects/">All projects</a></li><li><a href="/en/articles/">Technical articles</a></li><li><a href="/en/contribute/">Contribute</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>About</h5><ul><li><a href="/en/about/">About Us</a></li><li><a href="/en/about/#contact">Contact Us</a></li><li><a href="/en/licenses/">Open Source Licenses</a></li><li><a href="/en/pricing/">Pricing</a></li><li><a href="/en/privacy/">Privacy Policy</a></li><li><a href="/en/terms/">Terms of Service</a></li><li><a href="/en/refund/">Refund Policy</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">Popular Categories</span><div class="footer-category-links"><a href="/en/category/">all</a><a href="/en/category/fpga/">FPGA</a><a href="/en/category/general/">General</a><a href="/en/category/ai_hardware/">AI Hardware</a><a href="/en/category/vision/">Computer Vision</a><a href="/en/category/esp32/">ESP32</a><a href="/en/category/robotics/">Robotics</a><a href="/en/source/github/">GitHub</a><a href="/en/source/hackster/">Hackster.io</a><a href="/en/resources/">Resource Navigation</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="Geek Micro Building" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">Built single-handedly by GeekWaedon (@GeekWaedon) · <span style="color:#a78bfa;">people and AI, working side by side</span></div><div class="text-xs text-secondary">A one-person project run by a real human: the site build, the data pulls, the articles and the artwork all came from me (with a few AI agents). <a href="/en/about/" class="text-primary" style="text-decoration:none;">Meet the person behind it →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>Projects aggregated here are for developer reference only: ZouIC indexes them and hosts no code or files; copyright and licensing stay with their authors. For details, see the <a href="/en/licenses/">Open Source Licenses</a> page.</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="On-site smart search"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="Search boards, projects and articles, or type a question…"
+                       aria-label="On-site smart search"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> Select</span><span><kbd>↵</kbd> Open</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Copied';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Removed from favorites');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Saved to favorites');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/depreciation-residual-lease-framing/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=en-US'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>

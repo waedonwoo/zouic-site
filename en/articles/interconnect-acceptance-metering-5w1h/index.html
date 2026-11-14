@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="HBM4, UALink 200G and co-packaged optics spell out interface, electrical and protocol conditions clearly, yet not one of them regulates how to measure when…"><meta name="keywords" content="HBM4, JESD270-4, UALink 200G, CPO, rack acceptance, 2048-bit, effective peak bandwidth, measurement point, procurement framing"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/en/articles/interconnect-acceptance-metering-5w1h/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/interconnect-acceptance-metering-5w1h/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/interconnect-acceptance-metering-5w1h/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/interconnect-acceptance-metering-5w1h/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/interconnect-acceptance-metering-5w1h/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="HBM4, UALink and CPO from the buyer side: how to accept and meter an interconnect"><meta property="og:description" content="HBM4, UALink 200G and co-packaged optics spell out interface, electrical and protocol conditions clearly, yet not one of them regulates how to measure when a rack is delivered, or whose result it counts as. Treating specification values as whole-system throughput guarantees compresses two layers — compliance and system acceptance — into one. What has to be decided are four things: the acceptance target, the measurement points, the failure criterion and the responsible parties."><meta property="og:url" content="https://www.zouic.com/en/articles/interconnect-acceptance-metering-5w1h/"><meta property="og:type" content="article"><meta property="og:locale" content="en_US"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC open source development board platform · GeekWeidong"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="HBM4, UALink and CPO from the buyer side: how to accept and meter an interconnect"><meta name="twitter:description" content="HBM4, UALink 200G and co-packaged optics spell out interface, electrical and protocol conditions clearly, yet not one of them regulates how to measure when a rack is delivered, or whose result it counts as. Treating specification values as whole-system throughput guarantees compresses two layers — compliance and system acceptance — into one. What has to be decided are four things: the acceptance target, the measurement points, the failure criterion and the responsible parties."><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "HBM4, UALink 200G and co-packaged optics spell out interface, electrical and protocol conditions clearly, yet not one of them regulates how to measure when a rack is delivered, or whose result it counts as. Treating specification values as whole-system throughput guarantees compresses two layers \u2014 compliance and system acceptance \u2014 into one. What has to be decided are four things: the acceptance target, the measurement points, the failure criterion and the responsible parties.", "headline": "HBM4, UALink and CPO from the buyer side: how to accept and meter an interconnect", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "en", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/interconnect-acceptance-metering-5w1h/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/interconnect-acceptance-metering-5w1h/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "Articles", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/interconnect-acceptance-metering-5w1h/", "name": "HBM4, UALink and CPO from the buyer side: how to accept and meter an interconnect", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "The 2 TB/s is the bandwidth ceiling of HBM4 under interface conditions; it belongs to component compliance evidence and is not a whole-system throughput guarantee at rack delivery. Copying an interface condition into a system SLA misuses the layers: the former is demonstrated by the component supplier against the specification, while the latter should be measured by the buyer at the rack ports under a self-supplied framing \u2014 two things, each with its own signature."}, "name": "What is wrong with using the 2 TB/s of JESD270-4 as a rack acceptance metric?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "It is a design target given in the official press release, not a guarantee for any particular delivery. A design target lacks a measurement point and a failure criterion, so writing it as an acceptance metric produces false precision. The correct approach is to list it separately as a design target and to start a separate column for system measurements, the two standing side by side without converting between them."}, "name": "Can UALink\u2019s 93% effective peak bandwidth be written into a contract as a guaranteed value?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Write only that optical power and bit-error measurement points have to be agreed separately, and name the measurement points, the instruments and the responsible parties, citing no unverified specific figures. The specifications do not regulate how to measure at rack level or whose result it counts as; this layer is filled in by the buyer and the integrator in the delivery annex, and must not wait for a dispute to be settled by comparing whose monitoring is more complete."}, "name": "How should acceptance of CPO optical interconnects be written?"}]}]}
+    </script>
+    
+    
+    <title>HBM4, UALink and CPO from the buyer side: how to accept and meter an interconnect</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">Skip to main content</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Main navigation"><div class="container"><a class="navbar-brand" href="/en/" aria-label="ZouIC home"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/en/">Home</a></li><li class="nav-item"><a class="nav-link" href="/en/all-projects/">Open Source Projects</a></li><li class="nav-item"><a class="nav-link" href="/en/boards/">Open Source Boards</a></li><li class="nav-item"><a class="nav-link" href="/en/board-guide/">Documentation</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/en/services/component-matching/">Business</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/en/products/"><i class="fas fa-box me-2"></i>Products</a></li><li><a class="dropdown-item" href="/en/services/"><i class="fas fa-cogs me-2"></i>Services</a></li><li><a class="dropdown-item" href="/en/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>Component matching</a></li><li><a class="dropdown-item" href="/en/news/"><i class="fas fa-newspaper me-2"></i>Site Updates</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/en/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Tutorials</a></li><li><a class="dropdown-item" href="/en/documentation/"><i class="fas fa-book me-2"></i>Documentation</a></li><li><a class="dropdown-item" href="/en/resources/"><i class="fas fa-compass me-2"></i>Resource Navigation</a></li><li><a class="dropdown-item" href="/en/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>Online Tools</a></li><li><a class="dropdown-item" href="/en/tools/"><i class="fas fa-calculator me-2"></i>Hardware calculators</a></li><li><a class="dropdown-item" href="/en/cases/"><i class="fas fa-briefcase me-2"></i>Project Cases</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/en/open-source/"><i class="fas fa-code-branch me-2"></i>Open Source Projects</a></li><li><a class="dropdown-item" href="/en/articles/"><i class="fas fa-pen-fancy me-2"></i>Technical articles</a></li><li><a class="dropdown-item" href="/en/contribute/"><i class="fas fa-handshake me-2"></i>Contribute</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/en/dashuju/"><i class="fas fa-chart-line me-2"></i>Data Dashboard</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/en/search/"><i class="fas fa-search me-1"></i>Search</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="Search boards, projects or keywords..." aria-label="Search" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="Search Type:"><option value="">All Categories</option><option value="board">Open Source Boards</option><option value="project">Open Source Projects</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="Open smart search"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> English
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/interconnect-acceptance-metering-5w1h/"><i class="fas fa-language me-2"></i> Chinese
+                            </a></li><li><a class="dropdown-item" href="/en/articles/interconnect-acceptance-metering-5w1h/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/articles/interconnect-acceptance-metering-5w1h/"><i class="fas fa-language me-2"></i> German
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/en/">Home</a></li><li class="breadcrumb-item"><a href="/en/articles/">Technical articles</a></li><li class="breadcrumb-item active" aria-current="page">HBM4, UALink and CPO from the buyer side: how to accept and meter an interconnect</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">Free to read · sharing welcome</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">HBM4, UALink and CPO from the buyer side: how to accept and meter an interconnect</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">Compute industry notes · GeekWaedon @GeekWaedon</p><p class="text-secondary text-sm mt-4">GeekWaedon @GeekWaedon · November 2026</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p>Looking at HBM4, UALink 200G and CPO (co-packaged optics) side by side raises a question the specification texts do not answer: each of the three specifications spells out its interface, electrical and protocol conditions in detail, yet not one of them says which item to measure when an AI rack is delivered to the buyer, where to measure it, and whose result it counts as. The 5W1H breakdown below treats this as a decision to be made, with each of the six dimensions answering a question that has to be settled; the point is not to restate specification values but to draw clear lines around the responsibilities and framings of the parties involved. Conclusion first: specification compliance and system acceptance are two different layers, and copying JEDEC or UALink interface conditions and design targets into a rack-level throughput SLA is a category error — the buyer has to add a reviewable acceptance framing of their own. An analogy: when accepting the plumbing of a building, the standard specifies pipe diameter and pressure rating, which does not mean every floor has steady water pressure at the tap; the former is a component specification, the latter a system experience. The specifications guarantee the former; what gets signed at delivery is the latter.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">What: the decision to make is which layer counts as acceptance</h2><p>The first question to settle: which layer the acceptance target sits at. JESD270-4 (HBM4, the fourth generation of high-bandwidth memory), published by JEDEC on 16 April 2025, specifies a 2048-bit interface, up to 8 Gb/s, total bandwidth up to 2 TB/s, independent channels per stack increased from 16 to 32 (two pseudo-channels per channel), vendor-specific VDDQ/VDDC voltage tiers, backward compatibility with HBM3 controllers, and the introduction of DRFM for improved row-hammer mitigation and RAS, and supports 4/8/12/16-layer stacks and 24 Gb/32 Gb die (up to 64 GB). UALink 200G 1.0, approved by the UALink Consortium on 8 April 2025, specifies 200G per lane, up to 1,024 accelerators within a single AI Pod, and load/store memory semantics with read/write/atomic transactions. These two sets of figures answer what the interface and protocol conditions are, not what throughput should be at rack delivery. A contestable claim: treating any one of these values as a rack-level SLA acceptance line mistakes component compliance for system acceptance. Write the decision as two lines: specification compliance is demonstrated by the component or module supplier against the specification, and system acceptance is measured by the buyer under a self-supplied framing — each party signs its own line, and neither substitutes for the other.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Why: a design target is not a whole-system throughput guarantee</h2><p>The second question: why specification values cannot carry a delivery commitment. The “93% effective peak bandwidth” given in the official UALink press release is explicitly a design target, not a guarantee for any particular delivery; the 2 TB/s of HBM4 is the ceiling under interface conditions; 1,024 accelerators is the Pod scale limit, not a configured count. Each of these figures holds on its own terms, yet all are conditional or target quantities. A contestable claim: writing a design target as an acceptance metric produces a false precision — the number looks specific but has no measurement point or failure criterion attached, so when a deviation appears nobody can say whose problem it is. Detached from their binding conditions, no throughput figure is a universal constant: the interface ceiling holds only under the specified electrical conditions, the scale limit is only the topologically permitted bound, and a design target leaves the engineering margin to the implementer. When making the decision, record specification values in three columns: interface conditions, design targets, system measurements. The first two come from the specifications and official press releases; the third is produced by the buyer at delivery. The three columns are written side by side, explicitly without averaging or converting between them.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Who: the standards bodies are not responsible for rack-level measurement</h2><p>The third question: who is responsible for rack-level acceptance. JEDEC and the UALink Consortium define interface, electrical and protocol conditions and drive compliance and interoperability programmes; chip and module vendors supply the components and demonstrate conformance to the specifications; the system integrator assembles the components into racks; the buyer decides the sign-off framing; and on the CPO/optical interconnect side, the party responsible for the optical power and bit-error measurement points still has to be agreed separately. A contestable claim: the standards bodies are not responsible for rack-level measurement, and this responsibility does not automatically land on anyone — it hangs between the component vendors, the integrator and the buyer, and if nobody writes it into the contract, nobody carries it. The consortium roadmap states that compliance and interoperability programmes are in progress and that member products target commercial deployment in 2026–2027; specifications such as Manageability 1.0 (gNMI, Yang, SAI, Redfish) and Chiplet 1.01 (compatible with UCIe 3.0) address manageability and chiplet interconnect, and are still not delivery measurement. Fix the responsibility in the decision: the specification compliance evidence is provided by the supplier; the rack-level measurement is led by the buyer with the integrator’s support; the responsible persons and instruments for CPO optical power and bit-error measurement points are named separately by both parties in an annex. Who measures, who judges and who signs has to be settled before delivery, not argued afterwards by comparing whose monitoring is more complete.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">When: the specification effective date is not the delivery acceptance date</h2><p>The fourth question: where the time baseline sits. JEDEC published JESD270-4 on 16 April 2025, the UALink Consortium approved 200G 1.0 on 8 April 2025, member products target commercial deployment in 2026–2027, and acceptance has to land on the day the rack is delivered and signed for; in addition there is the compliance-check baseline date of 14 November 2026, which is the date of this verification, not the date of any run or event. These time points are entirely different in nature. A contestable claim: taking the specification approval date as the delivery acceptance date is a time-baseline mismatch — a specification taking effect only means that reliable interface conditions exist from that point on; it does not mean a particular rack met its targets on that day. Two things to settle: the measurement time window for acceptance goes into the delivery annex — which shift, how long a sampling window, whether warm-up and steady state are included; and cross-period re-tests use the same time window, otherwise what is measured this quarter and what is measured next quarter are simply not comparable. Listing the baseline date, the specification publication date, the deployment target year and the delivery sign-off date separately has a practical benefit as well: when the material is cited, it is obvious at a glance which point in time it refers to, and a roadmap target year is not misread as capacity already delivered.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Where: measurement points at different layers cannot be stitched into one “whole-rack throughput”</h2><p>The fifth question: at which layer the measurement points sit. The measurement points of HBM4 are at the stack interface and on the controller side, governing the memory channels; the measurement points of UALink 200G are on the links inside the AI Pod, governing the load/store transactions between accelerators; the measurement points of CPO are optical power and bit errors, which have to be agreed separately; the measurement point signed at rack delivery is usually the rack’s external ports. A contestable claim: each of these layers has its own measurement points, and stitching them into a single “whole-rack throughput” figure means forcibly adding quantities measured at different places in different units — it looks like one number, but it cannot be verified. This is exactly what it means that specification values are interface conditions or design targets and not whole-system throughput guarantees. The action for the decision: for every acceptance item, write down the measurement point, the protocol layer, the unit and the sampling method, and state which layers’ values can enter system acceptance and which serve only as component compliance evidence; on the CPO side, write only that optical power and bit-error measurement points have to be agreed separately, citing no unverified specific figures. Only with the measurement points filled in is there a shared baseline when a dispute arises.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">How: to add an acceptance framing layer, settle four things first</h2><p>The sixth question: how exactly to add this layer. Converge the decision into four items, written into the annex one by one. First, the acceptance target: distinguish specification compliance evidence from measured system acceptance — the former is supplied by the vendor against JESD270-4, UALink 200G 1.0 and the like, the latter is measured by the buyer. Second, the measurement points: for each item, state the layer, the port, the unit and the method, with CPO optical power and bit-error measurement points agreed additionally. Third, the failure criterion: give every acceptance item a reviewable criterion — what value is measured, who re-tests, and what happens if the re-test still misses the target — avoiding unfalsifiable wording such as “overall compliant”. Fourth, the responsible parties: who measures, who signs, and which record prevails in a dispute, fixed in advance. A contestable claim: these four items look like paperwork, but they decide whether acceptance is reviewable; without a failure criterion, specification compliance quietly substitutes for system acceptance, because nobody has defined what falling short means. There is no harm in discussing thresholds only after this layer is complete — framing first, numbers second; in the reverse order, copying specification values first and working backwards to how to measure almost inevitably misuses interface conditions as a whole-rack SLA.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Boundaries: the values are conditions or targets, and optical interconnects get only agreed measurement points</h2><p>This section holds the restraint the decision requires. First, the 2048-bit, 8 Gb/s and 2 TB/s of JESD270-4 and the 200G, 1,024 accelerators and 93% effective peak bandwidth of UALink are interface conditions, scale limits or design targets, not whole-system throughput guarantees; writing them into conclusions as delivery commitments is exactly what this article opposes. Second, on CPO/optical interconnects, write only that optical power and bit-error measurement points have to be agreed separately, citing no unverified specific figures; third-party compilations touching this layer serve only as directional clues — per third-party compilation, the originals were not directly checked, and specific figures do not enter conclusions. Third, the consortium roadmap states that compliance and interoperability programmes are in progress and member products target commercial deployment in 2026–2027; these are planning statements, not capacity already delivered. Fourth, this article offers only an engineering-level framing: it does not interpret specific contract clauses and makes no legal or valuation judgement; on commercial and legal terms, separate advice should be sought. A contestable claim: boundaries are not a disclaimer but a way of separating what the specifications leave unregulated from what this site declines to judge — the former is a fact, the latter a choice; it is precisely because the specifications leave a gap that the buyer needs to add this layer.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Conclusion: write specification compliance and system acceptance into the annex as two layers</h2><p>Back to the plumbing of that building from the opening: the standard guarantees pipe diameter and pressure rating, while what the buyer signs for is the water pressure at the tap on every floor — two things, two records. The same holds for HBM4, UALink 200G and CPO: it is a good thing that the three specifications spell out the interface, electrical and protocol conditions, but they do not — and should not — answer for the buyer how a rack is measured at delivery and whose result it counts as. A contestable claim: if this self-supplied framing layer is skipped just because the specifications are detailed, acceptance degrades into collecting a stack of compliance certificates, while the whole-rack throughput, the optical-interconnect bit errors and the steady-state behaviour that actually decide the user experience go unmeasured and unsigned. The recommended order: first use the four items — acceptance target, measurement points, failure criterion, responsible parties — to build a reviewable acceptance framing, then attach the specification values as component compliance evidence behind it, with each layer keeping its own records and its own signatures. That way, in a dispute, the buyer holds both the supplier’s specification evidence and their own re-test records taken at the same measurement points.</p></div><div class="card-dark p-6 mb-5"><p>Sources and framing (as of 14 November 2026): the baseline date is the date of this verification, not the specification publication date and not any delivery or run date. Level 1 (normative specification text): the 2048-bit interface, up to 8 Gb/s, total bandwidth up to 2 TB/s, independent channels per stack increased from 16 to 32 (two pseudo-channels per channel), vendor-specific VDDQ/VDDC voltage tiers, backward compatibility with HBM3 controllers, DRFM for improved row-hammer mitigation and RAS, and 4/8/12/16-layer stacks with 24 Gb/32 Gb die (up to 64 GB) specified by JEDEC JESD270-4 (HBM4, published 16 April 2025); and the 200G per lane, up to 1,024 accelerators within a single AI Pod, and load/store memory semantics with read/write/atomic transactions specified by UALink 200G 1.0 (approved 8 April 2025) are all normative specification text. Level 2 (official consortium documentation): the “93% effective peak bandwidth” in the official UALink press release is a design target; Manageability 1.0 (gNMI, Yang, SAI, Redfish), Chiplet 1.01 (compatible with UCIe 3.0), and the roadmap statements that compliance and interoperability programmes are in progress and member products target commercial deployment in 2026–2027 are official consortium positions. Level 3 (this site’s own framing): the four-item framework, the two-layer acceptance split, and the measurement-point and failure-criterion design are this article’s own judgement lines, not specification requirements. Level 4 (third-party compilations): compilations touching CPO/optical interconnects and whole-system throughput serve only as directional clues; per third-party compilation, the originals were not directly checked, and specific figures are not written into conclusions. Level 5 (framings set side by side): interface conditions, design targets and system measurements are written side by side, explicitly without averaging or converting between them; specification values are not whole-system throughput guarantees. Price and compliance matters are described only in engineering terms, with no legal qualification.</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">Frequently asked questions</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>What is wrong with using the 2 TB/s of JESD270-4 as a rack acceptance metric?</h3><p class="faq-a">The 2 TB/s is the bandwidth ceiling of HBM4 under interface conditions; it belongs to component compliance evidence and is not a whole-system throughput guarantee at rack delivery. Copying an interface condition into a system SLA misuses the layers: the former is demonstrated by the component supplier against the specification, while the latter should be measured by the buyer at the rack ports under a self-supplied framing — two things, each with its own signature.</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>Can UALink’s 93% effective peak bandwidth be written into a contract as a guaranteed value?</h3><p class="faq-a">It is a design target given in the official press release, not a guarantee for any particular delivery. A design target lacks a measurement point and a failure criterion, so writing it as an acceptance metric produces false precision. The correct approach is to list it separately as a design target and to start a separate column for system measurements, the two standing side by side without converting between them.</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>How should acceptance of CPO optical interconnects be written?</h3><p class="faq-a">Write only that optical power and bit-error measurement points have to be agreed separately, and name the measurement points, the instruments and the responsible parties, citing no unverified specific figures. The specifications do not regulate how to measure at rack level or whose result it counts as; this layer is filled in by the buyer and the integrator in the delivery annex, and must not wait for a dispute to be settled by comparing whose monitoring is more complete.</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/en/articles/" class="btn-zouic">Technical articles</a><a href="/en/boards/" class="btn-zouic">Development Boards</a><a href="/en/compare/" class="btn-zouic btn-zouic-primary">Board comparison</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">Follow @GeekWaedon for Weekly Updates</h3><p class="text-secondary text-sm mb-4 mb-lg-0">Board picks, project breakdowns and hardware engineering tips, first published on WeChat and Knowledge Planet.</p></div><div class="col-lg-5"><a href="/en/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">See How to Follow</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> Weekly curated board picks</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Exclusive project deep-dives</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Updated on WeChat and Knowledge Planet</span></div></div></div></div></div></section><section class="py-4" aria-label="Produced by"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">Created by GeekWaedon <span>@GeekWaedon</span></div><div class="author-card-bio">Hardware maker and AI practitioner. This entire website was built hands-on with AI tools.</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Join my Knowledge Planet</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: search &#34;GeekWaedon&#34;</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/en/" class="footer-brand" aria-label="ZouIC home"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">Quality open hardware projects from platforms worldwide · For developer reference only</p><p class="footer-business-contact">
+                        Business &amp; parts sourcing:
+                        <a href="mailto:waedon@outlook.com?subject=Business%20enquiry"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            Produced by · <strong>GeekWaedon</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware enthusiast</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI practitioner</span><a href="/en/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom service provider"><i class="fab fa-weixin"></i> WeCom service provider
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a><a href="/en/#follow" class="footer-social-link" aria-label="WeChat Official Account · GeekWaedon" title="WeChat Official Account · GeekWaedon"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Products</h5><ul><li><a href="/en/products/">Products</a></li><li><a href="/en/services/">Services</a></li><li><a href="/en/services/website-building/">Website building</a></li><li><a href="/en/services/component-matching/">Component matching</a></li><li><a href="/en/news/">Site Updates</a></li><li><a href="/en/boards/">Development Boards</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Resources</h5><ul><li><a href="/en/board-guide/">Board selection guide</a></li><li><a href="/en/compare/">Board comparison</a></li><li><a href="/en/tutorials/">Tutorials</a></li><li><a href="/en/documentation/">Documentation</a></li><li><a href="/en/online-tools/">Online Tools</a></li><li><a href="/en/tools/">Hardware calculators</a></li><li><a href="/en/cases/">Project Cases</a></li><li><a href="/en/help/">Documentation</a></li><li><a href="/en/games/resistor/">Resistor Color Code Challenge</a></li><li><a href="/en/dashuju/">Data Dashboard</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Open Source</h5><ul><li><a href="/en/open-source/">Open Source Projects</a></li><li><a href="/en/all-projects/">All projects</a></li><li><a href="/en/articles/">Technical articles</a></li><li><a href="/en/contribute/">Contribute</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>About</h5><ul><li><a href="/en/about/">About Us</a></li><li><a href="/en/about/#contact">Contact Us</a></li><li><a href="/en/licenses/">Open Source Licenses</a></li><li><a href="/en/pricing/">Pricing</a></li><li><a href="/en/privacy/">Privacy Policy</a></li><li><a href="/en/terms/">Terms of Service</a></li><li><a href="/en/refund/">Refund Policy</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">Popular Categories</span><div class="footer-category-links"><a href="/en/category/">all</a><a href="/en/category/fpga/">FPGA</a><a href="/en/category/general/">General</a><a href="/en/category/ai_hardware/">AI Hardware</a><a href="/en/category/vision/">Computer Vision</a><a href="/en/category/esp32/">ESP32</a><a href="/en/category/robotics/">Robotics</a><a href="/en/source/github/">GitHub</a><a href="/en/source/hackster/">Hackster.io</a><a href="/en/resources/">Resource Navigation</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="Geek Micro Building" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">Built single-handedly by GeekWaedon (@GeekWaedon) · <span style="color:#a78bfa;">people and AI, working side by side</span></div><div class="text-xs text-secondary">A one-person project run by a real human: the site build, the data pulls, the articles and the artwork all came from me (with a few AI agents). <a href="/en/about/" class="text-primary" style="text-decoration:none;">Meet the person behind it →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>Projects aggregated here are for developer reference only: ZouIC indexes them and hosts no code or files; copyright and licensing stay with their authors. For details, see the <a href="/en/licenses/">Open Source Licenses</a> page.</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="On-site smart search"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="Search boards, projects and articles, or type a question…"
+                       aria-label="On-site smart search"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> Select</span><span><kbd>↵</kbd> Open</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Copied';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Removed from favorites');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Saved to favorites');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/interconnect-acceptance-metering-5w1h/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=en-US'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>

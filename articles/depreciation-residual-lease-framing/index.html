@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="折旧年限、二手残值、租赁结构常被并进同一张算力资产表里，但三者来自不同记账与成交逻辑：一个是管理层估计，一个是市场成交，一个决定现金与风险归属。本篇做数据复盘，只拆口径、不提供估值，说明为什么用折旧年限推残值必然失真，并把来源按级别分列。"><meta name="keywords" content="折旧年限, 二手残值, 租赁结构, 会计估计变更, 服务器使用寿命, 口径辨析, 残值不可比, 第三方整理, 数据来源分级"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/articles/depreciation-residual-lease-framing/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/depreciation-residual-lease-framing/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/depreciation-residual-lease-framing/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/depreciation-residual-lease-framing/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/depreciation-residual-lease-framing/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="折旧年限、残值与租赁结构：三个口径不能混着算"><meta property="og:description" content="折旧年限、二手残值、租赁结构常被并进同一张算力资产表里，但三者来自不同记账与成交逻辑：一个是管理层估计，一个是市场成交，一个决定现金与风险归属。本篇做数据复盘，只拆口径、不提供估值，说明为什么用折旧年限推残值必然失真，并把来源按级别分列。"><meta property="og:url" content="https://www.zouic.com/articles/depreciation-residual-lease-framing/"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="折旧年限、残值与租赁结构：三个口径不能混着算"><meta name="twitter:description" content="折旧年限、二手残值、租赁结构常被并进同一张算力资产表里，但三者来自不同记账与成交逻辑：一个是管理层估计，一个是市场成交，一个决定现金与风险归属。本篇做数据复盘，只拆口径、不提供估值，说明为什么用折旧年限推残值必然失真，并把来源按级别分列。"><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "\u6298\u65e7\u5e74\u9650\u3001\u4e8c\u624b\u6b8b\u503c\u3001\u79df\u8d41\u7ed3\u6784\u5e38\u88ab\u5e76\u8fdb\u540c\u4e00\u5f20\u7b97\u529b\u8d44\u4ea7\u8868\u91cc\uff0c\u4f46\u4e09\u8005\u6765\u81ea\u4e0d\u540c\u8bb0\u8d26\u4e0e\u6210\u4ea4\u903b\u8f91\uff1a\u4e00\u4e2a\u662f\u7ba1\u7406\u5c42\u4f30\u8ba1\uff0c\u4e00\u4e2a\u662f\u5e02\u573a\u6210\u4ea4\uff0c\u4e00\u4e2a\u51b3\u5b9a\u73b0\u91d1\u4e0e\u98ce\u9669\u5f52\u5c5e\u3002\u672c\u7bc7\u505a\u6570\u636e\u590d\u76d8\uff0c\u53ea\u62c6\u53e3\u5f84\u3001\u4e0d\u63d0\u4f9b\u4f30\u503c\uff0c\u8bf4\u660e\u4e3a\u4ec0\u4e48\u7528\u6298\u65e7\u5e74\u9650\u63a8\u6b8b\u503c\u5fc5\u7136\u5931\u771f\uff0c\u5e76\u628a\u6765\u6e90\u6309\u7ea7\u522b\u5206\u5217\u3002", "headline": "\u6298\u65e7\u5e74\u9650\u3001\u6b8b\u503c\u4e0e\u79df\u8d41\u7ed3\u6784\uff1a\u4e09\u4e2a\u53e3\u5f84\u4e0d\u80fd\u6df7\u7740\u7b97", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/depreciation-residual-lease-framing/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/depreciation-residual-lease-framing/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/depreciation-residual-lease-framing/", "name": "\u6298\u65e7\u5e74\u9650\u3001\u6b8b\u503c\u4e0e\u79df\u8d41\u7ed3\u6784\uff1a\u4e09\u4e2a\u53e3\u5f84\u4e0d\u80fd\u6df7\u7740\u7b97", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u4e0d\u80fd\uff0c\u8fd9\u662f\u672c\u7bc7\u6700\u60f3\u6321\u4f4f\u7684\u6362\u7b97\u3002\u6298\u65e7\u5e74\u9650\u662f\u7ba1\u7406\u5c42\u5bf9\u8d26\u4e0a\u5206\u644a\u5e74\u9650\u7684\u4f30\u8ba1\uff0c\u4e8c\u624b\u6b8b\u503c\u662f\u5e02\u573a\u6210\u4ea4\u4ef7\uff0c\u4e8c\u8005\u4e0d\u5171\u4eab\u5206\u6bcd\uff0c\u4e5f\u6ca1\u6709\u7a33\u5b9a\u6362\u7b97\u7cfb\u6570\u3002\u628a\u8d26\u9762\u4f59\u503c\u5f53\u6210\u80fd\u5356\u591a\u5c11\u94b1\uff0c\u7b49\u4e8e\u9ed8\u8ba4\u4e00\u53f0\u8bbe\u5907\u6309\u4f1a\u8ba1\u4f30\u8ba1\u8d2c\u503c\uff0c\u800c\u5e02\u573a\u62a5\u4ef7\u5e76\u4e0d\u6309\u8fd9\u4e2a\u4f30\u8ba1\u8d70\u3002"}, "name": "\u80fd\u7528\u6298\u65e7\u5e74\u9650\u63a8\u7b97\u4e8c\u624b\u6b8b\u503c\u5417\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u56e0\u4e3a\u672c\u6b21\u6838\u67e5\u8bfb\u5230\u7684\u662f\u7b2c\u4e09\u65b9\u5bf9\u5e74\u62a5\u7684\u6574\u7406\uff0c\u5c5e\u65b9\u5411\u6027\u7ebf\u7d22\uff0c\u636e\u7b2c\u4e09\u65b9\u6574\u7406\uff0c\u672a\u76f4\u63a5\u6838\u5bf9 SEC \u539f\u6587\u3002\u6309\u6765\u6e90\u5206\u7ea7\uff0c\u5177\u4f53\u5e74\u9650\u4e0e\u91d1\u989d\u4e0d\u5199\u8fdb\u7ed3\u8bba\uff1b\u6574\u7406\u8005\u672c\u4eba\u4e5f\u6307\u51fa\uff0c\u6ca1\u6709\u516c\u53f8\u5728\u5e74\u62a5\u91cc\u5355\u72ec\u62ab\u9732 GPU \u7684\u5bff\u547d\uff0c\u4e14\u8d26\u9762\u5bff\u547d\u4e0d\u7b49\u4e8e\u8f6c\u552e\u4ef7\u503c\uff0c\u539f\u4ef6\u5c1a\u5f85\u76f4\u63a5\u6838\u5bf9\u3002"}, "name": "\u65e2\u7136\u5e74\u62a5\u91cc\u6709\u670d\u52a1\u5668\u5bff\u547d\uff0c\u4e3a\u4ec0\u4e48\u672c\u6587\u4e0d\u7ed9\u5177\u4f53\u5e74\u9650\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u4e0d\u4f1a\u3002\u4f30\u8ba1\u53d8\u66f4\u6539\u7684\u53ea\u662f\u62a5\u8868\u4e0a\u6210\u672c\u600e\u4e48\u5206\u644a\uff0c\u65e2\u4e0d\u6539\u53d8\u786c\u4ef6\u8fd8\u80fd\u7528\u591a\u4e45\uff0c\u4e5f\u4e0d\u4f1a\u51ed\u7a7a\u591a\u51fa\u6216\u5c11\u6389\u73b0\u91d1\u3002\u628a\u5b83\u8bfb\u6210\u300c\u8bbe\u5907\u63d0\u524d\u62a5\u5e9f\u300d\u6216\u300c\u7701\u4e0b\u4e00\u7b14\u94b1\u300d\uff0c\u662f\u628a\u4f1a\u8ba1\u53e3\u5f84\u3001\u7269\u7406\u53e3\u5f84\u4e0e\u73b0\u91d1\u53e3\u5f84\u6df7\u6210\u4e86\u4e00\u4ef6\u4e8b\uff0c\u800c\u8fd9\u6b63\u662f\u672c\u7bc7\u8981\u62c6\u5f00\u7684\u5730\u65b9\u3002"}, "name": "\u4f1a\u8ba1\u4f30\u8ba1\u53d8\u66f4\u4f1a\u5f71\u54cd\u8bbe\u5907\u7684\u7269\u7406\u5bff\u547d\u6216\u73b0\u91d1\u6d41\u5417\uff1f"}]}]}
+    </script>
+    
+    
+    <title>折旧年限、残值与租赁结构：三个口径不能混着算 - ZouIC</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">跳转到主要内容</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航"><div class="container"><a class="navbar-brand" href="/" aria-label="ZouIC 首页"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/all-projects/">开源项目</a></li><li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li><li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/services/component-matching/">商务合作</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li><li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li><li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li><li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li><li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li><li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li><li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li><li><a class="dropdown-item" href="/tools/"><i class="fas fa-calculator me-2"></i>硬件计算器</a></li><li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li><li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li><li><a class="dropdown-item" href="/ideas/"><i class="fas fa-lightbulb me-2"></i>创意树洞</a></li><li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="搜索类型:"><option value="">全部分类</option><option value="board">开源开发板</option><option value="project">开源项目</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="打开智能搜索"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/depreciation-residual-lease-framing/"><i class="fas fa-language me-2"></i> 中文
+                            </a></li><li><a class="dropdown-item" href="/en/articles/depreciation-residual-lease-framing/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/articles/depreciation-residual-lease-framing/"><i class="fas fa-language me-2"></i> 德语
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/">首页</a></li><li class="breadcrumb-item"><a href="/articles/">技术文章</a></li><li class="breadcrumb-item active" aria-current="page">折旧年限、残值与租赁结构：三个口径不能混着算</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">免费公开 · 欢迎转发</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">折旧年限、残值与租赁结构：三个口径不能混着算</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">算力行业观察 · 极客微栋 @GeekWaedon</p><p class="text-secondary text-sm mt-4">极客微栋 @GeekWaedon · 2026 年 11 月</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p>这是一篇数据复盘，但复盘的对象不是某个数字，而是三个数字的口径。折旧年限、二手残值、租赁结构常被并排写进同一张算力资产表，用来讨论一批设备到底划不划算；可它们分别来自三套互不相干的逻辑：会计折旧年限是管理层对使用寿命的估计，二手残值是市场上真实发生的转售成交，租赁结构决定的是现金何时流出、风险落在谁身上。由此可以先立一个可反驳的主张：把其中任何一个换算成另一个，得到的只会是看似精确、实则失真的结果。本文按分项复盘，看同一口径下这些分项各自怎么变、哪些数字根本不能放进同一行相比、来源又该分几级。结论先说在前面：本篇不提供任何估值，不作会计或法律定性，只把三者的口径拆开，说明它们为什么不能混着算。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何事 · What：复盘的是三份分项，不是一个资产价格</h2><p>要复盘的第一件事，是把对象认清楚：这里讨论的不是「一台服务器值多少钱」，而是三份彼此独立的数据。会计折旧年限，是把设备成本分摊到各期报表的一项估计，回答的是「账上按几年摊」；二手残值，是设备退出使用时能在市场上卖出的价格，回答的是「现在有人愿意出多少」；租赁结构，是自用、融资租赁还是经营租赁的安排，回答的是「现金流和残值风险归谁」。可以打个生活化的比方：这像把一辆车的厂家账面折旧、二手车商的收车价、以及全款还是贷款三张纸摊在一起算「每月花多少」，位数能对齐，含义却对不上。所以本篇的主张是，这三者不共享同一个分母，也不共享同一个定义域；把它们并排写进一张表可以，但并排不等于可比。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何因 · Why：分项必须分开，因为它们的变化机制不同</h2><p>为什么非要分项复盘，而不是取一个数了事？因为这三份数据各自的变化原因来自完全不同的机制。折旧年限变动，触发因素是管理层依据技术迭代、使用强度与维修经验对会计估计作出的修订，改的是报表分摊节奏；二手残值变动，取决于二手市场供需、设备成色、型号是否被新一代替代、以及有没有买家接手，改的是成交价；租赁结构变动，则源于合同安排与资金选择，改的是现金与风险的归属。把它们放进同一张表并默认「一起涨、一起跌」，等于悄悄引入了一个几乎从不成立的前提：三者受同一因素驱动。这里给出一个可以被质疑的判断：一张表里最危险的不是某个数字抄错了，而是把三种不同机制的数字默认为可以相加或相除。复盘的意义，正是把这个隐含前提翻出来。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何人 · Who：先问口径由谁定义，再问口径是什么</h2><p>谁定义了这三份口径，比口径本身更该先问，因为这决定了去哪里核对原件。折旧年限由公司管理层估计、经审计后在年报的会计政策附注里披露，属于公司官方口径；二手残值不由任何公司单方面定义，它由买卖双方的一笔笔成交共同形成；租赁结构由出租方与承租方在合同里约定。这里必须把来源讲清楚：本次核查读到的服务器寿命变化，并不是年报原件，而是第三方对年报的整理，据第三方整理，未直接核对 SEC 原文。整理者转述的方向是，近年一段跨度内多家云厂商调整过服务器会计寿命，且同一生效日有公司延长、有公司缩短并援引 AI 硬件迭代速度；整理者还明确指出，没有公司在年报里单独披露 GPU 的寿命，账面寿命也不等于转售价值。本篇的主张是：连「谁写的」都要分级，否则很容易把转述当成原文、把方向性线索当成可引用的事实。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何时 · When：时间跨度里叠着好几种不同的时间</h2><p>数据复盘绕不开时间跨度，而这里至少叠着四种不同的时间：会计估计的生效日、财报的基准日、二手成交的发生日、租赁的起止日，它们并不在同一根轴上。一个容易被忽略的反例是，同一台硬件在不同公司的会计政策下，可以同时对应两种折旧年限；会计估计变更影响的只是报表怎么分摊，既没有改变设备的物理寿命，也没有多出一分现金。另一个反例是把生效日不同的两个寿命硬做「同比」，这本身就是错的。由此提出一个可反驳的判断：在折旧这件事上，时间代表的是「账怎么记」，不是「机器还能用多久」，更不是「钱什么时候花出去」。把生效日、报表期与成交日混成一个「当前状态」，是这类复盘里最常见的失真来源。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何地 · Where：分项落在哪份文件、哪个科目</h2><p>口径要能复核，就得说清它落在哪里。折旧年限落在公司年报的会计政策附注与固定资产相关科目里，这是能找到原件的地方；二手残值通常不在这份文件里，整理者已指出没有公司单独披露 GPU 的寿命、账面寿命不等于转售价值，它散落在成交记录、回收报价与二手平台的挂单里；租赁结构则落在合同条款以及报表上的使用权资产、租赁负债与现金流量表相关行。这里有一个值得争论的判断：在某份文件里找不到残值，不等于残值为零，只等于「它不在你所查的这份文件里」。把「没披露」读成「没有」，再据此填一个零或拿折旧余值顶上，是口径错位里最隐蔽的一种。分列来源位置，就是为了让每个数字都能被追到它真正出现的地方，而不是被就近补一个看起来合理的替身。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">如何 · How：怎么复核分项，哪些数字不可比</h2><p>落到可操作的复核动作，本篇主张一条朴素规则：先标来源级别，再标口径与分母，最后才看数值本身。具体分四步。第一步，给每条数据贴上它是原件披露、公司官方口径，还是第三方整理的方向性线索；第二步，写清它的定义域，是账上分摊年限、市场成交价，还是合同安排；第三步，记录它的时间轴与基准日，确认不是把生效日不同的数字并在一起；第四步，凡涉及跨口径的换算，一律显式标注「不可比」，而不是给出一个看似整齐的结果。最典型的反例，就是拿折旧年限去推二手残值：前者是会计估计，后者是市场成交，中间没有任何稳定的换算系数。这里给出一个鲜明、可被反驳的结论：复盘的价值不在于算出一个新数字，而在于给每个旧数字贴够标签，让下一位读者一眼就能看出它不能和谁相加。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">边界：这套拆法回答不了什么</h2><p>必须把边界写死，否则口径辨析会被误当成估值建议。本篇不提供任何估值，不给具体年限与金额下结论，也不对会计处理或租赁合同作会计、法律定性；涉及租赁条款的适用与解释，建议另行咨询专业人士。本次核查读到的寿命调整属于第三方对年报的整理，据第三方整理，未直接核对 SEC 原文，因此其转述只作方向性线索，不写进结论。还有一个常见误区要挡住：本文讨论的是「三个数字能不能混算」，不是「哪个数字更准」；一篇只做口径辨析的复盘，本来就没有立场回答设备该按几年折旧、该卖多少钱。可反驳的主张是，把「不作定性」写进边界不是回避问题，而是因为估值问题根本不在本文的证据范围内，硬答只会把方向性线索包装成结论。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">结论：只做口径辨析，不给换算</h2><p>把三份分项摆回各自的位置，结论其实很克制：会计折旧年限是管理层估计、只作用于报表，二手残值是市场成交、由供需决定，租赁结构决定现金与风险归属；三者口径不同，任何「用折旧年限推残值」「把租赁与自购的分项并进一张表」的换算都会失真。因此本篇的结论不是给出一个更准的数，而是给出一条更可靠的判断，这三个数不能混着算，凡要并列展示，就必须连同来源级别、定义域与时间轴一起展示。若一定要追问「那批资产到底划不划算」，正确做法是分别按会计、市场、合同三条线各自建表，再说明哪些数字始终没有可比性。一句话，口径清晰比数字漂亮更重要。</p></div><div class="card-dark p-6 mb-5"><p>数据与口径（基准日 2026-11-14）：基准日是本次核查日期，不是任何会计估计的生效日，也不是资产成交日。按来源级别分列，并列写出而不取平均。级别 1（规范文本）：本篇不以任何会计准则条文作为结论依据，不作会计或法律定性，此级无引作结论的内容。级别 2（公司官方口径）：上市公司年报 10-K、20-F 中「服务器与网络设备使用寿命」的披露属公司官方口径，是折旧年限这一分项应追溯的原件，本次未直接核验其原文。级别 3（站点自身口径）：本文的三分项框架、「同一口径下才可比」的复核规则、以及口径辨析的方法，均为站点自身分析口径，不是任何公司的披露。级别 4（第三方整理，仅方向性）：本次核查实际读到的是第三方对年报的整理，据第三方整理，未直接核对 SEC 原文；其转述涉及近年云厂商对服务器会计寿命的调整、同一生效日有延长有缩短并援引 AI 硬件迭代速度，以及整理者指出的「没有公司在年报里单独披露 GPU 的寿命」「账面寿命不等于转售价值」。按分级规则，此级只作方向性线索，具体年限与金额一律不写进结论，也不据此作会计或法律定性。级别 5（口径并列）：会计折旧年限与二手市场成交是两套并列口径，延长与缩短是并列事实，本文并列写出差异、不取平均，也不把二者折算成同一个数。</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>能用折旧年限推算二手残值吗？</h3><p class="faq-a">不能，这是本篇最想挡住的换算。折旧年限是管理层对账上分摊年限的估计，二手残值是市场成交价，二者不共享分母，也没有稳定换算系数。把账面余值当成能卖多少钱，等于默认一台设备按会计估计贬值，而市场报价并不按这个估计走。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>既然年报里有服务器寿命，为什么本文不给具体年限？</h3><p class="faq-a">因为本次核查读到的是第三方对年报的整理，属方向性线索，据第三方整理，未直接核对 SEC 原文。按来源分级，具体年限与金额不写进结论；整理者本人也指出，没有公司在年报里单独披露 GPU 的寿命，且账面寿命不等于转售价值，原件尚待直接核对。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>会计估计变更会影响设备的物理寿命或现金流吗？</h3><p class="faq-a">不会。估计变更改的只是报表上成本怎么分摊，既不改变硬件还能用多久，也不会凭空多出或少掉现金。把它读成「设备提前报废」或「省下一笔钱」，是把会计口径、物理口径与现金口径混成了一件事，而这正是本篇要拆开的地方。</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/articles/" class="btn-zouic">技术文章</a><a href="/boards/" class="btn-zouic">开源开发板</a><a href="/compare/" class="btn-zouic btn-zouic-primary">开发板对比</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3><p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p></div><div class="col-lg-5"><a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span></div></div></div></div></div></section><section class="py-4" aria-label="出品人"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div><div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/" class="footer-brand" aria-label="ZouIC 首页"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p><p class="footer-business-contact">
+                        商务合作 / 器件选型：
+                        <a href="mailto:waedon@outlook.com?subject=%E5%95%86%E5%8A%A1%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            出品人 · <strong>极客微栋</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span><a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商"><i class="fab fa-weixin"></i> 企业微信服务商
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a><a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>产品</h5><ul><li><a href="/products/">产品介绍</a></li><li><a href="/services/">服务说明</a></li><li><a href="/services/website-building/">建站服务</a></li><li><a href="/services/component-matching/">元器件撮合</a></li><li><a href="/news/">站内动态</a></li><li><a href="/boards/">开源开发板</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>资源</h5><ul><li><a href="/board-guide/">选型指南</a></li><li><a href="/compare/">开发板对比</a></li><li><a href="/tutorials/">开发板教程</a></li><li><a href="/documentation/">技术文档</a></li><li><a href="/online-tools/">在线工具</a></li><li><a href="/tools/">硬件计算器</a></li><li><a href="/cases/">项目案例</a></li><li><a href="/help/">文档中心</a></li><li><a href="/games/resistor/">色环电阻识别挑战</a></li><li><a href="/dashuju/">数据大屏</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>开源生态</h5><ul><li><a href="/open-source/">开源项目</a></li><li><a href="/all-projects/">全部项目</a></li><li><a href="/articles/">技术文章</a></li><li><a href="/ideas/">创意树洞</a></li><li><a href="/wechat/">公众号专栏</a></li><li><a href="/contribute/">贡献指南</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>关于</h5><ul><li><a href="/about/">关于我们</a></li><li><a href="/about/#contact">联系我们</a></li><li><a href="/licenses/">开源协议</a></li><li><a href="/pricing/">服务报价</a></li><li><a href="/privacy/">隐私政策</a></li><li><a href="/terms/">服务条款</a></li><li><a href="/refund/">退款政策</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">热门分类</span><div class="footer-category-links"><a href="/category/">全部</a><a href="/category/fpga/">FPGA</a><a href="/category/general/">综合</a><a href="/category/ai_hardware/">AI 硬件</a><a href="/category/vision/">机器视觉</a><a href="/category/esp32/">ESP32</a><a href="/category/robotics/">机器人</a><a href="/source/github/">GitHub</a><a href="/source/hackster/">Hackster.io</a><a href="/resources/">资源导航</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div><div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="返回顶部"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="站内智能搜索"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="搜索开发板、项目、文章，或直接输入问题…"
+                       aria-label="站内智能搜索"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> 选择</span><span><kbd>↵</kbd> 打开</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/depreciation-residual-lease-framing/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=zh-CN'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>

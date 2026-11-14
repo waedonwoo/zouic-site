@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="O-RAN 规范与 PlugFest 认证证明的是接口与互操作，不是商用网络的性能承诺。把测试结论当成 SLA，是层级错位。采购方要自己拍板验收对象、测量点、失败判定、责任方四件事，并把它们写成可复核的条款，而不是一句表态。"><meta name="keywords" content="AI-RAN, O-RAN ALLIANCE, O-RAN-R005, PlugFest, 互操作验证, 采购验收, SLA, 测量点, 责任方, 5W1H"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/articles/ai-ran-procurement-framing-5w1h/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/ai-ran-procurement-framing-5w1h/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/ai-ran-procurement-framing-5w1h/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/ai-ran-procurement-framing-5w1h/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/ai-ran-procurement-framing-5w1h/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="AI-RAN 从实验室指标到采购验收：哪一层才算可验收"><meta property="og:description" content="O-RAN 规范与 PlugFest 认证证明的是接口与互操作，不是商用网络的性能承诺。把测试结论当成 SLA，是层级错位。采购方要自己拍板验收对象、测量点、失败判定、责任方四件事，并把它们写成可复核的条款，而不是一句表态。"><meta property="og:url" content="https://www.zouic.com/articles/ai-ran-procurement-framing-5w1h/"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="AI-RAN 从实验室指标到采购验收：哪一层才算可验收"><meta name="twitter:description" content="O-RAN 规范与 PlugFest 认证证明的是接口与互操作，不是商用网络的性能承诺。把测试结论当成 SLA，是层级错位。采购方要自己拍板验收对象、测量点、失败判定、责任方四件事，并把它们写成可复核的条款，而不是一句表态。"><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "O-RAN \u89c4\u8303\u4e0e PlugFest \u8ba4\u8bc1\u8bc1\u660e\u7684\u662f\u63a5\u53e3\u4e0e\u4e92\u64cd\u4f5c\uff0c\u4e0d\u662f\u5546\u7528\u7f51\u7edc\u7684\u6027\u80fd\u627f\u8bfa\u3002\u628a\u6d4b\u8bd5\u7ed3\u8bba\u5f53\u6210 SLA\uff0c\u662f\u5c42\u7ea7\u9519\u4f4d\u3002\u91c7\u8d2d\u65b9\u8981\u81ea\u5df1\u62cd\u677f\u9a8c\u6536\u5bf9\u8c61\u3001\u6d4b\u91cf\u70b9\u3001\u5931\u8d25\u5224\u5b9a\u3001\u8d23\u4efb\u65b9\u56db\u4ef6\u4e8b\uff0c\u5e76\u628a\u5b83\u4eec\u5199\u6210\u53ef\u590d\u6838\u7684\u6761\u6b3e\uff0c\u800c\u4e0d\u662f\u4e00\u53e5\u8868\u6001\u3002", "headline": "AI-RAN \u4ece\u5b9e\u9a8c\u5ba4\u6307\u6807\u5230\u91c7\u8d2d\u9a8c\u6536\uff1a\u54ea\u4e00\u5c42\u624d\u7b97\u53ef\u9a8c\u6536", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/ai-ran-procurement-framing-5w1h/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/ai-ran-procurement-framing-5w1h/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/ai-ran-procurement-framing-5w1h/", "name": "AI-RAN \u4ece\u5b9e\u9a8c\u5ba4\u6307\u6807\u5230\u91c7\u8d2d\u9a8c\u6536\uff1a\u54ea\u4e00\u5c42\u624d\u7b97\u53ef\u9a8c\u6536", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u4e0d\u80fd\u6309\u672c\u6587\u7684\u53e3\u5f84\u8fd9\u4e48\u7528\u3002\u8ba4\u8bc1\u4e0e PlugFest \u7ed3\u8bba\u8bc1\u660e\u7684\u662f\u7279\u5b9a\u7ec4\u5408\u7684\u63a5\u53e3\u4e0e\u4e92\u64cd\u4f5c\uff0c\u4e0d\u662f\u5546\u7528\u7f51\u7edc\u7684\u6027\u80fd\u627f\u8bfa\u3002\u53ef\u590d\u6838\u7684\u505a\u6cd5\u662f\u628a\u9a8c\u6536\u5bf9\u8c61\u3001\u6d4b\u91cf\u70b9\u3001\u5931\u8d25\u5224\u5b9a\u3001\u8d23\u4efb\u65b9\u56db\u4ef6\u4e8b\u5355\u72ec\u5199\u6210\u6761\u6b3e\uff0c\u518d\u5f15\u7528\u5177\u4f53\u89c4\u8303\u7248\u672c\u4e0e\u5e94\u7528\u7ec4\u5408\uff1b\u5426\u5219\u5408\u540c\u91cc\u90a3\u53e5\u300c\u901a\u8fc7\u8ba4\u8bc1\u300d\u65e2\u65e0\u6cd5\u8bc1\u660e\u8fbe\u6210\uff0c\u4e5f\u65e0\u6cd5\u8bc1\u660e\u672a\u8fbe\u6210\u3002"}, "name": "\u628a O-RAN \u8ba4\u8bc1\u5199\u8fdb\u91c7\u8d2d\u5408\u540c\uff0c\u80fd\u5f53\u6210\u6027\u80fd\u8fbe\u6807\u5417\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u56e0\u4e3a\u6d4b\u91cf\u6761\u4ef6\u53d8\u4e86\u3002\u5b9e\u9a8c\u5ba4\u662f\u7279\u5b9a\u8d1f\u8f7d\u3001\u7279\u5b9a\u90bb\u533a\u914d\u7f6e\u4e0e\u7279\u5b9a rApp/xApp \u7ec4\u5408\uff0c\u73b0\u7f51\u7684\u8bdd\u52a1\u8c31\u3001\u6e29\u5ea6\u3001\u6df7\u90e8\u5382\u5546\u90fd\u4e0d\u540c\uff0c\u800c\u4e0d\u540c\u5382\u5546\u5e94\u7528\u7ec4\u5408\u4e0b\u6d4b\u91cf\u70b9\u672c\u8eab\u5c31\u4e0d\u4e00\u6837\u3002\u5e94\u5f53\u628a\u6d4b\u91cf\u70b9\u3001\u91c7\u6837\u7a97\u53e3\u4e0e\u8d1f\u8f7d\u6761\u4ef6\u8fde\u540c\u8bfb\u6570\u4e00\u8d77\u9a8c\u6536\uff0c\u5e76\u6ce8\u660e\u4e24\u7ec4\u6761\u4ef6\u7684\u5dee\u5f02\u662f\u5426\u53ef\u6bd4\uff0c\u800c\u4e0d\u662f\u53ea\u642c\u4e00\u4e2a\u767e\u5206\u6bd4\u3002"}, "name": "\u5b9e\u9a8c\u5ba4\u6d4b\u5230\u7684\u8282\u80fd\u6bd4\u4f8b\uff0c\u4e3a\u4ec0\u4e48\u4e0d\u80fd\u76f4\u63a5\u642c\u5230\u73b0\u7f51\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u901a\u5e38\u662f\u8d23\u4efb\u65b9\uff0c\u5c24\u5176\u662f\u300c\u4e89\u8bae\u65f6\u4ee5\u54ea\u4efd\u8bb0\u5f55\u4e3a\u51c6\u300d\u3002\u6d4b\u8bd5\u4e2d\u5fc3\u51fa\u62a5\u544a\u3001\u5382\u5546\u51fa\u5e94\u7528\u3001\u8054\u76df\u51fa\u89c4\u8303\uff0c\u4f46\u6ca1\u6709\u4e00\u65b9\u5929\u7136\u5bf9\u73b0\u7f51\u6307\u6807\u8d1f\u8d23\u3002\u628a\u670d\u52a1\u65b9\u76d1\u63a7\u3001\u5ba2\u6237\u4fa7\u63a2\u6d4b\u4e0e\u7b2c\u4e09\u65b9\u590d\u68c0\u5404\u81ea\u7684\u65f6\u95f4\u6e90\u3001\u7559\u5b58\u671f\u9650\u4e0e\u4f18\u5148\u7ea7\u9884\u5148\u5199\u8fdb\u9644\u4ef6\uff0c\u6bd4\u4e8b\u540e\u6bd4\u8c01\u7684\u76d1\u63a7\u66f4\u5168\u8981\u7701\u4e8b\u5f97\u591a\u3002"}, "name": "\u56db\u4ef6\u4e8b\u91cc\uff0c\u91c7\u8d2d\u65b9\u6700\u5bb9\u6613\u6f0f\u6389\u54ea\u4e00\u4ef6\uff1f"}]}]}
+    </script>
+    
+    
+    <title>AI-RAN 从实验室指标到采购验收：哪一层才算可验收 - ZouIC</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">跳转到主要内容</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航"><div class="container"><a class="navbar-brand" href="/" aria-label="ZouIC 首页"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/all-projects/">开源项目</a></li><li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li><li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/services/component-matching/">商务合作</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li><li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li><li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li><li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li><li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li><li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li><li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li><li><a class="dropdown-item" href="/tools/"><i class="fas fa-calculator me-2"></i>硬件计算器</a></li><li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li><li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li><li><a class="dropdown-item" href="/ideas/"><i class="fas fa-lightbulb me-2"></i>创意树洞</a></li><li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="搜索类型:"><option value="">全部分类</option><option value="board">开源开发板</option><option value="project">开源项目</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="打开智能搜索"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/ai-ran-procurement-framing-5w1h/"><i class="fas fa-language me-2"></i> 中文
+                            </a></li><li><a class="dropdown-item" href="/en/articles/ai-ran-procurement-framing-5w1h/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/articles/ai-ran-procurement-framing-5w1h/"><i class="fas fa-language me-2"></i> 德语
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/">首页</a></li><li class="breadcrumb-item"><a href="/articles/">技术文章</a></li><li class="breadcrumb-item active" aria-current="page">AI-RAN 从实验室指标到采购验收：哪一层才算可验收</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">免费公开 · 欢迎转发</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">AI-RAN 从实验室指标到采购验收：哪一层才算可验收</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">算力行业观察 · 极客微栋 @GeekWaedon</p><p class="text-secondary text-sm mt-4">极客微栋 @GeekWaedon · 2026 年 11 月</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p>结论先说：O-RAN ALLIANCE 的规范、认证徽章与 Global PlugFests 解决的是「接口能不能对接、多厂商能不能联调」，不是「商用网络省不省电、达不达标」。把一份互操作测试结论写进采购验收的服务等级协议，是把两个层级的事混成一件，属于范畴错误。采购方真正要拍板的是四件事：验收对象、测量点、失败判定、责任方；而这四件事没有一件是联盟规范替你写好的。本文按决策档案的写法，用 5W1H 六个维度各回答一个拍板问题，再单列边界与结论。每一维都给一个可以被反驳的判断，而不是复述规范条目——因为拍板要的正是可争可改的条款，不是不可争的名词解释。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何事 · What：要验收的到底是哪一层</h2><p>先把对象分清楚。O-RAN-R005 于 2025-11 完成，内容覆盖 AI/ML 工作流服务、Non-RT RIC（非实时无线智能控制器）与 Near-RT RIC（近实时无线智能控制器）结合、Massive MIMO（大规模天线阵列）波束优化，并采纳 3GPP Release-18 的节能特性；规范文本在 specifications.o-ran.org 公开下载。这些都是「接口与框架有据可依」的证据，说明某类功能被定义、被约定怎么交互，而不是说明商用网络已经兑现了相应收益。这里给出一个可反驳的主张：把「规范覆盖某功能」读成「现网必然达成该收益」，是采购错位里最普遍、也最贵的一种。像验收一批新装的插座，认证只证明插头插得上、孔位对得上，并不证明这栋楼下个月的用电账单会降；插座是接口层，账单是运行层。采购验收要写的对象，恰恰是后者那层可观测的结果，而不是前者那层可对接的能力。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何因 · Why：为什么认证结论替代不了 SLA</h2><p>联盟设有 Certification and Badging Program（认证与徽章计划）、OTIC 开放测试集成中心与 Global PlugFests，官方说明这些用于多厂商端到端集成测试；官网还明确 2026 年重点是整合既有 5G 网络规范，AI 驱动的网络智能正从试验走向规模部署。可反驳的主张是：互操作测试的通过条件是「能连通、能跑通约定流程」，而服务等级协议的通过条件是「在约定负载与时段内达到约定指标，且失败时能归责」，两者连测量对象都不同，前者不能推出后者。实验室互操作通过不等于现网节能收益，这不是唱反调，而是测量条件的差异使然。「从试验走向规模部署」本身是进行时表述，恰恰说明规模部署是正在推进的目标，不是已被规范背书的结果；把它读成「规范已保证商用性能」，等于把路线语气当成验收结论。范畴错误的要害就在这里：存在性验证回答「有没有、通不通」，性能承诺回答「够不够、算谁的」。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何人 · Who：四件事分别由谁拍板、谁背责</h2><p>责任是分散的，而分散本身就是要拍板的原因。联盟定义接口、框架与测试条件；设备与软件厂商提供具体网元以及 rApp（运行在非实时控制器上的应用）与 xApp（运行在近实时控制器上的应用）；OTIC 与 PlugFest 提供集成测试环境并出具针对特定组合的测试结论；采购方，也就是运营商或其集成方，要自己定义验收对象、测量点、失败判定与责任方。可反驳的主张是：默认「谁出测试报告、谁就对现网性能负责」是错的，测试报告只对被测的那一套组合与那一组条件负责，不对现网里换了厂商、换了负载、换了邻区配置之后的组合负责。四件事里没有一件能外包给联盟：联盟不给你的网络定阈值，厂商不会替你写失败判定，测试中心更不会替你在合同里指定争议时以哪份记录为准。把责任方留空，等于把争议留到上线之后。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何时 · When：哪些时间点必须写进验收口径</h2><p>先把两种日期分开：2026-11-14 是本次核查的基准日，不是任何规范发布或事件发生的日子；O-RAN-R005 的完成时间是 2025-11，官网口径里 2026 年的重点是整合既有 5G 网络规范。可反驳的主张是：拿「规范发布日」当「验收生效日」会漏掉版本与组合的漂移——从发布到上线之间，规范会修订、rApp/xApp 会换版、现网配置会变，一个静态日期覆盖不了这些变化。验收口径要锚定的不是某个发布日，而是「哪个规范版本、哪套应用组合、哪个测量窗口、哪个基准日核对」这一组快照。同理，「从试验走向规模部署」是过程描述，不能改写成「某年已规模部署」这种完成态。把时间点写进条款，是为了让两年后回看这份验收单时，还能复现当时测的是哪一种组合，而不是只剩一个孤零零的年份。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何地 · Where：测量点究竟落在哪一层</h2><p>测量点决定数字有没有意义。在 Non-RT RIC 与 Near-RT RIC 结合的架构里，AI/ML 工作流、Massive MIMO 波束优化与 3GPP Release-18 节能特性的观测，分属不同的时间尺度与不同接口计数器：非实时侧偏策略与模型训练，近实时侧偏毫秒级的控制决策，节能效果又依赖话务负载、邻区关系与温度。可反驳的主张是：在 OTIC 实验室测得的节能比例，不能直接搬到现网，因为负载谱与环境都变了；而不同厂商的 rApp/xApp 组合会把同一指标定义在不同测量点上，A 组合的合格读数对 B 组合没有意义。所以「何地」要拍板的是：以哪一层网元、哪个接口、哪个计数器、哪段采样窗口为准，以及实验室测量点与现网测量点之间的差值如何记录。不写清落点，任何百分比都只是漂浮的数。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">如何 · How：把四件事写成可复核的验收条目</h2><p>给一套能落地的写法。第一，验收对象：列明被测功能、规范版本与 rApp/xApp 清单，不写「具备 AI-RAN 能力」这种无法证伪的泛称。第二，测量点：定义网元、计数器、采样窗口、负载条件，并注明与 OTIC 测试条件的差异以及差异如何折算或声明不可比。第三，失败判定：写清阈值、连续观察时长、允许的重试次数、剔除规则，以及未达标时是整改、降级接收还是拒收。第四，责任方：写清谁记录、谁复检、监控与账单类数据各自的时间源、留存期限，以及争议时以哪份记录为准。可反驳的主张是：只写「达到节能目标」而不写测量点与失败判定的条款，本质不可执行，因为它既无法被证明达成，也无法被证明未达成。把这四条做成上线前可自动核对的断言，而不是写进编辑规范让人自觉遵守，拍板才算落地；条款要能被机器复核，而不只是被人读懂。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">边界：规范没规定、测试没覆盖的地方</h2><p>把缺口集中放在这里，而不是藏进结论。联盟规范不规定商用性能阈值、不规定服务等级协议、也不保证现网节能收益；认证与 PlugFest 结论只对被测组合与被测条件成立；官网 2026 年重点仍是「整合既有规范」，说明规范集本身还在演进；不同厂商应用组合下测量点不同，跨组合比较缺乏共同基线；至于法律、合规与价格，本文只做工程口径描述，不作定性。可反驳的主张是：认为「再补一个认证项就能覆盖验收」的想法站不住，因为规范层级与采购层级之间不是多少的关系，而是两种不同问题。还有一个更实际的缺口：测试报告能看到被测组合当时的行为，看不到上线之后负载变化、策略更新与多厂商混部带来的偏移，这些只能靠现网自己的记录与复检补上。承认这些边界，不是削弱验收单，而是让它不至于承诺自己兑现不了的东西。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">结论：把认证放回它该在的位置</h2><p>认证与互操作是入场券，不是验收单；它能证明这套组合「插得上、跑得通」，不能证明这栋楼的账单会降。建议把顺序倒过来：先由采购方定下验收对象、测量点、失败判定、责任方四件事，再引用具体规范版本与应用组合，补齐测量窗口与失败判定，最后把记录分工与争议记录写进合同附件，而不是在正文里写一句「通过 O-RAN 认证」。这样一旦将来更换 rApp/xApp、调整节能策略或引入新厂商，团队会立刻撞上其中一条断言，被迫重新拍板，而不是在无人察觉的情况下把实验室结论慢慢当成商用承诺。对读者而言这也更好用：看到「通过认证」四个字，应当追问三句——被测的是哪个组合、测量点落在哪一层、谁对现网指标负责。答不出这三句的验收，写得再漂亮也只是一份表态。</p></div><div class="card-dark p-6 mb-5"><p>数据与口径（基准日 2026-11-14）：级别 1（规范文本）：O-RAN-R005 规范本身，2025-11 完成，含 AI/ML 工作流服务、Non-RT RIC 与 Near-RT RIC 结合、Massive MIMO 波束优化、采纳 3GPP Release-18 节能特性，在 specifications.o-ran.org 公开下载，属规范文本口径。级别 2（联盟官方文件与公告）：O-RAN ALLIANCE 官网与公告关于 R005 完成时间、Certification and Badging Program、OTIC 开放测试集成中心、Global PlugFests 用于多厂商端到端集成测试、2026 年重点整合既有 5G 网络规范、AI 驱动网络智能从试验走向规模部署，属联盟官方口径。级别 3（站点自身口径）：四件事拍板框架、范畴错误判断、插座类比、可复核断言写法，均为本站判断，不属任何联盟文件。级别 4（第三方整理）：凡涉及现网节能比例、商用 SLA 数值者，据第三方整理，未直接核对原文，只作方向性线索，具体数字不进结论。级别 5（口径并列）：「规范保证接口与互操作」与「采购要求现网性能与可归责」并列写出，说明两者层级不同，不互相替代、不取平均。基准日 2026-11-14 是核查日期，不是规范发布或事件发生日；涉及法律、合规与价格只作工程口径描述，不作定性。</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>把 O-RAN 认证写进采购合同，能当成性能达标吗？</h3><p class="faq-a">不能按本文的口径这么用。认证与 PlugFest 结论证明的是特定组合的接口与互操作，不是商用网络的性能承诺。可复核的做法是把验收对象、测量点、失败判定、责任方四件事单独写成条款，再引用具体规范版本与应用组合；否则合同里那句「通过认证」既无法证明达成，也无法证明未达成。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>实验室测到的节能比例，为什么不能直接搬到现网？</h3><p class="faq-a">因为测量条件变了。实验室是特定负载、特定邻区配置与特定 rApp/xApp 组合，现网的话务谱、温度、混部厂商都不同，而不同厂商应用组合下测量点本身就不一样。应当把测量点、采样窗口与负载条件连同读数一起验收，并注明两组条件的差异是否可比，而不是只搬一个百分比。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>四件事里，采购方最容易漏掉哪一件？</h3><p class="faq-a">通常是责任方，尤其是「争议时以哪份记录为准」。测试中心出报告、厂商出应用、联盟出规范，但没有一方天然对现网指标负责。把服务方监控、客户侧探测与第三方复检各自的时间源、留存期限与优先级预先写进附件，比事后比谁的监控更全要省事得多。</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/articles/" class="btn-zouic">技术文章</a><a href="/boards/" class="btn-zouic">开源开发板</a><a href="/compare/" class="btn-zouic btn-zouic-primary">开发板对比</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3><p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p></div><div class="col-lg-5"><a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span></div></div></div></div></div></section><section class="py-4" aria-label="出品人"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div><div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/" class="footer-brand" aria-label="ZouIC 首页"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p><p class="footer-business-contact">
+                        商务合作 / 器件选型：
+                        <a href="mailto:waedon@outlook.com?subject=%E5%95%86%E5%8A%A1%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            出品人 · <strong>极客微栋</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span><a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商"><i class="fab fa-weixin"></i> 企业微信服务商
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a><a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>产品</h5><ul><li><a href="/products/">产品介绍</a></li><li><a href="/services/">服务说明</a></li><li><a href="/services/website-building/">建站服务</a></li><li><a href="/services/component-matching/">元器件撮合</a></li><li><a href="/news/">站内动态</a></li><li><a href="/boards/">开源开发板</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>资源</h5><ul><li><a href="/board-guide/">选型指南</a></li><li><a href="/compare/">开发板对比</a></li><li><a href="/tutorials/">开发板教程</a></li><li><a href="/documentation/">技术文档</a></li><li><a href="/online-tools/">在线工具</a></li><li><a href="/tools/">硬件计算器</a></li><li><a href="/cases/">项目案例</a></li><li><a href="/help/">文档中心</a></li><li><a href="/games/resistor/">色环电阻识别挑战</a></li><li><a href="/dashuju/">数据大屏</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>开源生态</h5><ul><li><a href="/open-source/">开源项目</a></li><li><a href="/all-projects/">全部项目</a></li><li><a href="/articles/">技术文章</a></li><li><a href="/ideas/">创意树洞</a></li><li><a href="/wechat/">公众号专栏</a></li><li><a href="/contribute/">贡献指南</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>关于</h5><ul><li><a href="/about/">关于我们</a></li><li><a href="/about/#contact">联系我们</a></li><li><a href="/licenses/">开源协议</a></li><li><a href="/pricing/">服务报价</a></li><li><a href="/privacy/">隐私政策</a></li><li><a href="/terms/">服务条款</a></li><li><a href="/refund/">退款政策</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">热门分类</span><div class="footer-category-links"><a href="/category/">全部</a><a href="/category/fpga/">FPGA</a><a href="/category/general/">综合</a><a href="/category/ai_hardware/">AI 硬件</a><a href="/category/vision/">机器视觉</a><a href="/category/esp32/">ESP32</a><a href="/category/robotics/">机器人</a><a href="/source/github/">GitHub</a><a href="/source/hackster/">Hackster.io</a><a href="/resources/">资源导航</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div><div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="返回顶部"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="站内智能搜索"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="搜索开发板、项目、文章，或直接输入问题…"
+                       aria-label="站内智能搜索"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> 选择</span><span><kbd>↵</kbd> 打开</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/ai-ran-procurement-framing-5w1h/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=zh-CN'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>

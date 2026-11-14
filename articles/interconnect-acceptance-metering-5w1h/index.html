@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="HBM4、UALink 200G 与共封装光学把接口、电气和协议条件写得很清楚，却没有一份规定：机柜交付时该怎么测、测出来算谁的。把规范数值当成整机吞吐保证，是把合规和系统验收两个层级压成一层。要拍板的是验收对象、测量点、失败判定与责任方四件事。"><meta name="keywords" content="HBM4, JESD270-4, UALink 200G, CPO, 机柜验收, 2048-bit, 有效峰值带宽, 测量点, 采购口径"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/articles/interconnect-acceptance-metering-5w1h/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/interconnect-acceptance-metering-5w1h/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/interconnect-acceptance-metering-5w1h/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/interconnect-acceptance-metering-5w1h/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/interconnect-acceptance-metering-5w1h/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="HBM4、UALink 与 CPO 的下游视角：互连怎么验收、怎么计量"><meta property="og:description" content="HBM4、UALink 200G 与共封装光学把接口、电气和协议条件写得很清楚，却没有一份规定：机柜交付时该怎么测、测出来算谁的。把规范数值当成整机吞吐保证，是把合规和系统验收两个层级压成一层。要拍板的是验收对象、测量点、失败判定与责任方四件事。"><meta property="og:url" content="https://www.zouic.com/articles/interconnect-acceptance-metering-5w1h/"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="HBM4、UALink 与 CPO 的下游视角：互连怎么验收、怎么计量"><meta name="twitter:description" content="HBM4、UALink 200G 与共封装光学把接口、电气和协议条件写得很清楚，却没有一份规定：机柜交付时该怎么测、测出来算谁的。把规范数值当成整机吞吐保证，是把合规和系统验收两个层级压成一层。要拍板的是验收对象、测量点、失败判定与责任方四件事。"><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "HBM4\u3001UALink 200G \u4e0e\u5171\u5c01\u88c5\u5149\u5b66\u628a\u63a5\u53e3\u3001\u7535\u6c14\u548c\u534f\u8bae\u6761\u4ef6\u5199\u5f97\u5f88\u6e05\u695a\uff0c\u5374\u6ca1\u6709\u4e00\u4efd\u89c4\u5b9a\uff1a\u673a\u67dc\u4ea4\u4ed8\u65f6\u8be5\u600e\u4e48\u6d4b\u3001\u6d4b\u51fa\u6765\u7b97\u8c01\u7684\u3002\u628a\u89c4\u8303\u6570\u503c\u5f53\u6210\u6574\u673a\u541e\u5410\u4fdd\u8bc1\uff0c\u662f\u628a\u5408\u89c4\u548c\u7cfb\u7edf\u9a8c\u6536\u4e24\u4e2a\u5c42\u7ea7\u538b\u6210\u4e00\u5c42\u3002\u8981\u62cd\u677f\u7684\u662f\u9a8c\u6536\u5bf9\u8c61\u3001\u6d4b\u91cf\u70b9\u3001\u5931\u8d25\u5224\u5b9a\u4e0e\u8d23\u4efb\u65b9\u56db\u4ef6\u4e8b\u3002", "headline": "HBM4\u3001UALink \u4e0e CPO \u7684\u4e0b\u6e38\u89c6\u89d2\uff1a\u4e92\u8fde\u600e\u4e48\u9a8c\u6536\u3001\u600e\u4e48\u8ba1\u91cf", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/interconnect-acceptance-metering-5w1h/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/interconnect-acceptance-metering-5w1h/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/interconnect-acceptance-metering-5w1h/", "name": "HBM4\u3001UALink \u4e0e CPO \u7684\u4e0b\u6e38\u89c6\u89d2\uff1a\u4e92\u8fde\u600e\u4e48\u9a8c\u6536\u3001\u600e\u4e48\u8ba1\u91cf", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "2 TB/s \u662f HBM4 \u5728\u63a5\u53e3\u6761\u4ef6\u4e0b\u7684\u5e26\u5bbd\u4e0a\u9650\uff0c\u5c5e\u4e8e\u90e8\u4ef6\u5408\u89c4\u8bc1\u660e\uff0c\u4e0d\u662f\u673a\u67dc\u4ea4\u4ed8\u65f6\u7684\u6574\u673a\u541e\u5410\u4fdd\u8bc1\u3002\u628a\u63a5\u53e3\u6761\u4ef6\u6284\u6210\u7cfb\u7edf SLA \u662f\u5c42\u7ea7\u9519\u7528\uff1a\u524d\u8005\u7531\u5668\u4ef6\u4f9b\u5e94\u65b9\u6309\u89c4\u8303\u8bc1\u660e\uff0c\u540e\u8005\u5e94\u7531\u91c7\u8d2d\u65b9\u6309\u81ea\u8865\u53e3\u5f84\u5728\u673a\u67dc\u7aef\u53e3\u6d4b\u91cf\uff0c\u4e24\u4ef6\u4e8b\u5404\u7b7e\u5404\u7684\u5b57\u3002"}, "name": "\u628a JESD270-4 \u7684 2 TB/s \u5f53\u673a\u67dc\u9a8c\u6536\u6307\u6807\uff0c\u95ee\u9898\u5728\u54ea\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u5b83\u662f\u5b98\u65b9 PR \u7ed9\u51fa\u7684\u8bbe\u8ba1\u76ee\u6807\uff0c\u4e0d\u662f\u5bf9\u4efb\u4f55\u4e00\u6b21\u4ea4\u4ed8\u7684\u4fdd\u8bc1\u3002\u8bbe\u8ba1\u76ee\u6807\u7f3a\u6d4b\u91cf\u70b9\u4e0e\u5931\u8d25\u5224\u5b9a\uff0c\u5199\u6210\u9a8c\u6536\u6307\u6807\u4f1a\u5f97\u51fa\u5047\u7cbe\u786e\u3002\u6b63\u786e\u505a\u6cd5\u662f\u628a\u5b83\u5355\u5217\u4e3a\u8bbe\u8ba1\u76ee\u6807\uff0c\u7cfb\u7edf\u5b9e\u6d4b\u53e6\u8d77\u4e00\u680f\uff0c\u4e24\u8005\u5e76\u5217\u3001\u4e0d\u4e92\u76f8\u6298\u7b97\u3002"}, "name": "UALink \u7684 93% \u6709\u6548\u5cf0\u503c\u5e26\u5bbd\u80fd\u5199\u8fdb\u5408\u540c\u5f53\u4fdd\u8bc1\u503c\u5417\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u53ea\u5199\u9700\u5355\u72ec\u7ea6\u5b9a\u5149\u529f\u7387\u4e0e\u8bef\u7801\u6d4b\u91cf\u70b9\uff0c\u5e76\u6307\u5b9a\u6d4b\u91cf\u70b9\u3001\u4eea\u5668\u4e0e\u8d23\u4efb\u65b9\uff0c\u4e0d\u5f15\u7528\u4efb\u4f55\u672a\u7ecf\u6838\u5bf9\u7684\u5177\u4f53\u6570\u5b57\u3002\u89c4\u8303\u6ca1\u89c4\u5b9a\u673a\u67dc\u7ea7\u600e\u4e48\u6d4b\u3001\u7b97\u8c01\u7684\uff0c\u8fd9\u4e00\u5c42\u7531\u91c7\u8d2d\u65b9\u4e0e\u96c6\u6210\u5546\u5728\u4ea4\u4ed8\u9644\u4ef6\u91cc\u8865\u9f50\uff0c\u4e0d\u80fd\u7b49\u51fa\u4e89\u8bae\u518d\u6bd4\u8c01\u7684\u76d1\u63a7\u66f4\u5168\u3002"}, "name": "CPO \u5149\u4e92\u8fde\u7684\u9a8c\u6536\u8be5\u600e\u4e48\u5199\uff1f"}]}]}
+    </script>
+    
+    
+    <title>HBM4、UALink 与 CPO 的下游视角：互连怎么验收、怎么计量 - ZouIC</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">跳转到主要内容</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航"><div class="container"><a class="navbar-brand" href="/" aria-label="ZouIC 首页"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/all-projects/">开源项目</a></li><li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li><li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/services/component-matching/">商务合作</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li><li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li><li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li><li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li><li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li><li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li><li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li><li><a class="dropdown-item" href="/tools/"><i class="fas fa-calculator me-2"></i>硬件计算器</a></li><li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li><li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li><li><a class="dropdown-item" href="/ideas/"><i class="fas fa-lightbulb me-2"></i>创意树洞</a></li><li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="搜索类型:"><option value="">全部分类</option><option value="board">开源开发板</option><option value="project">开源项目</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="打开智能搜索"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/interconnect-acceptance-metering-5w1h/"><i class="fas fa-language me-2"></i> 中文
+                            </a></li><li><a class="dropdown-item" href="/en/articles/interconnect-acceptance-metering-5w1h/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/articles/interconnect-acceptance-metering-5w1h/"><i class="fas fa-language me-2"></i> 德语
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/">首页</a></li><li class="breadcrumb-item"><a href="/articles/">技术文章</a></li><li class="breadcrumb-item active" aria-current="page">HBM4、UALink 与 CPO 的下游视角：互连怎么验收、怎么计量</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">免费公开 · 欢迎转发</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">HBM4、UALink 与 CPO 的下游视角：互连怎么验收、怎么计量</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">算力行业观察 · 极客微栋 @GeekWaedon</p><p class="text-secondary text-sm mt-4">极客微栋 @GeekWaedon · 2026 年 11 月</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p>把 HBM4、UALink 200G 与 CPO（共封装光学）摆在一起看，会撞上一个规范文本没回答的问题：三份规范各自把接口、电气与协议条件写得很细，却没有一份说清楚，一个 AI 机柜交付到采购方手里时，该测哪一项、在哪测、测出来算谁的。下面按 5W1H 把这件事当成一次拍板来拆，六维各回答一个必须定下来的问题，重点不在复述规范数值，而在划清多方责任与口径边界。结论先说：规范合规和系统验收是两个层级，把 JEDEC 或 UALink 的接口条件、设计目标抄成机柜级吞吐 SLA 是范畴错误，采购方要自己补一层可复核的验收口径。打个比方：验收一栋楼的水管，标准写的是管径和耐压，不代表每层龙头都有稳定水压，前者是部件规格，后者是系统体验。规范保证前者，交付要签的却是后者。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何事 · What：要拍板的是「哪一层算验收」</h2><p>第一个要定的问题：验收对象落在哪一层。JEDEC 于 2025-04-16 发布的 JESD270-4（HBM4，高带宽内存第四代）规定 2048-bit 接口、最高 8 Gb/s、总带宽至 2 TB/s、每堆栈独立通道由 16 增至 32（每通道 2 个伪通道）、供应商特定 VDDQ/VDDC 电压档、与 HBM3 控制器向后兼容、引入 DRFM 改善 row-hammer 缓解与 RAS、支持 4/8/12/16 层堆叠与 24 Gb/32 Gb die（最大 64 GB）；UALink Consortium 于 2025-04-08 批准的 UALink 200G 1.0 规定单通道 200G、单个 AI Pod 内最多 1,024 个加速器、采用 load/store 内存语义与 read/write/atomic 事务。这两组数字回答的是接口与协议条件是什么，不是机柜交付时吞吐该是多少。一个可反驳的主张：把其中任何一个数值当成机柜级 SLA 验收线，是把部件合规错当成系统验收。拍板写成两行：规范合规由器件或模组供应方按规范证明，系统验收由采购方按自补口径测量，各签各的字，不互相代替。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何因 · Why：设计目标不等于整机吞吐保证</h2><p>第二个问题：为什么规范数值撑不起一个交付承诺。UALink 官方 PR 给出的「93% 有效峰值带宽」明确是设计目标，不是对任何一次交付的保证；HBM4 的 2 TB/s 是接口条件下的上限；1,024 个加速器是 Pod 规模上限，不是实配数量。这些数值各自成立，却都属于条件化或目标化的量。一个可反驳的主张：把设计目标写成验收指标，会得出一种假精确，数字看着具体，实则没有对应的测量点与失败判定，出了偏差谁也说不清该找谁。脱离绑定条件，任何吞吐数字都不是通用常数：接口上限只在规定电气条件下成立，规模上限只是拓扑允许的上界，设计目标更把工程余量留给了实现方。拍板时把规范数值分三栏记：接口条件、设计目标、系统实测，前两栏来自规范与官方 PR，第三栏由采购方交付时产生；三栏并列写出，明确不取平均、不互相折算。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何人 · Who：规范组织不负责机柜级测量</h2><p>第三个问题：谁对机柜级验收负责。JEDEC 与 UALink Consortium 定义接口、电气与协议条件，推动合规与互操作项目；芯片与模组厂出器件并证明符合规范；系统集成商把器件装成机柜；采购方决定签收口径；CPO/光互连一侧还需另行约定光功率与误码测量点的责任方。一个可反驳的主张：规范组织不负责机柜级测量，这个责任不会自动落到任何一方头上，它悬在器件厂、集成商与采购方之间，谁都不写进合同就等于没人承担。联盟路线图说明合规与互操作项目在推进中、成员产品面向 2026–2027 商用部署，Manageability 1.0（gNMI、Yang、SAI、Redfish）与 Chiplet 1.01（兼容 UCIe 3.0）等规范解决的是可管理性与芯粒互连，仍不是交付测量。拍板把责任写死：规范合规证明由供应方提供，机柜级测量由采购方主持、集成商配合，CPO 光功率与误码测量点由双方在附件里单独指定责任人与仪器。谁测、谁判、谁签字得在交付前定，不能等出争议再比谁的监控更全。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何时 · When：规范生效日不是交付验收日</h2><p>第四个问题：时间基准放在哪。JEDEC 发布 JESD270-4 是 2025-04-16，UALink 批准 200G 1.0 是 2025-04-08，成员产品面向 2026–2027 商用部署，而验收要落在机柜交付签收那天；另有合规性核查的基准日 2026-11-14，是本次查证日期，不是任何一次运行或事件的发生日。这几个时间点性质完全不同。一个可反驳的主张：拿规范批准日当成交付验收日是时间基准错位，规范生效只说明从此有了可依的接口条件，不说明某柜机器在这一天达标。拍板定两件事：验收测量的时间窗写进交付附件，哪一班次、多长采样窗、是否含预热与稳态；跨期复测用同一时间窗，否则这个季度测的和下个季度测的根本不可比。把基准日、规范发布日、部署目标年、交付签收日分列标注，还有个实际好处：材料被引用时一眼能看出它在说哪个时间点的事，不至于把路线图目标年份误读成已兑现的产能。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何地 · Where：不同层的测量点拼不出一个「整柜吞吐」</h2><p>第五个问题：测量点定在哪一层。HBM4 的测量点在堆栈接口与控制器侧，管内存通道；UALink 200G 的测量点在 AI Pod 内链路，管加速器之间的 load/store 事务；CPO 的测量点在光功率与误码，需单独约定；机柜交付要签的测量点通常在机柜对外端口。一个可反驳的主张：这几层各有各的测量点，把它们拼成一个「整柜吞吐」数字，等于把不同位置、不同单位的量硬加在一起，看着是一个数，实则无从复核。规范数值是接口条件或设计目标、不等于整机吞吐保证，正是这层意思。拍板动作：为每个验收项写明测量点、协议层、单位与采样方法，明确哪些层的数值可进系统验收、哪些只作部件合规证明；CPO 一侧只写需单独约定光功率与误码测量点，不引用任何未经核对的具体数字。测量点填实了，争议时才有共同基线。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">如何 · How：补一层验收口径，先定四件事</h2><p>第六个问题：具体怎么补这一层。把拍板收敛成四件事逐条写进附件。第一，验收对象：区分规范合规证明与系统验收实测，前者由供应方按 JESD270-4、UALink 200G 1.0 等出证明，后者由采购方测量。第二，测量点：逐项写明层级、端口、单位与方法，CPO 另约光功率与误码测量点。第三，失败判定：给每个验收项一条可复核判据，测得什么值、谁复测、复测仍不达标如何处置，避免用「整体达标」这种无法证伪的措辞。第四，责任方：谁测、谁签、争议时以哪份记录为准，预先写死。一个可反驳的主张：这四件事看似文档工作，实则决定验收是不是可复核；缺了失败判定，规范合规就会悄悄顶替系统验收，因为没人定义什么叫不达标。补完这层再谈阈值也不迟，先有口径后有数字；顺序反过来，先抄规范数值再倒推怎么测，几乎必然把接口条件误用成整柜 SLA。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">边界：数值是条件或目标，光互连只约定测量点</h2><p>这段放拍板时要克制的地方。第一，JESD270-4 的 2048-bit、8 Gb/s、2 TB/s 与 UALink 的 200G、1,024 加速器、93% 有效峰值带宽，都是接口条件、规模上限或设计目标，不等于整机吞吐保证，写进结论当交付承诺是本文明确反对的。第二，CPO/光互连只写需单独约定光功率与误码测量点，不引用任何未经核对的具体数字，涉及这一层的第三方整理只作方向性线索；据第三方整理，未直接核对原文，具体数字不进结论。第三，联盟路线图说明合规与互操作项目推进中、成员产品面向 2026–2027 商用部署，这些是计划性表述，不是已兑现产能。第四，本文只做工程口径描述，不解释具体合同条款、不作法律或估值定性，涉及商务与法律条款建议另行咨询。一个可反驳的主张：边界不是免责声明，而是把规范没规定和本站不判断分清楚，前者是事实，后者是选择；正因为规范留了空，采购方补这一层才必要。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">结论：规范合规与系统验收，分两层写进附件</h2><p>回到开头那栋楼的水管：标准保证管径和耐压，采购方要签的是每层龙头的水压，两件事得有两份记录。HBM4、UALink 200G 与 CPO 也一样，三份规范把接口、电气与协议条件交代清楚是好事，但它们没有、也不该替采购方回答一个机柜交付时怎么测、算谁的。一个可反驳的主张：如果因为规范写得很细就跳过自补口径这一层，验收会退化成收一叠合规证明，而真正决定使用体验的整柜吞吐、光互连误码与稳态表现，反而没人测量、没人签字。建议把顺序定成：先用四件事（验收对象、测量点、失败判定、责任方）补出一层可复核的验收口径，再把规范数值作为部件合规证明附在后面，两层各留各的记录、各签各的字。这样出争议时，手里既有供应方的规范证明，也有自己按同一测量点复测的记录。</p></div><div class="card-dark p-6 mb-5"><p>数据与口径（基准日 2026-11-14）：基准日是本次核查日期，不是规范发布日，也不是任何交付或运行日。级别 1（规范文本）：JEDEC JESD270-4（HBM4，2025-04-16 发布）规定的 2048-bit 接口、最高 8 Gb/s、总带宽至 2 TB/s、每堆栈独立通道由 16 增至 32（每通道 2 个伪通道）、供应商特定 VDDQ/VDDC 电压档、与 HBM3 控制器向后兼容、DRFM 改善 row-hammer 缓解与 RAS、4/8/12/16 层堆叠与 24 Gb/32 Gb die（最大 64 GB）；UALink 200G 1.0（2025-04-08 批准）规定的单通道 200G、单个 AI Pod 内最多 1,024 个加速器、load/store 内存语义与 read/write/atomic 事务，均属规范文本口径。级别 2（联盟官方文档）：UALink 官方 PR 的「93% 有效峰值带宽」为设计目标；Manageability 1.0（gNMI、Yang、SAI、Redfish）、Chiplet 1.01（兼容 UCIe 3.0）及路线图中合规与互操作项目推进中、成员产品面向 2026–2027 商用部署的说明，属联盟官方口径。级别 3（站点自身口径）：四件事框架、两层验收划分、测量点与失败判定设计，均为本文判断线，不是规范要求。级别 4（第三方整理）：涉及 CPO/光互连与整机吞吐的第三方整理只作方向性线索；据第三方整理，未直接核对原文，具体数字不写进结论。级别 5（口径并列）：接口条件、设计目标与系统实测三者并列写出，明确不取平均、不互相折算；规范数值不等于整机吞吐保证。涉及价格与合规处只作工程口径描述，不作法律定性。</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>把 JESD270-4 的 2 TB/s 当机柜验收指标，问题在哪？</h3><p class="faq-a">2 TB/s 是 HBM4 在接口条件下的带宽上限，属于部件合规证明，不是机柜交付时的整机吞吐保证。把接口条件抄成系统 SLA 是层级错用：前者由器件供应方按规范证明，后者应由采购方按自补口径在机柜端口测量，两件事各签各的字。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>UALink 的 93% 有效峰值带宽能写进合同当保证值吗？</h3><p class="faq-a">它是官方 PR 给出的设计目标，不是对任何一次交付的保证。设计目标缺测量点与失败判定，写成验收指标会得出假精确。正确做法是把它单列为设计目标，系统实测另起一栏，两者并列、不互相折算。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>CPO 光互连的验收该怎么写？</h3><p class="faq-a">只写需单独约定光功率与误码测量点，并指定测量点、仪器与责任方，不引用任何未经核对的具体数字。规范没规定机柜级怎么测、算谁的，这一层由采购方与集成商在交付附件里补齐，不能等出争议再比谁的监控更全。</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/articles/" class="btn-zouic">技术文章</a><a href="/boards/" class="btn-zouic">开源开发板</a><a href="/compare/" class="btn-zouic btn-zouic-primary">开发板对比</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3><p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p></div><div class="col-lg-5"><a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span></div></div></div></div></div></section><section class="py-4" aria-label="出品人"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div><div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/" class="footer-brand" aria-label="ZouIC 首页"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p><p class="footer-business-contact">
+                        商务合作 / 器件选型：
+                        <a href="mailto:waedon@outlook.com?subject=%E5%95%86%E5%8A%A1%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            出品人 · <strong>极客微栋</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span><a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商"><i class="fab fa-weixin"></i> 企业微信服务商
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a><a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>产品</h5><ul><li><a href="/products/">产品介绍</a></li><li><a href="/services/">服务说明</a></li><li><a href="/services/website-building/">建站服务</a></li><li><a href="/services/component-matching/">元器件撮合</a></li><li><a href="/news/">站内动态</a></li><li><a href="/boards/">开源开发板</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>资源</h5><ul><li><a href="/board-guide/">选型指南</a></li><li><a href="/compare/">开发板对比</a></li><li><a href="/tutorials/">开发板教程</a></li><li><a href="/documentation/">技术文档</a></li><li><a href="/online-tools/">在线工具</a></li><li><a href="/tools/">硬件计算器</a></li><li><a href="/cases/">项目案例</a></li><li><a href="/help/">文档中心</a></li><li><a href="/games/resistor/">色环电阻识别挑战</a></li><li><a href="/dashuju/">数据大屏</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>开源生态</h5><ul><li><a href="/open-source/">开源项目</a></li><li><a href="/all-projects/">全部项目</a></li><li><a href="/articles/">技术文章</a></li><li><a href="/ideas/">创意树洞</a></li><li><a href="/wechat/">公众号专栏</a></li><li><a href="/contribute/">贡献指南</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>关于</h5><ul><li><a href="/about/">关于我们</a></li><li><a href="/about/#contact">联系我们</a></li><li><a href="/licenses/">开源协议</a></li><li><a href="/pricing/">服务报价</a></li><li><a href="/privacy/">隐私政策</a></li><li><a href="/terms/">服务条款</a></li><li><a href="/refund/">退款政策</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">热门分类</span><div class="footer-category-links"><a href="/category/">全部</a><a href="/category/fpga/">FPGA</a><a href="/category/general/">综合</a><a href="/category/ai_hardware/">AI 硬件</a><a href="/category/vision/">机器视觉</a><a href="/category/esp32/">ESP32</a><a href="/category/robotics/">机器人</a><a href="/source/github/">GitHub</a><a href="/source/hackster/">Hackster.io</a><a href="/resources/">资源导航</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div><div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="返回顶部"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="站内智能搜索"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="搜索开发板、项目、文章，或直接输入问题…"
+                       aria-label="站内智能搜索"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> 选择</span><span><kbd>↵</kbd> 打开</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/interconnect-acceptance-metering-5w1h/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=zh-CN'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>
