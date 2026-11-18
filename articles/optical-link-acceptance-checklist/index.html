@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="一条 800G 光链路「通了」，不等于验收完成。IEEE 给的是以太网标准与速率，OIF 给的是线路接口与测量点，IEC 给的是连接器端面目检判据，三者都没有现场误码率或功率门限。这篇清单把适用条件、准备、步骤、记录、复核与异常处理拆开：先确认引用的是已发布标准还是草案，再约定测量点与记录格式，最后让每一次「通过…"><meta name="keywords" content="800G 光链路, IEEE 802.3df, IEEE P802.3dj, OIF 800ZR, TP1/TP4 测量点, IEC 61300-3-35, 端面目检, 链路验收, 测量点记录, 互操作证据"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/articles/optical-link-acceptance-checklist/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/optical-link-acceptance-checklist/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/optical-link-acceptance-checklist/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/optical-link-acceptance-checklist/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/optical-link-acceptance-checklist/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="光模块链路验收：规范给了什么，现场还得签什么"><meta property="og:description" content="一条 800G 光链路「通了」，不等于验收完成。IEEE 给的是以太网标准与速率，OIF 给的是线路接口与测量点，IEC 给的是连接器端面目检判据，三者都没有现场误码率或功率门限。这篇清单把适用条件、准备、步骤、记录、复核与异常处理拆开：先确认引用的是已发布标准还是草案，再约定测量点与记录格式，最后让每一次「通过」都带着版本号、签字人和日期。"><meta property="og:url" content="https://www.zouic.com/articles/optical-link-acceptance-checklist/"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="光模块链路验收：规范给了什么，现场还得签什么"><meta name="twitter:description" content="一条 800G 光链路「通了」，不等于验收完成。IEEE 给的是以太网标准与速率，OIF 给的是线路接口与测量点，IEC 给的是连接器端面目检判据，三者都没有现场误码率或功率门限。这篇清单把适用条件、准备、步骤、记录、复核与异常处理拆开：先确认引用的是已发布标准还是草案，再约定测量点与记录格式，最后让每一次「通过」都带着版本号、签字人和日期。"><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "\u4e00\u6761 800G \u5149\u94fe\u8def\u300c\u901a\u4e86\u300d\uff0c\u4e0d\u7b49\u4e8e\u9a8c\u6536\u5b8c\u6210\u3002IEEE \u7ed9\u7684\u662f\u4ee5\u592a\u7f51\u6807\u51c6\u4e0e\u901f\u7387\uff0cOIF \u7ed9\u7684\u662f\u7ebf\u8def\u63a5\u53e3\u4e0e\u6d4b\u91cf\u70b9\uff0cIEC \u7ed9\u7684\u662f\u8fde\u63a5\u5668\u7aef\u9762\u76ee\u68c0\u5224\u636e\uff0c\u4e09\u8005\u90fd\u6ca1\u6709\u73b0\u573a\u8bef\u7801\u7387\u6216\u529f\u7387\u95e8\u9650\u3002\u8fd9\u7bc7\u6e05\u5355\u628a\u9002\u7528\u6761\u4ef6\u3001\u51c6\u5907\u3001\u6b65\u9aa4\u3001\u8bb0\u5f55\u3001\u590d\u6838\u4e0e\u5f02\u5e38\u5904\u7406\u62c6\u5f00\uff1a\u5148\u786e\u8ba4\u5f15\u7528\u7684\u662f\u5df2\u53d1\u5e03\u6807\u51c6\u8fd8\u662f\u8349\u6848\uff0c\u518d\u7ea6\u5b9a\u6d4b\u91cf\u70b9\u4e0e\u8bb0\u5f55\u683c\u5f0f\uff0c\u6700\u540e\u8ba9\u6bcf\u4e00\u6b21\u300c\u901a\u8fc7\u300d\u90fd\u5e26\u7740\u7248\u672c\u53f7\u3001\u7b7e\u5b57\u4eba\u548c\u65e5\u671f\u3002", "headline": "\u5149\u6a21\u5757\u94fe\u8def\u9a8c\u6536\uff1a\u89c4\u8303\u7ed9\u4e86\u4ec0\u4e48\uff0c\u73b0\u573a\u8fd8\u5f97\u7b7e\u4ec0\u4e48", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/optical-link-acceptance-checklist/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/optical-link-acceptance-checklist/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/optical-link-acceptance-checklist/", "name": "\u5149\u6a21\u5757\u94fe\u8def\u9a8c\u6536\uff1a\u89c4\u8303\u7ed9\u4e86\u4ec0\u4e48\uff0c\u73b0\u573a\u8fd8\u5f97\u7b7e\u4ec0\u4e48", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u4e0d\u80fd\u6df7\u5199\u3002802.3df-2024 \u662f\u5df2\u53d1\u5e03\u7684 400G/800G \u4ee5\u592a\u7f51\u6807\u51c6\uff1bP802.3dj \u8986\u76d6\u66f4\u5bbd\u7684\u901f\u7387\u8303\u56f4\uff0c\u4f46\u622a\u81f3\u57fa\u51c6\u65e5\u4ecd\u662f\u8349\u6848 D3.3\uff0c\u5c1a\u672a\u53d1\u5e03\u3002\u9a8c\u6536\u4f9d\u636e\u5fc5\u987b\u6807\u6ce8\u7248\u672c\u4e0e\u72b6\u6001\uff0c\u628a\u8349\u6848\u76ee\u6807\u5199\u6210\u5df2\u751f\u6548\u6761\u6b3e\uff0c\u7b49\u4e8e\u8ba9\u4e00\u4efd\u8fd8\u6ca1\u5b9a\u7a3f\u7684\u6587\u4ef6\u66ff\u4ea4\u4ed8\u7b7e\u5b57\u3002"}, "name": "802.3df \u548c 802.3dj \u90fd\u80fd\u5199\u6210\u300c800G \u6807\u51c6\u300d\u5417\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u4e0d\u80fd\u3002IEC 61300-3-35:2022 \u660e\u786e\u76ee\u68c0\u662f\u9644\u52a0\u68c0\u67e5\uff0c\u4e0d\u66ff\u4ee3\u8870\u51cf\u3001\u56de\u6ce2\u635f\u8017\u7b49\u6027\u80fd\u53c2\u6570\u7684\u6d4b\u91cf\uff1b\u53cd\u8fc7\u6765\uff0c\u4ec5\u51ed\u76ee\u68c0\u4e0d\u5408\u683c\u4e5f\u4e0d\u80fd\u62d2\u6536\u8fde\u63a5\u5668\uff0c\u662f\u5426\u6ee1\u8db3\u4f7f\u7528\u7531\u89c4\u5b9a\u7684\u5149\u5b66\u6027\u80fd\u51b3\u5b9a\u3002\u4e24\u680f\u90fd\u8981\u6709\u8bb0\u5f55\uff0c\u4e92\u76f8\u4e0d\u66ff\u4ee3\u3001\u4e0d\u53d6\u5e73\u5747\u3002"}, "name": "\u7aef\u9762\u76ee\u68c0\u901a\u8fc7\u4e86\uff0c\u80fd\u4e0d\u80fd\u7b7e\u6536\u94fe\u8def\u5408\u683c\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u4e0d\u80fd\u3002\u90a3\u662f 800ZR IA \u5bf9\u653e\u5927\u5355\u8de8 DWDM \u94fe\u8def\u7684\u5e94\u7528\u76ee\u6807\uff0c\u4e0d\u662f\u73b0\u573a\u9a8c\u6536\u4fdd\u8bc1\u503c\uff1bCEI-224G \u7684 \u226550 mm\u3001\u2265200 mm \u52a0 20 mm \u540c\u6837\u662f reach \u76ee\u6807\u3002\u5408\u540c\u8981\u5199\u7684\u662f\u53cc\u65b9\u5b9e\u6d4b\u6761\u4ef6\u4e0e\u95e8\u9650\uff0c\u89c4\u8303\u76ee\u6807\u53ea\u80fd\u4f5c\u4e3a\u8bbe\u8ba1\u4f9d\u636e\u5f15\u7528\uff0c\u4e0d\u80fd\u9876\u66ff\u73b0\u573a\u8bfb\u6570\u3002"}, "name": "OIF \u5199\u7684 80\u2013120 km\uff0c\u80fd\u4e0d\u80fd\u76f4\u63a5\u5199\u8fdb\u5408\u540c\u7684\u8ddd\u79bb\u4fdd\u8bc1\uff1f"}]}]}
+    </script>
+    
+    
+    <title>光模块链路验收：规范给了什么，现场还得签什么 - ZouIC</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">跳转到主要内容</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航"><div class="container"><a class="navbar-brand" href="/" aria-label="ZouIC 首页"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/all-projects/">开源项目</a></li><li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li><li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/services/component-matching/">商务合作</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li><li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li><li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li><li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li><li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li><li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li><li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li><li><a class="dropdown-item" href="/tools/"><i class="fas fa-calculator me-2"></i>硬件计算器</a></li><li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li><li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li><li><a class="dropdown-item" href="/ideas/"><i class="fas fa-lightbulb me-2"></i>创意树洞</a></li><li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="搜索类型:"><option value="">全部分类</option><option value="board">开源开发板</option><option value="project">开源项目</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="打开智能搜索"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/optical-link-acceptance-checklist/"><i class="fas fa-language me-2"></i> 中文
+                            </a></li><li><a class="dropdown-item" href="/en/articles/optical-link-acceptance-checklist/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/articles/optical-link-acceptance-checklist/"><i class="fas fa-language me-2"></i> 德语
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/">首页</a></li><li class="breadcrumb-item"><a href="/articles/">技术文章</a></li><li class="breadcrumb-item active" aria-current="page">光模块链路验收：规范给了什么，现场还得签什么</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">免费公开 · 欢迎转发</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">光模块链路验收：规范给了什么，现场还得签什么</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">算力行业观察 · 极客微栋 @GeekWaedon</p><p class="text-secondary text-sm mt-4">极客微栋 @GeekWaedon · 2026 年 11 月</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p>结论先说：光链路验收要签的不是一张「链路已通」单，而是规范依据、测量记录、异常处理三份彼此独立的记录。IEEE 规定以太网速率与标准状态，OIF 给出线路接口和电气测量点，IEC 给出连接器端面的目检判据，但没有任何一份官方页面提供现场误码率目标或功率预算——那是使用方之间要事先约定的东西，无法从速率数字里推出来。下面按适用条件、准备、步骤、记录、复核、异常处理六件事展开，读者可以照着做，做完能留下证据。就像签收快递只证明包裹在某个时间送到，不证明里面东西没坏；链路亮灯只证明有光，不证明它已经可以按规范验收。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何事 · What：先定这套清单验收什么，不做什么</h2><p>这套清单适用于数据中心或 AI 集群里一条高速光链路的到货与交付验收，回答的是「这次通过依据哪版规范、在哪个测量点、由谁签的字」。它不评判光模块厂商的优劣，不提供误码率（BER，传输中出现错误比特的比例）和前向纠错（FEC，在收发端纠错以换取误码性能的技术）门限，也不替任何人补全官方页面没有给出的功率预算。先钉死一个版本事实：按 IEEE 802.3 任务组页，IEEE Std 802.3df-2024 是已发布的 400 Gb/s 与 800 Gb/s 以太网标准，任务组工作已经完成；P802.3dj 覆盖 200 Gb/s、400 Gb/s、800 Gb/s 与 1.6 Tb/s，截至基准日仍处在草案 D3.3 阶段，尚未正式发布。一个可反驳的主张是：把草案里的速率目标当成已生效条款写进验收依据，等于让一份还没定稿的文件替交付签字。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何因 · Why：准备阶段先把三层规范各给什么分清</h2><p>准备不是凑资料，而是先划清哪一层能进结论。第一层是 IEEE：任务组页载明 802.3df 的工作在 IEEE-SA 标准委员会批准后完成；至于批准与发布日期，任务组页记为 2024-02-16 批准，另一份 IEEE 联络函记为 2024-02-15 批准、2024-03-15 发布，两种说法并列写出、说明差异，不取平均。第二层是 OIF（光互联论坛）：800ZR 实施协议（IA，联盟发布的互操作接口规范）于 2024-10-30 发布，给出放大单跨 DWDM 链路 80–120 km、无放大固定波长链路 2–10 km 的应用目标，并支持最小 100GE 到 800G 聚合的以太网客户侧；OIF 当前工作页还列出 TP1/TP1a、TP4/TP4a 等 CEI 电气测量点，以及 224G PAM4 链路训练涵盖的通信方式、训练图形、状态序列、诊断与故障处理范围。第三层是 IEC 61300-3-35:2022，管的是光纤连接器端面目检的分区、判据与显微镜最低条件。一个可反驳的主张是：把三层职责合并成一句「规范规定链路必须达到某某误码率」——这次核实的这些官方页面都没有给出这个数字，写出来就是替规范编条文。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何人 · Who：谁测、谁判、谁复核、谁批准现场门限</h2><p>至少要分四个角色：施工方按约定测量点取原始记录，测试方按双方确认的门限判读，复核人对原始记录与判读结论签字但自己不填数，验收方负责把规范依据版本与现场门限作为附件批准。还有第五类证据要单独署名：OIF 在 OFC 2024 办过首次 800ZR 多厂商互操作演示，这类演示能证明多家实现曾在同一场合互通，属于互操作性证据，不是某次交付的验收记录。一个可反驳的主张是：让施工方顺手把测、判、签三件事全做了，复核人只在末尾勾选「已阅」——争议发生时，没有一份记录说得清门限是谁定的、读数是谁取的。把角色写进表头比写进会议纪要管用，因为表头是导出时会被逐行检查的；收房时水电、消防各出各的报告，也是同一个道理。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何时 · When：四个验收节点各签一次，不合并、不倒签</h2><p>把验收摊到四个节点，每个节点各留一次签字：到货核对（型号、版本、数量与采购清单一致）、上电后的链路连通与测量点读数、连续运行后的复测、交付前的记录归档与复核。每个节点都留时间戳、原始记录编号和责任人，跳过的节点标「待复核」，而不是默认通过。规范依据也要按节点标注状态：引用 802.3df 时写「已发布标准」；提到 P802.3dj 时写「草案 D3.3，截至基准日未发布」，其 2026 年 11 月全会公告称拟在会前完成第三次标准协会重投并提交 RevCom，若需第四次重投则在全会期间处理——这是进度，不是生效。一个可反驳的主张是：把四个节点合并成一次「最终验收」再倒签日期，会丢掉中间状态，事后分不清偏差来自到货、施工还是条件漂移。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何地 · Where：测量点写进记录，不写「光口旁边」</h2><p>这一节管落点。电气侧沿用 OIF CEI 的测量点语言：TP1/TP1a 与 TP4/TP4a 是规范里的电气测量点，现场要另外约定探针位置、仪器型号与记录格式；OIF 当前工作页给出的 XSR ≥50 mm、VSR ≥200 mm host 加 20 mm module 再加一个连接器属于 reach 目标，不是现场实测的保证值。端面侧按 IEC 61300-3-35:2022：第三版检查光纤区域 A、B 以及整个接触区（圆柱插芯到 250 µm 直径），移除了旧版的 C、D 区要求，B 区外缘由 115 µm 改为 110 µm，并规定连接器不能仅凭目检不合格就拒收，是否满足使用由规定的光学性能决定。该标准同时写明：目检是附加检查，不替代衰减、回波损耗等性能参数的测量。一个可反驳的主张是：只写「端面干净的」而不写分区、显微镜型号与原始图像存放位置，复核人就无法按同一条件重做。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">如何 · How：六步照做，记录里不许有空字段</h2><p>把六件事串成一条可复现的流程。第一步，建三张表：规范依据表、测量记录表、异常回退表，各自带版本号与生效日。第二步，逐条确认引用的规范状态，已发布标准与草案分栏，802.3df 的两种日期说法并列、不取平均。第三步，双方书面约定现场门限与测量点；官方页面没给误码率、FEC 门限和功率预算，就写明「由双方约定，值填在这里」，不许留空，也不许从速率反推。第四步，端面按 IEC 61300-3-35:2022 目检并留图，性能参数另行测量、单独记录。第五步，多厂商互通结果与本次交付验收分栏：前者引用 800ZR IA 与互演事实，后者只记本链路的读数与签字。第六步，导出前核对每条「通过」是否都带规范版本、测量点、门限来源、复核签名与日期。一个可反驳的主张是：清单的价值不在列了多少项，而在导出前有一条能拦住「空门限来源」的断言；没有它，再长的清单也只是靠人自觉。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">边界：异常处理与这套清单不做什么</h2><p>异常按三条处理。只找到草案或进行中项目的条目，标「状态待核」，不升级为已发布依据；OIF 进行中的 CEI-224G、CEI-448G 项目不能当成已发布 IA，其状态要逐项核对；官方页面未提供的门限留空，写「双方约定值待填」，不估算、不抄厂商自述。目检与性能结论冲突时并列写出、说明差异，不取平均、也不互相替代——这是 IEC 第三版写明的判据。现场门限一时定不下来，整项进待复核队列，不静默通过。清单不承诺任何误码率或距离结果，不把 80–120 km、2–10 km、50 mm、200 mm 这类规范应用目标或 reach 目标写成合同保证，不把 212.5 Gb/s 每波长、224G 这类速率数字换算成现场结论，也不对任何厂商设备作质量定性。一个可反驳的主张是：为了让表格好看，给空门限填一个「行业常见值」，恰恰把可核对的缺口变成了无法核对的数字。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">结论：把「通了」变成一串能追的字段</h2><p>收拢成一句话：链路验收的合格，不亮在灯上，而亮在记录里。一条可交付的链路，应该能追出它依据的是哪版规范、该版本当时是已发布还是草案、在哪个测量点由谁取了读数、误码率与功率门限是谁按什么口径约定的、端面目检与性能测量各在哪份记录里、异常走没走过回退。做到位之后，「通过」不再是一个形容词，而是一串带版本和签名的字段；即便规范更新、人员轮换，不同时点的验收仍能在各自版本标记下被正确比较。做完这一步，谁再问「这条链路能不能算验收完」，回答是：规范给了哪些东西、现场还签了哪些东西，两栏都在，缺的那栏写清楚是待核还是双方约定。</p></div><div class="card-dark p-6 mb-5"><p>数据与口径（基准日 2026-11-18）：级别 1（规范文本）：IEEE 802.3 任务组页载明 IEEE Std 802.3df-2024 工作已完成、由 IEEE-SA 标准委员会批准，覆盖 400 Gb/s 与 800 Gb/s；P802.3dj 任务组页与 2026 年 11 月全会公告邮件显示，截至基准日该标准为草案 D3.3、尚未发布。IEC Webstore 载明 IEC 61300-3-35:2022 为第三版，发布于 2022-09-16，稳定日期 2031；端面目检为性能测量的附加检查，目检不合格不单独构成拒收依据。级别 2（联盟官方）：OIF 800G Coherent 专题页载明 800ZR IA 于 2024-10-30 发布、800G Coherent 与共封装光学框架 IA 项目于 2020-12-08 启动，以及放大单跨 DWDM 80–120 km、无放大固定波长 2–10 km、最小 100GE 客户侧等应用目标；OIF 当前工作页载明 TP1/TP1a、TP4/TP4a 电气测量点、224G PAM4 链路训练范围及 CEI-224G XSR/VSR 的 reach 目标。以上均为联盟或平台口径及规范目标，不是现场验收门限。级别 3（站点自身口径）：三张表的划分、四节点签字、角色分工、空字段断言与异常处理规则，均为本站方法，不属任何标准文本。级别 4（第三方整理）：本篇未引用第三方整理，不作方向性线索。级别 5（口径并列）：IEEE 802.3df 的批准与发布日期存在两种官方说法（任务组页 2024-02-16；IEEE 联络函 2024-02-15 批准、2024-03-15 发布），并列写出、说明差异、不取平均；目检结论与性能测量结论并列，不互相替代。基准日是核查日期，不是标准发布日、互演日或任何链路交付日。</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>802.3df 和 802.3dj 都能写成「800G 标准」吗？</h3><p class="faq-a">不能混写。802.3df-2024 是已发布的 400G/800G 以太网标准；P802.3dj 覆盖更宽的速率范围，但截至基准日仍是草案 D3.3，尚未发布。验收依据必须标注版本与状态，把草案目标写成已生效条款，等于让一份还没定稿的文件替交付签字。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>端面目检通过了，能不能签收链路合格？</h3><p class="faq-a">不能。IEC 61300-3-35:2022 明确目检是附加检查，不替代衰减、回波损耗等性能参数的测量；反过来，仅凭目检不合格也不能拒收连接器，是否满足使用由规定的光学性能决定。两栏都要有记录，互相不替代、不取平均。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>OIF 写的 80–120 km，能不能直接写进合同的距离保证？</h3><p class="faq-a">不能。那是 800ZR IA 对放大单跨 DWDM 链路的应用目标，不是现场验收保证值；CEI-224G 的 ≥50 mm、≥200 mm 加 20 mm 同样是 reach 目标。合同要写的是双方实测条件与门限，规范目标只能作为设计依据引用，不能顶替现场读数。</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/articles/" class="btn-zouic">技术文章</a><a href="/boards/" class="btn-zouic">开源开发板</a><a href="/compare/" class="btn-zouic btn-zouic-primary">开发板对比</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3><p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p></div><div class="col-lg-5"><a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span></div></div></div></div></div></section><section class="py-4" aria-label="出品人"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div><div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/" class="footer-brand" aria-label="ZouIC 首页"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p><p class="footer-business-contact">
+                        商务合作 / 器件选型：
+                        <a href="mailto:waedon@outlook.com?subject=%E5%95%86%E5%8A%A1%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            出品人 · <strong>极客微栋</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span><a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商"><i class="fab fa-weixin"></i> 企业微信服务商
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a><a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>产品</h5><ul><li><a href="/products/">产品介绍</a></li><li><a href="/services/">服务说明</a></li><li><a href="/services/website-building/">建站服务</a></li><li><a href="/services/component-matching/">元器件撮合</a></li><li><a href="/news/">站内动态</a></li><li><a href="/boards/">开源开发板</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>资源</h5><ul><li><a href="/board-guide/">选型指南</a></li><li><a href="/compare/">开发板对比</a></li><li><a href="/tutorials/">开发板教程</a></li><li><a href="/documentation/">技术文档</a></li><li><a href="/online-tools/">在线工具</a></li><li><a href="/tools/">硬件计算器</a></li><li><a href="/cases/">项目案例</a></li><li><a href="/help/">文档中心</a></li><li><a href="/games/resistor/">色环电阻识别挑战</a></li><li><a href="/dashuju/">数据大屏</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>开源生态</h5><ul><li><a href="/open-source/">开源项目</a></li><li><a href="/all-projects/">全部项目</a></li><li><a href="/articles/">技术文章</a></li><li><a href="/ideas/">创意树洞</a></li><li><a href="/wechat/">公众号专栏</a></li><li><a href="/contribute/">贡献指南</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>关于</h5><ul><li><a href="/about/">关于我们</a></li><li><a href="/about/#contact">联系我们</a></li><li><a href="/licenses/">开源协议</a></li><li><a href="/pricing/">服务报价</a></li><li><a href="/privacy/">隐私政策</a></li><li><a href="/terms/">服务条款</a></li><li><a href="/refund/">退款政策</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">热门分类</span><div class="footer-category-links"><a href="/category/">全部</a><a href="/category/fpga/">FPGA</a><a href="/category/general/">综合</a><a href="/category/ai_hardware/">AI 硬件</a><a href="/category/vision/">机器视觉</a><a href="/category/esp32/">ESP32</a><a href="/category/robotics/">机器人</a><a href="/source/github/">GitHub</a><a href="/source/hackster/">Hackster.io</a><a href="/resources/">资源导航</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div><div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="返回顶部"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="站内智能搜索"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="搜索开发板、项目、文章，或直接输入问题…"
+                       aria-label="站内智能搜索"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> 选择</span><span><kbd>↵</kbd> 打开</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/optical-link-acceptance-checklist/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=zh-CN'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>
