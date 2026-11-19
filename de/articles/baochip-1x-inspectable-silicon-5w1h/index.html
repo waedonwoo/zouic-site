@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="Offene Hardware löste bisher das Problem lesbarer Quellen. Baochip-1x will das Problem prüfbaren Siliziums lösen. Infrarot-In-situ-Prüfung ist in das…"><meta name="keywords" content="Baochip-1x, Dabao, RISC-V, Vexriscv, MMU, IRIS, Xous, prüfbare Hardware, offene Chips, Lieferkettenvertrauen"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/de/articles/baochip-1x-inspectable-silicon-5w1h/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/baochip-1x-inspectable-silicon-5w1h/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/baochip-1x-inspectable-silicon-5w1h/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/baochip-1x-inspectable-silicon-5w1h/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/baochip-1x-inspectable-silicon-5w1h/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="Ein Chip, den man selbst prüfen kann: Wie weit Baochip-1x ist"><meta property="og:description" content="Offene Hardware löste bisher das Problem lesbarer Quellen. Baochip-1x will das Problem prüfbaren Siliziums lösen. Infrarot-In-situ-Prüfung ist in das Gehäuse hineingedacht, damit Käufer Transistoranordnungen mit veröffentlichten Layouts vergleichen können. Offiziell heisst es jedoch mostly-open, nicht fully open. Welche Ebene prüfbar ist und welche weiter auf Fakten der Foundry beruht, bestimmt Eignung und Grenzen."><meta property="og:url" content="https://www.zouic.com/de/articles/baochip-1x-inspectable-silicon-5w1h/"><meta property="og:type" content="article"><meta property="og:locale" content="de_DE"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC – Plattform für Open-Source-Entwicklungsboards · GeekWeidong"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Ein Chip, den man selbst prüfen kann: Wie weit Baochip-1x ist"><meta name="twitter:description" content="Offene Hardware löste bisher das Problem lesbarer Quellen. Baochip-1x will das Problem prüfbaren Siliziums lösen. Infrarot-In-situ-Prüfung ist in das Gehäuse hineingedacht, damit Käufer Transistoranordnungen mit veröffentlichten Layouts vergleichen können. Offiziell heisst es jedoch mostly-open, nicht fully open. Welche Ebene prüfbar ist und welche weiter auf Fakten der Foundry beruht, bestimmt Eignung und Grenzen."><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "Offene Hardware l\u00f6ste bisher das Problem lesbarer Quellen. Baochip-1x will das Problem pr\u00fcfbaren Siliziums l\u00f6sen. Infrarot-In-situ-Pr\u00fcfung ist in das Geh\u00e4use hineingedacht, damit K\u00e4ufer Transistoranordnungen mit ver\u00f6ffentlichten Layouts vergleichen k\u00f6nnen. Offiziell heisst es jedoch mostly-open, nicht fully open. Welche Ebene pr\u00fcfbar ist und welche weiter auf Fakten der Foundry beruht, bestimmt Eignung und Grenzen.", "headline": "Ein Chip, den man selbst pr\u00fcfen kann: Wie weit Baochip-1x ist", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "de", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/baochip-1x-inspectable-silicon-5w1h/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/baochip-1x-inspectable-silicon-5w1h/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/baochip-1x-inspectable-silicon-5w1h/", "name": "Ein Chip, den man selbst pr\u00fcfen kann: Wie weit Baochip-1x ist", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Sie beantwortet, ob die Transistoranordnung auf einem konkreten Die dem ver\u00f6ffentlichten Design entspricht. Es ist eine zerst\u00f6rungsfreie physische Pr\u00fcfung, vorausgesetzt das Geh\u00e4use unterst\u00fctzt sie und die pr\u00fcfende Seite verf\u00fcgt \u00fcber Ausstattung und K\u00f6nnen. Sie beweist keine logische Korrektheit und ersetzt keine formale Verifikation."}, "name": "Was beweist die IRIS-Pr\u00fcfung genau?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Die Rechen-RTL, der Bootloader und der Software-Stack sind \u00f6ffentlich und ohne NDA, w\u00e4hrend die physischen Designebenen des TSMC-22nm-Prozesses propriet\u00e4r bleiben. Von einem vollst\u00e4ndig offenen Chip zu sprechen, w\u00fcrde den pr\u00fcfbaren Umfang \u00fcbersch\u00e4tzen, was gerade in sicherheitskritischen Szenarien entscheidend ist."}, "name": "Warum sagen die offiziellen Quellen mostly-open statt fully open?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Das h\u00e4ngt vom Ziel ab. Teams, die pr\u00fcfbare Hardware f\u00fcr Forschung oder Hochsicherheitsanwendungen brauchen, k\u00f6nnen mit dem Dabao-Board beginnen. Fertigungslinien mit Bedarf an ausgereiftem Toolchain, langfristiger Verf\u00fcgbarkeit und fertiger Linux-Unterst\u00fctzung sollten zun\u00e4chst Software-Stack und Lieferrhythmus beobachten, statt nach einem universellen Mikrocontroller zu planen."}, "name": "Ist der Chip jetzt f\u00fcr ein Serienprojekt geeignet?"}]}]}
+    </script>
+    
+    
+    <title>Ein Chip, den man selbst prüfen kann: Wie weit Baochip-1x ist</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Hauptnavigation"><div class="container"><a class="navbar-brand" href="/de/" aria-label="ZouIC-Startseite"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Navigation umschalten"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/de/">Startseite</a></li><li class="nav-item"><a class="nav-link" href="/de/all-projects/">Open-Source-Projekte</a></li><li class="nav-item"><a class="nav-link" href="/de/boards/">Open-Source-Boards</a></li><li class="nav-item"><a class="nav-link" href="/de/board-guide/">Dokumentation</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/de/services/component-matching/">Geschäftskontakt</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Mehr
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/de/products/"><i class="fas fa-box me-2"></i>Produkte</a></li><li><a class="dropdown-item" href="/de/services/"><i class="fas fa-cogs me-2"></i>Leistungen</a></li><li><a class="dropdown-item" href="/de/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>elektronische BauteileVermittlung</a></li><li><a class="dropdown-item" href="/de/news/"><i class="fas fa-newspaper me-2"></i>Neuigkeiten</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/de/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Anleitungen</a></li><li><a class="dropdown-item" href="/de/documentation/"><i class="fas fa-book me-2"></i>Dokumentation</a></li><li><a class="dropdown-item" href="/de/resources/"><i class="fas fa-compass me-2"></i>Ressourcennavigation</a></li><li><a class="dropdown-item" href="/de/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>Online-Werkzeuge</a></li><li><a class="dropdown-item" href="/de/tools/"><i class="fas fa-calculator me-2"></i>Hardware calculators</a></li><li><a class="dropdown-item" href="/de/cases/"><i class="fas fa-briefcase me-2"></i>Projektbeispiele</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/de/open-source/"><i class="fas fa-code-branch me-2"></i>Open-Source-Projekte</a></li><li><a class="dropdown-item" href="/de/articles/"><i class="fas fa-pen-fancy me-2"></i>Fachbeiträge</a></li><li><a class="dropdown-item" href="/de/contribute/"><i class="fas fa-handshake me-2"></i>Mitwirken</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/de/dashuju/"><i class="fas fa-chart-line me-2"></i>Datenübersicht</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/de/search/"><i class="fas fa-search me-1"></i>Suche</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="Boards, Projekte oder Schlagworte suchen …" aria-label="Suchen" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="Suchtyp:"><option value="">Alle Kategorien</option><option value="board">Open-Source-Boards</option><option value="project">Open-Source-Projekte</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Suchen"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="Smart-Suche öffnen"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> Deutsch
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/baochip-1x-inspectable-silicon-5w1h/"><i class="fas fa-language me-2"></i> Chinesisch
+                            </a></li><li><a class="dropdown-item" href="/en/articles/baochip-1x-inspectable-silicon-5w1h/"><i class="fas fa-language me-2"></i> Englisch
+                            </a></li><li><a class="dropdown-item" href="/de/articles/baochip-1x-inspectable-silicon-5w1h/"><i class="fas fa-language me-2"></i> Deutsch
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/de/">Startseite</a></li><li class="breadcrumb-item"><a href="/de/articles/">Fachbeiträge</a></li><li class="breadcrumb-item active" aria-current="page">Ein Chip, den man selbst prüfen kann: Wie weit Baochip-1x ist</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">Frei zugänglich · Weitergabe erwünscht</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">Ein Chip, den man selbst prüfen kann: Wie weit Baochip-1x ist</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">Notizen zur Compute-Branche · GeekWaedon @GeekWaedon</p><p class="text-secondary text-sm mt-4">GeekWaedon @GeekWaedon · November 2026</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p>Kernaussage: Baochip-1x verschiebt die Vertrauensgrenze offener Hardware von lesbarem Quellcode zu prüfbarem Silizium, aber die offizielle Formulierung lautet mostly-open, nicht fully open. Prüfbar sind Rechen-RTL, Bootloader und Betriebssystem sowie eine gehäuseseitige Unterstützung für Infrarot-In-situ-Prüfung. Weiterhin auf Fakten der Foundry beruht die physische Implementierung unterhalb des TSMC-22nm-Prozesses. Erst wenn man diese beiden Ebenen trennt, wird aus einem interessanten Engineering-Vorhaben kein unreifer Beschaffungsweg gelesen. Es ist wie beim Kauf einer Maschine, die man öffnen kann: Schrauben und Zeichnungen sind da, aber damit ist noch kein einzelner Lötpunkt nachprüfbar.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Was: Ein Mikrocontroller mit eingebauter Prüföffnung im Gehäuse</h2><p>Laut Baochip-Website und Crowd-Supply-Projektupdate ist Baochip-1x ein Mikrocontroller im TSMC-22nm-Prozess. Eine 350MHz-Vexriscv-CPU trägt eine MMU, wodurch virtueller Speicher auf kleinen Embedded-Geräten praktikabel wird. Daneben sitzt BIO, ein vierkerniger 700MHz-PicoRV-I/O-Coprozessorcluster. Der Chip umfasst 4MiB RRAM und 2MiB RAM sowie TRNG, AES und mehrere Hash-Einheiten. Er zielt auf Xous, einen in Rust geschriebenen Microkernel. Die entscheidende Entscheidung liegt nicht in den Parametern, sondern im Gehäuse: Es ist für IRIS vorbereitet, eine zerstörungsfreie Infrarotprüfung, mit der sich die Transistoranordnung auf dem Silizium mit dem veröffentlichten Design vergleichen lässt. Zurückzuweisen ist die Behauptung, offener Chip bedeute, jede Ebene sei auditierbar. Baochip-1x stützt diese Lesart nicht; die eigenen Unterlagen sagen mostly-open.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Warum: Lieferkettenvertrauen kann nicht auf einem Versprechen beruhen</h2><p>Der Grund für diesen Chip liegt nicht in hoher Leistung. Er soll die Frage, ob man tatsächlich das Teil erhalten hat, das man erwartete, zu einer Frage machen, die sich auf dem Tisch beantworten lässt. Auf dem offiziellen Blog legt bunnie den Kontext offen dar: Käufer von Sicherheitsschaltkreisen sind oft Banken und Regierungen, die technische Bewertung wird ausgelagert, und Verantwortliche konzentrieren sich auf Risiko; Quellcode wird in diesem Umfeld häufig nie gelesen. Baochip verschiebt die Prüfbarkeit nach vorn: Der Bootloader ist Open Source und ohne NDA, der Grossteil der Rechenlogik ist offen und ohne NDA, und das Gehäuse unterstützt Infrarotprüfung. Zurückzuweisen ist die Behauptung, ein Herstellerversprechen genüge. Wenn die Prüfmöglichkeit nicht ins Gehäuse hineinkonstruiert ist, endet das Audit auf Dokumentenebene und ein Austausch in der Lieferkette bleibt unentdeckt. Hier wird genau das Tor zwischen Dokument und Gegenstand ergänzt.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Wer: Für wen das infrage kommt und wer warten sollte</h2><p>Positionierung und Ökosystem bestimmen die Zielgruppe. Die Baochip-Website beschreibt ein Rust-first-Ökosystem mit Xous als Referenzbetriebssystem; ein BIO-Protokoll-Emulator und BIO-sim, ein Simulator auf Basis offener RTL, sind bereits verfügbar. Forscher, Embedded-Security-Teams und Entwickler hochsicherer Geräte, die bereit sind, Treiber für einen Rust-Microkernel zu schreiben und prüfbare Hardware brauchen, sind die naheliegenden Leser. Teams, die Linux direkt erwarten, sollten zuerst den Softwarestand prüfen: Die MMU macht Linux technisch möglich, aber die offizielle Unterstützung liegt bei Xous, und Möglichkeit ist keine Auslieferung. Aus einer MMU Linux-Unterstützung abzuleiten, verwechselt eine Hardwarefähigkeit mit einer Softwareleistung und lässt ein ganzes Portierungsprojekt unberücksichtigt. Für Fertigungsbeschaffung mit Vorrang für ausgereifte Werkzeuge und Langzeitverfügbarkeit ist Beobachten sinnvoller als Ersetzen.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Wann: Foundry-Zeiten gehören gestaffelt notiert</h2><p>Zwei Zeitachsen müssen getrennt bleiben. Das Crowd-Supply-Update beschreibt eine Kampagne: bis zu 3.500 Dabao-Boards, ab USD 9.50, voraussichtliche Lieferung im Juni unter der Annahme, dass die Ausbeute stimmt. Die Baochip-Website gibt den längeren Horizont: Serienfertigung ab dem zweiten Quartal 2026, etwa 20 Wochen vom Blank-Wafer bis zum gerollten Chip, allgemeine Verfügbarkeit im vierten Quartal 2026. Ersteres ist ein geschätzter Kampagnetermin, letzteres ein unternehmensweiter Verfügbarkeitsplan. Es sind nicht dieselben Meilensteine. Beide zu mitteln oder zu einem vagen Jahr 2026 zu verdichten, verliert den Unterschied. Beide gehören mit Quelle und Voraussetzung notiert und mit dem Stichtag 19. November 2026 versehen. Wenn die Ausbeuteannahme nicht hält, verschiebt sich der Kampagnetermin.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Wo: Wo die prüfbare Grenze verläuft</h2><p>Die offizielle Website ist eindeutig. Chipquellcode, Referenzhandbuch für Kern und Peripherie, Hardware-Referenzdokumentation, Xous und Board-Support-Paket liegen in öffentlichen Repositories. Die an den TSMC-22nm-Prozess gebundenen physischen Designebenen bleiben proprietär. Prüfbarkeit liegt also auf der Ebene von RTL und beobachtbarem Layout, nicht auf der Ebene Prozessdokumentation. Auch der Lieferweg ist öffentlich: Crossbar hosting den Tape-out und fertigt Wafer bei TSMC, Baochip kauft verpackte und getestete Chips von Crossbar. Käufer können dieselben Chips auch direkt bei Crossbar beziehen; dann sind keine Baochip-Software vorinstalliert, und Anwendungs- sowie Software-Support laufen über Crossbar. Zurückzuweisen ist die Behauptung, identisches Silizium garantiere identischen Softwaresupport. Der Chip ist gleich, Lieferumfang und zuständige Supportseite sind es nicht, und das gehört in die Bestellung.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Wie: Vier Schritte zur Bewertung dieser Chipklasse</h2><p>Erstens die Anforderung in prüfbare Punkte übersetzen: ob virtueller Speicher nötig ist, ob On-Chip-TRNG, AES und Hash-Primitive gebraucht werden und ob Infrarotprüfung wirklich erforderlich ist. Aus „offen wollen“ werden konkrete Fähigkeiten. Zweitens klären, ob der Software-Stack auf Xous landen kann oder ob das Team einen anderen Rust-basierten Microkernel portieren kann; die Website dokumentiert BIO-Simulator und Loader,Simulation kann also vor der Hardware stehen. Drittens den Lieferweg klären: Dabao-Board über Crowd Supply oder direkter Crossbar-Kanal, mit unterschiedlich vorinstallierter Software und unterschiedlicher Supportverantwortung. Viertens, wenn Audit zählt, Gerät und Auswertezeit budgetieren und vorab vereinbaren, was bei einer Abweichung vom Design geschieht. Den vierten Schritt als optional abzutun, ist schwer zu vertreten, wenn gerade Prüfbarkeit der Kaufgrund war.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Grenzen: Was dieser Chip nicht löst</h2><p>Er löst keine allgemeinen Rechenprobleme und kein ausgereiftes Software-Ökosystem. Mit 350MHz-Hauptkern und 700MHz-I/O-Cluster liegt er im Mikrocontrollerbereich, nicht im Bereich grosser Modelle oder universeller Aufgaben. Der Softwarefokus liegt bei Xous, nicht bei gängigen Linux-Distributionen. Er ersetzt auch keine formale Verifikation: Die Transistoranordnung zu sehen beantwortet, ob das Teil nach veröffentlichtem Design gefertigt wurde, nicht ob die Logik formal korrekt ist. Zurückzuweisen ist die Behauptung, Infrarotprüfung schliesse Hintertüren aus. Das sind Aussagen sehr unterschiedlicher Stärke: Das eine ist ein Beweismittel, das andere eine Schlussfolgerung, dazwischen liegen Auswerteablauf und Abdeckung. Die Website nennt zudem ein Ein-Personen-Unternehmen ohne Investoren. Das ist kein Makel, aber Kapazität und Support sollten nach einem kleinen Team geplant werden.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Fazit: Der Wert liegt in einer zusätzlichen prüfbaren Beweisschicht</h2><p>Im Branchekontext liegt die Bedeutung von Baochip-1x nicht in einer Position auf der Leistungsskala. Er macht Prüfbarkeit von einem Slogan zu einer Gehäusegestaltung. Für Teams, die Lieferkettenintegrität nachweisen müssen, ohne eine Fab zu betreiben, ist das eine verfolgenswerte Richtung. Für Leser, die lediglich ein günstiges Board mit lauffähigem System wollen, ist jetzt kein besonders günstiger Zeitpunkt. Zurückzuweisen ist die Behauptung, das Veröffentlichen von RTL erledige die Aufgabe eines offenen Chips. Baochip zeigt, was in sicherheitskritischen Szenarien oft fehlt: nicht der Quellcode, sondern die Möglichkeit, das physische Teil in der Hand zu prüfen. Dieses Urteil hängt weder von Stückzahlen ab noch davon, ob ein grosser Hersteller folgt.</p></div><div class="card-dark p-6 mb-5"><p>Quellen und Einordnung (Stichtag 19. November 2026): Stufe 1, offizielle Unternehmensseiten: Die Baochip-Website nennt TSMC 22nm, Rust-first-Ökosystem, Xous als Referenzsystem, Serienfertigung ab Q2 2026, allgemeine Verfügbarkeit in Q4 2026, Crossbar für Tape-out und Fertigung, öffentliche Quellen und Dokumentation sowie proprietäre physische Designebenen. Das Crowd-Supply-Update nennt 350MHz-Vexriscv mit MMU, vierkernigen 700MHz-PicoRV-BIO-Coprozessor, 4MiB RRAM und 2MiB RAM, TRNG, AES und Hash-Einheiten, IRIS-fähiges Gehäuse, 3.500 Boards, ab USD 9.50 und voraussichtliche Lieferung im Juni unter Ausbeutevorbehalt. Stufe 2, technischer Blog des Unternehmens: bunnie zu Lieferkettenvertrauen und Mustersichtung. Stufe 5, Einordnung nebeneinander: Kampagnentermin und allgemeine Verfügbarkeit werden als getrennte Daten notiert und nicht gemittelt. Stufe 3, eigene Methodik: Zielgruppenbewertung, Vier-Schritte-Verfahren und Analogie stammen von uns und nicht von Herstellerunterlagen. Bewertungen Dritter zur Leistung gehen nicht in Schlussfolgerungen ein; Linux-Unterstützung wird nur als technische Möglichkeit beschrieben, nicht als gelieferte Fähigkeit.</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">Häufige Fragen</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>Was beweist die IRIS-Prüfung genau?</h3><p class="faq-a">Sie beantwortet, ob die Transistoranordnung auf einem konkreten Die dem veröffentlichten Design entspricht. Es ist eine zerstörungsfreie physische Prüfung, vorausgesetzt das Gehäuse unterstützt sie und die prüfende Seite verfügt über Ausstattung und Können. Sie beweist keine logische Korrektheit und ersetzt keine formale Verifikation.</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>Warum sagen die offiziellen Quellen mostly-open statt fully open?</h3><p class="faq-a">Die Rechen-RTL, der Bootloader und der Software-Stack sind öffentlich und ohne NDA, während die physischen Designebenen des TSMC-22nm-Prozesses proprietär bleiben. Von einem vollständig offenen Chip zu sprechen, würde den prüfbaren Umfang überschätzen, was gerade in sicherheitskritischen Szenarien entscheidend ist.</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>Ist der Chip jetzt für ein Serienprojekt geeignet?</h3><p class="faq-a">Das hängt vom Ziel ab. Teams, die prüfbare Hardware für Forschung oder Hochsicherheitsanwendungen brauchen, können mit dem Dabao-Board beginnen. Fertigungslinien mit Bedarf an ausgereiftem Toolchain, langfristiger Verfügbarkeit und fertiger Linux-Unterstützung sollten zunächst Software-Stack und Lieferrhythmus beobachten, statt nach einem universellen Mikrocontroller zu planen.</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/de/articles/" class="btn-zouic">Fachbeiträge</a><a href="/de/boards/" class="btn-zouic">Entwicklungsboards</a><a href="/de/compare/" class="btn-zouic btn-zouic-primary">Board-Vergleich</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">Wöchentliche Updates von @GeekWaedon</h3><p class="text-secondary text-sm mb-4 mb-lg-0">Board-Empfehlungen, Projektanalysen und Tipps aus der Hardware-Entwicklung – zuerst auf WeChat und im Knowledge Planet.</p></div><div class="col-lg-5"><a href="/de/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">So folgen Sie mir</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> Wöchentlich kuratierte Board-Empfehlungen</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Exklusive Projektanalysen</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Aktualisiert auf WeChat und im Knowledge Planet</span></div></div></div></div></div></section><section class="py-4" aria-label="Hergestellt von"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">Erstellt von GeekWaedon <span>@GeekWaedon</span></div><div class="author-card-bio">Hardware-Bastler und KI-Praktiker. Diese gesamte Website wurde mit KI-Werkzeugen selbst gebaut.</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Meinem Knowledge Planet beitreten</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: nach „GeekWaedon“ suchen</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/de/" class="footer-brand" aria-label="ZouIC-Startseite"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">Ausgewählte Open-Source-Hardwareprojekte von Plattformen weltweit · Ausschließlich als Referenz für Entwickler</p><p class="footer-business-contact">
+                        Geschäftskontakt &amp; Bauteilbeschaffung:
+                        <a href="mailto:waedon@outlook.com?subject=Gesch%C3%A4ftliche%20Anfrage"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            Hergestellt von · <strong>GeekWaedon</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware-Enthusiast</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> KI-Praktiker</span><a href="/de/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom-Lösungsanbieter"><i class="fab fa-weixin"></i> WeCom-Lösungsanbieter
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a><a href="/de/#follow" class="footer-social-link" aria-label="WeChat-Offizieller Account · GeekWaedon" title="WeChat-Offizieller Account · GeekWaedon"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Produkte</h5><ul><li><a href="/de/products/">Produkte</a></li><li><a href="/de/services/">Leistungen</a></li><li><a href="/de/services/website-building/">Website-Erstellung</a></li><li><a href="/de/services/component-matching/">elektronische BauteileVermittlung</a></li><li><a href="/de/news/">Neuigkeiten</a></li><li><a href="/de/boards/">Entwicklungsboards</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Ressourcen</h5><ul><li><a href="/de/board-guide/">Leitfaden zur Board-Auswahl</a></li><li><a href="/de/compare/">Board-Vergleich</a></li><li><a href="/de/tutorials/">Anleitungen</a></li><li><a href="/de/documentation/">Dokumentation</a></li><li><a href="/de/online-tools/">Online-Werkzeuge</a></li><li><a href="/de/tools/">Hardware calculators</a></li><li><a href="/de/cases/">Projektbeispiele</a></li><li><a href="/de/help/">Dokumentation</a></li><li><a href="/de/games/resistor/">Widerstands-Farbcode-Quiz</a></li><li><a href="/de/dashuju/">Datenübersicht</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Open Source</h5><ul><li><a href="/de/open-source/">Open-Source-Projekte</a></li><li><a href="/de/all-projects/">Alle Projekte</a></li><li><a href="/de/articles/">Fachbeiträge</a></li><li><a href="/de/contribute/">Mitwirken</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>Über</h5><ul><li><a href="/de/about/">Über uns</a></li><li><a href="/de/about/#contact">Kontakt</a></li><li><a href="/de/licenses/">Open-Source-Lizenzen</a></li><li><a href="/de/pricing/">Preise</a></li><li><a href="/de/privacy/">Datenschutz</a></li><li><a href="/de/terms/">Nutzungsbedingungen</a></li><li><a href="/de/refund/">Rückerstattung</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">Beliebte Kategorien</span><div class="footer-category-links"><a href="/de/category/">alle</a><a href="/de/category/fpga/">FPGA</a><a href="/de/category/general/">Allgemein</a><a href="/de/category/ai_hardware/">KI-Hardware</a><a href="/de/category/vision/">Computer Vision</a><a href="/de/category/esp32/">ESP32</a><a href="/de/category/robotics/">Robotik</a><a href="/de/source/github/">GitHub</a><a href="/de/source/hackster/">Hackster.io</a><a href="/de/resources/">Ressourcennavigation</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="GeekWaedon" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">Allein entwickelt von GeekWaedon (@GeekWaedon) · <span style="color:#a78bfa;">Mensch und KI, Seite an Seite</span></div><div class="text-xs text-secondary">Ein Ein-Personen-Projekt, betrieben von einem echten Menschen: Website-Aufbau, Datenabgleich, Artikel und Grafiken stammen von mir (mit Unterstützung einiger KI-Agenten). <a href="/de/about/" class="text-primary" style="text-decoration:none;">Die Person dahinter kennenlernen →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. Alle Rechte vorbehalten.</p><p>Die hier gebündelten Projekte dienen ausschließlich als Referenz für Entwickler: ZouIC verweist auf sie und hostet weder Code noch Dateien; Urheberrecht und Lizenz verbleiben bei den Autoren. Einzelheiten finden Sie auf der <a href="/de/licenses/">Open-Source-Lizenzen</a> Seite.</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="Nach oben"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="Intelligente Suche auf der Website"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="Boards, Projekte und Artikel suchen oder Frage eintippen…"
+                       aria-label="Intelligente Suche auf der Website"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> Auswählen</span><span><kbd>↵</kbd> Öffnen</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Kopiert';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Aus Favoriten entfernt');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Zu Favoriten hinzugefügt');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/baochip-1x-inspectable-silicon-5w1h/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=de-DE'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>
