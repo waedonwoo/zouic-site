@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="乐鑫给 ESP32-S31 放出了 Linux BSP 开发者预览，关键在它带 MMU，能跑完整内核而非 nommu 版本。但内存只有 512KB SRAM 加板载 PSRAM，BSP 仍属实验、只支持 S31。这是给想上手的人的核对清单。"><meta name="keywords" content="ESP32-S31, Linux BSP, MMU, RISC-V, Buildroot, espressif/linux, 开发板, 边缘网关"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/articles/esp32-s31-linux-checklist/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/esp32-s31-linux-checklist/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/esp32-s31-linux-checklist/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/esp32-s31-linux-checklist/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/esp32-s31-linux-checklist/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="ESP32-S31 跑 Linux，先看这几项"><meta property="og:description" content="乐鑫给 ESP32-S31 放出了 Linux BSP 开发者预览，关键在它带 MMU，能跑完整内核而非 nommu 版本。但内存只有 512KB SRAM 加板载 PSRAM，BSP 仍属实验、只支持 S31。这是给想上手的人的核对清单。"><meta property="og:url" content="https://www.zouic.com/articles/esp32-s31-linux-checklist/"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="ESP32-S31 跑 Linux，先看这几项"><meta name="twitter:description" content="乐鑫给 ESP32-S31 放出了 Linux BSP 开发者预览，关键在它带 MMU，能跑完整内核而非 nommu 版本。但内存只有 512KB SRAM 加板载 PSRAM，BSP 仍属实验、只支持 S31。这是给想上手的人的核对清单。"><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "\u4e50\u946b\u7ed9 ESP32-S31 \u653e\u51fa\u4e86 Linux BSP \u5f00\u53d1\u8005\u9884\u89c8\uff0c\u5173\u952e\u5728\u5b83\u5e26 MMU\uff0c\u80fd\u8dd1\u5b8c\u6574\u5185\u6838\u800c\u975e nommu \u7248\u672c\u3002\u4f46\u5185\u5b58\u53ea\u6709 512KB SRAM \u52a0\u677f\u8f7d PSRAM\uff0cBSP \u4ecd\u5c5e\u5b9e\u9a8c\u3001\u53ea\u652f\u6301 S31\u3002\u8fd9\u662f\u7ed9\u60f3\u4e0a\u624b\u7684\u4eba\u7684\u6838\u5bf9\u6e05\u5355\u3002", "headline": "ESP32-S31 \u8dd1 Linux\uff0c\u5148\u770b\u8fd9\u51e0\u9879", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/esp32-s31-linux-checklist/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/esp32-s31-linux-checklist/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/esp32-s31-linux-checklist/", "name": "ESP32-S31 \u8dd1 Linux\uff0c\u5148\u770b\u8fd9\u51e0\u9879", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u56e0\u4e3a S31 \u5e26 MMU\uff08\u89c4\u683c\u4e66\u91cc\u7684 Sv32 \u9875\u8868\uff09\uff0c\u652f\u6301\u8fdb\u7a0b\u9694\u79bb\u4e0e\u865a\u62df\u5185\u5b58\uff0cLinux \u5b8c\u6574\u5185\u6838\u9700\u8981\u8fd9\u5957\u673a\u5236\u3002\u6ca1\u6709 MMU \u7684 ESP32 \u578b\u53f7\u53ea\u80fd\u8dd1\u88c1\u8fc7\u7684 nommu \u5185\u6838\uff0c\u8def\u5f84\u4e0d\u540c\uff1b\u76ee\u524d\u7684 BSP \u4e5f\u53ea\u652f\u6301 S31\u3002"}, "name": "ESP32-S31 \u4e3a\u4ec0\u4e48\u80fd\u8dd1\u5b8c\u6574 Linux\uff0c\u522b\u7684 ESP32 \u4e0d\u884c\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u6682\u4e0d\u5efa\u8bae\u3002\u5b98\u65b9\u660e\u786e\u5b83\u662f\u5f00\u53d1\u8005\u9884\u89c8\u3001\u53ea\u652f\u6301 S31\u3001\u6ca1\u6709\u56fa\u5b9a\u66f4\u65b0\u8ba1\u5212\u3001\u53ef\u80fd\u51fa\u73b0\u7834\u574f\u6027\u6539\u52a8\uff0c\u4e5f\u4e0d\u627f\u8bfa\u5373\u65f6\u54cd\u5e94\u95ee\u9898\u3002\u9002\u5408\u5b66\u4e60\u4e0e\u4e13\u7528\u539f\u578b\uff0c\u4e0d\u9002\u5408\u751f\u4ea7\u3001\u5173\u952e\u63a7\u5236\u6216\u4e0d\u80fd\u5b95\u673a\u7684\u9879\u76ee\u3002"}, "name": "\u8fd9\u4e2a Linux BSP \u80fd\u7528\u4e8e\u4ea7\u54c1\u5417\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u5185\u5b58\u3002\u7247\u4e0a SRAM \u7ea6 512KB\uff0c\u7cfb\u7edf\u5185\u5b58\u4e3b\u8981\u9760\u677f\u8f7d PSRAM\uff08\u6a21\u7ec4\u591a\u4e3a 16MB\uff09\u3002\u88c1\u526a\u540e\u80fd\u8fdb\u547d\u4ee4\u884c\u3001\u505a\u8f7b\u91cf\u4efb\u52a1\uff0c\u4f46\u684c\u9762\u3001\u5bb9\u5668\u548c\u5927\u5e94\u7528\u653e\u4e0d\u4e0b\uff0c\u4e5f\u66ff\u4ee3\u4e0d\u4e86\u5355\u677f\u673a\u3002"}, "name": "\u8dd1\u8d77\u6765\u4e4b\u540e\u4e3b\u8981\u53d7\u4ec0\u4e48\u9650\u5236\uff1f"}]}]}
+    </script>
+    
+    
+    <title>ESP32-S31 跑 Linux，先看这几项 - ZouIC</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">跳转到主要内容</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航"><div class="container"><a class="navbar-brand" href="/" aria-label="ZouIC 首页"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/all-projects/">开源项目</a></li><li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li><li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/services/component-matching/">商务合作</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li><li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li><li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li><li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li><li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li><li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li><li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li><li><a class="dropdown-item" href="/tools/"><i class="fas fa-calculator me-2"></i>硬件计算器</a></li><li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li><li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li><li><a class="dropdown-item" href="/ideas/"><i class="fas fa-lightbulb me-2"></i>创意树洞</a></li><li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="搜索类型:"><option value="">全部分类</option><option value="board">开源开发板</option><option value="project">开源项目</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="打开智能搜索"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/esp32-s31-linux-checklist/"><i class="fas fa-language me-2"></i> 中文
+                            </a></li><li><a class="dropdown-item" href="/en/articles/esp32-s31-linux-checklist/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/articles/esp32-s31-linux-checklist/"><i class="fas fa-language me-2"></i> 德语
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/">首页</a></li><li class="breadcrumb-item"><a href="/articles/">技术文章</a></li><li class="breadcrumb-item active" aria-current="page">ESP32-S31 跑 Linux，先看这几项</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">免费公开 · 欢迎转发</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">ESP32-S31 跑 Linux，先看这几项</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">算力行业观察 · 极客微栋 @GeekWaedon</p><p class="text-secondary text-sm mt-4">极客微栋 @GeekWaedon · 2026 年 11 月</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p>结论先说：ESP32-S31 能跑 Linux，靠的是它带 MMU（内存管理单元，让进程隔离和虚拟内存成立），而不是靠社区硬凑一个裁过的内核。乐鑫放出的 Linux BSP 是开发者预览，含 esp-linux-bsp 打包工具、esp-buildroot-external 配置与 espressif/linux 内核分支。但在这之前要接受两个事实：片上 SRAM 只有 512KB，系统内存主要靠板载 PSRAM；BSP 只支持 S31、无定期更新、可能出现破坏性改动。把它当学习平台很合适，当产品底座要先过完这份清单。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">适用条件 · What：先确认这颗芯片和你手上那块板</h2><p>按公开资料，ESP32-S31 是双核 32 位 RISC-V、最高 320MHz，规格书含 Sv32 页表，也就是 MMU，支持机器学习、监督与用户态权限模式；Linux 正是靠 MMU 做进程隔离与虚拟内存。片上 SRAM 约 512KB，开发板模组通常配 16MB Flash 加 16MB PSRAM，系统内存用的是 PSRAM。必须先核对两件事：手上是不是 S31 而非 S3 或 P4，BSP 目前只支持 S31；板载 PSRAM 容量够不够放裁剪后的系统。可反驳的主张是：所有 ESP32 都能照这套流程跑 Linux。没有 MMU 的型号只能跑 nommu 内核，路径完全不同，套用会走不通。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">准备 · Why：为什么先看内存，而不是先看主频</h2><p>在这类资源受限平台上，决定能不能跑的不是 320MHz 主频，而是内存。16MB 放到服务器上几乎可以忽略，裁剪后能进命令行，但桌面、容器、大应用都放不下，也替代不了单板机。准备阶段要先把用途定死：是学 Linux 在受限平台上的运行机制、做专用原型，还是测 RISC-V 软件栈——这三类都能做，通用桌面和长期服务器不能。可反驳的主张是：主频够高就能当小型树莓派用。主频和内存是两回事，PSRAM 的带宽与延迟也不如片上 SRAM；把 Linux 跑起来和把它跑得可用，中间隔着整个内存子系统。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">步骤 · Who：谁来动手，按什么顺序</h2><p>动手的是有嵌入式与 Linux 构建经验的开发者，流程按官方仓库来：用 esp-buildroot-external  provided 的 Buildroot 配置（版本 2025.02、32 位 RISC-V、musl C 库），内核用 espressif/linux 的 v6.18 分支，配套 OpenSBI 1.6 与 U-Boot 2024.07；再由 esp-linux-bsp 的后置脚本把 U-Boot SPL、FIT、设备树、XIP 内核与根文件系统合成一个可直接烧录的镜像。Flash 布局可在配置文件里改。可反驳的主张是：拿通用 Linux 发行版镜像直接刷。这里的镜像是定制合成、按分区布局烧录的，步骤错了就起不来；按官方仓库顺序走，才能复现。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">步骤 · When：量产时间与预览时间是两条线</h2><p>时间要分开记：芯片在 2026 年 3 月公开，开发板 5 月出现，7 月 27 日量产，量产新闻里的软件口径仍是 ESP-IDF、Matter 与 BLE Audio；Linux BSP 是 8 月下旬才单独放出的开发者预览，与量产是两条线。可反驳的主张是：芯片 7 月量产，所以 Linux 也已进入稳定支持。预览不属于量产软件承诺，官方明确它没有固定更新计划、可能随时破坏性改动、也不承诺即时响应问题。基准日 2026-11-20 是本站核查日，不是上述任何节点的发生日；把量产与预览分开记，才不会把实验能力当成产品能力。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">记录 · Where：证据留在哪里</h2><p>复现过程要把四类记录留下：一是仓库版本，esp-linux-bsp、esp-buildroot-external、espressif/linux 三处各自的分支与提交号；二是 Flash 布局配置，改动了哪些分区变量；三是合成镜像的分层清单，哪一层是 SPL、哪一层是内核与根文件系统；四是启动日志与失败点。仓库还提供组件验证脚本，可单独打包 SPL 或生成诊断 FIT，用来逐个组件排错。可反驳的主张是：只要最后能进命令行，过程无需记录。实验性 BSP 随时可能变更，没有版本与布局记录，下次更新后就无法判断是配置问题还是上游改动，排错成本会远超记录成本。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">复核 · How：三组验证动作</h2><p>第一组，能力边界验证：确认跑的是带 MMU 的完整内核而非 nommu，检查进程隔离是否成立，测一下 fork 是否正常——这是 MMU 与裁剪内核最直观的区别。第二组，内存验证：在系统内查看可用内存，跑一个贴近目标用途的小任务，看 PSRAM 带宽与延迟是否够用，别只看「能启动」。第三组，稳定性验证：连续运行一段时间，观察重启与掉电恢复，因为预览 BSP 的更新可能破坏兼容。可反驳的主张是：进命令行就算成功。命令行只是起点，能不能隔离进程、扛住目标负载、稳定重启，才是决定它有没有用的三项复核。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">异常处理 · Boundaries：什么时候该停手</h2><p>三条停手线。其一，不要把唯一一块可用的开发板投入测试——预留重新烧录与恢复环境的板子或时间，BSP 可能随时改动。其二，不要用于生产、关键控制或不能承受宕机的项目，官方明确这是实验预览、只支持 S31。其三，不要假设其他 ESP32 型号适用，也不要把「能跑视频或远场语音」的社区实测当成官方承诺，这类实测来自个人测评、属第三方口径。可反驳的主张是：社区已有人跑通，我照做就行。环境不同、版本不同，别人跑通的路径未必可复现；遇到卡住先回到版本与布局记录，而不是反复盲刷。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">结论：这是能力边界的扩展，不是产品承诺</h2><p>ESP32-S31 跑 Linux 的真正意义，是把「微控制器」与「单板机」之间那条线往外推了一点：带 MMU 的完整内核、16MB 级内存、32 位 RISC-V，让受限平台第一次能比较正规地跑 Linux。但预览状态、内存上限与型号限制，决定了它现在是学习和原型平台。一个可反驳的主张是：能跑 Linux 的芯片就要替代树莓派。两者定位不同，一个是专用任务的微控制器平台，一个是较完整的单板机环境；S31 扩展的是能力边界，不是产品类别。想清楚自己要学机制还是要上产品，再决定投入。</p></div><div class="card-dark p-6 mb-5"><p>数据与口径（基准日 2026-11-20）：级别 2（厂商公开仓库与规格，经技术媒体报道转述）：ESP32-S31 为双核 32 位 RISC-V、最高 320MHz，规格含 Sv32 页表即 MMU，支持机器学习／监督／用户态；片上 SRAM 约 512KB，模组多为 16MB Flash 加 16MB PSRAM；官方仓库 esp-linux-bsp（integration/v1.0-esp32s31）、esp-buildroot-external、espressif/linux（integration/v6.18-esp32s31）；Buildroot 2025.02、32 位 RISC-V、musl、OpenSBI 1.6、U-Boot 2024.07；BSP 为开发者预览、只支持 S31、无定期更新、可能破坏性变更、不承诺即时响应；芯片 3 月公开、5 月出板、7 月 27 日量产，量产软件口径为 ESP-IDF／Matter／BLE Audio。级别 4（第三方报道与个人测评，仅方向性）：社区视频播放、远场语音等实测，以及「不是树莓派替代」的判断，仅作方向性引用，不写成确定结论。级别 3（站点自身口径）：核对清单、三组验证与停手线均为本站方法。本文不把预览 BSP 写成稳定产品支持。</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>ESP32-S31 为什么能跑完整 Linux，别的 ESP32 不行？</h3><p class="faq-a">因为 S31 带 MMU（规格书里的 Sv32 页表），支持进程隔离与虚拟内存，Linux 完整内核需要这套机制。没有 MMU 的 ESP32 型号只能跑裁过的 nommu 内核，路径不同；目前的 BSP 也只支持 S31。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>这个 Linux BSP 能用于产品吗？</h3><p class="faq-a">暂不建议。官方明确它是开发者预览、只支持 S31、没有固定更新计划、可能出现破坏性改动，也不承诺即时响应问题。适合学习与专用原型，不适合生产、关键控制或不能宕机的项目。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>跑起来之后主要受什么限制？</h3><p class="faq-a">内存。片上 SRAM 约 512KB，系统内存主要靠板载 PSRAM（模组多为 16MB）。裁剪后能进命令行、做轻量任务，但桌面、容器和大应用放不下，也替代不了单板机。</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/articles/" class="btn-zouic">技术文章</a><a href="/boards/" class="btn-zouic">开源开发板</a><a href="/compare/" class="btn-zouic btn-zouic-primary">开发板对比</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3><p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p></div><div class="col-lg-5"><a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span></div></div></div></div></div></section><section class="py-4" aria-label="出品人"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div><div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/" class="footer-brand" aria-label="ZouIC 首页"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p><p class="footer-business-contact">
+                        商务合作 / 器件选型：
+                        <a href="mailto:waedon@outlook.com?subject=%E5%95%86%E5%8A%A1%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            出品人 · <strong>极客微栋</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span><a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商"><i class="fab fa-weixin"></i> 企业微信服务商
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a><a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>产品</h5><ul><li><a href="/products/">产品介绍</a></li><li><a href="/services/">服务说明</a></li><li><a href="/services/website-building/">建站服务</a></li><li><a href="/services/component-matching/">元器件撮合</a></li><li><a href="/news/">站内动态</a></li><li><a href="/boards/">开源开发板</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>资源</h5><ul><li><a href="/board-guide/">选型指南</a></li><li><a href="/compare/">开发板对比</a></li><li><a href="/tutorials/">开发板教程</a></li><li><a href="/documentation/">技术文档</a></li><li><a href="/online-tools/">在线工具</a></li><li><a href="/tools/">硬件计算器</a></li><li><a href="/cases/">项目案例</a></li><li><a href="/help/">文档中心</a></li><li><a href="/games/resistor/">色环电阻识别挑战</a></li><li><a href="/dashuju/">数据大屏</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>开源生态</h5><ul><li><a href="/open-source/">开源项目</a></li><li><a href="/all-projects/">全部项目</a></li><li><a href="/articles/">技术文章</a></li><li><a href="/ideas/">创意树洞</a></li><li><a href="/wechat/">公众号专栏</a></li><li><a href="/contribute/">贡献指南</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>关于</h5><ul><li><a href="/about/">关于我们</a></li><li><a href="/about/#contact">联系我们</a></li><li><a href="/licenses/">开源协议</a></li><li><a href="/pricing/">服务报价</a></li><li><a href="/privacy/">隐私政策</a></li><li><a href="/terms/">服务条款</a></li><li><a href="/refund/">退款政策</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">热门分类</span><div class="footer-category-links"><a href="/category/">全部</a><a href="/category/fpga/">FPGA</a><a href="/category/general/">综合</a><a href="/category/ai_hardware/">AI 硬件</a><a href="/category/vision/">机器视觉</a><a href="/category/esp32/">ESP32</a><a href="/category/robotics/">机器人</a><a href="/source/github/">GitHub</a><a href="/source/hackster/">Hackster.io</a><a href="/resources/">资源导航</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div><div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="返回顶部"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="站内智能搜索"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="搜索开发板、项目、文章，或直接输入问题…"
+                       aria-label="站内智能搜索"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> 选择</span><span><kbd>↵</kbd> 打开</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/esp32-s31-linux-checklist/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=zh-CN'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>

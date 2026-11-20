@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="苹果研究团队公开 HALO 人形自主控制系统，把数据生成、训练与部署代码全部开源，却在宇树 G1 上验证。这条消息值得注意的不是成功率，而是身体与大脑正在解耦：一台 Mac mini 就能跑完整闭环。"><meta name="keywords" content="Apple HALO, 人形机器人, 宇树 G1, Mac mini, 仿真到现实, 合成数据, 开源, 具身智能"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/articles/apple-halo-open-brain-framing/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/apple-halo-open-brain-framing/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/apple-halo-open-brain-framing/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/apple-halo-open-brain-framing/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/apple-halo-open-brain-framing/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="苹果开源机器人大脑，本体却是宇树"><meta property="og:description" content="苹果研究团队公开 HALO 人形自主控制系统，把数据生成、训练与部署代码全部开源，却在宇树 G1 上验证。这条消息值得注意的不是成功率，而是身体与大脑正在解耦：一台 Mac mini 就能跑完整闭环。"><meta property="og:url" content="https://www.zouic.com/articles/apple-halo-open-brain-framing/"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="苹果开源机器人大脑，本体却是宇树"><meta name="twitter:description" content="苹果研究团队公开 HALO 人形自主控制系统，把数据生成、训练与部署代码全部开源，却在宇树 G1 上验证。这条消息值得注意的不是成功率，而是身体与大脑正在解耦：一台 Mac mini 就能跑完整闭环。"><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "\u82f9\u679c\u7814\u7a76\u56e2\u961f\u516c\u5f00 HALO \u4eba\u5f62\u81ea\u4e3b\u63a7\u5236\u7cfb\u7edf\uff0c\u628a\u6570\u636e\u751f\u6210\u3001\u8bad\u7ec3\u4e0e\u90e8\u7f72\u4ee3\u7801\u5168\u90e8\u5f00\u6e90\uff0c\u5374\u5728\u5b87\u6811 G1 \u4e0a\u9a8c\u8bc1\u3002\u8fd9\u6761\u6d88\u606f\u503c\u5f97\u6ce8\u610f\u7684\u4e0d\u662f\u6210\u529f\u7387\uff0c\u800c\u662f\u8eab\u4f53\u4e0e\u5927\u8111\u6b63\u5728\u89e3\u8026\uff1a\u4e00\u53f0 Mac mini \u5c31\u80fd\u8dd1\u5b8c\u6574\u95ed\u73af\u3002", "headline": "\u82f9\u679c\u5f00\u6e90\u673a\u5668\u4eba\u5927\u8111\uff0c\u672c\u4f53\u5374\u662f\u5b87\u6811", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/apple-halo-open-brain-framing/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/apple-halo-open-brain-framing/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/apple-halo-open-brain-framing/", "name": "\u82f9\u679c\u5f00\u6e90\u673a\u5668\u4eba\u5927\u8111\uff0c\u672c\u4f53\u5374\u662f\u5b87\u6811", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u5f00\u6e90\u7684\u662f\u6570\u636e\u751f\u6210\u3001\u6a21\u578b\u8bad\u7ec3\u4e0e\u90e8\u7f72\u7684\u5168\u94fe\u8def\u4ee3\u7801\uff0c\u4ed3\u5e93\u5728 apple-aiml-research/ml-halo\uff1b\u6ca1\u6709\u968f\u9644\u8bad\u7ec3\u597d\u7684\u6a21\u578b\u6743\u91cd\uff0c\u9700\u8981\u6309\u4ed3\u5185\u914d\u65b9\u81ea\u884c\u8bad\u7ec3\u3002\u5b83\u4ea4\u4ed8\u7684\u662f\u53ef\u590d\u73b0\u7684\u5de5\u7a0b\u914d\u65b9\uff0c\u4e0d\u662f\u5f00\u7bb1\u5373\u7528\u7684\u673a\u5668\u4eba\u3002"}, "name": "HALO \u5f00\u6e90\u4e86\u4ec0\u4e48\uff0c\u6ca1\u6709\u5f00\u6e90\u4ec0\u4e48\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u4e0d\u80fd\u76f4\u63a5\u8fd9\u4e48\u7406\u89e3\u300291% \u662f\u516d\u9879\u5355\u9879\u6280\u80fd\u5728 6 \u4e2a\u771f\u5b9e\u73af\u5883\u3001360 \u6b21\u8bd5\u9a8c\u4e2d\u7684\u5e73\u5747\u503c\uff1b\u94fe\u5f0f\u591a\u6b65\u4efb\u52a1\u964d\u5230\u7ea6 70%\uff0c\u66f4\u957f\u4efb\u52a1\u66f4\u4f4e\u3002\u5355\u9879\u53ef\u9760\u4e0d\u7b49\u4e8e\u957f\u7a0b\u53ef\u9760\uff0c\u4e2d\u95f4\u9694\u7740\u8bef\u5dee\u7d2f\u79ef\u4e0e\u7ea0\u9519\u80fd\u529b\u3002"}, "name": "91% \u7684\u6210\u529f\u7387\u8bf4\u660e\u673a\u5668\u4eba\u80fd\u5728\u5bb6\u91cc\u5e72\u6d3b\u4e86\u5417\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u8bba\u6587\u4e0e\u9879\u76ee\u9875\u663e\u793a\uff0c\u9a8c\u8bc1\u5e73\u53f0\u662f\u5e02\u552e\u7684\u5b87\u6811 G1\uff0c\u82f9\u679c\u5e76\u672a\u81ea\u7814\u672c\u4f53\u3002\u8fd9\u6070\u6070\u8bf4\u660e HALO \u662f\u4e00\u5957\u53ef\u4e0e\u672c\u4f53\u89e3\u8026\u7684\u63a7\u5236\u6808\uff1a\u5927\u8111\u7528\u5f00\u6e90\u6a21\u578b\u3001\u8dd1\u5728\u673a\u8f7d Mac mini \u4e0a\uff0c\u8eab\u4f53\u7528\u522b\u4eba\u7684\u5e73\u53f0\uff0c\u4e24\u8005\u901a\u8fc7\u63a5\u53e3\u5bf9\u63a5\u3002"}, "name": "\u4e3a\u4ec0\u4e48\u7528\u5b87\u6811 G1 \u800c\u4e0d\u662f\u82f9\u679c\u81ea\u5df1\u7684\u673a\u5668\u4eba\uff1f"}]}]}
+    </script>
+    
+    
+    <title>苹果开源机器人大脑，本体却是宇树 - ZouIC</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">跳转到主要内容</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航"><div class="container"><a class="navbar-brand" href="/" aria-label="ZouIC 首页"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/all-projects/">开源项目</a></li><li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li><li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/services/component-matching/">商务合作</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li><li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li><li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li><li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li><li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li><li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li><li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li><li><a class="dropdown-item" href="/tools/"><i class="fas fa-calculator me-2"></i>硬件计算器</a></li><li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li><li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li><li><a class="dropdown-item" href="/ideas/"><i class="fas fa-lightbulb me-2"></i>创意树洞</a></li><li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="搜索类型:"><option value="">全部分类</option><option value="board">开源开发板</option><option value="project">开源项目</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="打开智能搜索"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/apple-halo-open-brain-framing/"><i class="fas fa-language me-2"></i> 中文
+                            </a></li><li><a class="dropdown-item" href="/en/articles/apple-halo-open-brain-framing/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/articles/apple-halo-open-brain-framing/"><i class="fas fa-language me-2"></i> 德语
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/">首页</a></li><li class="breadcrumb-item"><a href="/articles/">技术文章</a></li><li class="breadcrumb-item active" aria-current="page">苹果开源机器人大脑，本体却是宇树</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">免费公开 · 欢迎转发</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">苹果开源机器人大脑，本体却是宇树</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">算力行业观察 · 极客微栋 @GeekWaedon</p><p class="text-secondary text-sm mt-4">极客微栋 @GeekWaedon · 2026 年 11 月</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p>结论先说：HALO 值得注意的不是那个 91%，而是它把「机器人大脑」和「机器人身体」拆开交付了。苹果研究团队 2026 年 11 月 4 日在 arXiv 提交论文《Perceptive Humanoid Motion from Simulation》，并开源数据生成、模型训练与部署代码；验证平台不是苹果自研本体，而是市售的宇树 G1，推理跑在机器人背的一台 Mac mini 上，全程离线。一个可反驳的主张是：做具身智能必须先有自己的机器人本体。HALO 给出的反例是——大脑可以作为独立的软件栈存在，身体可以用别人的，两者通过标准接口对接。这正在改变这个行业的分工方式。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何事 · What：一套开源的控制栈，不是一台机器人</h2><p>据论文与项目页，HALO 是感知型人形机器人自主控制系统：人在自然语言指令下、凭第一视角视觉，让机器人在未扫描、未建图的陌生真实环境里完成全身动作。系统分三层异步协作——任务编排层用视觉语言模型解析指令并判断动作是否成功，默认在 Mac mini 上本地运行；动作生成层用扩散变换器与流匹配规划未来约 5 秒的全身动作，约每秒 3 次重规划；动作跟踪层以约 50Hz 输出关节指令。代码在 apple-aiml-research 的 ml-halo 仓库，含数据生成、训练与部署全链路，但不随附训练好的权重。可反驳的主张是：开源了代码就等于拿来即用的机器人。没有权重、没有本体绑定，交付的是一套可复现的工程配方，不是一台开箱即用的机器。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何因 · Why：为什么要强调合成数据和本地算力</h2><p>HALO 的训练数据几乎全由程序生成：用程序化房间生成器造虚拟住宅，用运动合成管线产出动作，再由仿真器渲染，得到约 296 小时、十余万条视觉—语言—动作片段，无需人类遥操作或环境扫描。这条路径的意义在于数据规模可以随算力扩张，不再被人力采集速度锁死。推理侧把编排与生成压到机载 Mac mini，不联网也能闭环。可反驳的主张是：机器人必须连云才能聪明。对延迟和断网敏感的场景，端侧闭环更稳；但端侧算力有限，HALO 也保留了需要更强推理时调用云端 API 的选项。两条路不是取舍，而是按场景切换。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何人 · Who：谁真正能用上这套东西</h2><p>直接受益的是做具身智能算法与系统的团队：数据生成、训练、部署三段代码都公开，可以把 HALO 当作可复现基线，研究仿真到现实的迁移、分层控制与端侧推理。本体厂商可以用它对照自己的控制栈；只想要一台能干活的机器人的终端用户，暂时不是目标读者——系统还在研究阶段，触觉缺失、提示词与关键帧需人工设计等问题论文自己写明。可反驳的主张是：大厂开源就等于产品成熟。苹果至今没有自研本体， HALO 是研究发布而不是商品；把它当成「苹果机器人要上市了」的信号，是把一次工程示范误读成产品线。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何时 · When：91% 与 70% 要放在不同任务上看</h2><p>论文报告在 6 个未预先建图的真实环境做 360 次试验，六项单项技能平均成功率 91%，链式多步任务均值降到约 70%，更长的连贯任务更低。这组数字要按任务难度分层读：单项动作已相当可靠，任务链一长，误差会累积。可反驳的主张是：91% 意味着机器人已在家庭环境可用。单项成功率和长程任务成功率是两条不同的曲线，中间隔着误差累积与自我纠错能力。基准日 2026-11-20 是本站核查日，不是论文提交日或试验日；引用这组数字时，要把任务类型与试验条件一起带上，不能只留那个最高的百分比。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何地 · Where：解耦发生在哪一层接口</h2><p>HALO 的「大脑」与「身体」之间，靠的是标准平台接口：本体是宇树 G1，头部加广角相机负责感知，底层电机控制由机器人自带硬件处理，不占用 Mac mini 算力；Mac mini 只负责编排与生成，把子任务和动作计划往下送。这种分层让大脑可以换本体、本体可以换大脑。可反驳的主张是：算法强就不需要适配硬件。恰恰相反，动作跟踪要以 50Hz 稳定输出，依赖具体本体的动力学与控制接口；解耦降低的是耦合度，不是消除适配工作。真正的边界在接口层——谁定义动作计划、谁负责跟踪执行，必须在系统边界上说清楚。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">如何 · How：读这类开源发布的三步法</h2><p>第一步，看交付物清单：是代码、权重、数据，还是全套？HALO 给了代码与数据生成管线，但不给训练好的权重，这决定了你能复现到哪一步。第二步，看验证条件：在哪个本体、几个环境、多少试验上测的？脱离条件谈成功率没有意义。第三步，看自曝短板：论文写明触觉缺失、提示词与关键帧需人工设计、遮挡场景困难，这些比亮点更能判断技术成熟度。可反驳的主张是：只看 demo 视频和最高成功率。开源发布的可信度，恰恰藏在交付清单和局限章节里；那才是判断「这一步到底走到哪」的依据。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">边界：论文结论不等于产业结论</h2><p>三条边界。其一，91%／70% 是论文在特定本体、特定环境、特定任务集上的报告值，不等于通用能力。其二，本文所引数字来自论文与项目页，经多家媒体报道转述，其中解析频率、数据来源等细节以论文原文为准，本文不独立核验实验。其三，模型并非自研——编排层默认用开源通义千问系列，这说明大模型的来源不是竞争壁垒，真正的差异在三层架构与训练管线。可反驳的主张是：谁的模型更强谁就赢。HALO 的例子说明，把通用模型与分层控制、合成数据组合成可复现系统，本身就是一种能力，未必来自自研大模型。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">结论：身体会标准化，大脑成为变量</h2><p>HALO 释放的信号很清楚：机器人本体正在变成可替换的平台，决定上限的是那套能听懂指令、能端到端闭环、还能压进一台小主机的控制栈。对产业而言，这意味着分工会重新划分——本体厂拼硬件与可靠性，算法厂拼数据与系统，两者通过接口协作。一个可反驳的主张是：具身智能的竞争会集中在造出最强本体。更可能发生的是，本体趋于标准化，大脑与数据飞轮成为真正拉开差距的地方。这就像个人电脑的历史：硬件最终趋同，真正改变体验的是跑在上面的软件。</p></div><div class="card-dark p-6 mb-5"><p>数据与口径（基准日 2026-11-20）：级别 2（论文与项目官方页，经多家媒体报道转述）：苹果研究团队 2026-11-04 在 arXiv 提交《Perceptive Humanoid Motion from Simulation》（编号 2611.06908），开源 HALO 系统的数据生成、训练与部署代码，仓库为 apple-aiml-research/ml-halo，不随附训练权重；验证本体为宇树 G1，推理运行于机载 Mac mini（M4 Pro、64GB 统一内存），离线闭环；三层架构的编排／生成／跟踪频率、约 296 小时合成数据、6 个真实环境 360 次试验、单项 91%／链式约 70% 均为论文报告值。级别 4（第三方报道，仅方向性）：触觉缺失、提示词与关键帧需人工设计、遮挡场景困难等局限，以及分层架构与端侧推理的意义，仅作方向性引用，不写成确定结论。级别 3（站点自身口径）：三步读法、解耦判断与类比均为本站方法。本文不独立核验论文实验，不把研究发布写成产品上市。</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>HALO 开源了什么，没有开源什么？</h3><p class="faq-a">开源的是数据生成、模型训练与部署的全链路代码，仓库在 apple-aiml-research/ml-halo；没有随附训练好的模型权重，需要按仓内配方自行训练。它交付的是可复现的工程配方，不是开箱即用的机器人。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>91% 的成功率说明机器人能在家里干活了吗？</h3><p class="faq-a">不能直接这么理解。91% 是六项单项技能在 6 个真实环境、360 次试验中的平均值；链式多步任务降到约 70%，更长任务更低。单项可靠不等于长程可靠，中间隔着误差累积与纠错能力。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>为什么用宇树 G1 而不是苹果自己的机器人？</h3><p class="faq-a">论文与项目页显示，验证平台是市售的宇树 G1，苹果并未自研本体。这恰恰说明 HALO 是一套可与本体解耦的控制栈：大脑用开源模型、跑在机载 Mac mini 上，身体用别人的平台，两者通过接口对接。</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/articles/" class="btn-zouic">技术文章</a><a href="/boards/" class="btn-zouic">开源开发板</a><a href="/compare/" class="btn-zouic btn-zouic-primary">开发板对比</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3><p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p></div><div class="col-lg-5"><a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span></div></div></div></div></div></section><section class="py-4" aria-label="出品人"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div><div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/" class="footer-brand" aria-label="ZouIC 首页"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p><p class="footer-business-contact">
+                        商务合作 / 器件选型：
+                        <a href="mailto:waedon@outlook.com?subject=%E5%95%86%E5%8A%A1%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            出品人 · <strong>极客微栋</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span><a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商"><i class="fab fa-weixin"></i> 企业微信服务商
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a><a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>产品</h5><ul><li><a href="/products/">产品介绍</a></li><li><a href="/services/">服务说明</a></li><li><a href="/services/website-building/">建站服务</a></li><li><a href="/services/component-matching/">元器件撮合</a></li><li><a href="/news/">站内动态</a></li><li><a href="/boards/">开源开发板</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>资源</h5><ul><li><a href="/board-guide/">选型指南</a></li><li><a href="/compare/">开发板对比</a></li><li><a href="/tutorials/">开发板教程</a></li><li><a href="/documentation/">技术文档</a></li><li><a href="/online-tools/">在线工具</a></li><li><a href="/tools/">硬件计算器</a></li><li><a href="/cases/">项目案例</a></li><li><a href="/help/">文档中心</a></li><li><a href="/games/resistor/">色环电阻识别挑战</a></li><li><a href="/dashuju/">数据大屏</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>开源生态</h5><ul><li><a href="/open-source/">开源项目</a></li><li><a href="/all-projects/">全部项目</a></li><li><a href="/articles/">技术文章</a></li><li><a href="/ideas/">创意树洞</a></li><li><a href="/wechat/">公众号专栏</a></li><li><a href="/contribute/">贡献指南</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>关于</h5><ul><li><a href="/about/">关于我们</a></li><li><a href="/about/#contact">联系我们</a></li><li><a href="/licenses/">开源协议</a></li><li><a href="/pricing/">服务报价</a></li><li><a href="/privacy/">隐私政策</a></li><li><a href="/terms/">服务条款</a></li><li><a href="/refund/">退款政策</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">热门分类</span><div class="footer-category-links"><a href="/category/">全部</a><a href="/category/fpga/">FPGA</a><a href="/category/general/">综合</a><a href="/category/ai_hardware/">AI 硬件</a><a href="/category/vision/">机器视觉</a><a href="/category/esp32/">ESP32</a><a href="/category/robotics/">机器人</a><a href="/source/github/">GitHub</a><a href="/source/hackster/">Hackster.io</a><a href="/resources/">资源导航</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div><div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="返回顶部"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="站内智能搜索"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="搜索开发板、项目、文章，或直接输入问题…"
+                       aria-label="站内智能搜索"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> 选择</span><span><kbd>↵</kbd> 打开</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/apple-halo-open-brain-framing/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=zh-CN'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>

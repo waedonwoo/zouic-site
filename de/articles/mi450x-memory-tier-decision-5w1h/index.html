@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="AMD ergänzt die MI450X in der MI400-Reihe mit 288 GB Speicher und derselben Rechenleistung und Bandbreite wie die MI455X. Bei einem Rechenchip mit zwei…"><meta name="keywords" content="MI450X, MI455X, Instinct MI400, Helios, HBM4, 288 GB, Speicherstufen, Inferenzkosten, UALink, ROCm"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/de/articles/mi450x-memory-tier-decision-5w1h/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/mi450x-memory-tier-decision-5w1h/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/mi450x-memory-tier-decision-5w1h/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/mi450x-memory-tier-decision-5w1h/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/mi450x-memory-tier-decision-5w1h/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="MI450X: Eine Speicherstufe mehr, wie wählt man richtig?"><meta property="og:description" content="AMD ergänzt die MI450X in der MI400-Reihe mit 288 GB Speicher und derselben Rechenleistung und Bandbreite wie die MI455X. Bei einem Rechenchip mit zwei Speichergrößen geht es nicht mehr um Schnelligkeit, sondern darum, ob das Modell passt und was jedes Gigabyte Speicher wert ist."><meta property="og:url" content="https://www.zouic.com/de/articles/mi450x-memory-tier-decision-5w1h/"><meta property="og:type" content="article"><meta property="og:locale" content="de_DE"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC – Plattform für Open-Source-Entwicklungsboards · GeekWeidong"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="MI450X: Eine Speicherstufe mehr, wie wählt man richtig?"><meta name="twitter:description" content="AMD ergänzt die MI450X in der MI400-Reihe mit 288 GB Speicher und derselben Rechenleistung und Bandbreite wie die MI455X. Bei einem Rechenchip mit zwei Speichergrößen geht es nicht mehr um Schnelligkeit, sondern darum, ob das Modell passt und was jedes Gigabyte Speicher wert ist."><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "AMD erg\u00e4nzt die MI450X in der MI400-Reihe mit 288 GB Speicher und derselben Rechenleistung und Bandbreite wie die MI455X. Bei einem Rechenchip mit zwei Speichergr\u00f6\u00dfen geht es nicht mehr um Schnelligkeit, sondern darum, ob das Modell passt und was jedes Gigabyte Speicher wert ist.", "headline": "MI450X: Eine Speicherstufe mehr, wie w\u00e4hlt man richtig?", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "de", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/mi450x-memory-tier-decision-5w1h/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/mi450x-memory-tier-decision-5w1h/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/mi450x-memory-tier-decision-5w1h/", "name": "MI450X: Eine Speicherstufe mehr, wie w\u00e4hlt man richtig?", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Die offizielle Spezifikationsseite f\u00fchrt f\u00fcr beide dieselbe Architektur, dieselbe Anzahl Arbeitsgruppen-Prozessoren, denselben Spitzentakt und 23,3 TB/s Bandbreite; die Spitzenwerte der Rechenleistung sind identisch. Der Unterschied liegt im Speicher: 288 GB auf 8 HBM4-Stapeln bei der MI450X gegen\u00fcber 432 GB auf 12 bei der MI455X. Es ist eine Kapazit\u00e4tsstufe, kein Performance-Downgrade."}, "name": "Ist die MI450X eine heruntergetaktete MI455X?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Wenn der aus Modell, Kontextl\u00e4nge und Parallelit\u00e4t berechnete Speicherbedarf komfortabel innerhalb von 288 GB liegt, vermeidet die MI450X die Bezahlung ungenutzter Kapazit\u00e4t. Liegt der Bedarf nahe daran oder dar\u00fcber, kann die Kommunikation beim Tensor-Parallelismus die Ersparnis auffressen und die MI455X wird zur besseren Wahl."}, "name": "Wann sollte ich die MI450X statt der MI455X w\u00e4hlen?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Die Produktseite nennt den 12. November 2026 als Ver\u00f6ffentlichungsdatum, aber keinen Preis und keinen Ausliefertermin. Alle Angaben zu St\u00fcckpreis oder Lieferzeit sind Sch\u00e4tzungen Dritter; die Beschaffung sollte sich auf ein f\u00f6rmliches Angebot und einen Vertrag st\u00fctzen."}, "name": "Hat AMD Preis und Ausliefertermin ver\u00f6ffentlicht?"}]}]}
+    </script>
+    
+    
+    <title>MI450X: Eine Speicherstufe mehr, wie wählt man richtig? - ZouIC</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="Hauptnavigation"><div class="container"><a class="navbar-brand" href="/de/" aria-label="ZouIC-Startseite"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Navigation umschalten"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/de/">Startseite</a></li><li class="nav-item"><a class="nav-link" href="/de/all-projects/">Open-Source-Projekte</a></li><li class="nav-item"><a class="nav-link" href="/de/boards/">Open-Source-Boards</a></li><li class="nav-item"><a class="nav-link" href="/de/board-guide/">Dokumentation</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/de/services/component-matching/">Geschäftskontakt</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Mehr
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/de/products/"><i class="fas fa-box me-2"></i>Produkte</a></li><li><a class="dropdown-item" href="/de/services/"><i class="fas fa-cogs me-2"></i>Leistungen</a></li><li><a class="dropdown-item" href="/de/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>elektronische BauteileVermittlung</a></li><li><a class="dropdown-item" href="/de/news/"><i class="fas fa-newspaper me-2"></i>Neuigkeiten</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/de/tutorials/"><i class="fas fa-graduation-cap me-2"></i>Anleitungen</a></li><li><a class="dropdown-item" href="/de/documentation/"><i class="fas fa-book me-2"></i>Dokumentation</a></li><li><a class="dropdown-item" href="/de/resources/"><i class="fas fa-compass me-2"></i>Ressourcennavigation</a></li><li><a class="dropdown-item" href="/de/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>Online-Werkzeuge</a></li><li><a class="dropdown-item" href="/de/tools/"><i class="fas fa-calculator me-2"></i>Hardware calculators</a></li><li><a class="dropdown-item" href="/de/cases/"><i class="fas fa-briefcase me-2"></i>Projektbeispiele</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/de/open-source/"><i class="fas fa-code-branch me-2"></i>Open-Source-Projekte</a></li><li><a class="dropdown-item" href="/de/articles/"><i class="fas fa-pen-fancy me-2"></i>Fachbeiträge</a></li><li><a class="dropdown-item" href="/de/contribute/"><i class="fas fa-handshake me-2"></i>Mitwirken</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/de/dashuju/"><i class="fas fa-chart-line me-2"></i>Datenübersicht</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/de/search/"><i class="fas fa-search me-1"></i>Suche</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="Boards, Projekte oder Schlagworte suchen …" aria-label="Suchen" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="Suchtyp:"><option value="">Alle Kategorien</option><option value="board">Open-Source-Boards</option><option value="project">Open-Source-Projekte</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="Suchen"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="Smart-Suche öffnen"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> Deutsch
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/mi450x-memory-tier-decision-5w1h/"><i class="fas fa-language me-2"></i> Chinesisch
+                            </a></li><li><a class="dropdown-item" href="/en/articles/mi450x-memory-tier-decision-5w1h/"><i class="fas fa-language me-2"></i> Englisch
+                            </a></li><li><a class="dropdown-item" href="/de/articles/mi450x-memory-tier-decision-5w1h/"><i class="fas fa-language me-2"></i> Deutsch
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/de/">Startseite</a></li><li class="breadcrumb-item"><a href="/de/articles/">Fachbeiträge</a></li><li class="breadcrumb-item active" aria-current="page">MI450X: Eine Speicherstufe mehr, wie wählt man richtig?</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">Frei zugänglich · Weitergabe erwünscht</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">MI450X: Eine Speicherstufe mehr, wie wählt man richtig?</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">Notizen zur Compute-Branche · GeekWaedon @GeekWaedon</p><p class="text-secondary text-sm mt-4">GeekWaedon @GeekWaedon · November 2026</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p>Kurzfassung: Die MI450X ist keine untertaktete MI455X. Sie ist dieselbe Rechenleistung und dieselbe Interconnect-Ausstattung in einer anderen Speicherkapazitätskonfiguration. Die offiziellen AMD-Spezifikationen führen beide auf CDNA5, beide mit 256 Arbeitsgruppen-Prozessoren und beide bei 23,3 TB/s; der einzige relevante Unterschied ist der Speicher: 288 GB auf 8 HBM4-Stapeln bei der MI450X, 432 GB auf 12 bei der MI455X. Die Beschaffungsentscheidung lautet daher nicht, welche Karte schneller ist, sondern in welche Stufe das eigene Modell, der Kontext und die Parallelität fallen und was jeder Gigabyte Speicher tatsächlich bringt. Die Stufen als Leistungsrangfolge zu lesen, ist der erste Fehler, den es hier zu vermeiden gilt.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Was: Eine Inferenzkarte, die den Speicher in zwei Stufen schneidet</h2><p>Laut offizieller MI450X-Produktseite und Portfolio-Meldung vom 12. November 2026 gehört die MI450X zur Instinct-MI400-Reihe, nutzt CDNA5, TSMC 2 nm/3 nm FinFET und 320 Milliarden Transistoren, mit 256 Arbeitsgruppen-Prozessoren und 2.400 MHz Spitzentakt. Zu den Rechenspitzen zählen 40,3 PFLOPs OCP MXFP4, je 20,1 PFLOPs MXFP6/MXFP8/FP8 und 5 PFLOPs FP16/BF16-Matrix (10,1 mit strukturierter Sparsity). Der Speicher umfasst 288 GB HBM4 in 8 Stapeln, 192 MB L2, 23,3 TB/s Spitzenbandbreite und ECC. Scale-up läuft über UALoE mit 3,6 TB/s bidirektional, Scale-out über UALink mit 600 GB/s bidirektional, im EAM-Format mit direkter Flüssigkeitskühlung. Gegenüber der MI455X führt die offizielle Seite all dies bis auf Speichergröße und Stapelzahl als identisch. Eine widerlegbare Behauptung ist, der Speicherunterschied sei ein Rechenunterschied. Die Spezifikationsseite ordnet beide Karten derselben Rechen- und Bandbreitenklasse zu; was sich unterscheidet, ist die Modellgröße, die passt, nicht wie schnell eine einzelne Operation läuft.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Warum: Warum der Speicher zur Achse der Auswahl wurde</h2><p>Bei der Inferenz großer Modelle setzt die Speicherkapazität oft nicht die Geschwindigkeitsgrenze, sondern bestimmt, ob das Modell überhaupt passt und ob es geteilt werden muss. Gewichte, KV-Cache und Aktivierungen belegen Speicher. Passt ein Modell gerade auf eine Karte, entfallen die Kommunikation zwischen Karten und eine Schicht Planungskomplexität. Die Positionierung der MI450X als Stufe für Workloads innerhalb von 288 GB ohne Aufpreis für mehr Kapazität beruht genau auf dieser Logik. Eine widerlegbare Behauptung ist, mehr Speicher sei immer besser, also das Topmodell kaufen. Wenn ein Workload dauerhaft innerhalb von 288 GB läuft, werden die zusätzlichen 144 GB nie genutzt, sind aber bereits in Anschaffungskosten und Rack-Leistungsbudget eingerechnet. Umgekehrt erzwingt ein längerer Kontext jenseits von 288 GB Tensor-Parallelismus, dessen Kommunikationsaufwand die Ersparnis auffressen kann. Entscheidend ist, den tatsächlichen Kapazitätsbedarf vor der Stufenwahl zu ermitteln, nicht nach der größten Zahl zu greifen.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Wer: Wer die MI450X prüfen sollte und wer bei der MI455X bleibt</h2><p>Die offizielle Aufteilung ist direkt: Die MI450X zielt auf Installationen, deren Speicherbedarf innerhalb von 288 GB liegt und die Kapital- und Betriebsausgaben begrenzen wollen; die MI455X auf größere Modelle, längere Kontexte oder höhere Parallelität. In Beschaffungssprache sind Online-Dienste mit fester Modellgröße und vorhersehbarer Parallelität einen Preis bei der MI450X wert; Plattformen mit Frontier-Modelltraining, langem Kontext oder stark schwankender Parallelität haben bei der MI455X mit 432 GB mehr Reserve. Beide sitzen auf demselben Helios-Rack und derselben ROCm-Softwarebasis, und AMD betont, dass Modelle zwischen Konfigurationen wandern, ohne Code neu zu schreiben. Eine widerlegbare Behauptung ist, ein Stufenwechsel bedeute einen Rewrite des Software-Stacks. Offiziell gilt eine Architektur und ein ROCm, die Migrationskosten liegen in der Kapazitätsanpassung nicht im Code-Umschreiben; aber kein Rewrite bedeutet kein Nachjustieren, da Parallelität und Parallelisierungsstrategie für die neue Kapazität neu berechnet werden müssen.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Wann: Veröffentlichung, Auslieferung und Ankunft sind drei Daten</h2><p>Die Produktseite nennt den 12. November 2026 als Veröffentlichungsdatum, das Datum, an dem die Karte in den Katalog aufgenommen wird; Preis und Ausliefertermin wurden nicht veröffentlicht. Produktveröffentlichung, Beginn der Auslieferung und Ankunft beim Kunden sind drei getrennte Meilensteine, von denen keiner die anderen in einem Beschaffungsplan ersetzen kann. Eine widerlegbare Behauptung ist, ein Datum auf der Produktseite bedeute, dass man bestellen und die Produktion planen könne. Bei Rack-Installationen sind die eigentlichen Fragen der Auslieferungstakt kompletter Helios-Racks, die Kühlinfrastruktur und die Software-Reife, und keine davon steht in einem einzelnen Datum auf einer Produktseite. Der Stichtag 20. November 2026 ist unser Prüfdatum, nicht der Eintritt eines dieser Meilensteine. Getrennt notiert verhindern sie einen Streit, in dem ein Veröffentlichungsdatum als Lieferzusage gilt.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Wo: Die Stufung spielt sich auf der Rack-Ebene ab</h2><p>Sowohl MI450X als auch MI455X gehen in das Helios-Rack, ausgelegt auf 72 Beschleuniger; die MI455X-Konfiguration summiert sich auf 31 TB HBM4 und rund 1,67 PB/s aggregierte Bandbreite, während die MI450X als eine Stufe niedriger die Gesamtkapazität des Racks treppenförmig senkt. Die Speicherstufe ist daher kein isolierter Chip-Parameter; sie wirkt sich über Rack, Netzwerk und Leistungsbudget als Kapazitätstreppe fort. Scale-up nutzt UALoE, Scale-out UALink, beides offene Standardwege, und Bandbreite und Kapazität sind pro Rack statt pro Karte zu berechnen. Eine widerlegbare Behauptung ist, die Kapazität pro Karte mal Kartenanzahl ergebe den nutzbaren Speicher. Systemreservierungen, Parallelkopien und Kommunikationspuffer verringern ihn; die effektive Rack-Kapazität liegt stets unter der Summe auf dem Papier, und dieser Abschlag muss in die Stufenentscheidung einfließen.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Wie: Vier Schritte zu einer Stufenentscheidung</h2><p>Erstens Kapazität berechnen: Gewichte, KV-Cache und Aktivierungen bei Ziel-Kontextlänge und Parallelität in einen Bedarf pro Karte mit Reserve übersetzen, was eine Untergrenze in Gigabyte ergibt. Zweitens die Stufe zuordnen: eine Untergrenze innerhalb von 288 GB weist auf die MI450X, darüber auf die MI455X, außerhalb beider Bereiche Kartenaufteilung oder eine größere Stufe erwägen. Drittens die Einheit bepreisen: jedes Gigabyte in Durchsatz pro Einheit und Kosten pro Zeiteinheit umrechnen statt Gesamtkapazität zu vergleichen; ungenutzte Kapazität bringt keine Rendite. Viertens das Umfeld prüfen: Flüssigkeitskühlung, UALink/UALoE-Switching, ROCm-Version und Rack-Versorgung für die gewählte Stufe bestätigen. Eine widerlegbare Behauptung ist, die Karte vor der Modellberechnung zu wählen. Die umgekehrte Reihenfolge, zuerst Kapazität dann Stufe, verhindert, dass man für ungenutzten Speicher zahlt oder wegen zu geringer Kapazität nachkaufen muss.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Grenzen: Gleiche Spezifikationen bedeuten nicht gleiche Schlussfolgerungen</h2><p>Drei Grenzen sind wichtig. Erstens weist die offizielle Seite darauf hin, dass Leistung von Systemkonfiguration, Softwareversion und Workload abhängt und Herstellerwerte aus verschiedenen Quellen nicht direkt vergleichbar sind; dieser Beitrag zitiert keine Behauptung, schneller als ein Mitbewerber zu sein. Zweitens bedeuten identische Spezifikationen von MI450X und MI455X identische Spezifikationsangaben, nicht identisches Verhalten in jedem Workload: unterschiedliche Kapazität ändert Parallelisierungsstrategie und Kommunikationsanteil. Drittens hat AMD weder Preis noch Ausliefertermin veröffentlicht, sodass jede Schlussfolgerung zu Stückpreis oder Lieferzeit eine Schätzung Dritter ist und nicht in die Schlussfolgerung eingeht. Eine widerlegbare Behauptung ist, zwei Karten mit gleichen Spezifikationen seien austauschbar. Genau der eine Unterschied in der Kapazität ist derjenige, der die Gesamtkosten der Inferenz am wahrscheinlichsten verändert, und darf nicht geglättet werden, weil die anderen Punkte übereinstimmen.</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">Fazit: Eine Stufe ist eine Art, Kapazität zu bepreisen</h2><p>Die MI450X zerlegt den Kauf von Rechenleistung in zwei Fragen: wie viel Rechenleistung man kauft und wie viel man unterbringen kann. Für Lasten mit klarem, innerhalb von 288 GB liegendem Speicherbedarf ist sie ein Weg, die Kosten pro Gigabyte zu senken; für kapazitätskritische Lasten bleibt die MI455X die sicherere Stufe. Eine widerlegbare Behauptung ist, ein neues Mitglied einer Reihe sei stets ein Upgrade. Die MI450X ist das Gegenteil: Sie strebt keinen höheren Spitzenwert an, sondern konfiguriert dieselbe Rechenressource in eine Kapazität, die zu einer bestimmten Klasse von Workloads passt. Solche gestaffelten Produkte beurteilt man danach, welche Position der eigene Bedarf einnimmt, nicht danach, ob die Karte neu ist. Es ist wie beim Koffer: Räder, Griff und Material sind gleich, und was über den Kauf entscheidet, ist ob die Sachen hineinpassen.</p></div><div class="card-dark p-6 mb-5"><p>Quellen und Einordnung (Stichtag 20. November 2026): Stufe 2, offizielle Unternehmensseiten: Die AMD-MI450X-Spezifikationsseite nennt Veröffentlichungsdatum 12. November 2026, CDNA5, TSMC 2 nm/3 nm FinFET, 320 Milliarden Transistoren, 256 Arbeitsgruppen-Prozessoren, 2.400 MHz, 40,3 PFLOPs OCP MXFP4, je 20,1 PFLOPs MXFP6/MXFP8/FP8, 5 PFLOPs FP16/BF16-Matrix (10,1 sparsam), 288 GB HBM4 auf 8 Stapeln, 192 MB L2, 23,3 TB/s, ECC, 3,6 TB/s UALoE, 600 GB/s UALink, EAM-Format und direkte Flüssigkeitskühlung; Preis und Ausliefertermin sind nicht aufgeführt. Stufe 2, Unternehmensmeldung über Fachmedien: MI450X und MI455X teilen Rechenleistung, Bandbreite und Interconnect und unterscheiden sich in der Speicherkapazität; die MI455X hat 432 GB auf 12 Stapeln; ein Helios-Rack fasst 72 Karten, die MI455X-Konfiguration 31 TB HBM4 und rund 1,67 PB/s aggregierte Bandbreite; AMD betont eine gemeinsame ROCm-Softwarebasis bei MI400. Stufe 5, Einordnung nebeneinander: Veröffentlichung, Auslieferung und Ankunft als getrennte Daten; von AMD nicht veröffentlichte Preise und Lieferzeiten werden nicht geschätzt. Stufe 3, Methodik der Website: Vier-Schritte-Entscheidung, Kapazitätsabschlag und Analogie sind unsere eigene Methode und keine Herstellerdokumente. Relative Leistungsbehauptungen von Herstellern und Dritten gehen nicht in die Schlussfolgerung ein.</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">Häufige Fragen</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>Ist die MI450X eine heruntergetaktete MI455X?</h3><p class="faq-a">Nein. Die offizielle Spezifikationsseite führt für beide dieselbe Architektur, dieselbe Anzahl Arbeitsgruppen-Prozessoren, denselben Spitzentakt und 23,3 TB/s Bandbreite; die Spitzenwerte der Rechenleistung sind identisch. Der Unterschied liegt im Speicher: 288 GB auf 8 HBM4-Stapeln bei der MI450X gegenüber 432 GB auf 12 bei der MI455X. Es ist eine Kapazitätsstufe, kein Performance-Downgrade.</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>Wann sollte ich die MI450X statt der MI455X wählen?</h3><p class="faq-a">Wenn der aus Modell, Kontextlänge und Parallelität berechnete Speicherbedarf komfortabel innerhalb von 288 GB liegt, vermeidet die MI450X die Bezahlung ungenutzter Kapazität. Liegt der Bedarf nahe daran oder darüber, kann die Kommunikation beim Tensor-Parallelismus die Ersparnis auffressen und die MI455X wird zur besseren Wahl.</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>Hat AMD Preis und Ausliefertermin veröffentlicht?</h3><p class="faq-a">Nein. Die Produktseite nennt den 12. November 2026 als Veröffentlichungsdatum, aber keinen Preis und keinen Ausliefertermin. Alle Angaben zu Stückpreis oder Lieferzeit sind Schätzungen Dritter; die Beschaffung sollte sich auf ein förmliches Angebot und einen Vertrag stützen.</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/de/articles/" class="btn-zouic">Fachbeiträge</a><a href="/de/boards/" class="btn-zouic">Entwicklungsboards</a><a href="/de/compare/" class="btn-zouic btn-zouic-primary">Board-Vergleich</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">Wöchentliche Updates von @GeekWaedon</h3><p class="text-secondary text-sm mb-4 mb-lg-0">Board-Empfehlungen, Projektanalysen und Tipps aus der Hardware-Entwicklung – zuerst auf WeChat und im Knowledge Planet.</p></div><div class="col-lg-5"><a href="/de/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">So folgen Sie mir</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> Wöchentlich kuratierte Board-Empfehlungen</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Exklusive Projektanalysen</span><span class="newsletter-benefit"><i class="fas fa-check"></i> Aktualisiert auf WeChat und im Knowledge Planet</span></div></div></div></div></div></section><section class="py-4" aria-label="Hergestellt von"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">Erstellt von GeekWaedon <span>@GeekWaedon</span></div><div class="author-card-bio">Hardware-Bastler und KI-Praktiker. Diese gesamte Website wurde mit KI-Werkzeugen selbst gebaut.</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>Meinem Knowledge Planet beitreten</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>WeChat: nach „GeekWaedon“ suchen</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/de/" class="footer-brand" aria-label="ZouIC-Startseite"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">Ausgewählte Open-Source-Hardwareprojekte von Plattformen weltweit · Ausschließlich als Referenz für Entwickler</p><p class="footer-business-contact">
+                        Geschäftskontakt &amp; Bauteilbeschaffung:
+                        <a href="mailto:waedon@outlook.com?subject=Gesch%C3%A4ftliche%20Anfrage"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            Hergestellt von · <strong>GeekWaedon</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> Hardware-Enthusiast</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> KI-Praktiker</span><a href="/de/services" class="footer-slash-tag footer-slash-tag--highlight" title="WeCom-Lösungsanbieter"><i class="fab fa-weixin"></i> WeCom-Lösungsanbieter
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Knowledge Planet · GeekWaedon" title="Knowledge Planet · GeekWaedon"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Toutiao · GeekWaedon" title="Toutiao · GeekWaedon"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="iQIYI · GeekWaedon" title="iQIYI · GeekWaedon"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Weibo · @GeekWaedon" title="Weibo · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Zhihu · GeekWaedon" title="Zhihu · GeekWaedon"><i class="fab fa-zhihu"></i></a><a href="/de/#follow" class="footer-social-link" aria-label="WeChat-Offizieller Account · GeekWaedon" title="WeChat-Offizieller Account · GeekWaedon"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Douyin · GeekWaedon" title="Douyin · GeekWaedon"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WeChat Channels · GeekWaedon" title="WeChat Channels · GeekWaedon"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Bilibili · GeekWaedon" title="Bilibili · GeekWaedon"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Tencent News · GeekWaedon" title="Tencent News · GeekWaedon"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Produkte</h5><ul><li><a href="/de/products/">Produkte</a></li><li><a href="/de/services/">Leistungen</a></li><li><a href="/de/services/website-building/">Website-Erstellung</a></li><li><a href="/de/services/component-matching/">elektronische BauteileVermittlung</a></li><li><a href="/de/news/">Neuigkeiten</a></li><li><a href="/de/boards/">Entwicklungsboards</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Ressourcen</h5><ul><li><a href="/de/board-guide/">Leitfaden zur Board-Auswahl</a></li><li><a href="/de/compare/">Board-Vergleich</a></li><li><a href="/de/tutorials/">Anleitungen</a></li><li><a href="/de/documentation/">Dokumentation</a></li><li><a href="/de/online-tools/">Online-Werkzeuge</a></li><li><a href="/de/tools/">Hardware calculators</a></li><li><a href="/de/cases/">Projektbeispiele</a></li><li><a href="/de/help/">Dokumentation</a></li><li><a href="/de/games/resistor/">Widerstands-Farbcode-Quiz</a></li><li><a href="/de/dashuju/">Datenübersicht</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>Open Source</h5><ul><li><a href="/de/open-source/">Open-Source-Projekte</a></li><li><a href="/de/all-projects/">Alle Projekte</a></li><li><a href="/de/articles/">Fachbeiträge</a></li><li><a href="/de/contribute/">Mitwirken</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>Über</h5><ul><li><a href="/de/about/">Über uns</a></li><li><a href="/de/about/#contact">Kontakt</a></li><li><a href="/de/licenses/">Open-Source-Lizenzen</a></li><li><a href="/de/pricing/">Preise</a></li><li><a href="/de/privacy/">Datenschutz</a></li><li><a href="/de/terms/">Nutzungsbedingungen</a></li><li><a href="/de/refund/">Rückerstattung</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">Beliebte Kategorien</span><div class="footer-category-links"><a href="/de/category/">alle</a><a href="/de/category/fpga/">FPGA</a><a href="/de/category/general/">Allgemein</a><a href="/de/category/ai_hardware/">KI-Hardware</a><a href="/de/category/vision/">Computer Vision</a><a href="/de/category/esp32/">ESP32</a><a href="/de/category/robotics/">Robotik</a><a href="/de/source/github/">GitHub</a><a href="/de/source/hackster/">Hackster.io</a><a href="/de/resources/">Ressourcennavigation</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="GeekWaedon" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">Allein entwickelt von GeekWaedon (@GeekWaedon) · <span style="color:#a78bfa;">Mensch und KI, Seite an Seite</span></div><div class="text-xs text-secondary">Ein Ein-Personen-Projekt, betrieben von einem echten Menschen: Website-Aufbau, Datenabgleich, Artikel und Grafiken stammen von mir (mit Unterstützung einiger KI-Agenten). <a href="/de/about/" class="text-primary" style="text-decoration:none;">Die Person dahinter kennenlernen →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. Alle Rechte vorbehalten.</p><p>Die hier gebündelten Projekte dienen ausschließlich als Referenz für Entwickler: ZouIC verweist auf sie und hostet weder Code noch Dateien; Urheberrecht und Lizenz verbleiben bei den Autoren. Einzelheiten finden Sie auf der <a href="/de/licenses/">Open-Source-Lizenzen</a> Seite.</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="Nach oben"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="Intelligente Suche auf der Website"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="Boards, Projekte und Artikel suchen oder Frage eintippen…"
+                       aria-label="Intelligente Suche auf der Website"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> Auswählen</span><span><kbd>↵</kbd> Öffnen</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> Kopiert';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Aus Favoriten entfernt');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('Zu Favoriten hinzugefügt');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/mi450x-memory-tier-decision-5w1h/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=de-DE'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>
