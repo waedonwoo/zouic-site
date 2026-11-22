@@ -1,0 +1,183 @@
+/* ============================================================
+   ZouIC 极客榜 / GeekBoard — 付费上榜栏目专用样式
+   Loaded only on /rank/ pages. Scoped with .rb- prefix to avoid
+   colliding with Bootstrap (.row/.card/.btn) and the main design
+   system. Deep-space palette, no gradients, no emoji, no
+   left-accent cards, no decorative SVG.
+   ============================================================ */
+
+.rb-page {
+  --font-mono: "Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --rb-bg-1: var(--color-bg-secondary, #0b0f20);
+  --rb-bg-2: var(--color-bg-tertiary, #10162a);
+  --rb-line: var(--v4-line, rgba(255, 255, 255, 0.072));
+  --rb-line-strong: var(--v4-line-strong, rgba(255, 255, 255, 0.14));
+  --rb-ink-1: var(--color-text-primary, #e9eefb);
+  --rb-ink-2: var(--color-text-secondary, #a2adc6);
+  --rb-ink-3: var(--color-text-tertiary, #6d7793);
+  --rb-primary: var(--color-primary, #22d3ee);
+  --rb-primary-dim: var(--color-primary-muted, rgba(34, 211, 238, 0.10));
+  --rb-accent: var(--color-accent, #a78bfa);
+  --rb-warn: var(--color-warning, #fbbf24);
+  --rb-success: var(--color-success, #34d399);
+  --rb-radius: var(--v4-radius, 16px);
+  color: var(--rb-ink-1);
+  font-size: 15px;
+  line-height: 1.65;
+}
+.rb-page a { color: inherit; text-decoration: none; }
+.rb-page a:hover { color: var(--rb-primary); }
+.rb-page .mono { font-family: var(--font-mono, "Share Tech Mono"), ui-monospace, monospace; letter-spacing: 0.02em; }
+.rb-page .muted { color: var(--rb-ink-2); }
+.rb-page .dim { color: var(--rb-ink-3); }
+.rb-page .hidden { display: none !important; }
+
+/* Hero */
+.rb-hero { padding: clamp(40px, 6vw, 72px) 0 clamp(30px, 4vw, 48px); border-bottom: 1px solid var(--rb-line); }
+.rb-eyebrow {
+  display: inline-block; font-family: var(--font-mono, "Share Tech Mono"), ui-monospace, monospace;
+  font-size: 12px; color: var(--rb-primary); border: 1px solid var(--rb-primary-dim);
+  background: var(--rb-primary-dim); padding: 5px 12px; border-radius: 999px;
+}
+.rb-hero h1 { font-size: clamp(28px, 5vw, 48px); line-height: 1.2; margin: 20px 0 16px; letter-spacing: -0.01em; }
+.rb-hero .rb-lead { font-size: clamp(15px, 2vw, 18px); color: var(--rb-ink-2); max-width: 660px; margin: 0 0 28px; }
+.rb-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.rb-stats { display: flex; flex-wrap: wrap; gap: 36px; margin-top: 40px; }
+.rb-stat .n { font-family: var(--font-mono, "Share Tech Mono"), ui-monospace, monospace; font-size: 28px; color: var(--rb-ink-1); }
+.rb-stat .l { font-size: 12px; color: var(--rb-ink-3); margin-top: 2px; }
+
+/* Buttons */
+.rb-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  border-radius: 10px; padding: 11px 18px; font-size: 14px; cursor: pointer;
+  border: 1px solid var(--rb-line-strong); background: transparent; color: var(--rb-ink-1);
+  transition: background .15s ease, border-color .15s ease, transform .1s ease;
+}
+.rb-btn:hover { background: var(--v4-surface-hover, rgba(255,255,255,.062)); color: var(--rb-ink-1); }
+.rb-btn:active { transform: translateY(1px); }
+.rb-btn-primary { background: var(--rb-primary); color: var(--color-text-inverse, #04121a); border-color: var(--rb-primary); font-weight: 700; }
+.rb-btn-primary:hover { background: var(--color-primary-hover, #67e8f9); color: var(--color-text-inverse, #04121a); }
+.rb-btn-sm { padding: 7px 12px; font-size: 13px; border-radius: 8px; }
+.rb-btn-block { width: 100%; }
+
+/* Section */
+.rb-section { padding: clamp(40px, 5vw, 64px) 0; border-bottom: 1px solid var(--rb-line); }
+.rb-section-head { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 26px; }
+.rb-section-head h2 { font-size: clamp(22px, 3vw, 30px); margin: 0 0 6px; letter-spacing: -0.01em; }
+.rb-section-head p { margin: 0; color: var(--rb-ink-2); font-size: 14px; }
+.rb-section-head .rb-link { color: var(--rb-primary); font-size: 14px; white-space: nowrap; }
+
+/* Board table */
+.rb-tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 16px; }
+.rb-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.rb-chip {
+  font-size: 13px; padding: 6px 12px; border-radius: 999px;
+  border: 1px solid var(--rb-line); color: var(--rb-ink-2); background: transparent; cursor: pointer;
+}
+.rb-chip:hover { border-color: var(--rb-line-strong); color: var(--rb-ink-1); }
+.rb-chip.on { background: var(--rb-primary-dim); color: var(--rb-primary); border-color: var(--rb-primary); }
+.rb-sortbox { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+.rb-sortbox label { font-size: 12px; color: var(--rb-ink-3); }
+.rb-select, .rb-field {
+  background: var(--rb-bg-2); border: 1px solid var(--rb-line); color: var(--rb-ink-1);
+  border-radius: 8px; padding: 8px 10px; font-size: 14px;
+}
+.rb-select:focus, .rb-field:focus { outline: none; border-color: var(--rb-primary); }
+
+.rb-table { border: 1px solid var(--rb-line); border-radius: var(--rb-radius); overflow: hidden; background: var(--rb-bg-1); }
+.rb-row {
+  display: grid; grid-template-columns: 68px 1fr 150px 92px 96px 128px;
+  align-items: center; gap: 16px; padding: 16px 18px;
+  border-bottom: 1px solid var(--rb-line); transition: background .15s ease;
+}
+.rb-row:last-child { border-bottom: none; }
+.rb-row:hover { background: var(--rb-surface, rgba(255,255,255,.038)); }
+.rb-row.head {
+  background: var(--rb-bg-2); color: var(--rb-ink-3); font-size: 12px;
+  text-transform: uppercase; letter-spacing: 0.06em; padding-top: 12px; padding-bottom: 12px;
+}
+.rb-rank {
+  width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--rb-line);
+  display: grid; place-items: center; font-family: var(--font-mono, "Share Tech Mono"), ui-monospace, monospace;
+  font-size: 15px; color: var(--rb-ink-2);
+}
+.rb-rank.top { border-color: var(--rb-primary); color: var(--rb-primary); background: var(--rb-primary-dim); }
+.rb-prod { min-width: 0; }
+.rb-prod-name { font-weight: 600; font-size: 15px; color: var(--rb-ink-1); display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rb-prod-name:hover { color: var(--rb-primary); }
+.rb-prod-tag { font-size: 12px; color: var(--rb-ink-3); display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 2px; }
+.rb-prod-meta { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+.rb-tag { font-size: 11px; color: var(--rb-ink-2); border: 1px solid var(--rb-line); border-radius: 5px; padding: 1px 6px; }
+.rb-tag.paid { color: var(--rb-warn); border-color: rgba(251, 191, 36, 0.35); }
+.rb-bid { font-family: var(--font-mono, "Share Tech Mono"), ui-monospace, monospace; font-size: 18px; color: var(--rb-ink-1); }
+.rb-bid small { font-size: 11px; color: var(--rb-ink-3); display: block; }
+.rb-num { font-family: var(--font-mono, "Share Tech Mono"), ui-monospace, monospace; color: var(--rb-ink-2); font-size: 14px; }
+.rb-row .rb-action-cell { text-align: right; }
+
+/* Cards grid */
+.rb-grid { display: grid; gap: 16px; }
+.rb-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.rb-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.rb-grid-4 { grid-template-columns: repeat(4, 1fr); }
+.rb-card {
+  border: 1px solid var(--rb-line); border-radius: var(--rb-radius);
+  background: var(--rb-surface, rgba(255,255,255,.038)); padding: 22px;
+  transition: background .15s ease, border-color .15s ease;
+}
+a.rb-card:hover { background: var(--v4-surface-hover, rgba(255,255,255,.062)); border-color: var(--rb-line-strong); color: var(--rb-ink-1); }
+.rb-card h3 { margin: 10px 0 8px; font-size: 17px; }
+.rb-card p { margin: 0; color: var(--rb-ink-2); font-size: 13.5px; }
+.rb-caticon { width: 34px; height: 34px; border: 1px solid var(--rb-line); border-radius: 9px; display: grid; place-items: center; color: var(--rb-primary); font-family: var(--font-mono, "Share Tech Mono"), ui-monospace, monospace; font-size: 15px; }
+.rb-step { font-family: var(--font-mono, "Share Tech Mono"), ui-monospace, monospace; font-size: 13px; color: var(--rb-accent); }
+.rb-badge-lt { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--rb-line); color: var(--rb-ink-2); }
+
+/* Detail */
+.rb-detail-head { display: grid; grid-template-columns: 1fr 300px; gap: 32px; align-items: start; }
+.rb-detail-head h1 { font-size: clamp(26px, 4vw, 38px); margin: 12px 0; }
+.rb-rankcards { display: grid; gap: 12px; }
+.rb-rankcard { border: 1px solid var(--rb-line); border-radius: var(--rb-radius); background: var(--rb-surface, rgba(255,255,255,.038)); padding: 18px 20px; }
+.rb-rankcard .big { font-family: var(--font-mono, "Share Tech Mono"), ui-monospace, monospace; font-size: 34px; color: var(--rb-primary); }
+.rb-rankcard .cap { font-size: 12px; color: var(--rb-ink-3); }
+.rb-faq-item { border-bottom: 1px solid var(--rb-line); padding: 18px 0; }
+.rb-faq-item:last-child { border-bottom: none; }
+.rb-faq-item h3 { font-size: 16px; margin: 0 0 8px; }
+.rb-faq-item p { margin: 0; color: var(--rb-ink-2); font-size: 14px; }
+
+/* Bid module */
+.rb-bidpanel { border: 1px solid var(--rb-primary); border-radius: var(--rb-radius); background: var(--rb-bg-2); padding: 24px; }
+.rb-bidpanel h2 { margin: 0 0 4px; font-size: 22px; }
+.rb-bidline { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--rb-line); font-size: 14px; }
+.rb-bidline .v { font-family: var(--font-mono, "Share Tech Mono"), ui-monospace, monospace; }
+.rb-quick { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0; }
+.rb-inputrow { display: flex; gap: 10px; margin-top: 10px; }
+.rb-inputrow input { flex: 1; font-family: var(--font-mono, "Share Tech Mono"), ui-monospace, monospace; font-size: 18px; }
+.rb-notice { border: 1px solid var(--rb-line); border-top: 1px solid var(--rb-warn); border-radius: 8px; background: var(--rb-surface, rgba(255,255,255,.038)); padding: 12px 14px; font-size: 13px; color: var(--rb-ink-2); margin-top: 16px; }
+.rb-success { border: 1px solid var(--rb-success); border-radius: 10px; background: rgba(52, 211, 153, 0.08); color: var(--rb-success); padding: 14px 16px; margin-top: 16px; font-size: 14px; }
+.rb-err { color: var(--color-danger, #fb7185); font-size: 13px; margin-top: 8px; min-height: 18px; }
+
+/* Homepage preview strip */
+.rb-preview { border: 1px solid var(--rb-line); border-radius: var(--rb-radius); background: var(--rb-surface, rgba(255,255,255,.038)); overflow: hidden; }
+.rb-preview-row { display: grid; grid-template-columns: 44px 1fr 120px; align-items: center; gap: 14px; padding: 12px 16px; border-bottom: 1px solid var(--rb-line); }
+.rb-preview-row:last-child { border-bottom: none; }
+.rb-preview-row:hover { background: var(--v4-surface-hover, rgba(255,255,255,.062)); }
+.rb-preview-row .rb-rank { width: 34px; height: 34px; font-size: 13px; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .rb-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .rb-detail-head { grid-template-columns: 1fr; }
+  .rb-row { grid-template-columns: 52px 1fr 110px 84px; }
+  .rb-row .rb-col-clicks, .rb-row .rb-col-age { display: none; }
+}
+@media (max-width: 680px) {
+  .rb-grid-3, .rb-grid-2, .rb-grid-4 { grid-template-columns: 1fr; }
+  .rb-stats { gap: 22px; }
+  .rb-stat .n { font-size: 22px; }
+  .rb-section-head { align-items: start; flex-direction: column; gap: 10px; }
+  .rb-row { grid-template-columns: 44px 1fr auto; gap: 10px; padding: 14px 12px; }
+  .rb-row .rb-col-bid { grid-column: 2 / 3; }
+  .rb-row .rb-action-cell { grid-column: 3 / 4; grid-row: 1 / 3; align-self: center; }
+  .rb-bid { font-size: 16px; }
+  .rb-sortbox { margin-left: 0; width: 100%; }
+  .rb-preview-row { grid-template-columns: 34px 1fr 90px; }
+}
