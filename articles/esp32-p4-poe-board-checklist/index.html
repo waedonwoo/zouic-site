@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="2026 年 11 月 6 日 SparkFun 发布两块 ESP32-P4 IoT RedBoard，一块走 Wi-Fi 6 伴芯，一块走 PoE 以太网。两版核心芯片相同、外围接口不同，核验清单不能跨版套用。PoE 版到手先验三件事：确认受电功率预算与 PSE 兼容性，查清网口走 RGMII 还是板载…"><meta name="keywords" content="SparkFun, ESP32-P4, IoT RedBoard, Wi-Fi 6 伴芯, PoE, PSE, 受电功率预算, RGMII, 板载 PHY, RJ45, 显示接口, 摄像头接口, IO 复用, 360MHz, 无 NPU, 6570 万参数语音模型, 到手核验"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/articles/esp32-p4-poe-board-checklist/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/esp32-p4-poe-board-checklist/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/esp32-p4-poe-board-checklist/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/esp32-p4-poe-board-checklist/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/esp32-p4-poe-board-checklist/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="ESP32-P4 PoE 板到手先验三件事"><meta property="og:description" content="2026 年 11 月 6 日 SparkFun 发布两块 ESP32-P4 IoT RedBoard，一块走 Wi-Fi 6 伴芯，一块走 PoE 以太网。两版核心芯片相同、外围接口不同，核验清单不能跨版套用。PoE 版到手先验三件事：确认受电功率预算与 PSE 兼容性，查清网口走 RGMII 还是板载 PHY，核对显示与摄像头接口是否复用。本文按适用条件、准备、步骤、记录、复核与异常处理说明，基准日 2026-11-22。"><meta property="og:url" content="https://www.zouic.com/articles/esp32-p4-poe-board-checklist/"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="ESP32-P4 PoE 板到手先验三件事"><meta name="twitter:description" content="2026 年 11 月 6 日 SparkFun 发布两块 ESP32-P4 IoT RedBoard，一块走 Wi-Fi 6 伴芯，一块走 PoE 以太网。两版核心芯片相同、外围接口不同，核验清单不能跨版套用。PoE 版到手先验三件事：确认受电功率预算与 PSE 兼容性，查清网口走 RGMII 还是板载 PHY，核对显示与摄像头接口是否复用。本文按适用条件、准备、步骤、记录、复核与异常处理说明，基准日 2026-11-22。"><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "2026 \u5e74 11 \u6708 6 \u65e5 SparkFun \u53d1\u5e03\u4e24\u5757 ESP32-P4 IoT RedBoard\uff0c\u4e00\u5757\u8d70 Wi-Fi 6 \u4f34\u82af\uff0c\u4e00\u5757\u8d70 PoE \u4ee5\u592a\u7f51\u3002\u4e24\u7248\u6838\u5fc3\u82af\u7247\u76f8\u540c\u3001\u5916\u56f4\u63a5\u53e3\u4e0d\u540c\uff0c\u6838\u9a8c\u6e05\u5355\u4e0d\u80fd\u8de8\u7248\u5957\u7528\u3002PoE \u7248\u5230\u624b\u5148\u9a8c\u4e09\u4ef6\u4e8b\uff1a\u786e\u8ba4\u53d7\u7535\u529f\u7387\u9884\u7b97\u4e0e PSE \u517c\u5bb9\u6027\uff0c\u67e5\u6e05\u7f51\u53e3\u8d70 RGMII \u8fd8\u662f\u677f\u8f7d PHY\uff0c\u6838\u5bf9\u663e\u793a\u4e0e\u6444\u50cf\u5934\u63a5\u53e3\u662f\u5426\u590d\u7528\u3002\u672c\u6587\u6309\u9002\u7528\u6761\u4ef6\u3001\u51c6\u5907\u3001\u6b65\u9aa4\u3001\u8bb0\u5f55\u3001\u590d\u6838\u4e0e\u5f02\u5e38\u5904\u7406\u8bf4\u660e\uff0c\u57fa\u51c6\u65e5 2026-11-22\u3002", "headline": "ESP32-P4 PoE \u677f\u5230\u624b\u5148\u9a8c\u4e09\u4ef6\u4e8b", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/esp32-p4-poe-board-checklist/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/esp32-p4-poe-board-checklist/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/esp32-p4-poe-board-checklist/", "name": "ESP32-P4 PoE \u677f\u5230\u624b\u5148\u9a8c\u4e09\u4ef6\u4e8b", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u5148\u67e5\u4f9b\u7535\u3002\u63a5\u4e0a\u73b0\u573a\u4ea4\u6362\u673a\u6216\u6ce8\u5165\u5668\uff0c\u770b PSE \u662f\u5426\u8bc6\u522b\u5230\u53d7\u7535\u8bbe\u5907\uff0c\u8bb0\u5f55\u534f\u5546\u540e\u7684\u529f\u7387\u6863\u4f4d\uff0c\u786e\u8ba4\u53d7\u7535\u529f\u7387\u9884\u7b97\u591f\u7528\uff0c\u518d\u786e\u8ba4\u677f\u5b50\u7a33\u5b9a\u542f\u52a8\u800c\u4e0d\u662f\u53cd\u590d\u91cd\u542f\u3002\u53cd\u590d\u91cd\u542f\u6216\u7f51\u53e3\u65f6\u65ad\u65f6\u7eed\u901a\u5e38\u5148\u6000\u7591\u529f\u7387\u9884\u7b97\u4e0e PSE \u517c\u5bb9\u6027\uff0c\u800c\u4e0d\u662f\u6025\u7740\u6539\u8f6f\u4ef6\u3002\u786e\u8ba4\u4f9b\u7535\u4e4b\u540e\u518d\u52a8\u7f51\u53e3\u548c\u663e\u793a\u3002"}, "name": "PoE \u7248\u5230\u624b\u7b2c\u4e00\u4ef6\u4e8b\u67e5\u4ec0\u4e48\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u4e24\u8005\u5bf9\u5e94\u4e0d\u540c\u7684\u5f15\u811a\u4e0e\u5e03\u7ebf\uff1a\u8d70 RGMII \u8981\u6709\u5bf9\u5e94\u5f15\u811a\u548c\u5916\u90e8 PHY\uff0c\u8d70\u677f\u8f7d PHY \u5219\u662f\u53e6\u4e00\u5957\u63a5\u6cd5\u3002\u67e5\u539f\u7406\u56fe\u6bd4\u770b\u5916\u89c2\u53ef\u9760\uff0c\u786e\u8ba4\u540e\u518d\u8fdb\u7cfb\u7edf\u6838\u5bf9\u94fe\u8def\u901f\u7387\u4e0e\u53cc\u5de5\u72b6\u6001\uff0c\u8dd1\u4e00\u6b21\u6301\u7eed\u4f20\u8f93\u770b\u662f\u5426\u4e22\u5305\u3002\u628a\u5b83\u67e5\u6e05\u695a\uff0c\u624d\u80fd\u5224\u65ad\u94fe\u8def\u95ee\u9898\u662f\u914d\u7f6e\u95ee\u9898\u8fd8\u662f\u786c\u4ef6\u8fde\u63a5\u95ee\u9898\uff0c\u4e5f\u907f\u514d\u62ff\u53e6\u4e00\u7248\u7684\u8d44\u6599\u6765\u63a5\u8fd9\u4e00\u7248\u3002"}, "name": "\u7f51\u53e3\u8d70 RGMII \u8fd8\u662f\u677f\u8f7d PHY\uff0c\u4e3a\u4ec0\u4e48\u8981\u67e5\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u4e0d\u80fd\u3002\u4e24\u5757 RedBoard \u540d\u5b57\u63a5\u8fd1\uff0c\u6838\u5fc3\u82af\u7247\u76f8\u540c\u4f46\u5916\u56f4\u63a5\u53e3\u4e0d\u540c\uff1a\u4e00\u5757\u8d70 Wi-Fi 6 \u4f34\u82af\uff0c\u4e00\u5757\u8d70 PoE \u4ee5\u592a\u7f51\uff0cPoE \u7248\u6ca1\u6709\u90a3\u9897\u4f34\u82af\u3002\u63a5\u53e3\u5b9a\u4e49\u3001\u4f9b\u7535\u65b9\u5f0f\u548c\u5916\u8bbe\u8fde\u63a5\u90fd\u8981\u6309\u624b\u4e0a\u5177\u4f53\u7248\u672c\u91cd\u505a\u4e00\u904d\uff0c\u6e05\u5355\u4e0d\u80fd\u8de8\u7248\u5957\u7528\u3002\u8bb0\u5f55\u65f6\u5199\u6e05\u677f\u5b50\u7248\u672c\u3001\u8d44\u6599\u7248\u672c\u3001\u4ea4\u6362\u673a\u578b\u53f7\u4e0e\u5916\u8bbe\u578b\u53f7\uff0c\u540e\u7eed\u590d\u6838\u624d\u6709\u4f9d\u636e\u3002"}, "name": "Wi-Fi 6 \u4f34\u82af\u7248\u7684\u6838\u9a8c\u6e05\u5355\u80fd\u7528\u5230 PoE \u7248\u5417\uff1f"}]}]}
+    </script>
+    
+    
+    <title>ESP32-P4 PoE 板到手先验三件事 - ZouIC</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">跳转到主要内容</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航"><div class="container"><a class="navbar-brand" href="/" aria-label="ZouIC 首页"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/all-projects/">开源项目</a></li><li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li><li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/services/component-matching/">商务合作</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li><li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li><li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li><li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li><li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li><li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li><li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li><li><a class="dropdown-item" href="/tools/"><i class="fas fa-calculator me-2"></i>硬件计算器</a></li><li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li><li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li><li><a class="dropdown-item" href="/ideas/"><i class="fas fa-lightbulb me-2"></i>创意树洞</a></li><li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="搜索类型:"><option value="">全部分类</option><option value="board">开源开发板</option><option value="project">开源项目</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="打开智能搜索"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/esp32-p4-poe-board-checklist/"><i class="fas fa-language me-2"></i> 中文
+                            </a></li><li><a class="dropdown-item" href="/en/articles/esp32-p4-poe-board-checklist/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/articles/esp32-p4-poe-board-checklist/"><i class="fas fa-language me-2"></i> 德语
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/">首页</a></li><li class="breadcrumb-item"><a href="/articles/">技术文章</a></li><li class="breadcrumb-item active" aria-current="page">ESP32-P4 PoE 板到手先验三件事</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">免费公开 · 欢迎转发</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">ESP32-P4 PoE 板到手先验三件事</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">算力行业观察 · 极客微栋 @GeekWaedon</p><p class="text-secondary text-sm mt-4">极客微栋 @GeekWaedon · 2026 年 11 月</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><div class="card-dark p-6 mb-5"><p>2026 年 11 月 6 日 SparkFun 发布两块 ESP32-P4 IoT RedBoard，一块配 Wi-Fi 6 伴芯，一块走 PoE 以太网。两块板子名字接近，接口和供电方式不同，不能按同一张清单选。PoE 版到手后先做三件事：确认受电功率预算与 PSE 兼容、查清网口走 RGMII 还是板载 PHY、核对显示与摄像头接口是否复用。本文按购前适用条件到异常处理说明，基准日 2026-11-22。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何事 · What：两块板子差在哪里</h2><p>SparkFun 在 2026 年 11 月 6 日发布两块 ESP32-P4 IoT RedBoard。一块带 Wi-Fi 6 伴芯，无线连接由伴芯承担；另一块走 PoE 以太网，供电和数据共用一个 RJ45 口。ESP32-P4 本身无 NPU，主频 360MHz，本站此前已写过它运行 6570 万参数语音模型的软件栈，本文不重写模型部分。两块板子的核心芯片相同，外围接口不同，选板时按现场有没有网线、要不要无线来定，而不是因为名字相近就互相替代。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何因 · Why：三条链路各自独立</h2><p>PoE 版把供电和网络压在一根网线上，受电端功率预算由 PSE 与受电设备协商，预算不够会出现反复重启或网口时断时续。网口链路要看 MAC 与 PHY 之间怎么接：走 RGMII 要有对应引脚和外部 PHY，走板载 PHY 则是另一套布线。显示与摄像头常共用一组 IO，接了屏就少一路摄像头。三条链路各自独立，任何一条没核清楚，板子到手都会卡在上电或点亮阶段；把它们写进同一张核验表，才不会漏项，也不会把供电问题误判成网络问题。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何人 · Who：板卡、交换机与外设来自不同方</h2><p>板卡来自 SparkFun 的官方发布，属于级别 2 的厂商资料。PSE 一侧通常来自现场已有的 PoE 交换机或注入器，由网络侧提供，不在板卡清单里。显示与摄像头模组也多来自第三方，接口定义要看各自的引脚说明。引用时把板卡厂商、PSE 厂商、外设厂商分开，不要因为板卡支持 PoE 就默认现场每一台交换机都支持对应标准。核查顺序是先确认交换机的功率档位与固件能力，再确认板卡的受电需求，两边对得上再接线。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何时 · When：发布日到到手日</h2><p>发布日期是 2026 年 11 月 6 日，基准日 2026-11-22 是核查时点，两者不是同一天。发布说明产品进入渠道，不等于所订板子已到手，也不等于配套资料已更新到最终版。到手后先记录板子版本与资料版本，再开始核验。若现场交换机是更早采购的，要按交换机的实际固件与端口能力判断，而不是按发布日推断它支持新板子的受电协商。时间标签写清楚，能避免把预期能力当成现成条件，也能避免拿旧资料去接新板子。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">何地 · Where：核验落在端口与引脚上</h2><p>核验落在实体位置。供电看 RJ45 口旁的受电电路与标注，确认受电功率预算；网口看 MAC 侧引出的是 RGMII 信号还是已接到板载 PHY，查原理图比看外观可靠；显示与摄像头看排针或 FPC 座的定义，确认有没有复用同一组 IO。无线版要看伴芯的连线与天线接口，PoE 版没有这颗伴芯，不能拿无线版的资料去接 PoE 版。每个位置拍照或记下版本号，后续复核才有着落，问题出现时也知道该回看哪一处。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">如何 · How：按上电顺序走完四步</h2><p>步骤按上电顺序排。第一步接交换机或注入器，看 PSE 是否识别到受电设备，记录协商后的功率档位，再确认板子稳定启动而不是反复重启。第二步查网口：对照原理图确认 RGMII 或板载 PHY，进系统后确认链路速率与双工状态，跑一次持续传输看是否丢包。第三步核显示与摄像头：先只接显示，确认点亮；再接摄像头，看是否因接口复用导致显示失效。第四步记录每一项的结果和所用外设型号。四步走完，板子才算过到手关，而不是通上电就算完。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">边界：兼容清单不能跨版套用</h2><p>三处边界。Wi-Fi 6 伴芯版与 PoE 版的接口不同，确认清单不能互相套用，按手上的具体版本重做一遍。PSE 兼容性取决于交换机固件与端口能力，板卡资料写支持 PoE，不代表现场每一台交换机都能稳定供电。ESP32-P4 无 NPU、主频 360MHz，模型能力有上限，6570 万参数语音模型属于本站此前文章的背景信息，本文不展开，也不把模型表现当成板卡到手核验项。超出这些范围的结论需要另做测试，不能从一份到手清单里推出来。</p></div><div class="card-dark p-6 mb-5"><h2 class="section-title text-2xl font-bold mb-4">结论：三件事按顺序过</h2><p>PoE 版到手的核验顺序是供电、网口、显示。供电先确认受电功率预算与 PSE 兼容，避免反复重启；网口先查 RGMII 还是板载 PHY，再验证链路稳定；显示与摄像头先分开测，再一起测复用冲突。每一步留记录，写清交换机型号、资料版本和外设型号。两块 RedBoard 名字接近但接口不同，选板和核验都要按具体版本走，不能把 Wi-Fi 6 伴芯版的结论搬到 PoE 版上。三件事都过了，板子才适合进入后续开发。</p></div><div class="card-dark p-6 mb-5"><p>数据与口径（基准日 2026-11-22）：级别 2（SparkFun 2026-11-06 官方发布）：发布两块 ESP32-P4 IoT RedBoard，一块走 Wi-Fi 6 伴芯，一块走 PoE 以太网；两版核心芯片相同、外围接口不同。级别 2（本站此前文章已核的背景信息）：ESP32-P4 无 NPU、主频 360MHz，可运行 6570 万参数语音模型，本文不重写模型与软件栈。级别 3（本站方法）：供电先确认受电功率预算与 PSE 兼容，网口先查 RGMII 或板载 PHY 再验链路，显示与摄像头分开测再核复用；按具体板卡版本记录交换机型号、资料版本与外设型号，不跨版套用清单，异常逐项回看对应链路。</p></div></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>PoE 版到手第一件事查什么？</h3><p class="faq-a">先查供电。接上现场交换机或注入器，看 PSE 是否识别到受电设备，记录协商后的功率档位，确认受电功率预算够用，再确认板子稳定启动而不是反复重启。反复重启或网口时断时续通常先怀疑功率预算与 PSE 兼容性，而不是急着改软件。确认供电之后再动网口和显示。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>网口走 RGMII 还是板载 PHY，为什么要查？</h3><p class="faq-a">两者对应不同的引脚与布线：走 RGMII 要有对应引脚和外部 PHY，走板载 PHY 则是另一套接法。查原理图比看外观可靠，确认后再进系统核对链路速率与双工状态，跑一次持续传输看是否丢包。把它查清楚，才能判断链路问题是配置问题还是硬件连接问题，也避免拿另一版的资料来接这一版。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>Wi-Fi 6 伴芯版的核验清单能用到 PoE 版吗？</h3><p class="faq-a">不能。两块 RedBoard 名字接近，核心芯片相同但外围接口不同：一块走 Wi-Fi 6 伴芯，一块走 PoE 以太网，PoE 版没有那颗伴芯。接口定义、供电方式和外设连接都要按手上具体版本重做一遍，清单不能跨版套用。记录时写清板子版本、资料版本、交换机型号与外设型号，后续复核才有依据。</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/articles/" class="btn-zouic">技术文章</a><a href="/boards/" class="btn-zouic">开源开发板</a><a href="/compare/" class="btn-zouic btn-zouic-primary">开发板对比</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3><p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p></div><div class="col-lg-5"><a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span></div></div></div></div></div></section><section class="py-4" aria-label="出品人"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div><div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/" class="footer-brand" aria-label="ZouIC 首页"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p><p class="footer-business-contact">
+                        商务合作 / 器件选型：
+                        <a href="mailto:waedon@outlook.com?subject=%E5%95%86%E5%8A%A1%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@outlook.com</a></p><div class="footer-meta"><p class="footer-author">
+                            出品人 · <strong>极客微栋</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span><a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商"><i class="fab fa-weixin"></i> 企业微信服务商
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a><a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>产品</h5><ul><li><a href="/products/">产品介绍</a></li><li><a href="/services/">服务说明</a></li><li><a href="/services/website-building/">建站服务</a></li><li><a href="/services/component-matching/">元器件撮合</a></li><li><a href="/news/">站内动态</a></li><li><a href="/boards/">开源开发板</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>资源</h5><ul><li><a href="/board-guide/">选型指南</a></li><li><a href="/compare/">开发板对比</a></li><li><a href="/tutorials/">开发板教程</a></li><li><a href="/documentation/">技术文档</a></li><li><a href="/online-tools/">在线工具</a></li><li><a href="/tools/">硬件计算器</a></li><li><a href="/cases/">项目案例</a></li><li><a href="/help/">文档中心</a></li><li><a href="/games/resistor/">色环电阻识别挑战</a></li><li><a href="/dashuju/">数据大屏</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>开源生态</h5><ul><li><a href="/open-source/">开源项目</a></li><li><a href="/all-projects/">全部项目</a></li><li><a href="/articles/">技术文章</a></li><li><a href="/ideas/">创意树洞</a></li><li><a href="/wechat/">公众号专栏</a></li><li><a href="/contribute/">贡献指南</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>关于</h5><ul><li><a href="/about/">关于我们</a></li><li><a href="/about/#contact">联系我们</a></li><li><a href="/licenses/">开源协议</a></li><li><a href="/pricing/">服务报价</a></li><li><a href="/privacy/">隐私政策</a></li><li><a href="/terms/">服务条款</a></li><li><a href="/refund/">退款政策</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">热门分类</span><div class="footer-category-links"><a href="/category/">全部</a><a href="/category/fpga/">FPGA</a><a href="/category/general/">综合</a><a href="/category/ai_hardware/">AI 硬件</a><a href="/category/vision/">机器视觉</a><a href="/category/esp32/">ESP32</a><a href="/category/robotics/">机器人</a><a href="/source/github/">GitHub</a><a href="/source/hackster/">Hackster.io</a><a href="/resources/">资源导航</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div><div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="返回顶部"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="站内智能搜索"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="搜索开发板、项目、文章，或直接输入问题…"
+                       aria-label="站内智能搜索"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> 选择</span><span><kbd>↵</kbd> 打开</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/esp32-p4-poe-board-checklist/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=zh-CN'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>
