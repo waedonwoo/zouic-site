@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="据钛媒体梳理，一台国产机器人整机售价5万到30万元，一颗英伟达Jetson Thor模块量产价约3000美元、功耗40到130瓦；优必选董事长周剑公开表示，国外芯片占硬件采购物料成本的三分之一。优必选与沐曦合资的曦选创智完成5亿元天使轮、投后估值40亿元，首颗大小脑一体SoC对标Thor，计划2027年下半年流片…"><meta name="keywords" content="机器人芯片, Jetson Thor, 优必选, 沐曦, 智元机器人, 定义权, 流片, 人形机器人, 自研芯片, 成本核算"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/articles/robot-oem-chip-definition-decision/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/robot-oem-chip-definition-decision/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/robot-oem-chip-definition-decision/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/robot-oem-chip-definition-decision/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/robot-oem-chip-definition-decision/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="3000美元一颗的机器人大脑，整机厂买得到却要自己造"><meta property="og:description" content="据钛媒体梳理，一台国产机器人整机售价5万到30万元，一颗英伟达Jetson Thor模块量产价约3000美元、功耗40到130瓦；优必选董事长周剑公开表示，国外芯片占硬件采购物料成本的三分之一。优必选与沐曦合资的曦选创智完成5亿元天使轮、投后估值40亿元，首颗大小脑一体SoC对标Thor，计划2027年下半年流片、2028年量产；智元战略投资芯际无限与辉羲智能。研究显示端到端延迟中高达75%消耗在受内存带宽限制的动作生成阶段。截至 2026-11-24。"><meta property="og:url" content="https://www.zouic.com/articles/robot-oem-chip-definition-decision/"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="3000美元一颗的机器人大脑，整机厂买得到却要自己造"><meta name="twitter:description" content="据钛媒体梳理，一台国产机器人整机售价5万到30万元，一颗英伟达Jetson Thor模块量产价约3000美元、功耗40到130瓦；优必选董事长周剑公开表示，国外芯片占硬件采购物料成本的三分之一。优必选与沐曦合资的曦选创智完成5亿元天使轮、投后估值40亿元，首颗大小脑一体SoC对标Thor，计划2027年下半年流片、2028年量产；智元战略投资芯际无限与辉羲智能。研究显示端到端延迟中高达75%消耗在受内存带宽限制的动作生成阶段。截至 2026-11-24。"><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "\u636e\u949b\u5a92\u4f53\u68b3\u7406\uff0c\u4e00\u53f0\u56fd\u4ea7\u673a\u5668\u4eba\u6574\u673a\u552e\u4ef75\u4e07\u523030\u4e07\u5143\uff0c\u4e00\u9897\u82f1\u4f1f\u8fbeJetson Thor\u6a21\u5757\u91cf\u4ea7\u4ef7\u7ea63000\u7f8e\u5143\u3001\u529f\u801740\u5230130\u74e6\uff1b\u4f18\u5fc5\u9009\u8463\u4e8b\u957f\u5468\u5251\u516c\u5f00\u8868\u793a\uff0c\u56fd\u5916\u82af\u7247\u5360\u786c\u4ef6\u91c7\u8d2d\u7269\u6599\u6210\u672c\u7684\u4e09\u5206\u4e4b\u4e00\u3002\u4f18\u5fc5\u9009\u4e0e\u6c90\u66e6\u5408\u8d44\u7684\u66e6\u9009\u521b\u667a\u5b8c\u62105\u4ebf\u5143\u5929\u4f7f\u8f6e\u3001\u6295\u540e\u4f30\u503c40\u4ebf\u5143\uff0c\u9996\u9897\u5927\u5c0f\u8111\u4e00\u4f53SoC\u5bf9\u6807Thor\uff0c\u8ba1\u52122027\u5e74\u4e0b\u534a\u5e74\u6d41\u7247\u30012028\u5e74\u91cf\u4ea7\uff1b\u667a\u5143\u6218\u7565\u6295\u8d44\u82af\u9645\u65e0\u9650\u4e0e\u8f89\u7fb2\u667a\u80fd\u3002\u7814\u7a76\u663e\u793a\u7aef\u5230\u7aef\u5ef6\u8fdf\u4e2d\u9ad8\u8fbe75%\u6d88\u8017\u5728\u53d7\u5185\u5b58\u5e26\u5bbd\u9650\u5236\u7684\u52a8\u4f5c\u751f\u6210\u9636\u6bb5\u3002\u622a\u81f3 2026-11-24\u3002", "headline": "3000\u7f8e\u5143\u4e00\u9897\u7684\u673a\u5668\u4eba\u5927\u8111\uff0c\u6574\u673a\u5382\u4e70\u5f97\u5230\u5374\u8981\u81ea\u5df1\u9020", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/robot-oem-chip-definition-decision/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/robot-oem-chip-definition-decision/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/robot-oem-chip-definition-decision/", "name": "3000\u7f8e\u5143\u4e00\u9897\u7684\u673a\u5668\u4eba\u5927\u8111\uff0c\u6574\u673a\u5382\u4e70\u5f97\u5230\u5374\u8981\u81ea\u5df1\u9020", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u56e0\u4e3a\u8d26\u4e0d\u6b62\u662f\u96f6\u4ef6\u4ef7\u3002\u636e\u949b\u5a92\u4f53\u68b3\u7406\uff0c\u4e00\u9897\u82f1\u4f1f\u8fbeJetson Thor\u6a21\u5757\u91cf\u4ea7\u4ef7\u7ea63000\u7f8e\u5143\uff0c\u4f18\u5fc5\u9009\u8463\u4e8b\u957f\u5468\u5251\u516c\u5f00\u8868\u793a\u56fd\u5916\u82af\u7247\u5360\u786c\u4ef6\u91c7\u8d2d\u7269\u6599\u6210\u672c\u7684\u4e09\u5206\u4e4b\u4e00\u3002\u6574\u673a\u5382\u6bcf\u5356\u51fa\u4e00\u53f0\u90fd\u5728\u4ea4\u4e00\u4efd\u8fc7\u8def\u8d39\uff0c\u800c\u82af\u7247\u7684\u5de5\u51b5\u5b9a\u4e49\u5199\u5728\u4f9b\u5e94\u5546\u7684\u8def\u7ebf\u56fe\u91cc\u3002\u81ea\u7814\u4e89\u7684\u662f\u628a\u5173\u8282\u548c\u5b9e\u65f6\u7684\u9700\u6c42\u5199\u8fdb\u82af\u7247\u7684\u90a3\u53ea\u7b14\u3002\u622a\u81f3 2026-11-24\uff0c\u7279\u65af\u62c9\u3001\u8ffd\u89c5\u3001\u4f18\u5fc5\u9009\u4e0e\u6c90\u66e6\u7684\u5408\u8d44\u516c\u53f8\u3001\u667a\u5143\u6218\u7565\u6295\u8d44\u7684\u4f01\u4e1a\u8d70\u4e86\u56db\u6761\u4e0d\u540c\u8def\u7ebf\u3002"}, "name": "\u4e00\u98973000\u7f8e\u5143\u7684\u82af\u7247\uff0c\u6574\u673a\u5382\u4e3a\u4ec0\u4e48\u975e\u8981\u81ea\u5df1\u9020\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u56e0\u4e3a\u6709\u7814\u7a76\u5bf9Jetson Orin\u4e0eThor\u4e24\u4ee3\u5e73\u53f0\u4e0a\u7684VLA\u6a21\u578b\u505a\u7cfb\u7edf\u8868\u5f81\u540e\u53d1\u73b0\uff0c\u7aef\u5230\u7aef\u5ef6\u8fdf\u4e2d\u9ad8\u8fbe75%\u6d88\u8017\u5728\u52a8\u4f5c\u751f\u6210\u9636\u6bb5\uff0c\u800c\u8fd9\u4e00\u9636\u6bb5\u53d7\u5185\u5b58\u5e26\u5bbd\u9650\u5236\uff0c\u53d7\u7b97\u529b\u5f71\u54cd\u5f88\u5c0f\u3002Thor\u628a\u7b97\u529b\u5927\u5e45\u63a8\u9ad8\uff0c\u7aef\u5230\u7aef\u5ef6\u8fdf\u7684\u6539\u5584\u5e45\u5ea6\u5374\u8fdc\u5c0f\u4e8e\u7b97\u529b\u63d0\u5347\u7684\u6bd4\u4f8b\u3002\u673a\u5668\u4eba\u9700\u8981\u6beb\u79d2\u7ea7\u5b9e\u65f6\u54cd\u5e94\uff0c\u901a\u7528GPU\u67b6\u6784\u4f18\u5148\u670d\u52a1\u7684\u662f\u541e\u5410\uff0c\u4e0d\u662f\u786e\u5b9a\u6027\u5ef6\u8fdf\u3002\u628a\u7b97\u529b\u5806\u4e0a\u53bb\uff0c\u4e0d\u7b49\u4e8e\u628a\u624b\u53d8\u5feb\u3002"}, "name": "Thor\u7b97\u529b\u5927\u5e45\u63d0\u5347\uff0c\u4e3a\u4ec0\u4e48\u7aef\u5230\u7aef\u5ef6\u8fdf\u6ca1\u540c\u6b65\u6539\u5584\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u65f6\u95f4\u8868\u8981\u5206\u5f00\u770b\u3002\u66e6\u9009\u521b\u667a\u8ba1\u52122027\u5e74\u4e0b\u534a\u5e74\u6d41\u7247\u30012028\u5e74\u91cf\u4ea7\uff1b\u82af\u9645\u65e0\u9650\u9996\u6b3e\u5c0f\u8111\u82af\u7247\u5df2\u5b8c\u6210\u6d41\u7247\u56de\u7247\uff0c\u7b2c\u4e8c\u4ee3\u8ba1\u52122027\u5e74\u6d41\u7247\uff0c\u653e\u91cf\u6307\u54112027\u52302028\u5e74\u3002\u540c\u671f\u5bf9\u624b\u5e76\u6ca1\u6709\u505c\uff1a\u82f1\u4f1f\u8fbeT3000\u4e0eT2000\u8ba1\u52122027\u5e74\u7b2c\u4e00\u5b63\u5ea6\u4e0a\u5e02\uff0c\u5730\u74dc\u65ed\u65e5\u7cfb\u5217\u7d2f\u8ba1\u51fa\u8d27\u5df2\u7a81\u7834800\u4e07\u7247\uff0c\u8f89\u7fb2R1 PRO\u5728\u667a\u5143\u7cbe\u7075G2\u4e0a\u5b8c\u6210\u8fde\u7eed6\u5929\u300117625\u6b21\u4ea7\u7ebf\u4f5c\u4e1a\u9a8c\u8bc1\u3002\u8ba1\u5212\u4e0d\u7b49\u4e8e\u4ea4\u4ed8\uff0c\u51fa\u8d27\u91cf\u624d\u662f\u6700\u540e\u7684\u88c1\u5224\u3002"}, "name": "\u81ea\u7814\u82af\u7247\u4ec0\u4e48\u65f6\u5019\u80fd\u771f\u6b63\u7528\u5728\u673a\u5668\u4eba\u4e0a\uff1f"}]}]}
+    </script>
+    
+    
+    <title>3000美元一颗的机器人大脑，整机厂买得到却要自己造 - ZouIC</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">跳转到主要内容</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航"><div class="container"><a class="navbar-brand" href="/" aria-label="ZouIC 首页"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/all-projects/">开源项目</a></li><li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li><li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/services/component-matching/">商务合作</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li><li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li><li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li><li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li><li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li><li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li><li><a class="dropdown-item" href="/rank/"><i class="fas fa-trophy me-2"></i>极客榜</a></li><li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li><li><a class="dropdown-item" href="/tools/"><i class="fas fa-calculator me-2"></i>硬件计算器</a></li><li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li><li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li><li><a class="dropdown-item" href="/ideas/"><i class="fas fa-lightbulb me-2"></i>创意树洞</a></li><li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="搜索类型:"><option value="">全部分类</option><option value="board">开源开发板</option><option value="project">开源项目</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="打开智能搜索"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/robot-oem-chip-definition-decision/"><i class="fas fa-language me-2"></i> 中文
+                            </a></li><li><a class="dropdown-item" href="/en/articles/robot-oem-chip-definition-decision/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/articles/robot-oem-chip-definition-decision/"><i class="fas fa-language me-2"></i> 德语
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/">首页</a></li><li class="breadcrumb-item"><a href="/articles/">技术文章</a></li><li class="breadcrumb-item active" aria-current="page">3000美元一颗的机器人大脑，整机厂买得到却要自己造</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">免费公开 · 欢迎转发</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">3000美元一颗的机器人大脑，整机厂买得到却要自己造</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">算力行业观察 · 极客微栋 @GeekWaedon</p><p class="text-secondary text-sm mt-4">极客微栋 @GeekWaedon · 2026 年 11 月</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><p>一台国产机器人整机售价5万到30万元，光是一颗英伟达Jetson Thor模块，量产价就在3000美元左右，功耗40到130瓦。3000美元这个整数，正在成为整机厂的一道分水岭。据钛媒体梳理，优必选董事长周剑公开表示：「很多国外芯片太贵了，占硬件采购物料成本的三分之一。」整机卖到三十万，零件里的一颗大脑就要吃掉三分之一，这笔账很难装作看不见。截至 2026-11-24，把自研芯片从备选项挪到必选项的整机厂越来越多。买得到的芯片，为什么非要自己造？</p><h2 class="section-title text-2xl font-bold mb-4">买得到芯片，买不到定义权</h2><p>先说清楚这颗芯片管什么。人形机器人身上那颗中央控制SoC，行内叫主控大脑，有的方案把大脑和小脑做在一颗芯片里，管决策也管关节的实时动作。整机厂买一颗通用模块，等于买一台现成的发动机：装上去能跑，可什么时候换挡、油门给多少，图纸在别人手里。自己造芯，争的是把工况需求写进芯片的那只笔。这笔账不只是省钱。一颗模块占硬件物料成本三分之一，意味着整机厂每卖出一台，都要向芯片供应商交一份过路费。买发动机和造发动机的差别，不在能不能跑，而在车坏了谁改图纸。定义权落到谁手上，谁就能决定下一代机器人是快在算力，还是稳在关节。</p><h2 class="section-title text-2xl font-bold mb-4">延迟卡在动作生成，不在算力</h2><p>有研究对Jetson Orin与Thor两代平台上的VLA模型做系统表征，结果很扎眼：端到端延迟中高达75%消耗在动作生成阶段，而这个阶段受内存带宽限制，受算力的影响很小。Thor把算力大幅往上推，端到端延迟的改善幅度却远小于算力提升的比例。跑车表底标着300码，早高峰堵在二环上，能开到二十就不错了：纸面上的峰值，和真正跑起来的速度，从来不是一回事。机器人要的是毫秒级实时响应，通用GPU架构优先服务的是吞吐，不是确定性延迟。把算力堆上去，不等于把机器人的手变快。这条判断就摆在研究数据前面，用不着谁再补一句注解。</p><h2 class="section-title text-2xl font-bold mb-4">二三十个关节，单核管不过来</h2><p>一台人形机器人全身有二三十个关节，多轴协同时序要求精确到毫秒。每个关节的MCU要同时干两件事：跑电机控制算法，控制周期以微秒计；还要处理通信协议，把状态报给主控。两件事挤在一个单核上，就像分手厨房里一个人一边炒菜一边记单，火候和订单总要耽误一头。单核方案难在架构层解决这种争抢，堆主频只是把锅换大，灶台还是一个。更贴切的说法是量体裁衣式同步定义：布料就在手边，针脚才走得密；数据要跑到库房去拿，再好的裁缝也赶不出工期。芯片架构到了关节这一层，拼的从来不是峰值参数，胜负在谁把实时性做进了架构里。</p><h2 class="section-title text-2xl font-bold mb-4">四条路线，指向同一件事</h2><p>据钛媒体梳理，整机厂切入芯片的方式分成四条。特斯拉走得最彻底，AI5算力2000到2500 TOPS，功耗约250瓦，马斯克称这是让Optimus产量足够的唯一办法，目标年产量一百万台。追觅在生态内自研，芯际穿越的天穹系列2026年3月发布并规模化量产，走多核CPU加专用NPU加独立MCU的异构路线。优必选和沐曦成立合资公司，2026年5月落地，双方各持股35.01%，沐曦创始人陈维良任董事长，优必选创始人周剑任副董事长。智元机器人选择战略投资，投了清华系RISC-V企业芯际无限，也投了辉羲智能。四条路线手里的牌不一样，最需要证明的事却相同：芯片能不能在真实工况里跑住。</p><h2 class="section-title text-2xl font-bold mb-4">每1GB乘以一百万台，就成了压垮成本的数字</h2><p>特斯拉的方案里，有一组数字值得慢慢看。马斯克把Optimus的内存规划从144GB砍到72GB，后来又改回96GB。按年产量一百万台算，每1GB的增减乘以一百万台，都是一个足以压垮成本的数字。144GB到72GB，中间差了72GB；再改回96GB，又加回24GB。这不是工程师在实验室里反复横跳，这是量产账本在逼着设计改动。一台机器人省下的那点内存钱，放到一百万台上，就是一整条产线的预算。反过来讲，谁要是能把内存和实时性在架构里一次算清，谁就省下了这轮反复。整机与零件的账，只有放到百万台的尺度上才看得清。</p><h2 class="section-title text-2xl font-bold mb-4">合资和投资，是更轻的下注方式</h2><p>不是每家整机厂都愿意自己养一支芯片团队。优必选与沐曦的合资公司曦选创智，11月中旬完成5亿元天使轮融资，投后估值40亿元；首颗芯片定位大小脑一体SoC，对标英伟达Thor，计划2027年下半年流片、2028年量产。智元这边，芯际无限的首款小脑芯片已完成流片回片，第二代计划2027年流片，放量同样指向2027到2028年。智元还战略投资辉羲智能，后者在2026年上半年全球高算力机器人芯片市场出货约占五分之一、位居第二，智元既是它的战略股东，也是首个规模化客户。韩系也在联合开发：Mobilint在2026年9月与LG电子、斗山机器人、大同合作端侧AI半导体项目。财务数字摆在一旁：沐曦2026年前三季度营收28.24亿元、同比增128.45%，研发投入占营收近三成；优必选上半年营收12.69亿元、同比增104.2%，全尺寸具身机器人卖出921台，期内亏损3.39亿元，同时把Walker S系列出货指引从2000到3000台上调到5000台。芯片研发的投入是实打实的，整机厂的盈利能力还没有厚到可以无限期为芯片团队输血。</p><h2 class="section-title text-2xl font-bold mb-4">2028年量产，对手不会等</h2><p>时间表写得很远，对手的动作却很近。英伟达今年7月推出Jetson T3000，32GB内存、70瓦、865 FP4 TFLOPS；同期还有T2000，16GB、40瓦、400 FP4 TFLOPS，计划2027年第一季度上市。国产商用方案也没有停在原地：地瓜机器人旭日S600已适配二十余家机器人厂商，旭日系列累计出货突破800万片；辉羲R1 PRO在智元精灵G2上完成连续6天、17625次产线作业验证，任务成功率99.99%。一边是2027年流片、2028年量产，一边是已经出货八百万片和跑完一万七千多次作业的现成方案。把自研的时间表写进今天的采购决策，等于拿图纸去验房。对手不会等你把芯片做出来。</p><h2 class="section-title text-2xl font-bold mb-4">出货量才是最后的裁判</h2><p>把整件事收回到一个判断：机器人公司等不及英伟达，是因为通用芯片的成本和架构错配，在量产阶段会变得越来越难承受。大小脑一体的主控大脑、关节MCU的异构分工、内存乘数放大后的百万台账本，这些道理都讲得通。可芯片做出来要等到2028年，这两年里英伟达和国产商用芯片都不会停在原地。定义权值得争，但定义权最终要靠规模来兑现：流片、回片、验证、出货，一台一台交出去，才算真的把那只笔拿在手里。</p></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>一颗3000美元的芯片，整机厂为什么非要自己造？</h3><p class="faq-a">因为账不止是零件价。据钛媒体梳理，一颗英伟达Jetson Thor模块量产价约3000美元，优必选董事长周剑公开表示国外芯片占硬件采购物料成本的三分之一。整机厂每卖出一台都在交一份过路费，而芯片的工况定义写在供应商的路线图里。自研争的是把关节和实时的需求写进芯片的那只笔。截至 2026-11-24，特斯拉、追觅、优必选与沐曦的合资公司、智元战略投资的企业走了四条不同路线。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>Thor算力大幅提升，为什么端到端延迟没同步改善？</h3><p class="faq-a">因为有研究对Jetson Orin与Thor两代平台上的VLA模型做系统表征后发现，端到端延迟中高达75%消耗在动作生成阶段，而这一阶段受内存带宽限制，受算力影响很小。Thor把算力大幅推高，端到端延迟的改善幅度却远小于算力提升的比例。机器人需要毫秒级实时响应，通用GPU架构优先服务的是吞吐，不是确定性延迟。把算力堆上去，不等于把手变快。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>自研芯片什么时候能真正用在机器人上？</h3><p class="faq-a">时间表要分开看。曦选创智计划2027年下半年流片、2028年量产；芯际无限首款小脑芯片已完成流片回片，第二代计划2027年流片，放量指向2027到2028年。同期对手并没有停：英伟达T3000与T2000计划2027年第一季度上市，地瓜旭日系列累计出货已突破800万片，辉羲R1 PRO在智元精灵G2上完成连续6天、17625次产线作业验证。计划不等于交付，出货量才是最后的裁判。</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/articles/" class="btn-zouic">技术文章</a><a href="/boards/" class="btn-zouic">开源开发板</a><a href="/compare/" class="btn-zouic btn-zouic-primary">开发板对比</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3><p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p></div><div class="col-lg-5"><a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span></div></div></div></div></div></section><section class="py-4" aria-label="出品人"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div><div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/" class="footer-brand" aria-label="ZouIC 首页"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p><p class="footer-business-contact">
+                        商务合作 / 器件选型：
+                        <a href="mailto:waedon@zouic.com?subject=%E5%95%86%E5%8A%A1%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@zouic.com</a></p><div class="footer-meta"><p class="footer-author">
+                            出品人 · <strong>极客微栋</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span><a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商"><i class="fab fa-weixin"></i> 企业微信服务商
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a><a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>产品</h5><ul><li><a href="/products/">产品介绍</a></li><li><a href="/services/">服务说明</a></li><li><a href="/services/website-building/">建站服务</a></li><li><a href="/services/component-matching/">元器件撮合</a></li><li><a href="/news/">站内动态</a></li><li><a href="/boards/">开源开发板</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>资源</h5><ul><li><a href="/board-guide/">选型指南</a></li><li><a href="/compare/">开发板对比</a></li><li><a href="/tutorials/">开发板教程</a></li><li><a href="/documentation/">技术文档</a></li><li><a href="/online-tools/">在线工具</a></li><li><a href="/tools/">硬件计算器</a></li><li><a href="/cases/">项目案例</a></li><li><a href="/help/">文档中心</a></li><li><a href="/games/resistor/">色环电阻识别挑战</a></li><li><a href="/dashuju/">数据大屏</a></li><li><a href="/rank/">极客榜</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>开源生态</h5><ul><li><a href="/open-source/">开源项目</a></li><li><a href="/all-projects/">全部项目</a></li><li><a href="/articles/">技术文章</a></li><li><a href="/ideas/">创意树洞</a></li><li><a href="/wechat/">公众号专栏</a></li><li><a href="/contribute/">贡献指南</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>关于</h5><ul><li><a href="/about/">关于我们</a></li><li><a href="/about/#contact">联系我们</a></li><li><a href="/licenses/">开源协议</a></li><li><a href="/pricing/">服务报价</a></li><li><a href="/privacy/">隐私政策</a></li><li><a href="/terms/">服务条款</a></li><li><a href="/refund/">退款政策</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">热门分类</span><div class="footer-category-links"><a href="/category/">全部</a><a href="/category/fpga/">FPGA</a><a href="/category/general/">综合</a><a href="/category/ai_hardware/">AI 硬件</a><a href="/category/vision/">机器视觉</a><a href="/category/esp32/">ESP32</a><a href="/category/robotics/">机器人</a><a href="/source/github/">GitHub</a><a href="/source/hackster/">Hackster.io</a><a href="/resources/">资源导航</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div><div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="返回顶部"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="站内智能搜索"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="搜索开发板、项目、文章，或直接输入问题…"
+                       aria-label="站内智能搜索"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> 选择</span><span><kbd>↵</kbd> 打开</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/robot-oem-chip-definition-decision/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=zh-CN'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>
