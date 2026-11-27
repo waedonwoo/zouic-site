@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="description" content="极客公园11月26日专访 Pine AI：公司公布 93% 谈判成功率，同一次 SaaS-Bench v1.1 测试中检查点通过率 78.3%、完整任务完成率 27.4%。三个数字不矛盾，它们量的是三件事。93% 有明确前提，梳理需求、判断是否符合政策、管理合理预期之后，统计符合条件的任务完成情况。把成功率读成“…"><meta name="keywords" content="Pine AI, Personal Agent, 任务完成率, SaaS-Bench, 谈判成功率, 智能体验收, 孙雨润"><meta name="author" content="ZouIC"><meta name="theme-color" content="#00E5FF"><link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="canonical" href="https://www.zouic.com/articles/ai-agent-phone-task-completion-review/"><link rel="alternate" hreflang="zh-CN" href="https://www.zouic.com/articles/ai-agent-phone-task-completion-review/" /><link rel="alternate" hreflang="en" href="https://www.zouic.com/en/articles/ai-agent-phone-task-completion-review/" /><link rel="alternate" hreflang="de" href="https://www.zouic.com/de/articles/ai-agent-phone-task-completion-review/" /><link rel="alternate" hreflang="x-default" href="https://www.zouic.com/articles/ai-agent-phone-task-completion-review/" /><meta name="google-adsense-account" content="ca-pub-3757683766081111">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3757683766081111" crossorigin="anonymous"></script>
+    
+    
+    <meta property="og:title" content="AI 助理谈判成功率 93%，完整办成只有 27.4%"><meta property="og:description" content="极客公园11月26日专访 Pine AI：公司公布 93% 谈判成功率，同一次 SaaS-Bench v1.1 测试中检查点通过率 78.3%、完整任务完成率 27.4%。三个数字不矛盾，它们量的是三件事。93% 有明确前提，梳理需求、判断是否符合政策、管理合理预期之后，统计符合条件的任务完成情况。把成功率读成“十件事能办成九件”，就误读了这道口径。"><meta property="og:url" content="https://www.zouic.com/articles/ai-agent-phone-task-completion-review/"><meta property="og:type" content="article"><meta property="og:locale" content="zh_CN"><meta property="og:site_name" content="ZouIC"><meta property="og:image" content="https://www.zouic.com/static/images/og-cover.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="ZouIC 开源开发板聚合平台 · 极客微栋"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="AI 助理谈判成功率 93%，完整办成只有 27.4%"><meta name="twitter:description" content="极客公园11月26日专访 Pine AI：公司公布 93% 谈判成功率，同一次 SaaS-Bench v1.1 测试中检查点通过率 78.3%、完整任务完成率 27.4%。三个数字不矛盾，它们量的是三件事。93% 有明确前提，梳理需求、判断是否符合政策、管理合理预期之后，统计符合条件的任务完成情况。把成功率读成“十件事能办成九件”，就误读了这道口径。"><meta name="twitter:image" content="https://www.zouic.com/static/images/og-cover.jpg">
+    
+    
+    <script type="application/ld+json">
+        {"@context": "https://schema.org", "@graph": [{"@type": "Article", "author": {"@type": "Person", "name": "\u6781\u5ba2\u5fae\u680b GeekWaedon", "url": "https://www.zhihu.com/people/Waedon"}, "description": "\u6781\u5ba2\u516c\u56ed11\u670826\u65e5\u4e13\u8bbf Pine AI\uff1a\u516c\u53f8\u516c\u5e03 93% \u8c08\u5224\u6210\u529f\u7387\uff0c\u540c\u4e00\u6b21 SaaS-Bench v1.1 \u6d4b\u8bd5\u4e2d\u68c0\u67e5\u70b9\u901a\u8fc7\u7387 78.3%\u3001\u5b8c\u6574\u4efb\u52a1\u5b8c\u6210\u7387 27.4%\u3002\u4e09\u4e2a\u6570\u5b57\u4e0d\u77db\u76fe\uff0c\u5b83\u4eec\u91cf\u7684\u662f\u4e09\u4ef6\u4e8b\u300293% \u6709\u660e\u786e\u524d\u63d0\uff0c\u68b3\u7406\u9700\u6c42\u3001\u5224\u65ad\u662f\u5426\u7b26\u5408\u653f\u7b56\u3001\u7ba1\u7406\u5408\u7406\u9884\u671f\u4e4b\u540e\uff0c\u7edf\u8ba1\u7b26\u5408\u6761\u4ef6\u7684\u4efb\u52a1\u5b8c\u6210\u60c5\u51b5\u3002\u628a\u6210\u529f\u7387\u8bfb\u6210\u201c\u5341\u4ef6\u4e8b\u80fd\u529e\u6210\u4e5d\u4ef6\u201d\uff0c\u5c31\u8bef\u8bfb\u4e86\u8fd9\u9053\u53e3\u5f84\u3002", "headline": "AI \u52a9\u7406\u8c08\u5224\u6210\u529f\u7387 93%\uff0c\u5b8c\u6574\u529e\u6210\u53ea\u6709 27.4%", "image": "https://www.zouic.com/static/images/og-cover.jpg", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://www.zouic.com/articles/ai-agent-phone-task-completion-review/", "@type": "WebPage"}, "publisher": {"@id": "https://www.zouic.com/#organization"}, "url": "https://www.zouic.com/articles/ai-agent-phone-task-completion-review/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.zouic.com/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://www.zouic.com/articles", "name": "\u6587\u7ae0", "position": 2}, {"@type": "ListItem", "item": "https://www.zouic.com/articles/ai-agent-phone-task-completion-review/", "name": "AI \u52a9\u7406\u8c08\u5224\u6210\u529f\u7387 93%\uff0c\u5b8c\u6574\u529e\u6210\u53ea\u6709 27.4%", "position": 3}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u4e0d\u662f\u3002\u636e\u6781\u5ba2\u516c\u56ed\u4e13\u8bbf\u5b59\u96e8\u6da6\uff0c\u8fd9\u4e2a\u6570\u5b57\u662f\u5728\u68b3\u7406\u9700\u6c42\u3001\u5224\u65ad\u662f\u5426\u7b26\u5408\u653f\u7b56\u3001\u7ba1\u7406\u5408\u7406\u9884\u671f\u4e4b\u540e\uff0c\u7edf\u8ba1\u7b26\u5408\u6761\u4ef6\u7684\u4efb\u52a1\u5b8c\u6210\u60c5\u51b5\u3002\u5206\u6bcd\u7ecf\u8fc7\u7b5b\u9009\uff0c\u4e0d\u542b\u660e\u663e\u4e0d\u53ef\u80fd\u5b8c\u6210\u7684\u8981\u6c42\u3002\u5b83\u8bb2\u7684\u662f\u201d\u63a5\u4e86\u80fd\u529e\u591a\u5c11\u201c\uff0c\u4e0d\u662f\u201d\u63d0\u4e86\u80fd\u529e\u591a\u5c11\u201c\u3002"}, "name": "93% \u8c08\u5224\u6210\u529f\u7387\u662f\u4e0d\u662f\u610f\u5473\u7740\u5341\u4ef6\u4e8b\u80fd\u529e\u6210\u4e5d\u4ef6\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u524d\u8005\u628a\u4efb\u52a1\u62c6\u6210\u6b65\u9aa4\u5206\u522b\u8ba1\u5206\uff0c\u540e\u8005\u8981\u6c42\u4ece\u5934\u5230\u5c3e\u5168\u90e8\u6b63\u786e\u3002\u7cfb\u7edf\u53ef\u4ee5\u8fde\u7eed\u505a\u5bf9\u5f88\u591a\u6b65\uff0c\u6700\u540e\u4e00\u6b65\u51fa\u9519\uff0c\u6574\u4ef6\u4e8b\u4ecd\u7b97\u5931\u8d25\u3002\u8fd9\u4e2a\u843d\u5dee\u662f\u667a\u80fd\u4f53\u5728\u957f\u6d41\u7a0b\u4efb\u52a1\u91cc\u7684\u5178\u578b\u74f6\u9888\uff0c\u4e0d\u662f\u6d4b\u8bd5\u8bef\u5dee\u3002"}, "name": "\u68c0\u67e5\u70b9\u901a\u8fc7\u7387 78.3% \u548c\u5b8c\u6574\u4efb\u52a1\u5b8c\u6210\u7387 27.4% \u4e3a\u4ec0\u4e48\u5dee\u8fd9\u4e48\u591a\uff1f"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "\u95ee\u4e24\u4e2a\u95ee\u9898\uff1a\u6210\u529f\u7387\u7684\u5206\u6bcd\u662f\u4ec0\u4e48\uff0c\u5b8c\u6574\u4efb\u52a1\u5b8c\u6210\u7387\u662f\u591a\u5c11\u3002\u518d\u89c2\u5bdf\u5b83\u5728\u5173\u952e\u65f6\u523b\u4f1a\u4e0d\u4f1a\u4e3b\u52a8\u8bf7\u793a\uff0c\u4e00\u4e2a\u77e5\u9053\u4f55\u65f6\u505c\u4e0b\u6765\u95ee\u7528\u6237\u7684\u52a9\u7406\uff0c\u5f80\u5f80\u6bd4\u4e00\u4e2a\u4e0d\u505c\u81ea\u4f5c\u4e3b\u5f20\u7684\u52a9\u7406\u66f4\u53ef\u9760\u3002"}, "name": "\u666e\u901a\u7528\u6237\u8be5\u600e\u4e48\u5224\u65ad\u4e00\u4e2a AI \u52a9\u7406\u7684\u5b9e\u9645\u80fd\u529b\uff1f"}]}]}
+    </script>
+    
+    
+    <title>AI 助理谈判成功率 93%，完整办成只有 27.4% - ZouIC</title><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/700.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.2.5/900.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fontsource/share-tech-mono@5.2.5/400.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/zouic-design-system.css?v=20261024a"><link rel="stylesheet" href="/static/css/zouic-design-optimizations.css?v=20261102a"><noscript>
+        <style>
+            /* With JS disabled, scroll-reveal must not hide content */
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .animate-fade-in-up, .animate-fade-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+        </style>
+    </noscript>
+    
+    
+    <style>
+        /* Legacy class aliases - will be deprecated */
+        .card-dark { background-color: var(--color-bg-secondary); border: 1px solid var(--color-border-default); border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .card-dark:hover { transform: translateY(-4px); border-color: var(--color-primary); background-color: var(--color-bg-tertiary); box-shadow: var(--shadow-glow-primary); }
+        .hero-gradient { background: var(--color-bg-secondary); }
+        .search-input { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border-default); color: var(--color-text-primary); border-radius: var(--radius-lg); }
+        .search-input:focus { background: rgba(255, 255, 255, 0.08); border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15); }
+        .section-title { position: relative; padding-bottom: var(--space-3); margin-bottom: var(--space-8); font-weight: var(--font-weight-bold); }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-primary); border-radius: var(--radius-full); }
+        .badge-primary { background-color: var(--color-primary-muted); color: var(--color-primary); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .badge-secondary { background-color: var(--color-secondary-muted); color: var(--color-secondary); border: 1px solid rgba(255, 0, 110, 0.3); }
+        .badge-accent { background-color: var(--color-accent-muted); color: var(--color-accent); border: 1px solid rgba(167, 139, 250, 0.3); }
+        .text-yellow-500 { color: #fbbf24; }
+        .text-green-500 { color: #10b981; }
+        .text-red-500 { color: #ef4444; }
+        .text-gray-400 { color: #9ca3af; }
+        .bg-dark { background-color: var(--color-bg-primary); }
+        .hover-underline:hover { text-decoration: underline; }
+        .compare-checkbox-label { z-index: 10; padding: 4px; }
+        .compare-checkbox-label input[type="checkbox"] { cursor: pointer; accent-color: var(--color-primary); }
+        @media (hover: none) { .card-dark:active { transform: scale(0.98); } }
+    </style>
+    <link rel="stylesheet" href="/static/css/zouic-neon-cyber.css?v=20261030a"><link rel="stylesheet" href="/static/css/zouic-refresh-v4.css?v=20261111a"></head><body><a href="#main-content" class="skip-link">跳转到主要内容</a><nav class="navbar navbar-expand-lg navbar-zouic fixed-top" aria-label="主导航"><div class="container"><a class="navbar-brand" href="/" aria-label="ZouIC 首页"><img class="navbar-brand-mark" src="/static/images/favicon.svg" alt="" width="24" height="24" decoding="async"><span class="navbar-brand-word">ZouIC</span></a><span class="nav-hud-status d-none d-xl-inline-flex" aria-hidden="true"><span class="nav-hud-dot"></span>SYS.ONLINE
+            </span><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/all-projects/">开源项目</a></li><li class="nav-item"><a class="nav-link" href="/boards/">开源开发板</a></li><li class="nav-item"><a class="nav-link" href="/board-guide/">文档中心</a></li><li class="nav-item"><a class="nav-link nav-link-business" href="/services/component-matching/">商务合作</a></li><li class="nav-item dropdown"><button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            更多
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/products/"><i class="fas fa-box me-2"></i>产品介绍</a></li><li><a class="dropdown-item" href="/services/"><i class="fas fa-cogs me-2"></i>服务说明</a></li><li><a class="dropdown-item" href="/services/component-matching/"><i class="fas fa-handshake-angle me-2"></i>元器件撮合</a></li><li><a class="dropdown-item" href="/news/"><i class="fas fa-newspaper me-2"></i>站内动态</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/tutorials/"><i class="fas fa-graduation-cap me-2"></i>开发板教程</a></li><li><a class="dropdown-item" href="/documentation/"><i class="fas fa-book me-2"></i>技术文档</a></li><li><a class="dropdown-item" href="/resources/"><i class="fas fa-compass me-2"></i>资源导航</a></li><li><a class="dropdown-item" href="/rank/"><i class="fas fa-trophy me-2"></i>极客榜</a></li><li><a class="dropdown-item" href="/online-tools/"><i class="fas fa-screwdriver-wrench me-2"></i>在线工具</a></li><li><a class="dropdown-item" href="/tools/"><i class="fas fa-calculator me-2"></i>硬件计算器</a></li><li><a class="dropdown-item" href="/cases/"><i class="fas fa-briefcase me-2"></i>项目案例</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/open-source/"><i class="fas fa-code-branch me-2"></i>开源项目</a></li><li><a class="dropdown-item" href="/articles/"><i class="fas fa-pen-fancy me-2"></i>技术文章</a></li><li><a class="dropdown-item" href="/ideas/"><i class="fas fa-lightbulb me-2"></i>创意树洞</a></li><li><a class="dropdown-item" href="/contribute/"><i class="fas fa-handshake me-2"></i>贡献指南</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="/dashuju/"><i class="fas fa-chart-line me-2"></i>数据大屏</a></li></ul></li><li class="nav-item d-lg-none"><a class="nav-link" href="/search/"><i class="fas fa-search me-1"></i>搜索</a></li></ul><form id="searchForm" class="d-flex me-3 d-none d-lg-flex" role="search"><div class="input-group input-group-zouic"><input type="text" id="searchQuery" class="form-control input-zouic"
+                               placeholder="搜索开发板、项目或技术关键词..." aria-label="搜索" autocomplete="off"><select id="searchType" class="form-select input-zouic" aria-label="搜索类型:"><option value="">全部分类</option><option value="board">开源开发板</option><option value="project">开源项目</option></select><button class="btn-zouic btn-zouic-primary btn-zouic-sm" type="submit" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></button></div></form><div class="d-flex gap-2 align-items-center"><button type="button" class="cmd-trigger d-none d-lg-inline-flex" id="cmdTrigger"
+                            aria-label="打开智能搜索"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><kbd>Ctrl K</kbd></button><div class="dropdown"><button class="btn-zouic btn-zouic-ghost btn-zouic-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-globe me-1"></i> 中文
+                        </button><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/articles/ai-agent-phone-task-completion-review/"><i class="fas fa-language me-2"></i> 中文
+                            </a></li><li><a class="dropdown-item" href="/en/articles/ai-agent-phone-task-completion-review/"><i class="fas fa-language me-2"></i> English
+                            </a></li><li><a class="dropdown-item" href="/de/articles/ai-agent-phone-task-completion-review/"><i class="fas fa-language me-2"></i> 德语
+                            </a></li></ul></div></div></div></div></nav><main id="main-content"><section class="pt-6"><div class="container" style="max-width: 980px;"><nav aria-label="breadcrumb"><ol class="breadcrumb bg-transparent mb-0"><li class="breadcrumb-item"><a href="/">首页</a></li><li class="breadcrumb-item"><a href="/articles/">技术文章</a></li><li class="breadcrumb-item active" aria-current="page">AI 助理谈判成功率 93%，完整办成只有 27.4%</li></ol></nav></div></section><section class="page-hero page-hero-articles article-hero py-16"><div class="container text-center"><span class="badge-zouic badge-zouic-primary mb-3">免费公开 · 欢迎转发</span><h1 class="display-4 font-bold mb-4" style="max-width: 980px; margin-left: auto; margin-right: auto;">AI 助理谈判成功率 93%，完整办成只有 27.4%</h1><p class="text-secondary lead" style="max-width: 820px; margin-left: auto; margin-right: auto;">算力行业观察 · 极客微栋 @GeekWaedon</p><p class="text-secondary text-sm mt-4">极客微栋 @GeekWaedon · 2026 年 11 月</p></div></section><section class="py-8"><div class="container" style="max-width: 960px;"><div class="legacy-article"><p>一位用户给 AI 助理下了个任务：把每个月的网费从 100 美元谈到 80 美元。AI 查了政策、找了依据、打了电话、谈成了。这就是 Pine AI 反复展示的那类故事。但同一家公司给出的另一组数字没那么好看：在 SaaS-Bench v1.1 里，系统检查点通过率 78.3%，完整任务完成率只有 27.4%。两个数字放在一起，才是这件事的全貌。</p><h2>93% 说的是哪一类任务？</h2><p>Pine 公布过 93% 的谈判成功率。这个数字有个容易被跳过的前提。据极客公园 11 月 26 日对联合创始人兼 CTO 孙雨润的专访，93% 并不是所有用户提出的要求都能有 93% 的概率成功，而是在梳理需求、判断是否符合政策、管理合理预期之后，统计符合条件的任务完成情况。换句话说，分母已经被筛过一遍。有人坚持每月花 2000 美元在旧金山租一套大房子，这种要求不会被算进分母，因为再厉害的 AI 也改不了当地的租房市场。筛过分母的成功率仍然有价值，但它讲的是“接了能办多少”，不是“提了能办多少”。</p><h2>78.3% 和 27.4% 差在哪一步？</h2><p>SaaS-Bench v1.1 给出的两个数字更像一道算术题。检查点通过率 78.3%，意思是把一项任务拆成若干步骤后，绝大部分步骤系统都做对了。完整任务完成率 27.4%，意思是从头到尾一点没错、整件事办成的比例只有四分之一多一点。两者之间的落差不是测试误差，是智能体最真实的处境：可以连续做对很多步，最后一步出错，整件事仍然算失败。对写软件的工程师，这个落差很熟悉；对把 AI 助理当成人来用的普通人，这个落差就是“它明明都会，为什么还是没办成”。</p><h2>三个数字为什么不能互相推翻？</h2><p>有人看到 93% 就说宣传夸大，有人看到 27.4% 就说这个产品不行。两种读法都不对，因为三个数字量的是三件事。93% 是公司自报的业务成功率，分母经过筛选，口径由公司定义。78.3% 和 27.4% 是第三方基准测试里的步骤级与任务级指标，负载和判定标准由榜单定义。它们不能相加，也不能互相推翻。把它们并排摆出来的意义，是让读者看到同一项能力在不同量法下的样子。一个只报成功率的宣传和一个只报失败率的批评，都只说了三分之一。</p><h2>谈判桌下的小纸条</h2><p>孙雨润把 AI 助理介入谈判的体验形容成在谈判桌下递小纸条：现在谈到这儿了，他们的条件是这样，再往下压，他可能就不答应了，你看怎么办。这个比喻让“什么时候该请示”变得具体。Pine 因此没有设计默认批准所有操作的按钮。AI 谈到关键时刻发来一句“价格谈到两万五了，行不行”，用户回答后它再继续。这里有一个容易被忽略的判断：一个好用的助理不是话最多、最积极的那个，是知道什么时候闭嘴、什么时候请示的那个。任务完成率的分子里，藏着大量这种分寸感，而分寸感很难写进基准测试。</p><h2>永远不会疲倦的客户</h2><p>企业客服 AI 公司 Decagon 在 10 月推出 Personal Agent Gateway，还专门讨论了一种新客户：永远不会疲倦的客户。一个真人被拒绝退款，可能再问两次就放弃；一个 AI 可以查政策、整理证据、找别的办法，直到办成或确认确实办不了。很多争议之所以不了了之，不是消费者没道理，是争取权益的成本太高。Personal AI 改变的是这个成本结构。截至 2026-11-27，能核对的是公司公布的口径与基准测试数据，尚无公开的成交规模或用户复购记录。成本下降这件事正在发生，但下降到什么程度，还得看真实使用数据。</p><h2>谁最需要一个 AI 助理？</h2><p>Pine 后来发现，高频用户不是最有钱的人，也不是最懂技术的人，是每天被琐事缠身的小企业主。一个装空调的师傅在客户家施工，另一个潜在客户打电话询价，他没空接，晚上回拨时对方可能已经找了别人。雇一个接线员太贵，不雇又可能丢单。对这样的人，AI 节省的不是半小时，是可能接住的一笔订单。这个发现改写了产品的定位：Personal AI 的价值不在回答多少问题，而在有多少事终于不用自己亲自处理。它同时解释了为什么这类产品的广告不谈模型参数，只谈账单和电话。</p><h2>数量和自然语言也是一道坎</h2><p>孙雨润举过一个很小的例子：朋友约你 10 月 20 日吃饭，你只会回答“10 月 20 号可以”，不会一本正经地说“2026 年 10 月 20 日”。没人会这么说话。当 AI 要代表用户和真人沟通，表达是否自然、是否懂礼貌和边界，都会影响任务能不能办成。这类细节不出现在任何跑分里，却是 27.4% 和 78.3% 之间那段落差的一部分。一个系统可以在检查点上全对，却因为一句话说得太生硬而谈崩。智能体落地卡住的地方，往往不是算得不够快，是话说得不像人。</p><h2>验收标准正在换一把尺子</h2><p>把这三个数字按时间排一下：先有 93%，讲的是筛过分母的业务成功；再有 78.3%，讲的是步骤层面的正确；最后是 27.4%，讲的是整件事有没有办成。尺子一把比一把严，也一把比一把接近用户真正关心的东西。用户不关心系统做对了多少步，只关心网费有没有降下来、退款有没有到账。智能体的验收标准正在从答对题变成办成事，这个转变会倒逼整个行业重做评测集。下一次看到某个 AI 助理宣称高成功率，先问一句分母是什么、完整完成率是多少。两个问题问完，宣传和现实之间的距离就清楚了。</p></div><section class="card-dark p-5 mt-5 legacy-faq"><h2 class="section-title text-2xl font-bold mb-4">常见问题</h2><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>93% 谈判成功率是不是意味着十件事能办成九件？</h3><p class="faq-a">不是。据极客公园专访孙雨润，这个数字是在梳理需求、判断是否符合政策、管理合理预期之后，统计符合条件的任务完成情况。分母经过筛选，不含明显不可能完成的要求。它讲的是”接了能办多少“，不是”提了能办多少“。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>检查点通过率 78.3% 和完整任务完成率 27.4% 为什么差这么多？</h3><p class="faq-a">前者把任务拆成步骤分别计分，后者要求从头到尾全部正确。系统可以连续做对很多步，最后一步出错，整件事仍算失败。这个落差是智能体在长流程任务里的典型瓶颈，不是测试误差。</p></div><div class="faq-item"><h3 class="faq-q"><i class="fas fa-circle-question text-secondary me-2" aria-hidden="true"></i>普通用户该怎么判断一个 AI 助理的实际能力？</h3><p class="faq-a">问两个问题：成功率的分母是什么，完整任务完成率是多少。再观察它在关键时刻会不会主动请示，一个知道何时停下来问用户的助理，往往比一个不停自作主张的助理更可靠。</p></div></section><div class="d-flex justify-content-center flex-wrap gap-2 mt-5"><a href="/articles/" class="btn-zouic">技术文章</a><a href="/boards/" class="btn-zouic">开源开发板</a><a href="/compare/" class="btn-zouic btn-zouic-primary">开发板对比</a></div></div></section></main><section id="follow" class="py-12" style="background: var(--color-bg-secondary);"><div class="container"><div class="newsletter-card"><div class="row align-items-center"><div class="col-lg-7"><h3 class="text-xl font-bold mb-2">关注「极客微栋」获取每周更新</h3><p class="text-secondary text-sm mb-4 mb-lg-0">开发板推荐、项目解析和硬件工程技巧，首发于微信公众号与知识星球。</p></div><div class="col-lg-5"><a href="/#follow" class="btn-zouic btn-zouic-primary btn-zouic-lg w-full text-center">查看关注方式</a><div class="newsletter-benefits"><span class="newsletter-benefit"><i class="fas fa-check"></i> 每周精选开发板推荐</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 独家项目深度解析</span><span class="newsletter-benefit"><i class="fas fa-check"></i> 公众号与知识星球同步更新</span></div></div></div></div></div></section><section class="py-4" aria-label="出品人"><div class="author-card"><div class="author-card-info"><div class="author-card-avatar"><i class="fas fa-microchip"></i></div><div><div class="author-card-name">出品人 · 极客微栋 <span>@GeekWaedon</span></div><div class="author-card-bio">硬件玩家，AI 实践者。这个网站就是我和 AI 一起「手搓」出来的。</div></div></div><div class="author-card-actions"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="author-card-planet"><i class="fas fa-star me-1"></i>加入知识星球</a><span class="author-card-mp"><i class="fab fa-weixin me-1"></i>微信公众号搜索：极客微栋</span></div></div></section><footer class="footer-zouic" role="contentinfo"><div class="container"><div class="row footer-main"><div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-brand-col"><a href="/" class="footer-brand" aria-label="ZouIC 首页"><img class="footer-brand-mark" src="/static/images/favicon.svg" alt="" width="22" height="22" loading="lazy" decoding="async"><span>ZouIC</span></a><p class="footer-tagline">聚合全球开源硬件平台的优质项目 · 仅供开发者参考</p><p class="footer-business-contact">
+                        商务合作 / 器件选型：
+                        <a href="mailto:waedon@zouic.com?subject=%E5%95%86%E5%8A%A1%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2"><i class="fas fa-envelope me-1" aria-hidden="true"></i>waedon@zouic.com</a></p><div class="footer-meta"><p class="footer-author">
+                            出品人 · <strong>极客微栋</strong><span class="footer-author-handle">@GeekWaedon</span></p><div class="footer-slash-tags"><span class="footer-slash-tag"><i class="fas fa-microchip"></i> 硬件爱好者</span><span class="footer-slash-tag"><i class="fas fa-robot"></i> AI 实践者</span><a href="/about#services" class="footer-slash-tag footer-slash-tag--highlight" title="企业微信服务商"><i class="fab fa-weixin"></i> 企业微信服务商
+                            </a></div></div><div class="footer-social"><a href="https://t.zsxq.com/BDSsv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知识星球 · 极客微栋" title="知识星球 · 极客微栋"><i class="fas fa-star"></i></a><a href="https://www.toutiao.com/c/user/token/CiYEH0OUN0c4uQAZwaCvZ5HtkmiEQRaiYxJlXpRtNjjknDsGcJ03ZxpJCjwAAAAAAAAAAAAAUQtiAiJy10qmxgQQnnhEN98sWPBxj96Z3cvIKDZB0AYJLEtS4_1q8HA9dh0q2Gyl-sUQisafDhjDxYPqBCIBA3Lpa3k=/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="今日头条 · 极客微栋" title="今日头条 · 极客微栋"><i class="fas fa-newspaper"></i></a><a href="https://www.iqiyi.com/u/2347359194/videos" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="爱奇艺号 · 极客微栋" title="爱奇艺号 · 极客微栋"><i class="fas fa-tv"></i></a><a href="https://weibo.com/u/1572006684" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微博 · @GeekWaedon" title="微博 · @GeekWaedon"><i class="fab fa-weibo"></i></a><a href="https://www.zhihu.com/people/Waedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="知乎 · 极客微栋" title="知乎 · 极客微栋"><i class="fab fa-zhihu"></i></a><a href="/#follow" class="footer-social-link" aria-label="微信公众号 · 极客微栋" title="微信公众号 · 极客微栋"><i class="fab fa-weixin"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAHFzbdWymZenJ7DA7ru-dokt5aWg3M6e8UYaPbtEBfgA" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="抖音 · 极客微栋" title="抖音 · 极客微栋"><i class="fab fa-tiktok"></i></a><a href="https://weixin.qq.com/sph/AYgkenllNv" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="微信视频号 · 极客微栋" title="微信视频号 · 极客微栋"><i class="fas fa-video"></i></a><a href="https://space.bilibili.com/325938071" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="哔哩哔哩 · 极客微栋" title="哔哩哔哩 · 极客微栋"><i class="fab fa-bilibili"></i></a><a href="https://news.qq.com/omn/author/16506116" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="企鹅号 · 极客微栋" title="企鹅号 · 极客微栋"><i class="fab fa-qq"></i></a><a href="https://www.youtube.com/@GeekWaedon" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube · @GeekWaedon" title="YouTube · @GeekWaedon"><i class="fab fa-youtube"></i></a></div></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>产品</h5><ul><li><a href="/products/">产品介绍</a></li><li><a href="/services/">服务说明</a></li><li><a href="/services/website-building/">建站服务</a></li><li><a href="/services/component-matching/">元器件撮合</a></li><li><a href="/news/">站内动态</a></li><li><a href="/boards/">开源开发板</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>资源</h5><ul><li><a href="/board-guide/">选型指南</a></li><li><a href="/compare/">开发板对比</a></li><li><a href="/tutorials/">开发板教程</a></li><li><a href="/documentation/">技术文档</a></li><li><a href="/online-tools/">在线工具</a></li><li><a href="/tools/">硬件计算器</a></li><li><a href="/cases/">项目案例</a></li><li><a href="/help/">文档中心</a></li><li><a href="/games/resistor/">色环电阻识别挑战</a></li><li><a href="/dashuju/">数据大屏</a></li><li><a href="/rank/">极客榜</a></li></ul></div><div class="col-6 col-md-2 mb-4 mb-md-0"><h5>开源生态</h5><ul><li><a href="/open-source/">开源项目</a></li><li><a href="/all-projects/">全部项目</a></li><li><a href="/articles/">技术文章</a></li><li><a href="/ideas/">创意树洞</a></li><li><a href="/wechat/">公众号专栏</a></li><li><a href="/contribute/">贡献指南</a></li><li><a href="https://github.com/waedonwoo" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></div><div class="col-6 col-md-2"><h5>关于</h5><ul><li><a href="/about/">关于我们</a></li><li><a href="/about/#contact">联系我们</a></li><li><a href="/licenses/">开源协议</a></li><li><a href="/pricing/">服务报价</a></li><li><a href="/privacy/">隐私政策</a></li><li><a href="/terms/">服务条款</a></li><li><a href="/refund/">退款政策</a></li></ul></div></div><div class="footer-category-strip"><span class="footer-category-label">热门分类</span><div class="footer-category-links"><a href="/category/">全部</a><a href="/category/fpga/">FPGA</a><a href="/category/general/">综合</a><a href="/category/ai_hardware/">AI 硬件</a><a href="/category/vision/">机器视觉</a><a href="/category/esp32/">ESP32</a><a href="/category/robotics/">机器人</a><a href="/source/github/">GitHub</a><a href="/source/hackster/">Hackster.io</a><a href="/resources/">资源导航</a></div></div><div class="footer-producer-bar"><img src="/static/images/author/avatar-mascot.png" alt="极客微栋" width="40" height="40" loading="lazy" style="border-radius:50%;border:2px solid rgba(167,139,250,.5);background:var(--color-bg-tertiary);flex-shrink:0;"><div style="line-height:1.6;"><div class="font-bold" style="font-size:14px;color:var(--color-text-primary);">由 极客微栋 @GeekWaedon 一手打造 · <span style="color:#a78bfa;">人与 AI 协作</span></div><div class="text-xs text-secondary">一个真人运营的个人项目：从搭站、抓数据、写文章到画配图，都是本人（和 AI 智能体）一点点做出来的。 <a href="/about/" class="text-primary" style="text-decoration:none;">了解背后的那个人 →</a></div></div></div><div class="footer-bottom"><p>© 2026 ZouIC. All rights reserved.</p><p>本站聚合的开源项目仅供开发者参考：ZouIC 只做收录与索引，不托管代码与文件，版权与授权归原作者，遵循其各自开源协议。详情请参阅 <a href="/licenses/">开源协议</a> 页面。</p><p class="footer-hud-status"><span class="nav-hud-dot"></span>SYS.STATUS: OPERATIONAL // BUILD v3.0</p></div></div></footer><button id="backToTop" class="back-to-top" aria-label="返回顶部"><i class="fas fa-chevron-up"></i></button><div class="cmd-palette" id="cmdPalette" hidden><div class="cmd-backdrop" data-cmd-close></div><div class="cmd-dialog" role="dialog" aria-modal="true"
+             aria-label="站内智能搜索"><div class="cmd-input-row"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><input type="text" id="cmdInput" autocomplete="off" spellcheck="false"
+                       placeholder="搜索开发板、项目、文章，或直接输入问题…"
+                       aria-label="站内智能搜索"><kbd>ESC</kbd></div><div class="cmd-body" id="cmdBody"></div><div class="cmd-foot"><span><kbd>↑</kbd><kbd>↓</kbd> 选择</span><span><kbd>↵</kbd> 打开</span><span class="cmd-foot-brand">ZouIC · SMART SEARCH</span></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer src="/static/js/smart-palette.js?v=20261111a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Navbar scroll hide/show + glassmorphism state ---
+            const navbar = document.querySelector('.navbar-zouic');
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+
+                            navbar.classList.toggle('navbar-scrolled', currentScrollY > 10);
+
+                            if (currentScrollY < 50) {
+                                navbar.classList.remove('navbar-hidden');
+                            } else if (scrollDelta > 50) {
+                                navbar.classList.add('navbar-hidden');
+                            } else if (scrollDelta < -20) {
+                                navbar.classList.remove('navbar-hidden');
+                            }
+
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            // --- Scroll reveal ---
+            // Mark <html> as reveal-ready first, so the CSS only hides sections that
+            // have not entered the viewport; if the observer fails, reveal everything
+            // after 2s instead of leaving a blank screen.
+            const revealElements = document.querySelectorAll('.reveal');
+            document.documentElement.classList.add('reveal-ready');
+            if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(function(el) { revealObserver.observe(el); });
+                setTimeout(function() {
+                    revealElements.forEach(function(el) { el.classList.add('visible'); });
+                }, 2000);
+            } else if (revealElements.length > 0) {
+                revealElements.forEach(function(el) { el.classList.add('visible'); });
+            }
+
+            // --- Back to Top ---
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, { passive: true });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // --- Search form handler ---
+            const handleSearch = function(e, queryId, typeId) {
+                e.preventDefault();
+                const queryInput = document.getElementById(queryId);
+                if (!queryInput || !queryInput.value.trim()) return;
+                const query = queryInput.value;
+                const typeEl = typeId ? document.getElementById(typeId) : null;
+                let url = '/search?q=' + encodeURIComponent(query);
+                if (typeEl && typeEl.value) url += '&type=' + encodeURIComponent(typeEl.value);
+                window.location.href = url;
+            };
+            
+            const navSearchForm = document.getElementById('searchForm');
+            if (navSearchForm) {
+                navSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'searchQuery', 'searchType');
+                });
+            }
+            
+            const heroSearchForm = document.getElementById('heroSearchForm');
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(e) {
+                    handleSearch(e, 'heroSearchQuery', null);
+                });
+            }
+            
+            // --- Active nav link ---
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.navbar-zouic .nav-link').forEach(function(link) {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && currentPath.startsWith(href) && href !== '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else if (href === '/' && currentPath === '/') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+
+            // --- Close mobile menu when a nav link is clicked ---
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarCollapse) {
+                navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show') && navbarToggler) {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            }
+
+            // --- Collapse nested open dropdowns on outside click ---
+            document.addEventListener('click', function(e) {
+                if (navbar && !navbar.contains(e.target)) {
+                    const openDropdowns = document.querySelectorAll('.navbar .dropdown-menu.show');
+                    openDropdowns.forEach(function(menu) { menu.classList.remove('show'); });
+                    const toggles = document.querySelectorAll('.navbar .dropdown-toggle[aria-expanded="true"]');
+                    toggles.forEach(function(toggle) { toggle.setAttribute('aria-expanded', 'false'); });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Share & Save helpers ---
+        window.copyToClipboard = function(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast-zouic toast-zouic-success show';
+                    toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> 已复制';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 3000);
+                });
+            }
+        };
+        
+        window.saveForLater = function(id) {
+            let saved = JSON.parse(localStorage.getItem('zouic_saved_boards') || '[]');
+            if (saved.includes(id)) {
+                saved = saved.filter(function(i) { return i !== id; });
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('已取消收藏');
+            } else {
+                saved.push(id);
+                localStorage.setItem('zouic_saved_boards', JSON.stringify(saved));
+                showToast('收藏成功');
+            }
+        };
+        
+        window.showToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-zouic toast-zouic-success show';
+            toast.innerHTML = '<i class="fas fa-check-circle" style="color: var(--color-success);"></i> ' + message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        };
+    </script>
+    
+    
+    
+    
+    <script defer src="/static/js/zouic-track.js?v=20261106a"
+            data-api="https://waedon.pythonanywhere.com" data-site="zouic"></script>
+    
+    <img src="https://waedon.pythonanywhere.com/pixel?path=/articles/ai-agent-phone-task-completion-review/" alt="" width="1" height="1" style="display:none" aria-hidden="true" onerror="this.style.display='none'">
+    
+    
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('zouic.pa.off') === '1') return;
+        } catch (e) { /* localStorage 不可用时按默认加载 */ }
+        if (navigator.connection && navigator.connection.saveData) return;  // 省流量模式不加载
+
+        var VERSION = '1.12.4';
+        // jsDelivr 优先；国内访问不通时回落到 npmmirror 镜像
+        var SOURCES = [
+            ['https://cdn.jsdelivr.net/npm/page-agent@', VERSION, '/dist/iife/page-agent.demo.js'],
+            ['https://registry.npmmirror.com/page-agent/', VERSION, '/files/dist/iife/page-agent.demo.js']
+        ];
+        function params() {
+            var q = ['autoInit=true', 'showPanel=true', 'lang=zh-CN'];
+            var map = {model: 'zouic.pa.model', baseURL: 'zouic.pa.baseURL', apiKey: 'zouic.pa.apiKey'};
+            try {
+                Object.keys(map).forEach(function (k) {
+                    var v = localStorage.getItem(map[k]);
+                    if (v) q.push(k + '=' + encodeURIComponent(v));
+                });
+            } catch (e) {}
+            return q.join('&');
+        }
+        function load(i) {
+            if (i >= SOURCES.length || window.PageAgent) return;
+            var src = SOURCES[i];
+            var s = document.createElement('script');
+            s.src = src[0] + src[1] + src[2] + '?' + params();
+            s.crossOrigin = 'anonymous';
+            s.async = true;
+            s.onerror = function () { s.remove(); load(i + 1); };
+            document.head.appendChild(s);
+        }
+        // 页面加载完成后再拉脚本，避免影响首屏渲染
+        function boot() { setTimeout(function () { load(0); }, 600); }
+        if (document.readyState === 'complete') boot();
+        else window.addEventListener('load', boot, {once: true});
+    })();
+    </script>
+    
+</body></html>
